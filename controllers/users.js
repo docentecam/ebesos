@@ -1,6 +1,6 @@
 angular.module('spaApp')
 
-  .controller('AboutUsCtrl', function($scope, $http) {
+  .controller('aboutUsCtrl', function($scope, $http) {
 
 
 		$http({
