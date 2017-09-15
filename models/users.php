@@ -7,18 +7,23 @@ require("../inc/functions.php");
 	// function showHistory($idUser){
 
 		
-		$mySql = "SELECT history FROM users  WHERE idUser=$idUser";
+		$mySql = "SELECT history, email FROM users  WHERE idUser=$idUser";
 		$connexio = connect();
-		$resultAboutUs = mysqli_query($connexio, $mySql);
+		$resultUsers = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
 
+		$dataUsers = "[";
+		$i = 0;
 		while ($row=mySqli_fetch_array($resultAboutUs))
 		{
-			
-			$historyAboutUs=$row['history'];
+			if($i != 0)
+			{
+				$dataUsers .= ",";
+			} 
+			$dataUsers .= '{"email":"'.$row['email'].'", "history":"' .$row['history'].'"}';
 		}
 		
 
-	 	echo $historyAboutUs;
+	 	echo $dataUsers;
 	// }
 ?>
