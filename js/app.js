@@ -33,3 +33,5 @@ app.config(['$routeProvider', function ($routeProvider) {
         redirectTo: '/'
     });
 }]);
+ 
+//ENVIAR USUARIOS DEPENDIENDO DE QUIEN ESTA CONECTADO DEL 1-4
