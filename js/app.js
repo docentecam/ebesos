@@ -25,9 +25,9 @@ app.config(['$routeProvider', function ($routeProvider) {
 		templateUrl:'views/contact.html',
 		controller:'ContactCtrlUser',
 	})
-	.when('/aboutUs',{
+	.when('/users',{
 		templateUrl:'views/aboutUs.html',
-		controller:'AboutUsCtrl',
+		controller:'aboutUsCtrl',
 	})
     .otherwise({
         redirectTo: '/'
