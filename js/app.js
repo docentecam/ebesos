@@ -2,31 +2,31 @@ var app= angular.module('spaApp', ['ngRoute']);
 app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
     .when('/', {
-        templateUrl: 'view/comercialMap.html',
+        templateUrl: 'views/comercialMap.html',
         controller: 'ComercialMapCtrl',
     })
     .when('/news',{
-	templateUrl:'view/news.html',
+	templateUrl:'views/news.html',
 	controller:'NewsCtrl',
 	})
 	.when('/promotions',{
-		templateUrl:'view/promotions.html',
+		templateUrl:'views/promotions.html',
 		controller:'PromotionsCtrl',
 	})
 	.when('/associations',{
-		templateUrl:'view/associations.html',
+		templateUrl:'views/associations.html',
 		controller:'AssociationsCtrl',
 	})
 	.when('/formation',{
-		templateUrl:'view/formation.html',
+		templateUrl:'views/formation.html',
 		controller:'FormationCtrl',
 	})
 	.when('/contact',{
-		templateUrl:'view/contact.html',
+		templateUrl:'views/contact.html',
 		controller:'ContactCtrl',
 	})
 	.when('/aboutUs',{
-		templateUrl:'view/aboutUs.html',
+		templateUrl:'views/aboutUs.html',
 		controller:'AboutUsCtrl',
 	})
     .otherwise({
