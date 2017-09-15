@@ -1,0 +1,30 @@
+<div ng-controller="productosCtrl" id="listaProductos">
+	<div ng-show="Div1">
+		<div ng-repeat="name in names">
+			<a href="#" ng-click="mostrarComentarios(name.idProducte)">
+				<div><img src="../../img/imagenes/xhdpi/{{name.imatge}}"></div>
+				<div>{{name.nom}}</div>
+			</a>
+		</div>
+	</div>
+	<div ng-show="muestraDiv">
+		<div id="comentarios" ng-repeat="comen in names_productos" ng-show="muestraDiv">
+			<div>{{comen.uNom + " -- " + comen.data}}</div>
+			<div>{{comen.pNom}}</div>
+			<div>{{comen.contingutBreu}}</div>
+			<div>{{comen.contingut}}</div>
+			<div>{{comen.valoracio}}</div>
+			<div ng-show="comen.pendentValidacio == 'false'">
+					<a href="#" ng-click="validar(comen.idOpinio,'true'); mostrarComentarios(comen.idProducte)"><i class="fa fa-check-circle" aria-hidden="true" style="color:green"></i></a>
+					<a href="#" ng-click="validar(comen.idOpinio,'false'); mostrarComentarios(comen.idProducte)"><i class="fa fa-times-circle" aria-hidden="true" style="color:red"></i></a>
+			</div>
+			<div ng-show="comen.pendentValidacio == 'true' && comen.validat == 'false'">
+					<a href="#" ng-click="validar(comen.idOpinio,true); mostrarComentarios(comen.idProducte)"><i class="fa fa-check-circle" aria-hidden="true" style="color:green"></i></a>
+			</div>
+			<div ng-show="comen.pendentValidacio == 'true' && comen.validat == 'true'">
+					<a href="#" ng-click="validar(comen.idOpinio,false); mostrarComentarios(comen.idProducte)"><i class="fa fa-times-circle" aria-hidden="true" style="color:red"></i></a>
+			</div>
+			<br>
+		</div>
+	</div>
+</div>
