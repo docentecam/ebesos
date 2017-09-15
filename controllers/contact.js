@@ -1,8 +1,7 @@
 angular.module('spaApp')
 
   .controller('ContactCtrl', function ($scope) {
-
-    $scope.contact = "Xavier_Nogues@gmail.com";
-
-
-  });
+  	$scope.contact = "EixBcn@gmail.com";				// ---- ESPERANZAS Y SUEÑOS ROTOS ----
+  	  	// TODO Relación idUser -> Email 
+ });
+  															 

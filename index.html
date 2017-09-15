@@ -14,22 +14,22 @@
 			$(document).ready(function() {	
 			});
 		</script>
-		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/styles.css">
 		<script src="js/app.js"></script>
 
-    	<script src="controllers/mapaComercial.js"></script>
-    	<script src="controllers/news.js"></script>
-		<script src="controllers/promotions.js"></script>
-		<script src="controllers/association.js"></script>
-		<script src="controllers/formation.js"></script>
-		<script src="controllers/contact.js"></script>
-		<script src="controllers/aboutUs.js"></script>
+    	<!-- <script src="controllers/mapaComercial.js"></script> -->
+    	<!-- <script src="controllers/news.js"></script> -->
+		<!-- <script src="controllers/promotions.js"></script> -->
+		<!-- <script src="controllers/formation.js"></script> -->
+		
+		<script src="controllers/users.js"></script>
+
 	</head>
 
 	<body data-ng-app="spaApp">
 		<div>
 			<tr>
-				<td role="presentation"><a href="#/aboutUs">Qui Som?</a></td>
+				<td role="presentation"><a href="#/users">Qui Som?</a></td>
 				<td role="presentation"><a href="#/contact">Contacte</a></td>
 			</tr>
 				
@@ -101,7 +101,7 @@
 	   		</div><!--/.container-fluid -->
 		</nav>
 	    <hr>
-
+<div data-ng-view=""></div>
 	    <div class="footer text-center">ElsMiillors 2k17</div>
 	<footer>
 	
