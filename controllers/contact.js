@@ -2,7 +2,7 @@ angular.module('spaApp')
 
   .controller('ContactCtrl', function ($scope) {
 
-    $scope.contact = "Xavier_Nogues@gmail.com.";
+    $scope.contact = "Xavier_Nogues@gmail.com";
 
 
   });
