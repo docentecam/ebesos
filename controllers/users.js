@@ -14,3 +14,9 @@ angular.module('spaApp')
 		});
 			
 	});
+
+  angular.module('spaApp')  															 
+.controller('ContactCtrlUser', function($scope, $routeParams) {
+	console.log('Llega controler');
+  $scope.userId =  $routeParams.userId;
+});
