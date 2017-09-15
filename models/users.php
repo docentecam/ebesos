@@ -6,24 +6,32 @@ require("../inc/functions.php");
 
 	// function showHistory($idUser){
 
-		
-		$mySql = "SELECT history, email FROM users  WHERE idUser=$idUser";
-		$connexio = connect();
-		$resultUsers = mysqli_query($connexio, $mySql);
-		disconnect($connexio);
+		//if ($_GET["acc"] == "") {
+			$mySql = "SELECT history FROM users WHERE idUser=$idUser";
+			$connexio = connect();
+			$resultAboutUs = mysqli_query($connexio, $mySql);
+			disconnect($connexio);
 
-		$dataUsers = "[";
-		$i = 0;
-		while ($row=mySqli_fetch_array($resultAboutUs))
-		{
-			if($i != 0)
+			while ($row=mySqli_fetch_array($resultAboutUs))
 			{
-				$dataUsers .= ",";
-			} 
-			$dataUsers .= '{"email":"'.$row['email'].'", "history":"' .$row['history'].'"}';
-		}
-		
+				
+				$historyAboutUs=$row['history'];
+			}
+			
 
-	 	echo $dataUsers;
+		 	echo $historyAboutUs;
+		//	}
+	 	 if ($_GET["acc"] == "mail") {
+	 		$mySql = "SELECT email FROM users WHERE idUser=".$_GET["userId"];
+			$connexio = connect();
+			$resultContact = mysqli_query($connexio, $mySql);
+			disconnect($connexio);
+			while ($row=mySqli_fetch_array($resultContact))
+			{
+				
+				$dataContact=$row['email'];
+			}
+		 	echo $dataContact;
+	 	}
 	// }
 ?>

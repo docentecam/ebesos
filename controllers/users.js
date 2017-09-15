@@ -16,7 +16,19 @@ angular.module('spaApp')
 	});
 
   angular.module('spaApp')  															 
-.controller('ContactCtrlUser', function($scope, $routeParams) {
-	console.log('Llega controler');
-  $scope.userId =  $routeParams.userId;
+.controller('ContactCtrlUser', function($scope, $http ,$routeParams) {
+	
+  $scope.userId = $routeParams.userId;
+console.log("llega"+$scope.userId);
+
+$http({
+			method : "GET",
+			url : "models/users.php?acc=mail&userId="+ $scope.userId
+		}).then(function mySucces (response) {
+			$scope.email = response.data;
+			
+		}, function myError (response) {
+			$scope.email = response.statusText;
+		});
+  console.log('Llega email'+$scope.email);
 });
