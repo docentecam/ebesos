@@ -1,9 +1,17 @@
-var getIdUser = $_GET["idUser"];
-
 angular.module('spaApp')
 
 	.controller('AssociationsCtrl', function ($scope) {
 
-		$scope.idUser = getIdUser;
+		$http({
+			method : "GET",
+			url : "models/users.php"
+		}).then(function mySucces (response) {
+			$scope.names = response.data;
+			
+		}, function myError (response) {
+			$scope.names = response.statusText;
+		});
+
+		
 
 	});

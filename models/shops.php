@@ -1,6 +1,6 @@
 <?php
 require('../inc/functions.php');
-$idUser=2;
+$idUser=$_GET['idUser'];
 
 	/*function listShops($idUser)
 	{*/
