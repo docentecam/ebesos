@@ -23,14 +23,12 @@
 		<!-- <script src="controllers/formation.js"></script> -->
 		
 		<script src="controllers/users.js"></script>
-		<script src="controllers/contact.js"></script>
-
 	</head>
 
 	<body data-ng-app="spaApp">
 		<div>
 			<tr>
-				<td role="presentation"><a href="#/users">Qui Som?</a></td>
+				<td role="presentation"><a href="#/users/1">Qui Som?</a></td>
 				<td role="presentation"><a href="#/contact/1">Contacte</a></td>
 			</tr>
 				
@@ -66,9 +64,6 @@
 				<span class="sr-only">Next</span>
 			</a>
 		</div>
-
-
-
 		<nav class="navbar navbar-default">
 	  		<div class="container-fluid">
 	    	<!-- Brand and toggle get grouped for better mobile display -->
@@ -88,11 +83,11 @@
 		        		<li role="presentation"><a href="#/news">Notícies</a></li>
 		        		<li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Associacions <span class="caret"></span></a>
 		          			<ul class="dropdown-menu">
-		            			<li role="presentation"><a href="#/associations">Associació 019</a></li>
+		            			<li role="presentation"><a href="#/associations/2">Associació 019</a></li>
 					            <li role="separator" class="divider"></li>
-					            <li role="presentation"><a href="#/associations">Associació Xavier Nogués</a></li>
+					            <li role="presentation"><a href="#/associations/3">Associació Xavier Nogués</a></li>
 					            <li role="separator" class="divider"></li>
-					            <li role="presentation"><a href="#/associations">Associació El Mercat</a></li>
+					            <li role="presentation"><a href="#/associations/4">Associació El Mercat</a></li>
 		          			</ul>
 		        		</li>
 		        		<li role="presentation"><a href="#/promotions">Promocions</a></li>
@@ -112,15 +107,12 @@
 				<td></td>
 			</tr>
 		</table>
-
-
 	</footer>
 	</body>
 	
 </html>
 <!--TO DO
 
-ESPERAR A QUE ALGUIEN CURRE Y MOSTRAR YO DATOS DEL SCOPE
 EL NAV TIENE QUE REDIRIGIR A ALGUNA PARTE
 
 imagenes cargadas tambien por ng-repeat.
