@@ -30,8 +30,8 @@
 	<body data-ng-app="spaApp">
 		<div>
 			<tr>
-				<td role="presentation"><a href="#/aboutUs">Qui Som?</a></td>
-				<td role="presentation"><a href="#/contact">Contacte</a></td>
+				<td role="presentation"><a href="#/users">Qui Som?</a></td>
+				<td role="presentation"><a href="#/contact/1">Contacte</a></td>
 			</tr>
 				
 			</ol>
@@ -69,30 +69,51 @@
 
 
 
-	    <div class="container">
-	    	<ul class="nav nav-tabs">
-	        	<li role="presentation"><a href="#/comercialMap">Mapa Comercial</a></li>
-	        	<li role="presentation"><a href="#/news">Notícies</a></li>
-				<li role="presentation"><a href="#/promotions">Promocions</a></li>
-				<li role="presentation"><a href="" data-toggle="dropdown">Associacions<span class="caret"></span></a>
-         			<ul class="dropdown-menu">
-			            <li role="presentation"><a href="#/associations">Associació 019</a></li>
-			            <li role="separator" class="divider"></li>
-			            <li role="presentation"><a href="#/associations">Associació Xavier Nogués</a></li>
-			            <li role="separator" class="divider"></li>
-			            <li role="presentation"><a href="#/associations">Associació El Mercat</a></li>
-	          		</ul>
-        		</li>
-				<li role="presentation"><a href="#/formation">Formació</a></li>	        	
-	    	</ul>
-	    	<div data-ng-view=""></div>
-	    </div>
+		<nav class="navbar navbar-default">
+	  		<div class="container-fluid">
+	    	<!-- Brand and toggle get grouped for better mobile display -->
+		    	<div class="navbar-header">
+		      		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+		    		</button>
+		    	</div>
 
+	    	<!-- Collect the nav links, forms, and other content for toggling -->
+		    	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		    		<ul class="nav navbar-nav">
+		        		<li role="presentation"><a href="#/comercialMap">Mapa Comercial <span class="sr-only">(current)</span></a></li>
+		        		<li role="presentation"><a href="#/news">Notícies</a></li>
+		        		<li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Associacions <span class="caret"></span></a>
+		          			<ul class="dropdown-menu">
+		            			<li role="presentation"><a href="#/associations">Associació 019</a></li>
+					            <li role="separator" class="divider"></li>
+					            <li role="presentation"><a href="#/associations">Associació Xavier Nogués</a></li>
+					            <li role="separator" class="divider"></li>
+					            <li role="presentation"><a href="#/associations">Associació El Mercat</a></li>
+		          			</ul>
+		        		</li>
+		        		<li role="presentation"><a href="#/promotions">Promocions</a></li>
+		        		<li role="presentation"><a href="#/formation">Formació</a></li>	
+		      		</ul>    
+				</div><!--/.navbar-collapse -->
+	   		</div><!--/.container-fluid -->
+		</nav>
 	    <hr>
-
+<div data-ng-view=""></div>
 	    <div class="footer text-center">ElsMiillors 2k17</div>
 	<footer>
 	
+		<table>
+			<tr>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+
+
 	</footer>
 	</body>
 	
@@ -101,5 +122,7 @@
 
 ESPERAR A QUE ALGUIEN CURRE Y MOSTRAR YO DATOS DEL SCOPE
 EL NAV TIENE QUE REDIRIGIR A ALGUNA PARTE
+
+imagenes cargadas tambien por ng-repeat.
 
 -->
