@@ -2,10 +2,11 @@
 
 require("../inc/functions.php");
 	
+	
+
+	if(isset($_GET['acc'])&&$_GET['acc']=='history'){
+	
 	$idUser=1;
-
-	// function showHistory($idUser){
-
 		
 		$mySql = "SELECT history, email FROM users  WHERE idUser=$idUser";
 		$connexio = connect();
@@ -25,5 +26,5 @@ require("../inc/functions.php");
 		
 
 	 	echo $dataUsers;
-	// }
+	}
 ?>

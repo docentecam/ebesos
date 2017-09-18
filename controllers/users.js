@@ -1,11 +1,11 @@
 angular.module('spaApp')
 
-  .controller('aboutUsCtrl', function($scope, $http) {
+  .controller('AboutUsCtrl', function($scope, $http) {
 
 
 		$http({
 			method : "GET",
-			url : "models/users.php"
+			url : "models/users.php?acc=history"
 		}).then(function mySucces (response) {
 			$scope.names = response.data;
 			
