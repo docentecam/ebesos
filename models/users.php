@@ -4,19 +4,20 @@ require("../inc/functions.php");
 	
 	
 
+
 	if(isset($_GET['acc'])&&$_GET['acc']=='history'){
 	
-		$mySql = "SELECT history, email FROM users  WHERE idUser=$_GET["idUser"]";
+		$mySql = "SELECT history FROM users  WHERE idUser=$_GET["idUser"]";
 		$connexio = connect();
 		$resultUsers = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
-
 
 			while ($row=mySqli_fetch_array($resultAboutUs))
 			{
 				
 				$historyAboutUs=$row['history'];
 			}
+
 	 	echo $historyAboutUs;
 	}
 	 	 if ($_GET["acc"] == "mail") {

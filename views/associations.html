@@ -1,26 +1,31 @@
 <div>
 	<ul>
 		<li>
-			<a class="btn btn-primary btn-lg" href="#/shops/s/$scope.idUser" role="button">
+			<button class="btn btn-primary" ng-click="listShops()">
 				Comerços associats
-			</a>
+			</button>
 		</li>
 		<li>
-			<a class="btn btn-primary btn-lg" href="#/aboutUs/h/$scope.idUser" role="button">
+			<button class="btn btn-primary" ng-click="showHistory()">
 				Història
-			</a>
+			</button>
 		</li>
 		<li>
-			<a class="btn btn-primary btn-lg" href="#/news/n/$scope.idUser" role="button">
+			<button class="btn btn-primary" ng-click="showNews()">
 				Notícies
-			</a>
+			</button>
 		</li>
 		<li>
-			<a class="btn btn-primary btn-lg" href="#/contact/c/$scope.idUser" role="button">
+			<button class="btn btn-primary" ng-click="showContact()">
 				Contacte
-			</a>
+			</button>
 		</li>
 	</ul>
 </div>
 
-<div id="container"></div>
+<div id="container" ng-controller="AssociationsCtrl">
+	<div ng-view="div1"></div>
+	<div ng-view="div2"></div>
+	<div ng-view="div3"></div>
+	<div ng-view="div4"></div>
+</div>
