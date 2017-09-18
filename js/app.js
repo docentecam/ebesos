@@ -27,7 +27,7 @@ app.config(['$routeProvider', function ($routeProvider) {
 	})
 	.when('/users',{
 		templateUrl:'views/aboutUs.html',
-		controller:'aboutUsCtrl',
+		controller:'AboutUsCtrl',
 	})
     .otherwise({
         redirectTo: '/'

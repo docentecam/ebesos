@@ -4,7 +4,7 @@ angular.module('spaApp')
 
 		$http({
 			method : "GET",
-			url : "models/users.php"
+			url : "models/users.php?acc=history&idUser=1"
 		}).then(function mySucces (response) {
 			$scope.names = response.data;
 			
@@ -14,11 +14,11 @@ angular.module('spaApp')
 			
 	});
 
-angular.module('spaApp')  
-															 
+angular.module('spaApp')															 
 	.controller('ContactCtrlUser', function($scope, $http ,$routeParams) {
 	$scope.idUser = $routeParams.idUser;
 	$http({
+
 			method : "GET",
 			url : "models/users.php?acc=mail&idUser="+ $scope.idUser
 		}).then(function mySucces (response) {
