@@ -17,10 +17,10 @@ angular.module('spaApp')
 angular.module('spaApp')  
 															 
 	.controller('ContactCtrlUser', function($scope, $http ,$routeParams) {
-	$scope.userId = $routeParams.userId;
+	$scope.idUser = $routeParams.idUser;
 	$http({
 			method : "GET",
-			url : "models/users.php?acc=mail&userId="+ $scope.userId
+			url : "models/users.php?acc=mail&idUser="+ $scope.idUser
 		}).then(function mySucces (response) {
 			$scope.email = response.data;
 			
