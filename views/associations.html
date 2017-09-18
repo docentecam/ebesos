@@ -1,22 +1,27 @@
 <div>
+	<script>
+			$(document).ready(function() {	
+				$scope.idUser = $routeParams.idUser;
+			});
+		</script>
 	<ul>
 		<li>
-			<button class="btn btn-primary" ng-click="listShops()">
+			<button class="btn btn-primary" ng-click="listShops(idUser)">
 				Comerços associats
 			</button>
 		</li>
 		<li>
-			<button class="btn btn-primary" ng-click="showHistory()">
+			<button class="btn btn-primary" ng-click="showHistory(idUser)">
 				Història
 			</button>
 		</li>
 		<li>
-			<button class="btn btn-primary" ng-click="showNews()">
+			<button class="btn btn-primary" ng-click="showNews(idUser)">
 				Notícies
 			</button>
 		</li>
 		<li>
-			<button class="btn btn-primary" ng-click="showContact()">
+			<button class="btn btn-primary" ng-click="showContact(idUser)">
 				Contacte
 			</button>
 		</li>
