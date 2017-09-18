@@ -21,7 +21,7 @@ app.config(['$routeProvider', function ($routeProvider) {
 		templateUrl:'views/formation.html',
 		controller:'FormationCtrl',
 	})
-	.when('/contact/:userId',{
+	.when('/contact/:idUser',{
 		templateUrl:'views/contact.html',
 		controller:'ContactCtrlUser',
 	})
