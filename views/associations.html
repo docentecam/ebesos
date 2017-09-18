@@ -1,36 +1,24 @@
 <div>
 	<ul>
 		<li>
-			<!-- <a class="btn btn-primary btn-lg" href="#/aboutUs?idUser='+{{idUser}}'" role="button">
-				Història
-			</a> -->
-			<button class="btn btn-primary" ng-click="">
-				Història
-			</button>
-		</li>
-		<li>
-			<!-- <a class="btn btn-primary btn-lg" href="#/shops?idUser='+{{idUser}}'" role="button">
+			<a class="btn btn-primary btn-lg" href="#/shops/s/$scope.idUser" role="button">
 				Comerços associats
-			</a> -->
-			<button class="btn btn-primary" ng-click="listShops(2)">
-				Comerços associats
-			</button>
+			</a>
 		</li>
 		<li>
-			<!-- <a class="btn btn-primary btn-lg" href="#/news?idUser='+{{idUser}}'" role="button">
-				Notícies
-			</a> -->
-			<button class="btn btn-primary" ng-click="">
-				Notícies
-			</button>
+			<a class="btn btn-primary btn-lg" href="#/aboutUs/h/$scope.idUser" role="button">
+				Història
+			</a>
 		</li>
 		<li>
-			<!-- <a class="btn btn-primary btn-lg" href="#/contact?idUser='+{{idUser}}'" role="button">
+			<a class="btn btn-primary btn-lg" href="#/news/n/$scope.idUser" role="button">
+				Notícies
+			</a>
+		</li>
+		<li>
+			<a class="btn btn-primary btn-lg" href="#/contact/c/$scope.idUser" role="button">
 				Contacte
-			</a> -->
-			<button class="btn btn-primary" ng-click="">
-				Contacte
-			</button>
+			</a>
 		</li>
 	</ul>
 </div>
