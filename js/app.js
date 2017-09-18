@@ -25,7 +25,7 @@ app.config(['$routeProvider', function ($routeProvider) {
 		templateUrl:'views/contact.html',
 		controller:'ContactCtrlUser',
 	})
-	.when('/users',{
+	.when('/users/:idUser',{
 		templateUrl:'views/aboutUs.html',
 		controller:'AboutUsCtrl',
 	})

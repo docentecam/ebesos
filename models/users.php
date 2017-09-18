@@ -7,7 +7,7 @@ require("../inc/functions.php");
 
 	if(isset($_GET['acc'])&&$_GET['acc']=='history'){
 	
-		$mySql = "SELECT history FROM users  WHERE idUser=1";//.$_GET["idUser"];
+		$mySql = "SELECT history FROM users  WHERE idUser=".$_GET["idUser"];
 		$connexio = connect();
 		$resultAboutUs = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
