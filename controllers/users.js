@@ -2,7 +2,6 @@ angular.module('spaApp')
 
   .controller('AboutUsCtrl', function($scope, $http) {
 
-
 		$http({
 			method : "GET",
 			url : "models/users.php"
@@ -15,13 +14,11 @@ angular.module('spaApp')
 			
 	});
 
-  angular.module('spaApp')  															 
-.controller('ContactCtrlUser', function($scope, $http ,$routeParams) {
-	
-  $scope.userId = $routeParams.userId;
-console.log("llega"+$scope.userId);
-
-$http({
+angular.module('spaApp')  
+															 
+	.controller('ContactCtrlUser', function($scope, $http ,$routeParams) {
+	$scope.userId = $routeParams.userId;
+	$http({
 			method : "GET",
 			url : "models/users.php?acc=mail&userId="+ $scope.userId
 		}).then(function mySucces (response) {
@@ -30,6 +27,7 @@ $http({
 		}, function myError (response) {
 			$scope.email = response.statusText;
 		});
+
   console.log('Llega email'+$scope.email);
 });
 
@@ -68,4 +66,5 @@ angular.module('spaApp')
 			$scope.email = response.statusText;
 		});
 	};
+
 });
