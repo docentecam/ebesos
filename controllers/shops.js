@@ -3,7 +3,7 @@ angular.module('spaApp')
   .controller('ShopsCtrl', function($scope, $http) {
 
 
-		$http({
+		/*$http({
 			method : "GET",
 			url : "models/shops.php"
 		}).then(function mySucces (response) {
@@ -11,11 +11,17 @@ angular.module('spaApp')
 			
 		}, function myError (response) {
 			$scope.names = response.statusText;
-		});
-			
-	});
+		});*/
+		$scope.listShops = function(idUser){		
+			$http({
+				method : "GET",
+				url : "models/shops.php?idUser="+idUser
+			}).then(function mySucces(response) {
+				templateUrl:'view/shops.html'
+				$scope.names = response.data;
+			}, function myError(response) {
+				$scope.names = response.statusText;
+			});
+		};
 
-/*if (isset($_GET['acc']) && $_GET['acc'] == 'l')
-{
-	listshops();
-}*/
+	});
