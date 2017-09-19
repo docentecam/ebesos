@@ -18,15 +18,11 @@ app.config(['$routeProvider', function ($routeProvider) {
 		templateUrl:'views/associations.html',
 		controller:'AssociationsCtrl',
 	})
-<<<<<<< HEAD
-	.when('/contact/:userId',{
-=======
 	.when('/formation',{
 		templateUrl:'views/formation.html',
 		controller:'FormationCtrl',
 	})
 	.when('/contact/:idUser',{
->>>>>>> 162d981ab0a2d42ae0b5ef9e53db3a22bf608f09
 		templateUrl:'views/contact.html',
 		controller:'ContactCtrlUser',
 	})

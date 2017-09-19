@@ -14,13 +14,6 @@ angular.module('spaApp')
 			
 	});
 
-<<<<<<< HEAD
-
-  angular.module('spaApp')  															 
-.controller('ContactCtrlUser', function($scope, $routeParams) {
-	console.log('Llega controler');
-  $scope.userId =  $routeParams.userId;
-=======
 angular.module('spaApp')															 
 	.controller('ContactCtrlUser', function($scope, $http ,$routeParams) {
 	$scope.idUser = $routeParams.idUser;
@@ -73,6 +66,4 @@ angular.module('spaApp')
 			$scope.email = response.statusText;
 		});
 	};
-
->>>>>>> 162d981ab0a2d42ae0b5ef9e53db3a22bf608f09
 });
