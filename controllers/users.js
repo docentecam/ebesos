@@ -40,7 +40,7 @@ angular.module('spaApp')
 			method : "GET",
 			url : "models/users.php?idUser="+idUser
 		}).then(function mySucces (response) {
-			templateUrl:'view/aboutUs.html'
+			templateUrl:'views/aboutUs.html'
 			$scope.names = response.data;
 			$scope.div4 = false;
 			$scope.div3 = false;
@@ -56,7 +56,7 @@ angular.module('spaApp')
 			method : "GET",
 			url : "models/users.php?acc=mail&idUser="+ $scope.idUser
 		}).then(function mySucces (response) {
-			templateUrl:'view/contact.html'
+			templateUrl:'views/contact.html'
 			$scope.email = response.data;
 			$scope.div2 = false;
 			$scope.div3 = false;

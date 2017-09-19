@@ -1,7 +1,7 @@
-<div id="listShops">
+<div id="listShops" ng-controller="ShopsCtrl">
 	<ul>
 		<li ng-repeat="name in names">
-			<a href="#">{{name.name}}</a>
+			<a href="#" ng-click="showShop(idShop)">{{name.name}}</a>
 		</li>
 	</ul>
 </div>
