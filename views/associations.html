@@ -1,38 +1,36 @@
 <div>
+	<script>
+			$(document).ready(function() {	
+				$scope.idUser = $routeParams.idUser;
+			});
+		</script>
 	<ul>
 		<li>
-			<!-- <a class="btn btn-primary btn-lg" href="#/aboutUs?idUser='+{{idUser}}'" role="button">
-				Història
-			</a> -->
-			<button class="btn btn-primary" ng-click="">
-				Història
-			</button>
-		</li>
-		<li>
-			<!-- <a class="btn btn-primary btn-lg" href="#/shops?idUser='+{{idUser}}'" role="button">
-				Comerços associats
-			</a> -->
-			<button class="btn btn-primary" ng-click="listShops(2)">
+			<button class="btn btn-primary" ng-click="listShops($scope.idUser)">
 				Comerços associats
 			</button>
 		</li>
 		<li>
-			<!-- <a class="btn btn-primary btn-lg" href="#/news?idUser='+{{idUser}}'" role="button">
-				Notícies
-			</a> -->
-			<button class="btn btn-primary" ng-click="">
+			<button class="btn btn-primary" ng-click="showHistory($scope.idUser)">
+				Història
+			</button>
+		</li>
+		<li>
+			<button class="btn btn-primary" ng-click="showNews($scope.idUser)">
 				Notícies
 			</button>
 		</li>
 		<li>
-			<!-- <a class="btn btn-primary btn-lg" href="#/contact?idUser='+{{idUser}}'" role="button">
-				Contacte
-			</a> -->
-			<button class="btn btn-primary" ng-click="">
+			<button class="btn btn-primary" ng-click="showContact($scope.idUser)">
 				Contacte
 			</button>
 		</li>
 	</ul>
 </div>
 
-<div id="container"></div>
+<div id="container" ng-controller="AssociationsCtrl">
+	<div ng-view="div1"></div>
+	<div ng-view="div2"></div>
+	<div ng-view="div3"></div>
+	<div ng-view="div4"></div>
+</div>
