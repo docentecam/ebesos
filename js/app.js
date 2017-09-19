@@ -5,6 +5,7 @@ app.config(['$routeProvider', function ($routeProvider) {
         templateUrl: 'views/comercialMap.html',
         controller: 'ComercialMapCtrl',
     })
+
     .when('/news',{
 	templateUrl:'views/news.html',
 	controller:'NewsCtrl',
@@ -17,21 +18,19 @@ app.config(['$routeProvider', function ($routeProvider) {
 		templateUrl:'views/associations.html',
 		controller:'AssociationsCtrl',
 	})
-	.when('/formation',{
-		templateUrl:'views/formation.html',
-		controller:'FormationCtrl',
-	})
 	.when('/contact/:userId',{
 		templateUrl:'views/contact.html',
 		controller:'ContactCtrlUser',
 	})
-	.when('/aboutUs',{
+	.when('/users',{
 		templateUrl:'views/aboutUs.html',
-		controller:'AboutUsCtrl',
+		controller:'aboutUsCtrl',
 	})
+	
+
     .otherwise({
         redirectTo: '/'
     });
-}]);
+}]); 
  
 //ENVIAR USUARIOS DEPENDIENDO DE QUIEN ESTA CONECTADO DEL 1-4

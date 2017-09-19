@@ -1,6 +1,6 @@
 angular.module('spaApp')
 
-  .controller('AboutUsCtrl', function($scope, $http) {
+  .controller('aboutUsCtrl', function($scope, $http) {
 
 
 		$http({
@@ -14,6 +14,7 @@ angular.module('spaApp')
 		});
 			
 	});
+
 
   angular.module('spaApp')  															 
 .controller('ContactCtrlUser', function($scope, $routeParams) {
