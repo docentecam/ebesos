@@ -21,12 +21,36 @@ if(isset($_GET['acc'])&&$_GET['acc']=='news'){
 				$dataNews .= ",";
 			} 
 
-			$dataNews .= '{"url":"'.$row['url'].'", "title":"'.$row['title'].'","date":"'.$row['date']'"}';
+			$dataNews .= '{"url":"'.$row['url'].'", "title":"'.$row['title'].'","date":"'.$row['date'].'"}';
 			$i++;
 		}
 		$dataNews .=']';
 		echo $dataNews;
 
+}
+
+else if(isset($_GET['acc'] )&& $_GET['acc']=='showNew') {
+
+	$mySql = "SELECT n.idNew, n.date, n.title, n.titleSub, n.idUser, n.idNew, w.idNew, w.type, w.url FROM news n, newsmedia w WHERE n.idNew=w.idNew AND idUser=".$_GET["idUser"];
+
+	$connexio = connect();
+	$resultNew = mysqli_query($connexio, $mySql);
+	disconnect($connexio);
+
+	$i=0;
+	$dataNew ='[';
+	while ($row=mySqli_fetch_array($resultNew))
+	{	
+	if($i != 0)
+		{
+			$dataNew .= ",";
+		} 
+
+		$dataNew .= '{"titleSub":"'.$row['titleSub'].'", "url":"'.$row['url'].'", "title":"'.$row['title'].'","date":"'.$row['date'].'"}';
+		$i++;
+	}	
+	$dataNew .=']';
+	echo $dataNew;
 }
 
 ?>

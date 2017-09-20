@@ -10,6 +10,10 @@ app.config(['$routeProvider', function ($routeProvider) {
 	controller:'NewsCtrl',
 
 	})
+	.when('/new/:idUser',{
+		templateUrl:'views/new.html',
+		controller:'NewCtrl',
+	})
 	.when('/promotions',{
 		templateUrl:'views/promotions.html',
 		controller:'PromotionsCtrl',

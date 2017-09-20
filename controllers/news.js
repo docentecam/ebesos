@@ -1,6 +1,6 @@
 angular.module('spaApp')
 
-  .controller('NewsCtrl', function($scope, $http) {
+	.controller('NewsCtrl', function($scope, $http) {
 
 		$http({
 			method : "GET",
@@ -12,4 +12,19 @@ angular.module('spaApp')
 			$scope.news = response.statusText;
 		});
 			
+	});
+
+angular.module('spaApp')
+	.controller('NewCtrl', function($scope, $http, $routeParams) {
+	$scope.idUser = $routeParams.idUser;
+
+		$http({
+			method: "GET",
+			url: "models/news.php?acc=showNew&idUser=" + $scope.idUser
+			}).then(function mySucces (response) {
+ 				$scope.news = response.data;
+  				console.log('Llega new'+$scope.news);
+ 			},function myError (response) {
+ 				$scope.news = response.statusText;
+ 		});
 	});
