@@ -5,10 +5,9 @@ app.config(['$routeProvider', function ($routeProvider) {
         templateUrl: 'views/comercialMap.html',
         controller: 'ComercialMapCtrl',
     })
-
     .when('/news',{
-	templateUrl:'views/news.html',
-	controller:'NewsCtrl',
+		templateUrl:'views/news.html',
+		controller:'NewsCtrl',
 	})
 	.when('/promotions',{
 		templateUrl:'views/promotions.html',
