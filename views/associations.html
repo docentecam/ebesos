@@ -1,7 +1,10 @@
 <div>
 	<script>
-			$(document).ready(function() {	
-				$scope.idUser = $routeParams.idUser;
+			$(document).ready(function($scope,$routeParams) {
+				angular.module('spaApp')
+				.controller('AssociationsCtrl', function($scope, $http) {	
+					$scope.idUser = $routeParams.idUser;
+				};
 			});
 		</script>
 	<ul>
