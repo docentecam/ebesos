@@ -8,7 +8,7 @@
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
-		<script data-require="ng-route@1.2.0ssdjkasd" data-semver="1.2.0" src="http://code.angularjs.org/1.2.0-rc.3/angular-route.js"></script>
+		<script data-require="ng-route@1.2.0" data-semver="1.2.0" src="http://code.angularjs.org/1.2.0-rc.3/angular-route.js"></script>
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<script>
 			$( document ).ready(function() {
@@ -16,10 +16,11 @@
 		</script>
 		<link rel="stylesheet" href="css/styles.css">
 		<script src="js/app.js"></script>
-		<script>alert("hola");</script>
     	<!-- <script src="controllers/mapaComercial.js"></script> -->
     	<!-- <script src="controllers/news.js"></script> -->
 		<!-- <script src="controllers/promotions.js"></script> -->
+
+		<script src="controllers/links.js"></script>
 	
 		
 		<script src="controllers/users.js"></script>
@@ -81,7 +82,7 @@
 		    	<!-- Collect the nav links, forms, and other content for toggling -->
 			    	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			    		<ul class="nav navbar-nav">
-			        		<li role="presentation"><a href="#/comercialMap">Mapa Comercial <span class="sr-only">(current)</span></a></li>
+			        		<!-- <li role="presentation"><a href="#/comercialMap">Mapa Comercial <span class="sr-only">(current)</span></a></li> -->
 			        		<li role="presentation"><a href="#/news">Notícies</a></li>
 			        		<li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Associacions <span class="caret"></span></a>
 			          			<ul class="dropdown-menu">
@@ -105,53 +106,17 @@
 			
 		</div>
 	</div>
-	<div class="row">
-		<footer class="footer text-center" ng-controller="LinksCtrl">ElsPiitjors 2k17</div>
-			<table border="1">
-				<tr ng-repeat="link in links">
-					<td><a href="{{link.url}}">{{link.description}}</a></td>
+	
+	<div class="row" >
+		<footer class="footer text-center">Footer :(</div>
+			<table border="1" ng-controller="LinksCtrl">
+				<tr>
+					<td><a href="{{link}}">{{links}}</a></td>
 				</tr>
 			</table>		
 		</footer>
 	</div>
-	
-	<script>
-		alert("HOLA");
-				
 
-					angular.module('spaApp')
-
-  					.controller(' ', function($scope, $http) {
-  					alert("HOLA222");
-  					var enl = $scope.links;
-  					
-
-					$http({
-
-							method : "GET",
-							url : "models/links.php?acc=links"
-						}).then(function mySucces (response) {
-							console.log("lol "+$scope.links);
-
-							//response.data;
-							
-						}, function myError (response) {
-							console.log("lal "+scope.links);
-
-							$scope.enl = "pepitaaaaaaa";//response.statusText;
-						});
-							console.log("los Link Son: "+$scope.links);
-					});
-
-  					alert("FIN?");
-	</script>
 	</body>
 	
 </html>
-<!--TO DO
-
-EL NAV TIENE QUE REDIRIGIR A ALGUNA PARTE
-
-imagenes cargadas tambien por ng-repeat.
-
--->
