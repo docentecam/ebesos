@@ -16,7 +16,7 @@ app.config(['$routeProvider', function ($routeProvider) {
 	})
 	.when('/associations/:idUser',{
 		templateUrl:'views/associations.html',
-		controller:'AssociationsCtrl',
+		controller:'AssociCtrl',
 	})
 	.when('/formation',{
 		templateUrl:'views/formation.html',
