@@ -23,12 +23,11 @@ angular.module('spaApp')
 			url : "models/users.php?acc=mail&idUser="+ $scope.idUser
 		}).then(function mySucces (response) {
 			$scope.email = response.data;
-			
+ 			console.log('Llega email'+$scope.email);
 		}, function myError (response) {
 			$scope.email = response.statusText;
 		});
 
-  console.log('Llega email'+$scope.email);
 });
 
 angular.module('spaApp')
