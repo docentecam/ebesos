@@ -6,7 +6,7 @@ app.config(['$routeProvider', function ($routeProvider) {
         controller: 'ComercialMapCtrl',
     })
 
-    .when('/news',{
+    .when('/news/:idUser',{
 	templateUrl:'views/news.html',
 	controller:'NewsCtrl',
 	})
