@@ -1,12 +1,11 @@
-<html>
-<head>
+<div class="row">
+<div class="col-sm-12 col-md-6 col-lg-4" id="news">
 	
-	<title>News</title>
+	<div ng-repeat="new in news">
+		<div>{{new.title}}</div>
+		<div>{{new.url}}</div>
+		<div>{{new.date}}</div>
+	</div>
+</div>
+</div>
 
-<link rel="stylesheet" href="css/styles.css">
-
-</head>
-<body>
-
-</body>
-</html>
