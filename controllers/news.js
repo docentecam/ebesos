@@ -1,7 +1,5 @@
 angular.module('spaApp')
-
-
-  .controller('NewsCtrl', function($scope, $http) {
+ .controller('NewsCtrl', function($scope, $http) {
   	
 			$http({
 				method : "GET",
