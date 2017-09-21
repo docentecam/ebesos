@@ -1,12 +1,12 @@
 <?php
 require('../inc/functions.php');
 
-		if(isset($_GET['idUser']))
+		if(isset($_GET['acc']) && $_GET['acc'] == 'l')
 		{
 			$idUser=$_GET['idUser'];
 			$mySql= "SELECT idShop, name
 					FROM shops
-					WHERE idUser=".$idUser;
+					WHERE idUser=".$_GET['idUser'];
 					
 
 			$connexio = connect();
@@ -31,7 +31,7 @@ require('../inc/functions.php');
 			echo $dataShops;
 		}
 	
-		else if(isset($_GET['idShop']))
+		else if(isset($_GET['idShop'])) //modificar
 		{
 			$idShop=$_GET['idShop'];
 			$mySql= "SELECT name, telephone, email, horary, address

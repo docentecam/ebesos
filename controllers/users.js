@@ -31,22 +31,27 @@ angular.module('spaApp')
 
 angular.module('spaApp')
 
-.controller('AssociationsCtrl', function($scope, $http) {
-
-  	$scope.showHistory = function(idUser){
-		$http({
+.controller('AssociationsCtrl', function($scope, $http, $routeParams) {
+	
+	$scope.idUser =$routeParams.idUser;
+	$http({
 			method : "GET",
-			url : "models/users.php?idUser="+idUser
+			url : "models/users.php?acc=history&idUser="+$scope.idUser
 		}).then(function mySucces (response) {
-			templateUrl:'views/aboutUs.html'
-			$scope.names = response.data;
-			$scope.div4 = false;
-			$scope.div3 = false;
-			$scope.div1 = false;
-			$scope.div2 = true;
+			$scope.histories = response.data;
+			$scope.muestraDivC = false;
+			$scope.muestraDivN = false;
+			$scope.muestraDivCA = false;
+			$scope.muestraDivH = true;
 		}, function myError (response) {
-			$scope.names = response.statusText;
-		});
+			$scope.histories = response.statusText;
+	});
+	
+  	$scope.showHistory = function(){
+			$scope.muestraDivC = false;
+			$scope.muestraDivN = false;
+			$scope.muestraDivCA = false;
+			$scope.muestraDivH = true;
 	};
 
 	$scope.showContact = function(idUser){
@@ -54,18 +59,27 @@ angular.module('spaApp')
 			method : "GET",
 			url : "models/users.php?acc=mail&idUser="+ $scope.idUser
 		}).then(function mySucces (response) {
-			templateUrl:'views/contact.html'
 			$scope.email = response.data;
-			$scope.div2 = false;
-			$scope.div3 = false;
-			$scope.div1 = false;
-			$scope.div4 = true;
+			$scope.muestraDivH = false;
+			$scope.muestraDivN = false;
+			$scope.muestraDivCA = false;
+			$scope.muestraDivC = true;
 		}, function myError (response) {
 			$scope.email = response.statusText;
 		});
 	};
+	$scope.listShops = function(idUser){		
+		$http({
+			method : "GET",
+			url : "models/shops.php?acc=l&idUser="+$scope.idUser
+		}).then(function mySucces(response) {
+			$scope.shops = response.data;
+			$scope.muestraDivC = false;
+			$scope.muestraDivN = false;
+			$scope.muestraDivCA = true;
+			$scope.muestraDivH = false;
+		}, function myError(response) {
+			$scope.shops = response.statusText;
+		});
+	};
 });
-/*angular.module('spaApp')
-	.controller('AssociCtrl', function($scope, $http) {	
-		$scope.idUser = $routeParams.idUser;
-	});*/

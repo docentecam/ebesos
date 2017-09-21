@@ -10,7 +10,7 @@ angular.module('spaApp')
 			$scope.names = response.data;
 			if($scope.names != "") 
 			{
-				templateUrl: 'main.html'
+				
 			}
 			else
 			{

@@ -20,7 +20,7 @@ app.config(['$routeProvider', function ($routeProvider) {
 	})
 	.when('/associations/:idUser',{
 		templateUrl:'views/associations.html',
-		controller:'AssociCtrl',
+		controller:'AssociationsCtrl',
 	})
 	.when('/formation',{
 		templateUrl:'views/formation.html',
