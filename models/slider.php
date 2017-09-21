@@ -15,7 +15,7 @@ if (isset($_GET["acc"])&& ($_GET["acc"] == "imgSlider"))
 			{
 				$dataImgSlider .= ",";				
 			}			
-			$dataImgSlider .= '{"image":"'.$row['image'].'","link":"'.$row['link'].'","description":"'.$row['description']'"}';
+			$dataImgSlider .= '{"image":"'.$row['image'].'","link":"'.$row['link'].'","description":"'.$row['description'].'"}';
 			$i++;
 		}
 		$dataImgSlider .="]";

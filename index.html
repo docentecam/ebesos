@@ -22,6 +22,7 @@
 		<script src="controllers/links.js"></script>
 		<script src="controllers/users.js"></script>
 		<script src="controllers/news.js"></script>
+		<script src="controllers/slider.js"></script>
 	</head> 
 
 	<body data-ng-app="spaApp">
@@ -108,10 +109,11 @@
 			<footer class="footer text-center">Footer :(</div>
 				<table border="1" ng-controller="LinksCtrl">
 					<tr ng-repeat="link in links">
-						<td><a href="{{link.url}}">{{link.description}}</a></td>
+						<td><a href="http://{{link.url}}" target="_blank">{{link.description}}</a></td>
 					</tr>
 				</table>		
 			</footer>
 		</div>
 	</body>	
 </html>
+ng-if
