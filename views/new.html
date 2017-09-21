@@ -5,16 +5,21 @@
 				<a href="/#"> Inici </a><span> | </span><a href="#/news"> Notícies </a><span> | </span><span ng-repeat="new in news">{{new.title}}</span>
 			</li>
 		</ul>
-		<div ng-repeat="new in news">
-			<img class="img-fluid" src="../img/imagenes/xhdpi/{{new.url}}" alt="{{new.url}}">
+		<div ng-repeat="new in news" style="margin-left:100px ">
+			<img class="img-fluid" src="../img/imagenes/xhdpi/{{new.url}}" alt="{{new.url}}"><span>{{new.photo}}</span><br>	
+			<span>{{new.title}}</span>
+			<p>{{new.titleSub}}</p>
+		</div>
+		<div ng-repeat="subNew in subNews" style="margin-left:100px">
+			<img src="../img/imagenes/xhdpi/{{new.url}}" alt="{{new.url}}">{{subNew.url}}
 		</div>
 			<!-- Videos TODO -->
-		<div ng-repeat="new in news">
+	<!-- 	<div ng-repeat="new in news">
 			{{new.title}}
 		</div>
 		<div ng-repeat="new in news">
 			{{new.titleSub}}
 		</div>
-	
+		<div ng-repeat=""> -->
 	</a>
 

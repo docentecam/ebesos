@@ -10,7 +10,7 @@ app.config(['$routeProvider', function ($routeProvider) {
 	controller:'NewsCtrl',
 
 	})
-	.when('/new/:idUser',{
+	.when('/new/:idNew',{
 		templateUrl:'views/new.html',
 		controller:'NewCtrl',
 	})
