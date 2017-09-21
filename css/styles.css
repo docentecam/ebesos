@@ -6,3 +6,10 @@
 	background-color: #F7F7F7;
 	margin-left: 15%;
 }
+
+#foto{
+	border-radius: 15px 50px;
+	height: 65%;
+	width: 65%;
+	margin-left: 35%;
+}

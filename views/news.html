@@ -2,10 +2,11 @@
 <div class="col-sm-12 col-md-6 col-lg-4" id="news">
 	
 	<div ng-repeat="new in news">
-		<div>{{new.title}}</div>
-		<div>{{new.url}}</div>
 		<div>{{new.date}}</div>
-	</div>
+		<div> <img id="foto" src="img/newsmedia/{{new.url}}">  </div>
+		<div>{{new.title}}</div>
+	</div>	
+
 </div>
 </div>
 
