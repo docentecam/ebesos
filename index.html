@@ -19,6 +19,7 @@
     	<!-- <script src="controllers/mapaComercial.js"></script> -->
     	<!-- <script src="controllers/news.js"></script> -->
 		<!-- <script src="controllers/promotions.js"></script> -->
+
 		<script src="controllers/links.js"></script>
 		<script src="controllers/users.js"></script>
 	</head> 
@@ -113,13 +114,13 @@
 	</div>
 	
 	<div class="row" >
-<!-- 		<footer class="footer text-center">Footer :(</div>
+		<footer class="footer text-center">Footer :(</div>
 			<table border="1" ng-controller="LinksCtrl">
-				<tr>
-					<td><a href="{{link}}">{{links}}</a></td>
+				<tr ng-repeat="link in links">
+					<td><a href="{{link.url}}">{{link.description}}</a></td>
 				</tr>
 			</table>		
-		</footer> -->
+		</footer>
 	</div>
 
 	</body>
