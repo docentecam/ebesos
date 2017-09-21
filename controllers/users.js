@@ -82,4 +82,18 @@ angular.module('spaApp')
 			$scope.shops = response.statusText;
 		});
 	};
+	$scope.showNews = function(idUser){
+		$http({
+			method : "GET",
+			url : "models/news.php?acc=news&idUser="+$scope.idUser
+		}).then(function mySucces (response) {
+			$scope.news = response.data;
+			$scope.muestraDivC = false;
+			$scope.muestraDivN = true;
+			$scope.muestraDivCA = false;
+			$scope.muestraDivH = false;
+		}, function myError (response) {
+			$scope.news = response.statusText;
+		});
+	};
 });

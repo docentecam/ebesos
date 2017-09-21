@@ -43,13 +43,22 @@
 	<div ng-show="muestraDivH">
 		<div class="row">
 			<div class="col-sm-12 col-md-6 col-lg-4" id="aboutUs">
-				Breu resum de Qui Som y que Fem: <br/><br/>
 				{{histories}}
 			</div>
 		</div>
 	</div>
 
-	<div ng-show="muestraDivN"></div>
+	<div ng-show="muestraDivN">
+		<div class="row">
+			<div class="col-sm-12 col-md-6 col-lg-4" id="news">
+				<div ng-repeat="new in news">
+					<div>{{new.title}}</div>
+					<div>{{new.url}}</div>
+					<div>{{new.date}}</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<div ng-show="muestraDivC">
 		<div class="row">
