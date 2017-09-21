@@ -4,9 +4,9 @@ require('../inc/functions.php');
 
 if(isset($_GET['acc'])&&$_GET['acc']=='news'){
 
-	$mySql = "SELECT n.idNew , n.date, n.title ,w.idNew, w.url,w.preferred";
+	$mySql = "SELECT n.idNew , n.idUser , n.date, n.title ,w.idNew, w.url,w.preferred";
 
-	$mySql .= " FROM news n, newsmedia w WHERE n.idNew=w.idNew AND w.preferred='Y'";
+	$mySql .= " FROM news n, newsmedia w WHERE n.idNew=w.idNew AND w.preferred='Y' AND n.idUser=".$_GET["idUser"];
 
 	$connexio = connect();
 	$resultNews = mysqli_query($connexio, $mySql);
@@ -21,12 +21,12 @@ if(isset($_GET['acc'])&&$_GET['acc']=='news'){
 				$dataNews .= ",";
 			} 
 
-			$dataNews .= '{"url":"'.$row['url'].'", "title":"'.$row['title'].'","date":"'.$row['date']'"}';
+			$dataNews .= '{"url":"'.$row['url'].'", "title":"'.$row['title'].'","date":"'.$row['date'].'"}';
 			$i++;
 		}
 		$dataNews .=']';
-		echo $dataNews;
 
+		echo $dataNews;
 }
 
 ?>
