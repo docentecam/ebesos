@@ -17,14 +17,15 @@ angular.module('spaApp')
 angular.module('spaApp')
 	.controller('NewCtrl', function($scope, $http, $routeParams) {
 	$scope.idUser = $routeParams.idUser;
+	console.log("Llega: "+$scope.idUser);
 
-		$http({
+	$http({
 			method: "GET",
 			url: "models/news.php?acc=showNew&idUser=" + $scope.idUser
-			}).then(function mySucces (response) {
- 				$scope.news = response.data;
-  				console.log('Llega new'+$scope.news);
- 			},function myError (response) {
- 				$scope.news = response.statusText;
- 		});
-	});
+		}).then(function mySucces (response) {
+				$scope.news = response.data;
+				console.log('Llega new'+$scope.news);
+		},function myError (response) {
+				$scope.news = response.statusText;
+		});
+});
