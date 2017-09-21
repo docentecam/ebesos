@@ -9,7 +9,7 @@ require("../inc/functions.php");
 		$resultLogin = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
 
-		while ($row=mysqli_fetch_array($resultLogin))
+		while ($row=mySqli_fetch_array($resultLogin))
 		{
 			
 			$checkLogin=$row['idUser'];
