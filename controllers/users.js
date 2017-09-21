@@ -17,17 +17,16 @@ angular.module('spaApp')
 angular.module('spaApp')															 
 	.controller('ContactCtrlUser', function($scope, $http ,$routeParams) {
 	$scope.idUser = $routeParams.idUser;
-	$http({
 
+	$http({
 			method : "GET",
 			url : "models/users.php?acc=mail&idUser="+ $scope.idUser
 		}).then(function mySucces (response) {
-			$scope.email = response.data;
- 			console.log('Llega email'+$scope.email);
+				$scope.email = response.data;
+ 				console.log('Llega email'+$scope.email);
 		}, function myError (response) {
-			$scope.email = response.statusText;
-		});
-
+				$scope.email = response.statusText;
+	});
 });
 
 angular.module('spaApp')
@@ -66,3 +65,7 @@ angular.module('spaApp')
 		});
 	};
 });
+/*angular.module('spaApp')
+	.controller('AssociCtrl', function($scope, $http) {	
+		$scope.idUser = $routeParams.idUser;
+	});*/
