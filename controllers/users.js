@@ -65,3 +65,7 @@ angular.module('spaApp')
 		});
 	};
 });
+/*angular.module('spaApp')
+	.controller('AssociCtrl', function($scope, $http) {	
+		$scope.idUser = $routeParams.idUser;
+	});*/
