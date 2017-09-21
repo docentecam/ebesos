@@ -10,7 +10,7 @@ angular.module('spaApp')
 			}, function myError (response) {
 				$scope.news = response.statusText;
 			});
-			
+			console.log("acaba");
 	});
 
 angular.module('spaApp')
