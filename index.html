@@ -16,9 +16,6 @@
 		</script>
 		<link rel="stylesheet" href="css/styles.css">
 		<script src="js/app.js"></script>
-    	<!-- <script src="controllers/mapaComercial.js"></script> -->
-    	<!-- <script src="controllers/news.js"></script> -->
-		<!-- <script src="controllers/promotions.js"></script> -->
 		<script src="controllers/links.js"></script>
 		<script src="controllers/users.js"></script>
 		<script src="controllers/news.js"></script>
@@ -30,7 +27,7 @@
 				<tr>
 					<td role="presentation"><a href="#/users/1">Qui Som?</a></td>
 					<td role="presentation"><a href="#/contact/1">Contacte</a></td>
-					<td role="presentation"><a href="#/new/1">new</a></td>
+					<td role="presentation"><a href="#/new/1">New</a></td>
 
 				</tr>
 			</div>
@@ -116,13 +113,13 @@
 	</div>
 	
 	<div class="row" >
-<!-- 		<footer class="footer text-center">Footer :(</div>
+		<footer class="footer text-center">Footer :(</div>
 			<table border="1" ng-controller="LinksCtrl">
-				<tr>
-					<td><a href="{{link}}">{{links}}</a></td>
+				<tr ng-repeat="link in links">
+					<td><a href="{{link.url}}">{{link.description}}</a></td>
 				</tr>
 			</table>		
-		</footer> -->
+		</footer>
 	</div>
 
 	</body>
