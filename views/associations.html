@@ -1,39 +1,99 @@
 <div>
-	<script>
-		/*	$(document).ready(function($scope,$routeParams) {
-				angular.module('spaApp')
-				.controller('AssociCtrl', function($scope, $http) {	
-					$scope.idUser = $routeParams.idUser;
-				});
-			});*/
-		</script>
-	<ul>
-		<li>
+	
 			<button class="btn btn-primary" ng-click="listShops($scope.idUser)">
 				Comerços associats
 			</button>
-		</li>
-		<li>
-			<button class="btn btn-primary" ng-click="showHistory($scope.idUser)">
+		<br>
+			<button class="btn btn-primary" ng-click="showHistory()">
 				Història
 			</button>
-		</li>
-		<li>
+		<br>
 			<button class="btn btn-primary" ng-click="showNews($scope.idUser)">
 				Notícies
 			</button>
-		</li>
-		<li>
+		<br>
 			<button class="btn btn-primary" ng-click="showContact($scope.idUser)">
 				Contacte
 			</button>
-		</li>
-	</ul>
+		
 </div>
 
-<div id="container" ng-controller="AssociationsCtrl">
-	<div ng-view="div1"></div>
-	<div ng-view="div2"></div>
-	<div ng-view="div3"></div>
-	<div ng-view="div4"></div>
+<div id="container">
+	
+	<div ng-show="muestraDivCA">
+		<div id="listShops">
+			<!-- <table>
+				<tr>
+					<td></td><td></td>
+				</tr>
+			</table> -->
+			<ul>
+				<li ng-repeat="shop in shops">
+					<a href="#" ng-click="showShop(shop.idShop)">{{shop.name}}</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div ng-show="muestraDivH">
+		<div class="row">
+			<div class="col-sm-12 col-md-6 col-lg-4" id="aboutUs">
+				{{histories}}
+			</div>
+		</div>
+	</div>
+
+	<div ng-show="muestraDivN">
+		<div class="row">
+			<div class="col-sm-12 col-md-6 col-lg-4" id="news">
+				<div ng-repeat="new in news">
+					<div>{{new.date}}</div>
+					<div> <img id="foto" src="img/newsmedia/{{new.url}}">  </div>
+					<div>{{new.title}}</div>
+				</div>	
+
+			</div>
+		</div>
+	</div>
+
+	<div ng-show="muestraDivC">
+		<div class="row">
+			<div class="col-sm-12 col-md-6 col-lg-4">
+				<form action="TODO">
+					<table>
+						<tr>
+							<td>
+								Correu:
+							</td>
+							<td>
+								<input type="text" name="correu" disabled="" ng-value="email">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Nom:
+							</td>
+							<td>
+								<input type="text" name="nom">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Missatge:
+							</td>
+							<td>
+								<textarea placeholder="Escrigui el seu missatge..."></textarea>
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>
+								<input type="button" name="enviar" value="Enviar">
+							</td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
 </div>
