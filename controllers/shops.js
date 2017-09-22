@@ -84,7 +84,7 @@ $http({
           var infowincontent = document.createElement('div');
 
           var icon = document.createElement('img');
-          icon.setAttribute('src', "img/logos-shops/duck.svg");
+          icon.setAttribute('src', "img/logos-shops/"+logo+"");
           icon.setAttribute('width', "32");
           icon.setAttribute('height', "32");
 
