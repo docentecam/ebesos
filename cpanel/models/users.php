@@ -3,7 +3,7 @@ require("../inc/functions.php");
 
 	if(isset($_GET['acc']) && $_GET['acc'] == 'login'){
 		$mySql = "SELECT idUser FROM users 
-					WHERE email='".$_GET['email']."' AND password='".$_GET['password'].
+					WHERE email='".$_GET['email']."' AND password='".sha1(md5($_GET['password'])).
 					"' AND active='Y'";
 		$connexio = connect();
 		$resultLogin = mysqli_query($connexio, $mySql);
@@ -18,7 +18,7 @@ require("../inc/functions.php");
 
 	 	if($checkLogin == "0")
 	 	{
-	 		$mensaje = "Usuario y contraseña incorrectos";
+	 		$mensaje = "L'usuari o la contrasenya no són correctes";
 	 	}
 	 	else if($connexio == "Error al conectar")
 	 	{
