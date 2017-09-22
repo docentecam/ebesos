@@ -6,3 +6,23 @@
 	background-color: #F7F7F7;
 	margin-left: 15%;
 }
+
+/*ian :^)*/
+ #map {
+
+    height: 500px;
+	width: 500px;
+
+  }
+
+  /* Optional: Makes the sample page fill the window. */
+
+  html, body {
+
+    height: 100%;
+
+    margin: 0;
+
+    padding: 0;
+
+  }

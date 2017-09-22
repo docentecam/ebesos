@@ -1,70 +1,21 @@
-angular.module('spaApp')
-
-.controller('AssociationsCtrl', function($scope, $http) {
-
-	$scope.listShops = function(idUser){		
-		$http({
-			method : "GET",
-			url : "models/shops.php?idUser="+idUser
-		}).then(function mySucces(response) {
-			templateUrl:'views/shops.html'
-			$scope.names = response.data;
-			$scope.div4 = false;
-			$scope.div3 = false;
-			$scope.div2 = false;
-			$scope.div1 = true;
-		}, function myError(response) {
-			$scope.names = response.statusText;
-		});
-	};
-});
-
-angular.module('spaApp')
-
-.controller('ShopsCtrl', function($scope, $http) {
-
-	$scope.showShop = function(idShop){		
-		$http({
-			method : "GET",
-			url : "models/shops.php?idShop="+idShop
-		}).then(function mySucces(response) {
-			templateUrl:'views/shop.html'
-			$scope.names = response.data;
-		}, function myError(response) {
-			$scope.names = response.statusText;
-		});
-	};
-});
-
-angular.module('spaApp')                               
-.controller('ComercialMapCtrl', function($scope, $http) {
-
-$http({
-    method : "GET",
-    url : "models/xmlCreation.php"
-  }).then(function mySucces (response) {
-    $scope.categories=response.data;
-    console.log(response.data);
-  }, function myError (response) {
-    $scope.categories = response.statusText;
-  });
-
-  $http({
-    method : "GET",
-    url : "models/categories.php?acc=cat"
-  }).then(function mySucces (response) {
-    $scope.categories=response.data;
-    //$scope.subCategories1=$scope.categories[0]["subCategories"];
-    console.log(response.data);
-  }, function myError (response) {
-    $scope.categories = response.statusText;
-  });
-
-  $scope.categoryFilter = function(category=""){
-  	console.log(category);
-  	console.log("hola");
+<div class="row">
+  <div class="col-md-4 push-md-1">
+    <ul>
+      <li ng-repeat="category in categories">
+        <a href='' ng-click="categoryFilter(category.name)">{{category.name}}</a>
+         <!--  <li>{{category.subCategories[0].name}}</li> -->
+          <label ng-repeat="subCategory in category.subCategories">{{subCategory.name}}&nbsp</label>
+      </li>
+    </ul>
+  </div>
+  <div id="map" class="col-md-4 push-md-3"></div>
+</div>
+<script>
+  var customLabel = {};
+  function initMap(category="")
+  {
     //category = "serveis";
-     var map = new google.maps.Map(document.getElementById('map'), {
+    var map = new google.maps.Map(document.getElementById('map'), {
       center: new google.maps.LatLng(41.416962, 2.214625),
       zoom: 16
     });
@@ -105,14 +56,14 @@ $http({
           var infowincontent = document.createElement('div');
 
           var icon = document.createElement('img');
-          icon.setAttribute('src', "img/logos-shops/duck.svg");
+          icon.setAttribute('src', "img/logos-shops/"+logo+"");
           icon.setAttribute('width', "32");
           icon.setAttribute('height', "32");
 
           //icon.textContent = logo
 
           infowincontent.appendChild(icon);
-          infowincontent.appendChild(document.createElement('br'));
+          //infowincontent.appendChild(document.createElement('br'));
 
           var strong = document.createElement('strong');
 
@@ -203,7 +154,24 @@ $http({
         }// fin Comprobacio categoria
       });
     });
-  };
-
-});
-
+  }
+  function downloadUrl(url, callback) {
+    var request = window.ActiveXObject ?
+    new ActiveXObject('Microsoft.XMLHTTP') :
+    new XMLHttpRequest;
+    request.onreadystatechange = function()
+    {
+      if (request.readyState == 4)
+      {
+        request.onreadystatechange = doNothing;
+        callback(request, request.status);
+      }
+    };
+    request.open('GET', url, true);
+    request.send(null);
+  }
+  function doNothing() {}
+</script>
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEK4xYm8WND_o_f84-2xRl21pl8h_DH38&callback=initMap">
+</script>
