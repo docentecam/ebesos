@@ -5,34 +5,34 @@ app.config(['$routeProvider', function ($routeProvider) {
     //     templateUrl: 'views/comercialMap.html',
     //     controller: 'ComercialMapCtrl',
     // })
-	.when('/news/:idUser',{
+	.when('/news',{
 	templateUrl:'views/news.html',
 	controller:'NewsCtrl',
 
 	})
-	.when('/new/:idNew',{
-		templateUrl:'views/new.html',
-		controller:'NewCtrl',
+	.when('/associations',{
+		templateUrl:'views/associations.html',
+		controller:'AssociationsCtrl',
+	})
+	.when('/shops',{
+		templateUrl:'views/shops.html',
+		controller:'ShopsCtrl',
+	})
+	.when('/slider',{
+		templateUrl:'views/slider.html',
+		controller:'SliderCtrl',
+	})
+	.when('/settings',{
+		templateUrl:'views/settings.html',
+		controller:'SettingsCtrl',
 	})
 	.when('/promotions',{
 		templateUrl:'views/promotions.html',
 		controller:'PromotionsCtrl',
 	})
-	.when('/associations/:idUser',{
-		templateUrl:'views/associations.html',
-		controller:'AssociationsCtrl',
-	})
-	.when('/formation',{
-		templateUrl:'views/formation.html',
-		controller:'FormationCtrl',
-	})
-	.when('/contact/:idUser',{
-		templateUrl:'views/contact.html',
-		controller:'ContactCtrlUser',
-	})
-	.when('/users/:idUser',{
-		templateUrl:'views/aboutUs.html',
-		controller:'AboutUsCtrl',
+	.when('/subcategories',{
+		templateUrl:'views/subcategories.html',
+		controller:'SubcategoriesCtrl',
 	})
 	
 

@@ -10,16 +10,48 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
 	<script data-require="ng-route@1.2.0" data-semver="1.2.0" src="http://code.angularjs.org/1.2.0-rc.3/angular-route.js"></script>
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script> var app = angular.module('myApp', []);</script>
+		<script>
+			app.controller ('LoginCtrl', function($scope, $http, $window) {
+				$scope.fail = false;
+
+  				$scope.checking = function(){
+  					$scope.email = check['user'].value;
+  					$scope.password = check['pswd'].value;
+					$http({
+						method : "POST",
+						url : "models/users.php?acc=login&email="+$scope.email+"&password="+$scope.password
+					}).then(function mySucces (response) {
+					$scope.names = response.data;
+						if($scope.names == "Correcto") 
+						{
+							$window.location.href = "main.html";
+						}
+						else
+						{
+							$scope.fail = true;
+						}
+					}, function myError (response) {
+						$scope.names = response.statusText;
+					});
+				};
+			});
+			
+		</script>
 </head>
-<body>
+<body ng-app="myApp">
+
 	<div id="container" ng-controller="LoginCtrl">
+		<div ng-show="fail">
+				{{names}}
+		</div>
 		<h1>Login</h1>
-		<form method="POST" action="#">
+		<form method="POST" id="check" action="#">
 			<label>Usuari</label>
-			<input type="text" placeholder="Nom d'usuari"><br>
+			<input type="text" id="user" placeholder="Nom d'usuari"><br>
 			<label>Contrasenya</label>
-			<input type="password" placeholder="Contrasenya">
-		<button>Accedir</button><br>
+			<input type="password" id="pswd" placeholder="Contrasenya">
+			<input type="button" value="Accedir" class="btn btn-default"" ng-click="checking();"><br>
 		</form>
 		<a href="#">Has olvidat la teva contrasenya? Recuperala</a>
 	</div>
