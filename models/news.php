@@ -46,7 +46,7 @@ else if(isset($_GET['acc'] )&& $_GET['acc']=='showNew') {
 			$dataNew .= ",";
 		} 
 
-		$dataNew .= '{"titleSub":"'.$row['titleSub'].'", "url":"'.$row['url'].'", "title":"'.$row['title'].'","date":"'.$row['date'].'"}';
+		$dataNew .= '{"titleSub":"'.$row['titleSub'].'", "url":"'.$row['url'].'", "title":"'.$row['title'].'","date":"'.$row['date'].'","idNew":"'.$row['idNew'].'"}';
 		$i++;
 	}	
 	$dataNew .=']';
