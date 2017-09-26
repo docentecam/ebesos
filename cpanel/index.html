@@ -10,6 +10,7 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
 	<script data-require="ng-route@1.2.0" data-semver="1.2.0" src="http://code.angularjs.org/1.2.0-rc.3/angular-route.js"></script>
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
 		<script> var app = angular.module('myApp', []);</script>
 		<script>
 			app.controller ('LoginCtrl', function($scope, $http, $window) {
@@ -41,19 +42,25 @@
 </head>
 <body ng-app="myApp">
 
-	<div id="container" ng-controller="LoginCtrl">
-		<div ng-show="fail">
-				{{names}}
+	<div id="container" ng-controller="LoginCtrl" class="col-sm-12 col-md-6 col-lg-12">
+		<div class="row">
+			<h1>Login</h1>
+			<div ng-show="fail">
+				<div id="alertW"></div>
+				<div id="alert">
+					<i id="cross" class="fa fa-times" aria-hidden="true"></i>
+					<b>{{names}}</b>
+				</div>
+			</div>
+			<form method="POST" id="check" action="#">
+				<label>Usuari</label>
+				<input type="text" id="user" placeholder="Nom d'usuari"><br>
+				<label>Contrasenya</label>
+				<input type="password" id="pswd" placeholder="Contrasenya">
+				<input type="button" value="Accedir" class="btn btn-default"" ng-click="checking();"><br>
+			</form>
+			<a href="#">Has olvidat la teva contrasenya?</a>
 		</div>
-		<h1>Login</h1>
-		<form method="POST" id="check" action="#">
-			<label>Usuari</label>
-			<input type="text" id="user" placeholder="Nom d'usuari"><br>
-			<label>Contrasenya</label>
-			<input type="password" id="pswd" placeholder="Contrasenya">
-			<input type="button" value="Accedir" class="btn btn-default"" ng-click="checking();"><br>
-		</form>
-		<a href="#">Has olvidat la teva contrasenya? Recuperala</a>
 	</div>
 </body>
 </html>

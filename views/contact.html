@@ -1,38 +1,78 @@
 <div class="row">
 	<div class="col-sm-12 col-md-6 col-lg-4">
-		<form action="TODO">
-			<table>
-				<tr>
-					<td>
-						Correu:
-					</td>
-					<td>
-						<input type="text" name="correu" disabled="" ng-value="email">
-					</td>
-				</tr>
-				<tr>
-					<td>
-						Nom:
-					</td>
-					<td>
-						<input type="text" name="nom">
-					</td>
-				</tr>
-				<tr>
-					<td>
-						Missatge:
-					</td>
-					<td>
-						<textarea placeholder="Escrigui el seu missatge..."></textarea>
-					</td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>
-						<input type="button" name="enviar" value="Enviar">
-					</td>
-				</tr>
-			</table>
-		</form>
+		<div class="container">
+			<li style="margin-left: 5%; margin-top: 1%">
+				<a href="/#"> Inici </a><span> | </span><a href="#/news"> Contacte </a><span> | </span><span>Eix del Besòs</span>
+			</li>
+			<form class="form-horizontal" action="/action_page.php">
+		  		<table style="height: 450px; margin-bottom: 20%; margin-left: 10%; ">
+		  			<tbody style="border-left: solid 1px;border-color:#ced2de; ">
+			  			<div class="form-group" >
+			  				<tr>
+				  				<td>
+					    			<label style="padding-left: 15%" class="control-label col-sm-2" for="nom">Nom:</label>
+					    		</td>
+					    		<td>
+					    			<div class="col-sm-7">
+					    				<input type="text" class="form-control" id="nom" name="nom" placeholder="Introdueixi el seu nom">
+					    			</div>
+			  					</td>
+			  				</tr>
+			  			</div>
+			    		<div class="form-group">
+			    			<tr>
+				  				<td>
+					     			<label style="padding-left: 15%" class="control-label col-sm-2" for="email">Correu Electrònic:</label>
+					     		</td>
+					    		<td>
+					      			<div class="col-sm-7">
+					        			<input type="email" class="form-control" id="email" name="email" ng-value="email" disabled="">
+					      			</div>
+					      		</td>
+			  				</tr>
+			    		</div>
+			    		<div class="form-group">
+			    			<tr>
+				  				<td>
+					      			<label style="padding-left: 15%" class="control-label col-sm-2" for="message">Missatge:</label>
+					      		</td>
+					    		<td>
+					    			<div class="col-sm-7">        
+					      				<textarea class="form-control" placeholder="Escrigui el seu missatge..." id="message" name="message" rows="5"></textarea>  
+					      			</div>.
+					      		</td>
+			  				</tr>
+			    		</div>
+			    		<div class="form-group">
+			    			<tr>
+				  				<td>
+			      					<label style="padding-left: 15%" class="control-label col-sm-2" for="captcha">Captcha:</label>
+			      				</td>
+					    		<td>
+					      			<div class="col-sm-7">
+					      				<img style="width: 70%; margin-top: 2.5%; margin-bottom: 2.5%" src="img/captcha.jpg" alt="captcha" id="captcha" name="captcha">
+					     			</div>
+			     				</td>
+			  				</tr>
+			    		</div>
+			    		<div class="form-group">
+			    			<tr>
+				  				<td>
+			      					<label class="control-label col-sm-1" for="captchaIntro"></label>
+			      				</td>
+				    				<td>
+		      						<div class="col-sm-5">
+		        						<input type="text" class="form-control" id="captchaIntro" name="captchaIntro" placeholder="Introdueixi els números">
+		      						</div>
+			      					<div class="col-sm-1">
+			        					<input type="button" class="btn" value="Enviar" style="background: #ced2de; margin-top: 5%">
+			      					</div>
+			      				</td>
+			  				</tr>
+			    		</div>
+		    		</tbody>
+				</table>
+		  	</form>
+		</div>
 	</div>
 </div>

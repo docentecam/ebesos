@@ -15,15 +15,12 @@ angular.module('spaApp')
 
 angular.module('spaApp')
 	.controller('NewCtrl', function($scope, $http, $routeParams) {
-	$scope.idUser = $routeParams.idUser;
-	console.log("Llega: "+$scope.idUser);
-
 	$http({
 			method: "GET",
-			url: "models/news.php?acc=showNew&idUser=" + $scope.idUser
+			url: "models/news.php?acc=showNew&idNew=" + $routeParams.idNew
 		}).then(function mySucces (response) {
 				$scope.news = response.data;
-				console.log('Llega new'+$scope.news);
+				$scope.subNews=$scope.news[0]['media'];
 		},function myError (response) {
 				$scope.news = response.statusText;
 		});

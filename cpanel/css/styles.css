@@ -16,4 +16,25 @@
     padding-top: 12px;
     padding-bottom: 12px;
   }
+/* ---------Login---------- */
 }
+#alertW
+{
+  background-color: #ffb0b0;
+  width: 29%;
+  height: 10px;
+}
+#alert
+{
+  background-color: #ffb0b0;
+  width: 29%;
+  height: 33px;
+  text-align: center;
+  vertical-align: middle;
+
+}
+#cross
+{
+  color: #e51c23;
+}
+/* ------------------------ */
