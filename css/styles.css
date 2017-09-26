@@ -52,3 +52,15 @@
 #idmyCarousel{
 	background-color: white;
 }
+#img1{
+	height: 300px;
+}
+#img2{
+	height: 300px;
+}
+#img3{
+	height: 300px;
+}
+.carousel-inner > .item > img {
+    margin: 0 auto;
+}

@@ -5,6 +5,7 @@ app.config(['$routeProvider', function ($routeProvider) {
         templateUrl: 'views/comercialMap.html',
         controller: 'ComercialMapCtrl',
     })
+
 	.when('/news/:idUser',{
 	templateUrl:'views/news.html',
 	controller:'NewsCtrl',
