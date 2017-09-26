@@ -119,15 +119,24 @@
 				
 			</div>
 		</div>	
-		<div class="row" >
-			<footer class="footer text-center">Footer :(</div>
-				<table border="1" ng-controller="LinksCtrl">
+
+		<footer class="footer text-center"  class="row">
+			<div id="newsLetter" class="col-sm-8">Formulari del NewsLetter</div>
+			<div id="enll" ng-controller="LinksCtrl" class="col-sm-4 ">
+				<div class="row">
+					<div ng-repeat="link in links" class="col-sm-6">
+						<a href="{{link.url}}" target="_blank">{{link.description}}</a>
+					</div>
+				</div>
+					
+			</div>
+				<!-- <table border="1" ng-controller="LinksCtrl">
 					<tr ng-repeat="link in links">
 						<td><a href="{{link.url}}" target="_blank">{{link.description}}</a></td>
 					</tr>
-				</table>		
-			</footer>
-		</div>
+				</table> -->		
+		</footer>
+		
 	</body>	
 </html>
 <!-- ng-if
