@@ -27,4 +27,8 @@ require("../inc/functions.php");
 		}
 	 	echo $dataContact;
  	}
+
+ 	else if (isset($_GET["acc"]) && $_GET["acc"] == "enviarMail") {
+ 		// TODO mailing system internaut
+ 	}
 ?>
