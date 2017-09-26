@@ -99,9 +99,9 @@
 			        		<li class=navWords role="presentation"><a href="#/news/1">Notícies</a></li>
 			        		<li class=navWords role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Associacions <span class="caret"></span></a>
 			          			<ul class="dropdown-menu">
-			            			<li role="presentation"><a href="#/associations/2">Associació Xavier Nogués</a></li>
+			            			<li role="presentation"><a href="#/associations/2"><img class="img-fluid" style="height: 11%; width: 11%; margin-right: 5%;" src="img/logos-assoc/acXn.jpg">Associació Xavier Nogués</a></li>
 						            <li role="separator" class="divider"></li>
-						            <li role="presentation"><a href="#/associations/3">Associació 019</a></li>
+						            <li role="presentation"><a href="#/associations/3"><img class="img-fluid" style="height: 11%; width: 11%; margin-right: 5%;" src="img/logos-assoc/ac019.png">Associació 019</a></li>
 						            <li role="separator" class="divider"></li>
 						            <li role="presentation"><a href="#/associations/4">Associació Mercats del Besòs</a></li>
 			          			</ul>
@@ -118,8 +118,16 @@
 			<div class="col-sm-12" data-ng-view="">
 				
 			</div>
+		</div>
+		<div>
+			<div>
+				<img class="img-fluid" src="img/logos-assoc/ac019.png">
+			</div>
+			<div>
+				<img class="img-fluid" src="img/logos-assoc/acXn_Footer.jpg">
+			</div>
 		</div>	
-		<footer class="footer text-center"  class="row">
+	<!-- 	<footer class="footer text-center"  class="row">
 			<div id="newsLetter" class="col-sm-8  pull-left">
 				Formulari del NewsLetter
 			</div>
@@ -130,6 +138,29 @@
 					</div>
 				</div>	
 			</div>
-		</footer>
+		</footer> -->
+		<footer class="footer-bs">
+        <div class="row">
+            <div class="col-sm-7 col-sm-offset-1 footer-brand animated fadeInLeft pull-left">
+            	<h3>SUBSCRIU-TE A LA NOSTRA NEWSLETTER</h3>
+                <form>
+  					<div class="form-group">
+    					<label for="email">Direcció e-mail:</label>
+    					<input type="email" class="form-control" id="email">
+  					</div>  					
+  					<button type="submit" class="btn btn-default">Suscripció</button>
+				</form>
+            </div>
+        	<div class="col-sm-4  footer-nav animated fadeInUp pull-right">
+            	<h4>Links</h4>
+            	<div id="linksFooter" ng-controller="LinksCtrl" class="col-sm-12 pull-right">
+				<div class="row">
+					<div ng-repeat="link in links" class="col-sm-6">
+						<a href="{{link.url}}" target="_blank">{{link.description}}</a>
+					</div>
+				</div>	
+			</div>        	
+        </div>
+    	</footer>
 	</body>	
 </html>
