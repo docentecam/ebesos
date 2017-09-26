@@ -52,3 +52,12 @@
 #idmyCarousel{
 	background-color: white;
 }
+.carousel-inner > .item > img {
+    margin: 0 auto;
+}
+
+
+.navWords{
+	width: 25%;
+	text-align: center;
+}
