@@ -28,12 +28,10 @@ require("../inc/functions.php");
 			$dataNews .= '{"url":"'.$row['url'].'", "title":"'.$row['title'].'","date":"'.$row['date'].'","idNew":"'.$row['idNew'].'","titleSub":"'.$row['titleSub'].'"}';
 		
 			$i++;
-
 		}
 		$dataNews .=']';
 
-		 echo $dataNews;	
-		 
+		 echo $dataNews;	 
 	}	
 
 ?>
