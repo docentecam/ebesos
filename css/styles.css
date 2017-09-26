@@ -48,10 +48,7 @@
 
 
 /*--------------------------------------------------------Javi--------------------------------------------------------------------*/
-
-#idmyCarousel{
-	background-color: white;
-}
+/*
 .carousel-inner > .item > img {
     margin: 0 auto;
 }
@@ -60,4 +57,13 @@
 .navWords{
 	width: 25%;
 	text-align: center;
+}*/
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+
+.navbar .navbar-collapse {
+  text-align: center;
 }
