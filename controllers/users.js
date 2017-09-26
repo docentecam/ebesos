@@ -18,15 +18,64 @@ angular.module('spaApp')
 	.controller('ContactCtrlUser', function($scope, $http ,$routeParams) {
 	$scope.idUser = $routeParams.idUser;
 
+	var a = Math.ceil(Math.random() * 9)+ '';
+		var b = Math.ceil(Math.random() * 9)+ '';
+		var c = Math.ceil(Math.random() * 9)+ '';
+		var d = Math.ceil(Math.random() * 9)+ '';
+		var e = Math.ceil(Math.random() * 9)+ '';
+		var code = a + b + c + d + e;
+		document.getElementById("txtCaptcha").value = code;
+		document.getElementById("captchaDiv").innerHTML = code;
+
+
 	$http({
 			method : "GET",
 			url : "models/users.php?acc=mail&idUser="+ $scope.idUser
 		}).then(function mySucces (response) {
 				$scope.email = response.data;
- 				console.log('Llega email'+$scope.email);
+ 				console.log('Llega email '+$scope.email);
 		}, function myError (response) {
 				$scope.email = response.statusText;
 	});
+		$scope.checkform = function()
+		{
+			var error = "";
+			if(myForm['captchaInput'].value == ""){
+				error += "- Introdueix el CAPTCHA.";
+			}
+			else{
+				if($scope.validCaptcha(myForm['captchaInput'].value) == false){
+					error += " El CAPTCHA és incorrecte.";
+				}
+			}
+			if(error != ""){
+				alert(error);
+				return false;
+			}
+			else if (error == "") {
+				alert('SUCCESS');
+				myForm.submit();
+
+			}
+		
+		
+		}
+	$scope.validCaptcha = function()
+	{
+		console.log('llega valida');
+		var str1 = $scope.removeSpaces(myForm['txtCaptcha'].value);
+		var str2 = $scope.removeSpaces(myForm['captchaInput'].value);
+		if (str1 == str2){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	$scope.removeSpaces = function(stringCaptcha){
+		return stringCaptcha.split(' ').join('');
+	}
+
 });
 
 angular.module('spaApp')
@@ -68,46 +117,6 @@ angular.module('spaApp')
 			$scope.email = response.statusText;
 		});
 	};
-
-	// Captcha Script
-		function checkform(theform){
-			var error = "";
-			if(theform.captchaInput.value == ""){
-			error += "- Introdueix el CAPTCHA.";
-			}
-			if(theform.captchaInput.value != ""){
-				if(ValidCaptcha(theform.captchaInput.value) == false){
-				error += " El CAPTCHA és incorrecte.";
-				}
-			}
-			if(error != ""){
-				alert(error);
-				return false;
-			}
-		}
-		var a = Math.ceil(Math.random() * 9)+ '';
-		var b = Math.ceil(Math.random() * 9)+ '';
-		var c = Math.ceil(Math.random() * 9)+ '';
-		var d = Math.ceil(Math.random() * 9)+ '';
-		var e = Math.ceil(Math.random() * 9)+ '';
-		var code = a + b + c + d + e;
-		document.getElementById("txtCaptcha").value = code;
-		document.getElementById("captchaDiv").innerHTML = code;
-
-		function ValidCaptcha(){
-			var str1 = removeSpaces(document.getElementById('txtCaptcha').value);
-			var str2 = removeSpaces(document.getElementById('captchaInput').value);
-			if (str1 == str2){
-				return true;
-			}
-			else{
-				return false;
-			}
-		}
-		function removeSpaces(string){
-		return string.split(' ').join('');
-		}
-
 	$scope.listShops = function(idUser){		
 		$http({
 			method : "GET",

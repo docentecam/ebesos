@@ -11,9 +11,9 @@
 	<div class="col-sm-12 col-md-6 col-lg-4">
 		<div class="container">
 			<li style="margin-left: 5%; margin-top: 1%">
-				<a href="/#"> Inici </a><span> | </span><a href="#/news"> Contacte </a><span> | </span><span>Eix del Besòs</span>
+				<a href="/#"> Inici </a><span> | </span><a href="#/contact/1"> Contacte </a><span> | </span><span>Eix del Besòs</span>
 			</li>
-			<form method="GET" action="#" onsubmit="return checkform(this);" class="form-horizontal" action="models/users.php?acc=enviarMail">
+			<form method="post" name="myForm" id="myForm" class="form-horizontal">
 		  		<table style="height: 450px; margin-bottom: 20%; margin-left: 10%; ">
 		  			<tbody style="border-left: solid 1px;border-color:#ced2de; ">
 			  			<div class="form-group" >
@@ -70,10 +70,10 @@
 				    			<td>
 		      						<div class="col-sm-10">
 		      							<input type="hidden" id="txtCaptcha">
-		        						<input type="text" class="form-control" name="captchaInput" id="captchaInput" placeholder="Introdueixi els números">
+		        						<input type="text" class="form-control" name="captchaInput" id="captchaInput" placeholder="Introdueixi els números" >
 		      						</div>
 			      					<div class="col-sm-1">
-			        					<input type="button" class="btn" value="Enviar" style="background: #ced2de; margin-top: 5%">
+			        					<input type="button" class="btn" value="Enviar" style="background: #ced2de; margin-top: 5%" ng-click="checkform();">
 			      					</div>
 			      				</td>
 			  				</tr>
@@ -86,41 +86,47 @@
 	</div>
 </div>
 <script>
-	function checkform(theform){
-			var error = "";
-			if(theform.captchaInput.value == ""){
-			error += "- Introdueix el CAPTCHA.";
-			}
-			if(theform.captchaInput.value != ""){
-				if(ValidCaptcha(theform.captchaInput.value) == false){
-				error += " El CAPTCHA és incorrecte.";
-				}
-			}
-			if(error != ""){
-				alert(error);
-				return false;
-			}
-		}
-		var a = Math.ceil(Math.random() * 9)+ '';
-		var b = Math.ceil(Math.random() * 9)+ '';
-		var c = Math.ceil(Math.random() * 9)+ '';
-		var d = Math.ceil(Math.random() * 9)+ '';
-		var e = Math.ceil(Math.random() * 9)+ '';
-		var code = a + b + c + d + e;
-		document.getElementById("txtCaptcha").value = code;
-		document.getElementById("captchaDiv").innerHTML = code;
+	// function checkform(){
+	// 	var form = document.getElementById("myForm");
+	// 	var error = "";
+	// 	if(form.captchaInput.value == ""){
+	// 		error += "- Introdueix el CAPTCHA.";
+	// 	}
+	// 	if(form.captchaInput.value != ""){
+	// 		if(validCaptcha(form.captchaInput.value) == false){
+	// 			error += " El CAPTCHA és incorrecte.";
+	// 		}
+	// 	}
+	// 	if(error != ""){
+	// 		alert(error);
+	// 		return false;
+	// 	}
+	// 	else if (error == "") {
+	// 		alert('SUCCESS');
+	// 		form.submit();
 
-		function ValidCaptcha(){
-			var str1 = removeSpaces(document.getElementById('txtCaptcha').value);
-			var str2 = removeSpaces(document.getElementById('captchaInput').value);
-			if (str1 == str2){
-				return true;
-			}
-			else{
-				return false;
-			}
-		}
-		function removeSpaces(string){
-		return string.split(' ').join('');
-		}
+	// 	}
+	// }
+	// var a = Math.ceil(Math.random() * 9)+ '';
+	// var b = Math.ceil(Math.random() * 9)+ '';
+	// var c = Math.ceil(Math.random() * 9)+ '';
+	// var d = Math.ceil(Math.random() * 9)+ '';
+	// var e = Math.ceil(Math.random() * 9)+ '';
+	// var code = a + b + c + d + e;
+	// document.getElementById("txtCaptcha").value = code;
+	// document.getElementById("captchaDiv").innerHTML = code;
+
+	// function validCaptcha(){
+	// 	var str1 = removeSpaces(document.getElementById('txtCaptcha').value);
+	// 	var str2 = removeSpaces(document.getElementById('captchaInput').value);
+	// 	if (str1 == str2){
+	// 		return true;
+	// 	}
+	// 	else{
+	// 		return false;
+	// 	}
+	// }
+	// function removeSpaces(string){
+	// 	return string.split(' ').join('');
+	// }
 </script>
