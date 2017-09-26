@@ -55,12 +55,9 @@
 .carousel-inner > .item > img {
     margin: 0 auto;
 }
-#navGlobal{
-	width: 100%;
-}
 
-}
+
 .navWords{
-	width: 50%;
+	width: 25%;
 	text-align: center;
 }
