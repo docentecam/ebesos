@@ -42,7 +42,7 @@ echo $random;
 	}
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'forgot'){
 		$mySql = "SELECT idUser FROM users 
-					WHERE email='".$_GET['email'];
+					WHERE email='".$_GET['email']."'";
 		$connexio = connect();
 		$resultCheck = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
@@ -71,7 +71,8 @@ echo $random;
 			}
 			
 	 		$mySql = "UPDATE users 
-					SET forgotToken =".$random;
+					SET forgotToken ='".$random.
+					" WHERE idUser=".$checkEmail;
 			$connexio = connect();
 			$updateForgotToken = mysqli_query($connexio, $mySql);
 			disconnect($connexio);
