@@ -1,0 +1,32 @@
+ <div class="row">
+
+ <div ng-controller="NewsCtrl">
+
+	Trobar la Noticia: <input ng-model="search">
+		<table border="1">
+			<thead>
+				<tr>
+					<th>Data</th>
+					<th>Imatge</th>
+					<th>Titul</th>
+					<th>Contingut</th>
+					<th>Accions</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="new in news | filter : search">
+					<td>{{new.data}}</td>
+					<td>{{new.title}}</td>
+					<td>{{new.url}}</td>
+					<td>{{new.titleSub}}</td>
+					
+					<td>
+						<a> borrar</a>
+						<a> editar</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+</div>
+</div>
