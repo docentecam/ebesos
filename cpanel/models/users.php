@@ -1,5 +1,12 @@
 <?php 
 require("../inc/functions.php");
+$random = rand(0,9);
+for($i=1;$i<149;$i++)
+{
+	$random.= rand(0,9);
+}
+echo $random;
+
 
 	if(isset($_GET['acc']) && $_GET['acc'] == 'login'){
 		$mySql = "SELECT idUser FROM users 
@@ -33,7 +40,7 @@ require("../inc/functions.php");
 	 	echo $mensaje;
 
 	}
-	else if (){
+	else if (isset($_GET['acc']) && $_GET['acc'] == 'forgot'){
 		$mySql = "SELECT idUser FROM users 
 					WHERE email='".$_GET['email'];
 		$connexio = connect();
@@ -57,11 +64,16 @@ require("../inc/functions.php");
 	 	}
 	 	else
 	 	{
+	 		$random = rand(0,9);
+			for($i=1;$i<149;$i++)
+			{
+				$random.= rand(0,9);
+			}
+			
 	 		$mySql = "UPDATE users 
-					SET pendentValidacio = 'true', validat = '$validat'
-					WHERE idOpinio = $idOpinio";
+					SET forgotToken =".$random;
 			$connexio = connect();
-			$resultCheck = mysqli_query($connexio, $mySql);
+			$updateForgotToken = mysqli_query($connexio, $mySql);
 			disconnect($connexio);
 	 		$mensaje = "Correcto";
 	 	}
