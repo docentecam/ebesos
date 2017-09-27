@@ -61,7 +61,7 @@
   			<!-- Wrapper for slides -->
   				<div class="carousel-inner">
     				<div class="item" ng-repeat="sliderImg in slider" ng-class="{active : $index == 0}">
-      					<img src="img/slider/{{sliderImg.image}}" target="_blank" alt="{{sliderImg.description}}">
+      					<img src="img/slider/{{sliderImg.image}}" target="_blank" alt="{{sliderImg.description}}" href="{{">
     				</div>
   				</div> 
 
@@ -96,9 +96,9 @@
 			        		<li class=navWords role="presentation"><a href="#/news/1">Notícies</a></li>
 			        		<li class=navWords role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Associacions <span class="caret"></span></a>
 			          			<ul class="dropdown-menu">
-			            			<li role="presentation"><a href="#/associations/2"><img class="img-fluid" style="height: 11%; width: 11%; margin-right: 5%;" src="img/logos-assoc/acXn.png">Associació Xavier Nogués</a></li>
+			            			<li role="presentation" style="margin-bottom: -2%;"><a href="#/associations/2"><img class="img-fluid" style="height: 11%; width: 24%; margin-left: -6%;" src="img/logos-assoc/acXn.png">Associació Xavier Nogués</a></li>
 						            <li role="separator" class="divider"></li>
-						            <li role="presentation"><a href="#/associations/3"><img class="img-fluid" style="height: 11%; width: 11%; margin-right: 5%;" src="img/logos-assoc/ac019.png">Associació 019</a></li>
+						            <li role="presentation"><a href="#/associations/3"><img class="img-fluid" style="height: 11%; width: 18%; margin-right: 3%; margin-left: -3%" src="img/logos-assoc/ac019.png">Associació 019</a></li>
 						            <li role="separator" class="divider"></li>
 						            <li role="presentation"><a href="#/associations/4">Associació Mercats del Besòs</a></li>
 			          			</ul>
@@ -136,13 +136,16 @@
 				</div>	
 			</div>
 		</footer> -->
-		<div ng-controller="loadingSymbol">
+
+
+
+	<!-- 	<div ng-controller="loadingSymbol">
 			<div>
 				<i class="fa fa-spinner" aria-hidden="true"></i>
 			</div>
 			
 		</div>
-
+ -->
 
 
 
@@ -155,7 +158,7 @@
     					<label for="email">Direcció e-mail:</label>
     					<input type="email" class="form-control" id="email">
   					</div>  					
-  					<button type="submit" class="btn btn-default">Suscripció</button>
+  					<button type="submit" class="btn btn-default">Suscriure's</button>
 				</form>
             </div>
         	<div class="col-sm-4  footer-nav animated fadeInUp pull-right">
