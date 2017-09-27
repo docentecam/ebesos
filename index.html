@@ -33,29 +33,10 @@
 					<td role="presentation"><a href="#/users/1">Qui Som?</a></td>
 					<td role="presentation"><a href="#/contact/1">Contacte</a></td>
 					<td role="presentation"><a href="#/new/1">New</a></td> <!-- TODO BORRAR ESTA LINEA CUANDO SE ACABE EL new.html -->
-
 				</tr>
 			</div>
 		</div>	
 		<div class="row">
-
-			<!-- <div id="myCarousel" class="carousel slide" data-ride="carousel">
-  			
-  				<ol class="carousel-indicators">
-    				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    				<li data-target="#myCarousel" data-slide-to="1"></li>
-   				</ol>
-  				
-  				<div class="carousel-inner">
-    				<div class="item active">
-      					<img id="img1" src="img/slider/Slider_Alfabetizacio tic_Corregida.jpg" alt="Alfabetització">
-    				</div>
-    				<div class="item">
-      					<img id="img2" src="img/slider/Slider_Tastatapes_Corregida.jpg" alt="TastaTapes">
-    				</div>
-  			</div> -->
-
-
 			<div id="myCarousel" class="carousel slide" data-ride="carousel" ng-controller="SliderCtrl">
   			<!-- Indicators -->
   				<ol class="carousel-indicators">
@@ -64,23 +45,11 @@
   			<!-- Wrapper for slides -->
   				<div class="carousel-inner">
     				<div class="item" ng-repeat="sliderImg in slider" ng-class="{active : $index == 0}">
-      					<img src="img/slider/{{sliderImg.image}}" target="_blank" alt="{{sliderImg.description}}" href="{{">
+      					<img src="img/slider/{{sliderImg.image}}" target="_blank" alt="{{sliderImg.description}}" href="{{sliderImg.link}}">
     				</div>
-  				</div> 
-
-
-
-  			<!-- Left and right controls -->
-  			<!-- <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-    			<span class="glyphicon glyphicon-chevron-left"></span>
-    			<span class="sr-only">Previous</span>
-  			</a>
-  			<a class="right carousel-control" href="#myCarousel" data-slide="next">
-    			<span class="glyphicon glyphicon-chevron-right"></span>
-    			<span class="sr-only">Next</span>
-  			</a> -->
-		</div>			
-		<div>
+  				</div>
+			</div>			
+			<div>
 			<nav class="navbar navbar-default">
 		  		<div class="container-fluid">
 		    	<!-- Brand and toggle get grouped for better mobile display -->
@@ -96,27 +65,25 @@
 			    	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			    		<ul class="nav navbar-nav" id="navGlobal">
 			        		<li class=navWords role="presentation"><a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Mapa Comercial <span class="sr-only">(current)</span></a></li>
-			        		<li class=navWords role="presentation"><a href="#/news/1">Notícies</a></li>
 			        		<li class=navWords role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Associacions <span class="caret"></span></a>
 			          			<ul class="dropdown-menu">
-			            			<li role="presentation" style="margin-bottom: -2%;"><a href="#/associations/2"><img class="img-fluid" style="height: 11%; width: 24%; margin-left: -6%;" src="img/logos-assoc/acXn.png">Associació Xavier Nogués</a></li>
+			            			<li role="presentation"><a href="#/associations/2"><img class="img-fluid" src="img/logos-assoc/acXn_nav.png">Associació Xavier Nogués</a></li>
 						            <li role="separator" class="divider"></li>
-						            <li role="presentation"><a href="#/associations/3"><img class="img-fluid" style="height: 11%; width: 18%; margin-right: 3%; margin-left: -3%" src="img/logos-assoc/ac019.png">Associació 019</a></li>
+						            <li role="presentation"><a href="#/associations/3"><img class="img-fluid" src="img/logos-assoc/ac019.png">Associació 019</a></li>
 						            <li role="separator" class="divider"></li>
-						            <li role="presentation"><a href="#/associations/4">Associació Mercats del Besòs</a></li>
+						            <li role="presentation"><a href="#/associations/4"><img class="img-fluid" src="img/logos-assoc/acMercats.png">Associació Mercats del Besòs</a></li>
 			          			</ul>
 			        		</li>
 			        		<li class=navWords role="presentation"><a href="#/promotions">Promocions</a></li>
 			        		<li class=navWords role="presentation"><a href="#/formation">Formació</a></li>	
+			        		<li class=navWords role="presentation"><a href="#/news/1">Notícies</a></li>		        		
 			      		</ul>    
 					</div><!--/.navbar-collapse -->
 		   		</div><!--/.container-fluid -->
-			</nav>
-			
+			</nav>			
 		</div>
-		<div class="row">  
-			<div class="col-sm-12" data-ng-view="">
-				
+		<div class="row" ng-show="false" id="loading">
+				<i class="fa fa-spinner" aria-hidden="true"></i>				
 			</div>
 		</div>
 		<div>
@@ -124,33 +91,9 @@
 				<img class="img-fluid" src="img/logos-assoc/ac019.png">
 			</div>
 			<div>
-				<img class="img-fluid" src="img/logos-assoc/acXn_Footer.jpg">
+				<img class="img-fluid" src="img/logos-assoc/acXn.png">
 			</div>
-		</div>	
-	<!-- 	<footer class="footer text-center"  class="row">
-			<div id="newsLetter" class="col-sm-8  pull-left">
-				Formulari del NewsLetter
-			</div>
-			<div id="enll" ng-controller="LinksCtrl" class="col-sm-4 pull-right">
-				<div class="row">
-					<div ng-repeat="link in links" class="col-sm-6">
-						<a href="{{link.url}}" target="_blank">{{link.description}}</a>
-					</div>
-				</div>	
-			</div>
-		</footer> -->
-
-
-
-	<!-- 	<div ng-controller="loadingSymbol">
-			<div>
-				<i class="fa fa-spinner" aria-hidden="true"></i>
-			</div>
-			
 		</div>
- -->
-
-
 
 		<footer class="footer-bs">
         <div class="row">
@@ -169,7 +112,7 @@
             	<div id="linksFooter" ng-controller="LinksCtrl" class="col-sm-12 pull-right">
 				<div class="row">
 					<div ng-repeat="link in links" class="col-sm-6">
-						<a href="{{link.url}}" target="_blank">{{link.description}}</a>
+						<a style="color: white;" href="{{link.url}}" target="_blank">{{link.description}}</a>
 					</div>
 				</div>	
 			</div>        	
