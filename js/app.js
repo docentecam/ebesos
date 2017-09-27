@@ -35,6 +35,10 @@ app.config(['$routeProvider', function ($routeProvider) {
 		templateUrl:'views/aboutUs.html',
 		controller:'AboutUsCtrl',
 	})
+	.when('/shop/:idShop',{
+		templateUrl:'views/shop.html',
+		controller:'ShopCtrl',
+	})
 	
 
     // .otherwise({

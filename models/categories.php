@@ -8,8 +8,6 @@
 			$resultCategories = mysqli_query($connexio, $mySql);
 			disconnect($connexio);
 
-			
-
 			$i=0;
 			$dataCategories ="[";
 			while ($row=mySqli_fetch_array($resultCategories))
@@ -30,7 +28,7 @@
 				$numSubCat = mysqli_num_rows($resultSubCategories);
 				$count = 1;
 
-				while($row=mySqli_fetch_array($resultSubCategories))
+				while($row=mysqli_fetch_array($resultSubCategories))
 				{
 
 					if($j != 0) $dataCategories .= ",";
