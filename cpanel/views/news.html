@@ -1,7 +1,5 @@
  <div class="row">
 
-
-
 	Trobar la Noticia: <input ng-model="search">
 	<br>
 	<a> Nova Noticia </a>
@@ -24,8 +22,8 @@
 					<td>{{new.titleSub}}</td>
 					
 					<td>
-						<a> borrar</a>
-						<a> editar</a>
+						<a > borrar</a>
+						<a ng-click= "selNew(idNew)"> editar</a>
 					</td>
 				</tr>
 			</tbody>
@@ -33,40 +31,43 @@
 </div>
 
 
-<div class="row">
-	<div >
+<div  class="row">
+
+	<div id="formNews" ng-show="showDiv" ng-repeat="newSelected in newSel">
 		
-		<form action="" id="validation" name="validation" method="POST" >
+		<form action="#" id="validation" name="validation" method="POST" >
 			
 			<div class="form-group row">
 				<label for="dateForm" class="col-sm-6 col-form-label"> Data </label>
 				<div class="col-sm-6">
-					<input type="date" class="form-control" id="dateForm" name="date" ng-value="new.data">
+					<input type="date" class="form-control" id="dateForm" name="date" ng-value="newSelected.data">
 				</div>
 			</div>
 
 			<div class="form-group row">
 				<label for="titleForm" class="col-sm-6 col-form-label"> Titul </label>
 				<div class="col-sm-6">
-					<input type="text" class="form-control" id="titleForm" name="title" ng-value="new.title">
+					<input type="text" class="form-control" id="titleForm" name="title" ng-value="newSelected.title">
 				</div>
 			</div>
 
 			<div class="form-group row">
 				<label for="titleSubForm" class="col-sm-6 col-form-label"> Titul </label>
 				<div class="col-sm-6">
-					<input type="text" class="form-control" id="titleSubForm" name="titleSub" ng-value="new.titleSub">
+					<input type="text" class="form-control" id="titleSubForm" name="titleSub" ng-value="newSelected.titleSub">
 				</div>
 			</div>
 
 			<div class="form-group row">
 				<label for="urlForm" class="col-sm-6 col-form-label"> Imatge </label>
 				<div class="col-sm-6">
-					<input type="text" class="form-control" id="urlForm" name="title" ng-value="new.url">
+					<input type="file" class="form-control" id="urlForm" name="title" ng-value="newSelected.url">
 				</div>
 			</div>
-
+			
+				<div class="form-group">
+				<input type="button" value="Send" alt="enviar dades del formulari" class="btn btn-default"" ng-click="">
+			</div>
 		</form>
 	</div>
-
 </div>
