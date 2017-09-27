@@ -1,10 +1,12 @@
 angular.module('spaApp')
 .controller('ShopCtrl', function($scope, $http, $routeParams) {
+  $scope.loading = true;
 	$http({
 		method : "GET",
 		url : "models/shops.php?acc=shop&idShop="+$routeParams.idShop
 	}).then(function mySucces(response) {
 		$scope.shops = response.data;
+    $scope.loading = false;
 	}, function myError(response) {
 		$scope.shops = response.statusText;
 	});
@@ -14,6 +16,7 @@ angular.module('spaApp')
     url : "models/xmlCreation.php?acc=shop&idShop="+$routeParams.idShop
   }).then(function mySucces (response) {
     $scope.categories=response.data;
+    $scope.loading = false;
     console.log(response.data);
   }, function myError (response) {
     $scope.categories = response.statusText;
