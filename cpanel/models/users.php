@@ -18,24 +18,24 @@ require("../inc/functions.php");
 
 	 	if($checkLogin == "0")
 	 	{
-	 		$mensaje = "L'usuari o la contrasenya no són correctes";
+	 		$message = "L'usuari o la contrasenya no són correctes";
 	 	}
 	 	else if($connexio == "Error al conectar")
 	 	{
-	 		$mensaje = "Error al conectar";
+	 		$message = "Error al conectar";
 	 	}
 	 	else
 	 	{
-	 		$mensaje = "Correcto";
-	 		$_SESSION['user'] = $checkLogin;
+	 		$message = "Correcto";
+	 		//$_SESSION['user'] = $checkLogin;
 	 	}
 
-	 	echo $mensaje;
+	 	echo $message;
 
 	}
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'forgot'){
 		$mySql = "SELECT idUser FROM users 
-					WHERE email='".$_GET['email']."'";
+					WHERE email='".$_GET['mail']."'";
 		$connexio = connect();
 		$resultCheck = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
@@ -49,11 +49,11 @@ require("../inc/functions.php");
 
 	 	if($checkEmail == "0")
 	 	{
-	 		$mensaje = "L'usuari no existeix";
+	 		$message = "L'usuari no existeix";
 	 	}
 	 	else if($connexio == "Error al conectar")
 	 	{
-	 		$mensaje = "Error al conectar";
+	 		$message = "Error al conectar";
 	 	}
 	 	else
 	 	{
@@ -65,14 +65,14 @@ require("../inc/functions.php");
 			
 	 		$mySql = "UPDATE users 
 					SET forgotToken ='".$random.
-					" WHERE idUser=".$checkEmail;
+					"' WHERE idUser=".$checkEmail;
 			$connexio = connect();
 			$updateForgotToken = mysqli_query($connexio, $mySql);
 			disconnect($connexio);
-	 		$mensaje = "Correcto";
+	 		$message = "Correcto";
 	 	}
 
-	 	echo $mensaje;
+	 	echo $message;
 
 
 	}

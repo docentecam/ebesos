@@ -66,12 +66,13 @@
 
   					if ($scope.captcha == $scope.checkCaptcha)
   					{
-  						alert('llega');
+  						
   						$http({
 						method : "POST",
-						url : "models/users.php?acc=forgot&email="+$scope.mail+"&captcha="+$scope.captcha
+						url : "models/users.php?acc=forgot&mail="+$scope.mail+"&captcha="+$scope.captcha
 						}).then(function mySucces (response) {
 							$scope.names = response.data;
+							alert($scope.names);
 							/*if($scope.names == "Correcto") 
 							{
 								$window.location.href = "main.html";
@@ -152,7 +153,7 @@
 			    		<div class="form-group">
 			    			<tr>
 				  				<td>
-			      					<label style="padding-left: 15%" class="control-label col-sm-2" for="captcha">Captcha:</label>
+			      					<!-- <label style="padding-left: 15%" class="control-label col-sm-2" for="captcha">Captcha:</label> -->
 			      				</td>
 					    		<td>
 				      				<div class="col-sm-6 col-push-sm-3" id="captchaDiv"></div>
