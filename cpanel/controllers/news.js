@@ -15,18 +15,21 @@ angular.module('spaApp')
 		
 
 		$scope.selNew = function(idNew)
-		{
+		{  
+
+			console.log("llega");
 			$scope.showDiv=true;
 			$http({
-
-				method : "POST",
+				
+				method : "GET",
 				url : "models/news.php?acc=newSel"+$scope.idNew
 			}).then(function mySucces (response) {
-				$scope.newSel = response.data;
-				console.log($scope.newSel);
-				
+				$scope.newSelect = response.data;
+				console.log($scope.newSelect);
+				console.log("llega2");
 			}, function myError (response) {
-				$scope.newSel = response.statusText;
+				$scope.newSelect = response.statusText;
+				console.log("llega3");
 			});
 		
 		}
