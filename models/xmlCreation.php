@@ -23,6 +23,12 @@
 
   $mySql = "SELECT s.idShop, s.name, s.lat, s.lng, s.telephone, s.email, s.schedule, s.address, s.logo, cs.name AS NameSubCategoria, c.name AS NameCategoria, u.name AS NameAssociacio FROM shops s, shopcategoriessub scs, categoriessub cs, categories c, users u WHERE s.idUser = u.idUser AND s.idShop = scs.idShop AND scs.idSubCategory = cs.idSubCategory AND cs.idCategory = c.idCategory AND scs.preferred = 'Y'";
 
+  if (isset($_GET["acc"])&& ($_GET["acc"] == "shop"))
+  {
+    $idShop=$_GET['idShop'];
+    $mySql .= "AND s.idShop=".$idShop;
+  }
+
   $connexio = connect();
 
   $result = mysqli_query($connexio, $mySql);

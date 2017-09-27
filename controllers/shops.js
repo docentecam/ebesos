@@ -8,6 +8,16 @@ angular.module('spaApp')
 	}, function myError(response) {
 		$scope.shops = response.statusText;
 	});
+
+  $http({
+    method : "GET",
+    url : "models/xmlCreation.php?acc=shop&idShop="+$routeParams.idShop
+  }).then(function mySucces (response) {
+    $scope.categories=response.data;
+    console.log(response.data);
+  }, function myError (response) {
+    $scope.categories = response.statusText;
+  });
 });
 
 angular.module('spaApp')                               
@@ -112,7 +122,7 @@ angular.module('spaApp')
           infowincontent.appendChild(document.createElement('br'));
 
           var link = document.createElement('a');
-          link.setAttribute('href', "#/shops/"+idShop+"");
+           link.setAttribute('href', "#/shop/"+idShop+"");
 
           link.textContent = "Ver mas"
 
