@@ -7,12 +7,12 @@
 	color: #A20B15;
 	margin-left: 12%;
 }
-
-/*ian :^)*/
+/*COMERCIAL MAP*/
 #map {
 	height: 500px;
 	width: 500px;
 }
+/*FIN COMERCIAL MAP*/
 
 /* Optional: Makes the sample page fill the window. */
 
@@ -63,6 +63,7 @@ padding: 0;
     color:#faff00;
 }
 /*FIN BLOQUE COOKIES*/
+
 /*
 #photo{
 	border-radius: 15px 50px;
