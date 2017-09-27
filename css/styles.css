@@ -95,6 +95,16 @@ padding: 0;
 	width: 25%;
 	text-align: center;
 }*/
+
+
+.icoFooter019
+{
+	width: 80%;
+	height: 80%;
+	margin-left: 73%;
+	margin-bottom: 0.1%;
+}
+
 .navbar .navbar-nav {
   display: inline-block;
   float: none;
@@ -106,7 +116,7 @@ padding: 0;
 }
 .footer-bs {
     background-color: #3c3d41;
-	padding: 60px 40px;
+	padding: 20px 30px;
 	color: rgba(255,255,255,1.00);
 	margin-bottom: 20px;
 	border-bottom-right-radius: 6px;
