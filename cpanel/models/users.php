@@ -1,12 +1,5 @@
 <?php 
 require("../inc/functions.php");
-$random = rand(0,9);
-for($i=1;$i<149;$i++)
-{
-	$random.= rand(0,9);
-}
-echo $random;
-
 
 	if(isset($_GET['acc']) && $_GET['acc'] == 'login'){
 		$mySql = "SELECT idUser FROM users 
@@ -83,4 +76,5 @@ echo $random;
 
 
 	}
+	
 ?>	

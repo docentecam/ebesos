@@ -11,6 +11,15 @@
 	<script data-require="ng-route@1.2.0" data-semver="1.2.0" src="http://code.angularjs.org/1.2.0-rc.3/angular-route.js"></script>
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="css/styles.css">
+		<style>
+	#captchaDiv{
+		background-image: url("../img/captcha.jpg");
+		color: gray;
+		font-size: 26px;	
+		margin-left: 6%;
+		text-align: center;
+	}
+</style>
 		<script> var app = angular.module('myApp', []);</script>
 		<script>
 			app.controller ('LoginCtrl', function($scope, $http, $window) {
@@ -41,8 +50,46 @@
 				$scope.showForgot = function(){
   					$scope.login = false;
   					$scope.forgot = true;
+  					var a = Math.ceil(Math.random() * 9)+ '';
+					var b = Math.ceil(Math.random() * 9)+ '';
+					var c = Math.ceil(Math.random() * 9)+ '';
+					var d = Math.ceil(Math.random() * 9)+ '';
+					var e = Math.ceil(Math.random() * 9)+ '';
+					var code = a + b + c + d + e;
+					document.getElementById("txtCaptcha").value = code;
+					document.getElementById("captchaDiv").innerHTML = code;
 				};
 				$scope.checkForgot = function(){
+					$scope.mail = forgot['mail'].value;
+  					$scope.captcha = forgot['captchaIntro'].value;
+  					$scope.checkCaptcha = forgot['txtCaptcha'].value
+
+  					if ($scope.captcha == $scope.checkCaptcha)
+  					{
+  						alert('llega');
+  						$http({
+						method : "POST",
+						url : "models/users.php?acc=forgot&email="+$scope.mail+"&captcha="+$scope.captcha
+						}).then(function mySucces (response) {
+							$scope.names = response.data;
+							/*if($scope.names == "Correcto") 
+							{
+								$window.location.href = "main.html";
+							}
+							else
+							{
+								$scope.fail = true;
+							}*/
+						}, function myError (response) {
+						$scope.names = response.statusText;
+						});
+  					}
+  					else
+  					{
+  						alert('Captcha incorrecte');
+  					}
+
+  					
 					
 				}
 			});
@@ -87,7 +134,7 @@
 				<input type="text" id="captcha" placeholder="">
 				<input type="button" value="Enviar" class="btn btn-default"" ng-click="();"><br> 
 			</form>-->
-			<form class="form-horizontal" action="#">
+			<form class="form-horizontal" id="forgot" action="#">
 		  		<table style="height: 450px; margin-bottom: 20%; margin-left: 10%; ">
 		  			<tbody style="border-left: solid 1px;border-color:#ced2de; ">
 			    		<div class="form-group">
@@ -97,7 +144,7 @@
 					     		</td>
 					    		<td>
 					      			<div class="col-sm-7">
-					        			<input type="email" class="form-control" id="email" name="email">
+					        			<input type="email" class="form-control" id="mail" name="email">
 					      			</div>
 					      		</td>
 			  				</tr>
@@ -108,10 +155,8 @@
 			      					<label style="padding-left: 15%" class="control-label col-sm-2" for="captcha">Captcha:</label>
 			      				</td>
 					    		<td>
-					      			<div class="col-sm-7">
-					      				<img style="width: 70%; margin-top: 2.5%; margin-bottom: 2.5%" src="../img/captcha.jpg" alt="captcha" id="captcha" name="captcha">
-					     			</div>
-			     				</td>
+				      				<div class="col-sm-6 col-push-sm-3" id="captchaDiv"></div>
+		     				</td>
 			  				</tr>
 			    		</div>
 			    		<div class="form-group">
@@ -131,7 +176,9 @@
 			    		</div>
 		    		</tbody>
 				</table>
+				<input type="hidden" id="txtCaptcha">
 		  	</form>
+
 		</div>
 	</div>
 </body>
