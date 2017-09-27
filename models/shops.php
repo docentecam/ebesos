@@ -36,7 +36,7 @@ require('../inc/functions.php');
 			$idShop=$_GET['idShop'];
 			$mySql= "SELECT s.idShop, s.name AS NameShop, s.address, s.cp, s.ciutat, s.telephone, s.descriptionLong, s.schedule, s.logo, 
 					u.name AS NameAssociacio, c.name AS NameCategory, cs.name AS NameSubCategory, si.url AS ImagePreferred
-					FROM shops s, users u, categories c, catergoriessub cs, shopcategoriessub scs, shopsimages si
+					FROM shops s, users u, categories c, categoriessub cs, shopcategoriessub scs, shopsimages si
 					WHERE u.idUser = s.idUser
 					AND scs.idShop = s.idShop
 					AND cs.idSubCategory = scs.idSubCategory
