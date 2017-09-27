@@ -1,24 +1,18 @@
 angular.module('spaApp')
-
-.controller('ShopsCtrl', function($scope, $http) {
-
-	$scope.showShop = function(idShop){		
-		$http({
-			method : "GET",
-			url : "models/shops.php?idShop="+idShop
-		}).then(function mySucces(response) {
-			templateUrl:'views/shop.html'
-			$scope.names = response.data;
-		}, function myError(response) {
-			$scope.names = response.statusText;
-		});
-	};
+.controller('ShopCtrl', function($scope, $http, $routeParams) {
+	$http({
+		method : "GET",
+		url : "models/shops.php?acc=shop&idShop="+$routeParams.idShop
+	}).then(function mySucces(response) {
+		$scope.shops = response.data;
+	}, function myError(response) {
+		$scope.shops = response.statusText;
+	});
 });
 
 angular.module('spaApp')                               
 .controller('ComercialMapCtrl', function($scope, $http) {
-
-$http({
+  $http({
     method : "GET",
     url : "models/xmlCreation.php"
   }).then(function mySucces (response) {
@@ -33,16 +27,12 @@ $http({
     url : "models/categories.php?acc=cat"
   }).then(function mySucces (response) {
     $scope.categories=response.data;
-    //$scope.subCategories1=$scope.categories[0]["subCategories"];
     console.log(response.data);
   }, function myError (response) {
     $scope.categories = response.statusText;
   });
 
   $scope.categoryFilter = function(category=""){
-  	console.log(category);
-  	console.log("hola");
-    //category = "serveis";
      var map = new google.maps.Map(document.getElementById('map'), {
       center: new google.maps.LatLng(41.416962, 2.214625),
       zoom: 16
