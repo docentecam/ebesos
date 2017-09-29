@@ -22,7 +22,7 @@ angular.module('spaApp')
 			$http({
 				
 				method : "GET",
-				url : "models/news.php?acc=newSel"+$scope.idNew
+				url : "models/news.php?acc=newSel&idNew="+$scope.idNew
 			}).then(function mySucces (response) {
 				$scope.newSelect = response.data;
 				console.log($scope.newSelect);
