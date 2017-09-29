@@ -1,99 +1,99 @@
-<div>
-	
-			<button class="btn btn-primary" ng-click="listShops($scope.idUser)">
-				Comerços associats
-			</button>
-		<br>
-			<button class="btn btn-primary" ng-click="showHistory()">
-				Història
-			</button>
-		<br>
-			<button class="btn btn-primary" ng-click="showNews($scope.idUser)">
-				Notícies
-			</button>
-		<br>
-			<button class="btn btn-primary" ng-click="showContact($scope.idUser)">
-				Contacte
-			</button>
+<div class="row">
+	<div class="col-sm-2" style="background-color: #337ab7;">
 		
-</div>
-
-<div id="container">
+				<div style="padding:  30px;" ng-click="listShops($scope.idUser)">
+					<a href="" style="color: white;">Comerços associats</a>
+				</div>
+			
+				<div style="padding:  30px;" ng-click="showHistory()">
+					<a href="" style="color: white;">Història</a>
+				</div>
+			
+				<div style="padding:  30px;" ng-click="showNews($scope.idUser)">
+					<a href="" style="color: white;">Notícies</a>
+				</div>
+			
+				<div style="padding:  30px;" ng-click="showContact($scope.idUser)">
+					<a href="" style="color: white;">Contacte</a>
+				</div>
+			
+	</div>
+	<div class="col-sm-1"></div>
 	
-	<div ng-show="muestraDivCA">
-		<div id="listShops">
-			<!-- <table>
-				<tr>
-					<td></td><td></td>
-				</tr>
-			</table> -->
-			<ul>
-				<li ng-repeat="shop in shops">
-					<a href="#/shop/{{shop.idShop}}">{{shop.name}}</a>
-				</li>
-			</ul>
+	<div id="container">
+		
+		<div ng-show="muestraDivCA" class="col-sm-9" style="border-left: solid 1px;border-color:#ced2de;padding: 30px;margin-top: 4%;">
+			<div>
+	           	<div id="listShops" class="col-sm-12 pull-right">
+					<div class="row">
+						<div ng-repeat="shop in shops" class="col-sm-6">
+							<a href="#/shop/{{shop.idShop}}">• {{shop.name}}</a>
+						</div>
+					</div>	
+				</div>        	
+	       	</div>
 		</div>
-	</div>
 
-	<div ng-show="muestraDivH">
-		<div class="row">
-			<div class="col-sm-12 col-md-6 col-lg-4" id="aboutUs">
-				{{histories}}
+		<div ng-show="muestraDivH" class="col-sm-9" style="border-left: solid 1px;border-color:#ced2de;padding: 30px;margin-top: 4%;">
+			
+				<div class="col-sm-12 col-md-6 col-lg-4" id="aboutUs">
+					{{histories}}
+				</div>
+			
+		</div>
+
+		<div ng-show="muestraDivN" class="col-sm-9" style="border-left: solid 1px;border-color:#ced2de;padding: 30px;margin-top: 4%;">
+			<div class="row">
+				<div ng-repeat="new in news" class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+					<div class="row">
+						<div id="date">{{new.date}}</div>
+					</div>
+				</div>
+				<div class="row">	
+					<div  class="col-lg-2"><img id="photo" src="img/newsmedia/{{new.url}}">  </div>
+					<div id="title" class="col-lg-2">{{new.title}}  <a href="#/new/{{new.idNew}}">Mes info</a></div>
+				</div>
+			</div>
+		</div>	
+		
+		<div ng-show="muestraDivC" class="col-sm-9" style="border-left: solid 1px;border-color:#ced2de;padding: 30px;margin-top: 4%;">
+			<div class="row">
+				<div class="col-sm-12 col-md-6 col-lg-4">
+					<form action="TODO">
+						<table>
+							<tr>
+								<td>
+									Correu:
+								</td>
+								<td>
+									<input type="text" name="correu" disabled="" ng-value="email">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									Nom:
+								</td>
+								<td>
+									<input type="text" name="nom">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									Missatge:
+								</td>
+								<td>
+									<textarea placeholder="Escrigui el seu missatge..."></textarea>
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>
+									<input type="button" name="enviar" value="Enviar">
+								</td>
+							</tr>
+						</table>
+					</form>
+				</div>
 			</div>
 		</div>
-	</div>
-
-	<div ng-show="muestraDivN">
-		<div class="row">
-			<div class="col-sm-12 col-md-6 col-lg-4" id="news">
-				<div ng-repeat="new in news">
-					<div>{{new.date}}</div>
-					<div> <img id="foto" src="img/newsmedia/{{new.url}}">  </div>
-					<div>{{new.title}}</div>
-				</div>	
-
-			</div>
-		</div>
-	</div>
-
-	<div ng-show="muestraDivC">
-		<div class="row">
-			<div class="col-sm-12 col-md-6 col-lg-4">
-				<form action="TODO">
-					<table>
-						<tr>
-							<td>
-								Correu:
-							</td>
-							<td>
-								<input type="text" name="correu" disabled="" ng-value="email">
-							</td>
-						</tr>
-						<tr>
-							<td>
-								Nom:
-							</td>
-							<td>
-								<input type="text" name="nom">
-							</td>
-						</tr>
-						<tr>
-							<td>
-								Missatge:
-							</td>
-							<td>
-								<textarea placeholder="Escrigui el seu missatge..."></textarea>
-							</td>
-						</tr>
-						<tr>
-							<td></td>
-							<td>
-								<input type="button" name="enviar" value="Enviar">
-							</td>
-						</tr>
-					</table>
-				</form>
-			</div>
-		</div>
-	</div>
 </div>
