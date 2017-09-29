@@ -1,35 +1,32 @@
- <div class="row">
+<div class="row" ng-repeat="new in news">
+	
+	<div class="row">
 
-	Trobar la Noticia: <input ng-model="search">
-	<br>
-	<a> Nova Noticia </a>
-		<table border="1">
-			<thead>
-				<tr>
-					<th>Data</th>
-					<th>Imatge</th>
-					<th>Titul</th>
-					<th>Contingut</th>
-					<th>Accions</th>
-					
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="new in news | filter : search">
-					<td>{{new.data}}</td>
-					<td>{{new.url}}</td>
-					<td>{{new.title}}</td>
-					<td>{{new.titleSub}}</td>
-					
-					<td>
-						<a > borrar</a>
-						<a ng-click= "selNew(new.idNew)"> editar</a>
-					</td>
-				</tr>
-			</tbody>
-		</table>
+		<img id="photo" src="../img/newsmedia/{{new.url}}"> 
+	</div>
+
+	<div class="row">
+		<div>
+			{{new.data}}
+		</div>
+		<div>
+			<input type="button" value="Editar" alt="Edita dades de la noticia" class="btn btn-default"" ng-click="selNew(new.idNew)">
+			<input type="button" value="Esborrar" alt="Esborrar dades de la noticia" class="btn btn-default"" ng-click="">
+		</div>
+	 </div>
+	<div class="row">	
+		<div>
+		{{new.title}}
+		</div>
+	</div>
+
+	<div>
+		<div>
+		{{new.titleSub}}
+		</div>
+	</div>	
+	
 </div>
-
 
 <div  class="row">
 

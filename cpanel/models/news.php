@@ -3,9 +3,9 @@ require("../inc/functions.php");
 
 	if(isset($_GET['acc']) && $_GET['acc'] == 'news'){
 
-		$mySql = "SELECT n.idNew , n.idUser,.n.titleSub , n.date, n.title ,w.idNew, w.url,w.preferred";
+		$mySql = "SELECT n.idNew , n.idUser,.n.titleSub , n.date, n.title , w.url";
 
-	$mySql .= " FROM news n, newsmedia w WHERE n.idNew=w.idNew AND n.idUser=1";//.$_GET["idUser"];
+	$mySql .= " FROM news n, newsmedia w WHERE n.idNew=w.idNew AND n.idUser=1 AND w.preferred='Y'";//.$_GET["idUser"];
 
 	$connexio = connect();
 	$resultNews = mysqli_query($connexio, $mySql);
@@ -39,7 +39,7 @@ require("../inc/functions.php");
 
 		$mySql = "SELECT n.idNew , n.idUser, n.titleSub , n.date, n.title ,w.idNew, w.url,w.preferred";
 
-	$mySql .= " FROM news n, newsmedia w WHERE n.idNew=1 AND n.idNew=w.idNew";//.$_GET["idNew"];
+	$mySql .= " FROM news n, newsmedia w WHERE n.idNew=".$_GET["idNew"]." AND n.idNew=w.idNew";
 
 	$connexio = connect();
 	$resultNews = mysqli_query($connexio, $mySql);
