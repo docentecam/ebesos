@@ -48,7 +48,6 @@ angular.module('spaApp')
 						method : "GET",
 						url : "models/users.php?acc=mail&idUser="+ $scope.idUser+ "&client="+ myForm['client'].value+
 						"&email="+ myForm['email'].value+ "&message="+ myForm['message'].value
-						
 					}).then(function mySucces (response) {
 							$scope.email = response.data;
 			 				console.log('datos Mail: '+$scope.email);
