@@ -106,11 +106,6 @@ padding: 0;
 }
 
 
-#subscriure
-{
-	margin-left: 87%;
-}
-
 
 .navbar .navbar-nav {
   display: inline-block;
@@ -175,7 +170,57 @@ padding: 0;
 #separationLine{
 	text-align: center;
 }
-/*.prueba{
+
+/*--------------------------------------------------------Dídac--------------------------------------------------------------------*/
+.assoNews{
+	width: 80%;
+	height: 80%;
+	border-radius: 5px;
+	border: solid 1px;
+	border-color: black;
+}
+.newsAsso{
 	border-bottom: solid 1px;
-	border-color: #D7D7D7;
-}*/
+	border-color: #ced2de;
+	padding-bottom: 15px;
+	text-align: center;
+}
+.dateAssoNews{
+	color: #94979F;
+}
+.topDate{
+	padding-top: 10px;
+}
+#assoTabCont{
+	height: 450px;
+	margin-bottom: 1%;
+	margin-left: 10%;
+}
+.stylcont{
+	border-left: solid 1px;
+	border-color:#ced2de;
+	padding: 30px;
+	margin-top: 4%;
+}
+.subMenu:hover{
+	background-color: #51576F;
+	cursor: pointer;
+	
+	font-size: 18px;
+}
+
+
+#subMenu
+{
+	text-align: center;
+	padding-right: 0%!important;
+}
+
+.subMenu:active
+{
+	text-decoration: underline;
+	background-color: black;
+}.shopsList{
+	padding-bottom: 10px;
+}
+
