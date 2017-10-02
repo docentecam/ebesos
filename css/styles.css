@@ -169,3 +169,37 @@ padding: 0;
 #separationLine{
 	text-align: center;
 }
+/*--------------------------------------------------------Dídac--------------------------------------------------------------------*/
+.assoNews{
+	width: 80%;
+	height: 80%;
+	border-radius: 5px;
+	border: solid 1px;
+	border-color: black;
+}
+.newsAsso{
+	border-bottom: solid 1px;
+	border-color: #ced2de;
+	padding-bottom: 15px;
+	text-align: center;
+}
+.dateAssoNews{
+	color: #94979F;
+}
+.topDate{
+	padding-top: 10px;
+}
+#assoTabCont{
+	height: 450px;
+	margin-bottom: 1%;
+	margin-left: 10%;
+}
+.stylcont{
+	border-left: solid 1px;
+	border-color:#ced2de;
+	padding: 30px;
+	margin-top: 4%;
+}
+.subMenu:hover{
+	background-color: black;
+}

@@ -1,19 +1,19 @@
 <div class="row">
 	<div class="col-sm-2" style="background-color: #337ab7;">
 		
-				<div style="padding:  30px;" ng-click="listShops($scope.idUser)">
+				<div style="padding:  30px;" class="subMenu" ng-click="listShops($scope.idUser)">
 					<a href="" style="color: white;">Comerços associats</a>
 				</div>
 			
-				<div style="padding:  30px;" ng-click="showHistory()">
+				<div style="padding:  30px;" class="subMenu" ng-click="showHistory()">
 					<a href="" style="color: white;">Història</a>
 				</div>
 			
-				<div style="padding:  30px;" ng-click="showNews($scope.idUser)">
+				<div style="padding:  30px;" class="subMenu" ng-click="showNews($scope.idUser)">
 					<a href="" style="color: white;">Notícies</a>
 				</div>
 			
-				<div style="padding:  30px;" ng-click="showContact($scope.idUser)">
+				<div style="padding:  30px;" class="subMenu" ng-click="showContact($scope.idUser)">
 					<a href="" style="color: white;">Contacte</a>
 				</div>
 			
@@ -22,7 +22,7 @@
 	
 	<div id="container">
 		
-		<div ng-show="muestraDivCA" class="col-sm-9" style="border-left: solid 1px;border-color:#ced2de;padding: 30px;margin-top: 4%;">
+		<div ng-show="muestraDivCA" class="col-sm-9 stylcont">
 			<div>
 	           	<div id="listShops" class="col-sm-12 pull-right">
 					<div class="row">
@@ -34,7 +34,7 @@
 	       	</div>
 		</div>
 
-		<div ng-show="muestraDivH" class="col-sm-9" style="border-left: solid 1px;border-color:#ced2de;padding: 30px;margin-top: 4%;">
+		<div ng-show="muestraDivH" class="col-sm-9 stylcont">
 			
 				<div class="col-sm-12 col-md-6 col-lg-4" id="aboutUs">
 					{{histories}}
@@ -42,21 +42,30 @@
 			
 		</div>
 
-		<div ng-show="muestraDivN" class="col-sm-9" style="border-left: solid 1px;border-color:#ced2de;padding: 30px;margin-top: 4%;">
+		<div ng-show="muestraDivN" class="col-sm-9 stylcont">
 			<div class="row">
 				<div ng-repeat="new in news" class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-					<div class="row">
-						<div id="date">{{new.date}}</div>
+					<div class="row topDate">
+						<div class="col-sm-6">
+							<div class="row">
+								<div id="date" class="col-sm-10 col-sm-offset-1 dateAssoNews">{{new.date}}</div>
+							</div>
+						</div>
 					</div>
-				</div>
-				<div class="row">	
-					<div  class="col-lg-2"><img id="photo" src="img/newsmedia/{{new.url}}">  </div>
-					<div id="title" class="col-lg-2">{{new.title}}  <a href="#/new/{{new.idNew}}">Mes info</a></div>
+					<div class="row newsAsso">	
+						<div  class="col-lg-6"><img id="photo" class="assoNews" src="img/newsmedia/{{new.url}}"></div>
+						<div id="title" class="col-lg-6">
+							<div class="row">
+								<div class="col-sm-12">{{new.title}}</div>
+								<div class="col-sm-12"><a href="#/new/{{new.idNew}}">Mes info</a></div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>	
 		
-		<div ng-show="muestraDivC" class="col-sm-9" style="border-left: solid 1px;border-color:#ced2de;padding: 30px;margin-top: 4%;">
+		<div ng-show="muestraDivC" class="col-sm-9 stylcont">
 			<style>
 				#captchaDiv{
 					background-image: url("img/captcha.jpg");
@@ -70,7 +79,7 @@
 				<div>
 					<form action="TODO">
 					<form method="post" name="myForm" id="myForm" class="form-horizontal">
-		  		<table style="height: 450px; margin-bottom: 20%; margin-left: 10%; ">
+		  		<table id="assoTabCont">
 		  			<tbody>
 			  			<div class="form-group" >
 			  				<tr>
@@ -141,4 +150,5 @@
 				</div>
 			</div>
 		</div>
+	<div class="row"><div class="col-sm-12">d</div></div>
 </div>
