@@ -13,5 +13,8 @@
 	function close()
 	{	session_destroy();}
 
+	function sendMails($mailAddress = "", $subject = "", $fromName = "", $mailto = "", $pswd = "", $body = ""){
+
+	}
 
 ?>
