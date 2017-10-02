@@ -57,42 +57,87 @@
 		</div>	
 		
 		<div ng-show="muestraDivC" class="col-sm-9" style="border-left: solid 1px;border-color:#ced2de;padding: 30px;margin-top: 4%;">
+			<style>
+				#captchaDiv{
+					background-image: url("img/captcha.jpg");
+					color: gray;
+					font-size: 26px;	
+					margin-left: 6%;
+					text-align: center;
+				}
+			</style>
 			<div class="row">
-				<div class="col-sm-12 col-md-6 col-lg-4">
+				<div>
 					<form action="TODO">
-						<table>
-							<tr>
-								<td>
-									Correu:
-								</td>
-								<td>
-									<input type="text" name="correu" disabled="" ng-value="email">
-								</td>
-							</tr>
-							<tr>
-								<td>
-									Nom:
-								</td>
-								<td>
-									<input type="text" name="nom">
-								</td>
-							</tr>
-							<tr>
-								<td>
-									Missatge:
-								</td>
-								<td>
-									<textarea placeholder="Escrigui el seu missatge..."></textarea>
-								</td>
-							</tr>
-							<tr>
-								<td></td>
-								<td>
-									<input type="button" name="enviar" value="Enviar">
-								</td>
-							</tr>
-						</table>
-					</form>
+					<form method="post" name="myForm" id="myForm" class="form-horizontal">
+		  		<table style="height: 450px; margin-bottom: 20%; margin-left: 10%; ">
+		  			<tbody>
+			  			<div class="form-group" >
+			  				<tr>
+				  				<td>
+					    			<label class="control-label col-sm-2" for="nom">Nom:</label>
+					    		</td>
+					    		<td>
+					    			<div class="col-sm-10">
+					    				<input type="text" class="form-control" id="client" name="client" placeholder="Introdueixi el seu nom" value="nom">
+					    			</div>
+			  					</td>
+			  				</tr>
+			  			</div>
+			    		<div class="form-group">
+			    			<tr>
+				  				<td>
+					     			<label class="control-label col-sm-2" for="email">Correu Electrònic:</label>
+					     		</td>
+					    		<td>
+					      			<div class="col-sm-10">
+					        			<input type="email" class="form-control" id="email" name="email" placeholder="Introdueixi el correu electrònic" value="correu">
+					      			</div>
+					      		</td>
+			  				</tr>
+			    		</div>
+			    		<div class="form-group">
+			    			<tr>
+				  				<td>
+					      			<label class="control-label col-sm-2" for="message">Missatge:</label>
+					      		</td>
+					    		<td>
+					    			<div class="col-sm-10">        
+					      				<textarea class="form-control" placeholder="Escrigui el seu missatge..." id="message" name="message" rows="5">Texto</textarea>  
+					      			</div>.
+					      		</td>
+			  				</tr>
+			    		</div>
+			    		<div class="form-group">
+			    			<tr>
+				  				<td>
+			      					<label class="control-label col-sm-8" for="captcha"></label>
+			      				</td>
+					    		<td>
+					      			<div class="col-sm-6 col-push-sm-3" id="captchaDiv">
+					     			</div>
+			     				</td>
+			  				</tr>
+			    		</div>
+			    		<div class="form-group">
+			    			<tr>
+				  				<td>
+			      				</td>
+				    			<td>
+		      						<div class="col-sm-10">
+		      							<input type="hidden" id="txtCaptcha">
+		        						<input type="text" class="form-control" name="captchaInput" id="captchaInput" placeholder="Introdueixi els números">
+		      						</div>
+			      					<div class="col-sm-1">
+			        					<input type="button" class="btn btn-default" value="Enviar" style="background: #ced2de" ng-click="checkform();">
+			      					</div>
+			      				</td>
+			  				</tr>
+			    		</div>
+		    		</tbody>
+				</table>
+				<!-- <input type="hidden" ng-value="idUser" id="idUserHid"> -->
+		  	</form>
 				</div>
 			</div>
 		</div>
