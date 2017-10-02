@@ -203,3 +203,6 @@ padding: 0;
 .subMenu:hover{
 	background-color: black;
 }
+.shopsList{
+	padding-bottom: 10px;
+}
