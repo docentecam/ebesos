@@ -106,6 +106,7 @@ padding: 0;
 }
 
 
+
 .navbar .navbar-nav {
   display: inline-block;
   float: none;
@@ -201,8 +202,23 @@ padding: 0;
 	margin-top: 4%;
 }
 .subMenu:hover{
-	background-color: black;
+	background-color: #51576F;
+	cursor: pointer;
+	
+	font-size: 18px;
 }
-.shopsList{
+
+
+#subMenu
+{
+	text-align: center;
+	padding-right: 0%!important;
+}
+
+.subMenu:active
+{
+	text-decoration: underline;
+	background-color: black;
+}.shopsList{
 	padding-bottom: 10px;
 }
