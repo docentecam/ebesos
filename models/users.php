@@ -27,7 +27,6 @@ require("../inc/functions.php");
 				$nameAssociation = $row["name"];
 				$emailPass = $row["emailPass"];
 			}	
-
  		sendMails( $_GET['email'], "Contacte formulari de ".$nameAssociation, $_GET['client'],$emailAssociation, $emailPass, $_GET['message']);
  	}
 ?>
