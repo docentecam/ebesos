@@ -1,13 +1,12 @@
-<div class="row" ng-repeat="new in news">
+<div ng-show="listNew" class="row" ng-repeat="new in news">
 	
 	<div class="row">
-
 		<img id="photo" src="../img/newsmedia/{{new.url}}"> 
 	</div>
 
 	<div class="row">
 		<div>
-			{{new.data}}
+			{{new.date}}
 		</div>
 		<div>
 			<input type="button" value="Editar" alt="Edita dades de la noticia" class="btn btn-default"" ng-click="selNew(new.idNew)">
@@ -29,42 +28,55 @@
 </div>
 
 <div  class="row">
-
 	<div id="formNews" ng-show="showDiv" >
 		<div ng-repeat="newSelected in newSelect">
 		
+		<h1> Editar Notícia</h1>
+		<br>
 			<form action="#" id="validation" name="validation" method="POST" >
 				
-				<div class="form-group row">
-					<label for="dateForm" class="col-sm-6 col-form-label"> Data </label>
-					<div class="col-sm-6">
-						<input type="date" class="form-control" id="dateForm" name="date" ng-value="newSelected.data">
+				<div class="row">
+					<div class="col-md-8">
+						<input type="text" id="titleForm"  name="title" ng-value="newSelected.title">
+					</div>
+
+					<div class="col-md-3 col-md-push-1">
+						<input type="date"  id="dateForm" name="date" ng-value="newSelected.date">
+					</div>					
+				</div>
+
+				<div class="row">
+					<div class="col-md-12">
+						<input type="text" id="titleSub" name="titleSub" ng-value="newSelected.titleSub">
 					</div>
 				</div>
 
-				<div class="form-group row">
-					<label for="titleForm" class="col-sm-6 col-form-label"> Titul </label>
+				<div id="containerImg" class="row">
+					
 					<div class="col-sm-6">
-						<input type="text" class="form-control" id="titleForm" name="title" ng-value="newSelected.title">
-					</div>
-				</div>
+						<div id="containerPreferred">
+							<label>Imatge Destacada</label>
+							<img id="photo" src="../img/newsmedia/{{newSelected.url}}"> 
+							<input type="button" value="Modificar" alt="" class="btn btn-default"" ng-click="">
+							<input type="button" value="Eliminar" alt="" class="btn btn-default"" ng-click="">
+							<input type="button" value="Afegir foto" alt="" class="btn btn-default"" ng-click="">
+						</div>
+							<div id="containerImagesOfNew">
+								<div ng-repeat="img in newSelected.images">
+								
+									<label> Imatges de les noticies </label> 
+									<input type="button" value="Afegir foto" alt="" class="btn btn-default"" ng-click="">
 
-				<div class="form-group row">
-					<label for="titleSubForm" class="col-sm-6 col-form-label"> Titul </label>
-					<div class="col-sm-6">
-						<input type="text" class="form-control" id="titleSubForm" name="titleSub" ng-value="newSelected.titleSub">
-					</div>
-				</div>
-
-				<div class="form-group row">
-					<label for="urlForm" class="col-sm-6 col-form-label"> Imatge </label>
-					<div class="col-sm-6">
-						<input type="file" class="form-control" id="urlForm" name="title" ng-value="newSelected.url">
+									<img src="../img/newsmedia/{{img.url}}"> 
+									<input type="button" value="Modificar" alt="" class="btn btn-default"" ng-click="">
+									<input type="button" value="Eliminar" alt="" class="btn btn-default"" ng-click="">
+								</div>
+							</div>
 					</div>
 				</div>
 				
 					<div class="form-group">
-					<input type="button" value="Send" alt="enviar dades del formulari" class="btn btn-default"" ng-click="">
+						<input type="button" value="Actualitzar" alt="enviar dades del formulari" class="btn btn-default"" ng-click="">
 					</div>
 			</form>
 		</div>

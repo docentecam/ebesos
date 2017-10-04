@@ -31,6 +31,7 @@
   height: 33px;
   text-align: center;
   vertical-align: middle;
+  margin-bottom: 2%;
 
 }
 #cross
@@ -38,3 +39,38 @@
   color: #e51c23;
 }
 /* ------------------------ */
+
+#titleSub{
+  
+  height: 250px;
+  width: 85%;
+  margin-bottom: 5%;
+  margin-top: 2%;
+}
+
+#containerImg{
+  background-color: white;
+  width: 85%;
+}
+
+#containerPreferred{
+  margin-top: 5%;
+  margin-bottom: 7%;
+  margin-left: 25%;
+}
+
+#containerImagesOfNew{
+  margin-top: 13%;
+  margin-bottom: 7%;
+  margin-left: 25%;
+}
+
+/*-------------------------*/
+
+#container{
+  background-color: #E9E9E9;
+}
+.prueba2{
+  padding: 15%;
+}
+

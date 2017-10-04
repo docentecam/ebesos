@@ -3,7 +3,7 @@ require("../inc/functions.php");
 	
 if (isset($_GET["acc"])&& ($_GET["acc"] == "assoNav"))
 	{
-		$mySql = "SELECT idUser, name, logo, privileges FROM users";
+		$mySql = "SELECT idUser, name, logo, privileges FROM users WHERE idUser>1 ORDER BY name";
 		$connexio = connect();
 		$resultAssoNav = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
