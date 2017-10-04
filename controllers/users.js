@@ -43,15 +43,12 @@ angular.module('spaApp')
 				return false;
 			}
 			else if (error == "") {
-				console.log($scope.idUser+myForm['client'].value+myForm['email'].value+myForm['message'].value);
 				$http({
 						method : "GET",
 						url : "models/users.php?acc=mail&idUser="+ $scope.idUser+ "&client="+ myForm['client'].value+
 						"&email="+ myForm['email'].value+ "&message="+ myForm['message'].value
-						
 					}).then(function mySucces (response) {
 							$scope.email = response.data;
-			 				console.log('datos Mail: '+$scope.email);
 					}, function myError (response) {
 							$scope.email = response.statusText;
 				});
@@ -59,7 +56,6 @@ angular.module('spaApp')
 		}
 	$scope.validCaptcha = function()
 	{
-		console.log('llega valida');
 		var str1 = $scope.removeSpaces(myForm['txtCaptcha'].value);
 		var str2 = $scope.removeSpaces(myForm['captchaInput'].value);
 		if (str1 == str2){
@@ -102,15 +98,6 @@ angular.module('spaApp')
 	};
 
 	$scope.showContact = function(idUser){
-		var a = Math.ceil(Math.random() * 9)+ '';
-		var b = Math.ceil(Math.random() * 9)+ '';
-		var c = Math.ceil(Math.random() * 9)+ '';
-		var d = Math.ceil(Math.random() * 9)+ '';
-		var e = Math.ceil(Math.random() * 9)+ '';
-		var code = a + b + c + d + e;
-		document.getElementById("txtCaptcha").value = code;
-		document.getElementById("captchaDiv").innerHTML = code;
-		
 		$http({
 			method : "GET",
 			url : "models/users.php?acc=mail&idUser="+ $scope.idUser
