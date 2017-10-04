@@ -104,7 +104,6 @@ padding: 0;
 	margin-left: 73%;
 	margin-bottom: 0.1%;
 }
-
 .navbar .navbar-nav {
   display: inline-block;
   float: none;
@@ -138,7 +137,6 @@ padding: 0;
 	letter-spacing: 3px;
 	margin-bottom:10px;
 }
-
 .footer-bs .footer-nav ul.list { list-style:none; padding:0px; }
 .footer-bs .footer-nav ul.list li { padding:5px 0px;}
 .footer-bs .footer-nav ul.list a { color:rgba(255,255,255,0.80); }
@@ -168,10 +166,13 @@ padding: 0;
 #separationLine{
 	text-align: center;
 }
+#separatorDesign{
+	text-decoration: none;
+}
 /*----------------------------------------------------------Jordi------------------------------------------------------------------*/
 
 #captchaDiv{
-	background-image: url("img/captcha.jpg");
+	background-image: url("../img/captcha.jpg");
 	color: gray;
 	font-size: 26px;	
 	margin-left: 6%;
@@ -190,3 +191,56 @@ padding: 0;
 	border-left: solid 1px;
 	border-color:#ced2de;
 }
+/*--------------------------------------------------------Dídac--------------------------------------------------------------------*/
+.assoNews{
+	width: 80%;
+	height: 80%;
+	border-radius: 5px;
+	border: solid 1px;
+	border-color: black;
+}
+.newsAsso{
+	border-bottom: solid 1px;
+	border-color: #ced2de;
+	padding-bottom: 15px;
+	text-align: center;
+}
+.dateAssoNews{
+	color: #94979F;
+}
+.topDate{
+	padding-top: 10px;
+}
+#assoTabCont{
+	height: 450px;
+	margin-bottom: 1%;
+	margin-left: 10%;
+}
+.stylcont{
+	border-left: solid 1px;
+	border-color:#ced2de;
+	padding: 30px;
+	margin-top: 4%;
+}
+.subMenu:hover{
+	background-color: #51576F;
+	cursor: pointer;
+	
+	font-size: 18px;
+}
+
+
+#subMenu
+{
+	text-align: center;
+	padding-right: 0%!important;
+}
+
+.subMenu:active
+{
+	text-decoration: underline;
+	background-color: black;
+}.shopsList{
+	padding-bottom: 10px;
+}
+
