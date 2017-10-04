@@ -51,24 +51,27 @@
 					</div>
 				</div>
 
-				<div class="row">
+				<div id="containerImg" class="row">
 					
 					<div class="col-sm-6">
-
-						<label>Imatge Destacada</label>
-						<br>
-						
-						<img id="photo" src="../img/newsmedia/{{newSelected.url}}"> 
+						<div id="containerPreferred">
+							<label>Imatge Destacada</label>
+							<img id="photo" src="../img/newsmedia/{{newSelected.url}}"> 
 							<input type="button" value="Modificar" alt="" class="btn btn-default"" ng-click="">
 							<input type="button" value="Eliminar" alt="" class="btn btn-default"" ng-click="">
-						
-						<div ng-repeat="img in newSelected.images">
-							<label> Imatges de les noticies </label> <input type="button" value="Afegir foto" alt="" class="btn btn-default"" ng-click="">
-
-							<img src="../img/newsmedia/{{img.url}}"> 
-							<input type="button" value="Modificar" alt="" class="btn btn-default"" ng-click="">
-							<input type="button" value="Eliminar" alt="" class="btn btn-default"" ng-click="">
+							<input type="button" value="Afegir foto" alt="" class="btn btn-default"" ng-click="">
 						</div>
+							<div id="containerImagesOfNew">
+								<div ng-repeat="img in newSelected.images">
+								
+									<label> Imatges de les noticies </label> 
+									<input type="button" value="Afegir foto" alt="" class="btn btn-default"" ng-click="">
+
+									<img src="../img/newsmedia/{{img.url}}"> 
+									<input type="button" value="Modificar" alt="" class="btn btn-default"" ng-click="">
+									<input type="button" value="Eliminar" alt="" class="btn btn-default"" ng-click="">
+								</div>
+							</div>
 					</div>
 				</div>
 				
