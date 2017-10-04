@@ -75,7 +75,7 @@
 		          			<ul class="dropdown-menu" ng-controller="AssoNavCtrl" id="imgNav" >
 		          				<li ng-repeat="assoNav in assoNavs" role="presentation" class="prueba">
 		          					<a href="#/associations/{{assoNav.idUser}}/{{assoNav.name}}"><img class="img-fluid" src="img/logos-assoc/{{assoNav.logo}}">{{assoNav.name}}</a>
-		          					<ul role="separator" id="separatorDesign" ng-class="{divider : $index != 2}">				
+		          					<ul role="separator" id="separatorDesign" ng-class="{divider : !$last}">				
 		          					</ul>	          					
 		          				</li>
 		          			</ul>
