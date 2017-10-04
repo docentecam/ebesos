@@ -34,12 +34,11 @@
 				<div class="col-xs-4" id="imgLogoTop">
 					<img src="img/logos-assoc/4.png">
 				</div>
-				<div class="col-xs-8" id="logoTexto"></div>		
+				<div class="col-xs-8" id="logoTexto"><h4>EIX BESÒS -</h4><h4>MARESME</h4></div>		
 			</div>			
-			<div class="col-xs-9">				
-				<div class="col-xs-2 pull-right"><a href="#/users/1">Qui Som?</a></div>					
-				<div id="separationLine" class="col-xs-1 pull-right">|</div>					
-				<div class="col-xs-2 pull-right"><a href="#/contact/1" >Contacte</a></div>					
+			<div class="col-xs-2 col-xs-offset-6 pull-right">				
+				<div class="col-xs-6"><a href="#/users/1">Qui Som?</a></div>								
+				<div class="col-xs-6"><a href="#/contact/1" >Contacte</a></div>					
 			</div>				
 			
 		</div>	
@@ -76,8 +75,8 @@
 		        		<li class=navWords role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Associacions <span class="caret"></span></a>
 		          			<ul class="dropdown-menu" ng-controller="AssoNavCtrl" id="imgNav" >
 		          				<li ng-repeat="assoNav in assoNavs" role="presentation" class="prueba">
-		          					<a href="#/associations/{{assoNav.idUser}}"><img class="img-fluid" src="img/logos-assoc/{{assoNav.logo}}">{{assoNav.name}}</a>
-		          					<ul role="separator" id="separatorDesign" ng-class="{divider : $index != ;}">
+		          					<a href="#/associations/{{assoNav.idUser}}/{{assoNav.name}}"><img class="img-fluid" src="img/logos-assoc/{{assoNav.logo}}">{{assoNav.name}}</a>
+		          					<ul role="separator" id="separatorDesign" ng-class="{divider : $index != 2;}">
 		          							
 		          					</ul>
 		          					<!-- QUE EL ULTIMO NO FUNCIONA-->	          					
