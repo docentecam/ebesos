@@ -42,7 +42,8 @@ require('../inc/functions.php');
 					AND cs.idSubCategory = scs.idSubCategory
 					AND c.idCategory = cs.idCategory
 					AND si.preferred = 'Y'
-					AND s.idShop =".$idShop;
+					AND si.idShop = $idShop
+					AND s.idShop = $idShop";
 					
 
 			$connexio = connect();
