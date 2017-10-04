@@ -9,12 +9,20 @@
 		return($connexio);
 	}
 	function disconnect($connexio)
-	{ mysqli_close($connexio);}
+	{ 
+		mysqli_close($connexio);
+	}
 	function close()
-	{	session_destroy();}
-
-	function sendMails($mailAddress = "", $subject = "", $fromName = "", $mailto = "", $pswd = "", $body = ""){
-
+	{	
+		session_destroy();
+	}
+	function sendMails($mailAddress = "", $subject = "", $fromName = "", $mailTo = "", $pswd = "", $body = ""){
+		echo $mailAddress;
+		echo $subject;
+		echo $fromName;
+		echo $mailTo;
+		echo $pswd;
+		echo $body;
 	}
 
 ?>
