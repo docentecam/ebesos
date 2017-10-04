@@ -37,14 +37,22 @@ require("../inc/functions.php");
 
 	if(isset($_GET['acc']) && $_GET['acc'] == 'newSel'){
 
-		$mySql = "SELECT n.idNew , n.idUser, n.titleSub , n.date, n.title ,w.idNew, w.url,w.preferred";
+		$mySql = "SELECT n.idNew , n.idUser, n.titleSub , n.date, n.title ,w.idNew, w.url";
 
-	$mySql .= " FROM news n, newsmedia w WHERE n.idNew=".$_GET["idNew"]." AND n.idNew=w.idNew";
+	$mySql .= " FROM news n, newsmedia w WHERE n.idNew=w.idNew  AND w.preferred='Y' AND  n.idNew=".$_GET["idNew"];
 
 	$connexio = connect();
 	$resultNews = mysqli_query($connexio, $mySql);
-	disconnect($connexio);
+	
 
+		$mySql = "SELECT w.url 
+				FROM newsmedia w
+				WHERE w.preferred = 'N' AND w.type='I' 
+				AND w.idNew =".$_GET["idNew"];
+
+		
+			$resultImgNewP = mysqli_query($connexio, $mySql);
+			disconnect($connexio);
 	$i=0;
 		$dataNews ='[';
 		while ($row=mySqli_fetch_array($resultNews))
@@ -59,13 +67,28 @@ require("../inc/functions.php");
 			$row['titleSub']=str_replace("'", "·", $row['titleSub']);
 
 
-			$dataNews .= '{"url":"'.$row['url'].'", "title":"'.$row['title'].'","date":"'.$row['date'].'","idNew":"'.$row['idNew'].'","titleSub":"'.$row['titleSub'].'"}';
+			$dataNews .= '{"title":"'.$row['title'].'","date":"'.$row['date'].'","idNew":"'.$row['idNew'].'","titleSub":"'.$row['titleSub'].'","url":"'.$row['url'].'","images":';
 		
+			$j = 0;
+
+			$dataNews.= '[';
+				
+
+			while($rowImg=mysqli_fetch_array($resultImgNewP))
+				{
+					if($j != 0) $dataNews .= ",";
+
+					$dataNews .= '{"url":"'.$rowImg['url'].'"}';
+
+					$j++;
+				}
+				$dataNews .= ']}';
 			$i++;
 		}
 		$dataNews .=']';
 
-		 echo $dataNews;	 
+		 echo $dataNews;
+ 
 	}	
 
 ?>

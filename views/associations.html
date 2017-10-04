@@ -1,32 +1,41 @@
 <div class="row">
-	<div class="col-sm-2" style="background-color: #337ab7;">
+	<div class="col-lg-5">
+		<div class="row">
+			<div class="col-lg-4 col-lg-offset-1" ng-show="muestraDivCA">Inici | Comerços associats | {{name}}</div>
+			<div class="col-lg-4 col-lg-offset-1" ng-show="muestraDivH">Inici | Història | {{name}}</div>
+			<div class="col-lg-4 col-lg-offset-1" ng-show="muestraDivN">Inici | Notícies | {{name}}</div>
+			<div class="col-lg-4 col-lg-offset-1" ng-show="muestraDivC">Inici | Contacte | {{name}}</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-2" id="subMenu" style="background-color: #337ab7;">
 		
-				<div style="padding:  30px;" ng-click="listShops($scope.idUser)">
+				<div style="padding:  30px;" class="subMenu" ng-click="listShops($scope.idUser)">
 					<a href="" style="color: white;">Comerços associats</a>
 				</div>
 			
-				<div style="padding:  30px;" ng-click="showHistory()">
+				<div style="padding:  30px;" class="subMenu" ng-click="showHistory()">
 					<a href="" style="color: white;">Història</a>
 				</div>
 			
-				<div style="padding:  30px;" ng-click="showNews($scope.idUser)">
+				<div style="padding:  30px;" class="subMenu" ng-click="showNews($scope.idUser)">
 					<a href="" style="color: white;">Notícies</a>
 				</div>
 			
-				<div style="padding:  30px;" ng-click="showContact($scope.idUser)">
+				<div style="padding:  30px;" class="subMenu" ng-click="showContact($scope.idUser)">
 					<a href="" style="color: white;">Contacte</a>
 				</div>
-			
 	</div>
 	<div class="col-sm-1"></div>
 	
 	<div id="container">
 		
-		<div ng-show="muestraDivCA" class="col-sm-9" style="border-left: solid 1px;border-color:#ced2de;padding: 30px;margin-top: 4%;">
+		<div ng-show="muestraDivCA" class="col-sm-9 stylcont">
 			<div>
 	           	<div id="listShops" class="col-sm-12 pull-right">
 					<div class="row">
-						<div ng-repeat="shop in shops" class="col-sm-6">
+						<div ng-repeat="shop in shops" class="col-sm-6 shopsList">
 							<a href="#/shop/{{shop.idShop}}">• {{shop.name}}</a>
 						</div>
 					</div>	
@@ -34,7 +43,7 @@
 	       	</div>
 		</div>
 
-		<div ng-show="muestraDivH" class="col-sm-9" style="border-left: solid 1px;border-color:#ced2de;padding: 30px;margin-top: 4%;">
+		<div ng-show="muestraDivH" class="col-sm-9 stylcont">
 			
 				<div class="col-sm-12 col-md-6 col-lg-4" id="aboutUs">
 					{{histories}}
@@ -42,58 +51,113 @@
 			
 		</div>
 
-		<div ng-show="muestraDivN" class="col-sm-9" style="border-left: solid 1px;border-color:#ced2de;padding: 30px;margin-top: 4%;">
+		<div ng-show="muestraDivN" class="col-sm-9 stylcont">
 			<div class="row">
 				<div ng-repeat="new in news" class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-					<div class="row">
-						<div id="date">{{new.date}}</div>
+					<div class="row topDate">
+						<div class="col-sm-6">
+							<div class="row">
+								<div id="date" class="col-sm-10 col-sm-offset-1 dateAssoNews">{{new.date}}</div>
+							</div>
+						</div>
 					</div>
-				</div>
-				<div class="row">	
-					<div  class="col-lg-2"><img id="photo" src="img/newsmedia/{{new.url}}">  </div>
-					<div id="title" class="col-lg-2">{{new.title}}  <a href="#/new/{{new.idNew}}">Mes info</a></div>
+					<div class="row newsAsso">	
+						<div  class="col-lg-6"><img id="photo" class="assoNews" src="img/newsmedia/{{new.url}}"></div>
+						<div id="title" class="col-lg-6">
+							<div class="row">
+								<div class="col-sm-12">{{new.title}}</div>
+								<div class="col-sm-12"><a href="#/new/{{new.idNew}}">Mes info</a></div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>	
 		
-		<div ng-show="muestraDivC" class="col-sm-9" style="border-left: solid 1px;border-color:#ced2de;padding: 30px;margin-top: 4%;">
+		<div ng-show="muestraDivC" class="col-sm-9 stylcont">
+			<style>
+				#captchaDiv{
+					background-image: url("img/captcha.jpg");
+					color: gray;
+					font-size: 26px;	
+					margin-left: 6%;
+					text-align: center;
+				}
+			</style>
 			<div class="row">
-				<div class="col-sm-12 col-md-6 col-lg-4">
+				<div>
 					<form action="TODO">
-						<table>
-							<tr>
-								<td>
-									Correu:
-								</td>
-								<td>
-									<input type="text" name="correu" disabled="" ng-value="email">
-								</td>
-							</tr>
-							<tr>
-								<td>
-									Nom:
-								</td>
-								<td>
-									<input type="text" name="nom">
-								</td>
-							</tr>
-							<tr>
-								<td>
-									Missatge:
-								</td>
-								<td>
-									<textarea placeholder="Escrigui el seu missatge..."></textarea>
-								</td>
-							</tr>
-							<tr>
-								<td></td>
-								<td>
-									<input type="button" name="enviar" value="Enviar">
-								</td>
-							</tr>
-						</table>
-					</form>
+					<form method="post" name="myForm" id="myForm" class="form-horizontal">
+		  		<table id="assoTabCont">
+		  			<tbody>
+			  			<div class="form-group" >
+			  				<tr>
+				  				<td>
+					    			<label class="control-label col-sm-2" for="nom">Nom:</label>
+					    		</td>
+					    		<td>
+					    			<div class="col-sm-10">
+					    				<input type="text" class="form-control" id="client" name="client" placeholder="Introdueixi el seu nom" value="nom">
+					    			</div>
+			  					</td>
+			  				</tr>
+			  			</div>
+			    		<div class="form-group">
+			    			<tr>
+				  				<td>
+					     			<label class="control-label col-sm-2" for="email">Correu Electrònic:</label>
+					     		</td>
+					    		<td>
+					      			<div class="col-sm-10">
+					        			<input type="email" class="form-control" id="email" name="email" placeholder="Introdueixi el correu electrònic" value="correu">
+					      			</div>
+					      		</td>
+			  				</tr>
+			    		</div>
+			    		<div class="form-group">
+			    			<tr>
+				  				<td>
+					      			<label class="control-label col-sm-2" for="message">Missatge:</label>
+					      		</td>
+					    		<td>
+					    			<div class="col-sm-10">        
+					      				<textarea class="form-control" placeholder="Escrigui el seu missatge..." id="message" name="message" rows="5">Texto</textarea>  
+					      			</div>.
+					      		</td>
+			  				</tr>
+			    		</div>
+			    		<div class="form-group">
+			    			<tr>
+				  				<td>
+			      					<label class="control-label col-sm-8" for="captcha"></label>
+			      				</td>
+					    		<td>
+					      			<div class="col-sm-6 col-push-sm-3" id="captchaDiv">
+					     			</div>
+			     				</td>
+			  				</tr>
+			    		</div>
+			    		<div class="form-group">
+			    			<tr>
+				  				<td>
+			      				</td>
+				    			<td>
+		      						<div class="col-sm-10">
+		      							<input type="hidden" id="txtCaptcha">
+		        						<input type="text" class="form-control" name="captchaInput" id="captchaInput" placeholder="Introdueixi els números">
+		      						</div>
+			      					<div class="col-sm-1">
+			        					<input type="button" class="btn btn-default" value="Enviar" style="background: #ced2de" ng-click="checkform();">
+			      					</div>
+			      				</td>
+			  				</tr>
+			    		</div>
+		    		</tbody>
+				</table>
+				<!-- <input type="hidden" ng-value="idUser" id="idUserHid"> -->
+		  	</form>
 				</div>
 			</div>
 		</div>
+	<div class="row"><div class="col-sm-12">d</div></div>
 </div>

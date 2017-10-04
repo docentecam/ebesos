@@ -19,7 +19,7 @@ app.config(['$routeProvider', function ($routeProvider) {
 		templateUrl:'views/promotions.html',
 		controller:'PromotionsCtrl',
 	})
-	.when('/associations/:idUser',{
+	.when('/associations/:idUser/:name',{
 		templateUrl:'views/associations.html',
 		controller:'AssociationsCtrl',
 	})

@@ -21,7 +21,7 @@ if(isset($_GET['acc'])&&$_GET['acc']=='news'){
 				$dataNews .= ",";
 			} 
 
-			$dataNews .= '{"url":"'.$row['url'].'", "title":"'.$row['title'].'","date":"'.$row['date'].'"}';
+			$dataNews .= '{"url":"'.$row['url'].'","title":"'.$row['title'].'","date":"'.$row['date'].'","idNew":"'.$row['idNew'].'"}';
 			$i++;
 		}
 		$dataNews .=']';

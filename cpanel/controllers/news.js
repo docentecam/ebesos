@@ -1,6 +1,7 @@
 angular.module('spaApp')
  .controller('NewsCtrl', function($scope, $http) {
 			$scope.showDiv=false;
+			$scope.listNew=true;
 			$http({
 
 				method : "GET",
@@ -18,18 +19,21 @@ angular.module('spaApp')
 		{  
 
 			console.log("llega");
-			$scope.showDiv=true;
+
+			console.log("recibo la "+idNew);
 			$http({
 				
 				method : "GET",
-				url : "models/news.php?acc=newSel&idNew="+$scope.idNew
+				url : "models/news.php?acc=newSel&idNew="+idNew
 			}).then(function mySucces (response) {
 				$scope.newSelect = response.data;
+				$scope.showDiv=true;
+				$scope.listNew=false;
 				console.log($scope.newSelect);
-				console.log("llega2");
+				
 			}, function myError (response) {
 				$scope.newSelect = response.statusText;
-				console.log("llega3");
+				
 			});
 		
 		}
