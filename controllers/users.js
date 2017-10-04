@@ -79,7 +79,8 @@ angular.module('spaApp')
 
 .controller('AssociationsCtrl', function($scope, $http, $routeParams) {
 	
-	$scope.idUser =$routeParams.idUser;
+	$scope.idUser = $routeParams.idUser;
+	$scope.name = $routeParams.name;
 	$http({
 			method : "GET",
 			url : "models/users.php?acc=history&idUser="+$scope.idUser
