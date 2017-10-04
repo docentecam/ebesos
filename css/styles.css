@@ -170,6 +170,9 @@ padding: 0;
 #separationLine{
 	text-align: center;
 }
+#separatorDesign{
+	text-decoration: none;
+}
 
 /*--------------------------------------------------------Dídac--------------------------------------------------------------------*/
 .assoNews{
