@@ -9,26 +9,25 @@
 	</div>
 </div>
 <div class="row">
-	<div class="col-sm-2" id="subMenu" style="background-color: #337ab7;">
-
-				<div class="subMenu">
-					<h3>{{name}}</h3>
-				</div>
-				<div style="padding:  30px;" class="subMenu" ng-click="listShops($scope.idUser)">
-					<a href="" style="color: white;">Comerços associats</a>
-				</div>
-			
-				<div style="padding:  30px;" class="subMenu" ng-click="showHistory()">
-					<a href="" style="color: white;">Història</a>
-				</div>
-			
-				<div style="padding:  30px;" class="subMenu" ng-click="showNews($scope.idUser)">
-					<a href="" style="color: white;">Notícies</a>
-				</div>
-			
-				<div style="padding:  30px;" class="subMenu" ng-click="showContact($scope.idUser)">
-					<a href="" style="color: white;">Contacte</a>
-				</div>
+	<div class="col-sm-2" id="subMenu">
+		<div>
+			<h3>{{name}}</h3>
+		</div>
+		<div class="subMenu" ng-click="listShops($scope.idUser)">
+			<a href="">Comerços associats</a>
+		</div>
+	
+		<div class="subMenu" ng-click="showHistory()">
+			<a href="">Història</a>
+		</div>
+	
+		<div class="subMenu" ng-click="showNews($scope.idUser)">
+			<a href="">Notícies</a>
+		</div>
+	
+		<div class="subMenu" ng-click="showContact($scope.idUser)">
+			<a href="">Contacte</a>
+		</div>
 	</div>
 	<div class="col-sm-1"></div>
 	
@@ -78,15 +77,6 @@
 		</div>	
 		
 		<div ng-show="muestraDivC" class="col-sm-9 stylcont">
-			<style>
-				#captchaDiv{
-					background-image: url("img/captcha.jpg");
-					color: gray;
-					font-size: 26px;	
-					margin-left: 6%;
-					text-align: center;
-				}
-			</style>
 			<div class="row">
 				<div>
 					<form action="TODO">

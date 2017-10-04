@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
+
+*
+{
+	font-family: 'Open Sans', sans-serif;
+}
+
+#footer
+{
+	margin-top: 5%;
+}
+
 /*lander sanahujes yañez*/
 
 #aboutUs{
@@ -208,22 +220,38 @@ padding: 0;
 .subMenu:hover{
 	background-color: #51576F;
 	cursor: pointer;
-	
 	font-size: 18px;
 }
 
+.subMenu
+{
+	padding: 30px;
+	
+}
+
+ .subMenu a
+{
+	color: white!important;
+}
 
 #subMenu
 {
 	text-align: center;
 	padding-right: 0%!important;
+	margin-top: 3%;
+	background-color: #337ab7;
 }
 
-.subMenu:active
-{
-	text-decoration: underline;
-	background-color: black;
-}.shopsList{
+.shopsList{
 	padding-bottom: 10px;
+}
+
+#captchaDiv
+{
+	background-image: url("../img/captcha.jpg");
+	color: gray;
+	font-size: 26px;	
+	margin-left: 6%;
+	text-align: center;
 }
 
