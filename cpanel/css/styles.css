@@ -39,3 +39,19 @@
   color: #e51c23;
 }
 /* ------------------------ */
+
+#titleSub{
+  
+  height: 250px;
+  width: 800px;
+  margin-bottom: 5%;
+  margin-top: 2%;
+
+}
+
+/*-------------------------*/
+
+#container{
+  background-color: #E9E9E9;
+}
+
