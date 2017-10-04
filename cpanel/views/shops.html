@@ -1,9 +1,90 @@
-<div class="container">
-	<div class="row" ng-repeat="shop in shopsList">
-		<div class="col-md-3"><img src="img/shops/{{shop.image}}"></div>
+
+	<div class="row" ng-repeat="shops in shopsList">
+		<div class="col-md-3"><img src="img/shops/{{shops.image}}"></div>
 		<div class="col-md-9">
-			<div class="row"><label>{{shop.name}}</label></div>
-			<div class="row"><p>{{shop.description}}</p></div>
+			<div class="row"><label>{{shops.name}}</label></div>
+			<div class="row"><p>{{shops.description}}</p></div>
+		</div>
+		<button ng-click="shopOneEdit(shops.idShop)">edit</button>
+		<!-- <button ng-click="shopOneDelete(shops.idShop)">delete tienda: {{shops.idShop}}</button> -->
+		<button>delete</button>
+		<button ng-click="shopOneAdd()">add</button>
+	</div>
+	<div class="row col-md-10"  ng-show="showShop"> <!-- ng-repeat="shop in shopOne" -->
+		<div class="row col-md-10">
+			<div class="shop-name col-md-4 col-md-push-1">
+				<span>Nom comerç</span>
+				<input type="text" placeholder="nom de la tenda" name="" ng-value="shopOne[0].name">
+			</div>
+			<div class="shop-lat col-md-4 col-md-push-1">
+				<span>Latitud</span>
+				<input type="text" placeholder="nom de la tenda" name="" ng-value="shopOne[0].lat"">
+			</div>
+		</div>
+		<div class="row col-md-10">
+			<div class="shop-logo col-md-4 col-md-push-1">
+				<span>Logo comerç</span>
+				<input type="file" name="">
+			</div>
+			<div class="shop-lon col-md-4 col-md-push-1">
+				<span>Longitud</span>
+				<input type="text" placeholder="nom de la tenda" name="" ng-value="shopOne[0].lng">
+			</div>
+		</div>
+		<div class="row col-md-10">
+			<div class="shop-logo col-md-4 col-md-push-1">
+				<span>Imatge preferida</span>
+				<input type="file" placeholder="nom de la tenda" name="" ng-value="shopOne[0].imagePreferred">
+			</div>
+			<div class="shop-lon col-md-4 col-md-push-1">
+				<span>Imatges</span>
+				<input type="file" placeholder="nom de la tenda" name="" ng-value="shopOne[0].image">
+			</div>
+		</div>
+		<div class="row col-md-10">
+			<div class="shop-phone col-md-4 col-md-push-1">
+				<span>Teléfon</span>
+				<input type="text" placeholder="nom de la tenda" name="" ng-value="shopOne[0].telephone">
+			</div>
+			<div class="shop-email col-md-3 col-md-push-1">
+				<span>Email</span>
+				<input type="text" placeholder="nom de la tenda" name="" ng-value="shopOne[0].email">
+			</div>
+		</div>
+		<div class="row col-md-10">
+			<div class="shop-address col-md-4 col-md-push-1">
+				<span>Adreça</span>
+				<input type="text" placeholder="nom de la tenda" name="" ng-value="shopOne[0].address">
+			</div>
+			<div class="shop-schedule col-md-4 col-md-push-1">
+				<span>Horari</span>
+				<input type="text" placeholder="nom de la tenda" name="" ng-value="shopOne[0].schedule">
+			</div>
+		</div>
+		<div class="row col-md-10">
+			<div class="shop-address col-md-4 col-md-push-1">
+				<span>Codi Postal</span>
+				<input type="text" placeholder="nom de la tenda" name="" ng-value="shopOne[0].cp">
+			</div>
+			<div class="shop-schedule col-md-3 col-md-push-1">
+				<span>Ciutat</span>
+				<input type="text" placeholder="nom de la tenda" name="" ng-value="shopOne[0].ciutat">
+			</div>
+		</div>
+		<div class="row col-md-10">
+			<div class="shop-address col-md-4 col-md-push-1">
+				<span>Adreça electronica</span>
+				<input type="text" placeholder="nom de la tenda" name="" ng-value="shopOne[0].url">
+			</div>
+		</div>
+		<div class="row col-md-10">
+			<div class="shop-address col-md-4 col-md-push-1">
+				<span>Descripció curta</span>
+				<textarea cols="21" rows="5" value="">{{shopOne[0].description}}</textarea>
+			</div>
+			<div class="shop-schedule col-md-4 col-md-push-1">
+				<span>Descripció llarga</span>
+				<textarea cols="21" rows="5" value="">{{shopOne[0].descriptionLong}}</textarea>
+			</div>
 		</div>
 	</div>
-</div>
