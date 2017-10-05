@@ -1,10 +1,9 @@
 <?php
 require('../inc/functions.php');
 
-		if(isset($_GET['acc']) && $_GET['acc'] == 'list')
+		if(isset($_GET['acc']) && ($_GET['acc'] == "list"))
 		{
-			$mySql = "SELECT literal, value
-					FROM settings";
+			$mySql = "SELECT literal, value FROM settings";
 
 			$connexio = connect();
 			$resultSettings = mysqli_query($connexio, $mySql);
@@ -25,6 +24,17 @@ require('../inc/functions.php');
 
 			echo $dataSettings;
 		}
+
+
+
+
+
+
+
+
+
+
+
 
 
 

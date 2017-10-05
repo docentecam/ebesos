@@ -1,42 +1,59 @@
 angular.module('spaApp')
-.controller('SettingsCtrl', function($scope, $http, $routeParams) {
-	$scope.showShop = false;
-	$scope.shopOne = "[{{}}]";
-	console.log($scope.showShop);
+.controller('SettingsCtrl', function($scope, $http) {
 	$http({
 		method : "GET",
-		url : "models/shops.php?acc=list"
+		url : "models/settings.php?acc=list"
 	}).then(function mySucces(response) {
-		$scope.shopsList = response.data;
-    $scope.loading = false;
+		$scope.settingsList = response.data;
 	}, function myError(response) {
-		$scope.shops = response.statusText;
+		$scope.settingsList = response.statusText;
 	});
 
-	$scope.shopOneEdit = function($idShop){
-		$http({
-			method : "GET",
-			url : "models/shops.php?acc=edit&idShop=" + $idShop
-		}).then(function mySucces (response) {
-			$scope.shopOne = response.data;
-			$scope.showShop = true;
-		}, function myError (response) {
-			$scope.showShop = response.statusText;
-		});
-	};
-	$scope.shopOneDelete = function($idShop){
-		console.log($idShop);
-		$http({
-			method : "GET",
-			url : "models/shops.php?acc=delete&idShop=" + $idShop
-		}).then(function mySucces (response) {
-			$scope.shopDeleted = response.data
-			//shopOneEdit($idShop);
-		}, function myError (response) {
-			$scope.shopOne = response.statusText;
-		});
-	};
-	$scope.shopOneAdd = function($idShop){
-		$scope.showShop = true;
-	};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	// $scope.shopOneEdit = function($idShop){
+	// 	$http({
+	// 		method : "GET",
+	// 		url : "models/shops.php?acc=edit&idShop=" + $idShop
+	// 	}).then(function mySucces (response) {
+	// 		$scope.shopOne = response.data;
+	// 		$scope.showShop = true;
+	// 	}, function myError (response) {
+	// 		$scope.showShop = response.statusText;
+	// 	});
+	// };
+	// $scope.shopOneDelete = function($idShop){
+	// 	console.log($idShop);
+	// 	$http({
+	// 		method : "GET",
+	// 		url : "models/shops.php?acc=delete&idShop=" + $idShop
+	// 	}).then(function mySucces (response) {
+	// 		$scope.shopDeleted = response.data
+	// 		//shopOneEdit($idShop);
+	// 	}, function myError (response) {
+	// 		$scope.shopOne = response.statusText;
+	// 	});
+	// };
+	// $scope.shopOneAdd = function($idShop){
+	// 	$scope.showShop = true;
+	// };
 });

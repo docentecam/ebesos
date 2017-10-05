@@ -1,16 +1,16 @@
 <div class="row">
 	<div><label>Paràmetres</label></div>	
 </div>
-<div class="row" ng-controller="SettingsCtrl">
-	<table>
+<div class="row">
+	<table border="1">
 		<tr>
 			<td>Literal</td>
 			<td>Value</td>
 			<td>Editar</td>
 		</tr>
-		<tr>
-			<td></td>
-			<td></td>
+		<tr ng-repeat="setting in settingsList">
+			<td><input type="text" value="{{setting.literal}}"></td>
+			<td>{{setting.value}}</td>
 			<td></td>
 		</tr>
 
