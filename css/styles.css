@@ -258,3 +258,61 @@ padding: 0;
 	margin-left: -5%!important;
 	margin-top: -15%;
 }
+
+
+
+/*--------------------------------------------------------Aida--------------------------------------------------------------------*/
+
+*
+{
+	font-family: 'Open Sans', sans-serif;
+}
+
+#footer
+{
+	margin-top: 10%;
+}
+
+#photo{
+	border-radius: 10px;
+	border: solid 1px black;
+	padding: 0%!important;
+	opacity: 0.9;
+}
+
+#photo:hover
+{
+	opacity: 1;
+}
+#news
+{
+	margin-top: 7%;
+}
+
+#new
+{
+	text-align: center;
+}
+
+#all
+{
+	width: 92%;
+}
+
+
+#imgPadd
+{
+	padding-left: 5%;
+}
+
+#lorem
+{
+	padding: 5%;
+	padding-bottom: 0%!important;
+}
+
+#date
+{
+	margin-left: 2%;
+	color: #C5CAC4
+}
