@@ -88,7 +88,6 @@ require("../inc/functions.php");
 		$dataNews .=']';
 
 		 echo $dataNews;
- 
 	}
 
 	if(isset($_GET['acc']) && $_GET['acc'] == 'changeImgPeferred'){

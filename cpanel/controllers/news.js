@@ -59,8 +59,7 @@ angular.module('spaApp')
 			$scope.showDiv=false;
 			$scope.listNew=false;
 			$scope.updateNew=false;
-			$scope.updateImgNew=true;
-			
+			$scope.updateImgNew=true;	
 		}
 		
 
