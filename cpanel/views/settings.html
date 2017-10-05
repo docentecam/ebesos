@@ -1,0 +1,84 @@
+<div ng-show="listNew" class="row" ng-repeat="new in news">
+	
+	<div class="row">
+		<img id="photo" src="../img/newsmedia/{{new.url}}"> 
+	</div>
+
+	<div class="row">
+		<div>
+			{{new.date}}
+		</div>
+		<div>
+			<input type="button" value="Editar" alt="Edita dades de la noticia" class="btn btn-default"" ng-click="selNew(new.idNew)">
+			<input type="button" value="Esborrar" alt="Esborrar dades de la noticia" class="btn btn-default"" ng-click="">
+		</div>
+	 </div>
+	<div class="row">	
+		<div>
+		{{new.title}}
+		</div>
+	</div>
+
+	<div>
+		<div>
+		{{new.titleSub}}
+		</div>
+	</div>	
+	
+</div>
+
+<div  class="row">
+	<div id="formNews" ng-show="showDiv" >
+		<div ng-repeat="newSelected in newSelect">
+		
+		<h1> Editar Notícia</h1>
+		<br>
+			<form action="#" id="validation" name="validation" method="POST" >
+				
+				<div class="row">
+					<div class="col-md-8">
+						<input type="text" id="titleForm"  name="title" ng-value="newSelected.title">
+					</div>
+
+					<div class="col-md-3 col-md-push-1">
+						<input type="date"  id="dateForm" name="date" ng-value="newSelected.date">
+					</div>					
+				</div>
+
+				<div class="row">
+					<div class="col-md-12">
+						<input type="text" id="titleSub" name="titleSub" ng-value="newSelected.titleSub">
+					</div>
+				</div>
+
+				<div id="containerImg" class="row">
+					
+					<div class="col-sm-6">
+						<div id="containerPreferred">
+							<label>Imatge Destacada</label>
+							<img id="photo" src="../img/newsmedia/{{newSelected.url}}"> 
+							<input type="button" value="Modificar" alt="" class="btn btn-default"" ng-click="">
+							<input type="button" value="Eliminar" alt="" class="btn btn-default"" ng-click="">
+							<input type="button" value="Afegir foto" alt="" class="btn btn-default"" ng-click="">
+						</div>
+							<div id="containerImagesOfNew">
+								<div ng-repeat="img in newSelected.images">
+								
+									<label> Imatges de les noticies </label> 
+									<input type="button" value="Afegir foto" alt="" class="btn btn-default"" ng-click="">
+
+									<img src="../img/newsmedia/{{img.url}}"> 
+									<input type="button" value="Modificar" alt="" class="btn btn-default"" ng-click="">
+									<input type="button" value="Eliminar" alt="" class="btn btn-default"" ng-click="">
+								</div>
+							</div>
+					</div>
+				</div>
+				
+					<div class="form-group">
+						<input type="button" value="Actualitzar" alt="enviar dades del formulari" class="btn btn-default"" ng-click="">
+					</div>
+			</form>
+		</div>
+	</div>
+</div>
