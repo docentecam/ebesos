@@ -1,17 +1,26 @@
-<div class="row">
-<div  id="news">
-	<div ng-repeat="new in news" class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-		<div class="row">
-			<div id="date">{{new.date}}</div>
-		</div>
-		<div class="row">	
-			<div  class="col-lg-2"><img id="photo" src="img/newsmedia/{{new.url}}">  </div>
-			<div id="title" class="col-lg-2">{{new.title}}  <a href="#/new/{{new.idNew}}">Mes info</a></div>
-		</div>
-	</div>	
-	
+<div class="container-fluid">
+	<div class="row">
+		<div ng-repeat="new in news">
+			<div id="date">
+				<span>{{new.date}}</span>
+			
+				<div class="col-lg-4 col-sm-12 col-md-6 col-xs-12">
+					<img id="photo" src="img/newsmedia/{{new.url}}" class="col-lg-9 col-xs-12 col-sm-6  col-md-6" alt="">
+					<span class="col-lg-2 col-md-6 col-sm-6 col-xs-12">	
+						{{new.title}}
+					</span>
+					<a href="#/new/{{new.idNew}}" class="col-lg-1">
+						Mes info
+					</a>
+				</div>
+			</div>
+		</div>	
+	</div>
 </div>
 
-</div>
+<!--<img src="../../../../../../../../Users/Aidy/Desktop/1-Foto1.jpg" class="col-lg-6 col-xs-12 col-sm-6  col-md-6 " alt=""> -->
 
-
+<!--<div class="row">
+				<div class="col-lg-4 col-sm-12 col-md-6 col-xs-12">
+					<img src="mercat.jpeg" class="col-lg-6 col-xs-12 col-sm-6  col-md-6 " alt="">
+					<p class="col-lg-6 col-md-6  col-sm-6 col-xs-12">-->
