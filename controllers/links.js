@@ -10,5 +10,4 @@ $http({
 	}, function myError (response) {
 		$scope.links = response.statusText;
 	});
-});
-		
+});		
