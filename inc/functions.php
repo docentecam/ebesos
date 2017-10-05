@@ -1,8 +1,8 @@
 <?php
 	function connect()
 	{
-		$connexio=@mysqli_connect("bbdd.codigitals.com.es","ddb100217","emailContacte09","ddb100217");
-		//$connection=@mysqli_connect("mysql.hostinger.es","u535170345_besos","ebesos","u535170345_besos");
+		//$connexio=@mysqli_connect("bbdd.codigitals.com.es","ddb100217","emailContacte09","ddb100217");
+		$connection=@mysqli_connect("mysql.hostinger.es","u535170345_besos","ebesos","u535170345_besos");
 		if (!$connexio)
 		{	die("Error...".mysqli_connect_error());	}
 		mysqli_set_charset($connexio, "utf8");
