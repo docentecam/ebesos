@@ -32,11 +32,59 @@
   text-align: center;
   vertical-align: middle;
   margin-bottom: 2%;
-
+}
+.log20
+{
+  height: 20px
+}
+.log250
+{
+  height: 250px;
 }
 #cross
 {
   color: #e51c23;
+}
+#container2
+{
+  border-left: solid 1px;
+  border-color:#ced2de;
+  padding-left: 5%;
+}
+#tableForgot
+{
+  margin-left: 10%;
+}
+.pl15
+{
+  padding-left: 15%;
+}
+.mt5
+{
+  margin-top:  5%;
+}
+#alertW2
+{
+  background-color: #ffb0b0;
+  width: 100%;
+  height: 10px;
+}
+#alert2
+{
+  background-color: #ffb0b0;
+  width: 100%;
+  height: 33px;
+  text-align: center;
+  vertical-align: middle;
+  margin-bottom: 2%;
+}
+#cross2
+{
+  color: #e51c23;
+}
+.trmb
+{
+  height: 10px;
 }
 /* ------------------------ */
 
