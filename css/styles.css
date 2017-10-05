@@ -228,18 +228,33 @@ padding: 0;
 	
 	font-size: 18px;
 }
-
-
+.subMenu
+{
+	padding:  30px;
+}
+.subMA
+{
+	color: white;
+}
 #subMenu
 {
 	text-align: center;
-	padding-right: 0%!important;
+	padding-right: 0% !important;
+	background-color: #337ab7;
 }
 
-.subMenu:active
-{
-	text-decoration: underline;
-	background-color: black;
-}.shopsList{
+.shopsList{
 	padding-bottom: 10px;
+}
+.breadComsA
+{
+	padding-bottom: 10%;
+}
+.assoDivContact
+{
+	margin-top: -1%;
+}
+.formAssoContact{
+	margin-left: -5%!important;
+	margin-top: -15%;
 }
