@@ -40,29 +40,43 @@
 }
 /* ------------------------ */
 
-#titleSub{
+.titleForm{
+  width: 85%;
+}
+
+.titleSub{
   
   height: 250px;
-  width: 85%;
+  width: 76%;
   margin-bottom: 5%;
   margin-top: 2%;
 }
 
+
 #containerImg{
   background-color: white;
-  width: 85%;
+  width: 100%;
+  border: 1px solid #e2e2e2;
+  
 }
 
 #containerPreferred{
   margin-top: 5%;
   margin-bottom: 7%;
-  margin-left: 25%;
+  margin-left: 5%;
 }
 
 #containerImagesOfNew{
   margin-top: 13%;
   margin-bottom: 7%;
-  margin-left: 25%;
+  margin-left: 5%;
+}
+
+.containerEditImg{
+  margin-left: 20%;
+  background-color: white;
+  width: 65%;
+  margin-top: 25%;
 }
 
 /*----------TO DO MAIN.HTML---------------*/
