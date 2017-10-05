@@ -1,10 +1,9 @@
 <?php
 	function connect()
 	{
-		$connexio=@mysqli_connect("bbdd.codigitals.com.es","ddb100217","emailContacte09","ddb100217");
-		//$connection=@mysqli_connect("mysql.hostinger.es","u535170345_besos","ebesos","u535170345_besos");
+		$connexio=@mysqli_connect("localhost","root","","ddb99266");
 		if (!$connexio)
-		{	die("Error...".mysqli_connect_error());	}
+		{	die("Error al conectar");	}
 		mysqli_set_charset($connexio, "utf8");
 		return($connexio);
 	}
@@ -13,46 +12,46 @@
 	function close()
 	{	session_destroy();}
 
-	function sendMails($mailClient = "", $subject = "", $fromName = "", $mailAssociation = "", $pswd = "", $body = ""){
+	// function sendMails($mailClient = "", $subject = "", $fromName = "", $mailAssociation = "", $pswd = "", $body = ""){
 
-		$mySql = "SELECT literal, value FROM settings WHERE literal = 'smtpServer' OR literal = 'smtpPort'";
-		$connexio = connect();
- 		$resultPort = mysqli_query($connexio, $mySql);
-		disconnect($connexio);
-			while ($row=mySqli_fetch_array($resultPort))
-			{
-				$smtpServer = $row["value"];
-				$smtpPort = $row["value"];
-			}	
-		require "phpmailer/phpmailer.class.php";
-		$mail = new PHPMailer();
-		$mail->IsSMTP();
-		$mail->SMTPAuth = true;
-		$mail->SMTPSecure ="ssl";
-		$mail->Host = $smtpServer;//$smtpServer;
-		$mail->Port = $smtpPort;//$smtpPort;
-		$mail->Username = $mailAssociation;
-		$mail->Password = $pswd;
-		$mail->FromName	= $fromName;
-		$mail->From	= $mailClient;
+	// 	$mySql = "SELECT literal, value FROM settings WHERE literal = 'smtpServer' OR literal = 'smtpPort'";
+	// 	$connexio = connect();
+ // 		$resultPort = mysqli_query($connexio, $mySql);
+	// 	disconnect($connexio);
+	// 		while ($row=mySqli_fetch_array($resultPort))
+	// 		{
+	// 			$smtpServer = $row["value"];
+	// 			$smtpPort = $row["value"];
+	// 		}	
+	// 	require "phpmailer/phpmailer.class.php";
+	// 	$mail = new PHPMailer();
+	// 	$mail->IsSMTP();
+	// 	$mail->SMTPAuth = true;
+	// 	$mail->SMTPSecure ="ssl";
+	// 	$mail->Host = $smtpServer;//$smtpServer;
+	// 	$mail->Port = $smtpPort;//$smtpPort;
+	// 	$mail->Username = $mailAssociation;
+	// 	$mail->Password = $pswd;
+	// 	$mail->FromName	= $fromName;
+	// 	$mail->From	= $mailClient;
 
-		$mail->AddReplyTo($mailAssociation);
-		$mail->AddAddress($mailClient);
-		$mail->Timeout = 100;
-		$mail->IsHTML(true);
-		$mail->CharSet = 'UTF-8';
-		$mail->Subject = $subject;
-		$mail->Body = $body;
-		$mail->AltBody = $body;
-		$exito = $mail->Send();
-		$mail->ClearAddresses();
-		if(!$exito)
-		{
-			return $mail->ErrorInfo;
-		}
-		else
-		{
-			echo 'email_enviado_ok ';
-		}
-	}
+	// 	$mail->AddReplyTo($mailAssociation);
+	// 	$mail->AddAddress($mailClient);
+	// 	$mail->Timeout = 100;
+	// 	$mail->IsHTML(true);
+	// 	$mail->CharSet = 'UTF-8';
+	// 	$mail->Subject = $subject;
+	// 	$mail->Body = $body;
+	// 	$mail->AltBody = $body;
+	// 	$exito = $mail->Send();
+	// 	$mail->ClearAddresses();
+	// 	if(!$exito)
+	// 	{
+	// 		return $mail->ErrorInfo;
+	// 	}
+	// 	else
+	// 	{
+	// 		echo 'email_enviado_ok ';
+	// 	}
+	// }
 ?>
