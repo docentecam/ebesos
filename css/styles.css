@@ -3,9 +3,8 @@
 #aboutUs{
 	width: 75%;
 	height: 250px;
-	background-color: #F7F7F7;
-	color: #A20B15;
 	margin-left: 12%;
+	margin-top: 5%;
 }
 /*COMERCIAL MAP*/
 #map {
@@ -303,6 +302,8 @@ padding: 0;
 #imgPadd
 {
 	padding-left: 5%;
+	border-bottom: solid 1px #DEE4DD;
+	padding-bottom: 10%;
 }
 
 #lorem
@@ -316,3 +317,4 @@ padding: 0;
 	margin-left: 2%;
 	color: #C5CAC4
 }
+
