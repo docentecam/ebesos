@@ -1,10 +1,10 @@
 var app= angular.module('spaApp', ['ngRoute']);
 app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
-    // .when('/', {
-    //     templateUrl: 'views/comercialMap.html',
-    //     controller: 'ComercialMapCtrl',
-    // })
+	.when('/', {
+		templateUrl:'views/news.html',
+		controller:'NewsCtrl',
+	})
 	.when('/news',{
 	templateUrl:'views/news.html',
 	controller:'NewsCtrl',
