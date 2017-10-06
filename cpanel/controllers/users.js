@@ -3,7 +3,7 @@ angular.module('spaApp')
 			$http({
 
 				method : "GET",
-				url : "models/users.php?acc=editUser&idUser=1" //modificar
+				url : "models/users.php?acc=loadUser&idUser=1" //modificar
 			}).then(function mySucces (response) {
 				$scope.names = response.data;
 			}, function myError (response) {

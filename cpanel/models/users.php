@@ -74,7 +74,7 @@ require("../inc/functions.php");
 
 	 	echo $message;
 	}
-	elseif (isset($_GET['acc']) && $_GET['acc'] == 'editUser') {
+	elseif (isset($_GET['acc']) && $_GET['acc'] == 'loadUser') {
 		$mySql = "SELECT name, email, emailPass, password, address, telephone, logo, history, active, footer FROM users 
 					WHERE idUser='".$_GET['idUser']."'";
 		$connexio = connect();
