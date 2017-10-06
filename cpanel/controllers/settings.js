@@ -10,6 +10,11 @@ angular.module('spaApp')
 	});
 
 
+$scope.editParameter = function(){ 
+	
+	$scope.updateSetting=true;
+	}
+
 
 
 
