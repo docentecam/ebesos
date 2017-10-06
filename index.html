@@ -70,19 +70,19 @@
 	    	<!-- Collect the nav links, forms, and other content for toggling -->
 		    	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		    		<ul class="nav navbar-nav" id="navGlobal">
-		        		<li class=navWords role="presentation"><a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Mapa Comercial <span class="sr-only">(current)</span></a></li>
-		        		<li class=navWords role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Associacions <span class="caret"></span></a>
+		        		<li role="presentation"><a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Mapa Comercial <span class="sr-only">(current)</span></a></li>
+		        		<li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Associacions <span class="caret"></span></a>
 		          			<ul class="dropdown-menu" ng-controller="AssoNavCtrl" id="imgNav" >
-		          				<li ng-repeat="assoNav in assoNavs" role="presentation" class="prueba">
+		          				<li ng-repeat="assoNav in assoNavs" role="presentation">
 		          					<a href="#/associations/{{assoNav.idUser}}/{{assoNav.name}}"><img class="img-fluid" src="img/logos-assoc/{{assoNav.logo}}">{{assoNav.name}}</a>
 		          					<ul role="separator" id="separatorDesign" ng-class="{divider : !$last}">				
 		          					</ul>	          					
 		          				</li>
 		          			</ul>
 		        		</li>
-		        		<li class=navWords role="presentation"><a href="#/promotions">Promocions</a></li>
-		        		<li class=navWords role="presentation"><a href="#/formation">Formació</a></li>
-		        		<li class=navWords role="presentation"><a href="#/news/1">Notícies</a></li>	
+		        		<li  role="presentation"><a href="#/promotions">Promocions</a></li>
+		        		<li  role="presentation"><a href="#/formation">Formació</a></li>
+		        		<li  role="presentation"><a href="#/news/1">Notícies</a></li>	
 		      		</ul>    
 				</div><!--/.navbar-collapse -->
 	   		</div><!--/.container-fluid -->

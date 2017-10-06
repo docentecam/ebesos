@@ -1,0 +1,25 @@
+<div class="row">
+	<div><h2>Paràmetres</h2></div>	
+</div>
+<div class="row">
+	<table border="1">
+		<tr>
+			<td>Literal</td>
+			<td>Value</td>
+			<td>Editar</td>
+		</tr>
+		<tr ng-repeat="setting in settingsList">
+			<td><input type="text" value="{{setting.literal}}"></td>
+			<td><input type="text" value="{{setting.value}}" name=""></td>
+			<td ><i class="fa fa-pencil" aria-hidden="true" ng-click="editParameter()"></i></td>
+		</tr>
+
+		
+	</table>
+</div>
+
+
+<div class="row" ng-show>
+	<input type="text">
+	<input type="text">
+</div>
