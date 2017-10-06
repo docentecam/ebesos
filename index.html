@@ -32,7 +32,7 @@
 		<div class="row">
 			<div class="col-xs-3" ng-controller="AssoTopImageCtrl">
 				<div class="col-xs-4" id="imgLogoTop" ng-repeat="assoTopImage in assoTopImages">
-					<a href="#"><img src="img/logos-assoc/{{assoTopImage.logo}}"></a>
+					<a href="#"><img class="img-responsive" src="img/logos-assoc/{{assoTopImage.logo}}"></a>
 				</div>
 				<div class="col-xs-8" id="logoTexto"><h4>EIX BESÒS -</h4><h4>MARESME</h4></div>		
 			</div>			
@@ -74,7 +74,7 @@
 		        		<li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Associacions <span class="caret"></span></a>
 		          			<ul class="dropdown-menu" ng-controller="AssoNavCtrl" id="imgNav" >
 		          				<li ng-repeat="assoNav in assoNavs" role="presentation">
-		          					<a href="#/associations/{{assoNav.idUser}}/{{assoNav.name}}"><img class="img-fluid" src="img/logos-assoc/{{assoNav.logo}}">{{assoNav.name}}</a>
+		          					<a href="#/associations/{{assoNav.idUser}}/{{assoNav.name}}"><img class="img-responsive" src="img/logos-assoc/{{assoNav.logo}}">{{assoNav.name}}</a>
 		          					<ul role="separator" id="separatorDesign" ng-class="{divider : !$last}">				
 		          					</ul>	          					
 		          				</li>
@@ -121,7 +121,7 @@
 		    	</div>
 	    		<div class="row" ng-controller="AssoFooterCtrl">
 					<div class="icoFooterEix" ng-repeat="assoFooter in assoFooters">
-						<img class="img-fluid col-xs-2 col-sm-1 col-md-1 col-lg-1 col-xs-push-4 col-sm-push-8" src="img/logos-assoc/{{assoFooter.logo}}">
+						<img class="img-responsive col-xs-2 col-sm-1 col-md-1 col-lg-1 col-xs-push-4 col-sm-push-8" src="img/logos-assoc/{{assoFooter.logo}}">
 					</div>
 				</div>
     		</footer>
