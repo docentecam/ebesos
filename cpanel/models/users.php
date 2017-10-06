@@ -73,8 +73,28 @@ require("../inc/functions.php");
 	 	}
 
 	 	echo $message;
+	}
+	elseif (isset($_GET['acc']) && $_GET['acc'] == 'loadUser') {
+		$mySql = "SELECT name, email, emailPass, password, address, telephone, logo, history, active, footer FROM users 
+					WHERE idUser='".$_GET['idUser']."'";
+		$connexio = connect();
+		$resultUser = mysqli_query($connexio, $mySql);
+		disconnect($connexio);
 
+		$dataUser = "[";
+			$i = 0;
+			while($row = mysqli_fetch_array($resultUser))
+			{
+				if($i != 0)
+				{
+					$dataUser .= ",";
+				}
+				$dataUser .= '{"name":"'.$row['name'].'", "email":"'.$row['email'].'", "emailPass":"'.$row['emailPass'].'", "password":"'.$row['password'].'", "address":"'.$row['address'].'", "telephone":"'.$row['telephone'].'", "logo":"'.$row['logo'].'", "history":"'.$row['history'].'", "active":"'.$row['active'].'", "footer":"'.$row['footer'].'"}'; 
+				$i++;
+			}
+			$dataUser .= "]";
 
+			echo $dataUser;
 	}
 	
 ?>	

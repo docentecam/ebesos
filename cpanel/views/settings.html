@@ -11,15 +11,18 @@
 		<tr ng-repeat="setting in settingsList">
 			<td><input type="text" value="{{setting.literal}}"></td>
 			<td><input type="text" value="{{setting.value}}" name=""></td>
-			<td ><i class="fa fa-pencil" aria-hidden="true" ng-click="editParameter()"></i></td>
+			<td ><a ng-click="editParameter()" href=""><i class="fa fa-pencil" aria-hidden="true" ></i></a></td>
 		</tr>
 
 		
 	</table>
 </div>
+<div class="row">
+	<input type="button" name="actParameter" value="Actualitzar" class="btn btn-default"" ng-click="">	
+</div>
 
 
-<div class="row" ng-show>
+<div class="row" ng-show="">
 	<input type="text">
 	<input type="text">
 </div>

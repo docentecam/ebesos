@@ -3,9 +3,8 @@
 #aboutUs{
 	width: 75%;
 	height: 250px;
-	background-color: #F7F7F7;
-	color: #A20B15;
 	margin-left: 12%;
+	margin-top: 5%;
 }
 /*COMERCIAL MAP*/
 #map {
@@ -92,6 +91,7 @@ padding: 0;
 
 }*/
 
+<<<<<<< HEAD
 
 .icoFooter019 {
 	width: 80%;
@@ -99,6 +99,8 @@ padding: 0;
 	margin-left: 73%;
 	margin-bottom: 0.1%;
 }
+=======
+>>>>>>> origin/master
 .navbar .navbar-nav {
   display: inline-block;
   float: none;
@@ -302,6 +304,8 @@ padding: 0;
 #imgPadd
 {
 	padding-left: 5%;
+	border-bottom: solid 1px #DEE4DD;
+	padding-bottom: 10%;
 }
 
 #lorem
@@ -315,3 +319,4 @@ padding: 0;
 	margin-left: 2%;
 	color: #C5CAC4
 }
+

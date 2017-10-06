@@ -11,10 +11,8 @@ angular.module('spaApp')
 
 
 $scope.editParameter = function(){ 
-	$scope.updateImgPreferred=false;
-	$scope.showDiv=false;
-	$scope.listNew=false;
-	$scope.updateNew=true;
+	
+	$scope.updateSetting=true;
 	}
 
 
