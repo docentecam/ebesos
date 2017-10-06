@@ -1,5 +1,5 @@
 <div class="row">
-	<div><label>Paràmetres</label></div>	
+	<div><h2>Paràmetres</h2></div>	
 </div>
 <div class="row">
 	<table border="1">
@@ -10,8 +10,8 @@
 		</tr>
 		<tr ng-repeat="setting in settingsList">
 			<td><input type="text" value="{{setting.literal}}"></td>
-			<td>{{setting.value}}</td>
-			<td></td>
+			<td><input type="text" value="{{setting.value}}" name=""></td>
+			<td ><i class="fa fa-pencil" aria-hidden="true" ng-click="editParameter()"></i></td>
 		</tr>
 
 		
