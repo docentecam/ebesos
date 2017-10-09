@@ -3,7 +3,7 @@ require('../inc/functions.php');
 
 		if(isset($_GET['acc']) && ($_GET['acc'] == "list"))
 		{
-			$mySql = "SELECT literal, value FROM settings";
+			$mySql = "SELECT idSetting, literal, value FROM settings";
 
 			$connexio = connect();
 			$resultSettings = mysqli_query($connexio, $mySql);
@@ -17,7 +17,7 @@ require('../inc/functions.php');
 				{
 					$dataSettings .= ",";
 				}
-				$dataSettings .= '{"literal":"'.$row['literal'].'", "value":"'.$row['value'].'"}'; 
+				$dataSettings .= '{"literal":"'.$row['literal'].'", "idSetting":"'.$row['idSetting'].'", "value":"'.$row['value'].'"}'; 
 				$i++;
 			}
 			$dataSettings .= "]";

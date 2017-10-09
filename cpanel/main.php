@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-
+<?php
+if(!isset($_SESSION['idUser'])) header("Location: index.html");
+?>
 	<html>
 	<head>
 		<title>EIX COMERCIAL BACKEND</title>
@@ -23,7 +25,7 @@
 		<script src="controllers/slider.js"></script>
 		<script src="controllers/users.js"></script>
 		<script src="controllers/settings.js"></script>
-
+		
 	</head>
 	<body id="container" data-ng-app="spaApp">
 		
@@ -35,7 +37,7 @@
 				
 			</div>
 			<div col-xs-1 id="img-user">
-				
+
 			</div>
 			<div col-xs-2 id="desplegable">
 				

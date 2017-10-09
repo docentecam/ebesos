@@ -10,10 +10,20 @@ angular.module('spaApp')
 	});
 
 
-$scope.editParameter = function(){ 
-	
-	$scope.updateSetting=true;
+$scope.editParameter = function(idSetting, value, literal){
+
+		$scope.idSetting = idSetting;
+		$scope.value= value;
+		$scope.literal= literal;
+		$scope.showSettings=true;
 	}
+
+	$scope.updateSettings = function(){
+		$scope.literal=validationSetting["updateLiteral"].value;
+		$scope.value=validationSetting["updatevalue"].value;
+		$scope.idSetting=validationSetting["idSetting"].value;
+	}
+
 
 
 

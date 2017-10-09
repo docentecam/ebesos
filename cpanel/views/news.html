@@ -13,7 +13,7 @@
 			{{new.date}}
 		</div>
 		<div>
-			<input type="button" value="Editar" alt="Edita dades de la noticia" class="btn btn-default"" ng-click="selNew(new.idNew)">
+			<input type="button" value="Editar" alt="Edita dades de la noticia" class="btn btn-default" ng-click="selNew(new.idNew)">
 			<input type="button" value="Esborrar" alt="Esborrar dades de la noticia" class="btn btn-default"" ng-click="">
 		</div>
 	 </div>
