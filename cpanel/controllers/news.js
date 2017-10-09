@@ -79,6 +79,42 @@ angular.module('spaApp')
 			$scope.newNews=true;	
 		}
 
+		$scope.validationNewForm = function(){
+			var correcto=true;
+
+			for(i=0;i<validationNewForm.length;i++){
+
+				if(validationNewForm[i].type=="text" && validationNewForm[i].name=="titleNewNew" && validationNewForm[i].value=="")
+						{
+							
+							alert("No hi ha Titol");
+							correcto=false;	 
+						}
+				if(validationNewForm[i].type=="text" && validationNewForm[i].name=="titleSubNewNew" && validationNewForm[i].value=="")
+						{
+							
+							alert("No hi ha Contingut");
+							correcto=false;	 
+						}
+				if(validationNewForm[i].type=="date" && validationNewForm[i].name=="dateNewNew" && validationNewForm[i].value=="")
+						{
+							
+							alert("No hi ha Data de creació");
+							correcto=false;	 
+						}
+			}
+
+			if (correcto){ 
+				$("#validationNewForm").submit();
+			}
+			
+			else{ 
+				alert("No has rellenado algun campo del formulario hijoepta vuelve a hacerlo");		
+			}
+		}
+
+
+
 		$scope.changeImgPeferred = function(idNew)
 		{  
 			$http({	
