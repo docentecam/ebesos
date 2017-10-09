@@ -93,6 +93,16 @@ require("../inc/functions.php");
 	if(isset($_GET['acc']) && $_GET['acc'] == 'changeImgPeferred'){
 
 
+		$mySql = "UPDATE  n.idNew , n.idUser,.n.titleSub , n.date, n.title , w.url";
+		$mySql .= " FROM news n, newsmedia w WHERE n.idNew=w.idNew AND w.preferred='Y'AND n.idUser=1";//.$_GET["idUser"];
+
+		$connexio = connect();
+		$modifyImgPref = mysqli_query($connexio, $mySql);
+		disconnect($connexio);
+
+		return $modifyImgPref;
+
+
 	}	
 
 ?>

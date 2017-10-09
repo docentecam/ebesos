@@ -1,3 +1,7 @@
+<div class="row">
+	<input type="button" name="newNew" value="Afegir Noticia" alt="Afegir noticia" class="btn btn-default" ng-click="newNew()">
+</div>
+
 <div ng-show="listNew" class="row" ng-repeat="new in news">
 	
 	<div class="row">
@@ -134,4 +138,43 @@
 			<input  type="button" value="Actualitzar" alt="enviar dades del formulari" class="btn btn-default"" ng-click="">
 		</div>
 	</div>	
+</div>
+
+<div class="row">
+	<div  ng-show="newNews">
+		<table  align="center">
+	      	<tr>
+	          <td> Titol de la noticia: </td>
+	          <td><input name="titleNewNew" type="text"></td>
+	        </tr>
+
+	        <tr>
+	          <td> Data de creació: </td>
+	          <td><input name="dateNewNew" type="date"></td>
+	        </tr>
+
+	        <tr>
+	          <td> Contingut de la noticia: </td>
+	          <td><input name="titleSubNewNew" type="text"></td>
+	        </tr>
+
+	        <tr>
+	          <td>Foto de Portada: </td>
+	          <td><input name="imgPreferred" type="file"></td>
+	        </tr>
+
+	         <tr>
+	          <td>Foto/s de la noticia: </td>
+	          <td><input name="ImgNoPreferred" type="file"></td>
+	        </tr>
+	    </table>
+
+	    <div>
+			<input  type="button" value="Crear Noticia" alt="" class="btn btn-default"" ng-click="">
+		</div>
+
+	</div>
+	
+		
+	
 </div>

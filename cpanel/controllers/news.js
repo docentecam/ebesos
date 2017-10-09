@@ -4,6 +4,7 @@ angular.module('spaApp')
 			$scope.listNew=true;
 			$scope.updateImgPreferred=false;
 			$scope.updateNew=false;
+			$scope.newNews=false;	
 			$http({
 
 				method : "GET",
@@ -26,6 +27,7 @@ angular.module('spaApp')
 				$scope.newSelect = response.data;
 				$scope.showDiv=true;
 				$scope.listNew=false;
+				$scope.newNews=false;	
 				$scope.updateImgPreferred=false;
 				console.log($scope.newSelect);
 				
@@ -40,8 +42,9 @@ angular.module('spaApp')
 			$scope.updateImgPreferred=false;
 			$scope.showDiv=false;
 			$scope.listNew=false;
-			$scope.updateNew=true;
-			
+			$scope.updateNew=true;	
+			$scope.updateImgNew=false;	
+			$scope.newNews=false;		
 		}
 
 		$scope.changeImgP = function()
@@ -50,6 +53,8 @@ angular.module('spaApp')
 			$scope.showDiv=false;
 			$scope.listNew=false;
 			$scope.updateNew=false;
+			$scope.updateImgNew=false;	
+			$scope.newNews=false;
 		}
 
 
@@ -59,10 +64,20 @@ angular.module('spaApp')
 			$scope.showDiv=false;
 			$scope.listNew=false;
 			$scope.updateNew=false;
-			$scope.updateImgNew=true;	
+			$scope.updateImgNew=true;
+			$scope.newNews=false;	
 		}
 		
 
+		$scope.newNew = function()
+		{ 
+			$scope.updateImgPreferred=false;
+			$scope.showDiv=false;
+			$scope.listNew=false;
+			$scope.updateNew=false;
+			$scope.updateImgNew=false;	
+			$scope.newNews=true;	
+		}
 
 		$scope.changeImgPeferred = function(idNew)
 		{  
