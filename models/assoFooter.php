@@ -3,7 +3,7 @@ require("../inc/functions.php");
 	
 if (isset($_GET["acc"])&& ($_GET["acc"] == "assoFooter"))
 	{
-		$mySql = "SELECT idUser, logo FROM users ORDER BY idUser";
+		$mySql = "SELECT idUser, footer FROM users ORDER BY idUser";
 		$connexio = connect();
 		$resultAssoFooter = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
@@ -15,7 +15,7 @@ if (isset($_GET["acc"])&& ($_GET["acc"] == "assoFooter"))
 			{
 				$dataAssoFooter .= ",";				
 			}			
-			$dataAssoFooter .= '{"idUser":"'.$row['idUser'].'","logo":"'.$row['logo'].'"}';
+			$dataAssoFooter .= '{"idUser":"'.$row['idUser'].'","footer":"'.$row['footer'].'"}';
 			$i++;
 		}
 		$dataAssoFooter .="]";
