@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
+
+
 /*lander sanahujes yañez*/
 
 #aboutUs{
@@ -91,16 +94,6 @@ padding: 0;
 
 }*/
 
-<<<<<<< HEAD
-
-.icoFooter019 {
-	width: 80%;
-	height: 80%;
-	margin-left: 73%;
-	margin-bottom: 0.1%;
-}
-=======
->>>>>>> origin/master
 .navbar .navbar-nav {
   display: inline-block;
   float: none;
