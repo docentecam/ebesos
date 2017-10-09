@@ -1,11 +1,11 @@
-<div class="container-fluid" style="margin-bottom: 5%;">
+<div id="containerNew" class="container-fluid">
 	<ul>
 		<li>
 			<a href="/#"> Inici </a><span> | </span><a href="#/news"> Notícies </a><span> | </span><span ng-repeat="new in news">{{new.title}}</span>
 		</li>
 	</ul>
 	<div class="row">
-		<span style="text-align: center;" ng-repeat="new in news" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">{{new.title}}</span>
+		<span id="titleNew" ng-repeat="new in news" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">{{new.title}}</span>
 	</div>
 	<hr>
 	<div class="row">

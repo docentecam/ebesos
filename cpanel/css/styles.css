@@ -140,13 +140,31 @@
   margin-top: 10%;
 }
 #editarSliderSpan{
-
+  margin-top: 10%
 }
 #divOpcioAfegir{
-
+  margin-top: 9.5%
 
 }
+#whiteSliderDiv{
+  background-color: white; border: 1px solid black; margin-top: 4%;
+padding-top: 4%; margin-bottom: 10%;
+}
+#divSliderSetting{
+  margin-bottom: 4%
+}
+#imgSliderSetting{
+  margin-top: 0.5%;
+}
 
+#btnEditarSlider{
+  position: relative; left: 4%;
+margin-right: 9%; margin-bottom: 10%; margin-top: 5%;
+}
+
+#btnDeleteSlider{
+  margin-top: 5%;
+}
 .btn-default{
   background: #96a8b0 !important;
 }

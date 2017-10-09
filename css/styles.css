@@ -229,6 +229,12 @@ padding: 0;
 #breadcrumbsContact{
 	text-decoration: none;
 }
+#titleNew{
+	text-align: center;
+}
+#containerNew{
+	margin-bottom: 5%;
+}
 /*--------------------------------------------------------Dídac--------------------------------------------------------------------*/
 .assoNews{
 	width: 80%;
