@@ -94,7 +94,8 @@ padding: 0;
 
 }*/
 .uno {
-  margin: 0 auto;
+  border-left: 1px;
+  border-color: black;
 }
 
 .navbar .navbar-nav {
@@ -107,16 +108,16 @@ padding: 0;
   text-align: center;
 }
 .footer-bs {
-    background-color: #3c3d41;
+    background-color: #E1E1E1;
 	padding: 20px 30px;
-	color: rgba(255,255,255,1.00);
+	color: black;
 	margin-bottom: 20px;
 	border-bottom-right-radius: 6px;
 	border-top-left-radius: 0px;
 	border-bottom-left-radius: 6px;
 }
 #mc_embed_signup{
-	background-color: #3c3d41!important;
+	background-color: #E1E1E1!important;
 
 }
 #mce-EMAIL, #mce-FNAME{
