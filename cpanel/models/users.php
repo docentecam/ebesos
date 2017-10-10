@@ -75,7 +75,7 @@ require("../inc/functions.php");
 	 	echo $message;
 	}
 	elseif (isset($_GET['acc']) && $_GET['acc'] == 'loadUser') {
-		$mySql = "SELECT name, email, emailPass, password, address, telephone, logo, history, active, footer FROM users 
+		$mySql = "SELECT idUser, name, email, emailPass, password, address, telephone, logo, history, active, footer FROM users 
 					WHERE idUser='".$_GET['idUser']."'";
 		$connexio = connect();
 		$resultUser = mysqli_query($connexio, $mySql);
@@ -89,7 +89,7 @@ require("../inc/functions.php");
 				{
 					$dataUser .= ",";
 				}
-				$dataUser .= '{"name":"'.$row['name'].'", "email":"'.$row['email'].'", "emailPass":"'.$row['emailPass'].'", "password":"'.$row['password'].'", "address":"'.$row['address'].'", "telephone":"'.$row['telephone'].'", "logo":"'.$row['logo'].'", "history":"'.$row['history'].'", "active":"'.$row['active'].'", "footer":"'.$row['footer'].'"}'; 
+				$dataUser .= '{"idUser":"'.$row['idUser'].'", "name":"'.$row['name'].'", "email":"'.$row['email'].'", "emailPass":"'.$row['emailPass'].'", "password":"'.$row['password'].'", "address":"'.$row['address'].'", "telephone":"'.$row['telephone'].'", "logo":"'.$row['logo'].'", "history":"'.$row['history'].'", "active":"'.$row['active'].'", "footer":"'.$row['footer'].'"}'; 
 				$i++;
 			}
 			$dataUser .= "]";
@@ -98,10 +98,10 @@ require("../inc/functions.php");
 	}
 	elseif (isset($_GET['acc']) && $_GET['acc'] == 'updateUser') {
 		$mySql = "UPDATE users
-				SET ";
+				SET email='".$_GET['email']."', emailPass='".$_GET['pswdMail']."', name='".$_GET['name']."', address='".$_GET['address']."', telephone='".$_GET['telephone']."', active='".$_GET['active']."' 
+				WHERE idUser=".$_GET['idUser'];
 		$connexio = connect();
-		$resultUser = mysqli_query($connexio, $mySql);
+		$updateUserData = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
-
 	}
 ?>	

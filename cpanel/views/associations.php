@@ -10,6 +10,9 @@
 						<option>WIP</option>
 					</select>
 				</div>
+				<div class="row">
+				<div class="col-lg-12"><input type="text" id="userId" ng-value="association.idUser" disabled hidden></div>
+				</div>
 				<div class="col-lg-6">Associació:</div>
 				<div class="col-lg-6">
 					<input type="text" id="name" name="name" ng-value="association.name">
@@ -32,8 +35,7 @@
 				</div>
 				<div class="col-lg-6">Actiu:</div>
 				<div class="col-lg-6">
-					<select>
-						<option value="-1">--Selecciona--</option>
+					<select id="active">
 						<option value="Y">Si</option>
 						<option value="N">No</option>
 					</select>
@@ -59,6 +61,9 @@
 	</div>
 	<div class="col-lg-12" ng-show="changePass">
 		<form>
+			<div class="row">
+				<div class="col-lg-12"><input type="text" id="usrId" ng-value="idUser" disabled hidden></div>
+			</div>
 			<div class="row">
 				<div class="col-lg-3">Contrasenya actual:</div>
 				<div class="col-lg-6">
@@ -110,7 +115,7 @@
 		</div>
 		<div class="row">
 			<div class="col-lg-3">
-				<img src="../img/logos-assoc/{{association.logo}}">
+				<img src="../img/logos-assoc/{{association.footer}}">
 			</div>
 			<div class="col-lg-6">
 				<div class="row">
