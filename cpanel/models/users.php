@@ -98,10 +98,47 @@ require("../inc/functions.php");
 	}
 	elseif (isset($_GET['acc']) && $_GET['acc'] == 'updateUser') {
 		$mySql = "UPDATE users
-				SET email='".$_GET['email']."', emailPass='".$_GET['pswdMail']."', name='".$_GET['name']."', address='".$_GET['address']."', telephone='".$_GET['telephone']."', active='".$_GET['active']."' 
+				SET email='".$_GET['email']."', emailPass='".$_GET['pswdMail']."', name='".$_GET['name']."', address='".$_GET['address']."', telephone='".$_GET['telephone']."', history='".$_GET['history']."', active='".$_GET['active']."' 
 				WHERE idUser=".$_GET['idUser'];
 		$connexio = connect();
 		$updateUserData = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
+	}
+	elseif (isset($_GET['acc']) && $_GET['acc'] == 'updatePass') {
+		
+		$mySql = "SELECT password 
+				FROM users 
+				WHERE idUser='".$_GET['idUser']."'";
+		$connexio = connect();
+		$resultUser = mysqli_query($connexio, $mySql);
+		disconnect($connexio);
+
+		$dataUser = "[";
+			$i = 0;
+			/*while($row = mysqli_fetch_array($resultUser))
+			{
+				if($i != 0)
+				{
+					$dataUser .= ",";
+				}
+				$dataUser .= '{"password":"'.$row['password'].'"}'; 
+				$i++;
+			}
+		$dataUser .= "]";*/
+
+		if (sha1(md5($_GET['oldPassword'])) == $row['password'])
+		{
+			$mySql = "UPDATE users
+				SET password='".sha1(md5($_GET['newPassword']))."' 
+				WHERE idUser=".$_GET['idUser'];
+			$connexio = connect();
+			$updateUserData = mysqli_query($connexio, $mySql);
+			disconnect($connexio);
+		}
+		else
+		{
+			$message = "La contrasenya actual que has escrit no és la correcte";
+		}
+		echo sha1(md5($_GET['oldPassword']));
 	}
 ?>	
