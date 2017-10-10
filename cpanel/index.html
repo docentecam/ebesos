@@ -28,7 +28,7 @@
 							<b>{{names}}</b>
 						</div>
 					</div>
-					<form method="POST" id="check" action="#">
+					<form id="check">
 						<!-- <label style="margin-right: 10.8%">Usuari: </label>
 						<input type="text" id="user" placeholder="Nom d'usuari"><br>
 						<label>Contrasenya: </label>
@@ -36,13 +36,13 @@
 						<input type="button" value="Accedir" class="btn btn-default"" ng-click="checking();"><br> -->
 							<div class="row">
 								<div class="col-lg-3"><label>Usuari: </label></div>
-								<div class="col-lg-6"><input type="text" id="user" placeholder="Nom d'usuari"></div>
+								<div class="col-lg-6"><input type="text" id="user" placeholder="Nom d'usuari" value="comerciantsbm@gmail.com"></div>
 							</div>
 							<div class="row log20"></div>
 							<div class="row">
 								<div class="col-lg-3"><label>Contrasenya: </label></div>
-								<div class="col-lg-6"><input type="password" id="pswd" placeholder="Contrasenya"></div>
-								<div class="col-lg-3"><input type="button" value="Accedir" class="btn btn-default"" ng-click="checking();"></div>
+								<div class="col-lg-6"><input type="password" id="pswd" placeholder="Contrasenya" value="1"></div>
+								<div class="col-lg-3"><input type="button" value="Accedir" class="btn btn-default" ng-click="checking();"></div>
 							</div>
 					</form>
 					<div class="row log20"></div>
@@ -136,22 +136,31 @@
   				$scope.checking = function(){
   					$scope.email = check['user'].value;
   					$scope.password = check['pswd'].value;
+  					$scope.names='';
 					$http({
-						method : "POST",
+						method : "get",
 						url : "models/users.php?acc=login&email="+$scope.email+"&password="+$scope.password
 					}).then(function mySucces (response) {
-					$scope.names = response.data;
-						if($scope.names == "Correcto") 
+					$scope.namesss = response.data;
+console.log("Valor scope:"+$scope.namesss+"---");
+if($scope.names=="Correct")
 						{
-							$window.location.href = "main.html";
+							console.log("llega");
+							$window.location.href = "main.php";
 						}
 						else
 						{
 							$scope.fail = true;
+							console.log("ko");
 						}
+
 					}, function myError (response) {
 						$scope.names = response.statusText;
+
+
 					});
+
+						
 				};
 				$scope.showForgot = function(){
   					$scope.login = false;
@@ -179,7 +188,7 @@
 						url : "models/users.php?acc=forgot&mail="+$scope.mail+"&captcha="+$scope.captcha
 						}).then(function mySucces (response) {
 							$scope.names = response.data;
-							if($scope.names == "Correcto") 
+							if($scope.names == "Correct") 
 							{
 								//$window.location.href = "main.html";
 							}
