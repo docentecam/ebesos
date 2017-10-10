@@ -2,6 +2,7 @@
 require("../inc/functions.php");
 
 	if(isset($_GET['acc']) && $_GET['acc'] == 'login'){
+		$message='';
 		$mySql = "SELECT idUser FROM users 
 					WHERE email='".$_GET['email']."' AND password='".sha1(md5($_GET['password'])).
 					"' AND active='Y'";
@@ -26,12 +27,11 @@ require("../inc/functions.php");
 	 	}
 	 	else
 	 	{
-	 		$message = "Correcto";
+	 		$message = "Correct";
 	 		$_SESSION['idUser'] = $checkLogin;
 	 	}
 
-	 	echo $message;
-
+	 	echo trim($message);
 	}
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'forgot'){
 		$mySql = "SELECT idUser FROM users 
@@ -69,7 +69,7 @@ require("../inc/functions.php");
 			$connexio = connect();
 			$updateForgotToken = mysqli_query($connexio, $mySql);
 			disconnect($connexio);
-	 		$message = "Correcto";
+	 		$message = "Correct";
 	 	}
 
 	 	echo $message;
