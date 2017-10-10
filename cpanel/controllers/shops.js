@@ -1,5 +1,5 @@
 angular.module('spaApp')
-.controller('ShopsCtrl',['$scope','upload', function($scope, $http, $routeParams, upload) {
+.controller('ShopsCtrl', function($scope, $http, $routeParams, upload) {
 	$scope.showShop = false;
 	$scope.shopOne = "[{{}}]";
 	console.log($scope.showShop);

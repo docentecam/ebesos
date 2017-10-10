@@ -94,7 +94,7 @@
 	</form>
 	<div class="row col-md-12">
 		<div class="col-md-3 col-md-push-1">
-			<span>Subcategoria preferida</span>
+			<span>Subcategoria principal</span>
 			<select ng-change="preferredSubCat(idShopCategorySub)" ng-model="idShopCategorySub">
 				<option ng-repeat="subCategoryShop in subCategoriesShop" ng-value="subCategoryShop.idShopCategorySub" ng-selected="subCategoryShop.preferred=='Y'">{{subCategoryShop.nameSubCategoryShop}}</option>
 			</select>
@@ -102,7 +102,7 @@
 	</div>
 	<div class="row col-md-12">
 		<div id="subcategories" class="shop-email col-md-4 col-md-push-1">
-			<span>Subcategorias</span>
+			<span>Altres subcategories</span>
 			<ul>
 				<li ng-repeat="subCategoryShop in subCategoriesShop | filter : {preferred:'N'}">{{subCategoryShop.nameSubCategoryShop}}<button>-</button></li>
 			</ul>
