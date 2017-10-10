@@ -32,13 +32,13 @@
 		<div class="row">
 			<div class="col-xs-3" ng-controller="AssoTopImageCtrl">
 				<div class="col-xs-4" id="imgLogoTop" ng-repeat="assoTopImage in assoTopImages">
-					<a href="#"><img src="img/logos-assoc/{{assoTopImage.logo}}"></a>
+					<a href="#"><img class="img-responsive" src="img/logos-assoc/{{assoTopImage.logo}}"></a>
 				</div>
 				<div class="col-xs-8" id="logoTexto"><h4>EIX BESÒS -</h4><h4>MARESME</h4></div>		
 			</div>			
 			<span class="col-xs-2 col-xs-offset-7 pull-right">				
-				<a href="#/users/1" class="linksOcultos">Qui Som?</a> | 						
-				<a href="#/contact/1" class="linksOcultos">Contacte</a>					
+				<a href="#/users/1">Qui Som?</a> | 						
+				<a href="#/contact/1">Contacte</a>					
 			</span>		
 		</div>	
 		<div class="row">
@@ -70,19 +70,19 @@
 	    	<!-- Collect the nav links, forms, and other content for toggling -->
 		    	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		    		<ul class="nav navbar-nav" id="navGlobal">
-		        		<li class=navWords role="presentation"><a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Mapa Comercial <span class="sr-only">(current)</span></a></li>
-		        		<li class=navWords role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Associacions <span class="caret"></span></a>
+		        		<li role="presentation"><a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Mapa Comercial <span class="sr-only">(current)</span></a></li>
+		        		<li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Associacions <span class="caret"></span></a>
 		          			<ul class="dropdown-menu" ng-controller="AssoNavCtrl" id="imgNav" >
-		          				<li ng-repeat="assoNav in assoNavs" role="presentation" class="prueba">
-		          					<a href="#/associations/{{assoNav.idUser}}/{{assoNav.name}}"><img class="img-fluid" src="img/logos-assoc/{{assoNav.logo}}">{{assoNav.name}}</a>
+		          				<li ng-repeat="assoNav in assoNavs" role="presentation">
+		          					<a href="#/associations/{{assoNav.idUser}}/{{assoNav.name}}"><img class="img-responsive" src="img/logos-assoc/{{assoNav.logo}}">{{assoNav.name}}</a>
 		          					<ul role="separator" id="separatorDesign" ng-class="{divider : !$last}">				
 		          					</ul>	          					
 		          				</li>
 		          			</ul>
 		        		</li>
-		        		<li class=navWords role="presentation"><a href="#/promotions">Promocions</a></li>
-		        		<li class=navWords role="presentation"><a href="#/formation">Formació</a></li>
-		        		<li class=navWords role="presentation"><a href="#/news/1">Notícies</a></li>	
+		        		<li  role="presentation"><a href="#/promotions">Promocions</a></li>
+		        		<li  role="presentation"><a href="#/formation">Formació</a></li>
+		        		<li  role="presentation"><a href="#/news/1">Notícies</a></li>	
 		      		</ul>    
 				</div><!--/.navbar-collapse -->
 	   		</div><!--/.container-fluid -->
@@ -90,7 +90,9 @@
   		</div>		
 		<div class="row">  
 			<div class="col-xs-12" data-ng-view="">
-  				<i class="fa fa-spinner" aria-hidden="true"></i>
+				<div ng-show="loading">
+					<i class="fa fa-spinner" aria-hidden="true"></i>
+				</div>  				
   			</div>
   		</div>
   		<div class="row">
@@ -119,7 +121,7 @@
 		    	</div>
 	    		<div class="row" ng-controller="AssoFooterCtrl">
 					<div class="icoFooterEix" ng-repeat="assoFooter in assoFooters">
-						<img class="img-fluid col-xs-2 col-sm-1 col-md-1 col-lg-1 col-xs-push-4 col-sm-push-8" src="img/logos-assoc/{{assoFooter.logo}}">
+						<img class="img-responsive col-xs-2 col-sm-1 col-md-1 col-lg-1 col-xs-push-4 col-sm-push-8" src="img/logos-assoc/{{assoFooter.footer}}">
 					</div>
 				</div>
     		</footer>

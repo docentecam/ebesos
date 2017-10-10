@@ -12,7 +12,112 @@
 	<script type='text/javascript' src="./bower_components/angular/angular.js"></script>
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="css/styles.css">
-		<style>
+
+</head>
+<body ng-app="myApp" ng-controller="LoginCtrl">
+	<div ng-show="login">
+		<div class="row log250"></div>
+		<div class="row">
+			<div id="container2" class="col-sm-12 col-md-6 col-lg-4 col-lg-offset-4">
+				<div class="row">
+					<h3>LOGIN</h3>
+					<div class="row log20"></div>
+					<div ng-show="fail">
+						<div id="alertW"></div>
+						<div id="alert">
+							<i id="cross" class="fa fa-times" aria-hidden="true"></i>
+							<b>{{names}}</b>
+						</div>
+					</div>
+					<form id="check">
+						<!-- <label style="margin-right: 10.8%">Usuari: </label>
+						<input type="text" id="user" placeholder="Nom d'usuari"><br>
+						<label>Contrasenya: </label>
+						<input type="password" id="pswd" placeholder="Contrasenya">
+						<input type="button" value="Accedir" class="btn btn-default"" ng-click="checking();"><br> -->
+							<div class="row">
+								<div class="col-lg-3"><label>Usuari: </label></div>
+								<div class="col-lg-6"><input type="text" id="user" placeholder="Nom d'usuari" value="comerciantsbm@gmail.com"></div>
+							</div>
+							<div class="row log20"></div>
+							<div class="row">
+								<div class="col-lg-3"><label>Contrasenya: </label></div>
+								<div class="col-lg-6"><input type="password" id="pswd" placeholder="Contrasenya" value="1"></div>
+								<div class="col-lg-3"><input type="button" value="Accedir" class="btn btn-default" ng-click="checking();"></div>
+							</div>
+					</form>
+					<div class="row log20"></div>
+					<div class="row">
+						<div class="col-lg-12 col-lg-offset-3">
+							<a href="" ng-click="showForgot();">Has oblidat la teva contrasenya?</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div ng-show="forgot">
+		<div class="row log250"></div>
+		<div class="row">
+			<div class="col-lg-6 col-lg-offset-3" id="container2">
+				<h3>RECUPERA LA TEVA CONTRASENYA</h3>
+				<div ng-show="failForgot">
+					<div id="alertW2"></div>
+					<div id="alert2">
+						<i id="cross2" class="fa fa-times" aria-hidden="true"></i>
+						<b>{{names}}</b>
+					</div>
+				</div>
+				<form class="form-horizontal" id="forgot" action="#">
+			  		<table id="tableForgot">
+			  			<tbody>
+				    		<div class="form-group">
+				    			<tr>
+					  				<td>
+						     			<label class="control-label col-sm-2 pl15" for="email">Correu Electrònic:</label>
+						     		</td>
+						    		<td>
+						      			<div class="col-sm-7">
+						        			<input type="email" class="form-control" id="mail" name="email">
+						      			</div>
+						      		</td>
+				  				</tr>
+				    		</div>
+				    			<tr class="trmb"></tr>
+				    		<div class="form-group">
+				    			<tr>
+					  				<td>
+				      					<!-- <label style="padding-left: 15%" class="control-label col-sm-2" for="captcha">Captcha:</label> -->
+				      				</td>
+						    		<td>
+					      				<div class="col-sm-6 col-push-sm-3" id="captchaDiv"></div>
+			     				</td>
+				  				</tr>
+				    		</div>
+				    		<div class="form-group">
+				    			<tr>
+					  				<td>
+				      					<label class="control-label col-sm-1" for="captchaIntro"></label>
+				      				</td>
+					    				<td>
+			      						<div class="col-sm-5 mt5">
+			        						<input type="text" class="form-control" id="captchaIntro" name="captchaIntro" placeholder="Introdueixi els números">
+			      						</div>
+				      					<div class="col-sm-1 mt5">
+				        					<input type="button" class="btn" value="Enviar" ng-click="checkForgot();" style="background: #ced2de;">
+				      					</div>
+				      				</td>
+				  				</tr>
+				    		</div>
+			    		</tbody>
+					</table>
+					<input type="hidden" id="txtCaptcha">
+			  	</form>
+
+			</div>
+		</div>
+	</div>
+			<style>
 	#captchaDiv{
 		background-image: url("../img/captcha.jpg");
 		color: gray;
@@ -27,30 +132,41 @@
 				$scope.fail = false;
 				$scope.login = true;
 				$scope.forgot = false;
+				$scope.failForgot = false;
 
   				$scope.checking = function(){
   					$scope.email = check['user'].value;
   					$scope.password = check['pswd'].value;
+  					$scope.names='';
 					$http({
-						method : "POST",
+						method : "get",
 						url : "models/users.php?acc=login&email="+$scope.email+"&password="+$scope.password
 					}).then(function mySucces (response) {
-					$scope.names = response.data;
-						if($scope.names == "Correcto") 
+					$scope.namesss = response.data;
+console.log("Valor scope:"+$scope.namesss+"---");
+if($scope.names=="Correct")
 						{
-							$window.location.href = "main.html";
+							console.log("llega");
+							$window.location.href = "main.php";
 						}
 						else
 						{
 							$scope.fail = true;
+							console.log("ko");
 						}
+
 					}, function myError (response) {
 						$scope.names = response.statusText;
+
+
 					});
+
+						
 				};
 				$scope.showForgot = function(){
   					$scope.login = false;
   					$scope.forgot = true;
+
   					var a = Math.ceil(Math.random() * 9)+ '';
 					var b = Math.ceil(Math.random() * 9)+ '';
 					var c = Math.ceil(Math.random() * 9)+ '';
@@ -73,15 +189,14 @@
 						url : "models/users.php?acc=forgot&mail="+$scope.mail+"&captcha="+$scope.captcha
 						}).then(function mySucces (response) {
 							$scope.names = response.data;
-							alert($scope.names);
-							/*if($scope.names == "Correcto") 
+							if($scope.names == "Correct") 
 							{
-								$window.location.href = "main.html";
+								//$window.location.href = "main.html";
 							}
 							else
 							{
-								$scope.fail = true;
-							}*/
+								$scope.failForgot = true;
+							}
 						}, function myError (response) {
 						$scope.names = response.statusText;
 						});
@@ -97,97 +212,5 @@
 			});
 			
 		</script>
-</head>
-<body ng-app="myApp" ng-controller="LoginCtrl">
-	<div ng-show="login">
-		<div class="row" style="height: 250px;"></div>
-		<div class="row">
-			<div id="container2" class="col-sm-12 col-md-6 col-lg-4 col-lg-offset-4"  style="border-left: solid 1px;border-color:#ced2de;padding-left: 5%;">
-				<div class="row">
-					<h1>Login</h1>
-					<div class="row" style="height: 20px;"></div>
-					<div ng-show="fail">
-						<div id="alertW"></div>
-						<div id="alert">
-							<i id="cross" class="fa fa-times" aria-hidden="true"></i>
-							<b>{{names}}</b>
-						</div>
-					</div>
-					<form method="POST" id="check" action="#">
-						<!-- <label style="margin-right: 10.8%">Usuari: </label>
-						<input type="text" id="user" placeholder="Nom d'usuari"><br>
-						<label>Contrasenya: </label>
-						<input type="password" id="pswd" placeholder="Contrasenya">
-						<input type="button" value="Accedir" class="btn btn-default"" ng-click="checking();"><br> -->
-							<div class="row">
-								<div class="col-lg-3"><label>Usuari: </label></div>
-								<div class="col-lg-6"><input type="text" id="user" placeholder="Nom d'usuari"></div>
-							</div>
-							<div class="row" style="height: 20px;"></div>
-							<div class="row">
-								<div class="col-lg-3"><label>Contrasenya: </label></div>
-								<div class="col-lg-6"><input type="password" id="pswd" placeholder="Contrasenya"></div>
-								<div class="col-lg-3"><input type="button" value="Accedir" class="btn btn-default"" ng-click="checking();"></div>
-							</div>
-					</form>
-					<div class="row" style="height: 20px;"></div>
-					<a href="#" ng-click="showForgot();">Has olvidat la teva contrasenya?</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div ng-show="forgot">
-		<div class="row" style="height: 250px;"></div>
-		<div class="row">
-			<div class="col-lg-6 col-lg-offset-4" id="container2" style="border-left: solid 1px;border-color:#ced2de;">
-				<h1>Recupera la teva contrasenya</h1>
-				<form class="form-horizontal" id="forgot" action="#">
-			  		<table style="margin-left: 10%;">
-			  			<tbody>
-				    		<div class="form-group">
-				    			<tr>
-					  				<td>
-						     			<label style="padding-left: 15%" class="control-label col-sm-2" for="email">Correu Electrònic:</label>
-						     		</td>
-						    		<td>
-						      			<div class="col-sm-7">
-						        			<input type="email" class="form-control" id="mail" name="email">
-						      			</div>
-						      		</td>
-				  				</tr>
-				    		</div>
-				    		<div class="form-group">
-				    			<tr>
-					  				<td>
-				      					<!-- <label style="padding-left: 15%" class="control-label col-sm-2" for="captcha">Captcha:</label> -->
-				      				</td>
-						    		<td>
-					      				<div class="col-sm-6 col-push-sm-3" id="captchaDiv"></div>
-			     				</td>
-				  				</tr>
-				    		</div>
-				    		<div class="form-group">
-				    			<tr>
-					  				<td>
-				      					<label class="control-label col-sm-1" for="captchaIntro"></label>
-				      				</td>
-					    				<td>
-			      						<div class="col-sm-5" style="margin-top:  5%;">
-			        						<input type="text" class="form-control" id="captchaIntro" name="captchaIntro" placeholder="Introdueixi els números">
-			      						</div>
-				      					<div class="col-sm-1" style="margin-top:  5%;">
-				        					<input type="button" class="btn" value="Enviar" ng-click="checkForgot();" style="background: #ced2de; margin-top: 5%">
-				      					</div>
-				      				</td>
-				  				</tr>
-				    		</div>
-			    		</tbody>
-					</table>
-					<input type="hidden" id="txtCaptcha">
-			  	</form>
-
-			</div>
-		</div>
-	</div>
 </body>
 </html>

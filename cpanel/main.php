@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-
+<?php
+//if(!isset($_SESSION['idUser'])) header("Location: index.html");
+?>
 	<html>
 	<head>
 		<title>EIX COMERCIAL BACKEND</title>
@@ -21,26 +23,28 @@
 		<script src="controllers/news.js"></script>
 		<script src="controllers/shops.js"></script>
 		<script src="controllers/test.js"></script>
-
+		<script src="controllers/slider.js"></script>
+		<script src="controllers/users.js"></script>
+		<script src="controllers/settings.js"></script>
 	</head>
 	<body id="container" data-ng-app="spaApp">
 		
 		<div class="row">
-			<div col-sm-2 id="logo">
+			<div col-xs-2 id="logo">
 				
 			</div>
-			<div col-sm-1 id="imagen">
+			<div col-xs-1 col-xs-offset-6 id="imagen">
 				
 			</div>
-			<div col-sm-1 id="img-user">
-				
+			<div col-xs-1 id="img-user">
+
 			</div>
-			<div col-sm-2 id="desplegable">
+			<div col-xs-2 id="desplegable">
 				
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-xs-3">
+			<div class="col-xs-2">
 				<div class="sidebar-nav">
 					<div class="navbar navbar-default" role="navigation">
     					<div class="navbar-header">

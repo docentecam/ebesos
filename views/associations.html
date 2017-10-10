@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-lg-5">
-		<div class="row">
+		<div class="row breadComsA">
 			<div class="col-lg-12 col-lg-offset-1" ng-show="muestraDivCA"><a href="../ebesos">Inici </a>| <a href="" ng-click="showHistory()">{{name}}</a> | Comerços associats</div>
 			<div class="col-lg-12 col-lg-offset-1" ng-show="muestraDivH"><a href="../ebesos">Inici </a> | <a href="" ng-click="showHistory()">{{name}}</a> | Història </div>
 			<div class="col-lg-12 col-lg-offset-1" ng-show="muestraDivN"><a href="../ebesos">Inici </a> | <a href="" ng-click="showHistory()">{{name}}</a> | Notícies</div>
@@ -14,19 +14,19 @@
 			<h3>{{name}}</h3>
 		</div>
 		<div class="subMenu" ng-click="listShops($scope.idUser)">
-			<a href="">Comerços associats</a>
+			<a href="" class="subMA">Comerços associats</a>
 		</div>
 	
 		<div class="subMenu" ng-click="showHistory()">
-			<a href="">Història</a>
+			<a href="" class="subMA">Història</a>
 		</div>
 	
 		<div class="subMenu" ng-click="showNews($scope.idUser)">
-			<a href="">Notícies</a>
+			<a href="" class="subMA">Notícies</a>
 		</div>
 	
 		<div class="subMenu" ng-click="showContact($scope.idUser)">
-			<a href="">Contacte</a>
+			<a href="" class="subMA">Contacte</a>
 		</div>
 
 	</div>
@@ -77,20 +77,20 @@
 			</div>
 		</div>	
 		
-		<div ng-show="muestraDivC" class="col-sm-9 stylcont">
+		<div ng-show="muestraDivC" class="col-sm-9 stylcont assoDivContact">
 			<div class="row">
-				<div>
-					<form action="TODO">
-					<form method="post" name="myForm" id="myForm" class="form-horizontal">
-		  		<table id="assoTabCont">
+	
+		<div class="container  col-xs-8"">
+			<form method="post" name="myForm" id="myForm" class="form-horizontal formAssoContact col-xs-12">
+		  		<table id="contactTable">
 		  			<tbody>
 			  			<div class="form-group" >
 			  				<tr>
 				  				<td>
-					    			<label class="control-label col-sm-2" for="nom">Nom:</label>
+					    			<label class="control-label col-xs-2" for="nom">Nom:</label>
 					    		</td>
 					    		<td>
-					    			<div class="col-sm-10">
+					    			<div class="col-xs-10">
 					    				<input type="text" class="form-control" id="client" name="client" placeholder="Introdueixi el seu nom">
 					    			</div>
 			  					</td>
@@ -99,10 +99,10 @@
 			    		<div class="form-group">
 			    			<tr>
 				  				<td>
-					     			<label class="control-label col-sm-2" for="email">Correu Electrònic:</label>
+					     			<label class="control-label col-xs-2" for="email">Correu Electrònic:</label>
 					     		</td>
 					    		<td>
-					      			<div class="col-sm-10">
+					      			<div class="col-xs-10">
 					        			<input type="email" class="form-control" id="email" name="email" placeholder="Introdueixi el correu electrònic">
 					      			</div>
 					      		</td>
@@ -111,10 +111,10 @@
 			    		<div class="form-group">
 			    			<tr>
 				  				<td>
-					      			<label class="control-label col-sm-2" for="message">Missatge:</label>
+					      			<label class="control-label col-xs-2" for="message">Missatge:</label>
 					      		</td>
 					    		<td>
-					    			<div class="col-sm-10">        
+					    			<div class="col-xs-10">        
 					      				<textarea class="form-control" placeholder="Escrigui el seu missatge..." id="message" name="message" rows="5"></textarea>  
 					      			</div>.
 					      		</td>
@@ -123,10 +123,10 @@
 			    		<div class="form-group">
 			    			<tr>
 				  				<td>
-			      					<label class="control-label col-sm-8" for="captcha"></label>
+			      					<label class="control-label col-xs-8" for="captcha"></label>
 			      				</td>
 					    		<td>
-					      			<div class="col-sm-6 col-push-sm-3" id="captchaDiv">
+					      			<div class="col-xs-6 col-push-xs-3" id="captchaDiv">
 					     			</div>
 			     				</td>
 			  				</tr>
@@ -136,12 +136,12 @@
 				  				<td>
 			      				</td>
 				    			<td>
-		      						<div class="col-sm-10">
+		      						<div class="col-xs-10">
 		      							<input type="hidden" id="txtCaptcha">
 		        						<input type="text" class="form-control" name="captchaInput" id="captchaInput" placeholder="Introdueixi els números">
 		      						</div>
-			      					<div class="col-sm-1">
-			        					<input type="button" class="btn btn-default" value="Enviar" style="background: #ced2de" ng-click="checkform();">
+			      					<div class="col-xs-1">
+			        					<input type="button" class="btn btn-default" value="Enviar" style="background: #ced2de;" ng-click="checkform();">
 			      					</div>
 			      				</td>
 			  				</tr>
@@ -150,9 +150,9 @@
 				</table>
 				<!-- <input type="hidden" ng-value="idUser" id="idUserHid"> -->
 		  	</form>
-				</div>
-			</div>
-		</div>
+		
+	</div>
+</div>
 	</form></div></div></div></div></div>
 	<div class="row" style="height: 10px;"></div>
 </div>

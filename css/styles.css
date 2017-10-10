@@ -1,11 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
+
+
 /*lander sanahujes yañez*/
 
 #aboutUs{
 	width: 75%;
 	height: 250px;
-	background-color: #F7F7F7;
-	color: #A20B15;
 	margin-left: 12%;
+	margin-top: 5%;
 }
 /*COMERCIAL MAP*/
 #map {
@@ -90,20 +92,8 @@ padding: 0;
     margin: 0 auto;
 }
 
-
-.navWords{
-	width: 25%;
-	text-align: center;
 }*/
 
-
-.icoFooter019
-{
-	width: 80%;
-	height: 80%;
-	margin-left: 73%;
-	margin-bottom: 0.1%;
-}
 .navbar .navbar-nav {
   display: inline-block;
   float: none;
@@ -232,18 +222,94 @@ padding: 0;
 	
 	font-size: 18px;
 }
-
-
+.subMenu
+{
+	padding:  30px;
+}
+.subMA
+{
+	color: white;
+}
 #subMenu
 {
 	text-align: center;
-	padding-right: 0%!important;
+	padding-right: 0% !important;
+	background-color: #337ab7;
 }
 
-.subMenu:active
-{
-	text-decoration: underline;
-	background-color: black;
-}.shopsList{
+.shopsList{
 	padding-bottom: 10px;
 }
+.breadComsA
+{
+	padding-bottom: 10%;
+}
+.assoDivContact
+{
+	margin-top: -1%;
+}
+.formAssoContact{
+	margin-left: -5%!important;
+	margin-top: -15%;
+}
+
+
+
+/*--------------------------------------------------------Aida--------------------------------------------------------------------*/
+
+*
+{
+	font-family: 'Open Sans', sans-serif;
+}
+
+#footer
+{
+	margin-top: 10%;
+}
+
+#photo{
+	border-radius: 10px;
+	border: solid 1px black;
+	padding: 0%!important;
+	opacity: 0.9;
+}
+
+#photo:hover
+{
+	opacity: 1;
+}
+#news
+{
+	margin-top: 7%;
+}
+
+#new
+{
+	text-align: center;
+}
+
+#all
+{
+	width: 92%;
+}
+
+
+#imgPadd
+{
+	padding-left: 5%;
+	border-bottom: solid 1px #DEE4DD;
+	padding-bottom: 10%;
+}
+
+#lorem
+{
+	padding: 5%;
+	padding-bottom: 0%!important;
+}
+
+#date
+{
+	margin-left: 2%;
+	color: #C5CAC4
+}
+

@@ -1,17 +1,17 @@
 var app= angular.module('spaApp', ['ngRoute']);
 app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
-    // .when('/', {
-    //     templateUrl: 'views/comercialMap.html',
-    //     controller: 'ComercialMapCtrl',
-    // })
+	.when('/', {
+		templateUrl:'views/news.php',
+		controller:'NewsCtrl',
+	})
 	.when('/news',{
-	templateUrl:'views/news.html',
+	templateUrl:'views/news.php',
 	controller:'NewsCtrl',
 
 	})
 	.when('/associations',{
-		templateUrl:'views/associations.html',
+		templateUrl:'views/associations.php',
 		controller:'AssociationsCtrl',
 	})
 	.when('/shops',{
@@ -19,19 +19,19 @@ app.config(['$routeProvider', function ($routeProvider) {
 		controller:'ShopsCtrl',
 	})
 	.when('/slider',{
-		templateUrl:'views/slider.html',
+		templateUrl:'views/slider.php',
 		controller:'SliderCtrl',
 	})
 	.when('/settings',{
-		templateUrl:'views/settings.html',
+		templateUrl:'views/settings.php',
 		controller:'SettingsCtrl',
 	})
 	.when('/promotions',{
-		templateUrl:'views/promotions.html',
+		templateUrl:'views/promotions.php',
 		controller:'PromotionsCtrl',
 	})
 	.when('/subcategories',{
-		templateUrl:'views/subcategories.html',
+		templateUrl:'views/subcategories.php',
 		controller:'SubcategoriesCtrl',
 	})
 	.when('/formFichero',{

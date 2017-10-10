@@ -1,19 +1,37 @@
-<div class="row">
-	<div class="col-sm-12 col-md-6 col-lg-4">
-		<ul>
-			<li>
-				<a href="/#"> Inici </a><span> | </span><a href="#/news"> Notícies </a><span> | </span><span ng-repeat="new in news">{{new.title}}</span>
-			</li>
-		</ul>
-		<div ng-repeat="new in news" style="margin-left:100px ">
-			<img class="img-fluid" src="../img/imagenes/xhdpi/{{new.url}}" alt="{{new.url}}"><span>{{new.photo}}</span><br>	
-			<span>{{new.title}}</span>
-			<p>{{new.titleSub}}</p>
+<div class="container-fluid" style="margin-bottom: 5%;">
+	<ul>
+		<li>
+			<a href="/#"> Inici </a><span> | </span><a href="#/news"> Notícies </a><span> | </span><span ng-repeat="new in news">{{new.title}}</span>
+		</li>
+	</ul>
+	<div class="row">
+		<span style="text-align: center;" ng-repeat="new in news" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">{{new.title}}</span>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-xs-10 col-xs-push-1 col-sm-10 col-sm-push-1 col-md-10 col-md-push-1 col-lg-10 col-lg-push-1" ng-repeat="new in news">
+			<img class="col-xs-12 col-sm-12 col-md-12 col-lg-12" src="img/newsmedia/imagen1.jpg" alt="{{new.photo}}">
 		</div>
-		<div ng-repeat="subNew in subNews" style="margin-left:100px">
-			<img src="../img/imagenes/xhdpi/{{new.url}}" alt="{{new.url}}">{{subNew.url}}
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-xs-10 col-xs-push-1 col-sm-10 col-sm-push-1 col-md-10 col-md-push-1 col-lg-10 col-lg-push-1" ng-repeat="new in news">
+			<p class="col-xs-12 col-sm-12 col-md-12 col-lg-12">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, optio rerum qui amet ratione, nesciunt totam perspiciatis eos impedit officiis. Accusamus, blanditiis, atque? Incidunt debitis culpa recusandae non et quas.{{new.titleSub}}</p>
 		</div>
-			<!-- Videos TODO -->
-
-	</a>
+	</div>
+	<hr>
+	<div class="row">
+		<div ng-repeat='subNew in subNews | filter: {type:"I"}'><!-- Cambiar rutas a dinamicas TODO -->
+			<img class="col-lg-2 col-lg-push-2" src="img/newsmedia/imagen2.jpg" alt="{{subNew.url}}">
+		</div>
+	</div>
+		
+	<hr>
+	<div class="row">
+		<div ng-repeat='subNew in subNews | filter: {type:"V"}'><!-- Videos TODO -->
+			<img class="col-lg-4 col-lg-push-2" src="img/newsmedia/imagen2.jpg" alt="{{subNew.url}}">
+		</div>
+	</div>
+</div>
+		
 

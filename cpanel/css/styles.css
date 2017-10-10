@@ -32,37 +32,99 @@
   text-align: center;
   vertical-align: middle;
   margin-bottom: 2%;
-
+}
+.log20
+{
+  height: 20px
+}
+.log250
+{
+  height: 250px;
 }
 #cross
 {
   color: #e51c23;
 }
+#container2
+{
+  border-left: solid 1px;
+  border-color:#ced2de;
+  padding-left: 5%;
+}
+#tableForgot
+{
+  margin-left: 10%;
+}
+.pl15
+{
+  padding-left: 15%;
+}
+.mt5
+{
+  margin-top:  5%;
+}
+#alertW2
+{
+  background-color: #ffb0b0;
+  width: 100%;
+  height: 10px;
+}
+#alert2
+{
+  background-color: #ffb0b0;
+  width: 100%;
+  height: 33px;
+  text-align: center;
+  vertical-align: middle;
+  margin-bottom: 2%;
+}
+#cross2
+{
+  color: #e51c23;
+}
+.trmb
+{
+  height: 10px;
+}
 /* ------------------------ */
 
-#titleSub{
+.titleForm{
+  width: 85%;
+}
+
+.titleSub{
   
   height: 250px;
-  width: 85%;
+  width: 76%;
   margin-bottom: 5%;
   margin-top: 2%;
 }
 
+
 #containerImg{
   background-color: white;
-  width: 85%;
+  width: 100%;
+  border: 1px solid #e2e2e2;
+  
 }
 
 #containerPreferred{
   margin-top: 5%;
   margin-bottom: 7%;
-  margin-left: 25%;
+  margin-left: 5%;
 }
 
 #containerImagesOfNew{
   margin-top: 13%;
   margin-bottom: 7%;
-  margin-left: 25%;
+  margin-left: 5%;
+}
+
+.containerEditImg{
+  margin-left: 20%;
+  background-color: white;
+  width: 65%;
+  margin-top: 25%;
 }
 
 /*----------TO DO MAIN.HTML---------------*/
@@ -74,3 +136,17 @@
   padding: 15%;
 }
 
+#sliderCpanel{
+  margin-top: 10%;
+}
+#editarSliderSpan{
+
+}
+#divOpcioAfegir{
+
+
+}
+
+.btn-default{
+  background: #96a8b0 !important;
+}
