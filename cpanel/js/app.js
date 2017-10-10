@@ -15,7 +15,7 @@ app.config(['$routeProvider', function ($routeProvider) {
 		controller:'AssociationsCtrl',
 	})
 	.when('/shops',{
-		templateUrl:'views/shops.html',
+		templateUrl:'views/shops.php',
 		controller:'ShopsCtrl',
 	})
 	.when('/slider',{
@@ -33,6 +33,10 @@ app.config(['$routeProvider', function ($routeProvider) {
 	.when('/subcategories',{
 		templateUrl:'views/subcategories.html',
 		controller:'SubcategoriesCtrl',
+	})
+	.when('/formFichero',{
+		templateUrl:'views/formFichero.html',
+		controller:'SubirCtrl',
 	})
 	
 
