@@ -27,7 +27,7 @@ require("../inc/functions.php");
 	 	else
 	 	{
 	 		$message = "Correcto";
-	 		//$_SESSION['user'] = $checkLogin;
+	 		$_SESSION['idUser'] = $checkLogin;
 	 	}
 
 	 	echo $message;
@@ -96,5 +96,12 @@ require("../inc/functions.php");
 
 			echo $dataUser;
 	}
-	
+	elseif (isset($_GET['acc']) && $_GET['acc'] == 'updateUser') {
+		$mySql = "UPDATE users
+				SET ";
+		$connexio = connect();
+		$resultUser = mysqli_query($connexio, $mySql);
+		disconnect($connexio);
+
+	}
 ?>	
