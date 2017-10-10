@@ -28,13 +28,21 @@ if(!isset($_SESSION['idUser'])) header("Location: index.html");
 		<script src="controllers/slider.js"></script>
 		<script src="controllers/users.js"></script>
 		<script src="controllers/settings.js"></script>
+		<script src="controllers/assoLogoTop.js"></script>
 	</head>
-	<body id="container" data-ng-app="spaApp">
+	<body id="container" data-ng-app="spaApp"  ng-controller="AssoTopImageCtrl">
 		
 		<div class="row">
-			<div col-xs-2 id="logo">
-				
+			<div class="col-xs-2" style="padding: 0px; background-color: #B9B9F2;">
+				<div class="col-xs-7 col-lg-7">
+					<h4>Eix</h4>
+				</div>
+				<div style="padding: 0px; background-color: #FD00F4;" class="col-xs-5" ng-repeat="assoTopImage in assoTopImages">
+					<a href="#"><img style="padding: 0px;" class="col-xs-12 img-responsive" src="img/logos-assoc/{{assoTopImage.logo}}"></a>
+				</div>
 			</div>
+			</div>
+			
 			<div col-xs-1 col-xs-offset-6 id="imagen">
 				
 			</div>
@@ -46,7 +54,7 @@ if(!isset($_SESSION['idUser'])) header("Location: index.html");
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-xs-2">
+			<div class="col-xs-2" style="padding: 0px">
 				<div class="sidebar-nav">
 					<div class="navbar navbar-default" role="navigation">
     					<div class="navbar-header">
@@ -63,14 +71,14 @@ if(!isset($_SESSION['idUser'])) header("Location: index.html");
     					</div>
     					<div class="navbar-collapse collapse sidebar-navbar-collapse" >
 							<ul class="nav navbar-nav" >
-							    <li role="presentation" class="mainHardcode"><a href="#/news">Notícies</a></li>
-							    <li role="presentation" class="mainHardcode"><a href="#/associations">Associacions</a></li>
-							    <li role="presentation" class="mainHardcode"><a href="#/shops">Comerços</a></li>
-							    <li role="presentation" class="mainHardcode"><a href="#/slider">Slider</a></li>
-							    <li role="presentation" class="mainHardcode"><a href="#/settings">Paràmetres</a></li>
-							    <li role="presentation" class="mainHardcode"><a href="#/promotions">Promocions</a></li>
-							    <li role="presentation" class="mainHardcode"><a href="#/subcategories">Subcategories</a></li>
-							    <li role="presentation" class="mainHardcode"><a href="#/formFichero">formFichero</a></li>
+							    <li role="presentation" class="mainNav"><a href="#/news">Notícies</a></li>
+							    <li role="presentation" class="mainNav"><a href="#/associations">Associacions</a></li>
+							    <li role="presentation" class="mainNav"><a href="#/shops">Comerços</a></li>
+							    <li role="presentation" class="mainNav"><a href="#/slider">Slider</a></li>
+							    <li role="presentation" class="mainNav"><a href="#/settings">Paràmetres</a></li>
+							    <li role="presentation" class="mainNav"><a href="#/promotions">Promocions</a></li>
+							    <li role="presentation" class="mainNav"><a href="#/subcategories">Subcategories</a></li>
+							    <li role="presentation" class="mainNav"><a href="#/formFichero">formFichero</a></li>
 							</ul>
     					</div><!--/.nav-collapse -->
   					</div>

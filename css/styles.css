@@ -93,6 +93,9 @@ padding: 0;
 }
 
 }*/
+.uno {
+  margin: 0 auto;
+}
 
 .navbar .navbar-nav {
   display: inline-block;
@@ -112,6 +115,18 @@ padding: 0;
 	border-top-left-radius: 0px;
 	border-bottom-left-radius: 6px;
 }
+#mc_embed_signup{
+	background-color: #3c3d41!important;
+
+}
+#mce-EMAIL, #mce-FNAME{
+	color: black;
+}
+
+#mc_embed_signup .mc-field-group input {
+	
+}
+
 .footer-bs .footer-brand, .footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { padding:10px 25px; }
 .footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { border-color: transparent; }
 .footer-bs .footer-brand h2 { margin:0px 0px 10px; }
@@ -313,3 +328,24 @@ padding: 0;
 	color: #C5CAC4
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#daleColor{width: 60%}
+
+
+
+
+#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
