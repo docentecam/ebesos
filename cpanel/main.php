@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <?php
-//if(!isset($_SESSION['idUser'])) header("Location: index.html");
+session_start();
+$_SESSION['idUser']="1";
+if(!isset($_SESSION['idUser'])) header("Location: index.html");
 ?>
 	<html>
 	<head>
