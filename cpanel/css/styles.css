@@ -147,8 +147,11 @@
 
 }
 #whiteSliderDiv{
-  background-color: white; border: 1px solid black; margin-top: 4%;
-padding-top: 4%; margin-bottom: 10%;
+  background-color: white;
+  border: 1px solid black; 
+  margin-top: 4%;
+  padding-top: 4%; 
+  margin-bottom: 10%;
 }
 #divSliderSetting{
   margin-bottom: 4%
@@ -158,8 +161,7 @@ padding-top: 4%; margin-bottom: 10%;
 }
 
 #btnEditarSlider{
-  position: relative; left: 4%;
-margin-right: 9%; margin-bottom: 10%; margin-top: 5%;
+  margin-top: 5%;
 }
 
 #btnDeleteSlider{
@@ -167,4 +169,11 @@ margin-right: 9%; margin-bottom: 10%; margin-top: 5%;
 }
 .btn-default{
   background: #96a8b0 !important;
+}
+#sliderText{
+  margin-top: 5%;
+  margin-left: 3.3%;
+}
+#btnEditarSlider{
+  margin-left: 4.166666665%;
 }

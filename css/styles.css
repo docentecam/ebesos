@@ -235,6 +235,9 @@ padding: 0;
 #containerNew{
 	margin-bottom: 5%;
 }
+#dataNew{
+	margin-bottom: 2%;
+}
 /*--------------------------------------------------------Dídac--------------------------------------------------------------------*/
 .assoNews{
 	width: 80%;
@@ -302,8 +305,18 @@ padding: 0;
 	margin-left: -5%!important;
 	margin-top: -15%;
 }
-
-
+#divImgsNew{
+	padding: 0px !important;
+}
+#imgInNew{
+	margin-bottom: 2%;	
+}
+#divVidsNew{
+	margin-top: 2%;
+}
+#vidsInNew{
+	margin-bottom: 2%;
+}
 
 /*--------------------------------------------------------Aida--------------------------------------------------------------------*/
 
