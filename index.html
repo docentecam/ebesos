@@ -51,7 +51,7 @@
 		<div class="row">
 			<div id="myCarousel" class="carousel slide" data-ride="carousel" ng-controller="SliderCtrl">
   			<!-- Indicators -->
-  				<ol class="carousel-indicators">
+  				<ol class="carousel-indicators" id="indicatorSlider">
     				<li data-target="#myCarousel" ng-repeat="sliderImg in slider"  data-slide-to="{{$index}}" ng-class="{active : $index == 0}"></li>
    				</ol>
   			<!-- Wrapper for slides -->

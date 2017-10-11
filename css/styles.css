@@ -93,6 +93,9 @@ padding: 0;
 }
 
 }*/
+#indicatorSlider{
+	margin-bottom:-1%!important;
+}
 #linksFooter{
 	padding: 0%!important;
 }
