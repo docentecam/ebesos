@@ -39,11 +39,14 @@
 					<a href="#"><img class="img-responsive" src="img/logos-assoc/{{assoTopImage.logo}}"></a>
 				</div>
 				<div class="col-xs-8" id="logoTexto"><h4>EIX BESÒS -</h4><h4>MARESME</h4></div>		
-			</div>			
-			<span class="col-xs-2 col-xs-offset-7 pull-right">				
+			</div>
+			<div id="contactWho">
+				<span class="col-xs-2 col-xs-offset-7 pull-right">				
 				<a href="#/users/1">Qui Som?</a> | 						
 				<a href="#/contact/1">Contacte</a>					
-			</span>		
+			</span>	
+			</div>		
+				
 		</div>	
 		<div class="row">
 			<div id="myCarousel" class="carousel slide" data-ride="carousel" ng-controller="SliderCtrl">
@@ -59,7 +62,7 @@
 				</div>
 			</div>
   		</div>
-  		<div class="row">
+  		<div class="row" >
   			<nav class="navbar navbar-default">
 	  		<div class="container-fluid">
 	    	<!-- Brand and toggle get grouped for better mobile display -->
@@ -101,11 +104,11 @@
   		</div>
   		<div class="row">
   			<footer class="footer-bs" id="footer">
-  				<div class="col-xs-4 footer-nav animated fadeInUp pull-right" id="uno">
-		            	<h3>Links</h3>
+  				<div class="col-xs-4 footer-nav animated fadeInUp pull-right" id="linkBorder">
+		            	<h2 id="linkNom">Links</h2>
 		            	<div id="linksFooter" ng-controller="LinksCtrl" class="col-xs-12 pull-right">
 							<div class="row">
-								<div ng-repeat="link in links" class="col-xs-6">
+								<div ng-repeat="link in links" class="col-xs-6" id="marginLinks">
 									<a href="{{link.url}}" class="footerLinksColor" target="_blank">{{link.description}}</a>
 								</div>
 							</div>	
@@ -122,13 +125,13 @@
 									<div class="mc-field-group">
     									<label for="mce-EMAIL">Adreça electrònica  <span class="asterisk">*</span>
 										</label>
-    									<input size="3" type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+    									<input size="3" type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Introdueixi el correu">
 									</div>
 									<div class="mc-field-group">
     									<label for="mce-FNAME">Nom  
     										<span class="asterisk">*</span>
 										</label>
-   										<input type="text" value="" name="FNAME" class="required" id="mce-FNAME">
+   										<input type="text" value="" name="FNAME" class="required" id="mce-FNAME" placeholder="Introdueixi el nom">
 									</div>
    									<div id="mce-responses" class="clear">
         							<div class="response" id="mce-error-response" style="display:none">
