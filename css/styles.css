@@ -208,7 +208,7 @@ padding: 0;
 #captchaDiv{
 	background-image: url("../img/captcha.jpg");
 	color: gray;
-	font-size: 26px;	
+	font-size: 35px;	
 	margin-left: 6%;
 	text-align: center;
 }
@@ -220,6 +220,7 @@ padding: 0;
 	height: 450px;
 	margin-bottom: 20%; 
 	margin-left: 10%;
+	margin-top: 5%;
 }
 #tbodyContactTable{
 	border-left: solid 1px;
