@@ -1,15 +1,38 @@
 angular.module('spaApp')
  .controller('AssociationsCtrl', function($scope, $http) {
+ 			$scope.formDataUser = true;
+
 			$http({
 				method : "GET",
 				url : "models/users.php?acc=loadUser&idUser=1" //modificar
 			}).then(function mySucces (response) {
 				$scope.associations = response.data;
-				$scope.llega = "llega";
 			}, function myError (response) {
 				$scope.associations = response.statusText;
 			});
+
+			$http({
+				method : "GET",
+				url : "models/users.php?acc=listUsers"
+			}).then(function mySucces (response) {
+				$scope.users = response.data;
+			}, function myError (response) {
+				$scope.users = response.statusText;
+			});
 		
+			$scope.changeDataUser = function(idUser){
+				$scope.formDataUser = false;
+				$http({
+					method : "GET",
+					url : "models/users.php?acc=loadUser&idUser="+idUser
+				}).then(function mySucces (response) {
+					console.log("llega");
+					$scope.associations = response.data;
+					$scope.formDataUser = true;
+				}, function myError (response) {
+					$scope.associations = response.statusText;
+				});
+			};
 			$scope.showChangePass = function(){
   					$scope.changePass = true;
 				};
@@ -58,7 +81,14 @@ angular.module('spaApp')
   					$scope.userUpdate = "La nova contrasenya i la seva confirmació no coincideixen";
   					console.log($scope.userUpdate);
   				}
+  			};	
+  			$scope.showEdit = function(){
+  				$scope.logoEdit = true;
+  			};
+  			$scope.showEdit2 = function(){
+  				$scope.logoEdit2 = true;
+  			};
 
   				
-			};
+			
 	});

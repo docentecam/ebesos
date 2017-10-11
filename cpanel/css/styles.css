@@ -87,6 +87,73 @@
   height: 10px;
 }
 /* ------------------------ */
+/* ---------Associations---------- */
+#history
+{
+  height: 400px;
+  width: 380px;
+}
+.padd
+{
+  padding: 6%;
+}
+.padd-t
+{
+  padding-top: 6%;
+}
+.padd-p
+{
+  padding: 2%;
+}
+.glb
+{
+  padding-left: 6%;
+}
+#textTitleHistory
+{
+  padding-top: 11%;
+  padding-bottom: 5%;
+}
+/* #select
+{
+  background: white;
+  background-image:  url("../img/circledown.png");
+  height: 17px;
+  width: 17px;
+  overflow: hidden;
+  position: absolute;
+  margin-top: 1%;
+  margin-left: 19.8%;
+   background-attachment: local;
+} */
+input
+{
+  height: 35px; 
+}
+#active
+{
+  width: 174px;
+}
+select
+{
+  height: 35px;
+}
+#selectAsso
+{
+  background-image: url("../img/circledown.png");
+  background-repeat: no-repeat;
+  background-position-y: 5px;
+  background-position-x: 175px;
+}
+#active
+{
+  background-image: url("../img/circledown.png");
+  background-repeat: no-repeat;
+  background-position-y: 5px;
+  background-position-x: 150px;
+}
+
+/* ------------------------ */
 
 .titleForm{
   width: 85%;

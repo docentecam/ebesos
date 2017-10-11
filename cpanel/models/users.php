@@ -96,6 +96,28 @@ require("../inc/functions.php");
 
 			echo $dataUser;
 	}
+	elseif (isset($_GET['acc']) && $_GET['acc'] == 'listUsers') {
+		$mySql = "SELECT idUser, name
+				FROM users";
+		$connexio = connect();
+		$resultUser = mysqli_query($connexio, $mySql);
+		disconnect($connexio);
+
+		$dataUser = "[";
+			$i = 0;
+			while($row = mysqli_fetch_array($resultUser))
+			{
+				if($i != 0)
+				{
+					$dataUser .= ",";
+				}
+				$dataUser .= '{"idUser":"'.$row['idUser'].'", "name":"'.$row['name'].'"}'; 
+				$i++;
+			}
+			$dataUser .= "]";
+
+			echo $dataUser;
+	}
 	elseif (isset($_GET['acc']) && $_GET['acc'] == 'updateUser') {
 		$mySql = "UPDATE users
 				SET email='".$_GET['email']."', emailPass='".$_GET['pswdMail']."', name='".$_GET['name']."', address='".$_GET['address']."', telephone='".$_GET['telephone']."', history='".$_GET['history']."', active='".$_GET['active']."' 
