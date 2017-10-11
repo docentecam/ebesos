@@ -21,4 +21,14 @@ if (isset($_GET["acc"])&& ($_GET["acc"] == "imgSlider"))
 		$dataImgSlider .="]";
 		echo $dataImgSlider;
 	 }
+
+	// function editImgSlider($idUsuari="",$nom,$cog1,$cog2,$telf1,$telf2,$email,$direc,$direcPlta,$direcPrta,$direcEsc,$cp)
+	// {
+	// 	$connexio = connect();
+	// 	$mySql = "UPDATE usuaris SET nom='$nom',cog1='$cog1',cog2='$cog2',telf1='$telf1',telf2='$telf2',email='$email',direc='$direc',direcPlta='$direcPlta',direcPrta='$direcPrta',direcEsc='$direcEsc',cp='$cp',assessor='$assessor' WHERE idUsuari='$idUsuari'"; 
+
+	// 	$modifyUsuarios = mysqli_query($connexio, $mySql);
+	// 	disconnect($connexio);
+
+	// 	return ($modifyUsuarios);
 ?>

@@ -93,9 +93,37 @@ padding: 0;
 }
 
 }*/
-.uno {
-  border-left: 1px;
-  border-color: black;
+#indicatorSlider{
+	margin-bottom:-1%!important;
+}
+#linksFooter{
+	padding: 0%!important;
+}
+
+#linkBorder{
+	border-left: 1px solid #656565;
+	margin-top: 1%!important;
+}
+#linkNom {
+	margin-top: 0%!important;
+}
+#marginLinks{
+	margin-bottom: 4%!important;
+}
+#linkNom{
+	font-weight: bold;
+    padding: 0;
+    margin: 15px 0;
+    font-size: 1.4em;
+}
+#daleColor{
+	width: 65%
+}
+#contactWho{
+	margin-top: 1.8%;
+}
+#mc_embed_signup{
+	background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif;
 }
 
 .navbar .navbar-nav {
@@ -111,22 +139,22 @@ padding: 0;
     background-color: #E1E1E1;
 	padding: 20px 30px;
 	color: black;
-	margin-bottom: 20px;
+	margin-top: 2%;
 	border-bottom-right-radius: 6px;
 	border-top-left-radius: 0px;
 	border-bottom-left-radius: 6px;
+	height: 40%!important;
 }
 #mc_embed_signup{
 	background-color: #E1E1E1!important;
+	margin-left: 5%!important;
 
 }
 #mce-EMAIL, #mce-FNAME{
 	color: black;
+
 }
 
-#mc_embed_signup .mc-field-group input {
-	
-}
 
 .footer-bs .footer-brand, .footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { padding:10px 25px; }
 .footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { border-color: transparent; }
@@ -180,7 +208,7 @@ padding: 0;
 #captchaDiv{
 	background-image: url("../img/captcha.jpg");
 	color: gray;
-	font-size: 26px;	
+	font-size: 35px;	
 	margin-left: 6%;
 	text-align: center;
 }
@@ -192,6 +220,7 @@ padding: 0;
 	height: 450px;
 	margin-bottom: 20%; 
 	margin-left: 10%;
+	margin-top: 5%;
 }
 #tbodyContactTable{
 	border-left: solid 1px;
@@ -200,6 +229,15 @@ padding: 0;
 
 #breadcrumbsContact{
 	text-decoration: none;
+}
+#titleNew{
+	text-align: center;
+}
+#containerNew{
+	margin-bottom: 5%;
+}
+#dataNew{
+	margin-bottom: 2%;
 }
 /*--------------------------------------------------------Dídac--------------------------------------------------------------------*/
 .assoNews{
@@ -268,8 +306,18 @@ padding: 0;
 	margin-left: -5%!important;
 	margin-top: -15%;
 }
-
-
+#divImgsNew{
+	padding: 0px !important;
+}
+#imgInNew{
+	margin-bottom: 2%;	
+}
+#divVidsNew{
+	margin-top: 2%;
+}
+#vidsInNew{
+	margin-bottom: 2%;
+}
 
 /*--------------------------------------------------------Aida--------------------------------------------------------------------*/
 
@@ -278,10 +326,7 @@ padding: 0;
 	font-family: 'Open Sans', sans-serif;
 }
 
-#footer
-{
-	margin-top: 10%;
-}
+
 
 #photo{
 	border-radius: 10px;
@@ -344,9 +389,8 @@ padding: 0;
 
 
 
-#daleColor{width: 60%}
 
 
 
 
-#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+
