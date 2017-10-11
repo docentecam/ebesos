@@ -130,16 +130,16 @@ input
 {
   height: 35px; 
 }
-#active
-{
-  width: 174px;
-}
 select
 {
   height: 35px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
 }
 #selectAsso
 {
+  width: 200px;
   background-image: url("../img/circledown.png");
   background-repeat: no-repeat;
   background-position-y: 5px;
@@ -147,6 +147,7 @@ select
 }
 #active
 {
+  width: 174px;
   background-image: url("../img/circledown.png");
   background-repeat: no-repeat;
   background-position-y: 5px;
