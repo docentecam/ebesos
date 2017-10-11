@@ -68,27 +68,7 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'edit')
 		$dataShop .= "]";
 		$dataShop .= ', "subCategoriesShop":';
 
-		$m = 0;
-
-		$dataShop .= '[';
-		$mySql = "SELECT scs.idShopCategorySub, cs.name AS NameSubCategory, scs.preferred, scs.idSubCategory
-				FROM categories c, categoriessub cs, shopcategoriessub scs
-				WHERE scs.idShop = $idShop
-				AND cs.idSubCategory = scs.idSubCategory
-				AND c.idCategory = cs.idCategory
-				ORDER BY scs.preferred = 'Y' DESC";
-
-		$resultSubCategoriesShop = mysqli_query($connexio, $mySql);
-
-		while($row = mysqli_fetch_array($resultSubCategoriesShop))
-		{
-			if($m != 0) $dataShop .= ",";
-
-			$dataShop .= '{"idShopCategorySub":"'.$row['idShopCategorySub'].'", "nameSubCategoryShop":"'.$row['NameSubCategory'].'", "preferred":"'.$row['preferred'].'", "idSubcategory":"'.$row['idSubCategory'].'"}';
-
-			$m++;
-		}
-		$dataShop .= "]";
+		$dataShop .= listSubCategories($idShop);
 		$dataShop .= ', "users":';
 
 		$n = 0;
@@ -163,5 +143,75 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'delete')
 	// else echo "no eliminado";
 
 	echo $mySql;
+}
+else if(isset($_GET['acc']) && $_GET['acc'] == 'delsc')
+{	
+	$idShop = $_GET['idShop'];
+	$idShopCategorySub = $_GET['idShopCategorySub'];
+	$mySql = "DELETE FROM shopcategoriessub WHERE idShopCategorySub = $idShopCategorySub AND idShop = $idShop;";
+
+	$connexio = connect();
+
+	$deleteShopCategorySub = mysqli_query($connexio, $mySql);
+
+	disconnect($connexio);
+
+	//echo $mySql;
+	echo listSubCategories($idShop);
+}
+
+function listSubCategories($idShop)
+{
+	
+	// $mySql = "SELECT cs.idSubCategory, cs.name
+	// 		FROM categoriessub cs
+	// 		WHERE cs.idSubcategory NOT IN (SELECT scs.idSubCategory 
+	// 		FROM shopcategoriessub scs
+	// 		WHERE scs.idShop = $idShop)";
+
+	// $connexio = connect();
+
+	// $resultSubCategories = mysqli_query($connexio, $mySql);
+
+	// disconnect($connexio);
+	// $i = 0;
+
+	// $datasc = '[';
+	// while($row = mysqli_fetch_array($resultSubCategories))
+	// {
+	// 	if($i != 0) $datasc .= ",";
+
+	// 	$datasc .= '{"idSubCategory":"'.$row['idSubCategory'].'", "nameSubCategory":"'.$row['name'].'"}';
+
+	// 	$i++;
+	// }
+	// $datasc .= ']';
+	$m = 0;
+
+	$datasc = '[';
+	$mySql = "SELECT scs.idShopCategorySub, cs.name AS NameSubCategory, scs.preferred, scs.idSubCategory
+			FROM categories c, categoriessub cs, shopcategoriessub scs
+			WHERE scs.idShop = $idShop
+			AND cs.idSubCategory = scs.idSubCategory
+			AND c.idCategory = cs.idCategory
+			ORDER BY scs.preferred = 'Y' DESC";
+
+	$connexio = connect();
+
+	$resultSubCategoriesShop = mysqli_query($connexio, $mySql);
+
+	disconnect($connexio);
+
+	while($row = mysqli_fetch_array($resultSubCategoriesShop))
+	{
+		if($m != 0) $datasc .= ",";
+
+		$datasc .= '{"idShopCategorySub":"'.$row['idShopCategorySub'].'", "nameSubCategoryShop":"'.$row['NameSubCategory'].'", "preferred":"'.$row['preferred'].'", "idSubcategory":"'.$row['idSubCategory'].'"}';
+
+		$m++;
+	}
+	$datasc .= ']';
+
+	return $datasc;
 }
 ?>

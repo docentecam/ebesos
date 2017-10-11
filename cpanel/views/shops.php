@@ -1,5 +1,5 @@
 <div class="row">
-	<button ng-click="shopOneAdd()">add</button>
+	<button ng-click="shopOneAdd()" class="btn-default">add</button>
 </div>
 <div class="row" ng-repeat="shops in shopsList">
 	<div class="col-md-3"><img src="img/shops/{{shops.image}}"></div>
@@ -7,9 +7,9 @@
 		<div class="row"><label>{{shops.name}}</label></div>
 		<div class="row"><p>{{shops.description}}</p></div>
 	</div>
-	<button ng-click="shopOneEdit(shops.idShop)">edit</button>
-	<!-- <button ng-click="shopOneDelete(shops.idShop)">delete tienda: {{shops.idShop}}</button> -->
-	<button>delete</button>
+	<button ng-click="shopOneEdit(shops.idShop)" class="btn-default">edit</button>
+	<!-- <button ng-click="shopOneDelete(shops.idShop)" class="btn-default">delete tienda: {{shops.idShop}}</button> -->
+	<button class="btn-default">delete</button>
 </div>
 	
 <div class="row col-md-12" ng-show="showShop"> <!-- ng-repeat="shop in shopOne" -->
@@ -18,11 +18,11 @@
 			<div class="col-md-4 col-md-push-1">
 				<input type="text" ng-model="prueba">
 				<span>Nom comerç</span>
-				<input type="text" id="n-shop" ng-name="n-shop" placeholder="nom de la tenda" name="" ng-value="shopOne[0].name">
+				<input type="text" id="n-shop" ng-name="n-shop" ng-model="shopOne[0].name" placeholder="nom de la tenda" name="">
 			</div>
 			<div id="user" class="col-md-4 col-md-push-1">
 				<select id="u-shop" name="u-shop" ng-change="userOwner(idUser)" ng-model="idUser">
-					<option ng-repeat="user in users" ng-value="user.name" ng-selected="user.idUser==shopOne[0].idUser">{{user.name}}</option>
+					<option ng-repeat="user in users" ng-model="user.name" ng-selected="user.idUser==shopOne[0].idUser">{{user.name}}</option>
 				</select>
 			</div>
 		</div>
@@ -89,7 +89,7 @@
 			</div>		
 		</div>
 		<div>
-			<input type="submit" value="Confirmar canvis">
+			<input type="submit" value="Confirmar canvis" class="btn-default">
 		</div>
 	</form>
 	<div class="row col-md-12">
@@ -102,10 +102,11 @@
 	</div>
 	<div class="row col-md-12">
 		<div id="subcategories" class="shop-email col-md-4 col-md-push-1">
-			<span>Altres subcategories</span>
-			<ul>
-				<li ng-repeat="subCategoryShop in subCategoriesShop | filter : {preferred:'N'}">{{subCategoryShop.nameSubCategoryShop}}<button>-</button></li>
+			<span class="row">Altres subcategories</span>
+			<ul class="col-md-10">
+				<li ng-repeat="subCategoryShop in subCategoriesShop | filter : {preferred:'N'}">{{subCategoryShop.nameSubCategoryShop}}<button ng-click="deleteSubCategory(subCategoryShop.idShopCategorySub, shopOne[0].idShop)">-</button></li>
 			</ul>
+			<!-- <button ng-repeat="subCategoryShop in subCategoriesShop | filter : {preferred:'N'}" class="btn-default col-md-1" ng-click="deleteSubCategory(subCategoryShop.idShopCategorySub, shopOne[0].idShop)">-</button> -->
 		</div>
 		<div class="col-md-3 col-md-push-1">
 			<span>Subcategories</span>
@@ -128,7 +129,7 @@
 			<span class="row">Imatges</span>
 			<div class="col-md-2" ng-repeat="image in images | filter : {preferred:'N'}">
 				<img  src="../img/shops/{{image.url}}">
-				<button>delete</button>
+				<button class="btn-default">delete</button>
 			</div>				
 			<input type="file" placeholder="nom de la tenda" class="row" name="" ng-value="shopOne[0].image">
 		</div>

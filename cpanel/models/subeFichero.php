@@ -56,8 +56,8 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'new')
 	$mySql = "INSERT INTO `ddb99266`.`shops` (`name`, `lat`, `lng`, `telephone`, `email`, `url`, `schedule`, `address`, `idUser`, `description`, `descriptionLong`, `logo`, `cp`, `ciutat`) VALUES ('".$n."', '".$lat."', '".$lng."', '".$p."', '".$e."', '".$url."', '".$s."', '".$a."', ".$u.", '".$descS."', '".$descL."', '".$lg."', '".$cp."', '".$c."');";
 
 	$fp=fopen("../files/testFichersSQLNew.txt",'w');
-fputs($fp,'mySql="'.$mySql.'"');
-fclose($fp);
+	fputs($fp,'mySql="'.$mySql.'"');
+	fclose($fp);
 
 	$connexio = connect();
 
@@ -70,9 +70,10 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'edit')
 {
 	$mySql = "UPDATE `ddb99266`.`shops` SET `name`='".$n."', `lat`='".$lat."', `lng`='".$lng."', `telephone`='".$p."', `email`='".$e."', `url`='".$url."', `schedule`='".$s."', `address`='".$a."', `idUser`='".$u."', `description`='".$descS."', `descriptionLong`='".$descL."', `logo`='".$lg."', `cp`='".$cp."', `ciutat`='".$c."' WHERE `idShop`='34';";
 
-$fp=fopen("../files/testFichersSQLEdit.txt",'w');
-fputs($fp,'mySql="'.$mySql.'"');
-fclose($fp);
+	$fp=fopen("../files/testFichersSQLEdit.txt",'w');
+	fputs($fp,'mySql="'.$mySql.'"');
+	fclose($fp);
+	
 	$connexio = connect();
 
 	$resultEditShop = mysqli_query($connexio, $mySql);

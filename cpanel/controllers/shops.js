@@ -26,6 +26,7 @@ angular.module('spaApp')
 			$scope.subCategories = $scope.shopOne[0].subCategories;
 			$scope.showShop = true;
 			console.log($scope.showShop);
+			console.log($scope.shopOne);
 		}, function myError (response) {
 			$scope.showShop = response.statusText;
 		});
@@ -55,6 +56,23 @@ angular.module('spaApp')
 	$scope.subCategory = function($idShopCategorySub){
 		console.log($idShopCategorySub);
 
+	};
+	$scope.deleteSubCategory = function($idShopCategorySub, $idShop){
+		 
+		$http({
+			method : "GET",
+			url : "models/shops.php?acc=delsc&idShop="+$idShop+"&idShopCategorySub="+$idShopCategorySub
+		}).then(function mySucces(response) {
+			//console.log(response.data);
+			$scope.subCategoriesShop = response.data;
+			console.log(response.data);
+	    $scope.loading = false;
+		}, function myError(response) {
+			$scope.shops = response.statusText;
+		});
+		console.log($scope.subCategoriesShop);
+		console.log($idShop);
+		console.log($idShopCategorySub);
 	};
 	$scope.userOwner = function($idUser){
 		console.log($idUser);
