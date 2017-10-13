@@ -114,18 +114,6 @@
   padding-top: 11%;
   padding-bottom: 5%;
 }
-/* #select
-{
-  background: white;
-  background-image:  url("../img/circledown.png");
-  height: 17px;
-  width: 17px;
-  overflow: hidden;
-  position: absolute;
-  margin-top: 1%;
-  margin-left: 19.8%;
-   background-attachment: local;
-} */
 input
 {
   height: 35px; 
@@ -139,11 +127,13 @@ select
 }
 #selectAsso
 {
+  margin-top: 3%;
   width: 200px;
   background-image: url("../img/circledown.png");
   background-repeat: no-repeat;
   background-position-y: 5px;
   background-position-x: 175px;
+  background-color: #95B4BE;
 }
 #active
 {
@@ -152,6 +142,7 @@ select
   background-repeat: no-repeat;
   background-position-y: 5px;
   background-position-x: 150px;
+  background-color: #BED1D7;
 }
 
 /* ------------------------ */

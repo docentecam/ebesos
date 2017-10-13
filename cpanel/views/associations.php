@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-lg-12"><b>Associacions</b></div>
 			<div class="col-lg-12 select">
-				<div for="selectAsso" id="select"></div>
+				<div id="select"></div>
 				<!-- <img id="moveImg" src="img/circledown.png"> -->
 				<select ng-change="changeDataUser(idUser)" ng-model="idUser" id="selectAsso">
 					<option ng-repeat="user in users" ng-value="user.idUser">
@@ -100,9 +100,9 @@
 		</div>
 	</div>
 	<div class="row padd-t" ng-repeat="association in associations">
-		<div class="col-lg-4 col-lg-offset-2">
+		<div class="col-lg-4 col-lg-offset-1">
 			<div class="row">
-				<div class="col-lg-5">Logo Associació</div>
+				<div class="col-lg-6">Logo Associació</div>
 			</div>
 			<div class="row">
 				<img class="col-lg-3" src="../img/logos-assoc/{{association.logo}}">
@@ -119,9 +119,9 @@
 	
 
 	<div class="row padd-t" ng-repeat="association in associations">
-		<div class="col-lg-4 col-lg-offset-2">
+		<div class="col-lg-4 col-lg-offset-1">
 			<div class="row">
-				<div class="col-lg-5">Logo Associació</div>
+				<div class="col-lg-6">Logo Associació</div>
 			</div>
 			<div class="row">
 				<img class="col-lg-6" src="../img/logos-assoc/{{association.footer}}">
