@@ -64,8 +64,12 @@ angular.module('spaApp')
 			url : "models/shops.php?acc=delsc&idShop="+$idShop+"&idShopCategorySub="+$idShopCategorySub
 		}).then(function mySucces(response) {
 			//console.log(response.data);
-			$scope.subCategoriesShop = response.data;
-			console.log(response.data);
+			$scope.subCategoriesData = response.data;
+			$scope.subCategoriesShop = $scope.subCategoriesData[0].shopCategories;
+			$scope.subCategories = $scope.subCategoriesData[0].categoriesSub;
+			console.log($scope.subCategoriesData);
+			console.log($scope.subCategoriesShop);
+			//console.log($scope.subCategories);
 	    $scope.loading = false;
 		}, function myError(response) {
 			$scope.shops = response.statusText;

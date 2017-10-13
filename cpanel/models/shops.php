@@ -47,70 +47,25 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'edit')
 	{
 		if($i != 0) $dataShop .= ",";
 
-		$dataShop .= '{"idShop":"'.$row['idShop'].'", "name":"'.$row['name'].'", "lng":"'.$row['lng'].'", "lat":"'.$row['lat'].'", "logo":"'.$row['logo'].'", "telephone":"'.$row['telephone'].'", "email":"'.$row['email'].'", "address":"'.$row['address'].'", "schedule":"'.$row['schedule'].'", "description":"'.$row['description'].'", "descriptionLong":"'.$row['descriptionLong'].'", "web":"'.$row['web'].'", "cp":"'.$row['cp'].'", "ciutat":"'.$row['ciutat'].'", "idUser":"'.$row['idUser'].'", "images":';
-		$j = 0;
+		$dataShop .= '{"idShop":"'.$row['idShop'].'", "name":"'.$row['name'].'", "lng":"'.$row['lng'].'", "lat":"'.$row['lat'].'", "logo":"'.$row['logo'].'", "telephone":"'.$row['telephone'].'", "email":"'.$row['email'].'", "address":"'.$row['address'].'", "schedule":"'.$row['schedule'].'", "description":"'.$row['description'].'", "descriptionLong":"'.$row['descriptionLong'].'", "web":"'.$row['web'].'", "cp":"'.$row['cp'].'", "ciutat":"'.$row['ciutat'].'", "idUser":"'.$row['idUser'].'"';
 
-		$dataShop .= '[';
-		$mySql = "SELECT si.idShopImage, si.preferred, si.url
-				FROM shopsimages si
-				WHERE si.idShop = $idShop";
+		$dataShop .= ', "images":';
 
-		$resultImgShop = mysqli_query($connexio, $mySql);
-
-		while($row = mysqli_fetch_array($resultImgShop))
-		{
-			if($j != 0) $dataShop .= ",";
-
-			$dataShop .= '{"idShopImage":"'.$row['idShopImage'].'", "preferred":"'.$row['preferred'].'", "url":"'.$row['url'].'"}';
-
-			$j++;
-		}
-		$dataShop .= "]";
+		$dataShop .= listImages($idShop);
+		
 		$dataShop .= ', "subCategoriesShop":';
 
-		$dataShop .= listSubCategories($idShop);
+		$dataShop .= listShopCategoriesSub($idShop);
+
 		$dataShop .= ', "users":';
 
-		$n = 0;
+		$dataShop .= listUsers($idShop);
 
-		$dataShop .= '[';
-		$mySql = "SELECT u.idUser, u.name
-				FROM users u
-				WHERE u.privileges != 'S'";
-
-		$resultAsso = mysqli_query($connexio, $mySql);
-
-		while($row = mysqli_fetch_array($resultAsso))
-		{
-			if($n != 0) $dataShop .= ",";
-
-			$dataShop .= '{"idUser":"'.$row['idUser'].'", "name":"'.$row['name'].'"}';
-
-			$n++;
-		}
-		$dataShop .= "]";
 		$dataShop .= ', "subCategories":';
 
-		$l = 0;
+		$dataShop .= listCategoriesSub($idShop);
 
-		$dataShop .= '[';
-		$mySql = "SELECT cs.idSubCategory, cs.name
-				FROM categoriessub cs
-				WHERE cs.idSubcategory NOT IN (SELECT scs.idSubCategory 
-				FROM shopcategoriessub scs
-				WHERE scs.idShop = $idShop)";
-
-		$resultSubCategories = mysqli_query($connexio, $mySql);
-
-		while($row = mysqli_fetch_array($resultSubCategories))
-		{
-			if($l != 0) $dataShop .= ",";
-
-			$dataShop .= '{"idSubCategory":"'.$row['idSubCategory'].'", "nameSubCategory":"'.$row['name'].'"}';
-
-			$l++;
-		}
-		$dataShop .= ']}';
+		$dataShop .= '}';
 		$i++;
 	}
 	$dataShop .= "]";
@@ -136,12 +91,6 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'delete')
 
 	disconnect($connexio);
 
-	// if($deleteShop)
-	// {
-	// 	echo "eliminado";
-	// }
-	// else echo "no eliminado";
-
 	echo $mySql;
 }
 else if(isset($_GET['acc']) && $_GET['acc'] == 'delsc')
@@ -157,38 +106,41 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'delsc')
 	disconnect($connexio);
 
 	//echo $mySql;
-	echo listSubCategories($idShop);
+	echo '[{"shopCategories":'.listShopCategoriesSub($idShop).', "categoriesSub":'.listCategoriesSub($idShop).'}]';
 }
-
-function listSubCategories($idShop)
+function listCategoriesSub($idShop)
 {
 	
-	// $mySql = "SELECT cs.idSubCategory, cs.name
-	// 		FROM categoriessub cs
-	// 		WHERE cs.idSubcategory NOT IN (SELECT scs.idSubCategory 
-	// 		FROM shopcategoriessub scs
-	// 		WHERE scs.idShop = $idShop)";
+	$mySql = "SELECT cs.idSubCategory, cs.name
+			FROM categoriessub cs
+			WHERE cs.idSubcategory NOT IN (SELECT scs.idSubCategory 
+			FROM shopcategoriessub scs
+			WHERE scs.idShop = $idShop)";
 
-	// $connexio = connect();
+	$connexio = connect();
 
-	// $resultSubCategories = mysqli_query($connexio, $mySql);
+	$resultSubCategories = mysqli_query($connexio, $mySql);
 
-	// disconnect($connexio);
-	// $i = 0;
-
-	// $datasc = '[';
-	// while($row = mysqli_fetch_array($resultSubCategories))
-	// {
-	// 	if($i != 0) $datasc .= ",";
-
-	// 	$datasc .= '{"idSubCategory":"'.$row['idSubCategory'].'", "nameSubCategory":"'.$row['name'].'"}';
-
-	// 	$i++;
-	// }
-	// $datasc .= ']';
-	$m = 0;
+	disconnect($connexio);
+	$i = 0;
 
 	$datasc = '[';
+	while($row = mysqli_fetch_array($resultSubCategories))
+	{
+		if($i != 0) $datasc .= ",";
+
+		$datasc .= '{"idSubCategory":"'.$row['idSubCategory'].'", "nameSubCategory":"'.$row['name'].'"}';
+
+		$i++;
+	}
+	$datasc .= ']';
+
+	return $datasc;
+}
+
+function listShopCategoriesSub($idShop)
+{
+	$m = 0;
 	$mySql = "SELECT scs.idShopCategorySub, cs.name AS NameSubCategory, scs.preferred, scs.idSubCategory
 			FROM categories c, categoriessub cs, shopcategoriessub scs
 			WHERE scs.idShop = $idShop
@@ -202,16 +154,71 @@ function listSubCategories($idShop)
 
 	disconnect($connexio);
 
+	$datascs = '[';
 	while($row = mysqli_fetch_array($resultSubCategoriesShop))
 	{
-		if($m != 0) $datasc .= ",";
+		if($m != 0) $datascs .= ",";
 
-		$datasc .= '{"idShopCategorySub":"'.$row['idShopCategorySub'].'", "nameSubCategoryShop":"'.$row['NameSubCategory'].'", "preferred":"'.$row['preferred'].'", "idSubcategory":"'.$row['idSubCategory'].'"}';
+		$datascs .= '{"idShopCategorySub":"'.$row['idShopCategorySub'].'", "nameSubCategoryShop":"'.$row['NameSubCategory'].'", "preferred":"'.$row['preferred'].'", "idSubcategory":"'.$row['idSubCategory'].'"}';
 
 		$m++;
 	}
-	$datasc .= ']';
+	$datascs .= ']';
 
-	return $datasc;
+	return $datascs;
+}
+function listImages($idShop)
+{
+	$j = 0;
+
+	$mySql = "SELECT si.idShopImage, si.preferred, si.url
+			FROM shopsimages si
+			WHERE si.idShop = $idShop";
+
+	$connexio = connect();
+
+	$resultImgShop = mysqli_query($connexio, $mySql);
+
+	disconnect($connexio);
+
+	$datai = '[';
+	while($row = mysqli_fetch_array($resultImgShop))
+	{
+		if($j != 0) $datai .= ",";
+
+		$datai .= '{"idShopImage":"'.$row['idShopImage'].'", "preferred":"'.$row['preferred'].'", "url":"'.$row['url'].'"}';
+
+		$j++;
+	}
+	$datai .= "]";
+
+	return $datai;
+}
+function listUsers()
+{
+	$n = 0;
+
+	$datau = '[';
+	$mySql = "SELECT u.idUser, u.name
+			FROM users u
+			WHERE u.privileges != 'S'";
+
+	$connexio = connect();
+
+	$resultAsso = mysqli_query($connexio, $mySql);
+
+	disconnect($connexio);
+
+	while($row = mysqli_fetch_array($resultAsso))
+	{
+		if($n != 0) $datau .= ",";
+
+		$datau .= '{"idUser":"'.$row['idUser'].'", "name":"'.$row['name'].'"}';
+
+		$n++;
+	}
+	$datau .= "]";
+
+	return $datau;
 }
 ?>
