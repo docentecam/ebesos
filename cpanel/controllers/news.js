@@ -111,7 +111,9 @@ angular.module('spaApp')
 			else{ 
 				alert("No has rellenado algun campo del formulario hijoepta vuelve a hacerlo");		
 			}
+
 		}
+
 
 
 
@@ -127,4 +129,61 @@ angular.module('spaApp')
 				$scope.newSelect = response.statusText;				
 			});
 		}
-	});
+		$scope.uploadFile=function(){
+			console.log("carga");
+			var name= $scope.name;
+			var file= $scope.file;
+			upload.uploadFile(file,name).then(function(res)
+				{
+				console.log(res);
+				}
+			)
+		}
+	})
+
+.directive('uploaderModel', ["$parse",function($parse){
+return{
+restrict:'A',
+link: function(scope, iElement, iAtrrs){
+
+
+iElement.on("change",function(e)
+{
+$parse(iAtrrs.uploaderModel).assign(scope,
+ iElement[0].files[0]);
+});
+}
+};
+}])
+ 
+.service('upload',["$http","$q", function($http,$q)
+{
+
+	this.uploadFile=function(file,name)
+	{
+	console.log("nombre en upload: "+name);
+	console.log("fichero en upload: "+file);
+	var deferred=$q.defer();
+	var formData= new FormData();
+	formData.append("name", name);
+	formData.append("file", file);
+	return $http.post("models/recibeSubir.php", formData,{
+		headers:{
+		"Content-type":undefined
+		},
+		transformRequest:angular.identity
+	})
+
+	.then(function(res)
+	{
+	console.log ("lo sube"+ res);
+	deferred.resolve(res);
+	console.log ("lo sube");
+	}
+	)
+
+
+
+return deferred.promise;
+}
+}])

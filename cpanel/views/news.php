@@ -1,4 +1,10 @@
+<?php
+// session_start();
+// if(!isset($_SESSION['user']['nom'])) header("Location: ../view/login.php");
+?>
+
 <div class="row">
+
 	<input type="button" name="newNew" value="Afegir Noticia" alt="Afegir noticia" class="btn btn-default" ng-click="newNew()">
 </div>
 
@@ -12,10 +18,7 @@
 		<div>
 			{{new.date}}
 		</div>
-		<div>
-			<input type="button" value="Editar" alt="Edita dades de la noticia" class="btn btn-default" ng-click="selNew(new.idNew)">
-			<input type="button" value="Esborrar" alt="Esborrar dades de la noticia" class="btn btn-default"" ng-click="">
-		</div>
+		
 	 </div>
 	<div class="row">	
 		<div>
@@ -28,6 +31,10 @@
 		{{new.titleSub}}
 		</div>
 	</div>	
+		<div>
+			<input type="button" value="Editar" alt="Edita dades de la noticia" class="btn btn-default" ng-click="selNew(new.idNew)">
+			<input type="button" value="Esborrar" alt="Esborrar dades de la noticia" class="btn btn-default"" ng-click="">
+		</div>
 	<br>
 	
 </div>
@@ -44,7 +51,7 @@
 						<br>
 					<div class="row">
 						<div class="col-md-8">
-							<input type="text" class="titleForm"  name="title" ng-value="newSelected.title">
+							<input type="text" class="titleForm"  name="title" ng-model="newSelected.title">
 						</div>
 
 						<div class="col-md-3 col-md-pull-1" id="dateBox">
@@ -160,13 +167,18 @@
 		        </tr>
 
 		        <tr>
-		          <td>Foto de Portada: </td>
-		          <td><input name="imgPreferred" type="file"></td>
+		          <td>Foto de Portada: </td> 
+		          <td><input name="imgPreferred" type="file" uploader-model="file"></td>
 		        </tr>
 
 		         <tr>
 		          <td>Foto/s de la noticia: </td>
 		          <td><input name="ImgNoPreferred" type="file"></td>
+		        </tr>
+
+		         <tr>
+		          <td>Video/s de la noticia: </td>
+		          <td><input name="video" type="text"></td>
 		        </tr>
 		    </table>
 
@@ -176,3 +188,7 @@
 		</form>
 	</div>	
 </div>
+
+
+
+

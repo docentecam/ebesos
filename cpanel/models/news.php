@@ -37,24 +37,15 @@ require("../inc/functions.php");
 
 	if(isset($_GET['acc']) && $_GET['acc'] == 'newSel'){
 
-		$mySql = "SELECT n.idNew , n.idUser, n.titleSub , n.date, n.title ,w.idNew, w.url";
 
-	$mySql .= " FROM news n, newsmedia w WHERE n.idNew=w.idNew  AND w.preferred='Y' AND  n.idNew=".$_GET["idNew"];
+	$mySql = "SELECT n.idNew , n.idUser, n.titleSub , n.date, n.title";
+
+	$mySql .= " FROM news n WHERE n.idNew=".$_GET["idNew"];
 
 	$connexio = connect();
 	$resultNews = mysqli_query($connexio, $mySql);
-	
-
-		$mySql = "SELECT w.url 
-				FROM newsmedia w
-				WHERE w.preferred = 'N' AND w.type='I' 
-				AND w.idNew =".$_GET["idNew"];
-
-		
-			$resultImgNewP = mysqli_query($connexio, $mySql);
-			disconnect($connexio);
 	$i=0;
-		$dataNews ='[';
+	$dataNews ='[';
 		while ($row=mySqli_fetch_array($resultNews))
 		{	
 			if($i != 0)
@@ -67,28 +58,34 @@ require("../inc/functions.php");
 			$row['titleSub']=str_replace("'", "·", $row['titleSub']);
 
 
-			$dataNews .= '{"title":"'.$row['title'].'","date":"'.$row['date'].'","idNew":"'.$row['idNew'].'","titleSub":"'.$row['titleSub'].'","url":"'.$row['url'].'","images":';
-		
+			$dataNews .= '{"title":"'.$row['title'].'","date":"'.$row['date'].'","idNew":"'.$row['idNew'].'","titleSub":"'.$row['titleSub'].'","url":"';
+
 			$j = 0;
 
-			$dataNews.= '[';
-				
+			$dataNews .= '[';
+			$mySql = "SELECT url , type, preferred
+					FROM  news n, newsmedia w
+					WHERE n.idNew=w.idNew AND w.idNew=".$_GET["idNew"];
 
-			while($rowImg=mysqli_fetch_array($resultImgNewP))
-				{
-					if($j != 0) $dataNews .= ",";
+			$resultImgs = mysqli_query($connexio, $mySql);
 
-					$dataNews .= '{"url":"'.$rowImg['url'].'"}';
+			while($row = mysqli_fetch_array($resultImgs))
+			{
+				if($j != 0) $dataNews .= ",";
 
-					$j++;
-				}
-				$dataNews .= ']}';
-			$i++;
+				$dataNews .= '{"url":"'.$row['url'].'", "type":"'.$row['type'].'", "preferred":"'.$row['preferred'].'"}';
+
+				$j++;
+			}
+
+			$dataNews .=']';
+
+		$i++;
+
 		}
-		$dataNews .=']';
-
-		 echo $dataNews;
-	}
+		$dataNews .='}]';
+		echo $dataNews;	 
+	}	
 
 	if(isset($_GET['acc']) && $_GET['acc'] == 'changeImgPeferred'){
 
