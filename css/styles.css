@@ -96,36 +96,31 @@ padding: 0;
 #indicatorSlider{
 	margin-bottom:-1%!important;
 }
-#linksFooter{
-	padding: 0%!important;
+
+#footerColor{
+	background-color:#E1E1E1;
+	margin-top: 2%!important;
+}
+#linkBorder{
+	border-left: 1px solid #9C9C9C;
 }
 
-#linkBorder{
-	border-left: 1px solid #656565;
-	margin-top: 1%!important;
-}
-#linkNom {
-	margin-top: 0%!important;
-}
-#marginLinks{
-	margin-bottom: 4%!important;
-}
 #linkNom{
 	font-weight: bold;
     padding: 0;
     margin: 15px 0;
     font-size: 1.4em;
 }
-#daleColor{
-	width: 65%
-}
+
 #contactWho{
 	margin-top: 1.8%;
 }
-#mc_embed_signup{
+/*#mc_embed_signup{
 	background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif;
+}*/
+#marginLinks{
+	padding: 1%!important;
 }
-
 .navbar .navbar-nav {
   display: inline-block;
   float: none;
@@ -135,11 +130,11 @@ padding: 0;
 .navbar .navbar-collapse {
   text-align: center;
 }
+
 .footer-bs {
     background-color: #E1E1E1;
-	padding: 20px 30px;
 	color: black;
-	margin-top: 2%;
+	margin-top: 1%;
 	border-bottom-right-radius: 6px;
 	border-top-left-radius: 0px;
 	border-bottom-left-radius: 6px;

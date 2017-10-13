@@ -102,44 +102,34 @@
 				</div>  				
   			</div>
   		</div>
-  		<div class="row">
+  		<div class="row" id="footerColor">
   			<footer class="footer-bs" id="footer">
-  				<div class="col-xs-4 footer-nav animated fadeInUp pull-right" id="linkBorder">
-		            	<h2 id="linkNom">Links</h2>
-		            	<div id="linksFooter" ng-controller="LinksCtrl" class="col-xs-12 pull-right">
-							<div class="row">
-								<div ng-repeat="link in links" class="col-xs-6" id="marginLinks">
-									<a href="{{link.url}}" class="footerLinksColor" target="_blank">{{link.description}}</a>
+				<div class="col-xs-12 col-lg-7" id="rowForm">
+					<div id="mc_embed_signup">
+						<form action="https://ac019.us16.list-manage.com/subscribe/post?u=8fda983e2930b92f49453f42d&amp;id=4cb43f0dc6" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+							<div id="mc_embed_signup_scroll">
+								<h2>Subscriu-te al Newsletter</h2>
+								<div class="indicates-required">
+									<span class="asterisk">*</span>Camps obligatoris
 								</div>
-							</div>	
-						</div>        	
-		        	</div>
-				<div class="row" id="daleColor">
-		        	<div id="mc_embed_signup">
-							<form action="https://ac019.us16.list-manage.com/subscribe/post?u=8fda983e2930b92f49453f42d&amp;id=4cb43f0dc6" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-    							<div id="mc_embed_signup_scroll">
-    								<h2>Subscriu-te al Newsletter</h2>
-									<div class="indicates-required">
-										<span class="asterisk">*</span>Camps obligatoris
-									</div>
-									<div class="mc-field-group">
-    									<label for="mce-EMAIL">Adreça electrònica  <span class="asterisk">*</span>
-										</label>
-    									<input size="3" type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Introdueixi el correu">
-									</div>
-									<div class="mc-field-group">
-    									<label for="mce-FNAME">Nom  
-    										<span class="asterisk">*</span>
-										</label>
-   										<input type="text" value="" name="FNAME" class="required" id="mce-FNAME" placeholder="Introdueixi el nom">
-									</div>
-   									<div id="mce-responses" class="clear">
-        							<div class="response" id="mce-error-response" style="display:none">
-        								
-        							</div>
-        							<div class="response" id="mce-success-response" style="display:none">
-        							
-        							</div>
+								<div class="mc-field-group">
+									<label for="mce-EMAIL">Adreça electrònica  <span class="asterisk">*</span>
+									</label>
+									<input size="3" type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Introdueixi el correu">
+								</div>
+								<div class="mc-field-group">
+									<label for="mce-FNAME">Nom  
+										<span class="asterisk">*</span>
+									</label>
+										<input type="text" value="" name="FNAME" class="required" id="mce-FNAME" placeholder="Introdueixi el nom">
+								</div>
+								<div id="mce-responses" class="clear">
+    								<div class="response" id="mce-error-response" style="display:none">
+    								
+    							</div>
+    								<div class="response" id="mce-success-response" style="display:none">
+    							
+    							</div>
    								</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
     							<div style="position: absolute; left: -5000px;" aria-hidden="true">
     								<input type="text" name="b_8fda983e2930b92f49453f42d_4cb43f0dc6" tabindex="-1" value="">
@@ -150,13 +140,25 @@
     						</div>
 						</form>
 					</div>
-			
-<!--End mc_embed_signup-->	        	
-		    	</div>
-	    		<div class="row" ng-controller="AssoFooterCtrl">
-					<div class="icoFooterEix" ng-repeat="assoFooter in assoFooters">
-						<img class="img-responsive col-xs-2 col-sm-1 col-md-1 col-lg-1 col-xs-push-4 col-sm-push-8" src="img/logos-assoc/{{assoFooter.footer}}">
-					</div>
+				</div>
+				<div class="col-xs-12 col-lg-5">
+					<div class="row">
+						<div class="col-xs-12 footer-nav animated fadeInUp" id="linkBorder">
+							<h2 id="linkNom">Links</h2>
+			            	<div id="linksFooter" ng-controller="LinksCtrl" class="col-xs-12 pull-right">
+								<div class="row">
+									<div ng-repeat="link in links" class="col-xs-6" id="marginLinks">
+										<a href="{{link.url}}" class="footerLinksColor" target="_blank">{{link.description}}</a>
+									</div>
+								</div>	
+							</div>    
+						</div>
+						<div class="col-xs-8 col-lg-offset-4" ng-controller="AssoFooterCtrl">
+							<div class="icoFooterEix" ng-repeat="assoFooter in assoFooters">
+								<img class="img-responsive col-lg-3 pull-left" src="img/logos-assoc/{{assoFooter.footer}}">
+							</div>
+						</div>
+					</div>					
 				</div>
     		</footer>
   		</div>		

@@ -24,22 +24,6 @@ require('../inc/functions.php');
 
 			echo $dataSettings;
 		}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 		else if(isset($_GET['acc']) && $_GET['acc'] == 'edit')
 		{
 			$idShop=$_GET['idShop'];
