@@ -24,7 +24,8 @@ angular.module('spaApp')
 				method : "GET",
 				url : "models/news.php?acc=newSel&idNew="+idNew
 			}).then(function mySucces (response) {
-				 $scope.newSelect = response.data;
+				$scope.newSelect = response.data;
+				$scope.images = $scope.newSelect[0].url;
 				$scope.showDiv=true;
 				$scope.listNew=false;
 				$scope.newNews=false;	
