@@ -1,12 +1,10 @@
 <div class="glb">	
 	<div class="row">
 		<div class="col-lg-12"><b>Associacions</b></div>
-			<div class="col-lg-12 select">
-				<div id="select"></div>
-				<!-- <img id="moveImg" src="img/circledown.png"> -->
+			<div class="col-lg-12">
 				<select ng-change="changeDataUser(idUser)" ng-model="idUser" id="selectAsso">
-					<option ng-repeat="user in users" ng-value="user.idUser">
-						{{user.name}}
+					<option ng-repeat="user in users" ng-value="user.idUser" ng-selected="user.idUser==<?php $_SESSION['idUser'] ?>">
+						{{user.name}} <!--Dar selected a la $_SESSION cuando exista-->
 					</option>
 				</select>
 			</div>
@@ -44,8 +42,8 @@
 						<div class="col-lg-6 padd">Actiu:</div>
 						<div class="col-lg-6 padd">
 							<select id="active">
-								<option value="Y">Si</option>
-								<option value="N">No</option>
+								<option value="Y" ng-selected="association.active=='Y'">Si</option>
+								<option value="N" ng-selected="association.active=='N'">No</option>
 							</select>
 						</div>
 					</div>
@@ -111,9 +109,10 @@
 					<div class="row"><span class=" col-lg-9">Eliminar logo</span></div>
 				</div>
 			</div>
-			<div class="col-lg-3">
-				<input type="file" name="" ng-show="logoEdit">
-			</div>
+		</div>
+		<div class="col-lg-3 pt-3">
+			<label for="logoA" ng-show="logoEdit" class="labelFor">Examinar</label>
+			<input type="file" id="logoA" name="" ng-show="false">
 		</div>
 	</div>
 	
@@ -121,7 +120,7 @@
 	<div class="row padd-t" ng-repeat="association in associations">
 		<div class="col-lg-4 col-lg-offset-1">
 			<div class="row">
-				<div class="col-lg-6">Logo Associació</div>
+				<div class="col-lg-6">Logo Footer</div>
 			</div>
 			<div class="row">
 				<img class="col-lg-6" src="../img/logos-assoc/{{association.footer}}">
@@ -130,9 +129,10 @@
 					<div class="row"><span class=" col-lg-9">Eliminar logo</span></div>
 				</div>
 			</div>
-			<div class="col-lg-3">
-				<input type="file" name="" ng-show="logoEdit2">
-			</div>
+		</div>
+		<div class="col-lg-3 pt-3">
+			<label for="logoF" ng-show="logoEdit2" class="labelFor">Examinar</label>
+			<input type="file" id="logoF" name="" ng-show="false">
 		</div>
 	</div>
 </div>

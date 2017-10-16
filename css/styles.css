@@ -265,16 +265,7 @@ padding: 0;
 	padding: 30px;
 	margin-top: 4%;
 }
-.subMenu:hover{
-	background-color: #51576F;
-	cursor: pointer;
-	
-	font-size: 18px;
-}
-.subMenu
-{
-	padding:  30px;
-}
+
 .subMA
 {
 	color: white;
@@ -370,13 +361,56 @@ padding: 0;
 }
 
 
+/* Large devices (desktops, less than 1200px) */
+@media (min-width: 1024px)
+{
+	.subMenu:hover{
+	background-color: #51576F;
+	cursor: pointer;
+	
+	font-size: 18px;
+	}
+	.subMenu
+	{
+		padding:  30px;
+	}
+}
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 1023px)
+{
+	
+}
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767px)
+{
 
+}
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575px)
+{
+	.subMenu
+	{
+		padding:  0px;
+	}
+}
+/* @include media-breakpoint-down(xs)
+{
+	
+}
+@include media-breakpoint-down(sm)
+{
+	
+}
+@include media-breakpoint-down(md)
+{
+	
+}
+@include media-breakpoint-down(lg)
+{
+	
+}
 
-
-
-
-
-
+ */
 
 
 
