@@ -93,33 +93,75 @@ padding: 0;
 }
 
 }*/
+.headTitle{
+	font-weight: bold;
+}
+.colorLinksHidden{
+	color: black;
+}
+.navGeneral{
+	border-bottom: none;
+	margin-top: 0.5%!important;
+
+}
+.subrayado:hover{
+	border-bottom: 1px solid #9E9E9E;
+}
+.prueba1 {
+  max-width: 40%; /* or to whatever you want here */
+ margin-left: 0%!important;
+}
+.dos{
+	text-align: center;
+	padding:5%!important; 
+}
+
+.sr-only{
+	border-right: 2px solid black;
+}
+
+.customNav{
+	width: 19.2%!important;
+}
+.dividerNav{
+	margin-top:1.125% ;
+	width: 1%; 
+}
 #indicatorSlider{
 	margin-bottom:-1%!important;
 }
 
 #footerColor{
-	background-color:#E1E1E1;
+	background-color:#808BA7;
 	margin-top: 2%!important;
 }
 #linkBorder{
 	border-left: 1px solid #9C9C9C;
 }
 
-#linkNom{
+.linkNom{
 	font-weight: bold;
     padding: 0;
     margin: 15px 0;
     font-size: 1.4em;
+    color: white!important;
+}
+.linkNomForm{
+    color: white!important;
+}
+.footerLinksColor{
+	color: white!important;
 }
 
 #contactWho{
 	margin-top: 1.8%;
 }
-/*#mc_embed_signup{
-	background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif;
-}*/
+
 #marginLinks{
 	padding: 1%!important;
+}
+#mc_embed_signup .button{
+	color: black!important;
 }
 .navbar .navbar-nav {
   display: inline-block;
@@ -129,10 +171,15 @@ padding: 0;
 
 .navbar .navbar-collapse {
   text-align: center;
+  background-color: white!important;
+  
+}
+.navGlobalClass{
+	background-color: white!important;
 }
 
 .footer-bs {
-    background-color: #E1E1E1;
+    background-color: #808BA7;
 	color: black;
 	margin-top: 1%;
 	border-bottom-right-radius: 6px;
@@ -141,7 +188,7 @@ padding: 0;
 	height: 40%!important;
 }
 #mc_embed_signup{
-	background-color: #E1E1E1!important;
+	background-color: #808BA7!important;
 	margin-left: 5%!important;
 
 }
@@ -197,6 +244,10 @@ padding: 0;
 }
 #separatorDesign{
 	text-decoration: none;
+}
+.navGlobalClass>li>.hi
+{
+	width: 300px!important;
 }
 /*----------------------------------------------------------Jordi------------------------------------------------------------------*/
 

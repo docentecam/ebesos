@@ -38,12 +38,12 @@
 				<div class="col-xs-4" id="imgLogoTop" ng-repeat="assoTopImage in assoTopImages">
 					<a href="#"><img class="img-responsive" src="img/logos-assoc/{{assoTopImage.logo}}"></a>
 				</div>
-				<div class="col-xs-8" id="logoTexto"><h4>EIX BESÒS -</h4><h4>MARESME</h4></div>		
+				<div class="col-xs-8" id="logoTexto"><h4 class="headTitle">EIX BESÒS -</h4><h4 class="headTitle">MARESME</h4></div>		
 			</div>
 			<div id="contactWho">
 				<span class="col-xs-2 col-xs-offset-7 pull-right">				
-				<a href="#/users/1">Qui Som?</a> | 						
-				<a href="#/contact/1">Contacte</a>					
+				<a href="#/users/1" class="colorLinksHidden">Qui Som?</a> | 						
+				<a href="#/contact/1" class="colorLinksHidden">Contacte</a>					
 			</span>	
 			</div>		
 				
@@ -63,7 +63,7 @@
 			</div>
   		</div>
   		<div class="row" >
-  			<nav class="navbar navbar-default">
+  			<nav class="navbar navbar-default navGeneral">
 	  		<div class="container-fluid">
 	    	<!-- Brand and toggle get grouped for better mobile display -->
 		    	<div class="navbar-header">
@@ -76,20 +76,28 @@
 		    	</div>
 	    	<!-- Collect the nav links, forms, and other content for toggling -->
 		    	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		    		<ul class="nav navbar-nav" id="navGlobal">
-		        		<li role="presentation"><a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Mapa Comercial <span class="sr-only">(current)</span></a></li>
-		        		<li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Associacions <span class="caret"></span></a>
+		    		<ul class="nav navbar-nav navGlobalClass col-lg-12" id="navGlobal">
+		        		<li role="presentation" class="customNav" ><a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> <span class="subrayado">Mapa Comercial </span> <span class="sr-only">(current)</span></a></li>
+		        		<li class="dividerNav">|</li>
+		        		<li role="presentation" class="dropdown customNav"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="subrayado">Associacions</span> <span class="caret"></span></a>
+
+
 		          			<ul class="dropdown-menu" ng-controller="AssoNavCtrl" id="imgNav" >
 		          				<li ng-repeat="assoNav in assoNavs" role="presentation">
-		          					<a href="#/associations/{{assoNav.idUser}}/{{assoNav.name}}"><img class="img-responsive" src="img/logos-assoc/{{assoNav.logo}}">{{assoNav.name}}</a>
+		          					<a href="#/associations/{{assoNav.idUser}}/{{assoNav.name}}" class="dos"><img class="img-responsive prueba1" src="img/logos-assoc/{{assoNav.logo}}" align="left">{{assoNav.name}}</a>
 		          					<ul role="separator" id="separatorDesign" ng-class="{divider : !$last}">				
 		          					</ul>	          					
 		          				</li>
 		          			</ul>
+
+
 		        		</li>
-		        		<li role="presentation"><a href="#/promotions">Promocions</a></li>
-		        		<li role="presentation"><a href="#/formation">Formació</a></li>
-		        		<li role="presentation"><a href="#/news/1">Notícies</a></li>	
+		        		<li class="dividerNav">|</li>
+		        		<li role="presentation" class="customNav"><a href="#/promotions"><span class="subrayado">Promocions</span></a></li>
+		        		<li class="dividerNav">|</li>
+		        		<li role="presentation" class="customNav"class=""><a href="#/formation"><span class="subrayado">Formació</span></a></li>
+		        		<li class="dividerNav">|</li>
+		        		<li role="presentation" class="customNav"><a href="#/news/1"><span class="subrayado">Notícies</span></a></li>	
 		      		</ul>    
 				</div><!--/.navbar-collapse -->
 	   		</div><!--/.container-fluid -->
@@ -108,20 +116,20 @@
 					<div id="mc_embed_signup">
 						<form action="https://ac019.us16.list-manage.com/subscribe/post?u=8fda983e2930b92f49453f42d&amp;id=4cb43f0dc6" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 							<div id="mc_embed_signup_scroll">
-								<h2>Subscriu-te al Newsletter</h2>
+								<h2 class="linkNom">Subscriu-te al Newsletter</h2>
 								<div class="indicates-required">
-									<span class="asterisk">*</span>Camps obligatoris
+									<span class="asterisk">*</span><span class="linkNomForm">Camps obligatoris</span>
 								</div>
 								<div class="mc-field-group">
-									<label for="mce-EMAIL">Adreça electrònica  <span class="asterisk">*</span>
+									<label for="mce-EMAIL" class="linkNomForm">Adreça electrònica  <span class="asterisk">*</span>
 									</label>
-									<input size="3" type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Introdueixi el correu">
+									<input size="3" type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Introdueixi el seu correu">
 								</div>
 								<div class="mc-field-group">
-									<label for="mce-FNAME">Nom  
+									<label for="mce-FNAME" class="linkNomForm">Nom  
 										<span class="asterisk">*</span>
 									</label>
-										<input type="text" value="" name="FNAME" class="required" id="mce-FNAME" placeholder="Introdueixi el nom">
+										<input type="text" value="" name="FNAME" class="required" id="mce-FNAME" placeholder="Introdueixi el seu nom">
 								</div>
 								<div id="mce-responses" class="clear">
     								<div class="response" id="mce-error-response" style="display:none">
@@ -144,7 +152,7 @@
 				<div class="col-xs-12 col-lg-5">
 					<div class="row">
 						<div class="col-xs-12 footer-nav animated fadeInUp" id="linkBorder">
-							<h2 id="linkNom">Links</h2>
+							<h2 class="linkNom">Links</h2>
 			            	<div id="linksFooter" ng-controller="LinksCtrl" class="col-xs-12 pull-right">
 								<div class="row">
 									<div ng-repeat="link in links" class="col-xs-6" id="marginLinks">
