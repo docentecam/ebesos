@@ -14,7 +14,7 @@
 			{
 				if($i != 0) $dataCategories .= ",";
 
-				$dataCategories .= '{"name":"'.$row['name'].'", "subCategories":';
+				$dataCategories .= '{"idCategory":"'.$row['idCategory'].'", "name":"'.$row['name'].'", "subCategories":';
 
 				$j = 0;
 

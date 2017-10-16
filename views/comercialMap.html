@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-4 push-md-1">
     <!-- <ul> -->
-      <div ng-repeat="category in categories" class="div-category">
+      <div ng-repeat="category in categories" class="category-{{category.idCategory}}">
         <div class="row col-md-3"><label><a class="a-category" href='' ng-click="categoryFilter(category.name)">{{category.name}}</a></label></div>
          <!--  <li>{{category.subCategories[0].name}}</li> -->
           <div class="col-md-9 col-md-push-1"><span ng-repeat="subCategory in category.subCategories">{{subCategory.name}}&nbsp</span></div>
