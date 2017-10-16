@@ -99,7 +99,7 @@
 }
 .padd-t
 {
-  padding-top: 6%;
+  padding-top: 16%;
 }
 .padd-p
 {
@@ -108,6 +108,20 @@
 .glb
 {
   padding-left: 6%;
+}
+.pt-3
+{
+  padding-top: 3%;
+}
+.labelFor
+{
+  background-color: #B8C5CB;
+  padding: 4% 13% 4% 13%;
+}
+.labelFor:active
+{
+  background-color: #B0BEC4;
+  padding: 4% 13% 4% 13%;
 }
 #textTitleHistory
 {

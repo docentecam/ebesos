@@ -80,8 +80,6 @@
 		        		<li role="presentation" class="customNav" ><a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> <span class="subrayado">Mapa Comercial </span> <span class="sr-only">(current)</span></a></li>
 		        		<li class="dividerNav">|</li>
 		        		<li role="presentation" class="dropdown customNav"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="subrayado">Associacions</span> <span class="caret"></span></a>
-
-
 		          			<ul class="dropdown-menu" ng-controller="AssoNavCtrl" id="imgNav" >
 		          				<li ng-repeat="assoNav in assoNavs" role="presentation">
 		          					<a href="#/associations/{{assoNav.idUser}}/{{assoNav.name}}" class="dos"><img class="img-responsive prueba1" src="img/logos-assoc/{{assoNav.logo}}" align="left">{{assoNav.name}}</a>
@@ -89,8 +87,6 @@
 		          					</ul>	          					
 		          				</li>
 		          			</ul>
-
-
 		        		</li>
 		        		<li class="dividerNav">|</li>
 		        		<li role="presentation" class="customNav"><a href="#/promotions"><span class="subrayado">Promocions</span></a></li>
@@ -98,12 +94,13 @@
 		        		<li role="presentation" class="customNav"class=""><a href="#/formation"><span class="subrayado">Formació</span></a></li>
 		        		<li class="dividerNav">|</li>
 		        		<li role="presentation" class="customNav"><a href="#/news/1"><span class="subrayado">Notícies</span></a></li>	
+
 		      		</ul>    
 				</div><!--/.navbar-collapse -->
 	   		</div><!--/.container-fluid -->
 			</nav>  			
   		</div>		
-		<div class="row">  
+		<div class="container-fluid row">  
 			<div class="col-xs-12" data-ng-view="">
 				<div ng-show="loading">
 					<i class="fa fa-spinner" aria-hidden="true"></i>

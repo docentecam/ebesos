@@ -6,10 +6,9 @@
 <div class="row">
 
 	<input type="button" name="newNew" value="Afegir Noticia" alt="Afegir noticia" class="btn btn-default" ng-click="newNew()">
-</div>
+	</div>
 
 <div ng-show="listNew" class="row" ng-repeat="new in news">
-	
 	<div class="row">
 		<img id="photo" src="../img/newsmedia/{{new.url}}"> 
 	</div>
@@ -67,30 +66,41 @@
 					<input type="button" name="editNew" value="Editar Noticia" class="btn btn-default" ng-click="editNew()">
 					<br><br>
 				</div>
+
+		</div>
 				<div id="containerImg" class="row">
-					
 					<div class="col-sm-6">
-						<div id="containerPreferred">
+						<div id="containerPreferred" ng-repeat="image in images | filter : {preferred:'Y'}">
 							<label>Imatge Destacada</label>
-							<img id="photo" src="../img/newsmedia/{{newSelected.url}}"> 
+							<img id="photo" src="../img/newsmedia/{{image.url}}"> 
 							<input type="button" value="Modificar" alt="" class="btn btn-default"" ng-click="changeImgP()">
 							<input type="button" value="Eliminar" alt="" class="btn btn-default"" ng-click="">
 						</div>
-							<div id="containerImagesOfNew">
-								<div ng-repeat="img in newSelected.images">
-								
-									<label> Imatges de les noticies </label> 
-									<input type="button" value="Afegir foto" alt="" class="btn btn-default"" ng-click="">
-
-									<img src="../img/newsmedia/{{img.url}}"> 
-									<input type="button" value="Modificar" alt="" class="btn btn-default"" ng-click="changeImgN()">
-									<input type="button" value="Eliminar" alt="" class="btn btn-default"" ng-click="">
-								</div>
+							
+						<div id="containerImagesOfNew">
+							<input type="button" value="Afegir foto" alt="" class="btn btn-default"" ng-click="">
+							<div ng-repeat="image in images | filter : {preferred:'N' , type:'I'}">
+								<label> Imatge de les noticia </label>
+								<img src="../img/newsmedia/{{image.url}}"> 
+								<input type="button" value="Modificar" alt="" class="btn btn-default"" ng-click="changeImgN()">
+								<input type="button" value="Eliminar" alt="" class="btn btn-default"" ng-click="">
 							</div>
+						</div>
+
+						<div id="containerVideosOfNew">
+							<input type="button" value="Afegir foto" alt="" class="btn btn-default"" ng-click="">
+							<div ng-repeat="image in images | filter : {type:'V' , preferred:'N' }">
+								<label> Video de les noticia </label>
+								<iframe width="560" height="315"  frameborder="0" allowfullscreen ng-src="https://www.youtube.com/embed/image.url"></iframe>
+								<input type="button" value="Modificar" alt="" class="btn btn-default"" ng-click="">
+								<input type="button" value="Eliminar" alt="" class="btn btn-default"" ng-click="">
+							</div>
+						</div>
+
 					</div>
 				</div>
 			</form>
-		</div>
+		
 	</div>
 </div>
 
@@ -138,9 +148,16 @@
 <div class="row">
 	<div class="containerEditImg" ng-show="updateImgNew">
 		<div>
-			<input type="file" name="imgNew" id="updateImgNew">
+
+			<label> Afegueix la teva Url: </label>
+			<input type="file" name="VideoNew" id="updateImgNew">
 		</div>	
 		<br>
+
+		<div>
+			<label> Afegueix la teva Imatge: </label>
+			<input type="file" name="imgNew" id="updateImgNew">
+		</div>	
 		<div>
 			<input  type="button" value="Actualitzar" alt="enviar dades del formulari" class="btn btn-default"" ng-click="">
 		</div>

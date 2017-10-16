@@ -1,14 +1,14 @@
 <div class="row">
   <div class="col-md-4 push-md-1">
-    <ul>
-      <li ng-repeat="category in categories">
-        <label><a href='' ng-click="categoryFilter(category.name)">{{category.name}}</a></label>
+    <!-- <ul> -->
+      <div ng-repeat="category in categories" class="div-category">
+        <div class="row col-md-3"><label><a class="a-category" href='' ng-click="categoryFilter(category.name)">{{category.name}}</a></label></div>
          <!--  <li>{{category.subCategories[0].name}}</li> -->
-          <span ng-repeat="subCategory in category.subCategories">{{subCategory.name}}&nbsp</span>
-      </li>
-    </ul>
+          <div class="col-md-9 col-md-push-1"><span ng-repeat="subCategory in category.subCategories">{{subCategory.name}}&nbsp</span></div>
+      </div>
+    <!-- </ul> -->
   </div>
-  <div id="map" class="col-md-4 push-md-3"></div>
+  <div id="map" class="col-md-6 col-md-push-1"></div>
 </div>
 <script>
   var customLabel = {};
@@ -123,33 +123,33 @@
             {
               if(markerElem.getAttribute('nameAssociacio')=='Xavier Nogues') marker.setIcon(new google.maps.MarkerImage('img/pictograms/aliXno.png', null, null, null, new google.maps.Size(30, 30)));
 
-              else if(markerElem.getAttribute('nameAssociacio')=='019') marker.setIcon(new google.maps.MarkerImage('img/pictograms/ali019', null, null, null, new google.maps.Size(30, 30)));
+              else if(markerElem.getAttribute('nameAssociacio')=='019') marker.setIcon(new google.maps.MarkerImage('img/pictograms/ali019.png', null, null, null, new google.maps.Size(30, 30)));
 
-              else if(markerElem.getAttribute('nameAssociacio')=='Mercats') marker.setIcon(new google.maps.MarkerImage('img/pictograms/aliMer', null, null, null, new google.maps.Size(30, 30)));
+              else if(markerElem.getAttribute('nameAssociacio')=='Mercats') marker.setIcon(new google.maps.MarkerImage('img/pictograms/aliMer.png', null, null, null, new google.maps.Size(30, 30)));
             }
             else if(markerElem.getAttribute('nameCategoria')=='serveis')
             {
-             if(markerElem.getAttribute('nameAssociacio')=='Xavier Nogues') marker.setIcon(new google.maps.MarkerImage('img/pictograms/servXno', null, null, null, new google.maps.Size(30, 30)));
+             if(markerElem.getAttribute('nameAssociacio')=='Xavier Nogues') marker.setIcon(new google.maps.MarkerImage('img/pictograms/servXno.png', null, null, null, new google.maps.Size(30, 30)));
 
-              else if(markerElem.getAttribute('nameAssociacio')=='019') marker.setIcon(new google.maps.MarkerImage('img/pictograms/serv019', null, null, null, new google.maps.Size(30, 30)));
+              else if(markerElem.getAttribute('nameAssociacio')=='019') marker.setIcon(new google.maps.MarkerImage('img/pictograms/serv019.png', null, null, null, new google.maps.Size(30, 30)));
 
-              else if(markerElem.getAttribute('nameAssociacio')=='Mercats') marker.setIcon(new google.maps.MarkerImage('img/pictograms/servMer', null, null, null, new google.maps.Size(30, 30)));
+              else if(markerElem.getAttribute('nameAssociacio')=='Mercats') marker.setIcon(new google.maps.MarkerImage('img/pictograms/servMer.png', null, null, null, new google.maps.Size(30, 30)));
             }
             else if(markerElem.getAttribute('nameCategoria')=='comerç al detall')
             {
-              if(markerElem.getAttribute('nameAssociacio')=='Xavier Nogues') marker.setIcon(new google.maps.MarkerImage('img/pictograms/cdXno', null, null, null, new google.maps.Size(30, 30)));
+              if(markerElem.getAttribute('nameAssociacio')=='Xavier Nogues') marker.setIcon(new google.maps.MarkerImage('img/pictograms/cdXno.png', null, null, null, new google.maps.Size(30, 30)));
 
-              else if(markerElem.getAttribute('nameAssociacio')=='019')  marker.setIcon(new google.maps.MarkerImage('img/pictograms/cd019', null, null, null, new google.maps.Size(30, 30)));
+              else if(markerElem.getAttribute('nameAssociacio')=='019')  marker.setIcon(new google.maps.MarkerImage('img/pictograms/cd019.png', null, null, null, new google.maps.Size(30, 30)));
 
-              else if(markerElem.getAttribute('nameAssociacio')=='Mercats') marker.setIcon(new google.maps.MarkerImage('img/pictograms/cdMer', null, null, null, new google.maps.Size(30, 30)));
+              else if(markerElem.getAttribute('nameAssociacio')=='Mercats') marker.setIcon(new google.maps.MarkerImage('img/pictograms/cdMer.png', null, null, null, new google.maps.Size(30, 30)));
             }
             else if(markerElem.getAttribute('nameCategoria')=='restauracio')
             {
-              if(markerElem.getAttribute('nameAssociacio')=='Xavier Nogues') marker.setIcon(new google.maps.MarkerImage('img/pictograms/restXno', null, null, null, new google.maps.Size(30, 30)));
+              if(markerElem.getAttribute('nameAssociacio')=='Xavier Nogues') marker.setIcon(new google.maps.MarkerImage('img/pictograms/restXno.png', null, null, null, new google.maps.Size(30, 30)));
 
-              else if(markerElem.getAttribute('nameAssociacio')=='019') marker.setIcon(new google.maps.MarkerImage('img/pictograms/rest019', null, null, null, new google.maps.Size(30, 30)));
+              else if(markerElem.getAttribute('nameAssociacio')=='019') marker.setIcon(new google.maps.MarkerImage('img/pictograms/rest019.png', null, null, null, new google.maps.Size(30, 30)));
 
-              else if(markerElem.getAttribute('nameAssociacio')=='Mercats') marker.setIcon(new google.maps.MarkerImage('img/pictograms/restMer', null, null, null, new google.maps.Size(30, 30)));
+              else if(markerElem.getAttribute('nameAssociacio')=='Mercats') marker.setIcon(new google.maps.MarkerImage('img/pictograms/restMer.png', null, null, null, new google.maps.Size(30, 30)));
             }
         }// fin Comprobacio categoria
       });

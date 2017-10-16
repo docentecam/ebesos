@@ -4,7 +4,7 @@ require('../inc/functions.php');
 
 if(isset($_GET['acc'])&&$_GET['acc']=='news'){
 
-	$mySql = "SELECT n.idNew , n.idUser , n.date, n.title ,w.idNew, w.url,w.preferred";
+	$mySql = "SELECT n.idNew , n.idUser , n.date, n.title , n.titleSub  ,w.idNew, w.url,w.preferred";
 
 	$mySql .= " FROM news n, newsmedia w WHERE n.idNew=w.idNew AND w.preferred='Y' AND n.idUser=".$_GET["idUser"];
 
@@ -21,7 +21,7 @@ if(isset($_GET['acc'])&&$_GET['acc']=='news'){
 				$dataNews .= ",";
 			} 
 
-			$dataNews .= '{"url":"'.$row['url'].'","title":"'.$row['title'].'","date":"'.$row['date'].'","idNew":"'.$row['idNew'].'"}';
+			$dataNews .= '{"url":"'.$row['url'].'","title":"'.$row['title'].'","titleSub":"'.$row['titleSub'].'","date":"'.$row['date'].'","idNew":"'.$row['idNew'].'"}';
 			$i++;
 		}
 		$dataNews .=']';

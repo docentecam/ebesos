@@ -34,6 +34,7 @@
 				<div class="row">
 					<img id="imgSliderSetting" class="col-lg-12" src="img/imagen2.jpg" alt=""><!-- TODO alt + dinamizar la imagen con angular -->
 				</div>
+				
 				<div class="row">
 					<div class="col-lg-12" id="sliderText">
 						<div class="row">
@@ -78,7 +79,7 @@
 					<textarea class=" col-lg-4" name="" id="" cols="30" rows="6" placeholder="Escriu aquí el subtítol de la imatge a mostrar dins del Slider..." style="margin-bottom: 3.5%"></textarea>
 				</div>
 				<div class="row">
-					<label class="col-lg-2 col-lg-offset-3">Imatge:</label>
+					<label class="col-lg-2 col-lg-offset-3">Imatge: </label>
 					<input type="file" style="margin-bottom: 3.5%">
 				</div>
 				<div class="row">

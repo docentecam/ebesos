@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,600,700');
 
 
 /*lander sanahujes yañez*/
@@ -12,7 +12,24 @@
 /*COMERCIAL MAP*/
 #map {
 	height: 500px;
-	width: 500px;
+	//width: 1000px;
+}
+.div-category {
+	height: 100px;
+	margin-bottom: 20px;
+}
+.a-category {
+	font-weight: 600;
+	text-decoration: none;
+	color: black;
+	outline: none;
+}
+.a-category:hover {
+	font-weight: 700;
+	text-decoration: none;
+	color: black;
+	outline: none;
+
 }
 /*FIN COMERCIAL MAP*/
 
@@ -245,9 +262,14 @@ padding: 0;
 #separatorDesign{
 	text-decoration: none;
 }
+
 .navGlobalClass>li>.hi
 {
 	width: 300px!important;
+}
+.customazingNav{
+	width: 20%;
+
 }
 /*----------------------------------------------------------Jordi------------------------------------------------------------------*/
 
@@ -316,16 +338,7 @@ padding: 0;
 	padding: 30px;
 	margin-top: 4%;
 }
-.subMenu:hover{
-	background-color: #51576F;
-	cursor: pointer;
-	
-	font-size: 18px;
-}
-.subMenu
-{
-	padding:  30px;
-}
+
 .subMA
 {
 	color: white;
@@ -421,13 +434,56 @@ padding: 0;
 }
 
 
+/* Large devices (desktops, less than 1200px) */
+@media (min-width: 1024px)
+{
+	.subMenu:hover{
+	background-color: #51576F;
+	cursor: pointer;
+	
+	font-size: 18px;
+	}
+	.subMenu
+	{
+		padding:  30px;
+	}
+}
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 1023px)
+{
+	
+}
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767px)
+{
 
+}
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575px)
+{
+	.subMenu
+	{
+		padding:  0px;
+	}
+}
+/* @include media-breakpoint-down(xs)
+{
+	
+}
+@include media-breakpoint-down(sm)
+{
+	
+}
+@include media-breakpoint-down(md)
+{
+	
+}
+@include media-breakpoint-down(lg)
+{
+	
+}
 
-
-
-
-
-
+ */
 
 
 
