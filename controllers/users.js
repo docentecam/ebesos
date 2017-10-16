@@ -165,7 +165,7 @@ angular.module('spaApp')
 			else if (error == "") {
 				$http({
 						method : "GET",
-						url : "models/users.php?acc=mail&idUser="+ $scope.idUser+ "&client="+ myForm['client'].value+
+						url : "models/users.php?acc=mail&idUser="+ '2'+ "&client="+ myForm['client'].value+
 						"&email="+ myForm['email'].value+ "&message="+ myForm['message'].value
 					}).then(function mySucces (response) {
 							$scope.email = response.data;
