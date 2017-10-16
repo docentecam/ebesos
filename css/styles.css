@@ -14,9 +14,21 @@
 	height: 500px;
 	//width: 1000px;
 }
-.div-category {
-	height: 100px;
-	margin-bottom: 20px;
+.category-1 {
+	height: 70px;
+	margin-bottom: 40px;
+}
+.category-2 {
+	height: 60px;
+	margin-bottom: 40px;
+}
+.category-3 {
+	height: 150px;
+	margin-bottom: 40px;
+}
+.category-4 {
+	height: 150px;
+	margin-bottom: 40px;
 }
 .a-category {
 	font-weight: 600;
