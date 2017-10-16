@@ -1,44 +1,43 @@
 <div class="container" ng-repeat="shop in shops">
-	<div class="row">
-		<div class="col-md-1"><img src="img/logos-shops/{{shop.logo}}"></div>
+	<div class="row col-md-12">
+		<div class="col-md-3"><img src="img/logos-shops/{{shop.logo}}"></div>
 		<div class="col-md-6 push-md-1"><h1>{{shop.nameShop}}</h1></div>
 	</div>
-	<div class="row col-md-10 col-md-push-1">
-		<div class="row">
-			<div class="col-md-3">
-				<div class="row"><img src="img/logos-shops/{{shop.imagePref}}">
-				</div>
-				<div class="row col-md-9">
-					<label>{{shop.address}}</label>
-					<label>{{shop.cp}} {{shop.ciutat}}</label>
-					<label>Tel. {{shop.telephone}}</label>
-				</div>
-			</div>
-			<div class="col-md-7 col-md-push-1">
-				<div class="row  text-justify">
-					<p>{{shop.descriptionLong}}</p>
-				</div>
-				<div class="row">
-					<h3>HORARI DE LA BOTIGA</h3><span>{{shop.schedule}}</span>
-				</div>
-				<div class="row">
-					<h3>ASSOCIACIÓ</h3><span>{{shop.nameAssociacio}}</span>
-				</div>
-				<div class="row">
-					<h3>CATEGORIA/SUBCATEGORIA</h3><span>{{shop.nameCategory}} / {{shop.nameSubCategory}}</span>
-				</div>
-			</div>
-		</div>
-	<div class="row"">
-		<h2 class="text-center">LOCALITZACIÓ</h2>
-		<div id="map" class="col-md-push-3"></div>
-	</div>
-	<div class="row text-center">
-		<h2>FOTOGRAFIES</h2>
-		<div class="row">
-			<div class="col-md-3 col-md-push-1" ng-repeat="img in shop.imgUrl"><img src="img/logos-shops/{{img.url}}"></div>
-		</div>
-	</div>
+	<div class="row col-md-11 col-md-push-1">
+		<div class="col-md-3">
+			<div class="row"><img src="img/logos-shops/{{shop.imagePref}}"></div>
+      <div class="row">
+        <label>{{shop.address}}</label><br>
+        <label>{{shop.cp}} </label><label>{{shop.ciutat}}</label><br>
+        <label>Tel. {{shop.telephone}}</label>
+      </div>
+    </div>
+		  <div class="col-md-6 col-md-push-1">
+        <div class="row">{{shop.descriptionLong}}</div>
+        <div class="row">
+          <label>HORARI DE LA BOTIGA</label><br>
+          <span>{{shop.schedule}}</span>
+        </div>
+         <div class="row">
+          <label>ASSOCIACIÓ</label><br>
+          <span>{{shop.nameAssociacio}}</span>
+        </div>
+        <div class="row">
+          <label>CATEGORIA / SUBCATEGORIA</label><br>
+          <span>{{shop.nameCategory}} / {{shop.nameSubCategory}}</span>
+        </div>
+      </div>
+    	<div class="row col-md-10 col-md-push-1">
+    		<h2 class="text-center row">LOCALITZACIÓ</h2>
+    		<div id="map" class="row"></div>
+    	</div>
+  </div>
+  <div class="row text-center">
+    <h2>FOTOGRAFIES</h2>
+    <div class="row">
+      <div class="col-md-3 col-md-offset-1" ng-repeat="img in shop.imgUrl"><img src="img/logos-shops/{{img.url}}"></div>
+    </div>
+  </div>
 </div>
 <script>
   var customLabel = {};
