@@ -6,10 +6,9 @@
 <div class="row">
 
 	<input type="button" name="newNew" value="Afegir Noticia" alt="Afegir noticia" class="btn btn-default" ng-click="newNew()">
-</div>
+	</div>
 
 <div ng-show="listNew" class="row" ng-repeat="new in news">
-	
 	<div class="row">
 		<img id="photo" src="../img/newsmedia/{{new.url}}"> 
 	</div>
@@ -70,19 +69,19 @@
 				<div id="containerImg" class="row">
 					
 					<div class="col-sm-6">
-						<div id="containerPreferred">
+						<div id="containerPreferred" ng-repeat="newSelected in newSelect | filter : {preferred:'Y'}" >
 							<label>Imatge Destacada</label>
 							<img id="photo" src="../img/newsmedia/{{newSelected.url}}"> 
 							<input type="button" value="Modificar" alt="" class="btn btn-default"" ng-click="changeImgP()">
 							<input type="button" value="Eliminar" alt="" class="btn btn-default"" ng-click="">
 						</div>
 							<div id="containerImagesOfNew">
-								<div ng-repeat="img in newSelected.images">
+								<div>
 								
 									<label> Imatges de les noticies </label> 
 									<input type="button" value="Afegir foto" alt="" class="btn btn-default"" ng-click="">
 
-									<img src="../img/newsmedia/{{img.url}}"> 
+									<img src="../img/newsmedia/{{newSelected.url}}"> 
 									<input type="button" value="Modificar" alt="" class="btn btn-default"" ng-click="changeImgN()">
 									<input type="button" value="Eliminar" alt="" class="btn btn-default"" ng-click="">
 								</div>

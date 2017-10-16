@@ -58,7 +58,7 @@ require("../inc/functions.php");
 			$row['titleSub']=str_replace("'", "·", $row['titleSub']);
 
 
-			$dataNews .= '{"title":"'.$row['title'].'","date":"'.$row['date'].'","idNew":"'.$row['idNew'].'","titleSub":"'.$row['titleSub'].'","url":"';
+			$dataNews .= '{"title":"'.$row['title'].'","date":"'.$row['date'].'","idNew":"'.$row['idNew'].'","titleSub":"'.$row['titleSub'].'","url":';
 
 			$j = 0;
 
