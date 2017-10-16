@@ -19,7 +19,7 @@
 				$j = 0;
 
 				$dataCategories .= '[';
-				$mySql = "SELECT cs.name FROM categoriessub cs WHERE cs.idCategory = ".$row['idCategory'];
+				$mySql = "SELECT cs.name FROM categoriesSub cs WHERE cs.idCategory = ".$row['idCategory'];
 
 				$connexio = connect();
 				$resultSubCategories = mysqli_query($connexio, $mySql);
