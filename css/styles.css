@@ -402,8 +402,6 @@ padding: 0;
 	font-family: 'Open Sans', sans-serif;
 }
 
-
-
 #photo{
 	border-radius: 10px;
 	border: solid 1px black;
@@ -427,7 +425,9 @@ padding: 0;
 
 #all
 {
-	width: 92%;
+	margin-left: 2%;
+	margin-right: 2%;
+
 }
 
 
@@ -501,15 +501,3 @@ padding: 0;
 }
 
  */
-
-
-
-
-
-
-
-
-
-
-
-
