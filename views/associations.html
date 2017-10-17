@@ -57,7 +57,7 @@
 						<div ng-repeat="shop in shops | orderBy: 'name'" class="col-sm-6 shopsList">
 							<a href="#/shop/{{shop.idShop}}">
 								<div class="col-xs-2" ng-repeat="pictogram in pictograms"> <!--Mirar Error-->
-									<img src="../img/pictograms/{{pictogram.urlPicto}}">{{pictogram.urlPicto}}
+									<img ng-src="img/pictograms/{{pictogram.urlPicto}}">{{pictogram.urlPicto}}
 								</div>
 								<div class="col-xs-10"> {{shop.name}}</div>
 							</a>
