@@ -193,13 +193,13 @@
 		        </tr>
 
 		         <tr>
-		          <td>Video/s de la noticia: </td>
+		          <td> URL del/s Video/s de la noticia: </td>
 		          <td><input name="video" type="text"></td>
 		        </tr>
 		    </table>
 
 		    <div>
-				<input  type="button" value="Crear Noticia" alt="" class="btn btn-default">
+				<input type="button" value="Crear Noticia" alt="" class="btn btn-default">
 			</div>
 		</form>
 	</div>	
