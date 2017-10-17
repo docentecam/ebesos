@@ -3,10 +3,9 @@
 // if(!isset($_SESSION['user']['nom'])) header("Location: ../view/login.php");
 ?>
 
-<div class="row">
-
+<div class="row" ng-show="createNew">
 	<input type="button" name="newNew" value="Afegir Noticia" alt="Afegir noticia" class="btn btn-default" ng-click="newNew()">
-	</div>
+</div>
 
 <div ng-show="listNew" class="row" ng-repeat="new in news">
 	<div class="row">

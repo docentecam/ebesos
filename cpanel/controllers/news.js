@@ -1,5 +1,7 @@
 angular.module('spaApp')
  .controller('NewsCtrl', function($scope, $http) {
+			
+			$scope.createNew=true;
 			$scope.showDiv=false;
 			$scope.listNew=true;
 			$scope.updateImgPreferred=false;
@@ -24,6 +26,8 @@ angular.module('spaApp')
 				method : "GET",
 				url : "models/news.php?acc=newSel&idNew="+idNew
 			}).then(function mySucces (response) {
+
+				$scope.createNew=false;
 				$scope.newSelect = response.data;
 				$scope.images = $scope.newSelect[0].url;
 				$scope.showDiv=true;
@@ -40,6 +44,7 @@ angular.module('spaApp')
 		
 		$scope.editNew = function()
 		{ 
+			$scope.createNew=false;
 			$scope.updateImgPreferred=false;
 			$scope.showDiv=false;
 			$scope.listNew=false;
@@ -50,6 +55,7 @@ angular.module('spaApp')
 
 		$scope.changeImgP = function()
 		{ 
+			$scope.createNew=false;
 			$scope.updateImgPreferred=true;
 			$scope.showDiv=false;
 			$scope.listNew=false;
@@ -61,6 +67,7 @@ angular.module('spaApp')
 
 		$scope.changeImgN = function()
 		{ 
+			$scope.createNew=false;
 			$scope.updateImgPreferred=false;
 			$scope.showDiv=false;
 			$scope.listNew=false;
@@ -72,6 +79,7 @@ angular.module('spaApp')
 
 		$scope.newNew = function()
 		{ 
+			$scope.createNew=false;
 			$scope.updateImgPreferred=false;
 			$scope.showDiv=false;
 			$scope.listNew=false;
@@ -110,7 +118,7 @@ angular.module('spaApp')
 			}
 			
 			else{ 
-				alert("No has rellenado algun campo del formulario hijoepta vuelve a hacerlo");		
+				alert("No has omplit totes les dades del formulari");		
 			}
 
 		}

@@ -76,9 +76,7 @@ $mySql = "SELECT n.idNew, n.date, n.title, n.titleSub, n.idNew, w.idNew, w.type,
 	$dataNewImagePrefered .=']';
 	echo $dataNewImagePrefered;
 
-
-
-
+}
 
 
 
