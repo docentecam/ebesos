@@ -1,9 +1,12 @@
 <?php 
 require("../inc/functions.php");
 	
+
+//MAIN
+
 if (isset($_GET["acc"])&& ($_GET["acc"] == "imgSlider"))
 	{
-		$mySql = "SELECT image, link, description FROM slider";
+		$mySql = "SELECT idSlider, image, link, description FROM slider";
 		$connexio = connect();
 		$resultImgSlider = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
@@ -15,12 +18,46 @@ if (isset($_GET["acc"])&& ($_GET["acc"] == "imgSlider"))
 			{
 				$dataImgSlider .= ",";				
 			}			
-			$dataImgSlider .= '{"image":"'.$row['image'].'","link":"'.$row['link'].'","description":"'.$row['description'].'"}';
+			$dataImgSlider .= '{"idSlider":"'.$row['idSlider'].'","link":"'.$row['link'].'","description":"'.$row['description'].'","image":"'.$row['image'].'"}';
 			$i++;
 		}
 		$dataImgSlider .="]";
 		echo $dataImgSlider;
-	 }
+	}
+
+
+//EDIT
+
+
+	else if (isset($_GET['acc']) && $_GET['acc'] == 'showOnlySlider') {
+		$mySql = "SELECT idSlider, description FROM slider WHERE idSlider =".$_GET['idSlider'];
+		$connexio = connect();
+		$onlyResultSlider = mysqli_query($connexio, $mySql);
+		disconnect($connexio);
+		$dataSlider = "[";
+			$i = 0;
+			while($row = mysqli_fetch_array($onlyResultSlider))
+			{
+				if($i != 0)
+				{
+					$dataSlider .= ",";
+				}
+				$dataSlider .= '{"idSlider":"'.$row['idSlider'].'", "description":"'.$row['description'].'"}'; 
+				$i++;
+			}
+			$dataSlider .= "]";
+
+			echo $dataSlider;
+	}
+
+	else if (isset($_GET['acc']) && $_GET['acc'] == 'updateSlider') {
+		$mySql = "UPDATE slider
+				SET description='".$_GET['description']."'  
+				WHERE idSlider=".$_GET['idSlider'];
+		$connexio = connect();
+		$updateSliderData = mysqli_query($connexio, $mySql);
+		disconnect($connexio);
+	}
 
 	// function editImgSlider($idUsuari="",$nom,$cog1,$cog2,$telf1,$telf2,$email,$direc,$direcPlta,$direcPrta,$direcEsc,$cp)
 	// {

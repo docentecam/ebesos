@@ -5,7 +5,7 @@ $http({
 		method : "GET",
 		url : "models/slider.php?acc=imgSlider"
 	}).then(function mySucces (response) {
-		$scope.slider=response.data;
+		$scope.slider = response.data;
 		console.log($scope.slider);
 	}, function myError (response) {
 		$scope.slider = response.statusText;
@@ -16,12 +16,29 @@ $http({
 		$scope.btnAfegir = true;
 		$scope.sliderSetting = true;
 		$scope.sliderAdding = true;
+		$http({
+				method : "GET",
+				url : "models/slider.php?acc=newSlider&idSlider="+$idSlider
+			}).then(function mySucces (response) {
+				$scope.onlyInfoSlider = response.data;
+			}, function myError (response) {
+				$scope.onlyInfoSlider = response.statusText;
+		});
 	};
-	$scope.editImgSlide = function(){
+	$scope.editImgSlide = function($idSlider){
 		$scope.spanEditarImatges = true;
 		$scope.btnAfegir = true;
 		$scope.sliderSetting = true;
 		$scope.sliderEditing = true;
+		$http({
+				method : "GET",
+				url : "models/slider.php?acc=showOnlySlider&idSlider="+$idSlider
+			}).then(function mySucces (response) {
+				$scope.onlyInfoSlider = response.data;
+				console.log($idSlider);
+			}, function myError (response) {
+				$scope.onlyInfoSlider = response.statusText;
+		});
 	};
 	$scope.backSettingSlide = function(){
 		$scope.spanEditarImatges = false;
@@ -29,20 +46,16 @@ $http({
 		$scope.sliderSetting = false;
 		$scope.sliderAdding = false;
 		$scope.sliderEditing = false;
-	}
-
-	// 	$modificarUsuarios=modificarUsuario($_POST['idUsuari'],$_POST['nom'],$_POST['cog1'],$_POST['cog2'],$_POST['telf1'],$_POST['telf2'],$_POST['email'],$_POST['direc'],$_POST['direcPlta'],$_POST['direcPrta'],$_POST['direcEsc'],$_POST['cp'],$_POST['nif'],$_POST['assessor']);	
-	// 	header("Location: ../view/usuarios.php");
-	// }
-	// $scope.editImgSlide = function()
-	// {
-	// 	$connexio = connect();
-	// 	$mySql = "UPDATE usuaris SET nom='$nom',cog1='$cog1',cog2='$cog2',telf1='$telf1',telf2='$telf2',email='$email',direc='$direc',direcPlta='$direcPlta',direcPrta='$direcPrta',direcEsc='$direcEsc',cp='$cp',assessor='$assessor' WHERE idUsuari='$idUsuari'"; 
-
-	// 	$modifyUsuarios = mysqli_query($connexio, $mySql);
-	// 	disconnect($connexio);
-
-	// 	return ($modifyUsuarios);
-	// }
+  		$scope.editDescription = editingForm['description'].value;
+  		$scope.editSlider = editingForm['hidEditSlider'].value;
+		$http({
+				method : "GET",
+				url : "models/slider.php?acc=updateSlider&description="+$scope.editDescription+"&idSlider="+$scope.editSlider
+			}).then(function mySucces (response) {
+				$scope.updateSlider = response.data;
+			}, function myError (response) {
+				$scope.updateSlider = response.statusText;
+		});
+	};
 });
 	
