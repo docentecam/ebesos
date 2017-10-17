@@ -135,11 +135,5 @@ $mySql = "SELECT n.idNew, n.date, n.title, n.titleSub, n.idNew, w.idNew, w.type,
 // ng-repeat="name in names" //primer array
 // ng-repeat="name in subName" //sub array.
 
-
-
 	
-	
-
-
-}
 ?>
