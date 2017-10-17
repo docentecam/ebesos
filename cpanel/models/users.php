@@ -32,7 +32,7 @@ require("../inc/functions.php");
 	 		$_SESSION['idUser'] = $checkLogin;
 	 	}
 
-	 	echo trim($message);
+	 	echo '[{"status":"'.$message.'"}]';
 	}
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'forgot'){
 		$mySql = "SELECT idUser FROM users 

@@ -26,7 +26,7 @@
 						<div id="alertW"></div>
 						<div id="alert">
 							<i id="cross" class="fa fa-times" aria-hidden="true"></i>
-							<b>{{names}}</b>
+							<b>{{statusValidation}}</b>
 						</div>
 					</div>
 					<form id="check">
@@ -65,7 +65,7 @@
 					<div id="alertW2"></div>
 					<div id="alert2">
 						<i id="cross2" class="fa fa-times" aria-hidden="true"></i>
-						<b>{{names}}</b>
+						<b>{{statusValidation}}</b>
 					</div>
 				</div>
 				<form class="form-horizontal" id="forgot" action="#">
@@ -137,28 +137,25 @@
   				$scope.checking = function(){
   					$scope.email = check['user'].value;
   					$scope.password = check['pswd'].value;
-  					$scope.names='';
 					$http({
-						method : "get",
+						method : "GET",
 						url : "models/users.php?acc=login&email="+$scope.email+"&password="+$scope.password
 					}).then(function mySucces (response) {
-					$scope.namesss = response.data;
-console.log("Valor scope:"+$scope.namesss+"---");
-if($scope.names=="Correct")
+						$scope.names=response.data;
+						$scope.fail = false;
+						$scope.statusValidation=$scope.names[0].status;
+						if($scope.statusValidation=="Correct")
 						{
-							console.log("llega");
+
 							$window.location.href = "main.php";
 						}
 						else
 						{
 							$scope.fail = true;
-							console.log("ko");
 						}
 
 					}, function myError (response) {
 						$scope.names = response.statusText;
-
-
 					});
 
 						
