@@ -124,6 +124,11 @@ padding: 0;
 }
 
 }*/
+.row {
+     margin-right: 0px;
+     margin-left: 0px;
+ }
+
 .headTitle{
 	font-weight: 600;
 }
@@ -133,6 +138,7 @@ padding: 0;
 .navGeneral{
 	border-bottom: none;
 	margin-top: 0.5%!important;
+	background-color: white;
 
 }
 .subrayado:hover{
@@ -174,7 +180,7 @@ padding: 0;
 
 #footerColor{
 	background-color:#808BA7;
-	margin-top: 10%!important;
+	margin-top: 5%!important;
 }
 #linkBorder{
 	border-left: 1px solid #9C9C9C;
