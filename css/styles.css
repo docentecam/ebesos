@@ -141,10 +141,7 @@ padding: 0;
 #marginTopNav{
 	margin-bottom: 2%!important;
 }
-.marginContainer{
-	margin-left: 2%;
-	margin-right: 2%;
-}
+
 .submenuFormat{
 	text-align: center;
 	padding:5%!important; 
@@ -364,13 +361,19 @@ padding: 0;
 {
 	color: white;
 }
+
+.subMA:hover
+{
+	color: white;
+}
+
 #subMenu
 {
 	text-align: center;
 	padding-right: 0% !important;
 	background-color: #337ab7;
 	padding-left: 0%!important;
-	margin-left: -1.5%!important;
+
 }
 
 .shopsList{
@@ -451,6 +454,9 @@ padding: 0;
 #breadcrumbsContact
 {
 	margin-left: 3%;
+	color: black;
+	font-weight: 600;
+	text-decoration: underline;
 }
 
 #moreInfo
@@ -463,18 +469,30 @@ padding: 0;
 	text-transform: uppercase;
 }
 
+#breadcrumbsContact:hover
+{
+	font-weight: 700;
+}
+
+.#breadJS
+{
+	color: black;
+    font-weight: 600;
+    text-decoration: underline;"  
+}
+
 /* Large devices (desktops, less than 1200px) */
 @media (min-width: 1024px)
 {
 	.subMenu:hover{
 	background-color: #51576F;
 	cursor: pointer;
-	
-	font-size: 18px;
+	font-weight: 600;
+	color: white!;
 	}
 	.subMenu
-	{
-		padding:  30px;
+	{		padding:  30px;
+
 	}
 }
 /* Medium devices (tablets, less than 992px) */

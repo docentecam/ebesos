@@ -1,10 +1,26 @@
 <div class="row">
 	<div class="col-lg-5">
 		<div class="row breadComsA">
-			<div class="col-lg-12 col-lg-offset-1" ng-show="muestraDivCA"><a href="../ebesos">Inici </a>| <a href="" ng-click="showHistory()">{{name}}</a> | Comerços associats</div>
-			<div class="col-lg-12 col-lg-offset-1" ng-show="muestraDivH"><a href="../ebesos">Inici </a> | <a href="" ng-click="showHistory()">{{name}}</a> | Història </div>
-			<div class="col-lg-12 col-lg-offset-1" ng-show="muestraDivN"><a href="../ebesos">Inici </a> | <a href="" ng-click="showHistory()">{{name}}</a> | Notícies</div>
-			<div class="col-lg-12 col-lg-offset-1" ng-show="muestraDivC"><a href="../ebesos">Inici </a> | <a href="" ng-click="showHistory()">{{name}}</a> | Contacte</div>
+			<div class="col-lg-12 col-lg-offset-1" ng-show="muestraDivCA"><a style="color: black;
+				font-weight: 600;
+				text-decoration: underline;" href="../ebesos">Inici</a>| <a class="breadJS" style="color: black;
+				font-weight: 600;
+				text-decoration: underline;"  href="" ng-click="showHistory()">{{name}}</a> | Comerços associats</div>
+			<div class="col-lg-12 col-lg-offset-1" ng-show="muestraDivH"><a style="color: black;
+				font-weight: 600;
+				text-decoration: underline;" href="../ebesos">Inici</a> | <a style="color: black;
+				font-weight: 600;
+				text-decoration: underline;" href="" ng-click="showHistory()">{{name}}</a> | Història </div>
+			<div class="col-lg-12 col-lg-offset-1" ng-show="muestraDivN"><a style="color: black;
+				font-weight: 600;
+				text-decoration: underline;" href="../ebesos">Inici</a> | <a style="color: black;
+				font-weight: 600;
+				text-decoration: underline;" href="" ng-click="showHistory()">{{name}}</a> | Notícies</div>
+			<div class="col-lg-12 col-lg-offset-1" ng-show="muestraDivC"><a style="color: black;
+				font-weight: 600;
+				text-decoration: underline;" href="../ebesos">Inici</a> | <a style="color: black;
+				font-weight: 600;
+				text-decoration: underline;" href="" ng-click="showHistory()">{{name}}</a> | Contacte</div>
 		</div>
 	</div>
 </div>
@@ -16,15 +32,15 @@
 		<div class="col-xs-3 col-lg-12 subMenu" ng-click="listShops($scope.idUser)">
 			<a href="" class="subMA">Comerços associats</a>
 		</div>
-	
+
 		<div class="col-xs-3 col-lg-12 subMenu" ng-click="showHistory()">
 			<a href="" class="subMA">Història</a>
 		</div>
-	
+
 		<div class="col-xs-3 col-lg-12 subMenu" ng-click="showNews($scope.idUser)">
 			<a href="" class="subMA">Notícies</a>
 		</div>
-	
+
 		<div class="col-xs-3 col-lg-12 subMenu" ng-click="showContact($scope.idUser)">
 			<a href="" class="subMA">Contacte</a>
 		</div>
@@ -36,7 +52,7 @@
 		
 		<div ng-show="muestraDivCA" class="col-sm-9 stylcont">
 			<div>
-	           	<div id="listShops" class="col-sm-12 pull-right">
+				<div id="listShops" class="col-sm-12 pull-right">
 					<div class="row">
 						<div ng-repeat="shop in shops | orderBy: 'name'" class="col-sm-6 shopsList">
 							<a href="#/shop/{{shop.idShop}}">
@@ -48,7 +64,7 @@
 						</div>
 					</div>	
 				</div>        	
-	       	</div>
+			</div>
 		</div>
 
 		<div ng-show="muestraDivH" class="col-sm-9 stylcont">
@@ -85,77 +101,77 @@
 			<div class="row">
 				<div class="container  col-xs-8"">
 					<form method="post" name="myForm" id="myForm" class="form-horizontal formAssoContact col-xs-12">
-				  		<table id="contactTable">
-				  			<tbody>
-					  			<div class="form-group" >
-					  				<tr>
-						  				<td>
-							    			<label class="control-label col-xs-2" for="nom">Nom:</label>
-							    		</td>
-							    		<td>
-							    			<div class="col-xs-10">
-							    				<input type="text" class="form-control" id="client" name="client" placeholder="Introdueixi el seu nom">
-							    			</div>
-					  					</td>
-					  				</tr>
-					  			</div>
-					    		<div class="form-group">
-					    			<tr>
-						  				<td>
-							     			<label class="control-label col-xs-2" for="email">Correu Electrònic:</label>
-							     		</td>
-							    		<td>
-							      			<div class="col-xs-10">
-							        			<input type="email" class="form-control" id="email" name="email" placeholder="Introdueixi el correu electrònic">
-							      			</div>
-							      		</td>
-					  				</tr>
-					    		</div>
-					    		<div class="form-group">
-					    			<tr>
-						  				<td>
-							      			<label class="control-label col-xs-2" for="message">Missatge:</label>
-							      		</td>
-							    		<td>
-							    			<div class="col-xs-10">        
-							      				<textarea class="form-control" placeholder="Escrigui el seu missatge..." id="message" name="message" rows="5"></textarea>  
-							      			</div>.
-							      		</td>
-					  				</tr>
-					    		</div>
-					    		<div class="form-group">
-					    			<tr>
-						  				<td>
-					      					<label class="control-label col-xs-8" for="captcha"></label>
-					      				</td>
-							    		<td>
-							      			<div class="col-xs-6 col-push-xs-3" id="captchaDiv">
-							     			</div>
-					     				</td>
-					  				</tr>
-					    		</div>
-					    		<div class="form-group">
-					    			<tr>
-						  				<td>
-					      				</td>
-						    			<td>
-				      						<div class="col-xs-10">
-				      							<input type="hidden" id="txtCaptcha">
-				        						<input type="text" class="form-control" name="captchaInput" id="captchaInput" placeholder="Introdueixi els números">
-				      						</div>
-					      					<div class="col-xs-1">
-					        					<input type="button" class="btn btn-default" value="Enviar" style="background: #ced2de;" ng-click="checkform();">
-					      					</div>
-					      				</td>
-					  				</tr>
-					    		</div>
-				    		</tbody>
+						<table id="contactTable">
+							<tbody>
+								<div class="form-group" >
+									<tr>
+										<td>
+											<label class="control-label col-xs-2" for="nom">Nom:</label>
+										</td>
+										<td>
+											<div class="col-xs-10">
+												<input type="text" class="form-control" id="client" name="client" placeholder="Introdueixi el seu nom">
+											</div>
+										</td>
+									</tr>
+								</div>
+								<div class="form-group">
+									<tr>
+										<td>
+											<label class="control-label col-xs-2" for="email">Correu Electrònic:</label>
+										</td>
+										<td>
+											<div class="col-xs-10">
+												<input type="email" class="form-control" id="email" name="email" placeholder="Introdueixi el correu electrònic">
+											</div>
+										</td>
+									</tr>
+								</div>
+								<div class="form-group">
+									<tr>
+										<td>
+											<label class="control-label col-xs-2" for="message">Missatge:</label>
+										</td>
+										<td>
+											<div class="col-xs-10">        
+												<textarea class="form-control" placeholder="Escrigui el seu missatge..." id="message" name="message" rows="5"></textarea>  
+											</div>.
+										</td>
+									</tr>
+								</div>
+								<div class="form-group">
+									<tr>
+										<td>
+											<label class="control-label col-xs-8" for="captcha"></label>
+										</td>
+										<td>
+											<div class="col-xs-6 col-push-xs-3" id="captchaDiv">
+											</div>
+										</td>
+									</tr>
+								</div>
+								<div class="form-group">
+									<tr>
+										<td>
+										</td>
+										<td>
+											<div class="col-xs-10">
+												<input type="hidden" id="txtCaptcha">
+												<input type="text" class="form-control" name="captchaInput" id="captchaInput" placeholder="Introdueixi els números">
+											</div>
+											<div class="col-xs-1">
+												<input type="button" class="btn btn-default" value="Enviar" style="background: #ced2de;" ng-click="checkform();">
+											</div>
+										</td>
+									</tr>
+								</div>
+							</tbody>
 						</table>
 						<!-- <input type="hidden" ng-value="idUser" id="idUserHid"> -->
 					</form>
 				</div>
 			</div>
-		<div class="row" style="height: 10px;"></div>
+			<div class="row" style="height: 10px;"></div>
+		</div>
 	</div>
-</div>
 </div>
