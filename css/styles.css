@@ -133,21 +133,23 @@ padding: 0;
 	margin-top: 0.5%!important;
 
 }
-.subrayado:hover{
+.subrayado:selected{
 	border-bottom: 1px solid #9E9E9E;
 }
-.prueba1 {
-	
-  	max-width: 40%; /* or to whatever you want here */
- 	margin-left: 0%!important;
- 	position: relative;
-	top: 50%;
-
+#marginTopNav{
+	margin-bottom: 2%!important;
 }
-.dos{
+.hola{
+	margin-left: 2%;
+	margin-right: 2%;
+}
+.submenuFormat{
 	text-align: center;
 	padding:5%!important; 
 
+}
+.prueba1{
+	width: 90%!important;
 }
 
 .sr-only{
