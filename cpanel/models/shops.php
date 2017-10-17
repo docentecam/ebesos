@@ -3,10 +3,9 @@ require('../inc/functions.php');
 
 if(isset($_GET['acc']) && $_GET['acc'] == 'list')
 {
-	$mySql = "SELECT si.url, s.idShop, s.name, s.description
-			FROM shopsimages si, shops s
-			WHERE si.preferred='Y'
-			AND s.idShop = si.idShop";
+	$mySql = "SELECT shopsimages.url, shops.idShop, shops.name, shops.description
+			FROM shops LEFT OUTER JOIN shopsimages ON shops.idShop = shopsimages.idShop AND
+			shopsimages.preferred = 'Y';";
 			
 
 	$connexio = connect();
