@@ -44,7 +44,6 @@
 	<div id="formNews" ng-show="showDiv" >
 		<div ng-repeat="newSelected in newSelect">
 		
-		
 			<form action="#" id="validation" name="validation" method="POST" >
 				<div class="containerText">
 
@@ -202,7 +201,7 @@
 		    </table>
 
 		    <div>
-				<input type="button" value="Crear Noticia" alt="" class="btn btn-default">
+				<input type="button" value="Crear Noticia" alt="" class="btn btn-default" ng-click="createNew()">
 			</div>
 		</form>
 	</div>	
