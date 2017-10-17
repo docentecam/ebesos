@@ -138,7 +138,7 @@ padding: 0;
 .subrayado:hover{
 	border-bottom: 1px solid #9E9E9E;
 }
-#marginTopNav{
+#marginBottomSlider{
 	margin-bottom: 2%!important;
 }
 .marginContainer{
@@ -150,8 +150,14 @@ padding: 0;
 	padding:5%!important; 
 
 }
-.prueba1{
-	width: 90%!important;
+#NOMARGIN{
+	height: 59px!important;
+}
+.widthLiAsso{
+	width: 20em!important;
+}
+#rowForm{
+	padding-right: 0%!important;
 }
 
 .sr-only{
