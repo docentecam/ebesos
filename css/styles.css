@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,600,700');
 
-
+/*GLOBAL*/
+body{
+	font-weight: 300;
+}
 /*lander sanahujes yañez*/
 
 #aboutUs{
@@ -26,10 +29,6 @@
 	height: 150px;
 	margin-bottom: 40px;
 }
-.category-4 {
-	height: 150px;
-	margin-bottom: 40px;
-}
 .a-category {
 	font-weight: 600;
 	text-decoration: none;
@@ -42,6 +41,9 @@
 	color: black;
 	outline: none;
 
+}
+.dot-category{
+	font-size: 30px;
 }
 /*FIN COMERCIAL MAP*/
 
