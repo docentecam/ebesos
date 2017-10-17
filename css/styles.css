@@ -168,7 +168,7 @@ padding: 0;
 
 #footerColor{
 	background-color:#808BA7;
-	margin-top: 2%!important;
+	margin-top: 10%!important;
 }
 #linkBorder{
 	border-left: 1px solid #9C9C9C;
@@ -453,7 +453,7 @@ padding: 0;
 
 #breadcrumbsContact
 {
-	margin-left: 3%;
+	margin-left: 2%;
 	color: black;
 	font-weight: 600;
 	text-decoration: underline;
@@ -479,6 +479,12 @@ padding: 0;
 	color: black;
     font-weight: 600;
     text-decoration: underline;"  
+}
+
+#all
+{
+	margin-left: 2%;
+	margin-right: 2%;
 }
 
 /* Large devices (desktops, less than 1200px) */
