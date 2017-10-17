@@ -28,6 +28,7 @@ require("../inc/functions.php");
 	 	else
 	 	{
 	 		$message = "Correct";
+	 		session_start();
 	 		$_SESSION['idUser'] = $checkLogin;
 	 	}
 

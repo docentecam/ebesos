@@ -45,30 +45,15 @@
 					<a href="#"><img class="img-responsive" src="img/logos-assoc/{{assoTopImage.logo}}"></a>
 				</div>
 				<div class="col-xs-8" id="logoTexto"><h4 class="headTitle">EIX BESÒS -</h4><h4 class="headTitle">MARESME</h4></div>		
-			</div>
+			</div> 
 			<div id="contactWho">
 				<span class="col-xs-2 col-xs-offset-7 pull-right">				
 				<a href="#/users/1" class="colorLinksHidden">Qui Som?</a> | 						
 				<a href="#/contact/1" class="colorLinksHidden">Contacte</a>					
 			</span>	
-			</div>		
-				
-		</div>	
-		<div class="row">
-			<div id="myCarousel" class="carousel slide" data-ride="carousel" ng-controller="SliderCtrl">
-  			<!-- Indicators -->
-  				<ol class="carousel-indicators" id="indicatorSlider">
-    				<li data-target="#myCarousel" ng-repeat="sliderImg in slider"  data-slide-to="{{$index}}" ng-class="{active : $index == 0}"></li>
-   				</ol>
-  			<!-- Wrapper for slides -->
-				<div class="carousel-inner">
-					<div class="item" ng-repeat="sliderImg in slider" ng-class="{active : $index == 0}">
-						<a href="{{sliderImg.link}}" target="_blank"><img src="img/slider/{{sliderImg.image}}" alt="{{sliderImg.description}}"></a>
-					</div>
-				</div>
-			</div>
-  		</div>
-  		<div class="row" id="marginTopNav" >
+			</div>				
+		</div>
+		
   			<nav class="navbar navbar-default navGeneral">
 	  		<div class="container-fluid">
 	    	<!-- Brand and toggle get grouped for better mobile display -->
@@ -87,7 +72,7 @@
 		        		<li class="dividerNav">|</li>
 		        		<li role="presentation" class="dropdown customNav"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="subrayado">Associacions</span> <span class="caret"></span></a>
 		          			<ul class="dropdown-menu" ng-controller="AssoNavCtrl" id="imgNav">
-		          				<li ng-repeat="assoNav in assoNavs" role="presentation" class="prueba1">
+		          				<li ng-repeat="assoNav in assoNavs" role="presentation" class="widthLiAsso">
 		          					<a href="#/associations/{{assoNav.idUser}}/{{assoNav.name}}" class="submenuFormat"><img class="img-responsive" src="img/logos-assoc/{{assoNav.logo}}" align="left">{{assoNav.name}}</a>
 		          					<ul role="separator" id="separatorDesign" ng-class="{divider : !$last}">				
 		          					</ul>	          					
@@ -97,16 +82,29 @@
 		        		<li class="dividerNav">|</li>
 		        		<li role="presentation" class="customNav"><a href="#/promotions"><span class="subrayado">Promocions</span></a></li>
 		        		<li class="dividerNav">|</li>
-		        		<li role="presentation" class="customNav"><a href="#/formation"><span class="subrayado">Formació</span></a></li>
-		        		<li class="dividerNav">|</li>
 		        		<li role="presentation" class="customNav"><a href="#/news/1"><span class="subrayado">Notícies</span></a></li>	
-
+		        		<li class="dividerNav">|</li>
+		        		<li role="presentation" class="customNav"><a href="#/formation"><span class="subrayado">Formació al Comerç</span></a></li>
 		      		</ul>    
 				</div><!--/.navbar-collapse -->
 	   		</div><!--/.container-fluid -->
 			</nav>  			
-  		</div>		
-		<div class="container-fluid row marginContainer">  
+  				
+		<div class="row" id="marginBottomSlider">
+			<div id="myCarousel" class="carousel slide" data-ride="carousel" ng-controller="SliderCtrl">
+  			<!-- Indicators -->
+  				<ol class="carousel-indicators" id="indicatorSlider">
+    				<li data-target="#myCarousel" ng-repeat="sliderImg in slider"  data-slide-to="{{$index}}" ng-class="{active : $index == 0}"></li>
+   				</ol>
+  			<!-- Wrapper for slides -->
+				<div class="carousel-inner">
+					<div class="item" ng-repeat="sliderImg in slider" ng-class="{active : $index == 0}">
+						<a href="{{sliderImg.link}}" target="_blank"><img src="img/slider/{{sliderImg.image}}" alt="{{sliderImg.description}}"></a>
+					</div>
+				</div>
+			</div>
+  		</div>  		
+		<div class="container-fluid row">  
 			<div class="col-xs-12" data-ng-view="" >
 				<div ng-show="loading">
 					<i class="fa fa-spinner" aria-hidden="true"></i>

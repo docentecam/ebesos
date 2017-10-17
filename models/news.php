@@ -6,7 +6,12 @@ if(isset($_GET['acc'])&&$_GET['acc']=='news'){
 
 	$mySql = "SELECT n.idNew , n.idUser , n.date, n.title , n.titleSub  ,w.idNew, w.url,w.preferred";
 
-	$mySql .= " FROM news n, newsmedia w WHERE n.idNew=w.idNew AND w.preferred='Y' AND n.idUser=".$_GET["idUser"];
+	$mySql .= " FROM news n, newsmedia w WHERE n.idNew=w.idNew AND w.preferred='Y' ";
+
+	if(isset($_GET["idUser"]) && $_GET["idUser"]!=1)
+	{
+		$mySql .=" AND n.idUser=".$_GET["idUser"];
+	}
 
 	$connexio = connect();
 	$resultNews = mysqli_query($connexio, $mySql);

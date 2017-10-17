@@ -4,7 +4,10 @@
 ?>
 
 <div class="row" ng-show="createNew">
-	<input type="button" name="newNew" value="Afegir Noticia" alt="Afegir noticia" class="btn btn-default" ng-click="newNew()">
+	<div class="col-lg-6">
+		<input type="button" name="newNew" value="Afegir Noticia" alt="Afegir noticia" class="btn btn-default" ng-click="newNew()">
+	</div>
+	
 </div>
 
 <div ng-show="listNew" class="row" ng-repeat="new in news">
@@ -40,7 +43,6 @@
 <div  class="row">
 	<div id="formNews" ng-show="showDiv" >
 		<div ng-repeat="newSelected in newSelect">
-		
 		
 			<form action="#" id="validation" name="validation" method="POST" >
 				<div class="containerText">
@@ -193,13 +195,13 @@
 		        </tr>
 
 		         <tr>
-		          <td>Video/s de la noticia: </td>
+		          <td> URL del/s Video/s de la noticia: </td>
 		          <td><input name="video" type="text"></td>
 		        </tr>
 		    </table>
 
 		    <div>
-				<input  type="button" value="Crear Noticia" alt="" class="btn btn-default">
+				<input type="button" value="Crear Noticia" alt="" class="btn btn-default" ng-click="createNew()">
 			</div>
 		</form>
 	</div>	

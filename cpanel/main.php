@@ -71,14 +71,16 @@ if(!isset($_SESSION['idUser'])) header("Location: index.html");
     					</div>
     					<div class="navbar-collapse collapse sidebar-navbar-collapse" >
 							<ul class="nav navbar-nav" >
-							    <li role="presentation" class="mainNav"><a href="#/news">Notícies</a></li>
-							    <li role="presentation" class="mainNav"><a href="#/associations">Associacions</a></li>
+								 <li role="presentation" class="mainNav"><a href="#/associations">Associacions</a></li>						   
 							    <li role="presentation" class="mainNav"><a href="#/shops">Comerços</a></li>
-							    <li role="presentation" class="mainNav"><a href="#/slider">Slider</a></li>
-							    <li role="presentation" class="mainNav"><a href="#/settings">Paràmetres</a></li>
 							    <li role="presentation" class="mainNav"><a href="#/promotions">Promocions</a></li>
+							    <li role="presentation" class="mainNav"><a href="#/news">Notícies</a></li>
+							    <li role="presentation" class="mainNav"><a href="#/slider">Slider</a></li>
 							    <li role="presentation" class="mainNav"><a href="#/subcategories">Subcategories</a></li>
-							    <li role="presentation" class="mainNav"><a href="#/formFichero">formFichero</a></li>
+							    <li role="presentation" class="mainNav"><a href="#/settings">Paràmetres</a></li>
+							    
+							    
+							    <li role="presentation" class="mainNav"><a href="#/formFichero">Enllaços del footer</a></li>
 							</ul>
     					</div><!--/.nav-collapse -->
   					</div>

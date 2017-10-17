@@ -23,7 +23,32 @@ require('../inc/functions.php');
 				{
 					$dataShops .= ",";
 				}
-				$dataShops .= '{"idShop":"'.$row['idShop'].'", "name":"'.$row['name'].'"}'; 
+				$dataShops .= '{"idShop":"'.$row['idShop'].'", "name":"'.$row['name'].'", "pictograms":';
+				
+				$mySql=	"SELECT distinct(c.urlPicto)
+						FROM categories c, categoriessub cs, shopcategoriessub scs
+						WHERE cs.idSubCategory = scs.idSubCategory
+						AND c.idCategory = cs.idCategory
+						AND scs.preferred = 'Y'
+						AND scs.idShop = ".$row['idShop'];
+				$connexio = connect();
+				$resultPictos = mysqli_query($connexio, $mySql);
+				disconnect($connexio);
+				$dataShops .= "[";
+				$j = 0;
+				while($row = mysqli_fetch_array($resultPictos))
+				{
+					if($j != 0)
+					{
+						$dataShops .= ",";
+					}
+					$dataShops .= '{"urlPicto":"'.$row['urlPicto'].'"}';
+					
+					
+					$j++;
+				}
+			
+				$dataShops .=']}'; 
 				$i++;
 			}
 			$dataShops .= "]";
@@ -31,7 +56,7 @@ require('../inc/functions.php');
 			echo $dataShops;
 		}
 	
-		else if(isset($_GET['acc']) && $_GET['acc'] == 'shop') //modificar
+		else if(isset($_GET['acc']) && $_GET['acc'] == 'shop')
 		{
 			$idShop=$_GET['idShop'];
 			$mySql= "SELECT s.idShop, s.name AS NameShop, s.address, s.cp, s.ciutat, s.telephone, s.descriptionLong, s.schedule, s.logo, 

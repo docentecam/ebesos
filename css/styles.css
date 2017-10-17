@@ -121,6 +121,11 @@ padding: 0;
 }
 
 }*/
+.row {
+     margin-right: 0px;
+     margin-left: 0px;
+ }
+
 .headTitle{
 	font-weight: 600;
 }
@@ -130,25 +135,27 @@ padding: 0;
 .navGeneral{
 	border-bottom: none;
 	margin-top: 0.5%!important;
+	background-color: white;
 
 }
 .subrayado:hover{
 	border-bottom: 1px solid #9E9E9E;
 }
-#marginTopNav{
+#marginBottomSlider{
 	margin-bottom: 2%!important;
 }
-.marginContainer{
-	margin-left: 2%;
-	margin-right: 2%;
-}
+
 .submenuFormat{
 	text-align: center;
 	padding:5%!important; 
 
 }
-.prueba1{
-	width: 90%!important;
+
+.widthLiAsso{
+	width: 20em!important;
+}
+#rowForm{
+	padding-right: 0%!important;
 }
 
 .sr-only{
@@ -168,7 +175,7 @@ padding: 0;
 
 #footerColor{
 	background-color:#808BA7;
-	margin-top: 2%!important;
+	margin-top: 10%!important;
 }
 #linkBorder{
 	border-left: 1px solid #9C9C9C;
@@ -197,6 +204,9 @@ padding: 0;
 }
 #mc_embed_signup .button{
 	color: black!important;
+}
+.navbar{
+	margin-bottom: 0px!important;
 }
 .navbar .navbar-nav {
   display: inline-block;
@@ -361,13 +371,27 @@ padding: 0;
 {
 	color: white;
 }
+
+.subMA:hover
+{
+	color: white;
+	text-decoration: none!important;
+}
+
+.subMA:focus
+{
+	color: white!important;
+	text-decoration: none!important;
+}
+
+
 #subMenu
 {
 	text-align: center;
 	padding-right: 0% !important;
 	background-color: #337ab7;
 	padding-left: 0%!important;
-	margin-left: -1.5%!important;
+
 }
 
 .shopsList{
@@ -447,8 +471,12 @@ padding: 0;
 
 #breadcrumbsContact
 {
-	margin-left: 3%;
+	margin-left: 2%;
+	color: black;
+	font-weight: 600;
+	text-decoration: underline;
 }
+
 
 #moreInfo
 {
@@ -460,18 +488,36 @@ padding: 0;
 	text-transform: uppercase;
 }
 
+#breadcrumbsContact:hover
+{
+	font-weight: 700;
+}
+
+.#breadJS
+{
+	color: black;
+    font-weight: 600;
+    text-decoration: underline;"  
+}
+
+#all
+{
+	margin-left: 2%;
+	margin-right: 2%;
+}
+
 /* Large devices (desktops, less than 1200px) */
 @media (min-width: 1024px)
 {
 	.subMenu:hover{
 	background-color: #51576F;
 	cursor: pointer;
-	
-	font-size: 18px;
+	font-weight: 600;
+	color: white!;
 	}
 	.subMenu
-	{
-		padding:  30px;
+	{		padding:  30px;
+
 	}
 }
 /* Medium devices (tablets, less than 992px) */
