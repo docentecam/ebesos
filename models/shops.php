@@ -29,6 +29,7 @@ require('../inc/functions.php');
 						FROM categories c, categoriessub cs, shopcategoriessub scs
 						WHERE cs.idSubCategory = scs.idSubCategory
 						AND c.idCategory = cs.idCategory
+						AND scs.preferred = 'Y'
 						AND scs.idShop = ".$row['idShop'];
 				$connexio = connect();
 				$resultPictos = mysqli_query($connexio, $mySql);

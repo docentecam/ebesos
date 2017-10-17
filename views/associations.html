@@ -56,10 +56,10 @@
 					<div class="row">
 						<div ng-repeat="shop in shops | orderBy: 'name'" class="col-sm-6 shopsList">
 							<a href="#/shop/{{shop.idShop}}">
-								• {{shop.name}} 
 								<div ng-repeat="pictogram in pictograms">
 									<img src="../img/pictograms/{{pictogram.urlPicto}}">
 								</div>
+								 {{shop.name}}
 							</a>
 						</div>
 					</div>	
