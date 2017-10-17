@@ -123,7 +123,7 @@ padding: 0;
 
 }*/
 .headTitle{
-	font-weight: bold;
+	font-weight: 600;
 }
 .colorLinksHidden{
 	color: black;
@@ -137,12 +137,17 @@ padding: 0;
 	border-bottom: 1px solid #9E9E9E;
 }
 .prueba1 {
-  max-width: 40%; /* or to whatever you want here */
- margin-left: 0%!important;
+	
+  	max-width: 40%; /* or to whatever you want here */
+ 	margin-left: 0%!important;
+ 	position: relative;
+	top: 50%;
+
 }
 .dos{
 	text-align: center;
 	padding:5%!important; 
+
 }
 
 .sr-only{
