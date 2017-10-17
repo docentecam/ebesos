@@ -4,7 +4,10 @@
 ?>
 
 <div class="row" ng-show="createNew">
-	<input type="button" name="newNew" value="Afegir Noticia" alt="Afegir noticia" class="btn btn-default" ng-click="newNew()">
+	<div class="col-lg-6">
+		<input type="button" name="newNew" value="Afegir Noticia" alt="Afegir noticia" class="btn btn-default" ng-click="newNew()">
+	</div>
+	
 </div>
 
 <div ng-show="listNew" class="row" ng-repeat="new in news">

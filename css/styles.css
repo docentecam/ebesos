@@ -377,7 +377,15 @@ padding: 0;
 .subMA:hover
 {
 	color: white;
+	text-decoration: none!important;
 }
+
+.subMA:focus
+{
+	color: white!important;
+	text-decoration: none!important;
+}
+
 
 #subMenu
 {
@@ -470,6 +478,7 @@ padding: 0;
 	font-weight: 600;
 	text-decoration: underline;
 }
+
 
 #moreInfo
 {
