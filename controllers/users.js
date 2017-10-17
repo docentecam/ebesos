@@ -125,6 +125,7 @@ angular.module('spaApp')
 			url : "models/shops.php?acc=l&idUser="+$scope.idUser
 		}).then(function mySucces(response) {
 			$scope.shops = response.data;
+			$scope.pictograms = $scope.shops[0]['pictograms'];
 			$scope.muestraDivC = false;
 			$scope.muestraDivN = false;
 			$scope.muestraDivCA = true;
