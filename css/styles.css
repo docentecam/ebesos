@@ -133,13 +133,13 @@ padding: 0;
 	margin-top: 0.5%!important;
 
 }
-.subrayado:selected{
+.subrayado:hover{
 	border-bottom: 1px solid #9E9E9E;
 }
 #marginTopNav{
 	margin-bottom: 2%!important;
 }
-.hola{
+.marginContainer{
 	margin-left: 2%;
 	margin-right: 2%;
 }
@@ -367,6 +367,8 @@ padding: 0;
 	text-align: center;
 	padding-right: 0% !important;
 	background-color: #337ab7;
+	padding-left: 0%!important;
+	margin-left: -1.5%!important;
 }
 
 .shopsList{
