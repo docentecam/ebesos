@@ -427,14 +427,6 @@ padding: 0;
 	text-align: center;
 }
 
-#all
-{
-	margin-left: 2%;
-	margin-right: 2%;
-
-}
-
-
 #imgPadd
 {
 	padding-left: 5%;
@@ -457,6 +449,16 @@ padding: 0;
 #breadcrumbsContact
 {
 	margin-left: 3%;
+}
+
+#moreInfo
+{
+	font-weight: 600;
+}
+
+#loremUPPER
+{
+	text-transform: uppercase;
 }
 
 /* Large devices (desktops, less than 1200px) */
