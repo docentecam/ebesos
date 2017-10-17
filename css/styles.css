@@ -153,9 +153,7 @@ padding: 0;
 	padding:5%!important; 
 
 }
-#NOMARGIN{
-	height: 59px!important;
-}
+
 .widthLiAsso{
 	width: 20em!important;
 }
@@ -180,7 +178,7 @@ padding: 0;
 
 #footerColor{
 	background-color:#808BA7;
-	margin-top: 5%!important;
+	margin-top: 10%!important;
 }
 #linkBorder{
 	border-left: 1px solid #9C9C9C;
@@ -209,6 +207,9 @@ padding: 0;
 }
 #mc_embed_signup .button{
 	color: black!important;
+}
+.navbar{
+	margin-bottom: 0px!important;
 }
 .navbar .navbar-nav {
   display: inline-block;
