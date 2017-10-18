@@ -15,7 +15,7 @@
 		<script>
 			$( document ).ready(function() {
 					if(getCookie('eixbesosavis')!="1"){
-    					document.getElementById("barraacceptacio").style.display="block";
+    					document.getElementById("cookie-agree").style.display="block";
 					}
 			(function($) {window.fnames = new Array();
 				window.ftypes = new Array();
@@ -171,7 +171,7 @@
 				</div>
     		</footer>
   		</div>		
-    	<div id="barraacceptacio">
+    	<div id="cookie-agree">
 			<div class="inner">
 				Sol·licitem el seu permís per a obtenir dades específiques de la seva navegació en aquest web, en 
 				compliment del Real Decret-Llei 13/2012. Si continua navegant, considerarem que accepta l'ús de cookies.
@@ -209,7 +209,7 @@
 		 
 		function PonerCookie(){
 		    setCookie('eixbesosavis','1',365);
-		    document.getElementById("barraacceptacio").style.display="none";
+		    document.getElementById("cookie-agree").style.display="none";
 		}
 		</script>
 		<!--//FIN BLOQUE COOKIES-->
