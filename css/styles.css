@@ -132,6 +132,16 @@ padding: 0;
 .headTitle{
 	font-weight: 600;
 }
+#typeLetter{
+	font-size: 15px;
+	font-weight: bold;
+}
+#typeLetterP{
+	margin: 0 0 10px;
+	position: relative;
+	top: 10%;
+	font-size: 14px;
+}
 .colorLinksHidden{
 	color: black;
 }
@@ -141,9 +151,21 @@ padding: 0;
 	background-color: white;
 	margin-left: -15px!important;
 	margin-right: -15px!important;
-
 }
-.subrayado:hover{
+.textOverImage{
+	position: absolute;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.68);
+	top: 42%;
+	left: 2%;
+	width: 30%;
+	height: 48%;
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-top: 10px;
+	
+}
+.underline:hover{
 	border-bottom: 1px solid #9E9E9E;
 }
 #marginBottomSlider{
@@ -180,7 +202,7 @@ padding: 0;
 
 #footerColor{
 	background-color:#808BA7;
-	margin-top: 10%!important;
+	margin-top: 5%!important;
 }
 #linkBorder{
 	border-left: 1px solid #9C9C9C;
@@ -193,7 +215,7 @@ padding: 0;
     font-size: 1.4em;
     color: white!important;
 }
-.linkNomForm{
+.linkNameForm{
     color: white!important;
 }
 .footerLinksColor{
