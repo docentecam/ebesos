@@ -3,6 +3,8 @@
 /*GLOBAL*/
 body{
 	font-weight: 300;
+	margin-left:15px!important;
+	margin-right:15px!important; 
 }
 /*lander sanahujes yañez*/
 
@@ -121,10 +123,11 @@ padding: 0;
 }
 
 }*/
-.row {
+/*.row {
      margin-right: 0px;
      margin-left: 0px;
- }
+ }*/
+
 
 .headTitle{
 	font-weight: 600;
@@ -136,6 +139,8 @@ padding: 0;
 	border-bottom: none;
 	margin-top: 0.5%!important;
 	background-color: white;
+	margin-left: -15px!important;
+	margin-right: -15px!important;
 
 }
 .subrayado:hover{
