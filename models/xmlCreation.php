@@ -21,7 +21,7 @@
 
   // Select all the rows in the markers table
 
-  $mySql = "SELECT s.idShop, s.name, s.lat, s.lng, s.telephone, s.email, s.schedule, s.address, s.logo, cs.name AS NameSubCategoria, c.name AS NameCategoria, u.name AS NameAssociacio FROM shops s, shopcategoriessub scs, categoriessub cs, categories c, users u WHERE s.idUser = u.idUser AND s.idShop = scs.idShop AND scs.idSubCategory = cs.idSubCategory AND cs.idCategory = c.idCategory AND scs.preferred = 'Y'";
+  $mySql = "SELECT s.idShop, s.name, s.lat, s.lng, s.telephone, s.email, s.schedule, s.address, s.logo, cs.idSubCategory, cs.name AS NameSubCategoria, c.idCategory, c.name AS NameCategoria, u.name AS NameAssociacio, scs.preferred FROM shops s, shopcategoriessub scs, categoriessub cs, categories c, users u WHERE s.idUser = u.idUser AND s.idShop = scs.idShop AND scs.idSubCategory = cs.idSubCategory AND cs.idCategory = c.idCategory ORDER BY s.idShop";
 
   if (isset($_GET["acc"])&& ($_GET["acc"] == "shop"))
   {
@@ -76,16 +76,20 @@
     //TODO: schedule, email, address(?)
     fputs($fp,'<marker ');
     fputs($fp,'idShop="' . parseToXML($row['idShop']) . '" ');
+    fputs($fp,'idCategory="' . parseToXML($row['idCategory']) . '" ');
+    fputs($fp,'idSubCategory="' . parseToXML($row['idSubCategory']) . '" ');
     fputs($fp,'name="' . parseToXML($row['name']) . '" ');
     fputs($fp,'address="' . parseToXML($row['address']) . '" ');
     fputs($fp,'lat="' . $row['lat'] . '" ');
     fputs($fp,'lng="' . $row['lng'] . '" ');
     fputs($fp,'nameCategoria="' . parseToXML($row['NameCategoria']) . '" ');
+    fputs($fp,'nameSubCategoria="' . parseToXML($row['NameSubCategoria']) . '" ');
     fputs($fp,'nameAssociacio="' . parseToXML($row['NameAssociacio']) . '" ');
     fputs($fp,'telephone="' . parseToXML($row['telephone']) . '" ');
     fputs($fp,'email="' . parseToXML($row['email']) . '" ');
     fputs($fp,'schedule="' . parseToXML($row['schedule']) . '" ');
     fputs($fp,'logo="' . parseToXML($row['logo']) . '" ');
+    fputs($fp,'preferred="' . parseToXML($row['preferred']) . '" ');
     fputs($fp,'/>');
 
   }

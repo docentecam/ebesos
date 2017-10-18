@@ -2,9 +2,9 @@
   <div class="col-md-4 push-md-1">
     <!-- <ul> -->
       <div ng-repeat="category in categories" class="category-{{category.idCategory}}">
-        <div class="row col-md-3"><label>·<a class="a-category" href='' ng-click="categoryFilter(category.name)">{{category.name}}</a></label></div>
+        <div class="row col-md-3"><label>·<a class="a-category" href='' ng-click="categoryFilter('category', category.idCategory)">{{category.name}}</a></label></div>
          <!--  <li>{{category.subCategories[0].name}}</li> -->
-          <div class="col-md-9 col-md-push-1"><span ng-repeat="subCategory in category.subCategories">{{subCategory.name}}&nbsp</span></div>
+          <div class="col-md-9 col-md-push-1"><span ng-repeat="subCategory in category.subCategories"><a class="a-category" href='' ng-click="categoryFilter('categorySub', subCategory.idSubCategory)">{{subCategory.name}}&nbsp</a></span></div>
       </div>
     <!-- </ul> -->
   </div>
@@ -13,6 +13,7 @@
   </div>
 </div>
 <script>
+  var totalShops = 0;
   var customLabel = {};
   function initMap()
   {
@@ -28,11 +29,17 @@
     downloadUrl('files/shops.xml', function(data) {
       var xml = data.responseXML;
       var markers = xml.documentElement.getElementsByTagName('marker');
-
+      
       Array.prototype.forEach.call(markers, function(markerElem) {
         //Inicio filtrado categoria
         
           //TODO: schedule, email, address(?)
+          
+          if(markerElem.getAttribute('preferred') == 'Y')
+          {
+          totalShops++;
+          console.log(totalShops);
+
           var name = markerElem.getAttribute('name');
 
           var address = markerElem.getAttribute('address');
@@ -152,7 +159,7 @@
 
               else if(markerElem.getAttribute('nameAssociacio')=='Mercats') marker.setIcon(new google.maps.MarkerImage('img/pictograms/restMer.png', null, null, null, new google.maps.Size(30, 30)));
             }
-        
+          }//fin comprobacio preferred
       });
     });
   }

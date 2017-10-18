@@ -19,7 +19,7 @@
 				$j = 0;
 
 				$dataCategories .= '[';
-				$mySql = "SELECT cs.name FROM categoriessub cs WHERE cs.idCategory = ".$row['idCategory'];
+				$mySql = "SELECT cs.idSubCategory, cs.name FROM categoriessub cs WHERE cs.idCategory = ".$row['idCategory'];
 
 				$connexio = connect();
 				$resultSubCategories = mysqli_query($connexio, $mySql);
@@ -33,7 +33,7 @@
 
 					if($j != 0) $dataCategories .= ",";
 
-					$dataCategories .= '{"name":"'.$row['name'];
+					$dataCategories .= '{"idSubCategory":"'.$row['idSubCategory'].'","name":"'.$row['name'];
 					if($count<$numSubCat) $dataCategories .= ',';
 					$dataCategories .='"}';
 					$count++;
