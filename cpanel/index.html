@@ -157,6 +157,27 @@
 					}, function myError (response) {
 						$scope.names = response.statusText;
 					});
+					$http({
+						method : "GET",
+						url : "models/shops.php?acc=loginC&email="+$scope.email+"&password="+$scope.password
+					}).then(function mySucces (response) {
+						$scope.shops=response.data;
+						$scope.fail = false;
+						$scope.statusValidationShops=$scope.shops[0].status;
+						console.log("---"+$scope.statusValidationShops+"---")
+						if($scope.statusValidationShops=="Correct")
+						{
+
+							$window.location.href = "main.php";
+						}
+						else
+						{
+							$scope.fail = true;
+						}
+
+					}, function myError (response) {
+						$scope.shops = response.statusText;
+					});
 
 						
 				};
