@@ -7,6 +7,15 @@ angular.module('spaApp')
 				url : "models/users.php?acc=loadUser&idUser=1" //modificar
 			}).then(function mySucces (response) {
 				$scope.associations = response.data;
+				$scope.idUserC = $scope.associations[0]['idUser'];
+				$scope.nameC = $scope.associations[0]['name'];
+				$scope.emailC = $scope.associations[0]['email'];
+				$scope.emailPassC = $scope.associations[0]['emailPass'];
+				$scope.addressC = $scope.associations[0]['address'];
+				$scope.telephoneC = $scope.associations[0]['telephone'];
+				$scope.logoC = $scope.associations[0]['logo'];
+				$scope.footerC = $scope.associations[0]['footer'];
+				$scope.historyC = $scope.associations[0]['history'];
 			}, function myError (response) {
 				$scope.associations = response.statusText;
 			});
@@ -20,18 +29,40 @@ angular.module('spaApp')
 				$scope.users = response.statusText;
 			});
 		
-			$scope.changeDataUser = function(idUser){
+			$scope.changeDataUser = function(idUser=""){
 				$scope.formDataUser = false;
-				$http({
-					method : "GET",
-					url : "models/users.php?acc=loadUser&idUser="+idUser
-				}).then(function mySucces (response) {
-					console.log("llega");
-					$scope.associations = response.data;
-					$scope.formDataUser = true;
-				}, function myError (response) {
-					$scope.associations = response.statusText;
-				});
+				$scope.idUserC = "";
+				$scope.nameC = "";
+				$scope.emailC = "";
+				$scope.emailPassC = "";
+				$scope.addressC = "";
+				$scope.telephoneC = "";
+				$scope.logoC = "";
+				$scope.footerC = "";
+				$scope.historyC = "";
+				if(idUser != -1)
+				{
+					$http({
+						method : "GET",
+						url : "models/users.php?acc=loadUser&idUser="+idUser
+					}).then(function mySucces (response) {
+						console.log("llega");
+						$scope.associations = response.data;
+						$scope.idUserC = $scope.associations[0]['idUser'];
+						$scope.nameC = $scope.associations[0]['name'];
+						$scope.emailC = $scope.associations[0]['email'];
+						$scope.emailPassC = $scope.associations[0]['emailPass'];
+						$scope.addressC = $scope.associations[0]['address'];
+						$scope.telephoneC = $scope.associations[0]['telephone'];
+						$scope.logoC = $scope.associations[0]['logo'];
+						$scope.footerC = $scope.associations[0]['footer'];
+						$scope.historyC = $scope.associations[0]['history'];
+						
+					}, function myError (response) {
+						$scope.associations = response.statusText;
+					});
+				}
+				$scope.formDataUser = true;
 			};
 			$scope.showChangePass = function(){
   					$scope.changePass = true;
