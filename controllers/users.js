@@ -86,23 +86,32 @@ angular.module('spaApp')
 	document.getElementById("txtCaptcha").value = code;
 	document.getElementById("captchaDiv").innerHTML = code;
 	$http({
-			method : "GET",
-			url : "models/users.php?acc=history&idUser="+$scope.idUser
-		}).then(function mySucces (response) {
-			$scope.histories = response.data;
-			$scope.muestraDivC = false;
-			$scope.muestraDivN = false;
-			$scope.muestraDivCA = false;
-			$scope.muestraDivH = true;
-		}, function myError (response) {
-			$scope.histories = response.statusText;
+		method : "GET",
+		url : "models/shops.php?acc=l&idUser="+$scope.idUser
+		}).then(function mySucces(response) {
+			$scope.shops = response.data;
+			$scope.pictograms = $scope.shops[0]['pictograms'];
+			$scope.showDivC = false;
+			$scope.showDivN = false;
+			$scope.showDivCA = true;
+			$scope.showDivH = false;
+		}, function myError(response) {
+			$scope.shops = response.statusText;
 	});
 	
-  	$scope.showHistory = function(){
-			$scope.muestraDivC = false;
-			$scope.muestraDivN = false;
-			$scope.muestraDivCA = false;
-			$scope.muestraDivH = true;
+  	$scope.showHistory = function(idUser){
+			$http({
+				method : "GET",
+				url : "models/users.php?acc=history&idUser="+$scope.idUser
+				}).then(function mySucces (response) {
+					$scope.histories = response.data;
+					$scope.showDivC = false;
+					$scope.showDivN = false;
+					$scope.showDivCA = false;
+					$scope.showDivH = true;
+				}, function myError (response) {
+					$scope.histories = response.statusText;
+			});
 	};
 
 	$scope.showContact = function(idUser){
@@ -111,41 +120,32 @@ angular.module('spaApp')
 			url : "models/users.php?acc=mail&idUser="+ $scope.idUser
 		}).then(function mySucces (response) {
 			$scope.email = response.data;
-			$scope.muestraDivH = false;
-			$scope.muestraDivN = false;
-			$scope.muestraDivCA = false;
-			$scope.muestraDivC = true;
+			$scope.showDivH = false;
+			$scope.showDivN = false;
+			$scope.showDivCA = false;
+			$scope.showDivC = true;
 		}, function myError (response) {
 			$scope.email = response.statusText;
 		});
 	};
-	$scope.listShops = function(idUser){		
-		$http({
-			method : "GET",
-			url : "models/shops.php?acc=l&idUser="+$scope.idUser
-		}).then(function mySucces(response) {
-			$scope.shops = response.data;
-			$scope.pictograms = $scope.shops[0]['pictograms'];
-			$scope.muestraDivC = false;
-			$scope.muestraDivN = false;
-			$scope.muestraDivCA = true;
-			$scope.muestraDivH = false;
-		}, function myError(response) {
-			$scope.shops = response.statusText;
-		});
+	$scope.listShops = function(){		
+		$scope.showDivC = false;
+		$scope.showDivN = false;
+		$scope.showDivCA = true;
+		$scope.showDivH = false;
 	};
 	$scope.showNews = function(idUser){
 		$http({
 			method : "GET",
 			url : "models/news.php?acc=news&idUser="+$scope.idUser
-		}).then(function mySucces (response) {
-			$scope.news = response.data;
-			$scope.muestraDivC = false;
-			$scope.muestraDivN = true;
-			$scope.muestraDivCA = false;
-			$scope.muestraDivH = false;
-		}, function myError (response) {
-			$scope.news = response.statusText;
+			}).then(function mySucces (response) {
+				$scope.news = response.data;
+				$scope.showDivC = false;
+				$scope.showDivN = true;
+				$scope.showDivCA = false;
+				$scope.showDivH = false;
+			}, function myError (response) {
+				$scope.news = response.statusText;
 		});
 	};
 	$scope.checkform = function()
