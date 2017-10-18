@@ -3,7 +3,7 @@ require("../inc/functions.php");
 
 	if(isset($_GET['acc']) && $_GET['acc'] == 'login'){
 		$message='';
-		$mySql = "SELECT idUser FROM users 
+		$mySql = "SELECT idUser, privileges FROM users 
 					WHERE email='".$_GET['email']."' AND password='".sha1(md5($_GET['password'])).
 					"' AND active='Y'";
 		$connexio = connect();
@@ -13,7 +13,8 @@ require("../inc/functions.php");
 		while ($row=mySqli_fetch_array($resultLogin))
 		{
 			
-			$checkLogin=$row['idUser'];
+			$checkLogin = $row['idUser'];
+			$getPrivileges = $row['privileges'];
 		}
 	 	
 
@@ -29,7 +30,8 @@ require("../inc/functions.php");
 	 	{
 	 		$message = "Correct";
 	 		session_start();
-	 		$_SESSION['idUser'] = $checkLogin;
+	 		$_SESSION['user']['idUser'] = $checkLogin;
+	 		$_SESSION['user']['privileges'] = $getPrivileges;
 	 	}
 
 	 	echo '[{"status":"'.$message.'"}]';
