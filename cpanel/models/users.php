@@ -3,7 +3,7 @@ require("../inc/functions.php");
 
 	if(isset($_GET['acc']) && $_GET['acc'] == 'login'){
 		$message='';
-		$mySql = "SELECT idUser, privileges FROM users 
+		$mySql = "SELECT idUser, name, privileges FROM users 
 					WHERE email='".$_GET['email']."' AND password='".sha1(md5($_GET['password'])).
 					"' AND active='Y'";
 		$connexio = connect();
@@ -15,6 +15,7 @@ require("../inc/functions.php");
 			
 			$checkLogin = $row['idUser'];
 			$getPrivileges = $row['privileges'];
+			$getName = $row['name'];
 		}
 	 	
 
@@ -32,6 +33,7 @@ require("../inc/functions.php");
 	 		session_start();
 	 		$_SESSION['user']['idUser'] = $checkLogin;
 	 		$_SESSION['user']['privileges'] = $getPrivileges;
+	 		$_SESSION['user']['name'] = $getName;
 	 	}
 
 	 	echo '[{"status":"'.$message.'"}]';
@@ -122,12 +124,42 @@ require("../inc/functions.php");
 			echo $dataUser;
 	}
 	elseif (isset($_GET['acc']) && $_GET['acc'] == 'updateUser') {
-		$mySql = "UPDATE users
-				SET email='".$_GET['email']."', emailPass='".$_GET['pswdMail']."', name='".$_GET['name']."', address='".$_GET['address']."', telephone='".$_GET['telephone']."', history='".$_GET['history']."', active='".$_GET['active']."' 
-				WHERE idUser=".$_GET['idUser'];
-		$connexio = connect();
-		$updateUserData = mysqli_query($connexio, $mySql);
-		disconnect($connexio);
+		$message='';
+		if(!isset($_GET['currentPswd']))
+		{
+			$mySql = "UPDATE users
+					SET email='".$_GET['email']."', emailPass='".$_GET['pswdMail']."', name='".$_GET['name']."', address='".$_GET['address']."', telephone='".$_GET['telephone']."', history='".$_GET['history']."', active='".$_GET['active']."' 
+					WHERE idUser=".$_GET['idUser'];
+			$connexio = connect();
+			$updateUserData = mysqli_query($connexio, $mySql);
+			disconnect($connexio);
+			$message = "L'usuari s'ha actualitzat";
+		}
+		else
+		{
+			$mySql = "SELECT password 
+				FROM users 
+				WHERE idUser='".$_GET['idUser']."'";
+			$connexio = connect();
+			$resultUser = mysqli_query($connexio, $mySql);
+			disconnect($connexio);
+			$pswd = mysqli_fetch_row($resultUser[0])
+			if(sha1(md5($_GET['currentPswd'])) == $pswd)
+			{
+				$mySql = "UPDATE users
+					SET email='".$_GET['email']."', emailPass='".$_GET['pswdMail']."', name='".$_GET['name']."', password='".sha1(md5($_GET['pswd']))."', address='".$_GET['address']."', telephone='".$_GET['telephone']."', history='".$_GET['history']."', active='".$_GET['active']."' 
+					WHERE idUser=".$_GET['idUser'];
+				$connexio = connect();
+				$updateUserData = mysqli_query($connexio, $mySql);
+				disconnect($connexio);
+				$message = "L'usuari s'ha actualitzat";
+			}
+			else
+			{
+				$message = "Error al actualitzar";
+			}
+		}
+		echo '[{"status":"'.$message.'"}]'
 	}
 	elseif (isset($_GET['acc']) && $_GET['acc'] == 'updatePass') {
 		

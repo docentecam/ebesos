@@ -42,11 +42,25 @@
 						<div class="col-lg-6 padd">
 							<input type="number" id="telephone" name="telephone" ng-value="telephoneC">
 						</div>
+						<div class="col-lg-6 padd">
+							<div ng-show="eUser">Contrasenya:</div><div ng-show="cUser">Nova contrasenya:</div>
+						</div>
+						<div class="col-lg-6 padd">
+							<input type="password" id="pswd" name="pswd">
+						</div>
+						<div class="col-lg-6 padd">Confirmar contrasenya:</div>
+						<div class="col-lg-6 padd">
+							<input type="password" id="confirmPswd" name="cpswd">
+						</div>
+						<div class="col-lg-6 padd" ng-show="cUser">Contrasenya Actual:</div>
+						<div class="col-lg-6 padd" ng-show="cUser">
+							<input type="password" id="currentPswd" name="cpswd">
+						</div>
 						<div class="col-lg-6 padd">Actiu:</div>
 						<div class="col-lg-6 padd">
 							<select id="active">
-								<option value="Y" ng-selected="association.active=='Y'">Si</option>
-								<option value="N" ng-selected="association.active=='N'">No</option>
+								<option value="Y" ng-selected="activeC=='Y'">Si</option>
+								<option value="N" ng-selected="activeC=='N'">No</option>
 							</select>
 						</div>
 					</div>
@@ -65,41 +79,41 @@
 			</div>
 		</form>
 	</div>
-	<div class="row padd-t">
-		<div class="col-lg-12">
-			<input type="button" class="btn btn-default" value="Cambiar password" ng-click="showChangePass()">
-		</div>
-		<div class="col-lg-12" ng-show="changePass">
-			<form id="newPassword">
-				<div class="row">
-					<div class="col-lg-12"><input type="text" id="usrId" ng-value="idUser" disabled hidden></div>
-				</div>
-				<div class="row padd-p">
-					<div class="col-lg-3">Contrasenya actual:</div>
-					<div class="col-lg-6">
-						<input type="password" name="actualPass" id="actualPass">
-					</div>
-				</div>
-				<div class="row padd-p">
-					<div class="col-lg-3">Nova contrasenya:</div>
-					<div class="col-lg-6">
-						<input type="password" name="newPass" id="newPass">
-					</div>
-				</div>
-				<div class="row padd-p">
-					<div class="col-lg-3">Confirmar contrasenya:</div>
-					<div class="col-lg-6">
-						<input type="password" name="confirmPass" id="confirmPass">
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-6">
-						<input type="button" class="btn btn-default" value="Enviar" ng-click="updatePass()">
-					</div>
-				</div>
-			</form>
-		</div>
+<!-- 	<div class="row padd-t">
+	<div class="col-lg-12" ng-show="btnChangePswd">
+		<input type="button" class="btn btn-default" value="Cambiar password" ng-click="showChangePass()">
 	</div>
+	<div class="col-lg-12" ng-show="changePass">
+		<form id="newPassword">
+			<div class="row">
+				<div class="col-lg-12"><input type="text" id="usrId" ng-value="idUser" disabled hidden></div>
+			</div>
+			<div class="row padd-p">
+				<div class="col-lg-3">Contrasenya actual:</div>
+				<div class="col-lg-6">
+					<input type="password" name="actualPass" id="actualPass">
+				</div>
+			</div>
+			<div class="row padd-p">
+				<div class="col-lg-3">Nova contrasenya:</div>
+				<div class="col-lg-6">
+					<input type="password" name="newPass" id="newPass">
+				</div>
+			</div>
+			<div class="row padd-p">
+				<div class="col-lg-3">Confirmar contrasenya:</div>
+				<div class="col-lg-6">
+					<input type="password" name="confirmPass" id="confirmPass">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-6">
+					<input type="button" class="btn btn-default" value="Enviar" ng-click="updatePass()">
+				</div>
+			</div>
+		</form>
+	</div>
+</div> -->
 	<div class="row padd-t">
 		<div class="col-lg-4 col-lg-offset-1">
 			<div class="row">

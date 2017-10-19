@@ -1,6 +1,8 @@
 angular.module('spaApp')
  .controller('AssociationsCtrl', function($scope, $http) {
  			$scope.formDataUser = true;
+ 			$scope.cUser = true;
+			$scope.eUser = false;
 
 			$http({
 				method : "GET",
@@ -16,6 +18,7 @@ angular.module('spaApp')
 				$scope.logoC = $scope.associations[0]['logo'];
 				$scope.footerC = $scope.associations[0]['footer'];
 				$scope.historyC = $scope.associations[0]['history'];
+				$scope.activeC = $scope.associations[0]['active'];
 			}, function myError (response) {
 				$scope.associations = response.statusText;
 			});
@@ -40,13 +43,18 @@ angular.module('spaApp')
 				$scope.logoC = "";
 				$scope.footerC = "";
 				$scope.historyC = "";
+				$scope.activeC = "";
+				$scope.cUser = false;
+				$scope.eUser = true;
 				if(idUser != -1)
 				{
+					$scope.cUser = true;
+					$scope.eUser = false;
+
 					$http({
 						method : "GET",
 						url : "models/users.php?acc=loadUser&idUser="+idUser
 					}).then(function mySucces (response) {
-						console.log("llega");
 						$scope.associations = response.data;
 						$scope.idUserC = $scope.associations[0]['idUser'];
 						$scope.nameC = $scope.associations[0]['name'];
@@ -57,6 +65,7 @@ angular.module('spaApp')
 						$scope.logoC = $scope.associations[0]['logo'];
 						$scope.footerC = $scope.associations[0]['footer'];
 						$scope.historyC = $scope.associations[0]['history'];
+						$scope.activeC = $scope.associations[0]['active'];
 						
 					}, function myError (response) {
 						$scope.associations = response.statusText;
@@ -76,17 +85,46 @@ angular.module('spaApp')
   				$scope.idUser = dataUser['userId'].value;
   				$scope.active = dataUser['active'].value;
   				$scope.history = dataUser['history'].value;
+  				$scope.currentPswd = dataUser['currentPswd'].value;
+  				$scope.confirmPswd = dataUser['confirmPswd'].value;
+  				$scope.pswd = dataUser['pswd'].value;
+  				if($scope.idUser != "")
+  				{
+  					if($scope.pswd == $scope.confirmPswd && $scope.confirmPswd != "" && $scope.pswd != "" && $scope.currentPswd != "")
+  					{
+						$http({
+							method : "GET",
+							url : "models/users.php?acc=updateUser&name="+$scope.name+"&email="+$scope.email+"&pswdMail="+$scope.pswdMail+"&address="+$scope.address+"&telephone="+$scope.telephone+"&idUser="+$scope.idUser+"&active="+$scope.active+"&history="+$scope.history+"&pswd="+$scope.pswd+"&currentPswd="+$scope.currentPswd
+						}).then(function mySucces (response) {
+							$scope.userUpdate = response.data;
+						}, function myError (response) {
+							$scope.userUpdate = response.statusText;
+						});
+  					}
+  					else if($scope.pswd == "" && $scope.confirmPswd == "" && $scope.currentPswd == "")
+  					{
+  						$http({
+							method : "GET",
+							url : "models/users.php?acc=updateUser&name="+$scope.name+"&email="+$scope.email+"&pswdMail="+$scope.pswdMail+"&address="+$scope.address+"&telephone="+$scope.telephone+"&idUser="+$scope.idUser+"&active="+$scope.active+"&history="+$scope.history
+						}).then(function mySucces (response) {
+							$scope.userUpdate = response.data;
+						}, function myError (response) {
+							$scope.userUpdate = response.statusText;
+						});
+  					}
+  					else
+  					{
+  						$scope.error = "Error";
+  					}
+  					
+  				}
+  				else
+  				{
 
-  				$http({
-					method : "GET",
-					url : "models/users.php?acc=updateUser&name="+$scope.name+"&email="+$scope.email+"&pswdMail="+$scope.pswdMail+"&address="+$scope.address+"&telephone="+$scope.telephone+"&idUser="+$scope.idUser+"&active="+$scope.active+"&history="+$scope.history
-				}).then(function mySucces (response) {
-					$scope.userUpdate = response.data;
-				}, function myError (response) {
-					$scope.userUpdate = response.statusText;
-				});
+  				}
+  				
 			};
-			$scope.updatePass = function(){
+			/*$scope.updatePass = function(){
   				$scope.idUser = newPassword['usrId'].value;
   				$scope.newPassword = newPassword['newPass'].value;
   				$scope.oldPassword = newPassword['actualPass'].value;
@@ -112,7 +150,7 @@ angular.module('spaApp')
   					$scope.userUpdate = "La nova contrasenya i la seva confirmació no coincideixen";
   					console.log($scope.userUpdate);
   				}
-  			};	
+  			};	*/
   			$scope.showEdit = function(){
   				$scope.logoEdit = true;
   			};
