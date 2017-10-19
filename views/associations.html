@@ -55,10 +55,10 @@
 				<div id="listShops" class="col-sm-12 pull-right">
 					<div class="row">
 						<div ng-repeat="shop in shops | orderBy: 'name'" class="col-sm-6 shopsList">
+							<div class="col-xs-2" > <!--Mirar Error-->
+								<img ng-src="img/pictograms/{{shop.pictograms[0].urlPicto}}" class="pictoShops">
+							</div>
 							<a href="#/shop/{{shop.idShop}}">
-								<div class="col-xs-2" > <!--Mirar Error-->
-									<img ng-src="img/pictograms/{{shop.pictograms[0].urlPicto}}" class="pictoShops">
-								</div>
 								<div class="col-xs-10"> {{shop.name}}</div>
 							</a>
 						</div>
