@@ -79,7 +79,7 @@ require("../inc/functions.php");
 
 	 	echo $message;
 	}
-	elseif (isset($_GET['acc']) && $_GET['acc'] == 'loadUser') {
+	else if (isset($_GET['acc']) && $_GET['acc'] == 'loadUser') {
 		$mySql = "SELECT idUser, name, email, emailPass, password, address, telephone, logo, history, active, footer FROM users 
 					WHERE idUser='".$_GET['idUser']."'";
 		$connexio = connect();
@@ -101,7 +101,7 @@ require("../inc/functions.php");
 
 			echo $dataUser;
 	}
-	elseif (isset($_GET['acc']) && $_GET['acc'] == 'listUsers') {
+	else if (isset($_GET['acc']) && $_GET['acc'] == 'listUsers') {
 		$mySql = "SELECT idUser, name
 				FROM users";
 		$connexio = connect();
@@ -123,7 +123,7 @@ require("../inc/functions.php");
 
 			echo $dataUser;
 	}
-	elseif (isset($_GET['acc']) && $_GET['acc'] == 'updateUser') {
+	else if (isset($_GET['acc']) && $_GET['acc'] == 'updateUser') {
 		$message='';
 		if(!isset($_GET['currentPswd']))
 		{
@@ -143,8 +143,8 @@ require("../inc/functions.php");
 			$connexio = connect();
 			$resultUser = mysqli_query($connexio, $mySql);
 			disconnect($connexio);
-			$pswd = mysqli_fetch_row($resultUser[0])
-			if(sha1(md5($_GET['currentPswd'])) == $pswd)
+			while ($row = mysqli_fetch_row($resultUser))
+			if(sha1(md5($_GET['currentPswd'])) == $row[0])
 			{
 				$mySql = "UPDATE users
 					SET email='".$_GET['email']."', emailPass='".$_GET['pswdMail']."', name='".$_GET['name']."', password='".sha1(md5($_GET['pswd']))."', address='".$_GET['address']."', telephone='".$_GET['telephone']."', history='".$_GET['history']."', active='".$_GET['active']."' 
@@ -159,9 +159,9 @@ require("../inc/functions.php");
 				$message = "Error al actualitzar";
 			}
 		}
-		echo '[{"status":"'.$message.'"}]'
+		echo '[{"status":"'.$message.'"}]';
 	}
-	elseif (isset($_GET['acc']) && $_GET['acc'] == 'updatePass') {
+	/*elseif (isset($_GET['acc']) && $_GET['acc'] == 'updatePass') {
 		
 		$mySql = "SELECT password 
 				FROM users 
@@ -172,7 +172,7 @@ require("../inc/functions.php");
 
 		$dataUser = "[";
 			$i = 0;
-			/*while($row = mysqli_fetch_array($resultUser))
+			while($row = mysqli_fetch_array($resultUser))
 			{
 				if($i != 0)
 				{
@@ -181,7 +181,7 @@ require("../inc/functions.php");
 				$dataUser .= '{"password":"'.$row['password'].'"}'; 
 				$i++;
 			}
-		$dataUser .= "]";*/
+		$dataUser .= "]";
 
 		if (sha1(md5($_GET['oldPassword'])) == $row['password'])
 		{
@@ -197,5 +197,5 @@ require("../inc/functions.php");
 			$message = "La contrasenya actual que has escrit no és la correcte";
 		}
 		echo sha1(md5($_GET['oldPassword']));
-	}
+	}*/
 ?>	

@@ -120,10 +120,18 @@ angular.module('spaApp')
   				}
   				else
   				{
-
+  					/*$http({
+							method : "GET",
+							url : "models/users.php?acc=createUser&name="+$scope.name+"&email="+$scope.email+"&pswdMail="+$scope.pswdMail+"&address="+$scope.address+"&telephone="+$scope.telephone+"&idUser="+$scope.idUser+"&active="+$scope.active+"&history="+$scope.history+"&pswd="+$scope.pswd+"&currentPswd="+$scope.currentPswd
+						}).then(function mySucces (response) {
+							$scope.userUpdate = response.data;
+						}, function myError (response) {
+							$scope.userUpdate = response.statusText;
+						});*/
   				}
   				
 			};
+			//
 			/*$scope.updatePass = function(){
   				$scope.idUser = newPassword['usrId'].value;
   				$scope.newPassword = newPassword['newPass'].value;
