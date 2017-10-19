@@ -161,6 +161,11 @@ require("../inc/functions.php");
 		}
 		echo '[{"status":"'.$message.'"}]';
 	}
+	else if (isset($_GET['acc']) && $_GET['acc'] == 'createUser') {
+		$message='';
+		
+		echo '[{"status":"'.$message.'"}]';
+	}
 	/*elseif (isset($_GET['acc']) && $_GET['acc'] == 'updatePass') {
 		
 		$mySql = "SELECT password 
