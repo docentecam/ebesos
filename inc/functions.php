@@ -1,7 +1,9 @@
 <?php
+require "phpmailer/phpmailer.class.php";
 	function connect()
 	{
-		$connexio=@mysqli_connect("localhost","root","","ddb99266");
+		// $connexio=@mysqli_connect("localhost","root","","ddb99266");
+		$connexio=@mysqli_connect("mysql.hostinger.es","u287405309_ebeso","email12345","u287405309_ebeso");
 		if (!$connexio)
 		{	die("Error al conectar");	}
 		mysqli_set_charset($connexio, "utf8");
@@ -12,22 +14,25 @@
 	function close()
 	{	session_destroy();}
 
-	function sendMails($mailClient = "", $subject = "", $fromName = "", $mailAssociation = "", $pswd = "", $body = ""){
+function sendMails($mailClient = "", $subject = "", $fromName = "", $mailAssociation = "", $pswd = "", $body = ""){
+		
 
-		$mySql = "SELECT literal, value FROM settings WHERE literal = 'smtpServer' OR literal = 'smtpPort'";
+
+		$mySqlServer = "SELECT value FROM settings WHERE literal = 'smtpServer'";
+		$mySqlPort = "SELECT value FROM settings WHERE literal = 'smtpPort'";
 		$connexio = connect();
- 		$resultPort = mysqli_query($connexio, $mySql);
+ 		$resultServer = mysqli_query($connexio, $mySqlServer);
+ 		$resultPort = mysqli_query($connexio, $mySqlPort);
 		disconnect($connexio);
-			while ($row=mySqli_fetch_array($resultPort))
-			{
-				$smtpServer = $row["value"];
-				$smtpPort = $row["value"];
-			}	
-		require "phpmailer/phpmailer.class.php";
+		$fila = mysqli_fetch_row($resultServer);
+		$smtpServer=$fila[0];
+		$fila = mysqli_fetch_row($resultPort);
+		$smtpPort=$fila[0];
+
 		$mail = new PHPMailer();
 		$mail->IsSMTP();
 		$mail->SMTPAuth = true;
-		$mail->SMTPSecure ="ssl";
+		$mail->SMTPSecure ="tls";
 		$mail->Host = $smtpServer;//$smtpServer;
 		$mail->Port = $smtpPort;//$smtpPort;
 		$mail->Username = $mailAssociation;
@@ -43,16 +48,16 @@
 		$mail->Body = $body;
 		$mail->AltBody = $body;
 		$exito = $mail->Send();
-		$mail->ClearAddresses();
-		$mail->AddAddress($mailAssociation);
-		$exito = $mail->Send();
 		if(!$exito)
 		{
-			return $mail->ErrorInfo;
+		// return $mail->ErrorInfo;
+		$message= 0;
 		}
 		else
 		{
-			echo 'email_enviado_ok ';
+		// echo 'email_enviado_ok ';
+		$message= 1;
 		}
+		return $message;
 	}
 ?>

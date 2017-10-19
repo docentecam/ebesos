@@ -25,7 +25,7 @@ $http({
 				$scope.onlyInfoSlider = response.statusText;
 		});
 	};
-	$scope.editImgSlide = function($idSlider){
+	$scope.editImgSlide = function($idSlider, ){
 		$scope.spanEditarImatges = true;
 		$scope.btnAfegir = true;
 		$scope.sliderSetting = true;
@@ -47,10 +47,13 @@ $http({
 		$scope.sliderAdding = false;
 		$scope.sliderEditing = false;
   		$scope.editDescription = editingForm['description'].value;
+  		$scope.editTitle = editingForm['title'].value;
+  		$scope.editSubTitle = editingForm['subTitle'].value;
+  		$scope.editLink = editingForm['linkSlider'].value;
   		$scope.editSlider = editingForm['hidEditSlider'].value;
 		$http({
 				method : "GET",
-				url : "models/slider.php?acc=updateSlider&description="+$scope.editDescription+"&idSlider="+$scope.editSlider
+				url : "models/slider.php?acc=updateSlider&description="+$scope.editDescription+"&idSlider="+$scope.editSlider+"&title="+$scope.editTitle+"&subTitle="+$scope.editSubTitle+"&linkSlider="+$scope.editLink
 			}).then(function mySucces (response) {
 				$scope.updateSlider = response.data;
 			}, function myError (response) {
