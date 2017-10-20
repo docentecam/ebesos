@@ -17,7 +17,7 @@
     padding-bottom: 12px;
   }
 /* ---------ToDo Login---------- */
-}
+
 #alertW
 {
   background-color: #ffb0b0;
@@ -143,7 +143,7 @@ select
 {
   margin-top: 3%;
   width: 200px;
-  background-image: url("../img/circledown.png");
+  background-image: url("../img/circledown.svg");
   background-repeat: no-repeat;
   background-position-y: 5px;
   background-position-x: 175px;
@@ -152,7 +152,7 @@ select
 #active
 {
   width: 174px;
-  background-image: url("../img/circledown.png");
+  background-image: url("../img/circledown.svg");
   background-repeat: no-repeat;
   background-position-y: 5px;
   background-position-x: 150px;

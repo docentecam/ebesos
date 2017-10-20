@@ -107,6 +107,40 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'delsc')
 	//echo $mySql;
 	echo '[{"shopCategories":'.listShopCategoriesSub($idShop).', "categoriesSub":'.listCategoriesSub($idShop).'}]';
 }
+else if(isset($_GET['acc']) && $_GET['acc'] == 'loginC'){
+		$message='';
+		$mySql = "SELECT idShop, privileges FROM shops 
+					WHERE email='".$_GET['email']."' AND passAplication='".sha1(md5($_GET['password']))."'";
+		$connexio = connect();
+		$resultLogin = mysqli_query($connexio, $mySql);
+		disconnect($connexio);
+		$checkLogin="0";
+		while ($row=mySqli_fetch_array($resultLogin))
+		{
+			
+			$checkLogin = $row['idShop'];
+			$getPrivileges = $row['privileges'];
+		}
+	 	
+
+	 	if($checkLogin == "0")
+	 	{
+	 		$message = "L'usuari o la contrasenya no són correctes";
+	 	}
+	 	else if($connexio == "Error al conectar")
+	 	{
+	 		$message = "Error al conectar";
+	 	}
+	 	else
+	 	{
+	 		$message = "Correct";
+	 		session_start();
+	 		$_SESSION['user']['idUser'] = $checkLogin;
+	 		$_SESSION['user']['privileges'] = $getPrivileges;
+	 	}
+
+	 	echo '[{"status":"'.$message.'"}]';
+	}
 function listCategoriesSub($idShop)
 {
 	
@@ -220,4 +254,5 @@ function listUsers()
 
 	return $datau;
 }
+
 ?>

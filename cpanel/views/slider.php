@@ -37,31 +37,31 @@
 				</div>
 				
 				<div class="row">
-						<div class="col-lg-12" id="sliderText">
-							<div class="row">
-								<span id="spanDescripcioSlider">Descripció:</span>
-							</div>
-							<div class="row">
-								<p>{{sliderImg.description}}</p>
-							</div>
-							<div class="row">
-								<span id="spanDescripcioSlider">Títol:</span>
-							</div>
-							<div class="row">
-								<p>io, voluptates, enim doloremque. Commodi aliquid aliquam labore voluptatibus voluptates sit, necessitatibus alias!</p>
-							</div>
-							<div class="row">
-								<span id="spanDescripcioSlider">Subtítol:</span>
-							</div>
-							<div class="row">
-								<p>io, voluptates, enim doloremque. Commodi aliquid aliquam labore voluptatibus voluptates sit, necessitatibus alias!</p>
-							</div>
+					<div class="col-lg-12" id="sliderText">
+						<div class="row">
+							<span id="spanDescripcioSlider">Descripció:</span>
 						</div>
-						<div class="col-lg-12">
-							<input type="hidden" ng-value="sliderImg.idSlider">
-							<button id="btnEditarSlider" class="col-lg-5 btn btn-default" ng-click="editImgSlide(sliderImg.idSlider)">Editar <i class="fa fa-pencil" aria-hidden="true"></i></button>
-							<button id="btnDeleteSlider" class="col-lg-5 col-lg-offset-1 btn btn-default">Eliminar <i class="fa fa-eraser" aria-hidden="true"></i></button>
+						<div class="row">
+							<p>{{sliderImg.description}}</p>
 						</div>
+						<div class="row">
+							<span id="spanDescripcioSlider">Títol:</span>
+						</div>
+						<div class="row">
+							<p>{{sliderImg.title}}</p>
+						</div>
+						<div class="row">
+							<span id="spanDescripcioSlider">Subtítol:</span>
+						</div>
+						<div class="row">
+							<p>{{sliderImg.subtitle}}</p>
+						</div>
+					</div>
+					<div class="col-lg-12">
+						<input type="hidden" ng-value="sliderImg.idSlider">
+						<button id="btnEditarSlider" class="col-lg-5 btn btn-default" ng-click="editImgSlide(sliderImg.idSlider, sliderImg.description, sliderImg.title, sliderImg.subtitle)">Editar <i class="fa fa-pencil" aria-hidden="true"></i></button>
+						<button id="btnDeleteSlider" class="col-lg-5 col-lg-offset-1 btn btn-default">Eliminar <i class="fa fa-eraser" aria-hidden="true"></i></button>
+					</div>
 				</div>
 				</form>
 				
@@ -70,25 +70,33 @@
 				<!-- Al pulsar añadir -->
 
 			<div ng-show="sliderAdding">
-				<div class="row">
-					<label class="col-lg-2 col-lg-offset-3">Descripció: </label>
-					<textarea class=" col-lg-4" name="" id="" cols="30" rows="6" placeholder="Escriu aquí la descripció de la imatge a mostrar dins del Slider..." style="margin-bottom: 3.5%"></textarea>
-				</div>
-				<div class="row">
-					<label class="col-lg-2 col-lg-offset-3">Títol: </label>
-					<textarea class=" col-lg-4" name="" id="" cols="30" rows="6" placeholder="Escriu aquí el títol de la imatge a mostrar dins del Slider..." style="margin-bottom: 3.5%"></textarea>
-				</div>
-				<div class="row">
-					<label class="col-lg-2 col-lg-offset-3">Subtítol: </label>
-					<textarea class=" col-lg-4" name="" id="" cols="30" rows="6" placeholder="Escriu aquí el subtítol de la imatge a mostrar dins del Slider..." style="margin-bottom: 3.5%"></textarea>
-				</div>
-				<div class="row">
-					<label class="col-lg-2 col-lg-offset-3">Imatge: </label>
-					<input type="file" style="margin-bottom: 3.5%">
-				</div>
-				<div class="row">
-					<input class="col-lg-offset-5" type="button" value="Actualitzar" ng-click=backSettingSlide() style="margin-bottom: 3.5%">
-				</div>
+				<form>
+					
+				</form>
+					<input type="hidden" id="hidSlider" ng-value="infoSlider.idSlider">
+					<div class="row">
+						<label class="col-lg-2 col-lg-offset-3">Descripció: </label>
+						<textarea class=" col-lg-4" name="" id="" cols="30" rows="6" placeholder="Escriu aquí la descripció de la imatge a mostrar dins del Slider..." style="margin-bottom: 3.5%"></textarea>
+					</div>
+					<div class="row">
+						<label class="col-lg-2 col-lg-offset-3">Títol: </label>
+						<textarea class=" col-lg-4" name="" id="" cols="30" rows="6" placeholder="Escriu aquí el títol de la imatge a mostrar dins del Slider..." style="margin-bottom: 3.5%"></textarea>
+					</div>
+					<div class="row">
+						<label class="col-lg-2 col-lg-offset-3">Subtítol: </label>
+						<textarea class=" col-lg-4" name="" id="" cols="30" rows="6" placeholder="Escriu aquí el subtítol de la imatge a mostrar dins del Slider..." style="margin-bottom: 3.5%"></textarea>
+					</div>
+					<div class="row">
+						<label class="col-lg-2 col-lg-offset-3">Enllaç: </label>
+						<input type="text class=" col-lg-4" name="" id="link" size="40" placeholder="Escriu aquí l'enllaç de la imatge a relacionar" style="margin-bottom: 3.5%">
+					</div>
+					<div class="row">
+						<label class="col-lg-2 col-lg-offset-3">Imatge: </label>
+						<input type="file" style="margin-bottom: 3.5%">
+					</div>
+					<div class="row">
+						<input class="col-lg-offset-5" type="button" value="Actualitzar" ng-click=backSettingSlide() style="margin-bottom: 3.5%">
+					</div>
 			</div>
 
 				<!-- Al pulsar editar -->
@@ -97,16 +105,20 @@
 				<form id="editingForm">
 					<input type="hidden" id="hidEditSlider" ng-value="infoSlider.idSlider">
 					<div class="row">
-					<label class="col-lg-2 col-lg-offset-3">Descripció: </label>
-					<textarea class=" col-lg-4" name="" id="description" cols="30" rows="6" style="margin-bottom: 3.5%">{{infoSlider.description}}</textarea>
+						<label class="col-lg-2 col-lg-offset-3">Descripció: </label>
+						<textarea class=" col-lg-4" name="" id="description" cols="30" rows="6" style="margin-bottom: 3.5%">{{infoSlider.description}}</textarea>
 					</div>
 					<div class="row">
 						<label class="col-lg-2 col-lg-offset-3">Títol: </label>
-						<textarea class=" col-lg-4" name="" id="title" cols="30" rows="6" style="margin-bottom: 3.5%"></textarea>
+						<textarea class=" col-lg-4" name="" id="title" cols="30" rows="6" style="margin-bottom: 3.5%">{{infoSlider.title}}</textarea>
 					</div>
 					<div class="row">
 						<label class="col-lg-2 col-lg-offset-3">Subtítol: </label>
-						<textarea class=" col-lg-4" name="" id="subTitle" cols="30" rows="6" style="margin-bottom: 3.5%"></textarea>
+						<textarea class=" col-lg-4" name="" id="subTitle" cols="30" rows="6" style="margin-bottom: 3.5%">{{infoSlider.subTitle}}</textarea>
+					</div>
+					<div class="row">
+						<label class="col-lg-2 col-lg-offset-3">Enllaç: </label>
+						<input type="text class=" col-lg-4" name="" id="linkSlider" size="40" style="margin-bottom: 3.5%" ng-value="infoSlider.link">
 					</div>
 					<div class="row">
 						<input class="col-lg-offset-5" type="button" value="Actualitzar" ng-click=backSettingSlide() style="margin-bottom: 3.5%">
@@ -117,7 +129,5 @@
 	</div>
 </div>
 
-<!-- sliderSetting
-sliderAdding -->
 
 

@@ -91,7 +91,8 @@ angular.module('spaApp')
 		$scope.validationNewForm = function(){
 			var correcto=true;
 
-			for(i=0;i<validationNewForm.length;i++){
+			for(i=0;i<validationNewForm.length;i++)
+			{
 
 				if(validationNewForm[i].type=="text" && validationNewForm[i].name=="titleNewNew" && validationNewForm[i].value=="")
 						{
@@ -111,6 +112,21 @@ angular.module('spaApp')
 							alert("No hi ha Data de creació");
 							correcto=false;	 
 						}
+				// if (validationNewForm[i].type=="file" && validationNewForm[i].name=="imgPreferred" &&  validationNewForm[i].value=="")
+				// 		{
+				// 			echo "Esta basio";
+				// 			correcto=false;
+				// 		}  
+				// if (validationNewForm[i].type=="file" && validationNewForm[i].name=="ImgNoPreferred" &&  validationNewForm[i].value=="")
+				// 		{
+				// 			echo "Esta basio";
+				// 			correcto=false;
+				// 		} 
+				// if (validationNewForm[i].type=="file" && validationNewForm[i].name=="video" &&  validationNewForm[i].value=="")
+				// 		{
+				// 			echo "Esta basio";
+				// 			correcto=false;
+				// 		}   
 			}
 
 			if (correcto){ 
@@ -138,6 +154,7 @@ angular.module('spaApp')
 				$scope.newSelect = response.statusText;				
 			});
 		}
+
 		$scope.uploadFile=function(){
 			console.log("carga");
 			var name= $scope.name;

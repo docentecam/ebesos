@@ -6,7 +6,7 @@ require("../inc/functions.php");
 
 if (isset($_GET["acc"])&& ($_GET["acc"] == "imgSlider"))
 	{
-		$mySql = "SELECT idSlider, image, link, description FROM slider";
+		$mySql = "SELECT idSlider, image, title, subtitle, link, description FROM slider";
 		$connexio = connect();
 		$resultImgSlider = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
@@ -18,7 +18,7 @@ if (isset($_GET["acc"])&& ($_GET["acc"] == "imgSlider"))
 			{
 				$dataImgSlider .= ",";				
 			}			
-			$dataImgSlider .= '{"idSlider":"'.$row['idSlider'].'","link":"'.$row['link'].'","description":"'.$row['description'].'","image":"'.$row['image'].'"}';
+			$dataImgSlider .= '{"idSlider":"'.$row['idSlider'].'","title":"'.$row['title'].'","subtitle":"'.$row['subtitle'].'","linkSlider":"'.$row['link'].'","description":"'.$row['description'].'","image":"'.$row['image'].'"}';
 			$i++;
 		}
 		$dataImgSlider .="]";
@@ -30,7 +30,7 @@ if (isset($_GET["acc"])&& ($_GET["acc"] == "imgSlider"))
 
 
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'showOnlySlider') {
-		$mySql = "SELECT idSlider, description FROM slider WHERE idSlider =".$_GET['idSlider'];
+		$mySql = "SELECT idSlider, description, title, subtitle, link FROM slider WHERE idSlider =".$_GET['idSlider'];
 		$connexio = connect();
 		$onlyResultSlider = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
@@ -42,7 +42,7 @@ if (isset($_GET["acc"])&& ($_GET["acc"] == "imgSlider"))
 				{
 					$dataSlider .= ",";
 				}
-				$dataSlider .= '{"idSlider":"'.$row['idSlider'].'", "description":"'.$row['description'].'"}'; 
+				$dataSlider .= '{"idSlider":"'.$row['idSlider'].'", "link":"'.$row['link'].'", "description":"'.$row['description'].'", "title":"'.$row['title'].'", "subTitle":"'.$row['subtitle'].'"}'; 
 				$i++;
 			}
 			$dataSlider .= "]";
@@ -52,7 +52,7 @@ if (isset($_GET["acc"])&& ($_GET["acc"] == "imgSlider"))
 
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'updateSlider') {
 		$mySql = "UPDATE slider
-				SET description='".$_GET['description']."'  
+				SET title='".$_GET['title']."', subtitle='".$_GET['subTitle']."', link='".$_GET['linkSlider']."', description='".$_GET['description']."' 
 				WHERE idSlider=".$_GET['idSlider'];
 		$connexio = connect();
 		$updateSliderData = mysqli_query($connexio, $mySql);
