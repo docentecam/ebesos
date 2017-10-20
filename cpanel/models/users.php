@@ -163,9 +163,19 @@ require("../inc/functions.php");
 	}
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'createUser') {
 		$message='';
+
+		$mySql = "INSERT INTO users (email, emailPass, name, password, address, telephone, logo, history, forgotToken, footer)
+				VALUES ('".$_GET['email']."','".$_GET['pswdMail']."','".$_GET['name']."','".sha1(md5($_GET['pswd']))."','".$_GET['address']."','".$_GET['telephone']."','','".$_GET['history']."','','')";
+
+		$connexio = connect();
+		$resultUser = mysqli_query($connexio, $mySql);
+		disconnect($connexio);
 		
+		$message = "S'ha creat l'usuari";
 		echo '[{"status":"'.$message.'"}]';
 	}
+
+
 	/*elseif (isset($_GET['acc']) && $_GET['acc'] == 'updatePass') {
 		
 		$mySql = "SELECT password 

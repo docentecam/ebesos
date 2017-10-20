@@ -56,8 +56,8 @@
 						<div class="col-lg-6 padd" ng-show="cUser">
 							<input type="password" id="currentPswd" name="cpswd">
 						</div>
-						<div class="col-lg-6 padd">Actiu:</div>
-						<div class="col-lg-6 padd">
+						<div class="col-lg-6 padd" ng-show="cUser">Actiu:</div>
+						<div class="col-lg-6 padd" ng-show="cUser">
 							<select id="active">
 								<option value="Y" ng-selected="activeC=='Y'">Si</option>
 								<option value="N" ng-selected="activeC=='N'">No</option>
@@ -79,42 +79,8 @@
 			</div>
 		</form>
 	</div>
-<!-- 	<div class="row padd-t">
-	<div class="col-lg-12" ng-show="btnChangePswd">
-		<input type="button" class="btn btn-default" value="Cambiar password" ng-click="showChangePass()">
-	</div>
-	<div class="col-lg-12" ng-show="changePass">
-		<form id="newPassword">
-			<div class="row">
-				<div class="col-lg-12"><input type="text" id="usrId" ng-value="idUser" disabled hidden></div>
-			</div>
-			<div class="row padd-p">
-				<div class="col-lg-3">Contrasenya actual:</div>
-				<div class="col-lg-6">
-					<input type="password" name="actualPass" id="actualPass">
-				</div>
-			</div>
-			<div class="row padd-p">
-				<div class="col-lg-3">Nova contrasenya:</div>
-				<div class="col-lg-6">
-					<input type="password" name="newPass" id="newPass">
-				</div>
-			</div>
-			<div class="row padd-p">
-				<div class="col-lg-3">Confirmar contrasenya:</div>
-				<div class="col-lg-6">
-					<input type="password" name="confirmPass" id="confirmPass">
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-6">
-					<input type="button" class="btn btn-default" value="Enviar" ng-click="updatePass()">
-				</div>
-			</div>
-		</form>
-	</div>
-</div> -->
-	<div class="row padd-t">
+
+	<div class="row padd-t" ng-show="cUser">
 		<div class="col-lg-4 col-lg-offset-1">
 			<div class="row">
 				<div class="col-lg-6">Logo Associació</div>
@@ -134,7 +100,7 @@
 	</div>
 	
 
-	<div class="row padd-t">
+	<div class="row padd-t" ng-show="cUser">
 		<div class="col-lg-4 col-lg-offset-1">
 			<div class="row">
 				<div class="col-lg-6">Logo Footer</div>

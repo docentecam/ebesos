@@ -118,47 +118,25 @@ angular.module('spaApp')
   					}
   					
   				}
-  				else
+  				else if($scope.pswd == $scope.confirmPswd && $scope.confirmPswd != "" && $scope.pswd != "" && $scope.idUser == "")
   				{
   					$http({
 							method : "GET",
-							url : "models/users.php?acc=createUser&name="+$scope.name+"&email="+$scope.email+"&pswdMail="+$scope.pswdMail+"&address="+$scope.address+"&telephone="+$scope.telephone+"&idUser="+$scope.idUser+"&active="+$scope.active+"&history="+$scope.history+"&pswd="+$scope.pswd+"&currentPswd="+$scope.currentPswd
+							url : "models/users.php?acc=createUser&name="+$scope.name+"&email="+$scope.email+"&pswdMail="+$scope.pswdMail+"&address="+$scope.address+"&telephone="+$scope.telephone+"&history="+$scope.history+"&pswd="+$scope.pswd
 						}).then(function mySucces (response) {
-							$scope.userUpdate = response.data;
+							$scope.userCreate = response.data;
+							console.log($scope.userCreate);
 						}, function myError (response) {
-							$scope.userUpdate = response.statusText;
+							$scope.userUCreate = response.statusText;
 						});
-  				}
-  				
-			};
-			//
-			/*$scope.updatePass = function(){
-  				$scope.idUser = newPassword['usrId'].value;
-  				$scope.newPassword = newPassword['newPass'].value;
-  				$scope.oldPassword = newPassword['actualPass'].value;
-  				$scope.confirmPass = newPassword['confirmPass'].value;
-
-  				console.log($scope.newPassword+"-"+$scope.confirmPass);
-
-  				if ($scope.newPassword == $scope.confirmPass)
-  				{
-  					$http({
-						method : "GET",
-						url : "models/users.php?acc=updatePass&newPassword="+$scope.newPassword+"&idUser="+$scope.idUser+"&oldPassword="+$scope.oldPassword
-					}).then(function mySucces (response) {
-						$scope.userUpdate = response.data;
-						console.log($scope.userUpdate);
-					}, function myError (response) {
-						$scope.userUpdate = response.statusText;
-					});
-
   				}
   				else
   				{
-  					$scope.userUpdate = "La nova contrasenya i la seva confirmació no coincideixen";
-  					console.log($scope.userUpdate);
+  					$scope.error = "Error";
   				}
-  			};	*/
+  				
+			};
+			
   			$scope.showEdit = function(){
   				$scope.logoEdit = true;
   			};
