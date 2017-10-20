@@ -33,21 +33,18 @@ if(!isset($_SESSION['idUser'])) header("Location: index.html");
 	<body id="container" data-ng-app="spaApp"  ng-controller="AssoTopImageCtrl">
 		
 		<div class="row">
-			<div class="col-xs-2" style="padding: 0px; background-color: #B9B9F2;">
+			<div class="col-xs-2" style="padding: 0px;">				
+				<div style="padding: 0px; background-color: #6E79BF;" class="col-xs-5" ng-repeat="assoTopImage in assoTopImages">
+					<a href="#"><img style="padding: 0px;" class="col-xs-12 img-responsive" src="img/logos-assoc/{{assoTopImage.logo}}"></a>
+				</div>
 				<div class="col-xs-7 col-lg-7">
 					<h4>Eix</h4>
-				</div>
-				<div style="padding: 0px; background-color: #FD00F4;" class="col-xs-5" ng-repeat="assoTopImage in assoTopImages">
-					<a href="#"><img style="padding: 0px;" class="col-xs-12 img-responsive" src="img/logos-assoc/{{assoTopImage.logo}}"></a>
 				</div>
 			</div>
 			</div>
 			
 			<div col-xs-1 col-xs-offset-6 id="imagen">
 				
-			</div>
-			<div col-xs-1 id="img-user">
-
 			</div>
 			<div col-xs-2 id="desplegable">
 				

@@ -208,6 +208,11 @@ select
 .mainNav{
   padding: 15%;
 }
+body{
+  margin-left:15px!important;
+  margin-right:15px!important;
+}
+  
 
 
 #editarSliderSpan{
