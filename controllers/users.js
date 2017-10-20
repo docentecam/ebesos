@@ -60,8 +60,8 @@ angular.module('spaApp')
 							else
 							{
 								$scope.emailText='Misatge enviat amb exit';
-							}	$scope.emailStatus=true;
-							
+								$scope.emailStatus=true;
+							}
 					}, function myError (response) {
 							$scope.email = response.statusText;
 				});

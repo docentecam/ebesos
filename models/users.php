@@ -17,7 +17,7 @@ require("../inc/functions.php");
 
  	else if (isset($_GET["acc"]) && $_GET["acc"] == "mail") {
 
- 		$mySql = "SELECT email, name, emailPass FROM users WHERE idUser=".$_GET["idUser"];
+ 		$mySql = "SELECT email, name, address, telephone FROM users WHERE idUser=".$_GET["idUser"];
  		$connexio = connect();
  		$resultContact = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
