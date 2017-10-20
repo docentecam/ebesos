@@ -50,6 +50,16 @@ angular.module('spaApp')
 				{
 					$scope.cUser = true;
 					$scope.eUser = false;
+					$scope.idUserC = "";
+					$scope.nameC = "";
+					$scope.emailC = "";
+					$scope.emailPassC = "";
+					$scope.addressC = "";
+					$scope.telephoneC = "";
+					$scope.logoC = "";
+					$scope.footerC = "";
+					$scope.historyC = "";
+					$scope.activeC = "";
 
 					$http({
 						method : "GET",
