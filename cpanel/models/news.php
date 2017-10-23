@@ -98,9 +98,6 @@ require("../inc/functions.php");
 		$modifyImgPref = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
 
-		return $modifyImgPref;
-
-
 	}		
 
 	if(isset($_GET['acc']) && $_GET['acc'] == 'changeImgPeferred'){

@@ -89,7 +89,7 @@
 						</div>
 
 						<div id="containerVideosOfNew">
-							<input type="button" value="Afegir foto" alt="" class="btn btn-default"" ng-click="">
+							<input type="button" value="Afegir video" alt="" class="btn btn-default"" ng-click="createVideo()">
 							<div ng-repeat="image in images | filter : {type:'V' , preferred:'N' }">
 								<label> Video de les noticia </label>
 								<iframe width="560" height="315"  frameborder="0" allowfullscreen ng-src="https://www.youtube.com/embed/image.url"></iframe>
@@ -167,43 +167,58 @@
 
 <div class="row">
 	<div  ng-show="newNews">
-		<form id="validationNewForm" name="validationNewForm" ng-submit="validationNew()" >	
+		<form id="validationNewForm" name="validationNewForm">	
 			<table  align="center">
+		      	
 		      	<tr>
 		          <td> Titol de la noticia: </td>
-		          <td><input name="titleNewNew" type="text"></td>
+		          <td><input type="text"  name="title" id="title"></td>
 		        </tr>
 
 		        <tr>
 		          <td> Data de creació: </td>
-		          <td><input name="dateNewNew" type="date"></td>
+		          <td><input name="date" type="date" id="date"> </td>
 		        </tr>
 
 		        <tr>
 		          <td> Contingut de la noticia: </td>
-		          <td><input name="titleSubNewNew" type="text"></td>
+		          <td><textarea name="titleSub" type="text" id="titleSub">
+		          	  </textarea>
+		          </td>
 		        </tr>
 
 		        <tr>
 		          <td>Foto de Portada: </td> 
-		          <td><input name="imgPreferred" type="file" uploader-model="file"></td>
+		          <td><input name="imgPreferred" type="file" id="imgPreferred"></td>
 		        </tr>
 
 		         <tr>
 		          <td>Foto/s de la noticia: </td>
-		          <td><input name="ImgNoPreferred" type="file"></td>
+		          <td><input name="ImgNoPreferred" type="file" id="imgNoPreferred"></td>
 		        </tr>
 
 		         <tr>
 		          <td> URL del/s Video/s de la noticia: </td>
-		          <td><input name="video" type="text"></td>
+		          <td><input name="video" type="text" id="video"></td>
 		        </tr>
 		    </table>
 
 		    <div>
-				<input type="button" value="Crear Noticia" alt="" class="btn btn-default" ng-click="createNew()">
+		    	<input type="submit" class="btn btn-success" ng-click="">
 			</div>
 		</form>
+	</div>	
+</div>
+
+<div class="row">
+	<div class="containerEditImg" ng-show="createVideo">
+		<div>
+			<label> Afegueix la teva Url: </label>
+			<input type="file" name="newVideo" id="newVideo">
+		</div>	
+		<div>
+			<input  type="button" value="Crear" alt="enviar dades del formulari" class="btn btn-default"" ng-click="">
+		</div>
 	</div>	
 </div>
 

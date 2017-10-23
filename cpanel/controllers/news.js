@@ -6,7 +6,8 @@ angular.module('spaApp')
 			$scope.listNew=true;
 			$scope.updateImgPreferred=false;
 			$scope.updateNew=false;
-			$scope.newNews=false;	
+			$scope.newNews=false;
+			$scope.createVideo=false;	
 			$http({
 
 				method : "GET",
@@ -19,7 +20,6 @@ angular.module('spaApp')
 				$scope.news = response.statusText;
 			});
 		
-
 		$scope.selNew = function(idNew)
 		{  
 			$http({
@@ -34,6 +34,7 @@ angular.module('spaApp')
 				$scope.listNew=false;
 				$scope.newNews=false;	
 				$scope.updateImgPreferred=false;
+				$scope.createVideo=false;
 				console.log($scope.newSelect);
 				
 			}, function myError (response) {
@@ -50,7 +51,8 @@ angular.module('spaApp')
 			$scope.listNew=false;
 			$scope.updateNew=true;	
 			$scope.updateImgNew=false;	
-			$scope.newNews=false;		
+			$scope.newNews=false;
+			$scope.createVideo=false;		
 		}
 
 		$scope.changeImgP = function()
@@ -62,6 +64,7 @@ angular.module('spaApp')
 			$scope.updateNew=false;
 			$scope.updateImgNew=false;	
 			$scope.newNews=false;
+			$scope.createVideo=false;
 		}
 
 
@@ -74,6 +77,7 @@ angular.module('spaApp')
 			$scope.updateNew=false;
 			$scope.updateImgNew=true;
 			$scope.newNews=false;	
+			$scope.createVideo=false;
 		}
 		
 
@@ -85,61 +89,26 @@ angular.module('spaApp')
 			$scope.listNew=false;
 			$scope.updateNew=false;
 			$scope.updateImgNew=false;	
-			$scope.newNews=true;	
+			$scope.newNews=true;
+			$scope.createVideo=false;		
 		}
 
-		$scope.validationNewForm = function(){
-			var correcto=true;
+		$scope.createVideo = function()
+		{ 
 
-			for(i=0;i<validationNewForm.length;i++)
-			{
-
-				if(validationNewForm[i].type=="text" && validationNewForm[i].name=="titleNewNew" && validationNewForm[i].value=="")
-						{
-							
-							alert("No hi ha Titol");
-							correcto=false;	 
-						}
-				if(validationNewForm[i].type=="text" && validationNewForm[i].name=="titleSubNewNew" && validationNewForm[i].value=="")
-						{
-							
-							alert("No hi ha Contingut");
-							correcto=false;	 
-						}
-				if(validationNewForm[i].type=="date" && validationNewForm[i].name=="dateNewNew" && validationNewForm[i].value=="")
-						{
-							
-							alert("No hi ha Data de creació");
-							correcto=false;	 
-						}
-				// if (validationNewForm[i].type=="file" && validationNewForm[i].name=="imgPreferred" &&  validationNewForm[i].value=="")
-				// 		{
-				// 			echo "Esta basio";
-				// 			correcto=false;
-				// 		}  
-				// if (validationNewForm[i].type=="file" && validationNewForm[i].name=="ImgNoPreferred" &&  validationNewForm[i].value=="")
-				// 		{
-				// 			echo "Esta basio";
-				// 			correcto=false;
-				// 		} 
-				// if (validationNewForm[i].type=="file" && validationNewForm[i].name=="video" &&  validationNewForm[i].value=="")
-				// 		{
-				// 			echo "Esta basio";
-				// 			correcto=false;
-				// 		}   
-			}
-
-			if (correcto){ 
-				$("#validationNewForm").submit();
-			}
-			
-			else{ 
-				alert("No has omplit totes les dades del formulari");		
-			}
-
+			$scope.newNews=false;
+			$scope.createNew=false;
+			$scope.updateImgPreferred=false;
+			$scope.showDiv=false;
+			$scope.listNew=false;
+			$scope.updateNew=false;
+			$scope.updateImgNew=false;
+			$scope.createVideo=true;	
 		}
 
 
+
+		
 
 
 		$scope.changeImgPeferred = function(idNew)
