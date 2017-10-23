@@ -52,13 +52,12 @@ angular.module('spaApp')
 							$scope.muestraStatusEmail=true;
 							console.log("models/users.php?acc=mail&idUser="+ $scope.idUser+ "&client="+ myForm['client'].value+
 						"&email="+ myForm['email'].value+ "&message="+ myForm['message'].value);
-							if($scope.email[0].envioStatus=='0')
+							console.log("llega: "+$scope.email[0].envioStatus);
+							$scope.emailText='Ha hagut un error';
+							$scope.emailStatus=false;
+							if ($scope.email[0].envioStatus=='1')
 							{
-								$scope.emailText='Ha hagut un error';
-								$scope.emailStatus=false;
-							}
-							else
-							{
+								$scope.escondeForm=true;
 								$scope.emailText='Misatge enviat amb exit';
 								$scope.emailStatus=true;
 							}
@@ -178,23 +177,21 @@ angular.module('spaApp')
 			else if (error == "") {
 				$http({
 						method : "GET",
-						url : "models/users.php?acc=mail&idUser="+ $scope.idUser+ "&client="+ myForm['client'].value+
+						url : "models/users.php?acc=mail&idUser="+ $scope.idUser + "&client="+ myForm['client'].value+
 						"&email="+ myForm['email'].value+ "&message="+ myForm['message'].value
 					}).then(function mySucces (response) {
 							$scope.email = response.data;
 							$scope.muestraStatusEmail=true;
 							console.log("models/users.php?acc=mail&idUser="+ $scope.idUser+ "&client="+ myForm['client'].value+
 						"&email="+ myForm['email'].value+ "&message="+ myForm['message'].value);
-							if($scope.email[0].envioStatus=='0')
+							console.log("llega: "+$scope.email[0].envioStatus);
+							$scope.emailText='Ha hagut un error';
+							$scope.emailStatus=false;
+							if ($scope.email[0].envioStatus=='1')
 							{
-								$scope.emailText='Ha hagut un error';
-								$scope.emailStatus=false;
+								$scope.emailText='Misatge enviat amb exit';
+								$scope.emailStatus=true;
 							}
-							else
-							{
-								$scope.emailText='Misatge enviat amb éxit';
-							}	$scope.emailStatus=true;
-							
 					}, function myError (response) {
 							$scope.email = response.statusText;
 				});

@@ -356,6 +356,12 @@ padding: 0;
 #dataNew{
 	margin-bottom: 2%;
 }
+#divSuccess{
+	height: 50px;
+    margin-top: 3%;
+    text-align: center;
+}
+    
 /*--------------------------------------------------------Dídac--------------------------------------------------------------------*/
 .assoNews{
 	width: 80%;
