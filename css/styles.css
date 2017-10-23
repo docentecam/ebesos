@@ -451,6 +451,14 @@ padding: 0;
 #vidsInNew{
 	margin-bottom: 2%;
 }
+.upperTitle
+{
+	text-transform: uppercase;
+	text-align: center;
+	position: absolute;
+	margin-top: 1%;
+}
+
 
 /*--------------------------------------------------------Aida--------------------------------------------------------------------*/
 
@@ -548,10 +556,19 @@ padding: 0;
 
 	}
 }
+.titleSubE
+{
+	position: absolute;
+	margin-top: 7%;
+}
 /* Medium devices (tablets, less than 992px) */
 @media (max-width: 1023px)
 {
-	
+	.titleSubE
+	{
+		position: relative;
+		margin-top: 0%;
+	}
 }
 /* Small devices (landscape phones, less than 768px) */
 @media (max-width: 767px)
