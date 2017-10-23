@@ -79,6 +79,9 @@ require("../inc/functions.php");
 
 	 	echo $message;
 	}
+	else if (isset($_GET['acc']) && $_GET['acc'] == 'lg') {
+		echo whoId();
+	}
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'loadUser') {
 		$mySql = "SELECT idUser, name, email, emailPass, password, address, telephone, logo, history, active, footer FROM users 
 					WHERE idUser='".$_GET['idUser']."'";

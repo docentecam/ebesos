@@ -11,6 +11,11 @@
 	{ mysqli_close($connexio);}
 	function close()
 	{	session_destroy();}
+	function whoId()
+	{
+		session_start();
+		return '[{"sessionIdUser":"'.$_SESSION['user']['idUser'].'"}]';
+	}
 
 
 ?>

@@ -6,6 +6,16 @@ angular.module('spaApp')
 
 			$http({
 				method : "GET",
+				url : "models/users.php?acc=lg"
+			}).then(function mySucces (response) {
+				$scope.lg = response.data;
+				$scope.lgId = $scope.lg[0]['sessionIdUser'];
+			}, function myError (response) {
+				$scope.lg = response.statusText;
+			});
+
+			$http({
+				method : "GET",
 				url : "models/users.php?acc=loadUser&idUser=1" //modificar
 			}).then(function mySucces (response) {
 				$scope.associations = response.data;
@@ -34,9 +44,10 @@ angular.module('spaApp')
 		
 			$scope.changeDataUser = function(idUser=""){
 				$scope.formDataUser = false;
+				//$scope.nameClear = null;
 				$scope.idUserC = "";
 				$scope.nameC = "";
-				$scope.emailC = "";
+				$scope.emailC = null;
 				$scope.emailPassC = "";
 				$scope.addressC = "";
 				$scope.telephoneC = "";
