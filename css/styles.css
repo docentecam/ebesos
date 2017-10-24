@@ -361,7 +361,13 @@ padding: 0;
     margin-top: 3%;
     text-align: center;
 }
-    
+   
+#iniciAsso{
+	color: black;
+	font-weight: 600;
+	text-decoration: underline;
+}
+
 /*--------------------------------------------------------Dídac--------------------------------------------------------------------*/
 .assoNews{
 	width: 80%;
@@ -521,11 +527,11 @@ padding: 0;
 	font-weight: 700;
 }
 
-.#breadJS
+.breadJS
 {
 	color: black;
     font-weight: 600;
-    text-decoration: underline;"  
+    text-decoration: underline;  
 }
 
 #all
