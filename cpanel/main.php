@@ -32,7 +32,7 @@ if(!isset($_SESSION['idUser'])) header("Location: index.html");
 	</head>
 	<body id="container" data-ng-app="spaApp"  ng-controller="AssoTopImageCtrl">
 		<div class="row">
-			<div class="col-xs-6 col-md-2 col-lg-2" style="padding: 0px;">				
+			<div class="col-xs-6 col-md-2 col-lg-2 " style="padding: 0px;">				
 				<div style="padding: 0px; background-color: #6E79BF;" class="col-xs-5 col-lg-5" ng-repeat="assoTopImage in assoTopImages">
 					<a href="#"><img style="padding: 0px;" class="img-responsive" src="img/logos-assoc/{{assoTopImage.logo}}"></a>
 				</div>
@@ -44,8 +44,8 @@ if(!isset($_SESSION['idUser'])) header("Location: index.html");
 				<div class="row">
 					<div class="col-xs-2 col-lg-4 col-lg-push-7" style="margin-top:5%;" id="imagen">
 						
-							<i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>
-							<i class="fa fa-caret-down fa-1x" style="margin-left: 10px; " aria-hidden="true" ng></i>
+							<i class="fa fa-user-circle-o fa-2x colorLoginHidden" aria-hidden="true"  style=": #52A4B3" title="Inicia Sessió"></i>
+							<i class="fa fa-caret-down fa-1x" style="margin-left: 10px;" aria-hidden="true" ng></i>
 						
 					</div>	
 				</div>
@@ -91,16 +91,9 @@ if(!isset($_SESSION['idUser'])) header("Location: index.html");
   					</div>
 				</div>  					
 			</div>
-			<div class="col-xs-9" data-ng-view="">
+			<div class="col-xs-9 editNgView" data-ng-view="">
 			
 			</div>
 		</div>
-		<div class="container-fluid row">  
-			<div class="col-xs-12" data-ng-view="" >
-				<div ng-show="loading">
-					<i class="fa fa-spinner" aria-hidden="true"></i>
-				</div>  				
-  			</div>
-  		</div>	
 	</body>	
 </html>
