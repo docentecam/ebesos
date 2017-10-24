@@ -117,6 +117,56 @@
 			</div>
 		</div>
 	</div>
+			<div class="row" id="footerColor"> <!-- Mirar y tocar -->
+	  			<footer class="footer-bs" id="footer">
+				<div class="col-xs-12 col-lg-7" id="rowForm">
+					<div id="mc_embed_signup">
+						<form action="https://ac019.us16.list-manage.com/subscribe/post?u=8fda983e2930b92f49453f42d&amp;id=4cb43f0dc6" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+							<div id="mc_embed_signup_scroll">
+								<h2 class="linkNom">Subscriu-te al Newsletter</h2>
+								<div class="indicates-required">
+									<span class="asterisk">*</span><span class="linkNameForm">Camps obligatoris</span>
+								</div>
+								<div class="mc-field-group">
+									<label for="mce-EMAIL" class="linkNameForm">Adreça electrònica  <span class="asterisk">*</span>
+									</label>
+									<input size="3" type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Introdueixi el seu correu">
+								</div>
+								<div class="mc-field-group">
+									<label for="mce-FNAME" class="linkNameForm">Nom  
+										<span class="asterisk">*</span>
+									</label>
+										<input type="text" value="" name="FNAME" class="required" id="mce-FNAME" placeholder="Introdueixi el seu nom">
+								</div>
+								<div id="mce-responses" class="clear">
+    								<div class="response" id="mce-error-response" style="display:none">
+    								
+    							</div>
+    								<div class="response" id="mce-success-response" style="display:none">
+    							
+    							</div>
+   								</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    							<div style="position: absolute; left: -5000px;" aria-hidden="true">
+    								<input type="text" name="b_8fda983e2930b92f49453f42d_4cb43f0dc6" tabindex="-1" value="">
+    							</div>
+    							<div class="clear">
+    								<input type="submit" value="Subscriu-te" name="subscribe" id="mc-embedded-subscribe" class="button">
+    							</div>
+    						</div>
+						</form>
+					</div>
+				</div>
+				<div class="col-xs-12 col-lg-5">
+					<div class="row">
+						<div class="col-xs-8 col-lg-offset-4">
+							<div class="icoFooterEix" ng-repeat="ftr in footerL">
+								<img class="img-responsive col-lg-3 pull-left" src="../img/logos-assoc/{{ftr.footer}}">
+							</div>
+						</div>
+					</div>					
+				</div>
+    		</footer>
+    	</div>
 			<style>
 	#captchaDiv{
 		background-image: url("../img/captcha.jpg");
@@ -133,6 +183,15 @@
 				$scope.login = true;
 				$scope.forgot = false;
 				$scope.failForgot = false;
+
+				$http({
+						method : "GET",
+						url : "models/users.php?acc=footer"
+					}).then(function mySucces (response) {
+						$scope.footer=response.data;
+					}, function myError (response) {
+						$scope.footer = response.statusText;
+					});
 
   				$scope.checking = function(){
   					$scope.email = check['user'].value;

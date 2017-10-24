@@ -1,26 +1,22 @@
 <div class="row">
 	<div class="col-lg-5">
 		<div class="row breadComsA">
-			<div class="col-lg-12 col-lg-offset-1" ng-show="showDivCA"><a style="color: black;
-				font-weight: 600;
-				text-decoration: underline;" href="#">Inici</a>| <a class="breadJS" style="color: black;
-				font-weight: 600;
-				text-decoration: underline;"  href="" ng-click="showHistory()">{{name}}</a> | Comerços associats</div>
-			<div class="col-lg-12 col-lg-offset-1" ng-show="showDivH"><a style="color: black;
-				font-weight: 600;
-				text-decoration: underline;" href="#">Inici</a> | <a style="color: black;
-				font-weight: 600;
-				text-decoration: underline;" href="" ng-click="showHistory()">{{name}}</a> | Història </div>
-			<div class="col-lg-12 col-lg-offset-1" ng-show="showDivN"><a style="color: black;
-				font-weight: 600;
-				text-decoration: underline;" href="#">Inici</a> | <a style="color: black;
-				font-weight: 600;
-				text-decoration: underline;" href="" ng-click="showHistory()">{{name}}</a> | Notícies</div>
-			<div class="col-lg-12 col-lg-offset-1" ng-show="showDivC"><a style="color: black;
-				font-weight: 600;
-				text-decoration: underline;" href="#">Inici</a> | <a style="color: black;
-				font-weight: 600;
-				text-decoration: underline;" href="" ng-click="showHistory()">{{name}}</a> | Contacte</div>
+			<div class="col-lg-12 col-lg-offset-1" ng-show="showDivCA">
+				<a class="breadJS" href="#">Inici</a>|
+				<a class="breadJS" href="" ng-click="listShops()">{{name}}</a> | Comerços associats
+			</div>
+			<div class="col-lg-12 col-lg-offset-1" ng-show="showDivH">
+				<a class="breadJS" href="#">Inici</a> | 
+				<a class="breadJS" href="" ng-click="listShops()">{{name}}</a> | Història 
+			</div>
+			<div class="col-lg-12 col-lg-offset-1" ng-show="showDivN">
+				<a class="breadJS" href="#">Inici</a> | 
+				<a class="breadJS" href="" ng-click="listShops()">{{name}}</a> | Notícies
+			</div>
+			<div class="col-lg-12 col-lg-offset-1" ng-show="showDivC">
+				<a class="breadJS" href="#">Inici</a> | 
+				<a class="breadJS" href="" ng-click="listShops()">{{name}}</a> | Contacte
+			</div>
 		</div>
 	</div>
 </div>
@@ -75,7 +71,12 @@
 
 		<div ng-show="showDivN" class="col-xs-9 stylcont">
 			<div class="row">
-				<div ng-repeat="new in news" class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<div ng-repeat="new in news" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="row">
+						<div class="col-xs-12 upperTitle"><!--modificar-->
+							{{new.title}}
+						</div>
+					</div>
 					<div class="row topDate">
 						<div class="col-sm-6">
 							<div class="row">
@@ -87,9 +88,11 @@
 						<div  class="col-lg-6"><img id="photo" class="assoNews" src="img/newsmedia/{{new.url}}"></div>
 						<div id="title" class="col-lg-6">
 							<div class="row">
-								<div class="col-sm-12">{{new.title}}</div>
-								<div class="col-sm-12 text-justify">{{new.titleSub | limitTo: 110}}...</div>
-								<div class="col-sm-12"><a href="#/new/{{new.idNew}}">Mes info</a></div>
+								<!-- <div class="col-sm-12" id="loremUPPER">{{new.title}}</div>  -->
+								<div class="col-sm-12 text-justify titleSubE">
+									{{new.titleSub | limitTo: 600}}...
+									<a href="#/new/{{new.idNew}}">Mes info</a>
+								</div>
 							</div>
 						</div>
 					</div>

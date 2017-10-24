@@ -1,9 +1,10 @@
 <?php 
 require("../inc/functions.php");
+//if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 
 	if(isset($_GET['acc']) && $_GET['acc'] == 'login'){
 		$message='';
-		$mySql = "SELECT idUser, name, privileges FROM users 
+		$mySql = "SELECT idUser, name, privileges, logo FROM users 
 					WHERE email='".$_GET['email']."' AND password='".sha1(md5($_GET['password'])).
 					"' AND active='Y'";
 		$connexio = connect();
@@ -16,6 +17,7 @@ require("../inc/functions.php");
 			$checkLogin = $row['idUser'];
 			$getPrivileges = $row['privileges'];
 			$getName = $row['name'];
+			$getLogo = $row['logo'];
 		}
 	 	
 
@@ -34,9 +36,40 @@ require("../inc/functions.php");
 	 		$_SESSION['user']['idUser'] = $checkLogin;
 	 		$_SESSION['user']['privileges'] = $getPrivileges;
 	 		$_SESSION['user']['name'] = $getName;
+	 		$_SESSION['user']['logo'] = $getLogo;
 	 	}
 
 	 	echo '[{"status":"'.$message.'"}]';
+	}
+	else if(isset($_GET['acc']) && $_GET['acc'] == 'logout'){ 
+		// mirar
+	 		session_start();
+	 		unset($_SESSION['user']['idUser']);
+	 		unset($_SESSION['user']['privileges']);
+	 		unset($_SESSION['user']['name']);
+	 		unset($_SESSION['user']['logo']);
+	 		session_destroy();
+	 	
+
+	 	echo '[{"status":"'.$message.'"}]';
+	}
+	else if (isset($_GET['acc']) && $_GET['acc'] == 'footer'){
+		$mySql = "SELECT footer FROM users";
+		$connexio = connect();
+		$resultFooter = mysqli_query($connexio, $mySql);
+		disconnect($connexio);
+		$showFooter = "[";
+		while ($row=mySqli_fetch_array($resultFooter))
+		{
+			if($i != 0)
+				{
+					$showFooter .= ",";
+				}
+				$showFooter .= '{"footerL":"'.$row['footer'].'"}'; 
+				$i++;
+		}
+		$showFooter .= "]";
+	 	echo $showFooter;
 	}
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'forgot'){
 		$mySql = "SELECT idUser FROM users 
@@ -78,6 +111,9 @@ require("../inc/functions.php");
 	 	}
 
 	 	echo $message;
+	}
+	else if (isset($_GET['acc']) && $_GET['acc'] == 'lg') {
+		echo whoId();
 	}
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'loadUser') {
 		$mySql = "SELECT idUser, name, email, emailPass, password, address, telephone, logo, history, active, footer FROM users 
@@ -174,43 +210,4 @@ require("../inc/functions.php");
 		$message = "S'ha creat l'usuari";
 		echo '[{"status":"'.$message.'"}]';
 	}
-
-
-	/*elseif (isset($_GET['acc']) && $_GET['acc'] == 'updatePass') {
-		
-		$mySql = "SELECT password 
-				FROM users 
-				WHERE idUser='".$_GET['idUser']."'";
-		$connexio = connect();
-		$resultUser = mysqli_query($connexio, $mySql);
-		disconnect($connexio);
-
-		$dataUser = "[";
-			$i = 0;
-			while($row = mysqli_fetch_array($resultUser))
-			{
-				if($i != 0)
-				{
-					$dataUser .= ",";
-				}
-				$dataUser .= '{"password":"'.$row['password'].'"}'; 
-				$i++;
-			}
-		$dataUser .= "]";
-
-		if (sha1(md5($_GET['oldPassword'])) == $row['password'])
-		{
-			$mySql = "UPDATE users
-				SET password='".sha1(md5($_GET['newPassword']))."' 
-				WHERE idUser=".$_GET['idUser'];
-			$connexio = connect();
-			$updateUserData = mysqli_query($connexio, $mySql);
-			disconnect($connexio);
-		}
-		else
-		{
-			$message = "La contrasenya actual que has escrit no és la correcte";
-		}
-		echo sha1(md5($_GET['oldPassword']));
-	}*/
 ?>	

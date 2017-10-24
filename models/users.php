@@ -17,7 +17,7 @@ require("../inc/functions.php");
 
  	else if (isset($_GET["acc"]) && $_GET["acc"] == "mail") {
 
- 		$mySql = "SELECT email, name, address, telephone FROM users WHERE idUser=".$_GET["idUser"];
+ 		$mySql = "SELECT email, name, address, telephone, emailPass FROM users WHERE idUser=".$_GET["idUser"];
  		$connexio = connect();
  		$resultContact = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
@@ -30,10 +30,8 @@ require("../inc/functions.php");
  		$envioStatus= sendMails( $_GET['email'], "Contacte formulari de ".$nameAssociation, $_GET['client'],$emailAssociation, $emailPass, $_GET['message']);
  		$envioStatusCopia= sendMails($emailAssociation, "COPIA - Contacte formulari de ".$nameAssociation, 'contacte pel web',$emailAssociation, $emailPass, $_GET['message']);
 
- 		
-
- 		if ($envioStatus !='1' || $envioStatusCopia != '1') {$envioStatus='0';
- 		
+ 		if ($envioStatus != '1' || $envioStatusCopia != '1') {
+ 			$envioStatus='0';
  		}
 
 		echo '[{"envioStatus":"'.$envioStatus.'"}]';

@@ -3,7 +3,7 @@
 		<div class="col-lg-12"><b>Associacions</b></div>
 		<div class="col-lg-5">
 			<select ng-change="changeDataUser(idUser)" ng-model="idUser" id="selectAsso">
-				<option ng-repeat="user in users" ng-value="user.idUser" ng-selected="">
+				<option ng-repeat="user in users" ng-value="user.idUser" ng-selected="lgId">
 					{{user.name}} <!--Dar selected a la $_SESSION cuando exista-->
 				</option>
 			</select>

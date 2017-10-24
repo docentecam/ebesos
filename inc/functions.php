@@ -33,8 +33,8 @@ function sendMails($mailClient = "", $subject = "", $fromName = "", $mailAssocia
 		$mail->IsSMTP();
 		$mail->SMTPAuth = true;
 		$mail->SMTPSecure ="tls";
-		$mail->Host = $smtpServer;//$smtpServer;
-		$mail->Port = $smtpPort;//$smtpPort;
+		$mail->Host = $smtpServer;
+		$mail->Port = $smtpPort;
 		$mail->Username = $mailAssociation;
 		$mail->Password = $pswd;
 		$mail->FromName	= $fromName;
@@ -50,12 +50,10 @@ function sendMails($mailClient = "", $subject = "", $fromName = "", $mailAssocia
 		$exito = $mail->Send();
 		if(!$exito)
 		{
-		// return $mail->ErrorInfo;
 		$message= 0;
 		}
 		else
 		{
-		// echo 'email_enviado_ok ';
 		$message= 1;
 		}
 		return $message;
