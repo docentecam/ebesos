@@ -10,7 +10,7 @@ require('../inc/functions.php');
 			}
 			$mySql= "SELECT idShop, name
 					FROM shops
-					WHERE idUser=".$idUser;
+					WHERE idUser=".$_GET['idUser'];
 					
 
 			$connexio = connect();
