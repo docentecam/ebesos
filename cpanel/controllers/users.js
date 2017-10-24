@@ -3,7 +3,7 @@ angular.module('spaApp')
  			$scope.formDataUser = true;
  			$scope.cUser = true;
 			$scope.eUser = false;
-			$scope.userClear = {
+			/*$scope.userClear = {
 					nameClr: "",
 					emailClr: "",
 					emailPassClr: "",
@@ -14,7 +14,7 @@ angular.module('spaApp')
 					currentPswdClr: "",
 					historyClr: "",
 					activeClr: ""
-				};
+				};*/
 
 			$http({
 				method : "GET",
@@ -41,7 +41,7 @@ angular.module('spaApp')
 				$scope.footerC = $scope.associations[0]['footer'];
 				$scope.historyC = $scope.associations[0]['history'];
 				$scope.activeC = $scope.associations[0]['active'];
-				$scope.userClear = {
+				/*$scope.userClear = {
 					nameClr: $scope.nameC,
 					emailClr: $scope.emailC,
 					emailPassClr: $scope.emailPassC,
@@ -52,12 +52,12 @@ angular.module('spaApp')
 					currentPswdClr: "",
 					historyClr: $scope.historyC,
 					activeClr: $scope.activeC
-				};
+				};*/
 			}, function myError (response) {
 				$scope.associations = response.statusText;
 			});
 
-			var clearUser = angular.copy($scope.userClear);
+			//var clearUser = angular.copy($scope.userClear);
 
 			$http({
 				method : "GET",
@@ -70,10 +70,10 @@ angular.module('spaApp')
 		
 			$scope.changeDataUser = function(idUser=""){
 				$scope.formDataUser = false;
-				$scope.userClear = angular.copy(clearUser);
-				$scope.dataUserForm.$setPristine();
+				/*$scope.userClear = angular.copy(clearUser);
+				$scope.dataUserForm.$setPristine();*/
 				$scope.idUserC = "";
-				/*$scope.nameC = "";
+				$scope.nameC = "";
 				$scope.emailC = "";
 				$scope.emailPassC = "";
 				$scope.addressC = "";
@@ -81,7 +81,7 @@ angular.module('spaApp')
 				$scope.logoC = "";
 				$scope.footerC = "";
 				$scope.historyC = "";
-				$scope.activeC = "";*/
+				$scope.activeC = "";
 				$scope.cUser = false;
 				$scope.eUser = true;
 
