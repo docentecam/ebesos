@@ -31,25 +31,34 @@ if(!isset($_SESSION['idUser'])) header("Location: index.html");
 		<script src="controllers/assoLogoTop.js"></script>
 	</head>
 	<body id="container" data-ng-app="spaApp"  ng-controller="AssoTopImageCtrl">
-		
 		<div class="row">
-			<div class="col-xs-2" style="padding: 0px;">				
-				<div style="padding: 0px; background-color: #6E79BF;" class="col-xs-5" ng-repeat="assoTopImage in assoTopImages">
-					<a href="#"><img style="padding: 0px;" class="col-xs-12 img-responsive" src="img/logos-assoc/{{assoTopImage.logo}}"></a>
+			<div class="col-xs-6 col-md-2 col-lg-2" style="padding: 0px;">				
+				<div style="padding: 0px; background-color: #6E79BF;" class="col-xs-5 col-lg-5" ng-repeat="assoTopImage in assoTopImages">
+					<a href="#"><img style="padding: 0px;" class="img-responsive" src="img/logos-assoc/{{assoTopImage.logo}}"></a>
 				</div>
-				<div class="col-xs-7 col-lg-7">
-					<h4>Eix</h4>
+				<div class="col-xs-7 col-lg-7" style="height: 88px;">
+					<h4 style="margin-top: 37%">Eix</h4>
 				</div>
-			</div>
-			</div>
-			
-			<div col-xs-1 col-xs-offset-6 id="imagen">
-				
-			</div>
-			<div col-xs-2 id="desplegable">
-				
-			</div>
+			</div>		
+			<div class="col-lg-3 pull-right">
+				<div class="row">
+					<div class="col-xs-2 col-lg-4 col-lg-push-7" style="margin-top:5%;" id="imagen">
+						
+							<i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>
+							<i class="fa fa-caret-down fa-1x" style="margin-left: 10px; " aria-hidden="true" ng></i>
+						
+					</div>	
+				</div>
+				<div class="row">
+
+					<div class="col-xs-2 col-lg-6 col-lg-push-4" style="background-color: #D5D5D5; position: absolute; top: 120%; right: 0%; height: 40px; text-align: center; padding-top: 8.4px; border-top: 3px solid #7CA3E3">
+					<i class="fa fa-sign-out" aria-hidden="true"></i>
+						Tancar Sessió
+					</div>
+				</div>			
+			</div>		
 		</div>
+		
 		<div class="row">
 			<div class="col-xs-2" style="padding: 0px">
 				<div class="sidebar-nav">
@@ -63,12 +72,11 @@ if(!isset($_SESSION['idUser'])) header("Location: index.html");
       						</button>
       						<div>
       							<span class="visible-xs navbar-brand">Backend</span>
-      							<div>Logo?</div>
       						</div>      						
     					</div>
     					<div class="navbar-collapse collapse sidebar-navbar-collapse" >
 							<ul class="nav navbar-nav" >
-								 <li role="presentation" class="mainNav"><a href="#/associations">Associacions</a></li>						   
+								<li role="presentation" class="mainNav"><a href="#/associations">Associacions</a></li>						   
 							    <li role="presentation" class="mainNav"><a href="#/shops">Comerços</a></li>
 							    <li role="presentation" class="mainNav"><a href="#/promotions">Promocions</a></li>
 							    <li role="presentation" class="mainNav"><a href="#/news">Notícies</a></li>
@@ -86,6 +94,13 @@ if(!isset($_SESSION['idUser'])) header("Location: index.html");
 			<div class="col-xs-9" data-ng-view="">
 			
 			</div>
-		</div>		
+		</div>
+		<div class="container-fluid row">  
+			<div class="col-xs-12" data-ng-view="" >
+				<div ng-show="loading">
+					<i class="fa fa-spinner" aria-hidden="true"></i>
+				</div>  				
+  			</div>
+  		</div>	
 	</body>	
 </html>

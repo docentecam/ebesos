@@ -1,6 +1,6 @@
 angular.module('spaApp')															 
 .controller('LinksCtrl', function($scope, $http) {
-
+$scope.loading=true;
 $http({
 		method : "GET",
 		url : "models/links.php?acc=links"
@@ -8,5 +8,10 @@ $http({
 		$scope.links=response.data;
 	}, function myError (response) {
 		$scope.links = response.statusText;
+		$scope.loading=true;
+	})
+	.finally(function() {
+		$scope.loading=false;
 	});
+	
 });		

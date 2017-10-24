@@ -1,6 +1,6 @@
 angular.module('spaApp')															 
 .controller('AssoNavCtrl', function($scope, $http) {
-
+$scope.loading=true;
 $http({
 		method : "GET",
 		url : "models/assoNav.php?acc=assoNav"
@@ -8,7 +8,10 @@ $http({
 		$scope.assoNavs=response.data;
 	}, function myError (response) {
 		$scope.assoNavs = response.statusText;
-	});
+	})
+	.finally(function() {
+		$scope.loading=false;
+	});	
 });
 
 angular.module('spaApp')
@@ -21,7 +24,11 @@ $http({
 		$scope.assoTopImages=response.data;
 	}, function myError (response) {
 		$scope.assoTopImages = response.statusText;
+	})
+	.finally(function() {
+		$scope.loading=false;
 	});
+	
 });
 
 		
