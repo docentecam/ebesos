@@ -3,14 +3,14 @@ require('../inc/functions.php');
 
 		if(isset($_GET['acc']) && $_GET['acc'] == 'l')
 		{
-			if($_GET['idUser']>4)
-			{
+			/*if($_GET['idUser']>4)*/
+			/*{*/
 				$idUser = $_GET['idUser'];
-			}
+			/*}
 			else
 			{
 				$idUser = 1;
-			}
+			}*/
 			$mySql= "SELECT idShop, name
 					FROM shops
 					WHERE idUser=".$idUser;
@@ -32,7 +32,8 @@ require('../inc/functions.php');
 				}
 				$dataShops .= '{"idShop":"'.$row['idShop'].'", "name":"'.$row['name'].'", "pictograms":';
 				
-				$mySql=	"SELECT distinct(c.urlPicto".$idUser.")
+				$urlPicto = "c.urlPicto".$idUser;
+				$mySql=	"SELECT distinct(".$urlPicto.")
 						FROM categories c, categoriessub cs, shopcategoriessub scs
 						WHERE cs.idSubCategory = scs.idSubCategory
 						AND c.idCategory = cs.idCategory
@@ -49,7 +50,7 @@ require('../inc/functions.php');
 					{
 						$dataShops .= ",";
 					}
-					$dataShops .= '{"urlPicto":"'.$row["'urlPicto".$idUser."'"].'"}';
+					$dataShops .= '{"urlPicto":"'.$row["'".$urlPicto."'"].'"}';
 					
 					
 					$j++;
