@@ -3,14 +3,14 @@ require('../inc/functions.php');
 
 		if(isset($_GET['acc']) && $_GET['acc'] == 'l')
 		{
-			/*if($_GET['idUser']>4)*/
-			/*{*/
+			if($_GET['idUser']>4)
+			{
 				$idUser = $_GET['idUser'];
-			/*}
+			}
 			else
 			{
 				$idUser = 1;
-			}*/
+			}
 			$mySql= "SELECT idShop, name
 					FROM shops
 					WHERE idUser=".$idUser;
