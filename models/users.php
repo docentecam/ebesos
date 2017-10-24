@@ -36,4 +36,25 @@ require("../inc/functions.php");
 
 		echo '[{"envioStatus":"'.$envioStatus.'"}]';
  	}
+
+ 	if (isset($_GET["acc"]) && ($_GET["acc"] == "infoMail"))
+	{
+		$mySql = "SELECT email, name, address, telephone, emailPass FROM users WHERE idUser =".$_GET["idUser"];
+		$connexio = connect();
+		$resultContact = mysqli_query($connexio, $mySql);
+		disconnect($connexio);
+		$i=0;
+		$dataMail ="[";
+		while ($row=mySqli_fetch_array($resultContact))
+		{
+			if($i != 0)
+			{
+				$dataMail .= ",";				
+			}			
+			$dataMail .= '{"email":"'.$row['email'].'","name":"'.$row['name'].'","address":"'.$row['address'].'","telephone":"'.$row['telephone'].'"}';
+			$i++;
+		}
+		$dataMail .="]";
+		echo $dataMail;
+	}
 ?>
