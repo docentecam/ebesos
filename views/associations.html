@@ -2,7 +2,7 @@
 	<div class="col-lg-5">
 		<div class="row breadComsA">
 			<div class="col-lg-12 col-lg-offset-1" ng-show="showDivCA">
-				<a class="breadJS" href="#">Inici</a>|
+				<a class="breadJS" href="#">Inici</a> |
 				<a class="breadJS" href="" ng-click="listShops()">{{name}}</a> | Comerços associats
 			</div>
 			<div class="col-lg-12 col-lg-offset-1" ng-show="showDivH">
@@ -53,7 +53,7 @@
 						<div ng-repeat="shop in shops | orderBy: 'name'" class="col-sm-6 shopsList">
 							<a href="#/shop/{{shop.idShop}}">
 								<div class="col-xs-1" > <!--Mirar Error-->
-									<img ng-src="img/pictograms/{{shop.pictograms[0].urlPicto}}" class="pictoShops">
+									<img ng-src="img/pictograms/{{shop.pictograms[0].urlPicto+$scope.idUser}}" class="pictoShops">
 								</div>
 								<div class="col-xs-10"> {{shop.name}}</div>
 							</a>

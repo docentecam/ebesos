@@ -6,7 +6,7 @@ require('../inc/functions.php');
 			$idUser=$_GET['idUser'];
 			$mySql= "SELECT idShop, name
 					FROM shops
-					WHERE idUser=".$_GET['idUser'];
+					WHERE idUser=".$idUser;
 					
 
 			$connexio = connect();
@@ -25,7 +25,7 @@ require('../inc/functions.php');
 				}
 				$dataShops .= '{"idShop":"'.$row['idShop'].'", "name":"'.$row['name'].'", "pictograms":';
 				
-				$mySql=	"SELECT distinct(c.urlPicto)
+				$mySql=	"SELECT distinct(c.urlPicto1,c.urlPicto2,c.urlPicto3,c.urlPicto4)
 						FROM categories c, categoriessub cs, shopcategoriessub scs
 						WHERE cs.idSubCategory = scs.idSubCategory
 						AND c.idCategory = cs.idCategory
@@ -42,7 +42,7 @@ require('../inc/functions.php');
 					{
 						$dataShops .= ",";
 					}
-					$dataShops .= '{"urlPicto":"'.$row['urlPicto'].'"}';
+					$dataShops .= '{"urlPicto1":"'.$row['urlPicto1'].'","urlPicto2":"'.$row['urlPicto2'].'","urlPicto3":"'.$row['urlPicto3'].'","urlPicto5":"'.$row['urlPicto5'].'"}';
 					
 					
 					$j++;
