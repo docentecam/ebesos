@@ -129,6 +129,11 @@ padding: 0;
 }
 .colorLinksHidden{
 	color: black;
+	margin-top: -2%;
+}
+.colorLoginHidden{
+	color: #52AFBA;
+	margin-top: -2%;
 }
 .navGeneral{
 	border-bottom: none;
@@ -262,6 +267,11 @@ padding: 0;
 #mce-EMAIL, #mce-FNAME{
 	color: black;
 
+}
+#homeIconNav{
+	position: absolute;
+	left: 18%;
+    top: 33%;
 }
 
 

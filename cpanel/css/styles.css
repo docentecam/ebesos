@@ -106,10 +106,7 @@
 {
   padding: 2%;
 }
-.glb
-{
-  padding-left: 6%;
-}
+
 .pt-3
 {
   padding-top: 3%;
@@ -209,12 +206,19 @@ select
 .mainNav{
   padding: 15%;
 }
-body{
+body, .editNgView {
   margin-left:15px!important;
   margin-right:15px!important;
 }
-  
 
+.editNgView{
+  padding-left: 6%;
+  padding-top: 3%;
+}
+  
+.colorLoginHidden{
+  color: #52AFBA;
+}
 
 #editarSliderSpan{
   margin-top: 10%
