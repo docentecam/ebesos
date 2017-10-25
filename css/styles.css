@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,600,700');
 
 /*GLOBAL*/
+*
+{
+	font-family: 'Open Sans', sans-serif;
+}
 body{
 	font-weight: 300;
 	margin-left:15px!important;
@@ -476,12 +480,6 @@ padding: 0;
 
 
 /*--------------------------------------------------------Aida--------------------------------------------------------------------*/
-
-*
-{
-	font-family: 'Open Sans', sans-serif;
-}
-
 #photo{
 	border-radius: 10px;
 	border: solid 1px black;
