@@ -46,17 +46,9 @@ a:hover{
 	height: 500px;
 	//width: 1000px;
 }
-.category-1 {
-	height: 70px;
-	margin-bottom: 40px;
-}
-.category-2 {
-	height: 60px;
-	margin-bottom: 40px;
-}
-.category-3 {
-	height: 150px;
-	margin-bottom: 40px;
+.category {
+	height: 50px;
+	margin-bottom: 60px;
 }
 .a-category {
 	font-weight: 600;
@@ -69,6 +61,32 @@ a:hover{
 	text-decoration: none;
 	color: black;
 	outline: none;
+}
+.legend{
+	font-size: 11px;
+	bottom: 25px;
+}
+.label-legend{
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.label-mer{
+	padding: 5px;
+}
+.acColor{
+	height: 20px;
+	width: 20px;
+	background-color: #124290;
+}
+.xnoColor{
+	height: 20px;
+	width: 20px;
+	background-color: #952C20;
+}
+.merColor{
+	height: 20px;
+	width: 20px;
+	background-color: #80AE38;
 }
 /*FIN COMERCIAL MAP*/
 
@@ -332,7 +350,22 @@ padding: 0;
 .footer-bs .footer-ns p { font-size:12px; color:rgba(255,255,255,0.70); }
 
 
-/*----------------------------------------------------------Jordi------------------------------------------------------------------*/
+#separationLine{
+	text-align: center;
+}
+#separatorDesign{
+	text-decoration: none;
+}
+
+.navGlobalClass>li>.hi
+{
+	width: 300px!important;
+}
+.customazingNav{
+	width: 20%;
+
+}
+/*----------------------------------------------------------Jordi-TODO---------------------------------------------------------------*/
 
 #captchaDiv{
 	background-image: url("../img/captcha.jpg");
@@ -519,6 +552,13 @@ padding: 0;
 	.subMenu{
 		padding:  0px;
 	}
+
+	.titleSubE
+	{
+		position: relative;
+		margin-top: 1%;
+	}
+
 }
 @media (max-width: 767px){
 
@@ -526,16 +566,23 @@ padding: 0;
 @media (min-width: 768px)
 {
 	.footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { border-left:solid 1px rgba(255,255,255,0.10); }
-}
-@media (max-width: 1023px)
-{
+
 	.titleSubE
 	{
 		position: relative;
-		margin-top: 0%;
+		margin-top: 3%;
 	}
 }
+
+
+
+@media (max-width: 1023px)
+{
+	
+}
+
 @media (min-width: 1024px){
+
 	.subMenu:hover{
 		background-color: #51576F;
 		cursor: pointer;
@@ -545,9 +592,10 @@ padding: 0;
 	.subMenu{
 		padding:  30px;
 	}
+
 	.titleSubE{
-	position: absolute;
-	margin-top: 7%;
+		position: absolute;
+		margin-top: 7%;
 	}
 }
 

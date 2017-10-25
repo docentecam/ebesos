@@ -2,7 +2,7 @@
 	require("../inc/functions.php");
 
 		if(isset($_GET['acc'])&&$_GET['acc']=='cat'){
-			$mySql = "SELECT name, idCategory FROM categories";
+			$mySql = "SELECT name, idCategory, urlPicto FROM categories";
 
 			$connexio = connect();
 			$resultCategories = mysqli_query($connexio, $mySql);
@@ -14,7 +14,7 @@
 			{
 				if($i != 0) $dataCategories .= ",";
 
-				$dataCategories .= '{"idCategory":"'.$row['idCategory'].'", "name":"'.$row['name'].'", "subCategories":';
+				$dataCategories .= '{"idCategory":"'.$row['idCategory'].'", "name":"'.$row['name'].'", "urlPicto":"'.$row['urlPicto'].'", "subCategories":';
 
 				$j = 0;
 
@@ -34,9 +34,7 @@
 					if($j != 0) $dataCategories .= ",";
 
 					$dataCategories .= '{"idSubCategory":"'.$row['idSubCategory'].'","name":"'.$row['name'];
-					if($count<$numSubCat) $dataCategories .= ',';
 					$dataCategories .='"}';
-					$count++;
 					
 					$j++;
 				}

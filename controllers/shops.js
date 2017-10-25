@@ -11,6 +11,7 @@ angular.module('spaApp')
 		$scope.shops = response.statusText;
 	});
 
+  $scope.loading = true;
   $http({
     method : "GET",
     url : "models/xmlCreation.php?acc=shop&idShop="+$routeParams.idShop
@@ -25,21 +26,27 @@ angular.module('spaApp')
 
 angular.module('spaApp')                               
 .controller('ComercialMapCtrl', function($scope, $http) {
+  $scope.loading = true;
   $http({
     method : "GET",
     url : "models/xmlCreation.php"
   }).then(function mySucces (response) {
     $scope.categories=response.data;
+    $scope.loading = false;
     console.log(response.data);
   }, function myError (response) {
     $scope.categories = response.statusText;
   });
 
+  $scope.loading = true;
   $http({
     method : "GET",
     url : "models/categories.php?acc=cat"
   }).then(function mySucces (response) {
     $scope.categories=response.data;
+    $scope.loading = false;
+    var selectCategory = document.getElementsByName('selectSubCategory');
+    console.log(selectCategory);
     console.log(response.data);
   }, function myError (response) {
     $scope.categories = response.statusText;
@@ -58,8 +65,8 @@ angular.module('spaApp')
       var xml = data.responseXML;
       var markers = xml.documentElement.getElementsByTagName('marker');
       var markerPoints = new Array();
-      console.log(parameter);
       console.log(filter);
+      console.log(parameter);
       Array.prototype.forEach.call(markers, function(markerElem) {
         //Inicio filtrado categoria
         var draw = false;
@@ -175,35 +182,35 @@ angular.module('spaApp')
             
             if(markerElem.getAttribute('nameCategoria')=='alimentacio')
             {
-              if(markerElem.getAttribute('nameAssociacio')=='Xavier Nogues') marker.setIcon(new google.maps.MarkerImage('img/pictograms/aliXno.png', null, null, null, new google.maps.Size(30, 30)));
+              if(markerElem.getAttribute('nameAssociacio')=='Xavier Nogues') marker.setIcon(new google.maps.MarkerImage('img/pictograms/aliXno.svg', null, null, null, new google.maps.Size(30, 30)));
 
-              else if(markerElem.getAttribute('nameAssociacio')=='019') marker.setIcon(new google.maps.MarkerImage('img/pictograms/ali019', null, null, null, new google.maps.Size(30, 30)));
+              else if(markerElem.getAttribute('nameAssociacio')=='019') marker.setIcon(new google.maps.MarkerImage('img/pictograms/ali019.svg', null, null, null, new google.maps.Size(30, 30)));
 
-              else if(markerElem.getAttribute('nameAssociacio')=='Mercats') marker.setIcon(new google.maps.MarkerImage('img/pictograms/aliMer', null, null, null, new google.maps.Size(30, 30)));
+              else if(markerElem.getAttribute('nameAssociacio')=='Mercats') marker.setIcon(new google.maps.MarkerImage('img/pictograms/aliMer.svg', null, null, null, new google.maps.Size(30, 30)));
             }
             else if(markerElem.getAttribute('nameCategoria')=='serveis')
             {
-             if(markerElem.getAttribute('nameAssociacio')=='Xavier Nogues') marker.setIcon(new google.maps.MarkerImage('img/pictograms/servXno', null, null, null, new google.maps.Size(30, 30)));
+             if(markerElem.getAttribute('nameAssociacio')=='Xavier Nogues') marker.setIcon(new google.maps.MarkerImage('img/pictograms/servXno.svg', null, null, null, new google.maps.Size(30, 30)));
 
-              else if(markerElem.getAttribute('nameAssociacio')=='019') marker.setIcon(new google.maps.MarkerImage('img/pictograms/serv019', null, null, null, new google.maps.Size(30, 30)));
+              else if(markerElem.getAttribute('nameAssociacio')=='019') marker.setIcon(new google.maps.MarkerImage('img/pictograms/serv019.svg', null, null, null, new google.maps.Size(30, 30)));
 
-              else if(markerElem.getAttribute('nameAssociacio')=='Mercats') marker.setIcon(new google.maps.MarkerImage('img/pictograms/servMer', null, null, null, new google.maps.Size(30, 30)));
+              else if(markerElem.getAttribute('nameAssociacio')=='Mercats') marker.setIcon(new google.maps.MarkerImage('img/pictograms/servMer.svg', null, null, null, new google.maps.Size(30, 30)));
             }
             else if(markerElem.getAttribute('nameCategoria')=='comerç al detall')
             {
-              if(markerElem.getAttribute('nameAssociacio')=='Xavier Nogues') marker.setIcon(new google.maps.MarkerImage('img/pictograms/cdXno', null, null, null, new google.maps.Size(30, 30)));
+              if(markerElem.getAttribute('nameAssociacio')=='Xavier Nogues') marker.setIcon(new google.maps.MarkerImage('img/pictograms/cdXno.svg', null, null, null, new google.maps.Size(30, 30)));
 
-              else if(markerElem.getAttribute('nameAssociacio')=='019')  marker.setIcon(new google.maps.MarkerImage('img/pictograms/cd019', null, null, null, new google.maps.Size(30, 30)));
+              else if(markerElem.getAttribute('nameAssociacio')=='019')  marker.setIcon(new google.maps.MarkerImage('img/pictograms/cd019.svg', null, null, null, new google.maps.Size(30, 30)));
 
-              else if(markerElem.getAttribute('nameAssociacio')=='Mercats') marker.setIcon(new google.maps.MarkerImage('img/pictograms/cdMer', null, null, null, new google.maps.Size(30, 30)));
+              else if(markerElem.getAttribute('nameAssociacio')=='Mercats') marker.setIcon(new google.maps.MarkerImage('img/pictograms/cdMer.svg', null, null, null, new google.maps.Size(30, 30)));
             }
             else if(markerElem.getAttribute('nameCategoria')=='restauracio')
             {
-              if(markerElem.getAttribute('nameAssociacio')=='Xavier Nogues') marker.setIcon(new google.maps.MarkerImage('img/pictograms/restXno', null, null, null, new google.maps.Size(30, 30)));
+              if(markerElem.getAttribute('nameAssociacio')=='Xavier Nogues') marker.setIcon(new google.maps.MarkerImage('img/pictograms/restXno.svg', null, null, null, new google.maps.Size(30, 30)));
 
-              else if(markerElem.getAttribute('nameAssociacio')=='019') marker.setIcon(new google.maps.MarkerImage('img/pictograms/rest019', null, null, null, new google.maps.Size(30, 30)));
+              else if(markerElem.getAttribute('nameAssociacio')=='019') marker.setIcon(new google.maps.MarkerImage('img/pictograms/rest019.svg', null, null, null, new google.maps.Size(30, 30)));
 
-              else if(markerElem.getAttribute('nameAssociacio')=='Mercats') marker.setIcon(new google.maps.MarkerImage('img/pictograms/restMer', null, null, null, new google.maps.Size(30, 30)));
+              else if(markerElem.getAttribute('nameAssociacio')=='Mercats') marker.setIcon(new google.maps.MarkerImage('img/pictograms/restMer.svg', null, null, null, new google.maps.Size(30, 30)));
             }
           }
         }// fin Comprobacio categoria

@@ -61,18 +61,18 @@
 			</div>
 		</div>
 
-		<div ng-show="showDivH" class="col-xs-9 stylcont">
+		<div ng-show="showDivH" class="col-xs-12 col-md-9 stylcont">
 			<div class="col-sm-12 col-md-6 col-lg-4" id="aboutUs">
 				{{histories}}
 			</div>
 		</div>
 
-		<div ng-show="showDivN" class="col-xs-9 stylcont">
+		<div ng-show="showDivN" class="col-xs-12 col-sm-9 stylcont">
 			<div class="row">
 				<div ng-repeat="new in news" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 					<div class="row">
 						<div class="col-xs-12 upperTitle"><!--modificar-->
-							{{new.title}}
+							<b>{{new.title}}</b>
 						</div>
 					</div>
 					<div class="row topDate">
@@ -98,9 +98,9 @@
 			</div>
 		</div>	
 		
-		<div ng-show="showDivC" class="col-xs-9 stylcont assoDivContact">
+		<div ng-show="showDivC" class="col-xs-11 col-sm-9 stylcont assoDivContact">
 			<div class="row">
-				<div class="container  col-xs-8"">
+				<div class="container  col-xs-12"">
 					<div class="row">
 					<div ng-show="muestraStatusEmail" ng-class="emailStatus ? 'alert alert-success' : 'alert alert-danger'">{{emailText}}</div>
 				</div>
@@ -150,7 +150,7 @@
 			      					<label class="control-label col-xs-8" for="captcha"></label>
 			      				</td>
 					    		<td>
-					      			<div class="col-xs-6 col-push-xs-3" id="captchaDiv">
+					      			<div class="col-xs-8 col-lg-6 col-push-xs-3" id="captchaDiv">
 					     			</div>
 			     				</td>
 			  				</tr>

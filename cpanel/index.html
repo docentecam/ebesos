@@ -32,7 +32,9 @@
 					<form id="check">
 						<div class="row">
 							<div class="col-lg-3"><label>Usuari: </label></div>
-							<div class="col-lg-6"><input type="text" id="user" placeholder="Nom d'usuari" value="comerciantsbm@gmail.com"></div>
+							<div class="col-lg-6">
+								<input type="text" id="user" placeholder="Nom d'usuari" value="comerciantsbm@gmail.com" class="loginRadius">
+							</div>
 						</div>
 						<div class="row log20"></div>
 						<div class="row">
@@ -40,10 +42,10 @@
 								<label>Contrasenya: </label>
 							</div>
 							<div class="col-lg-6">
-								<input type="password" id="pswd" placeholder="Contrasenya" value="1">
+								<input type="password" id="pswd" placeholder="Contrasenya" value="1" class="loginRadius">
 							</div>
 							<div class="col-lg-3">
-								<input type="button" value="Accedir" class="btn btn-default" ng-click="checking();">
+								<input type="button" value="Accedir" class="btn btn-default" ng-click="checking();" class="loginRadius">
 							</div>
 						</div>
 					</form>
@@ -79,7 +81,7 @@
 						     		</td>
 						    		<td>
 						      			<div class="col-sm-7">
-						        			<input type="email" class="form-control" id="mail" name="email">
+						        			<input type="email" class="form-control" id="mail" name="email" class="loginRadius">
 						      			</div>
 						      		</td>
 				  				</tr>
@@ -102,7 +104,7 @@
 				      				</td>
 					    				<td>
 			      						<div class="col-sm-5 mt5">
-			        						<input type="text" class="form-control" id="captchaIntro" name="captchaIntro" placeholder="Introdueixi els números">
+			        						<input type="text" class="form-control" id="captchaIntro" name="captchaIntro" placeholder="Introdueixi els números" class="loginRadius">
 			      						</div>
 				      					<div class="col-sm-1 mt5">
 				        					<input type="button" class="btn" value="Enviar" ng-click="checkForgot();" style="background: #ced2de;">

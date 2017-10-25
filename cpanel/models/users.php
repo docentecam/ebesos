@@ -139,7 +139,7 @@ require("../inc/functions.php");
 			echo $dataUser;
 	}
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'listUsers') {
-		$mySql = "SELECT idUser, name
+		$mySql = "SELECT idUser, name, privileges
 				FROM users";
 		$connexio = connect();
 		$resultUser = mysqli_query($connexio, $mySql);
@@ -153,7 +153,7 @@ require("../inc/functions.php");
 				{
 					$dataUser .= ",";
 				}
-				$dataUser .= '{"idUser":"'.$row['idUser'].'", "name":"'.$row['name'].'"}'; 
+				$dataUser .= '{"idUser":"'.$row['idUser'].'", "name":"'.$row['name'].'", "privileges":"'.$row['privileges'].'"}'; 
 				$i++;
 			}
 			$dataUser .= "]";
