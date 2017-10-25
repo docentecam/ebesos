@@ -42,8 +42,8 @@ if(!isset($_SESSION['idUser'])) header("Location: index.html");
 			</div>		
 			<div class="col-lg-3 pull-right">
 				<div class="row">
-					<div class="col-xs-2 col-lg-4 col-lg-push-7" style="margin-top:5%;" id="imagen">
-						<a href="">
+					<div class="col-xs-2 col-lg-4 col-lg-push-7" style="margin-top:5%;">
+						<a href="" id="deleteUnderlineSignUp">
 							<i class="fa fa-user-circle-o fa-2x colorLoginHidden" aria-hidden="true"  style=": #52A4B3" title="Inicia Sessió"></i>
 							<i class="fa fa-caret-down fa-1x" style="margin-left: 10px;" aria-hidden="true" ng></i>
 						</a>						
@@ -51,7 +51,7 @@ if(!isset($_SESSION['idUser'])) header("Location: index.html");
 				</div>
 				<div class="row">
 					<div class="col-xs-2 col-lg-6 col-lg-push-4" style="background-color: #D5D5D5; position: absolute; top: 120%; right: 0%; height: 40px; text-align: center; padding-top: 8.4px; border-top: 3px solid #7CA3E3">
-					<i class="fa fa-sign-out" aria-hidden="true"></i>
+						<i class="fa fa-sign-out" aria-hidden="true"></i>
 						Tancar Sessió
 					</div>
 				</div>			

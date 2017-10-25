@@ -206,6 +206,7 @@ select
 .mainNav{
   padding: 15%;
 }
+
 body, .editNgView {
   margin-left:15px!important;
   margin-right:15px!important;
@@ -233,6 +234,9 @@ body, .editNgView {
   margin-top: 4%;
   padding-top: 4%; 
   margin-bottom: 10%;
+}
+#deleteUnderlineSignUp:hover{
+  border-bottom: 0px;
 }
 #divSliderSetting{
   margin-bottom: 4%
