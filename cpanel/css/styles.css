@@ -1,4 +1,4 @@
-/* make sidebar nav vertical */ 
+ make sidebar nav vertical */ 
 @media (min-width: 768px) {
   .sidebar-nav .navbar .navbar-collapse {
     padding: 0;
@@ -219,12 +219,26 @@ body, .editNgView {
 .colorLoginHidden{
   color: #52AFBA;
 }
-
+/*---------------slider--------------TDOD-*/
 #editarSliderSpan{
   margin-top: 10%
 }
 #divOpcioAfegir{
   margin-top: 9.5%
+}
+#sliderAddDesc{
+
+}
+#sliderAddTitle{
+
+}
+#sliderAddSubtitle{
+
+}
+#sliderAddLink{
+  
+}
+#sliderAddBtn{
 
 }
 #whiteSliderDiv{
@@ -340,4 +354,4 @@ body, .editNgView {
   width: 20%;
 
 }
-/*--------------------------------------*/
+/*--------------------------------------

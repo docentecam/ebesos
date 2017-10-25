@@ -16,7 +16,9 @@ angular.module('spaApp')
 
 angular.module('spaApp')															 
 	.controller('ContactCtrlUser', function($scope, $http ,$routeParams) {
+
 	$scope.idUser = $routeParams.idUser;
+	$scope.loading=true;
 
 	var a = Math.ceil(Math.random() * 9)+ '';
 	var b = Math.ceil(Math.random() * 9)+ '';
@@ -28,24 +30,28 @@ angular.module('spaApp')
 	document.getElementById("captchaDiv").innerHTML = code;
 
 	$http({
-			method : "GET",
-			url : "models/users.php?acc=infoMail&idUser="+ $scope.idUser
-		}).then(function mySucces (response) {
-			$scope.infoMail = response.data;
-			
+		method : "GET",
+		url : "models/users.php?acc=infoMail&idUser="+ $scope.idUser
+
+	}).then(function mySucces (response) {
+		$scope.infoMail = response.data;
 		}, function myError (response) {
 			$scope.infoMail = response.statusText;
+		});
+		.finally(function() {
+			$scope.loading=false;
 		});
 
 		$scope.checkform = function()
 		{
+			$scope.loading=true;
 			var error = "";
 			if(myForm['captchaInput'].value == ""){
-				error += "- Introdueix el CAPTCHA.";
+				error += "Introdueix el CAPTCHA";
 			}
 			else{
 				if($scope.validCaptcha(myForm['captchaInput'].value) == false){
-					error += " El CAPTCHA és incorrecte.";
+					error += "El CAPTCHA és incorrecte";
 				}
 			}
 			if(error != ""){
@@ -71,6 +77,9 @@ angular.module('spaApp')
 					}, function myError (response) {
 							$scope.email = response.statusText;
 				});
+					.finally(function() {
+						$scope.loading=false;
+					});
 			}
 		}
 	$scope.validCaptcha = function()
