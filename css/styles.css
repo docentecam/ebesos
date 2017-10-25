@@ -570,14 +570,14 @@ padding: 0;
 	{		padding:  30px;
 
 	}
-}
 
-.titleSubE
-{
-	position: absolute;
-	margin-top: 7%;
-}
 
+	.titleSubE
+	{
+		position: absolute;
+		margin-top: 7%;
+	}
+}
 /* Medium devices (tablets, less than 992px) */
 @media (max-width: 1023px)
 {
@@ -606,25 +606,3 @@ padding: 0;
 		padding:  0px;
 	}
 }
-
-
-
-
-/* @include media-breakpoint-down(xs)
-{
-	
-}
-@include media-breakpoint-down(sm)
-{
-	
-}
-@include media-breakpoint-down(md)
-{
-	
-}
-@include media-breakpoint-down(lg)
-{
-	
-}
-
- */
