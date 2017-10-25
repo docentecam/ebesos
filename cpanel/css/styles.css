@@ -1,3 +1,22 @@
+body, .editNgView {
+  margin-left:15px!important;
+  margin-right:15px!important;
+}
+input
+{
+  height: 35px; 
+}
+select
+{
+  height: 35px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+
+
+
 /* make sidebar nav vertical */ 
 @media (min-width: 768px) {
   .sidebar-nav .navbar .navbar-collapse {
@@ -126,17 +145,7 @@
   padding-top: 11%;
   padding-bottom: 5%;
 }
-input
-{
-  height: 35px; 
-}
-select
-{
-  height: 35px;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-}
+
 #selectAsso
 {
   margin-top: 3%;
@@ -207,10 +216,7 @@ select
   padding: 15%;
 }
 
-body, .editNgView {
-  margin-left:15px!important;
-  margin-right:15px!important;
-}
+
 
 .editNgView{
   padding-left: 6%;
