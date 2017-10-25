@@ -199,6 +199,13 @@ select
 .colorLoginHidden{
   color: #52AFBA;
 }
+
+/*----------TO DO SLIDER---------------*//*----------TO DO SLIDER---------------*/
+
+.editAndAddSlider{
+  margin-bottom: 3.5%
+}
+
 #editarSliderSpan{
   margin-top: 10%
 }
