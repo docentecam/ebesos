@@ -59,6 +59,7 @@ require("../inc/functions.php");
 		$resultFooter = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
 		$showFooter = "[";
+		$i = 0;
 		while ($row=mySqli_fetch_array($resultFooter))
 		{
 			if($i != 0)

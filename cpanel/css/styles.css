@@ -13,28 +13,8 @@ select
   -webkit-appearance: none;
   appearance: none;
 }
+ 
 
-
-
-
-/* make sidebar nav vertical */ 
-@media (min-width: 768px) {
-  .sidebar-nav .navbar .navbar-collapse {
-    padding: 0;
-    max-height: none;
-  }
-  .sidebar-nav .navbar ul {
-    float: none;
-    display: block;
-  }
-  .sidebar-nav .navbar li {
-    float: none;
-    display: block;
-  }
-  .sidebar-nav .navbar li a {
-    padding-top: 12px;
-    padding-bottom: 12px;
-  }
 /* ---------ToDo Login---------- */
 
 #alertW
@@ -145,7 +125,6 @@ select
   padding-top: 11%;
   padding-bottom: 5%;
 }
-
 #selectAsso
 {
   margin-top: 3%;
@@ -171,7 +150,6 @@ select
 .titleForm{
   width: 85%;
 }
-
 .titleSub{
   
   height: 250px;
@@ -179,15 +157,11 @@ select
   margin-bottom: 5%;
   margin-top: 2%;
 }
-
-
 #containerImg{
   background-color: white;
   width: 100%;
-  border: 1px solid #e2e2e2;
-  
+  border: 1px solid #e2e2e2;  
 }
-
 #containerPreferred{
   margin-top: 5%;
   margin-bottom: 7%;
@@ -199,7 +173,6 @@ select
   margin-bottom: 7%;
   margin-left: 5%;
 }
-
 .containerEditImg{
   margin-left: 20%;
   background-color: white;
@@ -215,24 +188,18 @@ select
 .mainNav{
   padding: 15%;
 }
-
-
-
 .editNgView{
   padding-left: 6%;
   padding-top: 3%;
-}
-  
+}  
 .colorLoginHidden{
   color: #52AFBA;
 }
-
 #editarSliderSpan{
   margin-top: 10%
 }
 #divOpcioAfegir{
   margin-top: 9.5%
-
 }
 #whiteSliderDiv{
   background-color: white;
@@ -250,11 +217,9 @@ select
 #imgSliderSetting{
   margin-top: 0.5%;
 }
-
 #btnEditarSlider{
   margin-top: 5%;
 }
-
 #btnDeleteSlider{
   margin-top: 5%;
 }
@@ -269,85 +234,28 @@ select
   margin-left: 4.166666665%;
 }
 /*------------------Footer--------------------*/ /* Mirar y tocar */
-#footerColor{
-  background-color:#808BA7;
-  margin-top: 5%!important;
-}
- #mc_embed_signup .button{
-  color: black!important;
-}
-.footer-bs {
-  background-color: #808BA7;
-  color: white;
-  margin-top: 1%;
-  border-bottom-right-radius: 6px;
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 6px;
-  height: 40%!important;
-}
-#mc_embed_signup{
-  background-color: #808BA7!important;
-  margin-left: 5%!important;
-
-}
-#mce-EMAIL, #mce-FNAME{
-  color: black;
-
-}
-.footer-bs .footer-brand, .footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { padding:10px 25px; }
-.footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { border-color: transparent; }
-.footer-bs .footer-brand h2 { margin:0px 0px 10px; }
-.footer-bs .footer-brand p { font-size:12px; color:rgba(255,255,255,0.70); }
-
-.footer-bs .footer-nav ul.pages { list-style:none; padding:0px; }
-.footer-bs .footer-nav ul.pages li { padding:5px 0px;}
-.footer-bs .footer-nav ul.pages a { color:rgba(255,255,255,1.00); font-weight:bold; text-transform:uppercase; }
-.footer-bs .footer-nav ul.pages a:hover { color:rgba(255,255,255,0.80); text-decoration:none; }
-.footer-bs .footer-nav h4 {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  margin-bottom:10px;
-}
-.footer-bs .footer-nav ul.list { list-style:none; padding:0px; }
-.footer-bs .footer-nav ul.list li { padding:5px 0px;}
-.footer-bs .footer-nav ul.list a { color:rgba(255,255,255,0.80); }
-.footer-bs .footer-nav ul.list a:hover { color:rgba(255,255,255,0.60); text-decoration:none; }
-
-.footer-bs .footer-social ul { list-style:none; padding:0px; }
-.footer-bs .footer-social h4 {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-}
-.footer-bs .footer-social li { padding:5px 4px;}
-.footer-bs .footer-social a { color:rgba(255,255,255,1.00);}
-.footer-bs .footer-social a:hover { color:rgba(255,255,255,0.80); text-decoration:none; }
-
-.footer-bs .footer-ns h4 {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  margin-bottom:10px;
-}
-.footer-bs .footer-ns p { font-size:12px; color:rgba(255,255,255,0.70); }
-
-@media (min-width: 768px) {
-  .footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { border-left:solid 1px rgba(255,255,255,0.10); }
-}
-#separationLine{
-  text-align: center;
-}
-#separatorDesign{
-  text-decoration: none;
-}
-
-.navGlobalClass>li>.hi
-{
-  width: 300px!important;
-}
-.customazingNav{
-  width: 20%;
-
+#footerLogin{
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
 }
 /*--------------------------------------*/
+
+@media (min-width: 768px) { 
+  .sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
