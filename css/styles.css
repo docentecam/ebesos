@@ -19,17 +19,9 @@ body{
 	height: 500px;
 	//width: 1000px;
 }
-.category-1 {
-	height: 70px;
-	margin-bottom: 40px;
-}
-.category-2 {
-	height: 60px;
-	margin-bottom: 40px;
-}
-.category-3 {
-	height: 150px;
-	margin-bottom: 40px;
+.category {
+	height: 50px;
+	margin-bottom: 60px;
 }
 .a-category {
 	font-weight: 600;
@@ -43,6 +35,32 @@ body{
 	color: black;
 	outline: none;
 
+}
+.legend{
+	font-size: 11px;
+	bottom: 25px;
+}
+.label-legend{
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.label-mer{
+	padding: 5px;
+}
+.acColor{
+	height: 20px;
+	width: 20px;
+	background-color: #124290;
+}
+.xnoColor{
+	height: 20px;
+	width: 20px;
+	background-color: #952C20;
+}
+.merColor{
+	height: 20px;
+	width: 20px;
+	background-color: #80AE38;
 }
 /*FIN COMERCIAL MAP*/
 

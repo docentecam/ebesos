@@ -3,7 +3,7 @@ require('../inc/functions.php');
 
 if(isset($_GET['acc']) && $_GET['acc'] == 'list')
 {
-	$mySql = "SELECT shopsimages.url, shops.idShop, shops.name, shops.description
+session_start();
 			FROM shops LEFT OUTER JOIN shopsimages ON shops.idShop = shopsimages.idShop AND
 			shopsimages.preferred = 'Y';";
 			
@@ -18,58 +18,27 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'list')
 	$i = 0;
 	while($row = mysqli_fetch_array($resultShops))
 	{
-		if($i != 0)
-		{
-			$dataShops .= ",";
-		}
-		$dataShops .= '{"image":"'.$row['url'].'", "idShop":"'.$row['idShop'].'", "name":"'.$row['name'].'", "description":"'.$row['description'].'"}'; 
 		$i++;
 	}
 	$dataShops .= "]";
 
 	echo $dataShops;
 }
-else if(isset($_GET['acc']) && $_GET['acc'] == 'edit')
 {
-	$idShop=$_GET['idShop'];
-	$mySql = "SELECT s.idShop, s.name, s.lng, s.lat, s.logo, s.telephone, s.email, s.address, s.schedule, s.description, s.descriptionLong, s.url AS web, s.cp, s.ciutat, s.idUser
-			FROM shops s
-			WHERE s.idShop =".$idShop;
 
-	$connexio = connect();
 
-	$resultDataShop = mysqli_query($connexio, $mySql);
 
-	$i = 0;
-	$dataShop = "[";
-	while($row = mysqli_fetch_array($resultDataShop))
-	{
-		if($i != 0) $dataShop .= ",";
 
-		$dataShop .= '{"idShop":"'.$row['idShop'].'", "name":"'.$row['name'].'", "lng":"'.$row['lng'].'", "lat":"'.$row['lat'].'", "logo":"'.$row['logo'].'", "telephone":"'.$row['telephone'].'", "email":"'.$row['email'].'", "address":"'.$row['address'].'", "schedule":"'.$row['schedule'].'", "description":"'.$row['description'].'", "descriptionLong":"'.$row['descriptionLong'].'", "web":"'.$row['web'].'", "cp":"'.$row['cp'].'", "ciutat":"'.$row['ciutat'].'", "idUser":"'.$row['idUser'].'"';
 
-		$dataShop .= ', "images":';
 
-		$dataShop .= listImages($idShop);
 		
-		$dataShop .= ', "subCategoriesShop":';
 
-		$dataShop .= listShopCategoriesSub($idShop);
 
-		$dataShop .= ', "users":';
 
-		$dataShop .= listUsers($idShop);
 
-		$dataShop .= ', "subCategories":';
 
-		$dataShop .= listCategoriesSub($idShop);
 
-		$dataShop .= '}';
-		$i++;
-	}
-	$dataShop .= "]";
 
-	echo $dataShop;
 }
 else if(isset($_GET['acc']) && $_GET['acc'] == 'delete')
 {
