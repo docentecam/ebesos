@@ -59,6 +59,7 @@ require("../inc/functions.php");
 		$resultFooter = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
 		$showFooter = "[";
+		$i = 0;
 		while ($row=mySqli_fetch_array($resultFooter))
 		{
 			if($i != 0)
@@ -138,7 +139,7 @@ require("../inc/functions.php");
 			echo $dataUser;
 	}
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'listUsers') {
-		$mySql = "SELECT idUser, name
+		$mySql = "SELECT idUser, name, privileges
 				FROM users";
 		$connexio = connect();
 		$resultUser = mysqli_query($connexio, $mySql);
@@ -152,7 +153,7 @@ require("../inc/functions.php");
 				{
 					$dataUser .= ",";
 				}
-				$dataUser .= '{"idUser":"'.$row['idUser'].'", "name":"'.$row['name'].'"}'; 
+				$dataUser .= '{"idUser":"'.$row['idUser'].'", "name":"'.$row['name'].'", "privileges":"'.$row['privileges'].'"}'; 
 				$i++;
 			}
 			$dataUser .= "]";

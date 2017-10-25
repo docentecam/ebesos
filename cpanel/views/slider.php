@@ -74,27 +74,27 @@
 				</form>
 					<input type="hidden" id="hidSlider" ng-value="infoSlider.idSlider">
 					<div class="row">
-						<label class="col-lg-2 col-lg-offset-3">Descripció: </label>
-						<textarea class=" col-lg-4" name="" id="" cols="30" rows="6" placeholder="Escriu aquí la descripció de la imatge a mostrar dins del Slider..." id="sliderAddDesc" style="margin-bottom: 3.5%"></textarea>
+						<label class="col-lg-2 col-lg-offset-3 slideEditAndAdd">Descripció: </label>
+						<textarea class=" col-lg-4" name="" id="" cols="30" rows="6" placeholder="Escriu aquí la descripció de la imatge a mostrar dins del Slider..."></textarea>
 					</div>
 					<div class="row">
-						<label class="col-lg-2 col-lg-offset-3">Títol: </label>
-						<textarea class=" col-lg-4" name="" id="" cols="30" rows="6" placeholder="Escriu aquí el títol de la imatge a mostrar dins del Slider..." id="sliderAddTitle" style="margin-bottom: 3.5%"></textarea>
+						<label class="col-lg-2 col-lg-offset-3 slideEditAndAdd">Títol: </label>
+						<textarea class=" col-lg-4" name="" id="" cols="30" rows="6" placeholder="Escriu aquí el títol de la imatge a mostrar dins del Slider..."></textarea>
 					</div>
 					<div class="row">
-						<label class="col-lg-2 col-lg-offset-3">Subtítol: </label>
-						<textarea class=" col-lg-4" name="" id="" cols="30" rows="6" placeholder="Escriu aquí el subtítol de la imatge a mostrar dins del Slider..." id="sliderAddSubtitle" style="margin-bottom: 3.5%"></textarea>
+						<label class="col-lg-2 col-lg-offset-3 slideEditAndAdd">Subtítol: </label>
+						<textarea class=" col-lg-4" name="" id="" cols="30" rows="6" placeholder="Escriu aquí el subtítol de la imatge a mostrar dins del Slider..."></textarea>
 					</div>
 					<div class="row">
-						<label class="col-lg-2 col-lg-offset-3">Enllaç: </label>
-						<input type="text class=" col-lg-4" name="" id="link" size="40" placeholder="Escriu aquí l'enllaç de la imatge a relacionar" id="sliderAddLink" style="margin-bottom: 3.5%">
+						<label class="col-lg-2 col-lg-offset-3 slideEditAndAdd">Enllaç: </label>
+						<input type="text class=" col-lg-4" name="" id="link" size="40" placeholder="Escriu aquí l'enllaç de la imatge a relacionar">
 					</div>
 					<div class="row">
-						<label class="col-lg-2 col-lg-offset-3">Imatge: </label>
-						<input type="file" id="sliderAddImg" style="margin-bottom: 3.5%">
+						<label class="col-lg-2 col-lg-offset-3 slideEditAndAdd">Imatge: </label>
+						<input type="file">
 					</div>
 					<div class="row">
-						<input class="col-lg-offset-5" type="button" value="Actualitzar" ng-click=backSettingSlide() id="sliderAddBtn" style="margin-bottom: 3.5%">
+						<input class="col-lg-offset-5 slideEditAndAdd" type="button" value="Actualitzar" ng-click=backSettingSlide()>
 					</div>
 			</div>
 
@@ -104,23 +104,23 @@
 				<form id="editingForm">
 					<input type="hidden" id="hidEditSlider" ng-value="infoSlider.idSlider">
 					<div class="row">
-						<label class="col-lg-2 col-lg-offset-3">Descripció: </label>
-						<textarea class=" col-lg-4" name="" id="description" cols="30" rows="6" id="sliderEditDesc" style="margin-bottom: 3.5%">{{infoSlider.description}}</textarea>
+						<label class="col-lg-2 col-lg-offset-3 slideEditAndAdd">Descripció: </label>
+						<textarea class=" col-lg-4" name="" id="description" cols="30" rows="6">{{infoSlider.description}}</textarea>
 					</div>
 					<div class="row">
-						<label class="col-lg-2 col-lg-offset-3">Títol: </label>
-						<textarea class=" col-lg-4" name="" id="title" cols="30" rows="6" id="sliderEditTitle" style="margin-bottom: 3.5%">{{infoSlider.title}}</textarea>
+						<label class="col-lg-2 col-lg-offset-3 slideEditAndAdd">Títol: </label>
+						<textarea class=" col-lg-4" name="" id="title" cols="30" rows="6">{{infoSlider.title}}</textarea>
 					</div>
 					<div class="row">
-						<label class="col-lg-2 col-lg-offset-3">Subtítol: </label>
-						<textarea class=" col-lg-4" name="" id="subTitle" cols="30" rows="6" id="sliderEditSubtitle" style="margin-bottom: 3.5%">{{infoSlider.subTitle}}</textarea>
+						<label class="col-lg-2 col-lg-offset-3 slideEditAndAdd">Subtítol: </label>
+						<textarea class=" col-lg-4" name="" id="subTitle" cols="30" rows="6">{{infoSlider.subTitle}}</textarea>
 					</div>
 					<div class="row">
-						<label class="col-lg-2 col-lg-offset-3">Enllaç: </label>
-						<input type="text class=" col-lg-4" name="" id="linkSlider" size="40" id="sliderEditLink" style="margin-bottom: 3.5%" ng-value="infoSlider.link">
+						<label class="col-lg-2 col-lg-offset-3 slideEditAndAdd">Enllaç: </label>
+						<input type="text class=" col-lg-4" name="" id="linkSlider" size="40" ng-value="infoSlider.link">
 					</div>
 					<div class="row">
-						<input class="col-lg-offset-5" type="button" value="Actualitzar" ng-click=backSettingSlide() id="sliderEditBtn" style="margin-bottom: 3.5%">
+						<input class="col-lg-offset-5 slideEditAndAdd" type="button" value="Actualitzar" ng-click=backSettingSlide()>
 					</div>
 				</form>
 			</div>

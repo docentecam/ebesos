@@ -105,20 +105,12 @@ angular.module('spaApp')
 	
 	$scope.idUser = $routeParams.idUser;
 	$scope.name = $routeParams.name;
-	var a = Math.ceil(Math.random() * 9)+ '';
-	var b = Math.ceil(Math.random() * 9)+ '';
-	var c = Math.ceil(Math.random() * 9)+ '';
-	var d = Math.ceil(Math.random() * 9)+ '';
-	var e = Math.ceil(Math.random() * 9)+ '';
-	var code = a + b + c + d + e;
-	document.getElementById("txtCaptcha").value = code;
-	document.getElementById("captchaDiv").innerHTML = code;
+	
 	$http({
 		method : "GET",
 		url : "models/shops.php?acc=l&idUser="+$scope.idUser
 		}).then(function mySucces(response) {
 			$scope.shops = response.data;
-			console.log($scope.shops );
 			$scope.showDivC = false;
 			$scope.showDivN = false;
 			$scope.showDivCA = true;
@@ -143,6 +135,14 @@ angular.module('spaApp')
 	};
 
 	$scope.showContact = function(idUser){
+		var a = Math.ceil(Math.random() * 9)+ '';
+		var b = Math.ceil(Math.random() * 9)+ '';
+		var c = Math.ceil(Math.random() * 9)+ '';
+		var d = Math.ceil(Math.random() * 9)+ '';
+		var e = Math.ceil(Math.random() * 9)+ '';
+		var code = a + b + c + d + e;
+		document.getElementById("txtCaptcha").value = code;
+		document.getElementById("captchaDiv").innerHTML = code;
 		$http({
 			method : "GET",
 			url : "models/users.php?acc=mail&idUser="+ $scope.idUser

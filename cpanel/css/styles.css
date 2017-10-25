@@ -219,27 +219,15 @@ body, .editNgView {
 .colorLoginHidden{
   color: #52AFBA;
 }
-/*---------------slider--------------TDOD-*/
+/*---------------slider--------------TODO-*/
 #editarSliderSpan{
-  margin-top: 10%
+  margin-top: 10%;
 }
 #divOpcioAfegir{
-  margin-top: 9.5%
+  margin-top: 9.5%;
 }
-#sliderAddDesc{
-
-}
-#sliderAddTitle{
-
-}
-#sliderAddSubtitle{
-
-}
-#sliderAddLink{
-  
-}
-#sliderAddBtn{
-
+.slideEditAndAdd{
+  margin-bottom: 3.5%;
 }
 #whiteSliderDiv{
   background-color: white;
