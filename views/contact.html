@@ -1,0 +1,95 @@
+<div class="row">
+	<div class="col-xs-12 col-md-6 col-lg-12">
+		<div class="container">
+			<div class="row">
+				<a id="breadcrumbsContact" href="../ebesos"> Inici</a><span> | </span> Eix del Besòs <span> | </span><span> Contacte </span>
+			</div>
+			<div class="row">
+				<div ng-show="muestraStatusEmail" id="divSuccess" class="col-lg-12" ng-class="emailStatus ? 'alert alert-success' : 'alert alert-danger'">{{emailText}}</div>
+				<!-- Hacer que desaparezca el formulario en caso de exito -->
+			</div>
+	  		<div ng-hide="escondeForm">
+				<form class="col-lg-offset-1" method="post" name="myForm" id="myForm" class="form-horizontal">
+			  		<table id="contactTable">
+			  			<tbody  id="tbodyContactTable">
+				  			<div class="form-group">
+				  				<tr>
+					  				<td>
+						    			<label class="control-label col-xs-2">Nom:</label>
+						    		</td>
+						    		<td>
+						    			<div class="col-xs-10">
+						    				<input type="text" class="form-control" id="client" name="client" placeholder="Introdueixi el seu nom">
+						    			</div>
+				  					</td>
+				  				</tr>
+				  			</div>
+				    		<div class="form-group">
+				    			<tr>
+					  				<td>
+						     			<label class="control-label col-xs-2" for="email">Correu Electrònic:</label>
+						     		</td>
+						    		<td>
+						      			<div class="col-xs-10">
+						        			<input type="email" class="form-control" id="email" name="email" placeholder="Introdueixi el correu electrònic">
+						      			</div>
+						      		</td>
+				  				</tr>
+				    		</div>
+				    		<div class="form-group">
+				    			<tr>
+					  				<td>
+						      			<label class="control-label col-xs-2" for="message">Missatge:</label>
+						      		</td>
+						    		<td>
+						    			<div class="col-xs-10">        
+						      				<textarea class="form-control" placeholder="Escrigui el seu missatge..." id="message" name="message" rows="5" ></textarea>  
+						      			</div>.
+						      		</td>
+				  				</tr>
+				    		</div>
+				    		<div class="form-group">
+				    			<tr>
+					  				<td>
+				      					<label class="control-label col-xs-8" for="captcha"></label>
+				      				</td>
+						    		<td>
+						      			<div class="col-xs-6 col-push-xs-3" id="captchaDiv">
+						     			</div>
+				     				</td>
+				  				</tr>
+				    		</div>
+				    		<div class="form-group">
+				    			<tr>
+					  				<td>
+				      				</td>
+					    			<td>
+			      						<div class="col-xs-10">
+			      							<input type="hidden" id="txtCaptcha">
+			        						<input type="text" class="form-control" name="captchaInput" id="captchaInput" placeholder="Introdueixi els números">
+			      						</div>
+				      					<div class="col-xs-1">
+				        					<input type="button" class="btn btn-default" value="Enviar" style="background: #ced2de;" ng-click="checkform();">
+				      					</div>
+				      				</td>
+				  				</tr>
+				    		</div>
+			    		</tbody>
+					</table>
+			  	</form>
+			  	<div class="col-lg-5 col-lg-push-1">
+			  		<div ng-repeat="mail in infoMail" class="row"> 
+		  				Email de Contacte: {{mail.email}}
+			  		</div>
+			  		<div ng-repeat="mail in infoMail" class="row"> 
+			  			Direcció {{mail.address}}
+			  		</div>
+			  		<div ng-repeat="mail in infoMail" class="row"> 
+			  			Telèfon de Contacte: {{mail.telephone}}
+			  		</div>
+			  	</div>
+		  	</div>
+		</div>
+	</div>
+</div>
+

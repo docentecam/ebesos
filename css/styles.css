@@ -1,0 +1,585 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,600,700');
+
+/*GLOBAL*/
+*
+{
+	font-family: 'Open Sans', sans-serif;
+}
+body{
+	font-weight: 300;
+	margin-left:15px!important;
+	margin-right:15px!important; 
+}
+/*lander sanahujes yañez*/
+#aboutUs{
+	width: 75%;
+	height: 250px;
+	margin-left: 12%;
+	margin-top: 5%;
+}
+/*COMERCIAL MAP*/
+#map {
+	height: 500px;
+	//width: 1000px;
+}
+.category {
+	height: 50px;
+	margin-bottom: 60px;
+}
+.a-category {
+	font-weight: 600;
+	text-decoration: none;
+	color: black;
+	outline: none;
+}
+.a-category:hover {
+	font-weight: 700;
+	text-decoration: none;
+	color: black;
+	outline: none;
+}
+.legend{
+	font-size: 11px;
+	bottom: 25px;
+}
+.label-legend{
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.label-mer{
+	padding: 5px;
+}
+.acColor{
+	height: 20px;
+	width: 20px;
+	background-color: #124290;
+}
+.xnoColor{
+	height: 20px;
+	width: 20px;
+	background-color: #952C20;
+}
+.merColor{
+	height: 20px;
+	width: 20px;
+	background-color: #80AE38;
+}
+/*FIN COMERCIAL MAP*/
+
+/* Optional: Makes the sample page fill the window. */
+
+/*html, body {
+
+height: 100%;
+
+margin: 0;
+
+padding: 0;
+
+}*/
+
+/*BLOQUE COOKIES*/
+#cookie-agree{
+    display:none;
+    position:fixed;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    padding-bottom:25px;
+    width:100%;
+    text-align:center;
+    min-height:50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color:#fff;
+    z-index:99999;
+} 
+.inner{
+    width:100%;
+    position:absolute;
+    padding-left:5px;
+    font-family:verdana;
+    font-size:12px;
+    top:30%;
+} 
+.inner a.ok {
+    padding:4px;
+    color:#00ff2e;
+    text-decoration:none;
+} 
+.inner a.info {
+    padding-left:5px;
+    text-decoration:none;
+    color:#faff00;
+}
+/*FIN BLOQUE COOKIES*/
+
+/*
+#photo{
+	border-radius: 15px 50px;
+	margin-left: 35.5%;
+	margin-bottom: 55.5%;
+}
+
+#title{
+	margin-left: 60%;
+	margin-top: 25%; 
+}
+*/
+
+
+/*--------------------------------------------------------Javi--------------------------------------------------------------------*/
+.headTitle{
+	font-weight: 600;
+}
+#typeLetter{
+	font-size: 15px;
+	font-weight: bold;
+}
+#typeLetterP{
+	margin: 0 0 10px;
+	position: relative;
+	top: 10%;
+	font-size: 14px;
+}
+.colorLinksHidden{
+	color: black;
+	margin-top: -2%;
+}
+.colorLoginHidden{
+	color: #52AFBA;
+	margin-top: -2%;
+}
+.navGeneral{
+	border-bottom: none;
+	margin-top: 0.5%!important;
+	background-color: white;
+	margin-left: -15px!important;
+	margin-right: -15px!important;
+}
+.textOverImage{
+	position: absolute;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.68);
+	top: 42%;
+	left: 2%;
+	width: 30%;
+	height: 48%;
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-top: 10px;	
+}
+.underline:hover{
+	border-bottom: 1px solid #9E9E9E;
+}
+#marginBottomSlider{
+	margin-bottom: 2%!important;
+}
+.submenuFormat{
+	text-align: center;
+	padding:5%!important; 
+}
+.widthLiAsso{
+	width: 20em!important;
+}
+#rowForm{
+	padding-right: 0%!important;
+}
+.sr-only{
+	border-right: 2px solid black;
+}
+.customNav{
+	width: 19.2%!important;
+}
+.dividerNav{
+	margin-top:1.125% ;
+	width: 1%; 
+}
+#indicatorSlider{
+	margin-bottom:-1%!important;
+}
+
+#footerColor{
+	background-color:#808BA7;
+	margin-top: 5%!important;
+}
+#linkBorder{
+	border-left: 1px solid #9C9C9C;
+}
+.linkNom{
+	font-weight: bold;
+    padding: 0;
+    margin: 15px 0;
+    font-size: 1.4em;
+    color: white!important;
+}
+.linkNameForm{
+    color: white!important;
+}
+.footerLinksColor{
+	color: white!important;
+}
+#contactWho{
+	margin-top: 1.8%;
+}
+#marginLinks{
+	padding: 1%!important;
+}
+#loadingData{
+	position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:1000;
+    background-color:grey;
+    opacity: .8;
+}
+#mc_embed_signup .button{
+	color: black!important;
+}
+.navbar{
+	margin-bottom: 0px!important;
+}
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+.navbar .navbar-collapse {
+  text-align: center;
+  background-color: white!important;  
+}
+.navGlobalClass{
+	background-color: white!important;
+}
+.footer-bs {
+    background-color: #808BA7;
+	color: black;
+	margin-top: 1%;
+	border-bottom-right-radius: 6px;
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 6px;
+	height: 40%!important;
+}
+#mc_embed_signup{
+	background-color: #808BA7!important;
+	margin-left: 5%!important;
+}
+#mce-EMAIL, #mce-FNAME{
+	color: black;
+}
+#homeIconNav{
+	position: absolute;
+	left: 18%;
+    top: 33%;
+}
+#separationLine{
+	text-align: center;
+}
+#separatorDesign{
+	text-decoration: none;
+}
+.navGlobalClass>li>.hi
+{
+	width: 300px!important;
+}
+.customazingNav{
+	width: 20%;
+}
+
+.footer-bs .footer-brand, .footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { padding:10px 25px; }
+.footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { border-color: transparent; }
+.footer-bs .footer-brand h2 { margin:0px 0px 10px; }
+.footer-bs .footer-brand p { font-size:12px; color:rgba(255,255,255,0.70); }
+
+.footer-bs .footer-nav ul.pages { list-style:none; padding:0px; }
+.footer-bs .footer-nav ul.pages li { padding:5px 0px;}
+.footer-bs .footer-nav ul.pages a { color:rgba(255,255,255,1.00); font-weight:bold; text-transform:uppercase; }
+.footer-bs .footer-nav ul.pages a:hover { color:rgba(255,255,255,0.80); text-decoration:none; }
+.footer-bs .footer-nav h4 {
+	font-size: 11px;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	margin-bottom:10px;
+}
+.footer-bs .footer-nav ul.list { list-style:none; padding:0px; }
+.footer-bs .footer-nav ul.list li { padding:5px 0px;}
+.footer-bs .footer-nav ul.list a { color:rgba(255,255,255,0.80); }
+.footer-bs .footer-nav ul.list a:hover { color:rgba(255,255,255,0.60); text-decoration:none; }
+
+.footer-bs .footer-social ul { list-style:none; padding:0px; }
+.footer-bs .footer-social h4 {
+	font-size: 11px;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+}
+.footer-bs .footer-social li { padding:5px 4px;}
+.footer-bs .footer-social a { color:rgba(255,255,255,1.00);}
+.footer-bs .footer-social a:hover { color:rgba(255,255,255,0.80); text-decoration:none; }
+
+.footer-bs .footer-ns h4 {
+	font-size: 11px;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	margin-bottom:10px;
+}
+.footer-bs .footer-ns p { font-size:12px; color:rgba(255,255,255,0.70); }
+
+
+/*----------------------------------------------------------Jordi------------------------------------------------------------------*/
+
+#captchaDiv{
+	background-image: url("../img/captcha.jpg");
+	color: gray;
+	font-size: 35px;	
+	margin-left: 6%;
+	text-align: center;
+}
+#routeLi{
+	margin-left: 5%; 
+	margin-top: 1%
+}
+#contactTable{
+	height: 450px;
+	margin-bottom: 5%; 
+	margin-left: 1.5%;
+	margin-top: 5%;
+}
+#tbodyContactTable{
+	border-left: solid 1px;
+	border-color:#ced2de;
+}
+#breadcrumbsContact{
+	text-decoration: none;
+}
+#titleNew{
+	text-align: center;
+}
+#containerNew{
+	margin-bottom: 5%;
+}
+#dataNew{
+	margin-bottom: 2%;
+}
+#divSuccess{
+	height: 50px;
+    margin-top: 3%;
+    text-align: center;
+}   
+#iniciAsso{
+	color: black;
+	font-weight: 600;
+	text-decoration: underline;
+}
+
+/*--------------------------------------------------------Dídac--------------------------------------------------------------------*/
+.assoNews{
+	width: 80%;
+	height: 80%;
+	border-radius: 5px;
+	border: solid 1px;
+	border-color: black;
+}
+.newsAsso{
+	border-bottom: solid 1px;
+	border-color: #ced2de;
+	padding-bottom: 15px;
+	text-align: center;
+}
+.dateAssoNews{
+	color: #94979F;
+}
+.topDate{
+	padding-top: 10px;
+}
+#assoTabCont{
+	height: 450px;
+	margin-bottom: 1%;
+	margin-left: 10%;
+}
+.stylcont{
+	border-left: solid 1px;
+	border-color:#ced2de;
+	padding: 30px;
+	margin-top: 4%;
+}
+.pictoShops
+{
+	width: 15px;
+}
+.subMA
+{
+	color: white;
+}
+.subMA:hover
+{
+	color: white;
+	text-decoration: none!important;
+}
+.subMA:focus
+{
+	color: white!important;
+	text-decoration: none!important;
+}
+#subMenu
+{
+	text-align: center;
+	padding-right: 0% !important;
+	background-color: #337ab7;
+	padding-left: 0%!important;
+}
+.shopsList{
+	padding-bottom: 10px;
+}
+.breadComsA
+{
+	padding-bottom: 10%;
+}
+.assoDivContact
+{
+	margin-top: -1%;
+}
+.formAssoContact{
+	margin-left: -5%!important;
+	margin-top: -15%;
+}
+#divImgsNew{
+	padding: 0px !important;
+}
+#imgInNew{
+	margin-bottom: 2%;	
+}
+#divVidsNew{
+	margin-top: 2%;
+}
+#vidsInNew{
+	margin-bottom: 2%;
+}
+.upperTitle
+{
+	text-transform: uppercase;
+	text-align: center;
+	position: absolute;
+	margin-top: 1%;
+}
+
+/*--------------------------------------------------------Aida--------------------------------------------------------------------*/
+#photo{
+	border-radius: 10px;
+	border: solid 1px black;
+	padding: 0%!important;
+	opacity: 0.9;
+}
+#photo:hover
+{
+	opacity: 1;
+}
+#news
+{
+	margin-top: 7%;
+}
+
+#imgPadd
+{
+	padding-left: 5%;
+	border-bottom: solid 1px #DEE4DD;
+	padding-bottom: 3%;
+}
+#lorem
+{
+	padding: 5%;
+	padding-bottom: 0%!important;
+}
+#date
+{
+	margin-left: 5%;
+	color: #C5CAC4;
+	margin-bottom: 0.5%;
+	margin-top: 3%;
+}
+#breadcrumbsContact
+{
+	margin-left: 2%;
+	color: black;
+	font-weight: 600;
+	text-decoration: underline;
+}
+#moreInfo
+{
+	font-weight: 600;
+}
+
+#loremUPPER
+{
+	text-transform: uppercase;
+	text-align: center;
+}
+
+#breadcrumbsContact:hover
+{
+	font-weight: 700;
+}
+.breadJS
+{
+	color: black;
+    font-weight: 600;
+    text-decoration: underline;  
+}
+#all
+{
+	margin-left: 2%;
+	margin-right: 2%;
+}
+
+
+@media (max-width: 575px){
+	.subMenu{
+		padding:  0px;
+	}
+
+	.titleSubE
+	{
+		position: relative;
+		margin-top: 1%;
+	}
+
+}
+@media (max-width: 767px){
+
+}
+@media (min-width: 768px)
+{
+	.footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { border-left:solid 1px rgba(255,255,255,0.10); }
+
+	.titleSubE
+	{
+		position: relative;
+		margin-top: 3%;
+	}
+}
+
+
+
+@media (max-width: 1023px)
+{
+	
+}
+
+@media (min-width: 1024px){
+
+	.subMenu:hover{
+		background-color: #51576F;
+		cursor: pointer;
+		font-weight: 600;
+		color: white!;
+	}
+	.subMenu{
+		padding:  30px;
+	}
+
+	.titleSubE{
+		position: absolute;
+		margin-top: 7%;
+	}
+}
+
