@@ -8,8 +8,8 @@
 				</option>
 			</select>
 		</div>
-		<div class="col-lg-2">
-	 		<button id="btnAfegir" class="btn btn-default" ng-click="changeDataUser(idUser=-1)">Afegir <i class="fa fa-plus-circle"></i></button>
+		<div class="col-lg-2"  ng-show="cUser">
+	 		<button id="btnAfegir" class="btn btn-default" ng-click="changeDataUser(idUser=-1)" >Afegir <i class="fa fa-plus-circle"></i></button>
 		</div>
 	</div>
 	<div ng-show="formDataUser">
@@ -106,8 +106,8 @@
 				<div class="col-lg-6">Logo Footer</div>
 			</div>
 			<div class="row">
-				<img class="col-lg-6" src="../img/logos-assoc/{{footerC}}">
-				<div class="col-lg-6">
+				<img class="col-xs-6 col-lg-6" src="../img/logos-assoc/{{footerC}}">
+				<div class="col-xs-12 col-lg-6">
 					<div class="row"><a class="col-lg-8" href="" ng-click="showEdit2()">Editar logo</a></div>
 					<div class="row"><span class=" col-lg-9">Eliminar logo</span></div>
 				</div>
