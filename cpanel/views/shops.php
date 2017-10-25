@@ -1,91 +1,98 @@
+<!-- <?php
+	// session_start();
+	// if(!isset($_SESSION['user']['nom'])) header("Location: ../view/login.php");
+?> -->
 <div class="row">
 	<button ng-click="shopOneAdd()" class="btn-default">add</button>
+	<select ng-disabled="privilegesLg=='A'" ng-change="listChange(idUserL)" ng-model="idUserL">
+		<option ng-value="userL.idUser" ng-repeat="userL in userList" ng-selected="userL.idUser==idUserLg">{{userL.name}}</option>
+	</select>
 </div>
-<div class="row" ng-repeat="shops in shopsList">
+<div class="row" ng-repeat="shops in shopsList | filter : {idUser:filterShops}:true">
 	<div class="col-md-3"><img src="img/shops/{{shops.image}}"></div>
 	<div class="col-md-9">
-		<div class="row"><label>{{shops.name}}</label></div>
+		<div class="row"><label>{{shops.name}}/{{shops.idUser}}/{{idUserLg}}</label></div>
 		<div class="row"><p>{{shops.description}}</p></div>
 	</div>
-	<button ng-click="shopOneEdit(shops.idShop)" class="btn-default">edit</button>
+	<button ng-click="shopOneEdit($index, 'e')" class="btn-default">edit</button>
 	<!-- <button ng-click="shopOneDelete(shops.idShop)" class="btn-default">delete tienda: {{shops.idShop}}</button> -->
 	<button class="btn-default">delete</button>
 </div>
 	
 <div class="row col-md-12" ng-show="showShop"> <!-- ng-repeat="shop in shopOne" -->
-	<form id="i-shop" name="i-shop" ng-submit="infoShop()">
+	<form id="i-shop" name="i-shop" ng-submit="uploadFile()">
+		<input type="text" name="" ng-model="shopOne.idShop" hidden>
 		<div class="row col-md-12">
 			<div class="col-md-4 col-md-push-1">
-				<input type="text" ng-model="prueba">
 				<span>Nom comerç</span>
-				<input type="text" id="n-shop" ng-name="n-shop" ng-model="shopOne[0].name" placeholder="nom de la tenda" name="">
+				<input type="text" id="n-shop" ng-name="n-shop" ng-model="shopOne.name" placeholder="nom de la tenda" name="">
 			</div>
 			<div id="user" class="col-md-4 col-md-push-1">
 				<select id="u-shop" name="u-shop" ng-change="userOwner(idUser)" ng-model="idUser">
-					<option ng-repeat="user in users" ng-model="user.name" ng-selected="user.idUser==shopOne[0].idUser">{{user.name}}</option>
+					<option ng-value="userL.idUser" ng-repeat="userL in userList | filter: {idUser:'!1'}" ng-selected="userL.idUser==shopOne.idUser">{{userL.name}}</option>
 				</select>
 			</div>
 		</div>
 		<div class="row col-md-12">
 			<div class="col-md-4 col-md-push-1">
 				<span>Descripció llarga</span>
-				<textarea cols="21" rows="10" id="descL-shop" name="descL-shop" value="">{{shopOne[0].descriptionLong}}</textarea>
+				<textarea cols="21" rows="10" id="descL-shop" name="descL-shop" ng-model="shopOne.descriptionLong">{{shopOne.descriptionLong}}</textarea>
 			</div>
 			<div class="row col-md-4 col-md-push-1">
 				<div>
 					<span>Descripció curta</span>
-					<textarea cols="21" rows="5" id="descS-shop" name="descS-shop" value="">{{shopOne[0].description}}</textarea>
+					<textarea cols="21" rows="5" id="descS-shop" name="descS-shop" ng-model="shopOne.description">{{shopOne.description}}</textarea>
 				</div>
 				<div class="row col-md-4 col-md-push-1">
 					<span>Ciutat</span>
-					<input type="text" id="c-shop" name="c-shop" placeholder="nom de la tenda" name="" ng-value="shopOne[0].ciutat">
+					<input type="text" id="c-shop" name="c-shop" placeholder="nom de la tenda" name="" ng-model="shopOne.ciutat">
 				</div>
 			</div>
 		</div>
 		<div class="row col-md-12">
 			<div class="col-md-4 col-md-push-1">
 				<span>Logo comerç</span>
-				<input type="file" id="lg-shop" name="lg-shop">
+				<input type="file" id="lg-shop" name="lg-shop" uploader-model="shopOne.logo">
 			</div>
 			<div class="col-md-4 col-md-push-1">
 				<span>Adreça electronica</span>
-				<input type="text" id="url-shop" name="url-shop" placeholder="nom de la tenda" name="" ng-value="shopOne[0].url">
+				<input type="text" id="url-shop" name="url-shop" placeholder="nom de la tenda" name="" ng-model="shopOne.web">
 			</div>
 		</div>
 		<div class="row col-md-12">
 			<div class="col-md-4 col-md-push-1">
 				<span>Latitud</span>
-				<input type="text" id="lat-shop" name="lat-shop" placeholder="nom de la tenda" name="" ng-value="shopOne[0].lat">
+				<input type="text" id="lat-shop" name="lat-shop" placeholder="nom de la tenda" name="" ng-model="shopOne.lat">
 			</div>
 			<div class="col-md-4 col-md-push-1">
 				<span>Longitud</span>
-				<input type="text" id="lng-shop" name="lng-shop" placeholder="nom de la tenda" name="" ng-value="shopOne[0].lng">
+				<input type="text" id="lng-shop" name="lng-shop" placeholder="nom de la tenda" name="" ng-model="shopOne.lng">
 			</div>
 		</div>
 		<div class="row col-md-12">
 			<div class="col-md-4 col-md-push-1">
 				<span>Teléfon</span>
-				<input type="text" id="p-shop" name="p-shop" placeholder="nom de la tenda" name="" ng-value="shopOne[0].telephone">
+				<input type="text" id="p-shop" name="p-shop" placeholder="nom de la tenda" name="" ng-model="shopOne.telephone">
 			</div>
 			<div class="col-md-4 col-md-push-1">
 				<span>Codi Postal</span>
-				<input type="text" id="cp-shop" name="cp-shop" placeholder="nom de la tenda" name="" ng-value="shopOne[0].cp">
+				<input type="text" id="cp-shop" name="cp-shop" placeholder="nom de la tenda" name="" ng-model="shopOne.cp">
 			</div>
 		</div>
 		<div class="row col-md-12">
 			<div class="col-md-4 col-md-push-1">
 				<span>Adreça</span>
-				<input type="text" id="a-shop" name="a-shop" placeholder="nom de la tenda" name="" ng-value="shopOne[0].address">
+				<input type="text" id="a-shop" name="a-shop" placeholder="nom de la tenda" name="" ng-model="shopOne.address">
 			</div>
 			<div class="col-md-4 col-md-push-1">
 				<span>Horari</span>
-				<input type="text" id="s-shop" name="s-shop" placeholder="nom de la tenda" name="" ng-value="shopOne[0].schedule">
+				<input type="text" id="s-shop" name="s-shop" placeholder="nom de la tenda" name="" ng-model="shopOne.schedule">
 			</div>
 		</div>
 		<div class="row col-md-12">
 			<div class="col-md-3 col-md-push-1">
 				<span>Email</span>
-				<input type="text" id="e-shop" name="e-shop" placeholder="nom de la tenda" name="" ng-value="shopOne[0].email">
+				<input type="text" id="e-shop" name="e-shop" placeholder="nom de la tenda" name="" ng-model="shopOne.email">
 			</div>		
 		</div>
 		<div>

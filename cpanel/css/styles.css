@@ -1,21 +1,20 @@
-/* make sidebar nav vertical */ 
-@media (min-width: 768px) {
-  .sidebar-nav .navbar .navbar-collapse {
-    padding: 0;
-    max-height: none;
-  }
-  .sidebar-nav .navbar ul {
-    float: none;
-    display: block;
-  }
-  .sidebar-nav .navbar li {
-    float: none;
-    display: block;
-  }
-  .sidebar-nav .navbar li a {
-    padding-top: 12px;
-    padding-bottom: 12px;
-  }
+body, .editNgView {
+  margin-left:15px!important;
+  margin-right:15px!important;
+}
+input
+{
+  height: 35px; 
+}
+select
+{
+  height: 35px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+ 
+
 /* ---------ToDo Login---------- */
 
 #alertW
@@ -130,17 +129,6 @@
   padding-top: 11%;
   padding-bottom: 5%;
 }
-input
-{
-  height: 35px; 
-}
-select
-{
-  height: 35px;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-}
 #selectAsso
 {
   margin-top: 3%;
@@ -166,7 +154,6 @@ select
 .titleForm{
   width: 85%;
 }
-
 .titleSub{
   
   height: 250px;
@@ -174,15 +161,11 @@ select
   margin-bottom: 5%;
   margin-top: 2%;
 }
-
-
 #containerImg{
   background-color: white;
   width: 100%;
-  border: 1px solid #e2e2e2;
-  
+  border: 1px solid #e2e2e2;  
 }
-
 #containerPreferred{
   margin-top: 5%;
   margin-bottom: 7%;
@@ -194,7 +177,6 @@ select
   margin-bottom: 7%;
   margin-left: 5%;
 }
-
 .containerEditImg{
   margin-left: 20%;
   background-color: white;
@@ -210,27 +192,18 @@ select
 .mainNav{
   padding: 15%;
 }
-
-body, .editNgView {
-  margin-left:15px!important;
-  margin-right:15px!important;
-}
-
 .editNgView{
   padding-left: 6%;
   padding-top: 3%;
-}
-  
+}  
 .colorLoginHidden{
   color: #52AFBA;
 }
-
 #editarSliderSpan{
   margin-top: 10%
 }
 #divOpcioAfegir{
   margin-top: 9.5%
-
 }
 #whiteSliderDiv{
   background-color: white;
@@ -248,11 +221,9 @@ body, .editNgView {
 #imgSliderSetting{
   margin-top: 0.5%;
 }
-
 #btnEditarSlider{
   margin-top: 5%;
 }
-
 #btnDeleteSlider{
   margin-top: 5%;
 }
@@ -273,3 +244,22 @@ body, .editNgView {
   right: 15px;
 }
 /*--------------------------------------*/
+
+@media (min-width: 768px) { 
+  .sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}

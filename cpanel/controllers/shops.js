@@ -2,42 +2,66 @@ angular.module('spaApp')
 .controller('ShopsCtrl', function($scope, $http, $routeParams, upload) {
 	$scope.showShop = false;
 	$scope.shopOne = "[{{}}]";
+	$scope.filterId = 1;
 	console.log($scope.showShop);
+	$http({
+		method : "GET",
+		url : "models/users.php?acc=lg"
+	}).then(function mySucces(response) {
+		$scope.userLg = response.data;
+		$scope.idUserLg = $scope.userLg[0].sessionIdUser
+		$scope.privilegesLg = $scope.userLg[0].sessionPrivileges
+		if($scope.idUserLg==1) $scope.filterShops="!1";
+		else $scope.filterShops = $scope.idUserLg;
+		$scope.loading = false;
+    $scope.loading = false;
+	}, function myError(response) {
+		$scope.shops = response.statusText;
+	});
+
+	$http({
+		method : "GET",
+		url : "models/users.php?acc=listUsers"
+	}).then(function mySucces(response) {
+		$scope.userList = response.data;
+		$scope.loading = false;
+    $scope.loading = false;
+	}, function myError(response) {
+		$scope.shops = response.statusText;
+	});
+
 	$http({
 		method : "GET",
 		url : "models/shops.php?acc=list"
 	}).then(function mySucces(response) {
 		console.log(response.data);
 		$scope.shopsList = response.data;
+		$scope.loading = false;
     $scope.loading = false;
 	}, function myError(response) {
 		$scope.shops = response.statusText;
 	});
 
-	$scope.shopOneEdit = function($idShop){
-		$http({
-			method : "GET",
-			url : "models/shops.php?acc=edit&idShop=" + $idShop
-		}).then(function mySucces (response) {
-			$scope.shopOne = response.data;
-			$scope.subCategoriesShop = $scope.shopOne[0].subCategoriesShop;
-			$scope.images = $scope.shopOne[0].images;
-			$scope.users = $scope.shopOne[0].users;
-			$scope.subCategories = $scope.shopOne[0].subCategories;
-			$scope.showShop = true;
-			console.log($scope.showShop);
-			console.log($scope.shopOne);
-		}, function myError (response) {
-			$scope.showShop = response.statusText;
-		});
+	$scope.shopOneEdit = function(index, $type){
+		$scope.shopOne = $scope.shopsList[index];
+		$scope.type = $type;
+		console.log($scope.type); 
+		// $scope.subCategoriesShop = $scope.showShop[index].subCategoriesShop;
+		// $scope.images = $scope.showShop[index].images;
+		// $scope.users = $scope.showShop[index].users;
+		// $scope.subCategories = $scope.showShop[index].subCategories;
+		$scope.showShop = true;
+		$scope.loading = false;
 	};
 	$scope.shopOneDelete = function($idShop){
 		console.log($idShop);
+		$scope.loading = true;
 		$http({
 			method : "GET",
 			url : "models/shops.php?acc=delete&idShop=" + $idShop
 		}).then(function mySucces (response) {
 			$scope.shopDeleted = response.data
+			$scope.loading = false;
 			//shopOneEdit($idShop);
 			console.log("hola: " + $scope.shopDeleted);
 		}, function myError (response) {
@@ -49,6 +73,11 @@ angular.module('spaApp')
 		$scope.type = "A";
 	};
 
+	$scope.listChange = function($idUserL){
+		if($idUserL==1) $scope.filterShops="!1";
+		else $scope.filterShops = $idUserL;
+	};
+
 	$scope.preferredSubCat = function($idShopCategorySub){
 		console.log($idShopCategorySub);
 
@@ -58,7 +87,7 @@ angular.module('spaApp')
 
 	};
 	$scope.deleteSubCategory = function($idShopCategorySub, $idShop){
-		 
+		$scope.loading = true;
 		$http({
 			method : "GET",
 			url : "models/shops.php?acc=delsc&idShop="+$idShop+"&idShopCategorySub="+$idShopCategorySub
@@ -67,6 +96,7 @@ angular.module('spaApp')
 			$scope.subCategoriesData = response.data;
 			$scope.subCategoriesShop = $scope.subCategoriesData[0].shopCategories;
 			$scope.subCategories = $scope.subCategoriesData[0].categoriesSub;
+			$scope.loading = false;
 			console.log($scope.subCategoriesData);
 			console.log($scope.subCategoriesShop);
 			//console.log($scope.subCategories);
@@ -80,14 +110,30 @@ angular.module('spaApp')
 	};
 	$scope.userOwner = function($idUser){
 		console.log($idUser);
-
 	};
-	$scope.infoShop = function() {
+	$scope.uploadFile = function(){
 		console.log("carga");
-		var name= $scope.name;
-		var file= $scope.file;
-		upload.uploadForm(file,name);
-		console.log(name + " " + file);
+		var type = $scope.type;
+		var idShop = $scope.shopOne.idShop
+		var name = $scope.shopOne.name;
+		var idUser = $scope.idUser;
+		var descriptionLong = $scope.shopOne.descriptionLong;
+		var description = $scope.shopOne.description;
+		var ciutat = $scope.shopOne.ciutat;
+		var logo = $scope.shopOne.logo;
+		var web = $scope.shopOne.web;
+		var lat = $scope.shopOne.lat;
+		var lng = $scope.shopOne.lng;
+		var telephone = $scope.shopOne.telephone;
+		var cp = $scope.shopOne.cp;
+		var address = $scope.shopOne.address;
+		var schedule = $scope.shopOne.schedule;
+		var email = $scope.shopOne.email;
+		//var file= $scope.file;
+		console.log(name);
+		console.log(type);
+		console.log(logo);
+		var variable = upload.uploadFile(type, idShop, name, idUser, descriptionLong, description, ciutat, logo, web, lat, lng, telephone, cp, address, schedule, email);
 	}
 
 })
@@ -108,15 +154,29 @@ angular.module('spaApp')
 
 .service('upload',["$http","$q", function($http,$q)
 {
-	this.uploadForm=function(file,name)
+	this.uploadFile=function(type, idShop, name, idUser, descriptionLong, description, ciutat, logo, web, lat, lng, telephone, cp, address, schedule, email)
 	{
-		console.log("nombre en upload: "+name); 
-			console.log("fichero en upload: "+file);
+		console.log("nombre en upload: "+name);
+		console.log("nombre en upload: "+logo); 
+			//console.log("fichero en upload: "+file);
 				var	deferred=$q.defer();
 				var formData= new FormData();
+				formData.append("idShop", idShop);
 				formData.append("name", name);
-				formData.append("file",	file);
-				return 	$http.post("models/subeFichero.php", formData,{
+				formData.append("idUser", idUser);
+				formData.append("descriptionLong", descriptionLong);
+				formData.append("description", description);
+				formData.append("ciutat", ciutat);
+				formData.append("logo", logo);
+				formData.append("web", web);
+				formData.append("lat", lat);
+				formData.append("lng", lng);
+				formData.append("telephone", telephone);
+				formData.append("cp", cp);
+				formData.append("address", address);
+				formData.append("schedule", schedule);
+				formData.append("email", email);
+				return 	$http.post("models/shops.php?acc=upload&sentence="+type, formData,{
 					headers:{
 						"Content-type":undefined
 					},
