@@ -33,6 +33,10 @@
   vertical-align: middle;
   margin-bottom: 2%;
 }
+.loginRadius
+{
+  border-radius: 5px;
+}
 .log20
 {
   height: 20px
