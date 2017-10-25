@@ -1,12 +1,16 @@
 <?php
 require('../inc/functions.php');
+session_start();
 
 if(isset($_GET['acc']) && $_GET['acc'] == 'list')
 {
-session_start();
-			FROM shops LEFT OUTER JOIN shopsimages ON shops.idShop = shopsimages.idShop AND
-			shopsimages.preferred = 'Y';";
-			
+	$mySql = "SELECT shopsimages.url, shops.idShop, shops.name, shops.lng, shops.lat, shops.logo, shops.telephone, shops.email, shops.address, shops.schedule, shops.description, shops.descriptionLong, shops.url AS web, shops.cp, shops.ciutat, shops.idUser
+			FROM shops INNER JOIN shopsimages ON shops.idShop = shopsimages.idShop AND
+			shopsimages.preferred = 'Y'";
+	if($_SESSION['user']['privileges'] != 'E')
+	{
+		$mySql .= "AND shops.idUser =".$_SESSION['user']['idUser'];
+	}
 
 	$connexio = connect();
 
@@ -18,27 +22,131 @@ session_start();
 	$i = 0;
 	while($row = mysqli_fetch_array($resultShops))
 	{
+		if($i != 0) $dataShops .= ",";
+
+		$dataShops .= '{"idShop":"'.$row['idShop'].'", "name":"'.$row['name'].'", "lng":"'.$row['lng'].'", "lat":"'.$row['lat'].'", "logo":"'.$row['logo'].'", "telephone":"'.$row['telephone'].'", "email":"'.$row['email'].'", "address":"'.$row['address'].'", "schedule":"'.$row['schedule'].'", "description":"'.$row['description'].'", "descriptionLong":"'.$row['descriptionLong'].'", "web":"'.$row['web'].'", "cp":"'.$row['cp'].'", "ciutat":"'.$row['ciutat'].'", "idUser":"'.$row['idUser'].'", "imgPref":"'.$row['url'].'"';
+		
+		$dataShops .= ', "subCategoriesShop":';
+
+		$dataShops .= listShopCategoriesSub($row['idShop']);
+
+		$dataShops .= '}';
 		$i++;
 	}
 	$dataShops .= "]";
 
 	echo $dataShops;
 }
+else if(isset($_GET['acc']) && $_GET['acc'] == 'upload')
 {
+	// $idShop=$_GET['idShop'];
+	// $mySql = "SELECT s.idShop, s.name, s.lng, s.lat, s.logo, s.telephone, s.email, s.address, s.schedule, s.description, s.descriptionLong, s.url AS web, s.cp, s.ciutat, s.idUser
+	// 		FROM shops s
+	// 		WHERE s.idShop =".$idShop;
 
+	// $connexio = connect();
 
+	// $resultDataShop = mysqli_query($connexio, $mySql);
 
+	// $i = 0;
+	// $dataShop = "[";
+	// while($row = mysqli_fetch_array($resultDataShop))
+	// {
+	// 	if($i != 0) $dataShop .= ",";
 
+	// 	$dataShop .= '{"idShop":"'.$row['idShop'].'", "name":"'.$row['name'].'", "lng":"'.$row['lng'].'", "lat":"'.$row['lat'].'", "logo":"'.$row['logo'].'", "telephone":"'.$row['telephone'].'", "email":"'.$row['email'].'", "address":"'.$row['address'].'", "schedule":"'.$row['schedule'].'", "description":"'.$row['description'].'", "descriptionLong":"'.$row['descriptionLong'].'", "web":"'.$row['web'].'", "cp":"'.$row['cp'].'", "ciutat":"'.$row['ciutat'].'", "idUser":"'.$row['idUser'].'"';
 
+	// 	$dataShop .= ', "images":';
 
+	// 	$dataShop .= listImages($idShop);
 		
+	// 	$dataShop .= ', "subCategoriesShop":';
 
+	// 	$dataShop .= listShopCategoriesSub($idShop);
 
+	// 	$dataShop .= ', "users":';
 
+	// 	$dataShop .= listUsers($idShop);
 
+	// 	$dataShop .= ', "subCategories":';
 
+	// 	$dataShop .= listCategoriesSub($idShop);
 
+	// 	$dataShop .= '}';
+	// 	$i++;
+	// }
+	// $dataShop .= "]";
 
+	// echo $dataShop;
+	//getVariables();
+	$idShop = $_POST["idShop"];
+	$name = $_POST["name"];
+	$idUser = $_POST["idUser"];
+	$descriptionLong = $_POST["descriptionLong"];
+	$description = $_POST["description"];
+	$ciutat = $_POST["ciutat"];
+	$logo = $_FILES["logo"]["name"];
+	$web = $_POST["web"];
+	$lat = $_POST["lat"];
+	$lng = $_POST["lng"];
+	$telehpone = $_POST["telephone"];
+	$cp = $_POST["cp"];
+	$address = $_POST["address"];
+	$schedule = $_POST["schedule"];
+	$email = $_POST["email"];
+
+	if(!is_dir("../files/"))
+	mkdir("../files/", 0777);
+
+	if($logo && move_uploaded_file($_FILES["logo"]["tmp_name"],	"../files/".$logo))
+
+	$fp=fopen("../files/infoShop.txt",'w');
+		fputs($fp,'msg="'.$mensaje.'"');
+		fputs($fp,'name="'.$name.'"');
+		fputs($fp,'idUser="'.$idUser.'"');
+		fputs($fp,'descriptionLong="'.$descriptionLong.'"');
+		fputs($fp,'description="'.$description.'"');
+		fputs($fp,'ciutat="'.$ciutat.'"');
+		fputs($fp,'logo="'.$logo.'"');
+		fputs($fp,'web="'.$web.'"');
+		fputs($fp,'lat="'.$lat.'"');
+		fputs($fp,'lng="'.$lng.'"');
+		fputs($fp,'telephone="'.$telephone.'"');
+		fputs($fp,'cp="'.$cp.'"');
+		fputs($fp,'address="'.$address.'"');
+		fputs($fp,'schedule="'.$schedule.'"');
+		fputs($fp,'email="'.$email.'"');
+	fclose($fp);
+
+	if(isset($_GET['acc']) && $_GET['acc'] == 'n')
+	{
+		$mySql = "INSERT INTO `ddb99266`.`shops` (`name`, `lat`, `lng`, `telephone`, `email`, `url`, `schedule`, `address`, `idUser`, `description`, `descriptionLong`, `logo`, `cp`, `ciutat`) VALUES ('".$name."', '".$lat."', '".$lng."', '".$telephone."', '".$email."', '".$url."', '".$schedule."', '".$address."', ".$idUser.", '".$description."', '".$descriptionLong."', '".$logo."', '".$cp."', '".$ciutat."');";
+
+		$fp=fopen("../files/newShop.txt",'w');
+			fputs($fp,'mySql="'.$mySql.'"');
+		fclose($fp);
+
+		// $connexio = connect();
+
+		// $resultNewShop = mysqli_query($connexio, $mySql);
+
+		// disconnect($connexio);
+	}
+
+	if(isset($_GET['sentence']) && $_GET['sentence'] == 'e')
+	{
+		$mySql = "UPDATE `ddb99266`.`shops` SET `name`='".$name."', `lat`='".$lat."', `lng`='".$lng."', `telephone`='".$telephone."', `email`='".$email."', `url`='".$url."', `schedule`='".$schedule."', `address`='".$address."', `idUser`='".$idUser."', `description`='".$description."', `descriptionLong`='".$descriptionLong."', `logo`='".$logo."', `cp`='".$cp."', `ciutat`='".$ciutat."' WHERE `idShop`='".$idShop."';";
+
+		$fp=fopen("../files/editShop.txt",'w');
+			fputs($fp,'mySql="'.$mySql.'"');
+		fclose($fp);
+		
+		// $connexio = connect();
+
+		// $resultEditShop = mysqli_query($connexio, $mySql);
+
+		// disconnect($connexio);
+	}
 }
 else if(isset($_GET['acc']) && $_GET['acc'] == 'delete')
 {
@@ -222,6 +330,23 @@ function listUsers()
 	$datau .= "]";
 
 	return $datau;
+}
+function getVariables()
+{
+	$name = $_POST["name"];
+	$idUser = $_POST["idUser"];
+	$descriptionLong = $_POST["descriptionLong"];
+	$description = $_POST["description"];
+	$ciutat = $_POST["ciutat"];
+	$logo = $_FILES["logo"]["file"];
+	$web = $_POST["web"];
+	$lat = $_POST["lat"];
+	$lng = $_POST["lng"];
+	$telehpone = $_POST["telephone"];
+	$cp = $_POST["cp"];
+	$address = $_POST["address"];
+	$schedule = $_POST["schedule"];
+	$email = $_POST["email"];
 }
 
 ?>
