@@ -10,6 +10,30 @@ body{
 	margin-left:15px!important;
 	margin-right:15px!important; 
 }
+.breadCum{
+	padding-bottom: 2%;
+}
+.breadJS{
+	color: black;
+    font-weight: 600;
+    text-decoration: underline;  
+}
+
+a:hover{
+	color: black!important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 /*lander sanahujes yañez*/
 #aboutUs{
 	width: 75%;
@@ -331,9 +355,7 @@ padding: 0;
 	border-left: solid 1px;
 	border-color:#ced2de;
 }
-#breadcrumbsContact{
-	text-decoration: none;
-}
+
 #titleNew{
 	text-align: center;
 }
@@ -413,10 +435,7 @@ padding: 0;
 .shopsList{
 	padding-bottom: 10px;
 }
-.breadComsA
-{
-	padding-bottom: 10%;
-}
+
 .assoDivContact
 {
 	margin-top: -1%;
@@ -479,13 +498,7 @@ padding: 0;
 	margin-bottom: 0.5%;
 	margin-top: 3%;
 }
-#breadcrumbsContact
-{
-	margin-left: 2%;
-	color: black;
-	font-weight: 600;
-	text-decoration: underline;
-}
+
 #moreInfo
 {
 	font-weight: 600;
@@ -497,21 +510,9 @@ padding: 0;
 	text-align: center;
 }
 
-#breadcrumbsContact:hover
-{
-	font-weight: 700;
-}
-.breadJS
-{
-	color: black;
-    font-weight: 600;
-    text-decoration: underline;  
-}
-#all
-{
-	margin-left: 2%;
-	margin-right: 2%;
-}
+
+
+
 
 
 @media (max-width: 575px){
