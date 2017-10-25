@@ -206,7 +206,14 @@ select
 .colorLoginHidden{
   color: #52AFBA;
 }
-/*---------------slider--------------TODO-*/
+
+/*----------TO DO SLIDER---------------*//*----------TO DO SLIDER---------------*/
+
+.editAndAddSlider{
+  margin-bottom: 3.5%
+}
+
+>>>>>>> origin/master
 #editarSliderSpan{
   margin-top: 10%;
 }
