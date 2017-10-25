@@ -41,6 +41,37 @@ require("../inc/functions.php");
 
 	 	echo '[{"status":"'.$message.'"}]';
 	}
+	else if(isset($_GET['acc']) && $_GET['acc'] == 'logout'){ 
+		// mirar
+	 		session_start();
+	 		unset($_SESSION['user']['idUser']);
+	 		unset($_SESSION['user']['privileges']);
+	 		unset($_SESSION['user']['name']);
+	 		unset($_SESSION['user']['logo']);
+	 		session_destroy();
+	 	
+
+	 	echo '[{"status":"'.$message.'"}]';
+	}
+	else if (isset($_GET['acc']) && $_GET['acc'] == 'footer'){
+		$mySql = "SELECT footer FROM users";
+		$connexio = connect();
+		$resultFooter = mysqli_query($connexio, $mySql);
+		disconnect($connexio);
+		$showFooter = "[";
+		$i = 0;
+		while ($row=mySqli_fetch_array($resultFooter))
+		{
+			if($i != 0)
+				{
+					$showFooter .= ",";
+				}
+				$showFooter .= '{"footerL":"'.$row['footer'].'"}'; 
+				$i++;
+		}
+		$showFooter .= "]";
+	 	echo $showFooter;
+	}
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'forgot'){
 		$mySql = "SELECT idUser FROM users 
 					WHERE email='".$_GET['mail']."'";

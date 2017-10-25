@@ -30,21 +30,22 @@
 						</div>
 					</div>
 					<form id="check">
-						<!-- <label style="margin-right: 10.8%">Usuari: </label>
-						<input type="text" id="user" placeholder="Nom d'usuari"><br>
-						<label>Contrasenya: </label>
-						<input type="password" id="pswd" placeholder="Contrasenya">
-						<input type="button" value="Accedir" class="btn btn-default"" ng-click="checking();"><br> -->
-							<div class="row">
-								<div class="col-lg-3"><label>Usuari: </label></div>
-								<div class="col-lg-6"><input type="text" id="user" placeholder="Nom d'usuari" value="comerciantsbm@gmail.com"></div>
+						<div class="row">
+							<div class="col-lg-3"><label>Usuari: </label></div>
+							<div class="col-lg-6"><input type="text" id="user" placeholder="Nom d'usuari" value="comerciantsbm@gmail.com"></div>
+						</div>
+						<div class="row log20"></div>
+						<div class="row">
+							<div class="col-lg-3">
+								<label>Contrasenya: </label>
 							</div>
-							<div class="row log20"></div>
-							<div class="row">
-								<div class="col-lg-3"><label>Contrasenya: </label></div>
-								<div class="col-lg-6"><input type="password" id="pswd" placeholder="Contrasenya" value="1"></div>
-								<div class="col-lg-3"><input type="button" value="Accedir" class="btn btn-default" ng-click="checking();"></div>
+							<div class="col-lg-6">
+								<input type="password" id="pswd" placeholder="Contrasenya" value="1">
 							</div>
+							<div class="col-lg-3">
+								<input type="button" value="Accedir" class="btn btn-default" ng-click="checking();">
+							</div>
+						</div>
 					</form>
 					<div class="row log20"></div>
 					<div class="row">
@@ -113,19 +114,32 @@
 					</table>
 					<input type="hidden" id="txtCaptcha">
 			  	</form>
-
 			</div>
 		</div>
 	</div>
-			<style>
-	#captchaDiv{
-		background-image: url("../img/captcha.jpg");
-		color: gray;
-		font-size: 26px;	
-		margin-left: 6%;
-		text-align: center;
-	}
-</style>
+	<div class="row" id="footerLogin"> <!-- Mirar y tocar -->
+		<footer class="footer-bs" id="footer">
+			<div class="col-xs-7  pull-right">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="icoFooterEix" ng-repeat="ftr in footer">
+							<img class="img-responsive col-lg-3 pull-left" src="../img/logos-assoc/{{ftr.footerL}}">
+							{{ftr.footer}}
+						</div>
+					</div>
+				</div>					
+			</div>
+    	</footer>
+    </div>
+	<style>
+		#captchaDiv{
+			background-image: url("../img/captcha.jpg");
+			color: gray;
+			font-size: 26px;	
+			margin-left: 6%;
+			text-align: center;
+		}
+	</style>
 		<script> var app = angular.module('myApp', []);</script>
 		<script>
 			app.controller ('LoginCtrl', function($scope, $http, $window) {
@@ -133,6 +147,15 @@
 				$scope.login = true;
 				$scope.forgot = false;
 				$scope.failForgot = false;
+
+				$http({
+						method : "GET",
+						url : "models/users.php?acc=footer"
+					}).then(function mySucces (response) {
+						$scope.footer=response.data;
+					}, function myError (response) {
+						$scope.footer = response.statusText;
+					});
 
   				$scope.checking = function(){
   					$scope.email = check['user'].value;

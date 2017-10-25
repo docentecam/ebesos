@@ -4,7 +4,7 @@ require("../inc/functions.php");
 
 //MAIN
 
-if (isset($_GET["acc"])&& ($_GET["acc"] == "imgSlider"))
+if (isset($_GET["acc"]) && ($_GET["acc"] == "imgSlider"))
 	{
 		$mySql = "SELECT idSlider, image, title, subtitle, link, description FROM slider";
 		$connexio = connect();

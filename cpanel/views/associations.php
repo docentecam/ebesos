@@ -13,7 +13,7 @@
 		</div>
 	</div>
 	<div ng-show="formDataUser">
-		<form id="dataUser" name="dataUserForm">
+		<form id="dataUser">
 			<div class="row">
 				<div class="col-lg-4">
 					<div class="row">
@@ -24,40 +24,40 @@
 						</div>
 						<div class="col-lg-6 padd">Associació / Eix:</div>
 						<div class="col-lg-6 padd">
-								<input type="text" id="name" name="name" ng-value="nameC" ng-model="userClear.nameClr">
+								<input type="text" id="name" name="name" ng-value="nameC">
 						</div>
 						<div class="col-lg-6 padd">E-mail:</div>
 						<div class="col-lg-6 padd">
-							<input type="email" id="email" name="email" ng-value="emailC" ng-model="userClear.emailClr">
+							<input type="email" id="email" name="email" ng-value="emailC">
 						</div>
 						<div class="col-lg-6 padd">Password e-mail:</div>
 						<div class="col-lg-6 padd">
-							<input type="text" id="pswdMail" name="pswdMail" ng-value="emailPassC" ng-model="userClear.emailPassClr">
+							<input type="text" id="pswdMail" name="pswdMail" ng-value="emailPassC">
 						</div>
 						<div class="col-lg-6 padd">Adreça:</div>
 						<div class="col-lg-6 padd">
-							<input type="text" id="address" name="address" ng-value="addressC" ng-model="userClear.addressClr">
+							<input type="text" id="address" name="address" ng-value="addressC">
 						</div>
 						<div class="col-lg-6 padd">Telèfon:</div>
 						<div class="col-lg-6 padd">
-							<input type="number" id="telephone" name="telephone" ng-value="telephoneC" ng-model="userClear.telephoneClr">
+							<input type="number" id="telephone" name="telephone" ng-value="telephoneC">
 						</div>
 						<div class="col-lg-6 padd">
 							<div ng-show="eUser">Contrasenya:</div><div ng-show="cUser">Nova contrasenya:</div>
 						</div>
 						<div class="col-lg-6 padd">
-							<input type="password" id="pswd" name="pswd" ng-model="userClear.pswdClr">
+							<input type="password" id="pswd" name="pswd">
 						</div>
 						<div class="col-lg-6 padd">Confirmar contrasenya:</div>
 						<div class="col-lg-6 padd">
-							<input type="password" id="confirmPswd" name="cpswd" ng-model="userClear.confirmPswdClr">
+							<input type="password" id="confirmPswd" name="cpswd">
 						</div>
 						<div class="col-lg-6 padd" ng-show="cUser">Contrasenya Actual:</div>
 						<div class="col-lg-6 padd" ng-show="cUser">
-							<input type="password" id="currentPswd" name="cpswd" ng-model="userClear.currentPswdClr">
+							<input type="password" id="currentPswd" name="cpswd">
 						</div>
 						<div class="col-lg-6 padd" ng-show="cUser">Actiu:</div>
-						<div class="col-lg-6 padd" ng-show="cUser" ng-model="userClear.activeClr">
+						<div class="col-lg-6 padd" ng-show="cUser">
 							<select id="active">
 								<option value="Y" ng-selected="activeC=='Y'">Si</option>
 								<option value="N" ng-selected="activeC=='N'">No</option>
@@ -70,7 +70,7 @@
 						<div class="col-lg-12" id="textTitleHistory">Editar història:</div>
 					</div>
 					<div class="row">
-						<div class="col-lg-12"><textarea id="history" ng-model="userClear.historyClr">{{historyC}}</textarea></div>
+						<div class="col-lg-12"><textarea id="history">{{historyC}}</textarea></div>
 					</div>
 				</div>
 				<div class="col-lg-6 col-lg-offset-3">

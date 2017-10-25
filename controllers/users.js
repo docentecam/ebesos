@@ -26,7 +26,17 @@ angular.module('spaApp')
 	var code = a + b + c + d + e;
 	document.getElementById("txtCaptcha").value = code;
 	document.getElementById("captchaDiv").innerHTML = code;
-	
+
+	$http({
+			method : "GET",
+			url : "models/users.php?acc=infoMail&idUser="+ $scope.idUser
+		}).then(function mySucces (response) {
+			$scope.infoMail = response.data;
+			
+		}, function myError (response) {
+			$scope.infoMail = response.statusText;
+		});
+
 		$scope.checkform = function()
 		{
 			var error = "";
@@ -50,9 +60,6 @@ angular.module('spaApp')
 					}).then(function mySucces (response) {
 							$scope.email = response.data;
 							$scope.muestraStatusEmail=true;
-							console.log("models/users.php?acc=mail&idUser="+ $scope.idUser+ "&client="+ myForm['client'].value+
-						"&email="+ myForm['email'].value+ "&message="+ myForm['message'].value);
-							console.log("llega: "+$scope.email[0].envioStatus);
 							$scope.emailText='Ha hagut un error';
 							$scope.emailStatus=false;
 							if ($scope.email[0].envioStatus=='1')
@@ -182,9 +189,6 @@ angular.module('spaApp')
 					}).then(function mySucces (response) {
 							$scope.email = response.data;
 							$scope.muestraStatusEmail=true;
-							console.log("models/users.php?acc=mail&idUser="+ $scope.idUser+ "&client="+ myForm['client'].value+
-						"&email="+ myForm['email'].value+ "&message="+ myForm['message'].value);
-							console.log("llega: "+$scope.email[0].envioStatus);
 							$scope.emailText='Ha hagut un error';
 							$scope.emailStatus=false;
 							if ($scope.email[0].envioStatus=='1')
