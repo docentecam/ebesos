@@ -5,7 +5,7 @@ $_SESSION['idUser']="1";
 if(!isset($_SESSION['idUser'])) header("Location: index.html");
 ?>
 	<html>
-	<head>
+<head>
 		<title>EIX COMERCIAL BACKEND</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
