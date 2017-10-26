@@ -167,7 +167,8 @@ padding: 0;
 	height: 48%;
 	padding-right: 10px;
 	padding-left: 10px;
-	padding-top: 10px;	
+	padding-top: 10px;
+
 }
 .underline:hover{
 	border-bottom: 1px solid #9E9E9E;
@@ -232,8 +233,8 @@ padding: 0;
     width:100%;
     height:100%;
     z-index:1000;
-    background-color:grey;
-    opacity: .8;
+    background-color:white;
+    opacity: 0.98;
 }
 #mc_embed_signup .button{
 	color: black!important;
@@ -514,16 +515,16 @@ padding: 0;
 @media (max-width: 767px){
 
 }
-@media (min-width: 768px)
-{
+@media (min-width: 768px){
 	.footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { border-left:solid 1px rgba(255,255,255,0.10); }
 }
-@media (max-width: 1023px)
-{
-	.titleSubE
-	{
+@media (max-width: 1023px){
+	.titleSubE{
 		position: relative;
 		margin-top: 0%;
+	}
+	.textOverImage{
+		visibility:hidden;
 	}
 }
 @media (min-width: 1024px){
@@ -536,8 +537,7 @@ padding: 0;
 	.subMenu{
 		padding:  30px;
 	}
-	#subMenu
-	{
+	#subMenu{
 		margin-top: 4%;
 	}
 	.titleSubE{

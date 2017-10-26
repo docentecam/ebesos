@@ -1,4 +1,4 @@
-<?php 
+<?ph<?php 
 require("../inc/functions.php");
 session_start();
 
@@ -43,13 +43,13 @@ session_start();
 if(isset($_SESSION['user']['idUser'])) {
 
 	if(isset($_GET['acc']) && $_GET['acc'] == 'logout'){ 
-		// mirar
 	 		
 	 		unset($_SESSION['user']['idUser']);
 	 		unset($_SESSION['user']['privileges']);
 	 		unset($_SESSION['user']['name']);
 	 		unset($_SESSION['user']['logo']);
 	 		session_destroy();
+	 		header('Locaton: ..');
 	 	
 
 	 	

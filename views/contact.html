@@ -1,9 +1,16 @@
 <div class="row">
+	<div class="col-lg-5 breadCum">		
+		<div class="col-lg-12 col-lg-offset-1">
+			<a class="breadJS" href="#">Inici</a>
+			<span> | Eix del Besòs </span>
+			<span> | Contacte </span>
+		</div>
+	</div>
+</div>
+
+<div class="row">
 	<div class="col-xs-12 col-md-6 col-lg-12">
 		<div class="container">
-			<div class="row">
-				<a id="breadcrumbsContact" href="../ebesos"> Inici</a><span> | </span> Eix del Besòs <span> | </span><span> Contacte </span>
-			</div>
 			<div class="row">
 				<div ng-show="muestraStatusEmail" id="divSuccess" class="col-lg-12" ng-class="emailStatus ? 'alert alert-success' : 'alert alert-danger'">{{emailText}}</div>
 				<!-- Hacer que desaparezca el formulario en caso de exito -->

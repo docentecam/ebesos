@@ -161,6 +161,10 @@ angular.module('spaApp')
   				$scope.logoEdit2 = true;
   			};
 
-  				
+
+			$scope.showDisconnect = function(){
+
+			$scope.showSignOff=true;
+	}  				
 			
 	});
