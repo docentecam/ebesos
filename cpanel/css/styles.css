@@ -17,7 +17,16 @@ select
   -webkit-appearance: none;
   appearance: none;
 }
-
+#loadingData{
+  position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:1000;
+    background-color:white;
+    opacity: 0.98;
+}
 #alertW
 {
   background-color: #ffb0b0;
@@ -197,24 +206,23 @@ select
 .mainNav{
   padding: 15%;
 }
-
-
 .editNgView{
   padding-left: 6%;
   padding-top: 3%;
-}
-  
+}  
 .colorLoginHidden{
   color: #52AFBA;
+  cursor: pointer;
 }
+
+
+
 
 /*----------TO DO SLIDER---------------*//*----------TO DO SLIDER---------------*/
 
 .editAndAddSlider{
   margin-bottom: 3.5%
 }
-
->>>>>>> origin/master
 #editarSliderSpan{
   margin-top: 10%;
 }

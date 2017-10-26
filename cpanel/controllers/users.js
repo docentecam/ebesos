@@ -151,20 +151,12 @@ angular.module('spaApp')
   				{
   					$scope.error = "Error";
   				}
-  				
 			};
-			
   			$scope.showEdit = function(){
   				$scope.logoEdit = true;
   			};
   			$scope.showEdit2 = function(){
   				$scope.logoEdit2 = true;
   			};
-
-
-			$scope.showDisconnect = function(){
-
-			$scope.showSignOff=true;
-	}  				
-			
+ 
 	});

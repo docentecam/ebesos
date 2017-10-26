@@ -1,5 +1,8 @@
 angular.module('spaApp')
 .controller('NewsCtrl', function($scope, $http,upload) {
+
+
+		
  	$scope.loading=true;
  	$scope.createNew=true;
 	$scope.divNew=false;
@@ -194,6 +197,7 @@ angular.module('spaApp')
 		// 	$scope.createVideo=true;	
 		// }
 
+
 		$scope.uploadFile=function(){
 			console.log("carga");
 			var titleNew= $scope.titleNew;
@@ -250,3 +254,4 @@ $parse(iAtrrs.uploaderModel).assign(scope,
 		return deferred.promise;
 	}
 		}])
+
