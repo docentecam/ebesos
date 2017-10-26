@@ -25,7 +25,6 @@ app.config(['$routeProvider', function ($routeProvider) {
 	})
 	.when('/formation',{
 		templateUrl:'views/formation.html',
-		controller:'FormationCtrl',
 	})
 	.when('/contact/:idUser',{
 		templateUrl:'views/contact.html',

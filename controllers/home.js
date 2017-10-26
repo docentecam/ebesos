@@ -3,67 +3,19 @@ angular.module('spaApp')
 	$scope.loading=true;
 	$http({
 		method : "GET",
-		url : "models/assoFooter.php?acc=assoFooter"
+		url : "models/home.php?acc=home"
 		}).then(function mySucces (response) {
-			$scope.assoFooters=response.data;
+			$scope.homeData=response.data;
+			$scope.associations=$scope.homeData[0].associations;
+			$scope.links=$scope.homeData[0].links;
+			$scope.slider=$scope.homeData[0].slider;
+			$scope.formation=$scope.homeData[0].formation[0].url;
 		}, function myError (response) {
-			$scope.assoFooters = response.statusText;
-			$scope.loading=true;
+			$scope.asso = response.statusText;
 		})
 		.finally(function() {
 			$scope.loading=false;
 		});	
-
-		$http({
-		method : "GET",
-		url : "models/assoNav.php?acc=assoNav"
-		}).then(function mySucces (response) {
-		$scope.assoNavs=response.data;
-		}, function myError (response) {
-		$scope.assoNavs = response.statusText;
-		})
-		.finally(function() {
-		$scope.loading=false;
-		});	
-
-		$http({
-		method : "GET",
-		url : "models/assoNav.php?acc=assoTopImage"
-		}).then(function mySucces (response) {
-		$scope.assoTopImages=response.data;
-		}, function myError (response) {
-		$scope.assoTopImages = response.statusText;
-		})
-		.finally(function() {
-		$scope.loading=false;
-		});
-
-		$http({
-		method : "GET",
-		url : "models/links.php?acc=links"
-		}).then(function mySucces (response) {
-			$scope.links=response.data;
-		}, function myError (response) {
-			$scope.links = response.statusText;
-			$scope.loading=true;
-		})
-		.finally(function() {
-			$scope.loading=false;
-		});
-
-		$http({
-			method : "GET",
-			url : "models/slider.php?acc=imgSlider"
-		}).then(function mySucces (response) {
-			$scope.slider=response.data;
-		}, function myError (response) {
-			$scope.slider = response.statusText;
-			$scope.loading=true;
-		})
-		.finally(function() {
-			$scope.loading=false;
-		});
-	
 });
 
 

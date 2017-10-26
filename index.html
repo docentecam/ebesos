@@ -38,11 +38,11 @@
 	<body data-ng-app="spaApp" ng-controller="HomeCtrl">
 		<div class="row" >
 			<div class="col-xs-3" >
-				<div class="col-xs-4" id="imgLogoTop" ng-repeat="assoTopImage in assoTopImages">
-					<a href="#"><img class="img-responsive" src="img/logos-assoc/{{assoTopImage.logo}}"></a>
+				<div class="col-xs-4" id="imgLogoTop" ng-repeat="association in associations | filter:{ idUser:'1'}">
+					<a href="#"><img class="img-responsive" src="img/logos-assoc/{{association.logo}}"></a>
 				</div>
 				<div class="col-xs-8" id="logoTexto">
-					<h4 class="headTitle">EIX BESÒS -</h4><h4 class="headTitle">MARESME</h4>
+					<h4 class="headTitle">{{association.logo}}</h4>
 				</div>		
 			</div> 
 			<div id="contactWho">
@@ -69,8 +69,8 @@
 		        		<li class="dividerNav">|</li>
 		        		<li role="presentation" class="dropdown customNav"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="underline">Associacions</span> <span class="caret"></span></a>
 		          			<ul class="dropdown-menu" id="imgNav">
-		          				<li ng-repeat="assoNav in assoNavs" role="presentation" class="widthLiAsso">
-		          					<a href="#/associations/{{assoNav.idUser}}/{{assoNav.name}}" class="submenuFormat"><img class="img-responsive" src="img/logos-assoc/{{assoNav.logo}}" align="left">{{assoNav.name}}</a>
+		          				<li ng-repeat="association in associations" role="presentation" class="widthLiAsso">
+		          					<a href="#/associations/{{association.idUser}}/{{association.name}}" class="submenuFormat"><img class="img-responsive" src="img/logos-assoc/{{association.logo}}" align="left">{{association.name}}</a>
 		          					<ul role="separator" id="separatorDesign" ng-class="{divider : !$last}"></ul>          					
 		          				</li>
 		          			</ul>
@@ -155,8 +155,8 @@
 						</div>    
 					</div>
 					<div class="col-xs-8 col-lg-offset-4">
-						<div class="icoFooterEix" ng-repeat="assoFooter in assoFooters">
-							<img class="img-responsive col-lg-3 pull-left" src="img/logos-assoc/{{assoFooter.footer}}">
+						<div class="icoFooterEix" ng-repeat="association in associations">
+							<img class="img-responsive col-lg-3 pull-left" src="img/logos-assoc/{{association.footer}}">
 						</div>
 					</div>
 				</div>
