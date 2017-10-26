@@ -45,11 +45,12 @@ function sendMails($mailClient = "", $subject = "", $fromName = "", $mailAssocia
 		$mail->IsHTML(true);
 		$mail->CharSet = 'UTF-8';
 		$mail->Subject = $subject;
-		$mail->Body = $body;
-		$mail->AddEmbeddedImage('img/logosassoc.jpg', 'logo_1');
-		$mail->AddEmbeddedImage('img/2u_cs_mini.jpg', 'logo_2');
-		$mail->AddEmbeddedImage('img/2u_cs_mini.jpg', 'logo_3');
-		$mail->AddEmbeddedImage('img/2u_cs_mini.jpg', 'logo_4');
+		$mail->AddEmbeddedImage('img/logos-assoc/1f.png', 'logo_1');
+		$mail->AddEmbeddedImage('img/logos-assoc/2f.png', 'logo_2');
+		$mail->AddEmbeddedImage('img/logos-assoc/3f.png', 'logo_3');
+		$mail->AddEmbeddedImage('img/logos-assoc/4f.png', 'logo_4');
+		$mail->Body = '<img alt="PHPMailer" src="cid:logo_1">';
+		
 		$mail->AltBody = $body;
 		$exito = $mail->Send();
 		if(!$exito)

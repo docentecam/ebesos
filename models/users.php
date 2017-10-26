@@ -27,8 +27,8 @@ require("../inc/functions.php");
 				$nameAssociation = $row["name"];
 				$emailPass = $row["emailPass"];
 			}	
- 		$envioStatus= sendMails( $_GET['email'], "Contacte formulari de ".$nameAssociation, $_GET['client'],$emailAssociation, $emailPass, $_GET['message']);
- 		$envioStatusCopia= sendMails($emailAssociation, "COPIA - Contacte formulari de ".$nameAssociation, 'contacte pel web',$emailAssociation, $emailPass, $_GET['message']."<br><img src='cid:logo_1'> ");
+ 		$envioStatus= sendMails( $_GET['email'], "Contacte formulari de ".$nameAssociation, $_GET['client'],$emailAssociation, $emailPass, $_GET['message']."<br><br><img src='cid:logo_1'><img src='cid:logo_2'><img src='cid:logo_3'><img src='cid:logo_4'>");
+ 		$envioStatusCopia= sendMails($emailAssociation, "COPIA - Contacte formulari de ".$nameAssociation, 'contacte pel web',$emailAssociation, $emailPass, $_GET['message']."<br><br><img src='cid:logo_1'><img src='cid:logo_2'><img src='cid:logo_3'><img src='cid:logo_4'>");
 
  		if ($envioStatus != '1' || $envioStatusCopia != '1') {
  			$envioStatus='0';
