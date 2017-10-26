@@ -76,6 +76,9 @@
 				    		</div>
 			    		</tbody>
 					</table>
+					<div id="logoEixContact" ng-repeat="mail in infoMail"> 
+			  			<img src="img/logos-assoc/{{mail.logo}}" alt="{{mail.logo}}">
+			  		</div>
 			  	</form>
 			  	<div class="col-lg-5 col-lg-push-1">
 			  		<div ng-repeat="mail in infoMail" class="row"> 
@@ -87,6 +90,7 @@
 			  		<div ng-repeat="mail in infoMail" class="row"> 
 			  			Telèfon de Contacte: {{mail.telephone}}
 			  		</div>
+			  		
 			  	</div>
 		  	</div>
 		</div>

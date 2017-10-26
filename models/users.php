@@ -39,7 +39,7 @@ require("../inc/functions.php");
 
  	if (isset($_GET["acc"]) && ($_GET["acc"] == "infoMail"))
 	{
-		$mySql = "SELECT email, name, address, telephone, emailPass FROM users WHERE idUser =".$_GET["idUser"];
+		$mySql = "SELECT email, name, address, telephone, logo FROM users WHERE idUser =".$_GET["idUser"];
 		$connexio = connect();
 		$resultContact = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
@@ -51,7 +51,7 @@ require("../inc/functions.php");
 			{
 				$dataMail .= ",";				
 			}			
-			$dataMail .= '{"email":"'.$row['email'].'","name":"'.$row['name'].'","address":"'.$row['address'].'","telephone":"'.$row['telephone'].'"}';
+			$dataMail .= '{"email":"'.$row['email'].'","name":"'.$row['name'].'","logo":"'.$row['logo'].'","address":"'.$row['address'].'","telephone":"'.$row['telephone'].'"}';
 			$i++;
 		}
 		$dataMail .="]";
