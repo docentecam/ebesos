@@ -17,7 +17,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 		</div>
 	</div>
 	<div>
-		<form id="dataUser">
+		<form id="dataUser"  ng-submit="updateUser()">
 			<div class="row">
 				<div class="col-lg-4">
 					<div class="row">
@@ -78,7 +78,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 					</div>
 				</div>
 				<div class="col-lg-6 col-lg-offset-3">
-					<input type="button" class="btn btn-default" value="Guardar dades" ng-click="updateUser()">
+					<input type="submit" class="btn btn-default" value="Guardar dades">
 				</div>
 			</div>
 		</form>

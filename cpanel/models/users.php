@@ -49,10 +49,7 @@ if(isset($_SESSION['user']['idUser'])) {
 	 		unset($_SESSION['user']['name']);
 	 		unset($_SESSION['user']['logo']);
 	 		session_destroy();
-	 		header('Locaton: ..');
-	 	
-
-	 	
+	 		header('Location: ..');
 	}
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'footer'){
 		$mySql = "SELECT footer FROM users";
