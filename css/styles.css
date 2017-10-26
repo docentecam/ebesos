@@ -26,6 +26,10 @@ body{
 	height: 50px;
 	margin-bottom: 60px;
 }
+.pictograms-category{
+	width: 20px;
+	height: 20px;
+}
 .a-category {
 	font-weight: 600;
 	text-decoration: none;

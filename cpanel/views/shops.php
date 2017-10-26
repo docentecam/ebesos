@@ -14,7 +14,7 @@
 		<div class="row"><label>{{shops.name}}/{{shops.idUser}}/{{idUserLg}}</label></div>
 		<div class="row"><p>{{shops.description}}</p></div>
 	</div>
-	<button ng-click="shopOneEdit($index, 'e')" class="btn-default">edit</button>
+	<button ng-click="shopOneEdit($index, 'e', shops.idShop)" class="btn-default">edit</button>
 	<!-- <button ng-click="shopOneDelete(shops.idShop)" class="btn-default">delete tienda: {{shops.idShop}}</button> -->
 	<button class="btn-default">delete</button>
 </div>
@@ -126,7 +126,7 @@
 		<div class="col-md-9 col-md-push-1">
 			<span class="row">Imatge preferida</span>
 			<div class="col-md-3" ng-repeat="image in images | filter : {preferred:'Y'}">
-				<img  src="../img/shops/{{image.url}}">
+				<img class="img-responsive" src="../img/shops/{{image.url}}">
 			</div>				
 			<input type="file" placeholder="nom de la tenda" class="row" name="" ng-value="shopOne[0].image">
 		</div>
@@ -135,7 +135,7 @@
 		<div class="shop-lon col-md-9 col-md-push-1">
 			<span class="row">Imatges</span>
 			<div class="col-md-2" ng-repeat="image in images | filter : {preferred:'N'}">
-				<img  src="../img/shops/{{image.url}}">
+				<img class="img-responsive" src="../img/shops/{{image.url}}">
 				<button class="btn-default">delete</button>
 			</div>				
 			<input type="file" placeholder="nom de la tenda" class="row" name="" ng-value="shopOne[0].image">

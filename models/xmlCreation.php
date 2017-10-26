@@ -21,12 +21,11 @@
 
   // Select all the rows in the markers table
 
-  $mySql = "SELECT s.idShop, s.name, s.lat, s.lng, s.telephone, s.email, s.schedule, s.address, s.logo, cs.idSubCategory, cs.name AS NameSubCategoria, c.idCategory, c.name AS NameCategoria, u.name AS NameAssociacio, scs.preferred FROM shops s, shopcategoriessub scs, categoriessub cs, categories c, users u WHERE s.idUser = u.idUser AND s.idShop = scs.idShop AND scs.idSubCategory = cs.idSubCategory AND cs.idCategory = c.idCategory ORDER BY s.idShop";
+  $mySql = "SELECT s.idShop, s.name, s.lat, s.lng, s.telephone, s.email, s.schedule, s.address, s.logo, cs.idSubCategory, cs.name AS NameSubCategoria, c.idCategory, c.name AS NameCategoria, u.name AS NameAssociacio, scs.preferred FROM shops s, shopcategoriessub scs, categoriessub cs, categories c, users u WHERE s.idUser = u.idUser AND s.idShop = scs.idShop AND scs.idSubCategory = cs.idSubCategory AND cs.idCategory = c.idCategory AND scs.preferred = 'Y'";
 
-  if (isset($_GET["acc"])&& ($_GET["acc"] == "shop"))
+  if(isset($_GET['idShop']))
   {
-    $idShop=$_GET['idShop'];
-    $mySql .= "AND s.idShop=".$idShop;
+    $mySql .= "AND s.idShop=".$_GET['idShop'];
   }
 
   $connexio = connect();
@@ -47,7 +46,7 @@
 
   while($row = mysqli_fetch_array($result)){
 
-    // Add to XML document node
+    //Add to XML document node
 
     // echo '<marker ';
 

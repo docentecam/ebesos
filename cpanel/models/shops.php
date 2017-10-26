@@ -37,47 +37,32 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'list')
 
 	echo $dataShops;
 }
+else if(isset($_GET['acc']) && $_GET['acc'] == 'e')
+{
+	$idShop=$_GET['idShop'];
+
+	$dataShop = "[{";
+
+	$dataShop .= '"images":';
+
+	$dataShop .= listImages($idShop);
+	
+	$dataShop .= ', "subCategoriesShop":';
+
+	$dataShop .= listShopCategoriesSub($idShop);
+
+	$dataShop .= ', "subCategories":';
+
+	$dataShop .= listCategoriesSub($idShop);
+
+	$dataShop .= '}';
+		
+	$dataShop .= "]";
+
+	echo $dataShop;
+}
 else if(isset($_GET['acc']) && $_GET['acc'] == 'upload')
 {
-	// $idShop=$_GET['idShop'];
-	// $mySql = "SELECT s.idShop, s.name, s.lng, s.lat, s.logo, s.telephone, s.email, s.address, s.schedule, s.description, s.descriptionLong, s.url AS web, s.cp, s.ciutat, s.idUser
-	// 		FROM shops s
-	// 		WHERE s.idShop =".$idShop;
-
-	// $connexio = connect();
-
-	// $resultDataShop = mysqli_query($connexio, $mySql);
-
-	// $i = 0;
-	// $dataShop = "[";
-	// while($row = mysqli_fetch_array($resultDataShop))
-	// {
-	// 	if($i != 0) $dataShop .= ",";
-
-	// 	$dataShop .= '{"idShop":"'.$row['idShop'].'", "name":"'.$row['name'].'", "lng":"'.$row['lng'].'", "lat":"'.$row['lat'].'", "logo":"'.$row['logo'].'", "telephone":"'.$row['telephone'].'", "email":"'.$row['email'].'", "address":"'.$row['address'].'", "schedule":"'.$row['schedule'].'", "description":"'.$row['description'].'", "descriptionLong":"'.$row['descriptionLong'].'", "web":"'.$row['web'].'", "cp":"'.$row['cp'].'", "ciutat":"'.$row['ciutat'].'", "idUser":"'.$row['idUser'].'"';
-
-	// 	$dataShop .= ', "images":';
-
-	// 	$dataShop .= listImages($idShop);
-		
-	// 	$dataShop .= ', "subCategoriesShop":';
-
-	// 	$dataShop .= listShopCategoriesSub($idShop);
-
-	// 	$dataShop .= ', "users":';
-
-	// 	$dataShop .= listUsers($idShop);
-
-	// 	$dataShop .= ', "subCategories":';
-
-	// 	$dataShop .= listCategoriesSub($idShop);
-
-	// 	$dataShop .= '}';
-	// 	$i++;
-	// }
-	// $dataShop .= "]";
-
-	// echo $dataShop;
 	//getVariables();
 	$idShop = $_POST["idShop"];
 	$name = $_POST["name"];
@@ -98,7 +83,7 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'upload')
 	if(!is_dir("../files/"))
 	mkdir("../files/", 0777);
 
-	if($logo && move_uploaded_file($_FILES["logo"]["tmp_name"],	"../files/".$logo))
+	if($logo && move_uploaded_file($_FILES["logo"]["tmp_name"],	"../../img/logos-shops/".$logo))
 
 	$fp=fopen("../files/infoShop.txt",'w');
 		fputs($fp,'msg="'.$mensaje.'"');
@@ -118,7 +103,7 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'upload')
 		fputs($fp,'email="'.$email.'"');
 	fclose($fp);
 
-	if(isset($_GET['acc']) && $_GET['acc'] == 'n')
+	if(isset($_GET['acc']) && $_GET['sentence'] == 'n')
 	{
 		$mySql = "INSERT INTO `ddb99266`.`shops` (`name`, `lat`, `lng`, `telephone`, `email`, `url`, `schedule`, `address`, `idUser`, `description`, `descriptionLong`, `logo`, `cp`, `ciutat`) VALUES ('".$name."', '".$lat."', '".$lng."', '".$telephone."', '".$email."', '".$url."', '".$schedule."', '".$address."', ".$idUser.", '".$description."', '".$descriptionLong."', '".$logo."', '".$cp."', '".$ciutat."');";
 
@@ -141,11 +126,11 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'upload')
 			fputs($fp,'mySql="'.$mySql.'"');
 		fclose($fp);
 		
-		// $connexio = connect();
+		$connexio = connect();
 
-		// $resultEditShop = mysqli_query($connexio, $mySql);
+		$resultEditShop = mysqli_query($connexio, $mySql);
 
-		// disconnect($connexio);
+		disconnect($connexio);
 	}
 }
 else if(isset($_GET['acc']) && $_GET['acc'] == 'delete')

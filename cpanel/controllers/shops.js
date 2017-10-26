@@ -42,10 +42,23 @@ angular.module('spaApp')
 		$scope.shops = response.statusText;
 	});
 
-	$scope.shopOneEdit = function(index, $type){
+	$scope.shopOneEdit = function(index, $type, $idShop){
+		$http({
+			method : "GET",
+			url : "models/shops.php?acc=e&idShop="+$idShop
+		}).then(function mySucces(response) {
+			$scope.personalData = response.data;
+			$scope.subCategoriesShop = $scope.personalData[0].subCategoriesShop;
+			$scope.subCategories = $scope.personalData[0].subCategories;
+			$scope.images = $scope.personalData[0].images;
+			console.log($scope.personalData);
+	    $scope.loading = false;
+		}, function myError(response) {
+			$scope.shops = response.statusText;
+		});
 		$scope.shopOne = $scope.shopsList[index];
 		$scope.type = $type;
-		console.log($scope.type); 
+		console.log($scope.type);
 		// $scope.subCategoriesShop = $scope.showShop[index].subCategoriesShop;
 		// $scope.images = $scope.showShop[index].images;
 		// $scope.users = $scope.showShop[index].users;
