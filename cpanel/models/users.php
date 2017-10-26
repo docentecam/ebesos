@@ -1,6 +1,6 @@
 <?php 
 require("../inc/functions.php");
-//if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
+session_start();
 
 	if(isset($_GET['acc']) && $_GET['acc'] == 'login'){
 		$message='';
@@ -32,7 +32,6 @@ require("../inc/functions.php");
 	 	else
 	 	{
 	 		$message = "Correct";
-	 		session_start();
 	 		$_SESSION['user']['idUser'] = $checkLogin;
 	 		$_SESSION['user']['privileges'] = $getPrivileges;
 	 		$_SESSION['user']['name'] = $getName;
@@ -41,9 +40,11 @@ require("../inc/functions.php");
 
 	 	echo '[{"status":"'.$message.'"}]';
 	}
-	else if(isset($_GET['acc']) && $_GET['acc'] == 'logout'){ 
+if(isset($_SESSION['user']['idUser'])) {
+
+	if(isset($_GET['acc']) && $_GET['acc'] == 'logout'){ 
 		// mirar
-	 		session_start();
+	 		
 	 		unset($_SESSION['user']['idUser']);
 	 		unset($_SESSION['user']['privileges']);
 	 		unset($_SESSION['user']['name']);
@@ -51,7 +52,7 @@ require("../inc/functions.php");
 	 		session_destroy();
 	 	
 
-	 	echo '[{"status":"'.$message.'"}]';
+	 	
 	}
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'footer'){
 		$mySql = "SELECT footer FROM users";
@@ -118,7 +119,7 @@ require("../inc/functions.php");
 	}
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'loadUser') {
 		$mySql = "SELECT idUser, name, email, emailPass, password, address, telephone, logo, history, active, footer FROM users 
-					WHERE idUser='".$_GET['idUser']."'";
+					WHERE idUser='".$_SESSION['user']['idUser']."'";
 		$connexio = connect();
 		$resultUser = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
@@ -211,4 +212,6 @@ require("../inc/functions.php");
 		$message = "S'ha creat l'usuari";
 		echo '[{"status":"'.$message.'"}]';
 	}
+}
+else header("Location: ../index.html");
 ?>	

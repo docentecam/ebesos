@@ -1,12 +1,13 @@
 <?php
-//if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
+session_start();
+if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 ?>
 <div class="glb">	
 	<div class="row">
 		<div class="col-lg-12"><b>Associacions</b></div>
 		<div class="col-lg-5">
 			<select ng-change="changeDataUser(idUser)" ng-model="idUser" id="selectAsso">
-				<option ng-repeat="user in users" ng-value="user.idUser" ng-selected="lgId">
+				<option ng-repeat="user in users" ng-value="user.idUser" ng-selected="user.idUser==<?php echo $_SESSION['user']['idUser']?>">
 					{{user.name}} <!--Dar selected a la $_SESSION cuando exista-->
 				</option>
 			</select>
@@ -15,7 +16,7 @@
 	 		<button id="btnAfegir" class="btn btn-default" ng-click="changeDataUser(idUser=-1)" >Afegir <i class="fa fa-plus-circle"></i></button>
 		</div>
 	</div>
-	<div ng-show="formDataUser">
+	<div>
 		<form id="dataUser">
 			<div class="row">
 				<div class="col-lg-4">
@@ -27,37 +28,37 @@
 						</div>
 						<div class="col-lg-6 padd">Associació / Eix:</div>
 						<div class="col-lg-6 padd">
-								<input type="text" id="name" name="name" ng-value="nameC">
+								<input type="text" id="name" name="name" ng-model="nameC">
 						</div>
 						<div class="col-lg-6 padd">E-mail:</div>
 						<div class="col-lg-6 padd">
-							<input type="email" id="email" name="email" ng-value="emailC">
+							<input type="email" id="email" name="email" ng-model="emailC">
 						</div>
 						<div class="col-lg-6 padd">Password e-mail:</div>
 						<div class="col-lg-6 padd">
-							<input type="text" id="pswdMail" name="pswdMail" ng-value="emailPassC">
+							<input type="text" id="pswdMail" name="pswdMail" ng-model="emailPassC">
 						</div>
 						<div class="col-lg-6 padd">Adreça:</div>
 						<div class="col-lg-6 padd">
-							<input type="text" id="address" name="address" ng-value="addressC">
+							<input type="text" id="address" name="address" ng-model="addressC">
 						</div>
 						<div class="col-lg-6 padd">Telèfon:</div>
 						<div class="col-lg-6 padd">
-							<input type="number" id="telephone" name="telephone" ng-value="telephoneC">
+							<input type="number" id="telephone" name="telephone" ng-model="telephoneC">
 						</div>
 						<div class="col-lg-6 padd">
-							<div ng-show="eUser">Contrasenya:</div><div ng-show="cUser">Nova contrasenya:</div>
+							<div ng-hide="cUser">Contrasenya:</div><div ng-show="cUser">Nova contrasenya:</div>
 						</div>
 						<div class="col-lg-6 padd">
-							<input type="password" id="pswd" name="pswd">
+							<input type="password" id="pswd" name="pswd" ng-model="pswdC">
 						</div>
 						<div class="col-lg-6 padd">Confirmar contrasenya:</div>
 						<div class="col-lg-6 padd">
-							<input type="password" id="confirmPswd" name="cpswd">
+							<input type="password" id="confirmPswd" name="cpswd" ng-model="confirmPswdC">
 						</div>
 						<div class="col-lg-6 padd" ng-show="cUser">Contrasenya Actual:</div>
 						<div class="col-lg-6 padd" ng-show="cUser">
-							<input type="password" id="currentPswd" name="cpswd">
+							<input type="password" id="currentPswd" name="cpswd" ng-model="currentPswdC">
 						</div>
 						<div class="col-lg-6 padd" ng-show="cUser">Actiu:</div>
 						<div class="col-lg-6 padd" ng-show="cUser">
@@ -73,7 +74,7 @@
 						<div class="col-lg-12" id="textTitleHistory">Editar història:</div>
 					</div>
 					<div class="row">
-						<div class="col-lg-12"><textarea id="history">{{historyC}}</textarea></div>
+						<div class="col-lg-12"><textarea id="history" ng-model="historyC"></textarea></div>
 					</div>
 				</div>
 				<div class="col-lg-6 col-lg-offset-3">

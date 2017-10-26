@@ -254,7 +254,12 @@ select
 #btnEditarSlider{
   margin-left: 4.166666665%;
 }
-/*------------------Footer--------------------*/ /* Mirar y tocar */
+/*------------------Footer--------------------*/
+.footerLog{
+  position: absolute;
+  right: 0px;
+  bottom: 15px;
+}
 #footerColor{
   background-color:#808BA7;
   margin-top: 5%!important;
