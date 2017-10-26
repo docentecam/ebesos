@@ -73,7 +73,6 @@ angular.module('spaApp')
 			method : "GET",
 			url : "models/news.php?acc=delete&idNewMedia=" + $idNewMedia
 		}).then(function mySucces (response) {
-			$scope.newSelect = response.data;
 			$scope.divNew=true;
 
 		}, function myError (response) {
