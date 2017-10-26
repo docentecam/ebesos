@@ -49,9 +49,7 @@ require("../inc/functions.php");
 	 		unset($_SESSION['user']['name']);
 	 		unset($_SESSION['user']['logo']);
 	 		session_destroy();
-	 	
-
-	 	echo '[{"status":"'.$message.'"}]';
+	 		header("Location: ..");
 	}
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'footer'){
 		$mySql = "SELECT footer FROM users";

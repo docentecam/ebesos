@@ -1,3 +1,6 @@
+<?php
+//if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
+?>
 <div class="glb">	
 	<div class="row">
 		<div class="col-lg-12"><b>Associacions</b></div>

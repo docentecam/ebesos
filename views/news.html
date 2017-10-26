@@ -1,23 +1,28 @@
-<div  id="all">
-	<div class="row" id="line">
-		<a id="breadcrumbsContact" href="../ebesos"> Inici</a><span>  | </span><span> Notícies </span>
-		<div ng-repeat="new in news">
-			<div id="news">
-				<div class="row">
-					<span class="col-xs-2" id="date">{{new.date}}</span>
-				</div>
-				<div class="col-lg-12" id="imgPadd">
-					<a href="#"><img id="photo" src="img/newsmedia/{{new.url}}" class="col-lg-6 col-xs-12 col-sm-12  col-md-6" alt=""></a>
-					<p class="col-lg-6 col-md-6 col-sm-12 col-xs-12" id="loremUPPER">
-						{{new.title}}
-					<p class="text-justify" id="lorem">{{new.titleSub | limitTo: 110}}...	</p>
-				<a href="#/new/{{new.idNew}}" class="col-lg-6 col-md-12 col-sm-12 col-xs-12" id="moreInfo">
-					Més info
-				</a>
-			</div>
+<div class="row">
+	<div class="col-lg-5 breadCum">		
+		<div class="col-lg-12 col-lg-offset-1">
+			<a class="breadJS" href="#">Inici</a>
+			<span> | Notícies </span>
 		</div>
 	</div>
 </div>
+<div class="row">
+	<div ng-repeat="new in news">		
+		<div class="row">
+			<span class="col-xs-2" id="date">{{new.date}}</span>
+		</div>
+		<div class="col-lg-12" id="imgPadd">
+			<a href="#"><img id="photo" src="img/newsmedia/{{new.url}}" class="col-lg-6 col-xs-12 col-sm-12  col-md-6" alt=""></a>
+			<p class="col-lg-6 col-md-6 col-sm-12 col-xs-12" id="loremUPPER">
+				{{new.title}}</p>
+			<p class="text-justify" id="lorem">{{new.titleSub | limitTo: 110}}...	</p>
+			<a href="#/new/{{new.idNew}}" class="col-lg-6 col-md-12 col-sm-12 col-xs-12" id="moreInfo">
+				Més info
+			</a>
+		</div>>		
+	</div>
+</div>
+
 
 <!-- <div class="row" id="imgPadd">
 						<a href="#"><img id="photo" src="../vals/raw_1505472259.jpeg" class="col-lg-6 col-xs-6" alt=""></a>

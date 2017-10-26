@@ -46,6 +46,10 @@ function sendMails($mailClient = "", $subject = "", $fromName = "", $mailAssocia
 		$mail->CharSet = 'UTF-8';
 		$mail->Subject = $subject;
 		$mail->Body = $body;
+		$mail->AddEmbeddedImage('img/logosassoc.jpg', 'logo_1');
+		$mail->AddEmbeddedImage('img/2u_cs_mini.jpg', 'logo_2');
+		$mail->AddEmbeddedImage('img/2u_cs_mini.jpg', 'logo_3');
+		$mail->AddEmbeddedImage('img/2u_cs_mini.jpg', 'logo_4');
 		$mail->AltBody = $body;
 		$exito = $mail->Send();
 		if(!$exito)
