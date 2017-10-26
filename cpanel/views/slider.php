@@ -70,17 +70,14 @@
 				<!-- Al pulsar añadir -->
 
 			<div ng-show="sliderAdding">
-				<form>
-					
-				</form>
 					<input type="hidden" id="hidSlider" ng-value="infoSlider.idSlider">
 					<div class="row">
 						<label class="col-lg-2 col-lg-offset-3">Descripció: </label>
-						<textarea class=" col-lg-4 editAndAddSlider" name="" id="" cols="30" rows="6" placeholder="Escriu aquí la descripció de la imatge a mostrar dins del Slider..."  ></textarea>
+						<textarea class=" col-lg-4 editAndAddSlider" name="" id="" cols="30" rows="6" placeholder="Escriu aquí la descripció de la imatge a mostrar dins del Slider..."></textarea>
 					</div>
 					<div class="row">
 						<label class="col-lg-2 col-lg-offset-3">Títol: </label>
-						<textarea class=" col-lg-4 editAndAddSlider" name="" id="" cols="30" rows="6" placeholder="Escriu aquí el títol de la imatge a mostrar dins del Slider..." ></textarea>
+						<textarea class=" col-lg-4 editAndAddSlider" name="" id="" cols="30" rows="6" placeholder="Escriu aquí el títol de la imatge a mostrar dins del Slider..."></textarea>
 					</div>
 					<div class="row">
 						<label class="col-lg-2 col-lg-offset-3">Subtítol: </label>
@@ -92,10 +89,10 @@
 					</div>
 					<div class="row">
 						<label class="col-lg-2 col-lg-offset-3">Imatge: </label>
-						<input type="file" class="editAndAddSlider" >
+						<input type="file" class="editAndAddSlider">
 					</div>
 					<div class="row">
-						<input class="col-lg-offset-5 editAndAddSlider" type="button" value="Actualitzar" ng-click=backSettingSlide() >
+						<input class="col-lg-offset-5 editAndAddSlider" type="button" value="Actualitzar" ng-click=backSettingSlide()>
 					</div>
 			</div>
 
@@ -106,15 +103,15 @@
 					<input type="hidden" id="hidEditSlider" ng-value="infoSlider.idSlider">
 					<div class="row">
 						<label class="col-lg-2 col-lg-offset-3">Descripció: </label>
-						<textarea class=" col-lg-4 editAndAddSlider" name="" id="description" cols="30" rows="6" >{{infoSlider.description}}</textarea>
+						<textarea class=" col-lg-4 editAndAddSlider" name="" id="description" cols="30" rows="6">{{infoSlider.description}}</textarea>
 					</div>
 					<div class="row">
 						<label class="col-lg-2 col-lg-offset-3">Títol: </label>
-						<textarea class=" col-lg-4 editAndAddSlider" name="" id="title" cols="30" rows="6" >{{infoSlider.title}}</textarea>
+						<textarea class=" col-lg-4 editAndAddSlider" name="" id="title" cols="30" rows="6">{{infoSlider.title}}</textarea>
 					</div>
 					<div class="row">
 						<label class="col-lg-2 col-lg-offset-3">Subtítol: </label>
-						<textarea class=" col-lg-4 editAndAddSlider" name="" id="subTitle" cols="30" rows="6" >{{infoSlider.subTitle}}</textarea>
+						<textarea class=" col-lg-4 editAndAddSlider" name="" id="subTitle" cols="30" rows="6">{{infoSlider.subTitle}}</textarea>
 					</div>
 					<div class="row">
 						<label class="col-lg-2 col-lg-offset-3">Enllaç: </label>

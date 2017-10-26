@@ -371,6 +371,12 @@ padding: 0;
 	font-weight: 600;
 	text-decoration: underline;
 }
+#logoEixContact{
+	position: absolute;
+    right: 12%;
+    bottom: -7%;
+}
+    
 
 /*--------------------------------------------------------Dídac--------------------------------------------------------------------*/
 .assoNews{
