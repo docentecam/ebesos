@@ -10,6 +10,30 @@ body{
 	margin-left:15px!important;
 	margin-right:15px!important; 
 }
+.breadCum{
+	padding-bottom: 2%;
+}
+.breadJS{
+	color: black;
+    font-weight: 600;
+    text-decoration: underline; 
+}
+
+a:hover{
+	color: black!important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 /*lander sanahujes yañez*/
 #aboutUs{
 	width: 75%;
@@ -22,9 +46,17 @@ body{
 	height: 500px;
 	//width: 1000px;
 }
-.category {
-	height: 50px;
-	margin-bottom: 60px;
+.category-1 {
+	height: 70px;
+	margin-bottom: 40px;
+}
+.category-2 {
+	height: 60px;
+	margin-bottom: 40px;
+}
+.category-3 {
+	height: 150px;
+	margin-bottom: 40px;
 }
 .pictograms-category{
 	width: 20px;
@@ -42,44 +74,14 @@ body{
 	color: black;
 	outline: none;
 }
-.legend{
-	font-size: 11px;
-	bottom: 25px;
-}
-.label-legend{
-	padding-top: 5px;
-	padding-bottom: 5px;
-}
-.label-mer{
-	padding: 5px;
-}
-.acColor{
-	height: 20px;
-	width: 20px;
-	background-color: #124290;
-}
-.xnoColor{
-	height: 20px;
-	width: 20px;
-	background-color: #952C20;
-}
-.merColor{
-	height: 20px;
-	width: 20px;
-	background-color: #80AE38;
-}
 /*FIN COMERCIAL MAP*/
 
 /* Optional: Makes the sample page fill the window. */
 
 /*html, body {
-
 height: 100%;
-
 margin: 0;
-
 padding: 0;
-
 }*/
 
 /*BLOQUE COOKIES*/
@@ -123,7 +125,6 @@ padding: 0;
 	margin-left: 35.5%;
 	margin-bottom: 55.5%;
 }
-
 #title{
 	margin-left: 60%;
 	margin-top: 25%; 
@@ -170,7 +171,8 @@ padding: 0;
 	height: 48%;
 	padding-right: 10px;
 	padding-left: 10px;
-	padding-top: 10px;	
+	padding-top: 10px;
+
 }
 .underline:hover{
 	border-bottom: 1px solid #9E9E9E;
@@ -235,8 +237,8 @@ padding: 0;
     width:100%;
     height:100%;
     z-index:1000;
-    background-color:grey;
-    opacity: .8;
+    background-color:white;
+    opacity: 0.98;
 }
 #mc_embed_signup .button{
 	color: black!important;
@@ -353,9 +355,7 @@ padding: 0;
 	border-left: solid 1px;
 	border-color:#ced2de;
 }
-#breadcrumbsContact{
-	text-decoration: none;
-}
+
 #titleNew{
 	text-align: center;
 }
@@ -375,6 +375,12 @@ padding: 0;
 	font-weight: 600;
 	text-decoration: underline;
 }
+#logoEixContact{
+	position: absolute;
+    right: 12%;
+    bottom: -7%;
+}
+    
 
 /*--------------------------------------------------------Dídac--------------------------------------------------------------------*/
 .assoNews{
@@ -435,13 +441,10 @@ padding: 0;
 .shopsList{
 	padding-bottom: 10px;
 }
-.breadComsA
-{
-	padding-bottom: 10%;
-}
+
 .assoDivContact
 {
-	margin-top: -1%;
+	margin-top: 4%;
 }
 .formAssoContact{
 	margin-left: -5%!important;
@@ -478,10 +481,6 @@ padding: 0;
 {
 	opacity: 1;
 }
-#news
-{
-	margin-top: 7%;
-}
 
 #imgPadd
 {
@@ -501,13 +500,7 @@ padding: 0;
 	margin-bottom: 0.5%;
 	margin-top: 3%;
 }
-#breadcrumbsContact
-{
-	margin-left: 2%;
-	color: black;
-	font-weight: 600;
-	text-decoration: underline;
-}
+
 #moreInfo
 {
 	font-weight: 600;
@@ -519,21 +512,9 @@ padding: 0;
 	text-align: center;
 }
 
-#breadcrumbsContact:hover
-{
-	font-weight: 700;
-}
-.breadJS
-{
-	color: black;
-    font-weight: 600;
-    text-decoration: underline;  
-}
-#all
-{
-	margin-left: 2%;
-	margin-right: 2%;
-}
+
+
+
 
 
 @media (max-width: 575px){
@@ -544,16 +525,16 @@ padding: 0;
 @media (max-width: 767px){
 
 }
-@media (min-width: 768px)
-{
+@media (min-width: 768px){
 	.footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { border-left:solid 1px rgba(255,255,255,0.10); }
 }
-@media (max-width: 1023px)
-{
-	.titleSubE
-	{
+@media (max-width: 1023px){
+	.titleSubE{
 		position: relative;
 		margin-top: 0%;
+	}
+	.textOverImage{
+		visibility:hidden;
 	}
 }
 @media (min-width: 1024px){
@@ -566,9 +547,11 @@ padding: 0;
 	.subMenu{
 		padding:  30px;
 	}
+	#subMenu{
+		margin-top: 4%;
+	}
 	.titleSubE{
 	position: absolute;
 	margin-top: 7%;
 	}
 }
-

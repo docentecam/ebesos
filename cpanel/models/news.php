@@ -3,7 +3,7 @@ require("../inc/functions.php");
 
 	if(isset($_GET['acc']) && $_GET['acc'] == 'news'){
 
-		$mySql = "SELECT n.idNew , n.idUser,.n.titleSub , n.date, n.title , w.url";
+		$mySql = "SELECT n.idNew , n.idUser,.n.titleSub , DATE_FORMAT( n.date,'%d-%M-%Y') AS fecha, n.title , w.url";
 
 	$mySql .= " FROM news n, newsmedia w WHERE n.idNew=w.idNew AND n.idUser=1 AND w.preferred='Y'";//.$_GET["idUser"];
 
@@ -25,7 +25,7 @@ require("../inc/functions.php");
 			$row['titleSub']=str_replace("'", "·", $row['titleSub']);
 
 
-			$dataNews .= '{"url":"'.$row['url'].'", "title":"'.$row['title'].'","date":"'.$row['date'].'","idNew":"'.$row['idNew'].'","titleSub":"'.$row['titleSub'].'"}';
+			$dataNews .= '{"url":"'.$row['url'].'", "title":"'.$row['title'].'","date":"'.$row['fecha'].'","idNew":"'.$row['idNew'].'","titleSub":"'.$row['titleSub'].'"}';
 		
 			$i++;
 		}
@@ -38,7 +38,7 @@ require("../inc/functions.php");
 	if(isset($_GET['acc']) && $_GET['acc'] == 'newSel'){
 
 
-	$mySql = "SELECT n.idNew , n.idUser, n.titleSub , n.date, n.title";
+	$mySql = "SELECT n.idNew , n.idUser, n.titleSub ,DATE_FORMAT( n.date,'%Y-%m-%d') AS fecha, n.title";
 
 	$mySql .= " FROM news n WHERE n.idNew=".$_GET["idNew"];
 
@@ -58,12 +58,12 @@ require("../inc/functions.php");
 			$row['titleSub']=str_replace("'", "·", $row['titleSub']);
 
 
-			$dataNews .= '{"title":"'.$row['title'].'","date":"'.$row['date'].'","idNew":"'.$row['idNew'].'","titleSub":"'.$row['titleSub'].'","url":';
+			$dataNews .= '{"title":"'.$row['title'].'","date":"'.$row['fecha'].'","idNew":"'.$row['idNew'].'","titleSub":"'.$row['titleSub'].'","url":';
 
 			$j = 0;
 
 			$dataNews .= '[';
-			$mySql = "SELECT url , type, preferred
+			$mySql = "SELECT idNewMedia, url , type, preferred
 					FROM  news n, newsmedia w
 					WHERE n.idNew=w.idNew AND w.idNew=".$_GET["idNew"];
 
@@ -73,7 +73,7 @@ require("../inc/functions.php");
 			{
 				if($j != 0) $dataNews .= ",";
 
-				$dataNews .= '{"url":"'.$row['url'].'", "type":"'.$row['type'].'", "preferred":"'.$row['preferred'].'"}';
+				$dataNews .= '{"idNewMedia":"'.$row['idNewMedia'].'","url":"'.$row['url'].'", "type":"'.$row['type'].'", "preferred":"'.$row['preferred'].'"}';
 
 				$j++;
 			}
@@ -88,15 +88,31 @@ require("../inc/functions.php");
 	}
 
 
-	if(isset($_GET['acc']) && $_GET['acc'] == 'createNew'){
+	if(isset($_GET['acc']) && $_GET['acc'] == 'img'){
 
 
-		$mySql = "INSERT INTO  n.idNew , n.idUser,.n.titleSub , n.date, n.title , w.url";
-		$mySql .= " FROM news n, newsmedia w";//.$_GET["idUser"];
+		$mySql = "UPDATE  n.idNew , n.idUser,.n.titleSub , n.date, n.title , w.url";
+		$mySql .= " FROM news n, newsmedia w WHERE n.idNew=w.idNew AND w.preferred='Y'AND n.idUser=1";//.$_GET["idUser"];
 
 		$connexio = connect();
 		$modifyImgPref = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
+
+		return $modifyImgPref;
+
+
+	}	
+
+
+
+	if(isset($_GET['acc']) && $_GET['acc'] == 'delete'){  
+		$mySql = "DELETE";
+		$mySql .= " FROM `newsmedia` where idNewMedia=".$_GET["idNewMedia"];
+
+		$connexio = connect();
+		$deleteImg = mysqli_query($connexio, $mySql);
+		disconnect($connexio);
+		
 
 	}		
 
