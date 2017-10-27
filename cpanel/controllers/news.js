@@ -84,6 +84,19 @@ angular.module('spaApp')
 		});
 	};
 
+	$scope.imgAdd = function(){
+		$http({
+			method : "GET",
+			url : "models/news.php?acc=add"
+		}).then(function mySucces (response) {
+			$scope.images = response.data;
+			$scope.divNew=true;
+
+		}, function myError (response) {
+			$scope.newSelect = response.data;
+		});
+	};
+
 		// $scope.createNewD = function()
 		// { 
 		// 	var correcto=true;

@@ -84,12 +84,16 @@
 
 		</div>		
 						<div id="containerImagesOfNew">
-							<input type="button" value="Afegir foto" alt="" class="btn btn-default"" ng-click="">
 							<div ng-repeat="image in images | filter : {preferred:'N' , type:'I'}">
-								<label> Imatge de les noticia </label> 
-								<img src="../img/newsmedia/{{image.url}}"> 
-								<input type="button" value="Modificar" alt="" class="btn btn-default"" ng-click="changeImgN()">
-								<input type="button" value="Eliminar" alt="" class="btn btn-default"" ng-click="imgD(image.idNewMedia,image.idNew)">
+							<h2> Imatge de les noticia </h2> 
+								<div>
+									<input type="file" name="" id="">
+									<input type="button" value="Afegir foto" alt="" class="btn btn-default"" ng-click="imgAdd()">
+								</div>
+									
+									<img src="../img/newsmedia/{{image.url}}"> 
+									<input type="button" value="Modificar" alt="" class="btn btn-default"" ng-click="changeImgN()">
+									<input type="button" value="Eliminar" alt="" class="btn btn-default"" ng-click="imgD(image.idNewMedia,image.idNew)">
 							</div>
 						</div>
 
