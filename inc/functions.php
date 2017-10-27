@@ -14,7 +14,7 @@ require "phpmailer/phpmailer.class.php";
 	function close()
 	{	session_destroy();}
 
-function sendMails($mailClient = "", $subject = "", $fromName = "", $mailAssociation = "", $pswd = "", $body = ""){
+function sendMails($mailClient = "", $subject = "", $fromName = "", $mailAssociation = "", $pswd = "", $body = "", $logo = ""){
 		
 
 
@@ -45,10 +45,7 @@ function sendMails($mailClient = "", $subject = "", $fromName = "", $mailAssocia
 		$mail->IsHTML(true);
 		$mail->CharSet = 'UTF-8';
 		$mail->Subject = $subject;
-		$mail->AddEmbeddedImage("../img/logos-assoc/1.png", "my-attach1");
-		$mail->AddEmbeddedImage("../img/logos-assoc/2.png", "my-attach2");
-		$mail->AddEmbeddedImage("../img/logos-assoc/3.png", "my-attach3");
-		$mail->AddEmbeddedImage("../img/logos-assoc/4e.png", "my-attach4");
+		$mail->AddEmbeddedImage("../img/logos-assoc/".$logo , "my-attach1");
 		$mail->Body = $body;
 		
 		$mail->AltBody = $body;

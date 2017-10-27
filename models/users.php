@@ -20,34 +20,33 @@ require("../inc/functions.php");
  		$mySql = "SELECT email, name, address, telephone, emailPass, logo FROM users WHERE idUser=".$_GET["idUser"];
  		$connexio = connect();
  		$resultContact = mysqli_query($connexio, $mySql);
-		disconnect($connexio);
-			while ($row=mySqli_fetch_array($resultContact))
-			{
-				$emailAssociation = $row["email"];
-				$nameAssociation = $row["name"];
-				$emailPass = $row["emailPass"];
-			}	
+ 		disconnect($connexio);
+ 		$row=mySqli_fetch_row($resultContact);
+		
+		$emailAssociation = $row[0];
+		$nameAssociation = $row[1];
+		$emailPass = $row[4];
+		$logoAssociation = $row[5];
+		if($_GET["idUser"] == '1'){
+			$logoAssociation = "4e.png";
+		}
 
 		$body = 
 				"<html>
 		 			<head>
 		 			</head>
 		 			<body>
-						<label>Nom de l'interessat: </label>".$_GET['client']."
+						<i>Nom de l'interessat: </i>".$_GET['client']."
 						<br><br>
-						<label>Email de l'interessat: </label>".$_GET['email']."
-			        	<p>'". $_GET['message'].".'</p>
-			        	<b>Desenvolupat per Barcelona Activa<b>
-			        	<br><br>
+						<i>Email de l'interessat: </i>".$_GET['email']."
+			        	<p style='margin-bottom: 2%;margin-top: 2%;'>'". $_GET['message'].".'</p>
+			        	<b style='margin-left:1.5%;margin-right:1.5%;'>".$nameAssociation."</b>
 				        <img alt='PHPMailer' src='cid:my-attach1'>
-				        <img alt='PHPMailer' src='cid:my-attach2'>
-				        <img alt='PHPMailer' src='cid:my-attach3'>
-				        <img alt='PHPMailer' src='cid:my-attach4'>
 		 			</body>
 	 			</html>";
 
- 		$envioStatus= sendMails( $_GET['email'], "Contacte formulari de ".$nameAssociation, $_GET['client'],$emailAssociation, $emailPass, $body);
- 		$envioStatusCopia= sendMails($emailAssociation, "COPIA - Contacte formulari de ".$nameAssociation, 'contacte pel web',$emailAssociation, $emailPass, $body);
+ 		$envioStatus= sendMails( $_GET['email'], "Contacte formulari de ".$nameAssociation, $_GET['client'],$emailAssociation, $emailPass, $body, $logoAssociation);
+ 		$envioStatusCopia= sendMails($emailAssociation, "COPIA - Contacte formulari de ".$nameAssociation, 'contacte pel web',$emailAssociation, $emailPass, $body, $logoAssociation);
 
  		if ($envioStatus != '1' || $envioStatusCopia != '1') {
  			$envioStatus='0';
