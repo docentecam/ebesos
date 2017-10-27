@@ -10,12 +10,10 @@ $http({
 		$scope.assoTopImages = response.statusText;
 	});			
 		$scope.showDisconnect = function(){
-			if ($scope.showLogOff == true) {
-				$scope.showLogOff = false;
+			if ($scope.showLogOff = !$scope.showLogOff) {
+				
 			}
-			else{
-				$scope.showLogOff = true;
-			}
+		
 			
 	};
 });
