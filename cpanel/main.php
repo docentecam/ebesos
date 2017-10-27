@@ -6,7 +6,7 @@ if(!isset($_SESSION['idUser'])) header("Location: index.html");
 ?>
 	<html>
 <head>
-		<title>EIX COMERCIAL BACKEND</title>
+		<title>EIX BESÒS MARESME</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<script data-require="jquery@*" data-semver="2.1.1" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
