@@ -90,21 +90,21 @@ angular.module('spaApp')
   				$scope.history = dataUser['history'].value;
   				$scope.currentPswd = dataUser['currentPswd'].value;
   				$scope.confirmPswd = dataUser['confirmPswd'].value;
-  				$scope.pswd = dataUser['pswd'].value;
+  				$scope.pswd = dataUser['pswd'].value;*/
 
-  					$scope.pswdC
-					$scope.confirmPswdC
-					$scope.currentPswdC
-					$scope.idUserC
-					$scope.nameC
-					$scope.emailC
-					$scope.emailPassC
-					$scope.addressC
-					$scope.telephoneC
-					$scope.logoC
-					$scope.footerC
-					$scope.historyC
-					$scope.activeC*/
+  					console.log($scope.pswdC);
+					console.log($scope.confirmPswdC);
+					console.log($scope.currentPswdC);
+					console.log($scope.idUserC);
+					console.log($scope.nameC);
+					console.log($scope.emailC);
+					console.log($scope.emailPassC);
+					console.log($scope.addressC);
+					console.log($scope.telephoneC);
+					console.log($scope.logoC);
+					console.log($scope.footerC);
+					console.log($scope.historyC);
+					console.log($scope.activeC);
   				if($scope.idUserC != "")
   				{
   					if($scope.pswdC == $scope.confirmPswdC && $scope.confirmPswdC != "" && $scope.pswdC != "" && $scope.currentPswdC != "")

@@ -27,8 +27,27 @@ require("../inc/functions.php");
 				$nameAssociation = $row["name"];
 				$emailPass = $row["emailPass"];
 			}	
- 		$envioStatus= sendMails( $_GET['email'], "Contacte formulari de ".$nameAssociation, $_GET['client'],$emailAssociation, $emailPass, $_GET['message']."<br><br><img src='cid:logo_1'><img src='cid:logo_2'><img src='cid:logo_3'><img src='cid:logo_4'>");
- 		$envioStatusCopia= sendMails($emailAssociation, "COPIA - Contacte formulari de ".$nameAssociation, 'contacte pel web',$emailAssociation, $emailPass, $_GET['message']."<br><br><img src='cid:logo_1'><img src='cid:logo_2'><img src='cid:logo_3'><img src='cid:logo_4'>");
+
+		$body = 
+				"<html>
+		 			<head>
+		 			</head>
+		 			<body>
+						<label>Nom de l'interessat: </label>".$_GET['client']."
+						<br><br>
+						<label>Email de l'interessat: </label>".$_GET['email']."
+			        	<p>'". $_GET['message'].".'</p>
+			        	<b>Desenvolupat per Barcelona Activa<b>
+			        	<br><br>
+				        <img alt='PHPMailer' src='cid:my-attach1'>
+				        <img alt='PHPMailer' src='cid:my-attach2'>
+				        <img alt='PHPMailer' src='cid:my-attach3'>
+				        <img alt='PHPMailer' src='cid:my-attach4'>
+		 			</body>
+	 			</html>";
+
+ 		$envioStatus= sendMails( $_GET['email'], "Contacte formulari de ".$nameAssociation, $_GET['client'],$emailAssociation, $emailPass, $body);
+ 		$envioStatusCopia= sendMails($emailAssociation, "COPIA - Contacte formulari de ".$nameAssociation, 'contacte pel web',$emailAssociation, $emailPass, $body);
 
  		if ($envioStatus != '1' || $envioStatusCopia != '1') {
  			$envioStatus='0';

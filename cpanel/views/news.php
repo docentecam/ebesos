@@ -74,8 +74,8 @@
 				
 						<div id="containerPreferred" ng-repeat="image in images | filter : {preferred:'Y'}">
 							<img id="photo" src="../img/newsmedia/{{image.url}}"> 
-						</div>
-						<input type="button" value="Eliminar" alt="" class="btn btn-default"" ng-click="imgD(image.idNewMedia)">
+						</div> 
+						
 					</div>
 					<div class="col-sm-6">
 					<input type="button" name="editNew" value="{{act}} Noticia" class="btn btn-default" ng-click="">
@@ -89,7 +89,7 @@
 								<label> Imatge de les noticia </label> 
 								<img src="../img/newsmedia/{{image.url}}"> 
 								<input type="button" value="Modificar" alt="" class="btn btn-default"" ng-click="changeImgN()">
-								<input type="button" value="Eliminar" alt="" class="btn btn-default"" ng-click="imgD(image.idNewMedia)">
+								<input type="button" value="Eliminar" alt="" class="btn btn-default"" ng-click="imgD(image.idNewMedia,image.idNew)">
 							</div>
 						</div>
 
