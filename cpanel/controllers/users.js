@@ -1,29 +1,27 @@
 angular.module('spaApp')
  .controller('AssociationsCtrl', function($scope, $http) {
  			$scope.cUser = true;
-
+ 			$scope.activeCY = 'Y';
+ 			$scope.activeCN = 'N';
 			
-					$http({
-						method : "GET",
-						url : "models/users.php?acc=loadUser" //modificar
-					}).then(function mySucces (response) {
-						$scope.associations = response.data;
-						$scope.idUserC = $scope.associations[0]['idUser'];
-						$scope.nameC = $scope.associations[0]['name'];
-						$scope.emailC = $scope.associations[0]['email'];
-						$scope.emailPassC = $scope.associations[0]['emailPass'];
-						$scope.addressC = $scope.associations[0]['address'];
-						$scope.telephoneC = $scope.associations[0]['telephone'];
-						$scope.logoC = $scope.associations[0]['logo'];
-						$scope.footerC = $scope.associations[0]['footer'];
-						$scope.historyC = $scope.associations[0]['history'];
-						$scope.activeC = $scope.associations[0]['active'];
-					}, function myError (response) {
-						$scope.associations = response.statusText;
-					});
-			
-			
-			
+			$http({
+				method : "GET",
+				url : "models/users.php?acc=loadUser" //modificar
+			}).then(function mySucces (response) {
+				$scope.associations = response.data;
+				$scope.idUserC = $scope.associations[0]['idUser'];
+				$scope.nameC = $scope.associations[0]['name'];
+				$scope.emailC = $scope.associations[0]['email'];
+				$scope.emailPassC = $scope.associations[0]['emailPass'];
+				$scope.addressC = $scope.associations[0]['address'];
+				$scope.telephoneC = $scope.associations[0]['telephone'];
+				$scope.logoC = $scope.associations[0]['logo'];
+				$scope.footerC = $scope.associations[0]['footer'];
+				$scope.historyC = $scope.associations[0]['history'];
+				$scope.activeC = $scope.associations[0]['active'];
+			}, function myError (response) {
+				$scope.associations = response.statusText;
+			});
 
 			$http({
 				method : "GET",
@@ -80,31 +78,17 @@ angular.module('spaApp')
 			};
 			
 			$scope.updateUser = function(){
-  			/*	$scope.nameC = dataUser['name'].value;
-  				$scope.email = dataUser['email'].value;
-  				$scope.pswdMail = dataUser['pswdMail'].value;
-  				$scope.address = dataUser['address'].value;
-  				$scope.telephone = dataUser['telephone'].value;
-  				$scope.idUser = dataUser['userId'].value;
   				$scope.active = dataUser['active'].value;
-  				$scope.history = dataUser['history'].value;
-  				$scope.currentPswd = dataUser['currentPswd'].value;
-  				$scope.confirmPswd = dataUser['confirmPswd'].value;
-  				$scope.pswd = dataUser['pswd'].value;*/
 
-  					console.log($scope.pswdC);
-					console.log($scope.confirmPswdC);
-					console.log($scope.currentPswdC);
-					console.log($scope.idUserC);
-					console.log($scope.nameC);
-					console.log($scope.emailC);
-					console.log($scope.emailPassC);
-					console.log($scope.addressC);
-					console.log($scope.telephoneC);
-					console.log($scope.logoC);
-					console.log($scope.footerC);
-					console.log($scope.historyC);
-					console.log($scope.activeC);
+				if($scope.active == 'Y')
+				{
+					$scope.activeC = $scope.activeCY;
+				}
+				else
+				{
+					$scope.activeC = $scope.activeCN;
+				}
+
   				if($scope.idUserC != "")
   				{
   					if($scope.pswdC == $scope.confirmPswdC && $scope.confirmPswdC != "" && $scope.pswdC != "" && $scope.currentPswdC != "")

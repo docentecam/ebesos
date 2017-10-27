@@ -58,19 +58,6 @@ session_start();
 		echo '[{"status":"'.$message.'"}]';
 	}
 
-if(isset($_SESSION['user']['idUser'])) 
-{
-
-	if(isset($_GET['acc']) && $_GET['acc'] == 'logout')
-	{ 
-	 		unset($_SESSION['user']['idUser']);
-	 		unset($_SESSION['user']['privileges']);
-	 		unset($_SESSION['user']['name']);
-	 		unset($_SESSION['user']['logo']);
-	 		session_destroy();
-	 		header('Location: ..');
-	}
-	
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'forgot')
 	{
 		$mySql = "SELECT idUser FROM users 
@@ -111,11 +98,41 @@ if(isset($_SESSION['user']['idUser']))
 	 		$message = "Correct";
 	 	}
 
-	 	echo $message;
+	 	echo '[{"status":"'.$message.'"}]';
 	}
-	else if (isset($_GET['acc']) && $_GET['acc'] == 'lg') {
-		echo whoId();
+	else if (isset($_GET['acc']) && $_GET['acc'] == 'footer'){
+ 		$mySql = "SELECT footer FROM users";
+ 		$connexio = connect();
+ 		$resultFooter = mysqli_query($connexio, $mySql);
+ 		disconnect($connexio);
+ 		$showFooter = "[";
+ 		$i = 0;
+ 		while ($row=mySqli_fetch_array($resultFooter))
+ 		{
+ 			if($i != 0)
+ 				{
+ 					$showFooter .= ",";
+ 				}
+ 				$showFooter .= '{"footerL":"'.$row['footer'].'"}'; 
+ 				$i++;
+ 		}
+ 		$showFooter .= "]";
+ 	 	echo $showFooter;
+ 	}
+
+if(isset($_SESSION['user']['idUser'])) 
+{
+
+	if(isset($_GET['acc']) && $_GET['acc'] == 'logout')
+	{ 
+	 		unset($_SESSION['user']['idUser']);
+	 		unset($_SESSION['user']['privileges']);
+	 		unset($_SESSION['user']['name']);
+	 		unset($_SESSION['user']['logo']);
+	 		session_destroy();
+	 		header('Location: ..');
 	}
+	
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'loadUser') {
 		if(isset($_GET['idUser']))
 		{
