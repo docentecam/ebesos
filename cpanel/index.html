@@ -33,7 +33,7 @@
 						<div class="row">
 							<div class="col-lg-3"><label>Usuari: </label></div>
 							<div class="col-lg-6">
-								<input type="text" id="user" placeholder="Nom d'usuari" value="comerciantsbm@gmail.com" class="loginRadius">
+								<input type="text" id="user" placeholder="Nom d'usuari" class="loginRadius">
 							</div>
 						</div>
 						<div class="row log20"></div>
@@ -42,7 +42,7 @@
 								<label>Contrasenya: </label>
 							</div>
 							<div class="col-lg-6">
-								<input type="password" id="pswd" placeholder="Contrasenya" value="1" class="loginRadius">
+								<input type="password" id="pswd" placeholder="Contrasenya" class="loginRadius">
 							</div>
 							<div class="col-lg-3">
 								<input type="button" value="Accedir" class="btn btn-default" ng-click="checking();" class="loginRadius">
@@ -119,13 +119,13 @@
 			</div>
 		</div>
 	</div>
-	<div class="row" id="footerLogin"> <!-- Mirar y tocar -->
+	<div class="row" id="footerLogin"> <!-- TODO Mirar y tocar -->
 		<footer class="footer-bs" id="footer">
 			<div class="col-xs-7 footerLog">
 				<div class="row">
 					<div class="col-xs-8  col-xs-offset-3 pull-right">
-						<div class="icoFooterEix" ng-repeat="ftr in footer">
-							<img class="img-responsive col-lg-3 pull-left" src="../img/logos-assoc/{{ftr.footerL}}">
+						<div class="icoFooterEix" ng-repeat="ftr in footerL">
+							<img class="img-responsive col-lg-3 pull-left" src="../img/logos-assoc/{{ftr.footer}}">
 							{{ftr.footer}}
 						</div>
 					</div>
@@ -166,9 +166,11 @@
 						method : "GET",
 						url : "models/users.php?acc=login&email="+$scope.email+"&password="+$scope.password
 					}).then(function mySucces (response) {
-						$scope.names=response.data;
+						$scope.checkL=response.data;
 						$scope.fail = false;
-						$scope.statusValidation=$scope.names[0].status;
+						$scope.statusValidation=$scope.checkL[0]['status'];
+						console.log($scope.checkL);
+						console.log($scope.statusValidation);
 						if($scope.statusValidation=="Correct")
 						{
 
@@ -180,31 +182,8 @@
 						}
 
 					}, function myError (response) {
-						$scope.names = response.statusText;
+						$scope.checkL = response.statusText;
 					});
-					$http({
-						method : "GET",
-						url : "models/shops.php?acc=loginC&email="+$scope.email+"&password="+$scope.password
-					}).then(function mySucces (response) {
-						$scope.shops=response.data;
-						$scope.fail = false;
-						$scope.statusValidationShops=$scope.shops[0].status;
-						console.log("---"+$scope.statusValidationShops+"---")
-						if($scope.statusValidationShops=="Correct")
-						{
-
-							$window.location.href = "main.php";
-						}
-						else
-						{
-							$scope.fail = true;
-						}
-
-					}, function myError (response) {
-						$scope.shops = response.statusText;
-					});
-
-						
 				};
 				$scope.showForgot = function(){
   					$scope.login = false;

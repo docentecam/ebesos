@@ -17,7 +17,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 		</div>
 	</div>
 	<div>
-		<form id="dataUser"  ng-submit="updateUser()">
+		<form id="dataUser" ng-submit="updateUser()">
 			<div class="row">
 				<div class="col-lg-4">
 					<div class="row">
@@ -63,8 +63,8 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 						<div class="col-lg-6 padd" ng-show="cUser">Actiu:</div>
 						<div class="col-lg-6 padd" ng-show="cUser">
 							<select id="active">
-								<option value="Y" ng-selected="activeC=='Y'">Si</option>
-								<option value="N" ng-selected="activeC=='N'">No</option>
+								<option value="Y" ng-selected="activeC=='Y'" ng-model="activeC='Y'">Si</option>
+								<option value="N" ng-selected="activeC=='N'" ng-model="activeC='N'">No</option>
 							</select>
 						</div>
 					</div>

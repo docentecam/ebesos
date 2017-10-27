@@ -2,48 +2,67 @@
 require("../inc/functions.php");
 session_start();
 
-	if(isset($_GET['acc']) && $_GET['acc'] == 'login'){
+	if(isset($_GET['acc']) && $_GET['acc'] == 'login')
+	{
 		$message='';
+		$con = false;
+		$checkLogin=0;
 		$mySql = "SELECT idUser, name, privileges, logo FROM users 
 					WHERE email='".$_GET['email']."' AND password='".sha1(md5($_GET['password'])).
 					"' AND active='Y'";
 		$connexio = connect();
 		$resultLogin = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
-		$checkLogin="0";
-		while ($row=mySqli_fetch_array($resultLogin))
+		
+		$row=mySqli_fetch_array($resultLogin);
+		$checkLogin=mysqli_num_rows($resultLogin);
+		if($checkLogin!=0)
 		{
-			
 			$checkLogin = $row['idUser'];
 			$getPrivileges = $row['privileges'];
 			$getName = $row['name'];
 			$getLogo = $row['logo'];
 		}
-	 	
+			
+		if($checkLogin == 0)
+	 	{
+	 		$mySql = "SELECT idShop, name, privileges, logo FROM shops 
+					WHERE email='".$_GET['email']."' AND passAplication='".sha1(md5($_GET['password']))."'  AND active='Y'";
+			$connexio = connect();
+			$resultLogin = mysqli_query($connexio, $mySql);
+			disconnect($connexio);
 
-	 	if($checkLogin == "0")
-	 	{
-	 		$message = "L'usuari o la contrasenya no són correctes";
-	 	}
-	 	else if($connexio == "Error al conectar")
-	 	{
-	 		$message = "Error al conectar";
-	 	}
-	 	else
-	 	{
-	 		$message = "Correct";
-	 		$_SESSION['user']['idUser'] = $checkLogin;
-	 		$_SESSION['user']['privileges'] = $getPrivileges;
-	 		$_SESSION['user']['name'] = $getName;
-	 		$_SESSION['user']['logo'] = $getLogo;
-	 	}
+			$row=mySqli_fetch_array($resultLogin);
+			$checkLogin=mysqli_num_rows($resultLogin);
+			if($checkLogin!=0)
+			{
+				$checkLogin = $row['idShop'];
+				$getPrivileges = $row['privileges'];
+				$getName = $row['name'];
+				$getLogo = $row['logo'];
+			}
+		}
 
-	 	echo '[{"status":"'.$message.'"}]';
+		if($checkLogin == 0)
+		{
+			$message = "L'usuari o la contrasenya no són correctes";
+		}
+		else
+		{
+			$message = "Correct";
+		 	$_SESSION['user']['idUser'] = $checkLogin;
+		 	$_SESSION['user']['privileges'] = $getPrivileges;
+		 	$_SESSION['user']['name'] = $getName;
+		 	$_SESSION['user']['logo'] = $getLogo;
+		}
+		echo '[{"status":"'.$message.'"}]';
 	}
-if(isset($_SESSION['user']['idUser'])) {
 
-	if(isset($_GET['acc']) && $_GET['acc'] == 'logout'){ 
-	 		
+if(isset($_SESSION['user']['idUser'])) 
+{
+
+	if(isset($_GET['acc']) && $_GET['acc'] == 'logout')
+	{ 
 	 		unset($_SESSION['user']['idUser']);
 	 		unset($_SESSION['user']['privileges']);
 	 		unset($_SESSION['user']['name']);
@@ -51,26 +70,9 @@ if(isset($_SESSION['user']['idUser'])) {
 	 		session_destroy();
 	 		header('Location: ..');
 	}
-	else if (isset($_GET['acc']) && $_GET['acc'] == 'footer'){
-		$mySql = "SELECT footer FROM users";
-		$connexio = connect();
-		$resultFooter = mysqli_query($connexio, $mySql);
-		disconnect($connexio);
-		$showFooter = "[";
-		$i = 0;
-		while ($row=mySqli_fetch_array($resultFooter))
-		{
-			if($i != 0)
-				{
-					$showFooter .= ",";
-				}
-				$showFooter .= '{"footerL":"'.$row['footer'].'"}'; 
-				$i++;
-		}
-		$showFooter .= "]";
-	 	echo $showFooter;
-	}
-	else if (isset($_GET['acc']) && $_GET['acc'] == 'forgot'){
+	
+	else if (isset($_GET['acc']) && $_GET['acc'] == 'forgot')
+	{
 		$mySql = "SELECT idUser FROM users 
 					WHERE email='".$_GET['mail']."'";
 		$connexio = connect();
@@ -115,8 +117,16 @@ if(isset($_SESSION['user']['idUser'])) {
 		echo whoId();
 	}
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'loadUser') {
-		$mySql = "SELECT idUser, name, email, emailPass, password, address, telephone, logo, history, active, footer FROM users 
-					WHERE idUser='".$_SESSION['user']['idUser']."'";
+		if(isset($_GET['idUser']))
+		{
+			$mySql = "SELECT idUser, name, email, emailPass, password, address, telephone, logo, history, active, footer FROM users 
+				WHERE idUser='".$_GET['idUser']."'";
+		}
+		else
+		{
+			$mySql = "SELECT idUser, name, email, emailPass, password, address, telephone, logo, history, active, footer FROM users 
+				WHERE idUser='".$_SESSION['user']['idUser']."'";
+		}	
 		$connexio = connect();
 		$resultUser = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
@@ -210,5 +220,8 @@ if(isset($_SESSION['user']['idUser'])) {
 		echo '[{"status":"'.$message.'"}]';
 	}
 }
-else header("Location: ../index.html");
+else if(!isset($_GET['acc']))
+{
+	header("Location: ../index.html");	
+} 
 ?>	
