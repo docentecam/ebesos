@@ -98,6 +98,26 @@ a:hover{
 	background-color: #80AE38;
 }
 /*FIN COMERCIAL MAP*/
+.shop-padding{
+	padding-left: 2px;
+}
+.shop-info-container{
+	border-left: 1px solid rgb(181, 183, 197);
+	padding-left: 25px;
+}
+.shop-name{
+	margin-top: 5%;
+}
+.shop-contact{
+	margin-top: 10px;
+}
+.shop-contact label{
+	color: rgb(181, 183, 197);
+	font-weight: 300;
+}
+.shop-photo{
+	margin-top: 20px;
+}
 
 /* Optional: Makes the sample page fill the window. */
 

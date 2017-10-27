@@ -74,7 +74,7 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'upload')
 	$web = $_POST["web"];
 	$lat = $_POST["lat"];
 	$lng = $_POST["lng"];
-	$telehpone = $_POST["telephone"];
+	$telephone = $_POST["telephone"];
 	$cp = $_POST["cp"];
 	$address = $_POST["address"];
 	$schedule = $_POST["schedule"];
@@ -84,6 +84,9 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'upload')
 	mkdir("../files/", 0777);
 
 	if($logo && move_uploaded_file($_FILES["logo"]["tmp_name"],	"../../img/logos-shops/".$logo))
+	{
+		
+	}
 
 	$fp=fopen("../files/infoShop.txt",'w');
 		fputs($fp,'msg="'.$mensaje.'"');
