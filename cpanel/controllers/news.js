@@ -70,12 +70,13 @@ angular.module('spaApp')
 		}
 	}
 
-	$scope.imgD = function($idNewMedia){
-		
+	$scope.imgD = function(idNewMedia="",idNew){
+		console.log(idNewMedia+"   "+idNew);
 		$http({
 			method : "GET",
-			url : "models/news.php?acc=delete&idNewMedia=" + $idNewMedia
+			url : "models/news.php?acc=delete&idNewMedia=" +idNewMedia+"&idNew="+idNew
 		}).then(function mySucces (response) {
+			$scope.images = response.data;
 			$scope.divNew=true;
 
 		}, function myError (response) {

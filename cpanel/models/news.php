@@ -44,6 +44,7 @@ require("../inc/functions.php");
 
 	$connexio = connect();
 	$resultNews = mysqli_query($connexio, $mySql);
+	disconnect($connexio);
 	$i=0;
 	$dataNews ='[';
 		while ($row=mySqli_fetch_array($resultNews))
@@ -60,25 +61,9 @@ require("../inc/functions.php");
 
 			$dataNews .= '{"title":"'.$row['title'].'","date":"'.$row['fecha'].'","idNew":"'.$row['idNew'].'","titleSub":"'.$row['titleSub'].'","url":';
 
-			$j = 0;
+			
 
-			$dataNews .= '[';
-			$mySql = "SELECT idNewMedia, url , type, preferred
-					FROM  news n, newsmedia w
-					WHERE n.idNew=w.idNew AND w.idNew=".$_GET["idNew"];
-
-			$resultImgs = mysqli_query($connexio, $mySql);
-
-			while($row = mysqli_fetch_array($resultImgs))
-			{
-				if($j != 0) $dataNews .= ",";
-
-				$dataNews .= '{"idNewMedia":"'.$row['idNewMedia'].'","url":"'.$row['url'].'", "type":"'.$row['type'].'", "preferred":"'.$row['preferred'].'"}';
-
-				$j++;
-			}
-
-			$dataNews .=']';
+			$dataNews .= listNewsMedia($_GET["idNew"]);
 
 		$i++;
 
@@ -112,6 +97,10 @@ require("../inc/functions.php");
 		$connexio = connect();
 		$deleteImg = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
+
+		//borrar img en ftp
+
+		echo  listNewsMedia($_GET["idNew"]);
 		
 
 	}		
@@ -130,5 +119,39 @@ require("../inc/functions.php");
 
 
 	}	
+
+
+
+
+	function listNewsMedia($idNew)
+	{
+
+		$dataNews = '[';
+			$mySql = "SELECT idNewMedia, url , type, preferred
+					FROM  news n, newsmedia w
+					WHERE n.idNew=w.idNew AND w.idNew=".$idNew;
+
+
+			$connexio = connect();
+	
+	
+
+
+
+			$resultImgs = mysqli_query($connexio, $mySql);
+			disconnect($connexio);
+			$j = 0;
+			while($row = mysqli_fetch_array($resultImgs))
+			{
+				if($j != 0) $dataNews .= ",";
+
+				$dataNews .= '{"idNew":"'.$idNew.'","idNewMedia":"'.$row['idNewMedia'].'","url":"'.$row['url'].'", "type":"'.$row['type'].'", "preferred":"'.$row['preferred'].'"}';
+
+				$j++;
+			}
+
+			$dataNews .=']';
+			return $dataNews;
+	}
 
 ?>
