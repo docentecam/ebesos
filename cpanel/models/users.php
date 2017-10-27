@@ -65,15 +65,16 @@ session_start();
 		$connexio = connect();
 		$resultCheck = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
-		$checkEmail="0";
-		while ($row=mySqli_fetch_array($resultCheck))
+		$checkEmail=0;
+
+		$row=mySqli_fetch_array($resultCheck);
+		$checkEmail=mysqli_num_rows($resultCheck);
+		if($checkEmail!=0)
 		{
-			
 			$checkEmail=$row['idUser'];
 		}
-	 	
 
-	 	if($checkEmail == "0")
+	 	if($checkEmail == 0)
 	 	{
 	 		$message = "L'usuari no existeix";
 	 	}
@@ -96,6 +97,8 @@ session_start();
 			$updateForgotToken = mysqli_query($connexio, $mySql);
 			disconnect($connexio);
 	 		$message = "Correct";
+	 		$mySql = "SELECT  FROM shops";
+	 		$body = "";
 	 	}
 
 	 	echo '[{"status":"'.$message.'"}]';
