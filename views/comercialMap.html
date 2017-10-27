@@ -2,11 +2,11 @@
   <div class="col-md-3 push-md-1">
     <form name="categoryForm">
       <div ng-repeat="category in categories" class="category row">
-        <div class="row col-md-7"><img class="pictograms-category" ng-src="img/pictograms/{{category.urlPicto}}">
-          <label><a class="a-category" href='' ng-click="categoryFilter('category', category.idCategory)">{{category.name}}:</a></label>
+        <div class="row col"><img class="pictograms-category img-responsive col-md-2 col-md-push-1" ng-src="img/pictograms/{{category.urlPicto}}">
+          <label class="col-md-9 category-name"><a class="a-category" href='' ng-click="categoryFilter('category', category.idCategory)">{{category.name}}:</a></label>
         </div>
-        <div class="row col-md-9 col-md-push-1">
-          <select ng-show="true" name="selectSubCategory" ng-change="categoryFilter('categorySub', subCategories, this)" ng-model="subCategories">
+        <div class="row col-md-9 col-md-push-2">
+          <select ng-show="true" class="category-select" name="selectSubCategory" ng-change="categoryFilter('categorySub', subCategories, this)" ng-model="subCategories">
             <option disabled ng-selected="true">--Escull una subcategoria--</option>
             <option ng-repeat="subCategory in category.subCategories" ng-value="subCategory.idSubCategory">{{subCategory.name}}</option>
           </select>
