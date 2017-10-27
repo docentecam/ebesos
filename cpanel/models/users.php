@@ -4,6 +4,7 @@ session_start();
 
 	if(isset($_GET['acc']) && $_GET['acc'] == 'login'){
 		$message='';
+		$con = false;
 		$mySql = "SELECT idUser, name, privileges, logo FROM users 
 					WHERE email='".$_GET['email']."' AND password='".sha1(md5($_GET['password'])).
 					"' AND active='Y'";
@@ -23,7 +24,40 @@ session_start();
 
 	 	if($checkLogin == "0")
 	 	{
-	 		$message = "L'usuari o la contrasenya no són correctes";
+	 		$mySql = "SELECT idShop, name, privileges, logo FROM shops 
+					WHERE email='".$_GET['email']."' AND passAplication='".sha1(md5($_GET['password']))."'";
+			$connexio = connect();
+			$resultLoginS = mysqli_query($connexio, $mySql);
+			disconnect($connexio);
+			$checkLoginS="0";
+			while ($row=mySqli_fetch_array($resultLoginS))
+			{
+				
+				$checkLoginS = $row['idShop'];
+				$getPrivilegesS = $row['privileges'];
+				$getNameS = $row['name'];
+				$getLogoS = $row['logo'];
+			}
+
+			if($checkLoginS == "0")
+		 	{
+		 		$message = "L'usuari o la contrasenya no són correctes";
+		 	}
+		 	else if($connexio == "Error al conectar")
+		 	{
+		 		$message = "Error al conectar";
+		 	}
+		 	else
+		 	{
+		 		$message = "Correct";
+		 		$_SESSION['user']['idUser'] = $checkLoginS;
+		 		$_SESSION['user']['privileges'] = $getPrivilegesS;
+		 		$_SESSION['user']['name'] = $getNameS;
+		 		$_SESSION['user']['logo'] = $getLogoS;
+		 		$con = true;
+		 		
+		 	}
+	 	
 	 	}
 	 	else if($connexio == "Error al conectar")
 	 	{
@@ -36,10 +70,18 @@ session_start();
 	 		$_SESSION['user']['privileges'] = $getPrivileges;
 	 		$_SESSION['user']['name'] = $getName;
 	 		$_SESSION['user']['logo'] = $getLogo;
+	 		$con = true;
+	 		
 	 	}
-
-	 	echo '[{"status":"'.$message.'"}]';
+	 	if($con == true)
+	 	{
+	 		echo "llega-Login";
+	 		//header('Location: ../main.php');
+	 	}
+	 	//else echo '[{"status":"'.$message.'"}]';
+	 	else echo "llega-noLogin";
 	}
+
 if(isset($_SESSION['user']['idUser'])) {
 
 	if(isset($_GET['acc']) && $_GET['acc'] == 'logout'){ 
@@ -51,25 +93,7 @@ if(isset($_SESSION['user']['idUser'])) {
 	 		session_destroy();
 	 		header('Location: ..');
 	}
-	else if (isset($_GET['acc']) && $_GET['acc'] == 'footer'){
-		$mySql = "SELECT footer FROM users";
-		$connexio = connect();
-		$resultFooter = mysqli_query($connexio, $mySql);
-		disconnect($connexio);
-		$showFooter = "[";
-		$i = 0;
-		while ($row=mySqli_fetch_array($resultFooter))
-		{
-			if($i != 0)
-				{
-					$showFooter .= ",";
-				}
-				$showFooter .= '{"footerL":"'.$row['footer'].'"}'; 
-				$i++;
-		}
-		$showFooter .= "]";
-	 	echo $showFooter;
-	}
+	
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'forgot'){
 		$mySql = "SELECT idUser FROM users 
 					WHERE email='".$_GET['mail']."'";

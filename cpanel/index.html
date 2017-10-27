@@ -124,8 +124,8 @@
 			<div class="col-xs-7 footerLog">
 				<div class="row">
 					<div class="col-xs-8  col-xs-offset-3 pull-right">
-						<div class="icoFooterEix" ng-repeat="ftr in footer">
-							<img class="img-responsive col-lg-3 pull-left" src="../img/logos-assoc/{{ftr.footerL}}">
+						<div class="icoFooterEix" ng-repeat="ftr in footerL">
+							<img class="img-responsive col-lg-3 pull-left" src="../img/logos-assoc/{{ftr.footer}}">
 							{{ftr.footer}}
 						</div>
 					</div>
@@ -166,23 +166,24 @@
 						method : "GET",
 						url : "models/users.php?acc=login&email="+$scope.email+"&password="+$scope.password
 					}).then(function mySucces (response) {
-						$scope.names=response.data;
-						$scope.fail = false;
-						$scope.statusValidation=$scope.names[0].status;
-						if($scope.statusValidation=="Correct")
+						$scope.checkL=response.data;
+						//$scope.fail = false;
+						$scope.statusValidation=$scope.checkL[0].status;
+						console.log($scope.checkL);
+						/*if($scope.statusValidation=="Correct")
 						{
 
 							$window.location.href = "main.php";
 						}
 						else
-						{
+						{*/
 							$scope.fail = true;
-						}
+						/*}*/
 
 					}, function myError (response) {
-						$scope.names = response.statusText;
+						$scope.checkL = response.statusText;
 					});
-					$http({
+					/*$http({
 						method : "GET",
 						url : "models/shops.php?acc=loginC&email="+$scope.email+"&password="+$scope.password
 					}).then(function mySucces (response) {
@@ -202,7 +203,7 @@
 
 					}, function myError (response) {
 						$scope.shops = response.statusText;
-					});
+					});*/
 
 						
 				};
