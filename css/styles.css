@@ -556,16 +556,27 @@ padding: 0;
 
 
 @media (max-width: 575px){
-	*
-		{
-			font-size: 0.9em!important;
-		}
-
+	*{
+		font-size: 0.9em!important;
+	}
 	.subMenu{
 		padding:  0px;
 	}
 	.marginTopAir{
 		margin-left: -8%;		
+	}
+	.headTitle{
+	text-align: center;
+	font-weight: bold;
+	margin-top: 13%;
+	margin-left: -24%;
+	}
+	#loginPicture{
+		margin-top: -8%;
+	}
+	.navGeneral{
+		border-right: none;
+		
 	}
 }
 
