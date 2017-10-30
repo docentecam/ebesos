@@ -11,6 +11,7 @@
 		<script data-require="ng-route@1.2.0" data-semver="1.2.0" src="http://code.angularjs.org/1.2.0-rc.3/angular-route.js"></script>
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+		<link rel="shortcut icon" href="img/logos-assoc/4.png">
 
 		<script>
 			$( document ).ready(function() {
@@ -37,20 +38,20 @@
 
 	<body data-ng-app="spaApp" ng-controller="HomeCtrl">
 		<div class="row">
-			<div class="col-xs-3" style="margin-top: 0.5%;">
-				<div class="col-xs-4" id="imgLogoTop" ng-repeat="association in associations | filter:{ idUser:'1'}">
+			<div class="col-xs-3 col-lg-3 marginTopAir">
+				<div class="col-lg-4" id="imgLogoTop" ng-repeat="association in associations | filter:{ idUser:'1'}">
 					<a href="#"><img class="img-responsive" ng-src="img/logos-assoc/{{association.logo}}"></a>
 				</div>
-				<div class="col-xs-8" style="" id="logoTexto" ng-repeat="association in associations | filter:{ idUser:'1'}">
-					<label style="text-align: center; font-weight: bold; margin-top: 13%;" class="headTitle">{{association.name}}</label>	
+				<div class="col-lg-8" style="" id="logoTexto" ng-repeat="association in associations | filter:{ idUser:'1'}">
+					<label class="headTitle">{{association.name}}</label>	
 				</div>		
 			</div> 
 			<div id="contactWho">
-				<span class="col-xs-2 col-xs-offset-7 pull-right" style="margin-top: 0.5%;">				
+				<div class="col-xs-2 col-xs-offset-7 pull-right marginTopAir">				
 					<a href="#/users/1" class="colorLinksHidden">Qui Som?</a> | 						
 					<a href="#/contact/1" class="colorLinksHidden">Contacte</a>
 					<a href="cpanel/index.html" class="colorLinksHidden pull-right"><i class="fa fa-user-circle-o fa-2x" aria-hidden="true" title="Inicia Sessió"></i></a>
-				</span>	
+				</div>	
 			</div>				
 		</div>		
 		<nav class="navbar navbar-default navGeneral ">
@@ -104,17 +105,17 @@
 			</div>
   		</div>  		
 		<div id="loadingData" ng-show="loading">
-			<center><img  src="img/loading_icon.gif" style="margin-top: 21%;"></center>	
+			<center><img id="loadingIcon" src="img/loading_icon.gif"></center>	
 		</div>
 		<div data-ng-view="" ng-hide="loading">				
   		</div>  		
   		<div class="row" id="footerColor">
   			<footer class="footer-bs" id="footer">
-				<div class="col-xs-12 col-lg-7" id="rowForm">
+				<div class="col-xs-12 col-lg-6" id="rowForm">
 					<div id="mc_embed_signup">
 						<form action="https://ac019.us16.list-manage.com/subscribe/post?u=8fda983e2930b92f49453f42d&amp;id=4cb43f0dc6" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 							<div id="mc_embed_signup_scroll">
-								<h2 class="linkNom">Subscriu-te al Newsletter</h2>
+								<span class="linkNom">Subscriu-te al Newsletter</span>
 								<div class="indicates-required">
 									<span class="asterisk">*</span><span class="linkNameForm">Camps obligatoris</span>
 								</div>
@@ -145,23 +146,21 @@
 						</form>
 					</div>
 				</div>
-				<div class="col-xs-12 col-lg-5">
+				<div class="col-xs-12 col-lg-6">
 					<div class="col-xs-12 footer-nav animated fadeInUp" id="linkBorder">
-						<h2 class="linkNom">Links</h2>
-		            	<div id="linksFooter" class="col-xs-12 pull-right">
+						<span class="linkNom">Links</span>						
+		            	<div id="linksFooter" class="col-xs-12 col-lg-12 pull-right">
 							<div ng-repeat="link in links" class="col-xs-6" id="marginLinks">
 								<a href="{{link.url}}" class="footerLinksColor" target="_blank">{{link.description}}</a>
 							</div>	
-						</div>    
-					</div>
-					<div class="col-xs-8 col-lg-offset-4">
-						<div class="icoFooterEix" ng-repeat="association in associations">
-							<img class="img-responsive col-lg-3 pull-left" ng-src="img/logos-assoc/{{association.footer}}">
-						</div>
-					</div>
-					<div class="col-xs-8 col-lg-offset-4" style="margin-top: 2%;">
-						<img class="img-responsive col-lg-6 pull-right" src="img/logo_ayuntamiento.svg" style="margin-right: -2%;">						
-					</div>
+						</div> 
+						<div class="col-xs-8 col-lg-12">
+							<img class="img-responsive col-lg-4 pull-left" ng-src="img/logo_ayuntamiento.svg">		
+							<div class="icoFooterEix" ng-repeat="association in associations">
+								<img class="img-responsive col-lg-2 pull-left" ng-src="img/logos-assoc/{{association.footer}}">
+							</div>
+						</div>	  
+					</div>									
 				</div>
     		</footer>
   		</div>		

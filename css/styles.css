@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,600,700');
 
 /*GLOBAL*/
-*
-{
+*{
 	font-family: 'Open Sans', sans-serif;
 }
 body{
@@ -13,16 +12,16 @@ body{
 a{
 	color: black!important;
 }
-
 a:hover{
 	color: black!important;
 }
+.marginTopAir{
+	margin-top: 0.5%;
+}
 
-
-
-
-
-
+#loadingIcon{
+	 margin-top: 21%;
+}
 
 
 
@@ -178,6 +177,9 @@ padding: 0;
 /*--------------------------------------------------------Javi--------------------------------------------------------------------*/
 .headTitle{
 	font-weight: 600;
+	text-align: center;
+	font-weight: bold;
+	margin-top: 13%;
 }
 #typeLetter{
 	font-size: 15px;
@@ -538,6 +540,9 @@ padding: 0;
 @media (max-width: 575px){
 	.subMenu{
 		padding:  0px;
+	}
+	.marginTopAir{
+		
 	}
 }
 @media (max-width: 767px){

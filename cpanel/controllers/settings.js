@@ -1,5 +1,6 @@
 angular.module('spaApp')
 .controller('SettingsCtrl', function($scope, $http) {
+	$scope.loading=true;
 	$http({
 		method : "GET",
 		url : "models/settings.php?acc=list"
@@ -7,7 +8,11 @@ angular.module('spaApp')
 		$scope.settingsList = response.data;
 	}, function myError(response) {
 		$scope.settingsList = response.statusText;
-	});
+	})
+	.finally(function() {
+			$scope.loading=false;
+	});	
+
 
 
 $scope.editParameter = function(idSetting, value, literal){
@@ -23,7 +28,7 @@ $scope.editParameter = function(idSetting, value, literal){
 		$scope.value=validationSetting["updatevalue"].value;
 		$scope.idSetting=validationSetting["idSetting"].value;
 	}
-
+	
 
 
 
