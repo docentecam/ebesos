@@ -373,7 +373,7 @@ padding: 0;
 	background-image: url("../img/captcha.jpg");
 	color: gray;
 	font-size: 40px;
-	letter-spacing: 20px;	
+	letter-spacing: 10px;	
 	margin-left: 12.5%;
 	text-align: center;
 	vertical-align: middle;
@@ -584,13 +584,24 @@ padding: 0;
 		border-right: none;
 		
 	}
-<<<<<<< HEAD
 	#tbodyContactTable{
 		border-left: solid 0px;
-=======
+	}
 	.shopsList{
 		padding-bottom: 20%!important;
->>>>>>> origin/master
+	}
+	#captchaDiv{
+		background-image: url("../img/captcha.jpg");
+		color: gray;
+		font-size: 30px!important;
+		letter-spacing: 10px;	
+		margin-left: 4.5%;
+		text-align: center;
+		vertical-align: middle;
+	}
+	#btnEnviar{
+		margin-left: 60%;
+    	margin-top: 8%;
 	}
 }
 
@@ -620,6 +631,7 @@ padding: 0;
 	.shopsList{
 		padding-bottom: 12%;
 	}
+
 }
 @media (max-width: 1023px){
 	.titleSubE{
