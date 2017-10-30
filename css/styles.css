@@ -578,6 +578,9 @@ padding: 0;
 		border-right: none;
 		
 	}
+	#tbodyContactTable{
+		border-left: solid 0px;
+	}
 }
 
 @media (max-width: 767px){
