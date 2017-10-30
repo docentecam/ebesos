@@ -372,9 +372,11 @@ padding: 0;
 #captchaDiv{
 	background-image: url("../img/captcha.jpg");
 	color: gray;
-	font-size: 35px;	
-	margin-left: 6%;
+	font-size: 40px;
+	letter-spacing: 20px;	
+	margin-left: 12.5%;
 	text-align: center;
+	vertical-align: middle;
 }
 #routeLi{
 	margin-left: 5%; 
@@ -415,8 +417,24 @@ padding: 0;
     right: 12%;
     bottom: -7%;
 }
-    
-
+#divInfo{
+	margin-top: 3.35%;	
+}
+#directionContact{
+	margin-bottom: 2%;
+	margin-left: 3%;
+}
+#emailContact{
+	margin-top: 5%;
+	margin-bottom: 2%;
+	margin-left: 3%;
+}
+#telContact{
+	margin-left: 3%;
+}
+#infoEix{
+	font-size: 17px;
+}
 /*--------------------------------------------------------Dídac--------------------------------------------------------------------*/
 .assoNews{
 	width: 80%;
