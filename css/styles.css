@@ -443,6 +443,9 @@ padding: 0;
 	border: solid 1px;
 	border-color: black;
 }
+#titleSubM{
+	font-size: 25px;
+}
 .newsAsso{
 	border-bottom: solid 1px;
 	border-color: #ced2de;
@@ -470,10 +473,10 @@ padding: 0;
 	width: 15px;
 }
 .subMA{
-	color: white;
+	color: white!important;
 }
 .subMA:hover{
-	color: white;
+	color: white!important;
 	text-decoration: none!important;
 }
 .subMA:focus{
@@ -483,12 +486,10 @@ padding: 0;
 #subMenu{
 	text-align: center;
 	padding-right: 0% !important;
-	background-color: #337ab7;
+	background-color: #659eab;
 	padding-left: 0%!important;
 }
-.shopsList{
-	padding-bottom: 10px;
-}
+
 
 .assoDivContact{
 	margin-top: 4%;
@@ -556,8 +557,13 @@ padding: 0;
 
 
 @media (max-width: 575px){
-	*{
-		font-size: 0.9em!important;
+	*
+	{
+		font-size: 0.98em!important;
+	}
+	#generalView
+	{
+		font-size: 0.98em!important;
 	}
 	.subMenu{
 		padding:  0px;
@@ -578,8 +584,13 @@ padding: 0;
 		border-right: none;
 		
 	}
+<<<<<<< HEAD
 	#tbodyContactTable{
 		border-left: solid 0px;
+=======
+	.shopsList{
+		padding-bottom: 20%!important;
+>>>>>>> origin/master
 	}
 }
 
@@ -592,6 +603,9 @@ padding: 0;
     	left: -20%;
     	top: 38%;
 	}
+	.shopsList{
+		padding-bottom: 20%;
+	}
 }
 
 @media (min-width: 768px){
@@ -602,6 +616,9 @@ padding: 0;
 	position: absolute;
 	left: 18%;
     top: 34%;
+	}
+	.shopsList{
+		padding-bottom: 12%;
 	}
 }
 @media (max-width: 1023px){
@@ -615,6 +632,9 @@ padding: 0;
 	.breadCum{
 		visibility: hidden;
 		position: absolute;
+	}
+	.shopsList{
+		padding-bottom: 5%;
 	}
 }
 
@@ -645,5 +665,8 @@ padding: 0;
 		color: black;
 	    font-weight: 600;
 	    text-decoration: underline; 
+	}
+	.shopsList{
+		padding-bottom: 2%;
 	}
 }

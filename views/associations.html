@@ -21,7 +21,7 @@
 <div class="row">
 	<div class="col-xs-12 col-lg-2" id="subMenu">
 		<div>
-			<span>{{name}}</span>
+			<span id="titleSubM">{{name}}</span>
 		</div>
 		<div class="col-xs-3 col-lg-12 subMenu" ng-click="listShops()">
 			<a href="" class="subMA">Comerços associats</a>
@@ -50,7 +50,7 @@
 					<div class="row">
 						<div ng-repeat="shop in shops | orderBy: 'name'" class="col-sm-6 shopsList">
 							<a href="#/shop/{{shop.idShop}}">
-								<div class="col-xs-1" > <!--Mirar Error-->
+								<div class="col-xs-1">
 									<img ng-src="img/pictograms/{{shop.pictograms[0].urlPicto}}" class="pictoShops">
 								</div>
 								<div class="col-xs-10"> {{shop.name}}</div>
@@ -89,7 +89,7 @@
 								<!-- <div class="col-sm-12" id="loremUPPER">{{new.title}}</div>  -->
 								<div class="col-sm-12 text-justify titleSubE">
 									{{new.titleSub | limitTo: 600}}...
-									<a href="#/new/{{new.idNew}}">Mes info</a>
+									<b><a href="#/new/{{new.idNew}}">Més info</a></b>
 								</div>
 							</div>
 						</div>
