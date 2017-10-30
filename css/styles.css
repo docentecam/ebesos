@@ -559,11 +559,11 @@ padding: 0;
 @media (max-width: 575px){
 	*
 	{
-		font-size: 0.98em!important;
+		font-size: 0.9em!important;
 	}
 	#generalView
 	{
-		font-size: 0.98em!important;
+		font-size: 1em!important;
 	}
 	.subMenu{
 		padding:  0px;
