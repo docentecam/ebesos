@@ -557,10 +557,7 @@ padding: 0;
 
 
 @media (max-width: 575px){
-	*
-	{
-		font-size: 0.9em!important;
-	}
+
 	#generalView
 	{
 		font-size: 1em!important;
@@ -572,10 +569,10 @@ padding: 0;
 		margin-left: -8%;		
 	}
 	.headTitle{
-	text-align: center;
-	font-weight: bold;
-	margin-top: 13%;
-	margin-left: -24%;
+		text-align: center;
+		font-weight: bold;
+		margin-top: 13%;
+		margin-left: -24%;
 	}
 	#loginPicture{
 		margin-top: -8%;
@@ -603,19 +600,42 @@ padding: 0;
 		margin-left: 60%;
     	margin-top: 8%;
 	}
+	#telContact{
+		margin-left: 3%;
+		margin-bottom: 3%;
+	}
+	.contactMainDiv{
+		font-size: 1em!important;
+	}
 }
 
-@media (max-width: 767px){
+@media (min-width: 575px) and (max-width: 767px){
 	.dividerNav{
 		visibility: hidden;
 	}
 	#homeIconNav{
-		position: absolute;
+		position: absolute; 
     	left: -20%;
     	top: 38%;
 	}
 	.shopsList{
 		padding-bottom: 20%;
+	}
+		#captchaDiv{
+		background-image: url("../img/captcha.jpg");
+		color: gray;
+		font-size: 30px!important;
+		letter-spacing: 10px;	
+		margin-left: 4%;
+		text-align: center;
+		vertical-align: middle;
+	}
+		#tbodyContactTable{
+		border-left: solid 0px;
+	}
+	#btnEnviar{
+		margin-left: 82%;
+    	margin-top: 7%;
 	}
 }
 

@@ -41,7 +41,7 @@ require("../inc/functions.php");
 						<i>Email de l'interessat: </i>".$_GET['email']."
 			        	<p style='margin-bottom: 2%;margin-top: 2%;'>'". $_GET['message'].".'</p>
 			        	<b style='margin-left:1.5%;margin-right:1.5%;'>".$nameAssociation."</b>
-				        <img alt='PHPMailer' src='cid:my-attach1'>
+				        <img alt='Logo' src='cid:my-attach1'>
 		 			</body>
 	 			</html>";
 
