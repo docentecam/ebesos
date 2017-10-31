@@ -37,7 +37,7 @@
 	</head> 
 
 	<body data-ng-app="spaApp" ng-controller="HomeCtrl">
-		<div class="row">
+		<div class="row textSize">
 			<div class="col-xs-8 col-lg-3 marginTopAir">
 				<div class="col-xs-4 col-lg-4" id="imgLogoTop" ng-repeat="association in associations | filter:{ idUser:'1'}">
 					<a href="#"><img class="img-responsive" ng-src="img/logos-assoc/{{association.logo}}"></a>
@@ -54,7 +54,7 @@
 				</div>	
 			</div>				
 		</div>		
-		<nav class="navbar navbar-default navGeneral ">
+		<nav class="navbar navbar-default navGeneral textSize">
 	  		<div class="container-fluid">
 		    	<div class="navbar-header">
 		      		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -86,7 +86,7 @@
 				</div>
 	   		</div>
 		</nav> 				
-		<div class="row " id="marginBottomSlider">
+		<div class="row textSize" id="marginBottomSlider">
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
   				<ol class="carousel-indicators" id="indicatorSlider">
     				<li data-target="#myCarousel" ng-repeat="sliderImg in slider"  data-slide-to="{{$index}}" ng-class="{active : $index == 0}"></li>
@@ -104,12 +104,12 @@
 				</div>
 			</div>
   		</div>  		
-		<div id="loadingData" ng-show="loading">
+		<div id="loadingData" class="textSize" ng-show="loading">
 			<center><img id="loadingIcon" src="img/loading_icon.gif"></center>	
 		</div>
 		<div data-ng-view="" id="generalView" ng-hide="loading">				
   		</div>  		
-  		<div class="row" id="footerColor">
+  		<div class="row textSize" id="footerColor">
   			<footer class="footer-bs" id="footer">
 				<div class="col-xs-12 col-lg-6" id="rowForm">
 					<div id="mc_embed_signup">
@@ -164,7 +164,7 @@
 				</div>
     		</footer>
   		</div>		
-    	<div id="cookie-agree">
+    	<div id="cookie-agree" class="textSize">
 			<div class="inner">
 				Sol·licitem el seu permís per a obtenir dades específiques de la seva navegació en aquest web, en 
 				compliment del Real Decret-Llei 13/2012. Si continua navegant, considerarem que accepta l'ús de cookies.
