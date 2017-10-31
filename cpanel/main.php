@@ -20,6 +20,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 		</script>
 
 		<link rel="stylesheet" href="css/styles.css">
+		<link rel="shortcut icon" href="../img/logos-assoc/4.png">
 		<script src="js/app.js"></script>
 		<script src="controllers/news.js"></script>
 		<script src="controllers/shops.js"></script>

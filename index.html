@@ -36,7 +36,7 @@
 		<script src="controllers/home.js"></script>
 	</head> 
 
-	<body data-ng-app="spaApp" id="generalView" ng-controller="HomeCtrl">
+	<body data-ng-app="spaApp" ng-controller="HomeCtrl">
 		<div class="row">
 			<div class="col-xs-8 col-lg-3 marginTopAir">
 				<div class="col-xs-4 col-lg-4" id="imgLogoTop" ng-repeat="association in associations | filter:{ idUser:'1'}">
@@ -68,11 +68,11 @@
 		    		<ul class="nav navbar-nav navGlobalClass col-lg-12" id="navGlobal">
 		        		<li role="presentation" class="customNav" ><a href="#"><i class="fa fa-home fa-lg" id="homeIconNav" aria-hidden="true"></i><span class="underline">Mapa Comercial </span> <span class="sr-only">(current)</span></a></li>
 		        		<li class="dividerNav">|</li>
-		        		<li role="presentation" class="dropdown customNav tryit"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="underline">Associacions</span> <span class="caret"></span></a>
+		        		<li role="presentation" class="dropdown customNav tryit"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="underline">Associacions</span><i class="fa fa-caret-down arrowDown" aria-hidden="true"></i></a>
 		          			<ul class="dropdown-menu" id="imgNav">
 		          				<li ng-repeat="association in associations| filter:{ idUser:'!1'}" role="presentation" class="widthLiAsso">
 		          					<a href="#/associations/{{association.idUser}}/{{association.name}}" class="submenuFormat"><img class="img-responsive" ng-src="img/logos-assoc/{{association.logo}}" align="left">{{association.name}}</a>
-		          					<ul role="separator" id="separatorDesign" ng-class="{divider : !$last}"></ul>          					
+		          					<ul role="separator" id="separatorDesign" ng-class="{divider : !$last}"></ul>		
 		          				</li>
 		          			</ul>
 		        		</li>
@@ -107,7 +107,7 @@
 		<div id="loadingData" ng-show="loading">
 			<center><img id="loadingIcon" src="img/loading_icon.gif"></center>	
 		</div>
-		<div data-ng-view="" ng-hide="loading">				
+		<div data-ng-view="" id="generalView" ng-hide="loading">				
   		</div>  		
   		<div class="row" id="footerColor">
   			<footer class="footer-bs" id="footer">

@@ -559,10 +559,8 @@ padding: 0;
 @media (max-width: 575px){
 	*{
 		font-size: 0.92em!important;
-
 	}
-	#generalView
-	{
+	#generalView{
 		font-size: 1em!important;
 	}
 	.subMenu{
@@ -585,6 +583,22 @@ padding: 0;
 	.navGeneral{
 		border-right: none;		
 	}
+	.customNav{
+		width: 100%!important;
+	}
+	#navGlobal{
+		margin: 0!important;
+		text-align: left;
+	}
+	.navbar .navbar-collapse{
+		text-align: left;
+	}
+	.arrowDown{
+		position: absolute;
+    	top: 42.2%;
+    	left: 65%;
+	}
+
 	#tbodyContactTable{
 		border-left: solid 0px;
 	}
@@ -612,8 +626,8 @@ padding: 0;
 	}
 	#homeIconNav{
 		position: absolute;
-    	left: -20%;
-    	top: 38%;
+    	left: 1%;
+    	top: 40.4%;
 	}
 	.shopsList{
 		padding-bottom: 20%;
