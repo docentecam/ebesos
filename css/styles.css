@@ -625,9 +625,17 @@ padding: 0;
 	.contactMainDiv{
 		font-size: 1em!important;
 	}
+	.dividerNav{
+		visibility: hidden;
+	}
+	#homeIconNav{
+		position: absolute;
+    	left: 1%;
+    	top: 40.4%;
+	}
 }
 
-@media (min-width: 575px) and (max-width: 767px){
+@media (min-width: 576px) and (max-width: 767px){
 	.dividerNav{
 		visibility: hidden;
 	}
@@ -639,7 +647,7 @@ padding: 0;
 	.shopsList{
 		padding-bottom: 20%;
 	}
-		#captchaDiv{
+	#captchaDiv{
 		background-image: url("../img/captcha.jpg");
 		color: gray;
 		font-size: 30px!important;
@@ -648,7 +656,7 @@ padding: 0;
 		text-align: center;
 		vertical-align: middle;
 	}
-		#tbodyContactTable{
+	#tbodyContactTable{
 		border-left: solid 0px;
 	}
 	#btnEnviar{
