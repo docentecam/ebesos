@@ -13,7 +13,7 @@
 		<link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
 		<link rel="shortcut icon" href="img/logos-assoc/4.png">
 
-		<script>
+<!-- 		<script>
 			$( document ).ready(function() {
 					if(getCookie('eixbesosavis')!="1"){
     					document.getElementById("cookie-agree").style.display="block";
@@ -25,9 +25,18 @@
 				fnames[1]='FNAME';
 				ftypes[1]='text';}(jQuery));
 				var $mcj = jQuery.noConflict(true);
-				});
 
-		</script>
+				});
+			</script> -->
+			<script>
+				$(document).ready(function () {
+
+  					$(".reduceNav").click(function(event) {
+    				$(".navReduced").collapse('hide');
+					});
+					
+				});
+			</script>
 		<link rel="stylesheet" href="css/styles.css"> 
 		<script src="js/app.js"></script>
 		<script src="controllers/shops.js"></script>		
@@ -64,24 +73,24 @@
 			        <span class="icon-bar"></span>
 		    		</button>
 		    	</div>
-		    	<div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+		    	<div class="collapse navbar-collapse navReduced" id="bs-example-navbar-collapse-1">
 		    		<ul class="nav navbar-nav navGlobalClass col-lg-12" id="navGlobal">
-		        		<li role="presentation" class="customNav" ><a href="#"><i class="fa fa-home fa-lg" id="homeIconNav" aria-hidden="true"></i><span class="underline">Mapa Comercial </span> <span class="sr-only">(current)</span></a></li>
+		        		<li role="presentation" class="customNav reduceNav" ><a href="#"><i class="fa fa-home fa-lg" id="homeIconNav" aria-hidden="true"></i><span class="underline">Mapa Comercial </span> <span class="sr-only">(current)</span></a></li>
 		        		<li class="dividerNav">|</li>
 		        		<li role="presentation" class="dropdown customNav tryit"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="underline">Associacions</span><i class="fa fa-caret-down arrowDown" aria-hidden="true"></i></a>
-		          			<ul class="dropdown-menu" id="imgNav">
-		          				<li ng-repeat="association in associations| filter:{ idUser:'!1'}" role="presentation" class="widthLiAsso">
+		          			<ul class="dropdown-menu no-collapse" id="imgNav">
+		          				<li ng-repeat="association in associations| filter:{ idUser:'!1'}" role="presentation" class="widthLiAsso reduceNav">
 		          					<a href="#/associations/{{association.idUser}}/{{association.name}}" class="submenuFormat"><img class="img-responsive" ng-src="img/logos-assoc/{{association.logo}}" align="left">{{association.name}}</a>
 		          					<ul role="separator" id="separatorDesign" ng-class="{divider : !$last}"></ul>		
 		          				</li>
 		          			</ul>
 		        		</li>
 		        		<li class="dividerNav">|</li>
-		        		<li role="presentation" class="customNav"><a href="#/promotions"><span class="underline">Promocions</span></a></li>
+		        		<li role="presentation" class="customNav reduceNav"><a href="#/promotions"><span class="underline">Promocions</span></a></li>
 		        		<li class="dividerNav">|</li>
-		        		<li role="presentation" class="customNav"><a href="#/news/1"><span class="underline">Notícies</span></a></li>	
+		        		<li role="presentation" class="customNav reduceNav"><a href="#/news/1"><span class="underline">Notícies</span></a></li>	
 		        		<li class="dividerNav">|</li>
-		        		<li role="presentation" class="customNav"><a href="#/formation"><span class="underline">Formació al Comerç</span></a></li>
+		        		<li role="presentation" class="customNav reduceNav"><a href="#/formation"><span class="underline">Formació al Comerç</span></a></li>
 		      		</ul>    
 				</div>
 	   		</div>

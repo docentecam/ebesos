@@ -23,10 +23,6 @@ angular.module('spaApp')
 
 
 
-
-
-
-
 	
 
 
