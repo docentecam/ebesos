@@ -20,6 +20,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 		</script>
 
 		<link rel="stylesheet" href="css/styles.css">
+		<link rel="shortcut icon" href="../img/logos-assoc/4.png">
 		<script src="js/app.js"></script>
 		<script src="controllers/news.js"></script>
 		<script src="controllers/shops.js"></script>
@@ -48,7 +49,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 						</div>						
 					</div>	
 				</div>
-				<div class="row" ng-show="showLogOff">
+				<div class="row" ng-hide="showLogOff">
 					<div class="col-xs-2 col-lg-6 col-lg-push-4" style="background-color: #D5D5D5; position: absolute; top: 120%; right: 0%; height: 40px; text-align: center; padding-top: 8.4px; border-top: 3px solid #7CA3E3;">
 						<i class="fa fa-sign-out" aria-hidden="true"></i>
 						<a href="models/users.php?acc=logout">Tancar Sessió</a>
