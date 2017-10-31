@@ -3,114 +3,96 @@
 // if(!isset($_SESSION['user']['idUser']) header("Location: login.php");
 ?>
 
-
-<div ng-show="listNew" class="row" ng-repeat="new in news">
-
-<div class="row" ng-show="createNew">
-	
-	<div class="col-lg-6">
-		<input type="button" name="newNew" value="Afegir Noticia" alt="Afegir noticia" class="btn btn-default" ng-click="createNewD('Afegir')">
-	</div>
-	
+<div class="col-lg-6" ng-show="btnAdd">
+		<input type="button" name="newNew" value="Afegir Noticia" alt="Afegir noticia" class="btn btn-default" ng-click="createNewD('Afegir','')" >
 </div>
-
+<div ng-show="listNew" class="row" ng-repeat="new in news">
 	<div class="row">
-		<img id="photo" src="../img/newsmedia/{{new.url}}"> 
+		<img id="photo" src="../img/newsmedia/{{new.url}}" width="150px"> 
 	</div>
-
 	<div class="row">
-		<div>
-			{{new.date}}
-		</div>
+		<div> 			{{new.date}} 		</div>
 		
 	 </div>
 	<div class="row">	
-		<div>
-		{{new.title}}
-		</div>
+		<div>		{{new.title}}		</div>
 	</div>
 
-	<div>
-		<div>
-		{{new.titleSub}}
-		</div>
+	<div  class="row">
+		<div>		{{new.titleSub}}		</div>
 	</div>	
-		<div>
-			<input type="button" value="Editar" alt="Edita dades de la noticia" class="btn btn-default" ng-click="createNewD('Editar',new.idNew)">
-			<input type="button" value="Esborrar" alt="Esborrar dades de la noticia" class="btn btn-default"" ng-click="">
-		</div>
+	<div>
+		<input type="button" value="Editar" alt="Edita dades de la noticia" class="btn btn-default" ng-click="createNewD('Editar',new.idNew)">
+		<input type="button" value="Esborrar" alt="Esborrar dades de la noticia" class="btn btn-default"" ng-click="">
+	</div>
 	<br>
-	
 </div>
-
-<div  class="row">
+<div class="row">
 	<div id="formNews" ng-show="divNew" >
-		<div>
-		
-			<form action="#" id="validation" name="validation" method="POST" >
-				<div class="containerText">
-
-					<h1> {{act}} Notícia</h1>{{dateNew}}
-						<br>
-					
+		<form>
+			<div class="containerText">
+				<h1> {{act}} Notícia</h1>{{dateNew}}<br>
 					<div class="row">
 						<div class="col-md-8">
 							<input type="text" class="titleForm"  name="title" ng-model="title">
 						</div>
-
 						<div class="col-md-3 col-md-pull-1" id="dateBox">
 							<input type="date"  id="dateForm" name="date" ng-model="dateNew" >
 						</div>					
 					</div>
-
 					<div class="row">
 						<div class="col-md-12">
 							<textarea class="titleSub" ng-model="titleSub">  </textarea>
 						</div>
 					</div>
-
-				<div id="containerImg" class="row">
-					<h2> Imatge Destacada</h2> <input type="button" value="Modificar" alt="" class="btn btn-default"" ng-click="changeImgP()"> 
-				
-						<div id="containerPreferred" ng-repeat="image in images | filter : {preferred:'Y'}">
-							<img id="photo" src="../img/newsmedia/{{image.url}}"> 
-						</div> 
-						
+					<div id="containerImg" class="row">
+						<h2> Imatge Destacada</h2> <input type="button" value="Modificar" alt="" class="btn btn-default"" ng-click="changeImgP()"> 
+					
+							<div id="containerPreferred" ng-repeat="image in images | filter : {preferred:'Y'}">
+								<img id="photo" ng-src="../img/newsmedia/{{image.url}}" width="150px"> 
+							</div> 	
 					</div>
 					<div class="col-sm-6">
-					<input type="button" name="editNew" value="{{act}} Noticia" class="btn btn-default" ng-click="">
-					<br><br>
-				</div>
+						<input type="button" name="editNew" value="{{act}} Noticia" class="btn btn-default" ng-click="">
+						<br><br>
+					</div>
+			</div>		
+				<div id="containerImagesOfNew">
 
-		</div>		
-						<div id="containerImagesOfNew">
-							<div ng-repeat="image in images | filter : {preferred:'N' , type:'I'}">
-							<h2> Imatge de les noticia </h2> 
-								<div>
-									<input type="file" name="" id="">
-									<input type="button" value="Afegir foto" alt="" class="btn btn-default"" ng-click="imgAdd()">
-								</div>
-									
-									<img src="../img/newsmedia/{{image.url}}"> 
-									<input type="button" value="Modificar" alt="" class="btn btn-default"" ng-click="changeImgN()">
-									<input type="button" value="Eliminar" alt="" class="btn btn-default"" ng-click="imgD(image.idNewMedia,image.idNew)">
-							</div>
+					<form name="newFormFile">
+						<div class="form-group">
+						    <label for="descripcio">Descripción</label>
+						    <input type="text" class="form-control" placeholder="Descripció" name="descripcio" ng-model="formNew.descripcio" required >
 						</div>
+						 
+						 
+						<input type="file" id="file" name="img[]" multiple onchange="angular.element(this).scope().cogeDetalleFicheros(this)" />
+						<input type="submit" class="btn btn-success pull-right" ng-click="enviaForm(formNew, 1)" >
+						 
+					</form>
 
-						<div id="containerVideosOfNew">
-							<input type="button" value="Afegir video" alt="" class="btn btn-default"" ng-click="createVideo()">
-							<div ng-repeat="image in images | filter : {type:'V' , preferred:'N' }">
-								<label> Video de les noticia </label>
-								<iframe width="560" height="315"  frameborder="0" allowfullscreen ng-src="https://www.youtube.com/embed/image.url"></iframe>
-								<input type="button" value="Modificar" alt="" class="btn btn-default"" ng-click="">
-								<input type="button" value="Eliminar" alt="" class="btn btn-default"" ng-click="">
-							</div>
+
+					<div ng-repeat="image in images | filter : {preferred:'N' , type:'I'}">
+						<h2> Imatge de les noticia </h2> 
+						<div class="col-md-12">
+							
+							
 						</div>
-
+						<img ng-src="../img/newsmedia/{{image.url}}"> {{image.idNewMedia}}
+						<input type="button" value="Modificar" alt="" class="btn btn-default"" ng-click="changeImgN()">
+						<input type="button" value="Eliminar" alt="" class="btn btn-default"" ng-click="imgDelete(image.idNewMedia, image.url)">
 					</div>
 				</div>
-			</form>
-		
+				<div id="containerVideosOfNew">
+					<input type="button" value="Afegir video" alt="" class="btn btn-default"" ng-click="createVideo()">
+					<div ng-repeat="image in images | filter : {type:'V'}">
+						<label> Video de les noticia </label>
+						<iframe width="560" height="315"  frameborder="0" allowfullscreen ng-src="https://www.youtube.com/embed/image.url"></iframe>
+						<input type="button" value="Modificar" alt="" class="btn btn-default"" ng-click="">
+						<input type="button" value="Eliminar" alt="" class="btn btn-default"" ng-click="">
+					</div>
+				</div>
+		</form>
 	</div>
 </div>
 
