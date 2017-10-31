@@ -1,7 +1,7 @@
 angular.module('spaApp')
 .controller('MainCtrl', function($scope, $http) {
 $scope.loading=true;
-$scope.showLogOff=false;
+$scope.showLogOff=true;
 
 $http({
 		method : "GET",
@@ -15,7 +15,6 @@ $http({
 			$scope.loading=false;
 	});				
 	$scope.showDisconnect = function(){
-		
 		if ($scope.showLogOff = !$scope.showLogOff) {
 			
 		}			
