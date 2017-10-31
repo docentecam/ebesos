@@ -6,15 +6,39 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 	<div class="row">
 		<div class="col-lg-12"><b>Associacions</b></div>
 		<div class="col-lg-5">
-			<select ng-change="changeDataUser(idUser)" ng-model="idUser" id="selectAsso">
-				<option ng-repeat="user in users" ng-value="user.idUser" ng-selected="user.idUser==<?php echo $_SESSION['user']['idUser']?>">
-					{{user.name}} <!--Dar selected a la $_SESSION cuando exista-->
-				</option>
-			</select>
+			<?php
+			if(isset($_SESSION['user']['privileges']) && $_SESSION['user']['privileges'] != 'E')
+			{
+			?>
+				<select ng-change="changeDataUser(idUser)" ng-model="idUser" id="selectAsso" disabled>
+					<option ng-repeat="user in users" ng-value="user.idUser" ng-selected="user.idUser==<?php echo $_SESSION['user']['idUser']?>">
+						{{user.name}} <!--Dar selected a la $_SESSION cuando exista-->
+					</option>
+				</select>
+			<?php
+			}
+			else
+			{
+			?>
+				<select ng-change="changeDataUser(idUser)" ng-model="idUser" id="selectAsso">
+					<option ng-repeat="user in users" ng-value="user.idUser" ng-selected="user.idUser==<?php echo $_SESSION['user']['idUser']?>">
+						{{user.name}} <!--Dar selected a la $_SESSION cuando exista-->
+					</option>
+				</select>
+			<?php
+			}
+			?>
 		</div>
-		<div class="col-lg-2"  ng-show="cUser">
-	 		<button id="btnAfegir" class="btn btn-default" ng-click="changeDataUser(idUser=-1)" >Afegir <i class="fa fa-plus-circle"></i></button>
-		</div>
+		<?php
+		if(isset($_SESSION['user']['privileges']) && $_SESSION['user']['privileges'] == 'E')
+		{
+		?>
+			<div class="col-lg-2"  ng-show="cUser">
+		 		<button id="btnAdd" class="btn btn-default" ng-click="changeDataUser(idUser=-1)" >Afegir <i class="fa fa-plus-circle"></i></button>
+			</div>
+		<?php
+		}
+		?>
 	</div>
 	<div>
 		<form id="dataUser" ng-submit="updateUser()">
@@ -62,10 +86,26 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 						</div>
 						<div class="col-lg-6 padd" ng-show="cUser">Actiu:</div>
 						<div class="col-lg-6 padd" ng-show="cUser">
-							<select id="active">
-								<option value="Y" ng-selected="activeC=='Y'" ng-model="activeCY">Si</option>
-								<option value="N" ng-selected="activeC=='N'" ng-model="activeCN">No</option>
-							</select>
+							<?php
+							if(isset($_SESSION['user']['privileges']) && $_SESSION['user']['privileges'] != 'E')
+							{
+							?>
+								<select id="active" disabled>
+									<option value="Y" ng-selected="activeC=='Y'" ng-model="activeCY">Si</option>
+									<option value="N" ng-selected="activeC=='N'" ng-model="activeCN">No</option>
+								</select>
+							<?php
+							}
+							else
+							{
+							?>
+								<select id="active">
+									<option value="Y" ng-selected="activeC=='Y'" ng-model="activeCY">Si</option>
+									<option value="N" ng-selected="activeC=='N'" ng-model="activeCN">No</option>
+								</select>
+							<?php
+							}
+							?>
 						</div>
 					</div>
 				</div>
@@ -93,7 +133,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 				<img class="col-lg-3" src="../img/logos-assoc/{{logoC}}">
 				<div class="col-lg-6 col-lg-offset-3">
 					<div class="row"><a class="col-lg-8" href="" ng-click="showEdit()">Editar logo</a></div>
-					<div class="row"><span class=" col-lg-9">Eliminar logo</span></div>
+					<div class="row"><a class=" col-lg-10" href="" ng-click="">Eliminar logo</a></div>
 				</div>
 			</div>
 		</div>
@@ -113,7 +153,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 				<img class="col-xs-6 col-lg-6" src="../img/logos-assoc/{{footerC}}">
 				<div class="col-xs-12 col-lg-6">
 					<div class="row"><a class="col-lg-8" href="" ng-click="showEdit2()">Editar logo</a></div>
-					<div class="row"><span class=" col-lg-9">Eliminar logo</span></div>
+					<div class="row"><a class=" col-lg-10" href="" ng-click="">Eliminar logo</a></div>
 				</div>
 			</div>
 		</div>

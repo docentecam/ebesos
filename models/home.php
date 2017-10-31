@@ -3,7 +3,7 @@ require("../inc/functions.php");
 
 	if (isset($_GET["acc"])&& ($_GET["acc"] == "home"))
 	{
-		$mySqlAssoc = "SELECT idUser, name, logo, privileges, footer FROM users ORDER BY idUser";
+		$mySqlAssoc = "SELECT idUser, name, logo, privileges, footer FROM users ORDER BY name";
 		$mySqlLinks = "SELECT description, url FROM links";
 		$mySqlSlider = "SELECT image, link, description,title, subtitle FROM slider";
 		$mySqlForm= "SELECT value FROM settings WHERE literal='urlFormacio'";

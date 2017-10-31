@@ -10,8 +10,11 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
 	<script data-require="ng-route@1.2.0" data-semver="1.2.0" src="http://code.angularjs.org/1.2.0-rc.3/angular-route.js"></script>
 	<script type='text/javascript' src="./bower_components/angular/angular.js"></script>
-		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link rel="shortcut icon" href="../img/logos-assoc/4.png">
+
+
 
 </head>
 <body ng-app="myApp" ng-controller="LoginCtrl">
@@ -42,7 +45,7 @@
 								<label>Contrasenya: </label>
 							</div>
 							<div class="col-lg-6">
-								<input type="password" id="pswd" placeholder="Contrasenya" class="loginRadius">
+								<input type="password" id="pswd" placeholder="Contrasenya" class="loginRadius" ng-model="pass">
 							</div>
 							<div class="col-lg-3">
 								<input type="button" value="Accedir" class="btn btn-default" ng-click="checking();" class="loginRadius">
@@ -123,9 +126,10 @@
 		<footer class="footer-bs" id="footer">
 			<div class="col-xs-7 footerLog">
 				<div class="row">
-					<div class="col-xs-8  col-xs-offset-3 pull-right">
+					<div class="col-xs-12 col-lg-10 col-lg-offset-3 pull-right">
+						<img class="img-responsive col-lg-4 col-xs-7 col-sm-4" src="../img/logo_ayuntamiento.svg">
 						<div class="icoFooterEix" ng-repeat="ftr in footer">
-							<img class="img-responsive col-lg-3 pull-left" src="../img/logos-assoc/{{ftr.footerL}}">
+							<img class="img-responsive col-lg-2 col-xs-4 col-sm-2" src="../img/logos-assoc/{{ftr.footerL}}">
 						</div>
 					</div>
 				</div>					
@@ -148,6 +152,7 @@
 				$scope.login = true;
 				$scope.forgot = false;
 				$scope.failForgot = false;
+				$scope.pass = "";
 
 				$http({
 						method : "GET",
@@ -178,8 +183,9 @@
 						else
 						{
 							$scope.fail = true;
+							
 						}
-
+						$scope.pass = "";
 					}, function myError (response) {
 						$scope.checkL = response.statusText;
 					});

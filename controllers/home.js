@@ -11,16 +11,12 @@ angular.module('spaApp')
 			$scope.slider=$scope.homeData[0].slider;
 			$scope.formation=$scope.homeData[0].formation[0].url;
 		}, function myError (response) {
-			$scope.asso = response.statusText;
+			$scope.homeData = response.statusText;
 		})
 		.finally(function() {
 			$scope.loading=false;
 		});	
 });
-
-
-
-
 
 
 

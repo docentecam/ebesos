@@ -1,5 +1,7 @@
 angular.module('spaApp')
 .controller('MainCtrl', function($scope, $http) {
+$scope.loading=true;
+$scope.showLogOff=true;
 
 $http({
 		method : "GET",
@@ -8,12 +10,14 @@ $http({
 		$scope.assoTopImages=response.data;
 	}, function myError (response) {
 		$scope.assoTopImages = response.statusText;
-	});			
-		$scope.showDisconnect = function(){
-			if ($scope.showLogOff = !$scope.showLogOff) {
-				
-			}
-		
+	})
+	.finally(function(){
+			$scope.loading=false;
+	});				
+	$scope.showDisconnect = function(){
+		if ($scope.showLogOff = !$scope.showLogOff) {
 			
+		}			
 	};
+	
 });
