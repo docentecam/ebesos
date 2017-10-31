@@ -60,9 +60,12 @@ a:hover{
 	outline: none;
 
 }
+.category-pictograms{
+	width: 50px;
+}
 .category-name
 {
-	margin-left: 3px;
+	margin-left: 0px;
 	margin-top: 4px;
 }
 .category-select
@@ -82,19 +85,20 @@ a:hover{
 .label-mer{
 	padding: 5px;
 }
-.acColor{
+.acColor, .xnoColor, .merColor{
 	height: 20px;
 	width: 20px;
+}
+.acColor{
+	margin-left: -15px;
 	background-color: #124290;
 }
 .xnoColor{
-	height: 20px;
-	width: 20px;
+	margin-left: -15px;
 	background-color: #952C20;
 }
 .merColor{
-	height: 20px;
-	width: 20px;
+	margin-left: -15px;
 	background-color: #80AE38;
 }
 /*FIN COMERCIAL MAP*/
@@ -536,8 +540,73 @@ padding: 0;
 
 
 @media (max-width: 575px){
+	body{
+		font-size: 0.9em;
+	}
 	.subMenu{
 		padding:  0px;
+	}
+	#map{
+		height: 250px;
+		padding: 0;
+		margin-left: -20px;
+		margin-right: -20px;
+	}
+	.categories{
+		margin-left: -25px;
+	}
+	.category {
+		height: 50px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		margin-left: 10px;
+	}
+	.a-category{
+		font-size: 1em;
+		font-weight: 700;
+		text-decoration: none;
+		color: black;
+		outline: none;
+	}
+	.category-pictograms{
+		//width: 50px;
+	}
+	.category-name{
+		padding-left: 0;
+		margin-left: -10px;
+		margin-top: 2px;
+	}
+	.category-select
+	{
+		margin-left: 15px;
+		border-radius: 5px;
+		height: 20px;
+	}
+	.legend{
+		bottom: 0px;
+	}
+	.xavier
+	{
+		padding-right: 0; 
+	}
+	.label-legend{
+		font-size: 0.7em;
+		padding-top: 15px;
+		padding-bottom: 0px;
+		padding-left: 2px;
+	}
+	.acColor, .xnoColor, .merColor{
+		height: 10px;
+		width: 10px;
+	}
+	.acColor{
+		background-color: #124290;
+	}
+	.xnoColor{
+		background-color: #952C20;
+	}
+	.merColor{
+		background-color: #80AE38;
 	}
 }
 @media (max-width: 767px){
