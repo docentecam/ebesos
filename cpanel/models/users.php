@@ -224,6 +224,10 @@ if(isset($_SESSION['user']['idUser']))
 				$message = "Error al actualitzar";
 			}
 		}
+		if($connexio == "Error al conectar")
+	 	{
+	 		$message = "Error al conectar";
+	 	}
 		echo '[{"status":"'.$message.'"}]';
 	}
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'createUser') {
@@ -237,6 +241,10 @@ if(isset($_SESSION['user']['idUser']))
 		disconnect($connexio);
 		
 		$message = "S'ha creat l'usuari";
+		if($connexio == "Error al conectar")
+	 	{
+	 		$message = "Error al conectar";
+	 	}
 		echo '[{"status":"'.$message.'"}]';
 	}
 }

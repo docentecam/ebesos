@@ -93,7 +93,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 				<img class="col-lg-3" src="../img/logos-assoc/{{logoC}}">
 				<div class="col-lg-6 col-lg-offset-3">
 					<div class="row"><a class="col-lg-8" href="" ng-click="showEdit()">Editar logo</a></div>
-					<div class="row"><span class=" col-lg-9">Eliminar logo</span></div>
+					<div class="row"><span class=" col-lg-10">Eliminar logo</span></div>
 				</div>
 			</div>
 		</div>
@@ -113,7 +113,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 				<img class="col-xs-6 col-lg-6" src="../img/logos-assoc/{{footerC}}">
 				<div class="col-xs-12 col-lg-6">
 					<div class="row"><a class="col-lg-8" href="" ng-click="showEdit2()">Editar logo</a></div>
-					<div class="row"><span class=" col-lg-9">Eliminar logo</span></div>
+					<div class="row"><span class=" col-lg-10">Eliminar logo</span></div>
 				</div>
 			</div>
 		</div>
