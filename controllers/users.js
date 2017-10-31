@@ -100,7 +100,8 @@ angular.module('spaApp')
 	
 	$scope.idUser = $routeParams.idUser;
 	$scope.name = $routeParams.name;
-	
+	$scope.loading = true;
+
 	$http({
 		method : "GET",
 		url : "models/shops.php?acc=l&idUser="+$scope.idUser
@@ -112,9 +113,12 @@ angular.module('spaApp')
 			$scope.showDivH = false;
 		}, function myError(response) {
 			$scope.shops = response.statusText;
-	});
+	}).finally(function(){
+				$scope.loading = false;
+		});
 	
   	$scope.showHistory = function(idUser){
+			$scope.loading = true;
 			$http({
 				method : "GET",
 				url : "models/users.php?acc=history&idUser="+$scope.idUser
@@ -126,7 +130,9 @@ angular.module('spaApp')
 					$scope.showDivH = true;
 				}, function myError (response) {
 					$scope.histories = response.statusText;
-			});
+			}).finally(function(){
+				$scope.loading = false;
+		});
 	};
 
 	$scope.showContact = function(idUser){
@@ -138,6 +144,7 @@ angular.module('spaApp')
 		var code = a + b + c + d + e;
 		document.getElementById("txtCaptcha").value = code;
 		document.getElementById("captchaDiv").innerHTML = code;
+		$scope.loading = true;
 		$http({
 			method : "GET",
 			url : "models/users.php?acc=mail&idUser="+ $scope.idUser
@@ -149,6 +156,8 @@ angular.module('spaApp')
 			$scope.showDivC = true;
 		}, function myError (response) {
 			$scope.email = response.statusText;
+		}).finally(function(){
+				$scope.loading = false;
 		});
 	};
 	$scope.listShops = function(){		
@@ -158,6 +167,7 @@ angular.module('spaApp')
 		$scope.showDivH = false;
 	};
 	$scope.showNews = function(idUser){
+		$scope.loading = true;
 		$http({
 			method : "GET",
 			url : "models/news.php?acc=news&idUser="+$scope.idUser
@@ -169,6 +179,8 @@ angular.module('spaApp')
 				$scope.showDivH = false;
 			}, function myError (response) {
 				$scope.news = response.statusText;
+		}).finally(function(){
+				$scope.loading = false;
 		});
 	};
 	$scope.checkform = function()

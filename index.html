@@ -28,7 +28,7 @@
 				});
 
 		</script>
-		<link rel="stylesheet" href="css/styles.css">
+		<link rel="stylesheet" href="css/styles.css"> 
 		<script src="js/app.js"></script>
 		<script src="controllers/shops.js"></script>		
 		<script src="controllers/users.js"></script>
@@ -43,13 +43,13 @@
 					<a href="#"><img class="img-responsive" ng-src="img/logos-assoc/{{association.logo}}"></a>
 				</div>
 				<div class="col-xs-8 col-lg-8" id="logoTexto" ng-repeat="association in associations | filter:{ idUser:'1'}">
-					<label class="headTitle">{{association.name}}</label>	
+					<span class="headTitle">{{association.name}}</span>	
 				</div>		
 			</div> 
 			<div id="contactWho" class="col-xs-4 col-lg-4 pull-right">
 				<div class="col-xs-12 col-lg-7 col-lg-offset-5 pull-right marginTopAir">				
-					<a href="#/users/1" class="colorLinksHidden">Qui Som?</a><span class="dividerNav"> | </span>
-					<a href="#/contact/1" class="colorLinksHidden">Contacte</a>
+					<a href="#/users/1" class="colorLinksHidden" id="whoTop">Qui Som?</a><span class="dividerNav"> | </span>
+					<a href="#/contact/1" class="colorLinksHidden" id="contactTop">Contacte</a>
 					<a href="cpanel/index.html" class="colorLinksHidden pull-right"><i class="fa fa-user-circle-o" aria-hidden="true" id="loginPicture" title="Inicia Sessió"></i></a>
 				</div>	
 			</div>				
