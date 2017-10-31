@@ -373,7 +373,7 @@ padding: 0;
 	background-image: url("../img/captcha.jpg");
 	color: gray;
 	font-size: 40px;
-	letter-spacing: 20px;	
+	letter-spacing: 10px;	
 	margin-left: 12.5%;
 	text-align: center;
 	vertical-align: middle;
@@ -443,6 +443,9 @@ padding: 0;
 	border: solid 1px;
 	border-color: black;
 }
+#titleSubM{
+	font-size: 25px;
+}
 .newsAsso{
 	border-bottom: solid 1px;
 	border-color: #ced2de;
@@ -470,10 +473,10 @@ padding: 0;
 	width: 15px;
 }
 .subMA{
-	color: white;
+	color: white!important;
 }
 .subMA:hover{
-	color: white;
+	color: white!important;
 	text-decoration: none!important;
 }
 .subMA:focus{
@@ -483,12 +486,10 @@ padding: 0;
 #subMenu{
 	text-align: center;
 	padding-right: 0% !important;
-	background-color: #337ab7;
+	background-color: #659eab;
 	padding-left: 0%!important;
 }
-.shopsList{
-	padding-bottom: 10px;
-}
+
 
 .assoDivContact{
 	margin-top: 4%;
@@ -558,6 +559,11 @@ padding: 0;
 @media (max-width: 575px){
 	*{
 		font-size: 0.92em!important;
+
+	}
+	#generalView
+	{
+		font-size: 1em!important;
 	}
 	.subMenu{
 		padding:  0px;
@@ -579,6 +585,25 @@ padding: 0;
 	.navGeneral{
 		border-right: none;		
 	}
+	#tbodyContactTable{
+		border-left: solid 0px;
+	}
+	.shopsList{
+		padding-bottom: 20%!important;
+	}
+	#captchaDiv{
+		background-image: url("../img/captcha.jpg");
+		color: gray;
+		font-size: 30px!important;
+		letter-spacing: 10px;	
+		margin-left: 4.5%;
+		text-align: center;
+		vertical-align: middle;
+	}
+	#btnEnviar{
+		margin-left: 60%;
+    	margin-top: 8%;
+	}
 }
 
 @media (max-width: 767px){
@@ -589,6 +614,9 @@ padding: 0;
 		position: absolute;
     	left: -20%;
     	top: 38%;
+	}
+	.shopsList{
+		padding-bottom: 20%;
 	}
 }
 
@@ -601,6 +629,10 @@ padding: 0;
 	left: 18%;
     top: 34%;
 	}
+	.shopsList{
+		padding-bottom: 12%;
+	}
+
 }
 @media (max-width: 1023px){
 	.titleSubE{
@@ -613,6 +645,9 @@ padding: 0;
 	.breadCum{
 		visibility: hidden;
 		position: absolute;
+	}
+	.shopsList{
+		padding-bottom: 5%;
 	}
 }
 
@@ -648,5 +683,8 @@ padding: 0;
 		margin-top: 11%;
 		font-size: 1.8em!important;
 		margin-left: -47%;
+	}
+	.shopsList{
+		padding-bottom: 2%;
 	}
 }
