@@ -45,7 +45,7 @@
 								<label>Contrasenya: </label>
 							</div>
 							<div class="col-lg-6">
-								<input type="password" id="pswd" placeholder="Contrasenya" class="loginRadius">
+								<input type="password" id="pswd" placeholder="Contrasenya" class="loginRadius" ng-model="pass">
 							</div>
 							<div class="col-lg-3">
 								<input type="button" value="Accedir" class="btn btn-default" ng-click="checking();" class="loginRadius">
@@ -152,6 +152,7 @@
 				$scope.login = true;
 				$scope.forgot = false;
 				$scope.failForgot = false;
+				$scope.pass = "";
 
 				$http({
 						method : "GET",
@@ -182,8 +183,9 @@
 						else
 						{
 							$scope.fail = true;
+							
 						}
-
+						$scope.pass = "";
 					}, function myError (response) {
 						$scope.checkL = response.statusText;
 					});
