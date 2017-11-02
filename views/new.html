@@ -7,8 +7,8 @@
 	</div>
 	<hr>
 	<div class="row">
-		<div class=" col-lg-12 " ng-repeat="new in news">
-			<img class="col-xs-12 col-sm-12 col-md-12 col-lg-12" src="img/newsmedia/imagen1.jpg" alt="{{new.photo}}">
+		<div class=" col-lg-12 " ng-repeat="subNew in subNews | limitTo: 1">
+			<img class="col-xs-12 col-sm-12 col-md-12 col-lg-12" src="img/newsmedia/{{subNew.url}}" alt="{{subNew.url}}">
 		</div>
 	</div>
 	<hr>
@@ -20,13 +20,14 @@
 	</div>
 	<hr>
 	<div class="row">
-		<div id="divImgsNew" class="col-lg-12"><!-- Cambiar rutas a dinamicas TODO -->
+		<div id="divImgsNew" class="col-lg-12">
 			<img ng-repeat='subNew in subNews | filter: {type:"I"}' id="imgInNew" class="col-lg-3" src="img/newsmedia/{{subNew.url}}" alt="{{subNew.url}}">
 		</div>
 	</div>
 	<hr>
 	<div class="row">
-		<div id="divVidsNew" class="col-lg-12"><!-- Videos TODO -->
+		<div ng-repeat='subNew in subNews | filter: {type:"V"}' id="divVidsNew" class="col-lg-12">
+			<iframe class="col-lg-4" height="315" src="https://www.youtube.com/embed/{{subNew.url}}" frameborder="0" allowfullscreen></iframe><!-- Videos TODO -->
 			<img ng-repeat='subNew in subNews | filter: {type:"V"}' id="vidsInNew" class="col-lg-4" src="img/newsmedia/imagen2.jpg" alt="{{subNew.url}}">
 		</div>
 	</div>
