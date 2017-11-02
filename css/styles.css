@@ -564,21 +564,18 @@ padding: 0;
 
 
 @media (max-width: 575px){
-<<<<<<< HEAD
 	body{
 		font-size: 0.9em;
-=======
+	}
 	.textSize{ 
 		font-size: 0.92em!important;
 	}
 	#generalView{
 		font-size: 1em!important;
->>>>>>> origin/master
 	}
 	.subMenu{
 		padding:  0px;
 	}
-<<<<<<< HEAD
 	#map{
 		height: 250px;
 		padding: 0;
@@ -640,7 +637,7 @@ padding: 0;
 	}
 	.merColor{
 		background-color: #80AE38;
-=======
+	}
 	.marginTopAir{
 		margin-left: -8%;
 		margin-top: 1%;		
@@ -718,7 +715,6 @@ padding: 0;
 	}
 	.contactMainDiv{
 		font-size: 1em!important;
->>>>>>> origin/master
 	}
 }
 
