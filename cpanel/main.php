@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <?php
 session_start();
-	$_SESSION['user']['idUser'] = 1;
-	$_SESSION['user']['privileges'] = 'E';
-	$_SESSION['user']['name'] = 'Eix Besos Meresme';
-	$_SESSION['user']['logo'] = '4.png';
 if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 ?>
 	<html>
