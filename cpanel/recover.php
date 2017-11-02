@@ -17,12 +17,55 @@
 
 
 </head>
-<body ng-app="myApp" ng-controller="LoginCtrl">
+<body ng-app="myApp" ng-controller="RecoverCtrl">
 	<div id="loadingData" ng-show="loading">
 		<center><img id="loadingIcon" src="../img/loading_icon.gif"></center>
 	</div>
+
+	<div>
+		<div class="row log250"></div>
+		<div class="row">
+			<div class="col-sm-12 col-md-6 col-lg-4 col-lg-offset-4">
+				<div class="row">
+					<h3>MODIFICAR CONTRASENYA	</h3>
+					<div class="row log20"></div>
+					<div ng-show="fail">
+						<div id="alertW"></div>
+						<div id="alert">
+							<i id="cross" class="fa fa-times" aria-hidden="true"></i>
+							<b>{{statusValidation}}</b>
+						</div>
+					</div>
+					<form id="check">
+						<div class="row">
+							<div class="col-lg-3"><label>Contrasenya: </label></div>
+							<div class="col-lg-6">
+								<input type="password" id="user" placeholder="Contrasenya" class="loginRadius" ng-model="pass">
+							</div>
+						</div>
+						<input type="text" id="hid" value="<?php echo $_GET['rt'] ?>" hidden>
+						<div class="row log20"></div>
+						<div class="row">
+							<div class="col-lg-3">
+								<label>Confirmar contrasenya: </label>
+							</div>
+							<div class="col-lg-6">
+								<input type="password" id="pswd" placeholder="Contrasenya" class="loginRadius" ng-model="cPass">
+							</div>
+							<div class="col-lg-3">
+								<input type="button" value="Enviar" class="btn btn-default" ng-click="rPassword();" class="loginRadius">
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 	
-	
+	<div ng-show="confirm">
+		{{statusValidation}}
+	</div>
+
 	<div class="row" id="footerLogin">
 		<footer class="footer-bs" id="footer">
 			<div class="col-xs-7 footerLog">
@@ -41,6 +84,10 @@
 		<script>
 			app.controller ('RecoverCtrl', function($scope, $http, $window) {
 				$scope.loading = true;
+				$scope.fail = false;
+				$scope.cPass = "";
+				$scope.pass = "";
+				
 
 				$http({
 						method : "GET",
@@ -53,7 +100,36 @@
 						$scope.loading = false;
 					});
 
+				$scope.rPassword = function()
+				{
+					
+					$scope.loading = true;
+					if($scope.pass == $scope.cPass && $scope.pass != "" &&  $scope.cPass != "")
+					{
+						$scope.get = $('#hid').attr('value');
+						$http({
+								method : "GET",
+								url : "models/users.php?acc=crPass&password="+$scope.pass+"&fToken="+$scope.get
+							}).then(function mySucces (response) {
+								$scope.rPass=response.data;
+								$scope.statusValidation = $scope.rPass[0]['status'];
+								$scope.fail = true;
+							}, function myError (response) {
+								$scope.rPass = response.statusText;
+							}).finally(function(){
+								$scope.loading = false;
+							});
+					}
+					else
+					{
+							$scope.statusValidation = "nope";
+							$scope.loading = false;
+					}
+					
+				}
+
 			});
+
 			
 		</script>
 </body>

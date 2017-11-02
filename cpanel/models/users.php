@@ -150,6 +150,11 @@ session_start();
 
 	 	echo '[{"status":"'.$message.'"}]';
 	}
+	else if(isset($_GET['acc']) && $_GET['acc'] == 'crPass')
+	{
+		echo '[{"status":"llega"}]';
+		//echo '[{"status":"'.$message.'"}]';
+	}
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'footer'){
  		$mySql = "SELECT footer FROM users";
  		$connexio = connect();
