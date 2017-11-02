@@ -59,9 +59,12 @@ a:hover{
 	outline: none;
 
 }
+.category-pictograms{
+	width: 50px;
+}
 .category-name
 {
-	margin-left: 3px;
+	margin-left: 0px;
 	margin-top: 4px;
 }
 .category-select
@@ -81,19 +84,20 @@ a:hover{
 .label-mer{
 	padding: 5px;
 }
-.acColor{
+.acColor, .xnoColor, .merColor{
 	height: 20px;
 	width: 20px;
+}
+.acColor{
+	margin-left: -15px;
 	background-color: #124290;
 }
 .xnoColor{
-	height: 20px;
-	width: 20px;
+	margin-left: -15px;
 	background-color: #952C20;
 }
 .merColor{
-	height: 20px;
-	width: 20px;
+	margin-left: -15px;
 	background-color: #80AE38;
 }
 /*FIN COMERCIAL MAP*/
@@ -243,6 +247,7 @@ padding: 0;
 #indicatorSlider{
 	margin-bottom:-1%!important;
 }
+
 #footerColor{
 	background-color:#808BA7;
 	margin-top: 5%!important;
@@ -260,6 +265,9 @@ padding: 0;
 .linkNameForm{
     color: white!important;
 }
+#logoTexto{
+		margin-top: 8%;
+	}
 .footerLinksColor{
 	color: white!important;
 }
@@ -553,6 +561,9 @@ padding: 0;
 
 
 @media (max-width: 575px){
+	body{
+		font-size: 0.9em;
+	}
 	.textSize{ 
 		font-size: 0.92em!important;
 	}
@@ -562,8 +573,71 @@ padding: 0;
 	.subMenu{
 		padding:  0px;
 	}
+	#map{
+		height: 250px;
+		padding: 0;
+		margin-left: -20px;
+		margin-right: -20px;
+	}
+	.categories{
+		margin-left: -25px;
+	}
+	.category {
+		height: 50px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		margin-left: 10px;
+	}
+	.a-category{
+		font-size: 1em;
+		font-weight: 700;
+		text-decoration: none;
+		color: black;
+		outline: none;
+	}
+	.category-pictograms{
+		//width: 50px;
+	}
+	.category-name{
+		padding-left: 0;
+		margin-left: -10px;
+		margin-top: 2px;
+	}
+	.category-select
+	{
+		margin-left: 15px;
+		border-radius: 5px;
+		height: 20px;
+	}
+	.legend{
+		bottom: 0px;
+	}
+	.xavier
+	{
+		padding-right: 0; 
+	}
+	.label-legend{
+		font-size: 0.7em;
+		padding-top: 15px;
+		padding-bottom: 0px;
+		padding-left: 2px;
+	}
+	.acColor, .xnoColor, .merColor{
+		height: 10px;
+		width: 10px;
+	}
+	.acColor{
+		background-color: #124290;
+	}
+	.xnoColor{
+		background-color: #952C20;
+	}
+	.merColor{
+		background-color: #80AE38;
+	}
 	.marginTopAir{
-		margin-left: -8%;		
+		margin-left: -8%;
+		margin-top: 1%;		
 	}
 	#logoTexto{
 		margin-top: 5%;
@@ -572,7 +646,7 @@ padding: 0;
 		margin-left: -23%;
 	}
 	#whoTop{
-		 position: absolute;
+		position: absolute;
     	top: -20%;
 	}
 	#contactTop{
@@ -724,11 +798,21 @@ padding: 0;
 		font-weight: 600;
 		color: white!;
 	}
+	#homeIconNav{
+		position: absolute;
+    	left: 17%;
+    	top: 35%;
+	}
 	.subMenu{
 		padding:  30px;
 	}
 	#subMenu{
 		margin-top: 4%;
+	}
+	.arrowDown{
+		position: absolute;
+   		top: 37.2%;
+    	right: 25%;
 	}
 	.titleSubE{
 		position: absolute;
@@ -746,7 +830,7 @@ padding: 0;
 	    text-decoration: underline; 
 	}
 	#loginPicture{
-		margin-top: 11%;
+		margin-top: -3%;
 		font-size: 1.8em!important;
 		margin-left: -47%;
 	}

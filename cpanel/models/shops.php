@@ -319,22 +319,4 @@ function listUsers()
 
 	return $datau;
 }
-function getVariables()
-{
-	$name = $_POST["name"];
-	$idUser = $_POST["idUser"];
-	$descriptionLong = $_POST["descriptionLong"];
-	$description = $_POST["description"];
-	$ciutat = $_POST["ciutat"];
-	$logo = $_FILES["logo"]["file"];
-	$web = $_POST["web"];
-	$lat = $_POST["lat"];
-	$lng = $_POST["lng"];
-	$telehpone = $_POST["telephone"];
-	$cp = $_POST["cp"];
-	$address = $_POST["address"];
-	$schedule = $_POST["schedule"];
-	$email = $_POST["email"];
-}
-
 ?>

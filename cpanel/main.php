@@ -5,6 +5,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 ?>
 	<html>
 <head>
+		<link rel="shortcut icon" href="../img/logos-assoc/4.png">
 		<title>EIX BESÒS MARESME</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +21,6 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 		</script>
 
 		<link rel="stylesheet" href="css/styles.css">
-		<link rel="shortcut icon" href="../img/logos-assoc/4.png">
 		<script src="js/app.js"></script>
 		<script src="controllers/news.js"></script>
 		<script src="controllers/shops.js"></script>
@@ -75,16 +75,14 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
     					</div>
     					<div class="navbar-collapse collapse sidebar-navbar-collapse" >
 							<ul class="nav navbar-nav" >
-								<li role="presentation" class="mainNav"><a href="#/associations">Associacions</a></li>						   
-							    <li role="presentation" class="mainNav"><a href="#/shops">Comerços</a></li>
+								<?php if($_SESSION['user']['privileges'] =='E' || $_SESSION['user']['privileges'] =='A') echo '<li role="presentation" class="mainNav"><a href="#/associations">Associacions</a></li>
+								<li role="presentation" class="mainNav"><a href="#/shops">Comerços</a></li>' ?>
 							    <li role="presentation" class="mainNav"><a href="#/promotions">Promocions</a></li>
-							    <li role="presentation" class="mainNav"><a href="#/news">Notícies</a></li>
-							    <li role="presentation" class="mainNav"><a href="#/slider">Slider</a></li>
+							    <?php if($_SESSION['user']['privileges'] =='E' || $_SESSION['user']['privileges'] =='A') echo '<li role="presentation" class="mainNav"><a href="#/news">Notícies</a></li>' ?>
+							    <?php if($_SESSION['user']['privileges'] =='E') echo '<li role="presentation" class="mainNav"><a href="#/slider">Slider</a></li>
 							    <li role="presentation" class="mainNav"><a href="#/subcategories">Subcategories</a></li>
 							    <li role="presentation" class="mainNav"><a href="#/settings">Paràmetres</a></li>
-							    
-							    
-							    <li role="presentation" class="mainNav"><a href="#/formFichero">Enllaços del footer</a></li>
+							    <li role="presentation" class="mainNav"><a href="#/formFichero">Enllaços del footer</a></li>' ?>
 							</ul>
     					</div><!--/.nav-collapse -->
   					</div>

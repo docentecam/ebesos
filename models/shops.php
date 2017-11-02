@@ -74,6 +74,7 @@ require('../inc/functions.php');
 					AND c.idCategory = cs.idCategory
 					AND scs.preferred = 'Y'
 					AND si.preferred = 'Y'
+					AND si.idShop = s.idShop
 					AND s.idShop = $idShop";
 					
 

@@ -1,5 +1,5 @@
 <?php 
-require("../inc/functions.php");
+require("../../inc/functions.php");
 session_start();
 
 	if(isset($_GET['acc']) && $_GET['acc'] == 'login')
@@ -97,8 +97,11 @@ session_start();
 			$updateForgotToken = mysqli_query($connexio, $mySql);
 			disconnect($connexio);
 	 		$message = "Correct";
-	 		$mySql = "SELECT  FROM shops";
-	 		$body = "";
+	 		//$mySql = "SELECT  FROM users"; //buscar datos
+	 		//$body = "";
+
+
+	 		//sendMails($mailClient = "", $subject = "Reiniciar la contrasenya", $fromName = "", $mailAssociation = "", $pswd = "passwordEmail", $body, $logo = ""){
 	 	}
 
 	 	echo '[{"status":"'.$message.'"}]';
@@ -233,8 +236,8 @@ if(isset($_SESSION['user']['idUser']))
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'createUser') {
 		$message='';
 
-		$mySql = "INSERT INTO users (email, emailPass, name, password, address, telephone, logo, history, forgotToken, footer)
-				VALUES ('".$_GET['email']."','".$_GET['pswdMail']."','".$_GET['name']."','".sha1(md5($_GET['pswd']))."','".$_GET['address']."','".$_GET['telephone']."','','".$_GET['history']."','','')";
+		$mySql = "INSERT INTO users (email, emailPass, name, password, address, telephone, logo, history, footer)
+				VALUES ('".$_GET['email']."','".$_GET['pswdMail']."','".$_GET['name']."','".sha1(md5($_GET['pswd']))."','".$_GET['address']."','".$_GET['telephone']."','','".$_GET['history']."','')";
 
 		$connexio = connect();
 		$resultUser = mysqli_query($connexio, $mySql);

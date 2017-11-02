@@ -14,7 +14,6 @@ angular.module('spaApp')
 		if($scope.idUserLg==1) $scope.filterShops="!1";
 		else $scope.filterShops = $scope.idUserLg;
 		$scope.loading = false;
-    $scope.loading = false;
 	}, function myError(response) {
 		$scope.shops = response.statusText;
 	});
