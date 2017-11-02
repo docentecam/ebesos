@@ -100,4 +100,18 @@ require('../inc/functions.php');
 
 			echo $mySql;
 		}
+
+		else if(isset($_GET['acc']) && $_GET['acc'] == 'addUpdate'){
+			
+			if (isset($_GET['act'])=='Add') {
+
+			$mySql = "INSERT INTO idSetting, literal, value FROM settings";
+
+			$connexio = connect();
+			$resultNewSettings = mysqli_query($connexio, $mySql);
+			disconnect($connexio);
+				
+			}
+
+		}
 ?>
