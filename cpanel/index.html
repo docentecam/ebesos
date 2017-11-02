@@ -19,6 +19,9 @@
 
 </head>
 <body ng-app="myApp" ng-controller="LoginCtrl">
+	<div id="loadingData" ng-show="loading">
+		<center><img id="loadingIcon" src="../img/loading_icon.gif"></center>	<!-- ToDo -->
+	</div>
 	<div ng-show="login">
 		<div class="row log250"></div>
 		<div class="row">
@@ -94,7 +97,6 @@
 				    		<div class="form-group">
 				    			<tr>
 					  				<td>
-				      					<!-- <label style="padding-left: 15%" class="control-label col-sm-2" for="captcha">Captcha:</label> -->
 				      				</td>
 						    		<td>
 					      				<div class="col-sm-6 col-push-sm-3" id="captchaDiv"></div>
@@ -123,7 +125,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="row" id="footerLogin"> <!-- TODO Mirar y tocar -->
+	<div class="row" id="footerLogin">
 		<footer class="footer-bs" id="footer">
 			<div class="col-xs-7 footerLog">
 				<div class="row">
@@ -153,7 +155,7 @@
 				$scope.login = true;
 				$scope.forgot = false;
 				$scope.failForgot = false;
-				$scope.pass = "";
+				$scope.loading = true;
 
 				$http({
 						method : "GET",
@@ -162,11 +164,14 @@
 						$scope.footer=response.data;
 					}, function myError (response) {
 						$scope.footer = response.statusText;
+					}).finally(function(){
+						$scope.loading = false;
 					});
 
   				$scope.checking = function(){
   					$scope.email = check['user'].value;
   					$scope.password = check['pswd'].value;
+  					$scope.loading = true;
 					$http({
 						method : "GET",
 						url : "models/users.php?acc=login&email="+$scope.email+"&password="+$scope.password
@@ -186,9 +191,12 @@
 							$scope.fail = true;
 							
 						}
-						$scope.pass = "";
+						
 					}, function myError (response) {
 						$scope.checkL = response.statusText;
+					}).finally(function(){
+							$scope.loading = false;
+							$scope.pass = "";
 					});
 				};
 				$scope.showForgot = function(){
@@ -209,9 +217,10 @@
   					$scope.captcha = forgot['captchaIntro'].value;
   					$scope.checkCaptcha = forgot['txtCaptcha'].value
 
+
   					if ($scope.captcha == $scope.checkCaptcha)
   					{
-  						
+  						$scope.loading = true;
   						$http({
 						method : "POST",
 						url : "models/users.php?acc=forgot&mail="+$scope.mail
@@ -221,7 +230,10 @@
 							$scope.statusValidation = $scope.names[0]['status'];
 						}, function myError (response) {
 						$scope.names = response.statusText;
+						}).finally(function(){
+							$scope.loading = false;
 						});
+
   					}
   					else
   					{

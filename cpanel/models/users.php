@@ -60,7 +60,7 @@ session_start();
 
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'forgot')
 	{
-		$mySql = "SELECT idUser FROM users 
+		$mySql = "SELECT idUser, emailPass, name FROM users 
 					WHERE email='".$_GET['mail']."'";
 		$connexio = connect();
 		$resultCheck = mysqli_query($connexio, $mySql);
@@ -71,9 +71,9 @@ session_start();
 		$checkEmail=mysqli_num_rows($resultCheck);
 		if($checkEmail!=0)
 		{
-			$checkEmail=$row['idUser'];
+			$checkEmail = $row['idUser'];
+			$name = $row['name'];
 		}
-
 	 	if($checkEmail == 0)
 	 	{
 	 		$message = "L'usuari no existeix";
@@ -97,11 +97,55 @@ session_start();
 			$updateForgotToken = mysqli_query($connexio, $mySql);
 			disconnect($connexio);
 	 		$message = "Correct";
-	 		//$mySql = "SELECT  FROM users"; //buscar datos
-	 		//$body = "";
+	 		$mySql = "SELECT value FROM settings
+	 					WHERE idSetting = 7";
+	 		$connexio = connect();
+	 		$resultSetting = mysqli_query($connexio, $mySql);
+	 		disconnect($connexio);
+
+	 		$row=mySqli_fetch_array($resultSetting);
+			$Setting=mysqli_num_rows($resultSetting);
+
+			$Setting = $row['value'];
+			for($i=2;$i<6;$i++)
+			{
+				${"random". $i} = rand(0,9);
+				for($j=1;$j<149;$j++)
+				{
+					${"random". $i}.= rand(0,9);
+				}
+			}
+			
+			$mySql = "SELECT email, emailPass, logo, name FROM users
+	 					WHERE idUser = 1";
+	 		$connexio = connect();
+	 		$resultE = mysqli_query($connexio, $mySql);
+	 		disconnect($connexio);
+
+	 		$row=mySqli_fetch_array($resultE);
+			$mail=mysqli_num_rows($resultE);
+
+			$mail = $row['email'];
+			$passE = $row['emailPass'];
+			$logoM = $row['logo'];
+			$nameM = $row['logo'];
+			
+
+	 		$body = "
+			 		<html>
+			 		<head>
+			 		</head>
+			 		<body>
+			 			<label>Benvolgut ".$name.",</label><br><br>
+			 			<p>
+			 				Hem rebut un avís que ens informa que no recorda la seva contrasenya, li adjuntem un enllaç perquè pugui canviar la seva contrasenya.
+			 			</p><br><br>
+			 			<a href='".$Setting."/cpanel/recover.php?acc=r&ft=".$random5."&dt=".$random3."&rt=".$random."&nt=".$random4."&pt=".$random2."'>Premi aquí</a>
+			 		</body>
+			 		</html>";
 
 
-	 		//sendMails($mailClient = "", $subject = "Reiniciar la contrasenya", $fromName = "", $mailAssociation = "", $pswd = "passwordEmail", $body, $logo = ""){
+	 		sendMails($_GET['mail'], "Reiniciar la contrasenya", $nameM, $mail, $passE, $body, $logoM);
 	 	}
 
 	 	echo '[{"status":"'.$message.'"}]';

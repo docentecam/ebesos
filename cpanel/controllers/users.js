@@ -39,7 +39,7 @@ angular.module('spaApp')
 
 				if(idUser == -1)
 				{
-					$scope.idUserC = "";
+					$scope.idUserC = -1;
 					$scope.nameC = "";
 					$scope.emailC = "";
 					$scope.emailPassC = "";
