@@ -703,6 +703,18 @@ padding: 0;
     	left: 1%;
     	top: 40.4%;
 	}
+	.shop-name h1{
+		font-size: 2.5em;
+	}
+	.shop-info-container{
+		border: none;
+		padding-left: 25px;
+	}
+	.shop-map #map
+	{
+		height: 150px;
+		margin-left: 10px;
+	}
 }
 @media (min-width: 576px) and (max-width: 767px){
 	#btnEnviar{
