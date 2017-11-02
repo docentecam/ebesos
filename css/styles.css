@@ -372,8 +372,8 @@ padding: 0;
 	background-image: url("../img/captcha.jpg");
 	color: gray;
 	font-size: 40px;
-	letter-spacing: 10px;	
-	margin-left: 12.5%;
+	letter-spacing: 10px;
+	margin-left: 4%;	
 	text-align: center;
 	vertical-align: middle;
 }
@@ -552,9 +552,6 @@ padding: 0;
 
 
 
-
-
-
 @media (max-width: 575px){
 	.textSize{ 
 		font-size: 0.92em!important;
@@ -616,15 +613,15 @@ padding: 0;
 	#captchaDiv{
 		background-image: url("../img/captcha.jpg");
 		color: gray;
-		font-size: 30px!important;
+		font-size: 30px;
 		letter-spacing: 10px;	
 		margin-left: 4.5%;
 		text-align: center;
 		vertical-align: middle;
 	}
 	#btnEnviar{
-		margin-left: 60%;
-    	margin-top: 8%;
+		margin-left: 78%;
+    	margin-top: 7%;
 	}
 	.dividerNav{
 		visibility: hidden;
@@ -640,7 +637,7 @@ padding: 0;
 		margin-bottom: 3%;
 	}
 	.contactMainDiv{
-		font-size: 1em!important;
+		font-size: 1em;
 	}
 	.dividerNav{
 		visibility: hidden;
@@ -651,9 +648,11 @@ padding: 0;
     	top: 40.4%;
 	}
 }
-
 @media (min-width: 576px) and (max-width: 767px){
-
+	#btnEnviar{
+		margin-left: 80%;
+    	margin-top: 7%;
+	}
 	.dividerNav{
 		visibility: hidden;
 	}
@@ -669,7 +668,7 @@ padding: 0;
 	#captchaDiv{
 		background-image: url("../img/captcha.jpg");
 		color: gray;
-		font-size: 30px!important;
+		font-size: 40px;
 		letter-spacing: 10px;	
 		margin-left: 4%;
 		text-align: center;
@@ -678,9 +677,8 @@ padding: 0;
 	#tbodyContactTable{
 		border-left: solid 0px;
 	}
-	#btnEnviar{
-		margin-left: 82%;
-    	margin-top: 7%;
+	#contactTable{
+		margin-left: 7.5%;
 	}
 }
 
@@ -696,8 +694,12 @@ padding: 0;
 	.shopsList{
 		padding-bottom: 12%;
 	}
+	#contactTable{
+		margin-left: 5%;
+	}
 
 }
+
 @media (max-width: 1023px){
 	.titleSubE{
 		position: relative;
@@ -750,5 +752,15 @@ padding: 0;
 	}
 	.shopsList{
 		padding-bottom: 2%;
+	}
+}
+
+@media (min-width: 1200px){
+	#captchaDiv{
+		margin-left: 12.5%;
+	}
+	#captchaInput{
+		margin-left: 5%;
+		margin-right: 3%;
 	}
 }

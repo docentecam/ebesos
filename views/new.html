@@ -1,9 +1,7 @@
 <div id="containerNew" class="container">
-	<ul>
-		<li>
-			<a href="/#"> Inici </a><span> | </span><a href="#/news"> Notícies </a><span> | </span><span ng-repeat="new in news">{{new.title}}</span>
-		</li>
-	</ul>
+	<div>
+		<a class="breadJS" href="#">Inici</a><span> | </span><a class="breadJS" href="#/news/1">Notícies</a><span> | </span><span ng-repeat="new in news">{{new.title}}</span>
+	</div>
 	<div class="row">
 		<span id="titleNew" ng-repeat="new in news" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">{{new.title}}</span>
 	</div>
