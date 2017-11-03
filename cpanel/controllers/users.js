@@ -89,7 +89,7 @@ angular.module('spaApp')
 					$scope.activeC = $scope.activeCN;
 				}
 
-  				if($scope.idUserC != "")
+  				if($scope.idUserC != -1)
   				{
   					if($scope.pswdC == $scope.confirmPswdC && $scope.confirmPswdC != "" && $scope.pswdC != "" && $scope.currentPswdC != "")
   					{
@@ -119,7 +119,7 @@ angular.module('spaApp')
   					}
   					
   				}
-  				else if($scope.pswdC == $scope.confirmPswdC && $scope.confirmPswdC != "" && $scope.pswdC != "" && $scope.idUser == -1)
+  				else if($scope.pswdC == $scope.confirmPswdC && $scope.confirmPswdC != "" && $scope.pswdC != "" && $scope.idUserC == -1)
   				{
   					console.log("llega");
   					$http({

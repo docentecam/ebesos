@@ -62,10 +62,6 @@
 		</div>
 	</div>
 	
-	<div ng-show="confirm">
-		{{statusValidation}}
-	</div>
-
 	<div class="row" id="footerLogin">
 		<footer class="footer-bs" id="footer">
 			<div class="col-xs-7 footerLog">

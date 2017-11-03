@@ -80,7 +80,7 @@ session_start();
 	 	}
 	 	else if($connexio == "Error al conectar")
 	 	{
-	 		$message = "Error al conectar";
+	 		$message = "Error al connectar";
 	 	}
 	 	else
 	 	{
@@ -128,7 +128,7 @@ session_start();
 			$mail = $row['email'];
 			$passE = $row['emailPass'];
 			$logoM = $row['logo'];
-			$nameM = $row['logo'];
+			$nameM = $row['name'];
 			
 
 	 		$body = "
@@ -311,7 +311,7 @@ if(isset($_SESSION['user']['idUser']))
 
 		$mySql = "INSERT INTO users (email, emailPass, name, password, address, telephone, logo, history, footer)
 				VALUES ('".$_GET['email']."','".$_GET['pswdMail']."','".$_GET['name']."','".sha1(md5($_GET['pswd']))."','".$_GET['address']."','".$_GET['telephone']."','','".$_GET['history']."','')";
-
+		
 		$connexio = connect();
 		$resultUser = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
