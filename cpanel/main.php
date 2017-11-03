@@ -93,7 +93,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 <!--TODO eliminar <span class="sr-only">Loading...</span> -->
 </center>	
 				</div> 	
-				<div class="col-xs-9 editNgView" data-ng-view="" ng-hide="loading"> 				
+				<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 editNgView" data-ng-view="" ng-hide="loading"> 				
   				</div>
   			</div>
 		</div>
