@@ -1,16 +1,17 @@
 
-<div class="col-lg-5 breadCum">   
-  <div class="col-lg-12 col-lg-offset-1">
+<div class="row breadCum">   
+  <div class="col-lg-11 col-lg-offset-1">
     <a class="breadJS" href="#">Inici</a>
     <span> | Comerç </span>
   </div>
 </div>
-<div class="row col-lg-12">
-	<div class="col-xs-3 col-lg-3"><img class="img-responsive" src="img/logos-shops/{{shops[0].logo}}"></div>
-	<div class="col-lg-6 push-lg-1 shop-name"><h1>{{shops[0].nameShop}}</h1></div>
+<div class="row">
+	<div class="col-xs-3 col-lg-3 col-lg-offset-1"><img class="img-responsive" src="img/logos-shops/{{shops[0].logo}}"/></div>
+	<div class="col-xs-9 col-lg-8 shop-name no-padding"><h1>{{shops[0].nameShop}}</h1></div>
+  <span class="col-lg-6"></span>
 </div>
-<div class="row col-lg-11 col-lg-push-1">
-	<div class="col-xs-6 col-lg-3 shop-info-container">
+<div class="row">
+	<div class="col-xs-6 col-lg-3 col-lg-offset-1 shop-info-container">
 		<div class="row"><img class="img-responsive col-xs-12" src="img/shops/{{shops[0].imagePref}}"></div>
     <div class="row shop-contact">
       <label class="col-xs-12">{{shops[0].address}}</label>
@@ -23,7 +24,7 @@
       <label class="col-xs-2"><i class="fa fa-instagram" aria-hidden="true"></i></label>
     </div>
   </div>
-  <div class="col-xs-6 col-lg-6 col-lg-push-1">
+  <div class="col-xs-6 col-lg-7 col-lg-offset-1">
     <div class="row">{{shops[0].descriptionLong}}</div>
     <div class="row">
       <label>HORARI DE LA BOTIGA</label><br>
@@ -38,16 +39,18 @@
       <span>{{shops[0].nameCategory}} / {{shops[0].nameSubCategory}}</span>
     </div>
   </div>
-	<div class="row col-lg-10 col-lg-push-1 shop-map">
+	<div class="col-xs-10 col-xs-offset-1 col-lg-10 col-lg-offset-1 shop-map">
 		<h2 class="text-center row">LOCALITZACIÓ</h2>
-		<div id="map" class="row"></div>
+		<div id="map"></div>
 	</div>
+  <div class="col-xs-1
+  "></div>
 </div>
-<div class="row text-center shop-photo">
+<div class="row text-center shop-photos">
   <h2>FOTOGRAFIES</h2>
   <div class="row">
-    <div class="col-xs-10 col-xs-offset-1 col-lg-11">
-      <div class="col-lg-3 col-lg-offset-1" ng-repeat="img in shops[0].imgUrl"><img class="img-responsive" src="img/shops/{{img.url}}"></div>
+    <div class="col-xs-10 col-xs-offset-1 col-lg-10">
+      <div class="col-xs-10 col-xs-offset-1 col-lg-4 col-lg-offset-0 shop-image" ng-repeat="img in shops[0].imgUrl"><img class="img-responsive" src="img/shops/{{img.url}}"></div>
     </div>
   </div>
 </div>
