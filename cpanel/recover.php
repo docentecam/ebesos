@@ -30,9 +30,9 @@
 					<h3>MODIFICAR CONTRASENYA	</h3>
 					<div class="row log20"></div>
 					<div ng-show="fail">
-						<div id="alertW"></div>
-						<div id="alert">
-							<i id="cross" class="fa fa-times" aria-hidden="true"></i>
+						<div ng-class="validation ? 'alert alert-success' : 'alert alert-danger'">
+							<i class="fa fa-times" ng-hide="validation" aria-hidden="true"></i>
+							<i class="fa fa-check" ng-show="validation" aria-hidden="true"></i>
 							<b>{{statusValidation}}</b>
 						</div>
 					</div>
@@ -113,6 +113,11 @@
 							}).then(function mySucces (response) {
 								$scope.rPass=response.data;
 								$scope.statusValidation = $scope.rPass[0]['status'];
+								$scope.validation = false;
+								if($scope.statusValidation == "La contrasenya s'ha actualitzat")
+								{
+									$scope.validation = true;
+								}
 								$scope.fail = true;
 							}, function myError (response) {
 								$scope.rPass = response.statusText;
@@ -122,8 +127,10 @@
 					}
 					else
 					{
-							$scope.statusValidation = "nope";
+							$scope.statusValidation = "Contrasenya i confirmar contrasenya no coincideixen";
 							$scope.loading = false;
+							$scope.validation = false;
+							$scope.fail = true;
 					}
 					
 				}

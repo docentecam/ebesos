@@ -152,8 +152,32 @@ session_start();
 	}
 	else if(isset($_GET['acc']) && $_GET['acc'] == 'crPass')
 	{
-		echo '[{"status":"llega"}]';
-		//echo '[{"status":"'.$message.'"}]';
+		$mySql = "SELECT forgotToken FROM users
+					WHERE forgotToken='".$_GET['fToken']."'";
+		$connexio = connect();
+		$resultPass = mysqli_query($connexio, $mySql);
+		disconnect($connexio);
+		$passC = 0;
+
+		$row=mySqli_fetch_array($resultPass);
+		$passC=mysqli_num_rows($resultPass);
+		if($passC != 0)
+		{
+
+			$mySql = "UPDATE users
+					SET password='".sha1(md5($_GET['password']))."', forgotToken=NULL 
+					WHERE forgotToken='".$_GET['fToken']."'";
+			$connexio = connect();
+			$updatePass = mysqli_query($connexio, $mySql);
+			disconnect($connexio);
+			$message = "La contrasenya s'ha actualitzat";
+		}
+		else
+		{
+			$message = "La contrasenya no es pot actualitzar";
+		}
+
+		echo '[{"status":"'.$message.'"}]';
 	}
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'footer'){
  		$mySql = "SELECT footer FROM users";
