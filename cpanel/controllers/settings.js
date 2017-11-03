@@ -19,10 +19,11 @@ $scope.accBbdd="";
 
 
 $scope.editParameter = function(act="",idSetting, value, literal ){
-		
+	
 		if (act=='Editar'){
 			$scope.act=act;
 			$scope.showSettings=true;
+			$scope.confirm=false;
 			$scope.idSetting = idSetting;
 			$scope.value= value;
 			$scope.literal= literal;
@@ -34,7 +35,8 @@ $scope.editParameter = function(act="",idSetting, value, literal ){
 			$scope.value= "";
 			$scope.literal= "";
 			$scope.idSetting = "";
-			$scope.showSettings=true;	
+			$scope.showSettings=true;
+			$scope.confirm=false;	
 			$scope.accBbdd="Add";
 		}
 
@@ -42,17 +44,20 @@ $scope.editParameter = function(act="",idSetting, value, literal ){
 
 			$http({
 				method : "GET",
-				url : "models/settings.php?acc=addUpdate&act="+act+"literal="+$scope.literal
+				url : "models/settings.php?acc=addUpdate&act="+act+"&literal="+$scope.literal+"&value="+$scope.value+"&idSetting="+$scope.idSetting
 			}).then(function mySucces(response) {
-				$scope.prueba = response.data;
-				$scope.showSettings=true;
+				$scope.settingsList = response.data;
+				console.log($scope.settingsList);
+				$scope.value= "";
+				$scope.literal= "";
+				$scope.confirm=true;
 
 			}, function myError(response) {
 				$scope.prueba = response.statusText;
 			})
 			.finally(function() {
 					$scope.loading=false;
-					console.log($scope.prueba);
+					console.log($scope.settingsList);
 
 			});	
 
