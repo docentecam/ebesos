@@ -78,7 +78,7 @@
 						<b>{{statusValidation}}</b>
 					</div>
 				</div>
-				<form class="form-horizontal" id="forgot" action="#">
+				<form class="form-horizontal" id="forgot" action="#" ng-show="formR">
 			  		<table id="tableForgot">
 			  			<tbody>
 				    		<div class="form-group">
@@ -88,7 +88,7 @@
 						     		</td>
 						    		<td>
 						      			<div class="col-sm-7">
-						        			<input type="email" class="form-control" id="mail" name="email" class="loginRadius">
+						        			<input type="email" class="form-control" id="mail" name="email" class="loginRadius" ng-model="mailR">
 						      			</div>
 						      		</td>
 				  				</tr>
@@ -110,7 +110,7 @@
 				      				</td>
 					    				<td>
 			      						<div class="col-sm-5 mt5">
-			        						<input type="text" class="form-control" id="captchaIntro" name="captchaIntro" placeholder="Introdueixi els números" class="loginRadius">
+			        						<input type="text" class="form-control" id="captchaIntro" name="captchaIntro" placeholder="Introdueixi els números" class="loginRadius" ng-model="capR">
 			      						</div>
 				      					<div class="col-sm-1 mt5">
 				        					<input type="button" class="btn" value="Enviar" ng-click="checkForgot();" style="background: #ced2de;">
@@ -156,6 +156,8 @@
 				$scope.forgot = false;
 				$scope.failForgot = false;
 				$scope.loading = true;
+				$scope.mailR = "";
+				$scope.capR = "";
 
 				$http({
 						method : "GET",
@@ -179,8 +181,7 @@
 						$scope.checkL=response.data;
 						$scope.fail = false;
 						$scope.statusValidation=$scope.checkL[0]['status'];
-						console.log($scope.checkL);
-						console.log($scope.statusValidation);
+						
 						if($scope.statusValidation=="Correct")
 						{
 
@@ -202,6 +203,7 @@
 				$scope.showForgot = function(){
   					$scope.login = false;
   					$scope.forgot = true;
+  					$scope.formR  = true;
 
   					var a = Math.ceil(Math.random() * 9)+ '';
 					var b = Math.ceil(Math.random() * 9)+ '';
@@ -227,11 +229,14 @@
 						}).then(function mySucces (response) {
 							$scope.names = response.data;
 							$scope.failForgot = true;
+							$scope.formR  = false;
 							$scope.statusValidation = $scope.names[0]['status'];
 						}, function myError (response) {
 						$scope.names = response.statusText;
 						}).finally(function(){
 							$scope.loading = false;
+							$scope.mailR = "";
+							$scope.capR = "";
 						});
 
   					}
