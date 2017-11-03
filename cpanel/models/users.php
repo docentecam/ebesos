@@ -165,7 +165,7 @@ session_start();
 		{
 
 			$mySql = "UPDATE users
-					SET password='".sha1(md5($_GET['password']))."', forgotToken IS NULL 
+					SET password='".sha1(md5($_GET['password']))."', forgotToken=NULL 
 					WHERE forgotToken='".$_GET['fToken']."'";
 			$connexio = connect();
 			$updatePass = mysqli_query($connexio, $mySql);

@@ -128,7 +128,8 @@
 							$scope.validation = false;
 							$scope.fail = true;
 					}
-					
+					$scope.cPass = "";
+					$scope.pass = "";
 				}
 
 			});
