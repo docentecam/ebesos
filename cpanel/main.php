@@ -28,6 +28,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 		<script src="controllers/slider.js"></script>
 		<script src="controllers/users.js"></script>
 		<script src="controllers/settings.js"></script>
+		<script src="controllers/promotions.js"></script>
 		<script src="controllers/main.js"></script>
 	</head>
 	<body id="container" data-ng-app="spaApp"  ng-controller="MainCtrl">
