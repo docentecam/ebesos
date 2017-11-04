@@ -15,16 +15,34 @@
 </div>
 
 <form name="formListNews" class="row" ng-show="showListNews" ng-repeat="newList in newsList">
-	 <div class="form-group col-sm-12">
-		<img id="photo" ng-src="../img/newsmedia/{{newList.urlPreferred}}" width="150px"> 
+	<div class="col-sm-3">
+		<div class="form-group col-sm-12">
+			<img id="photo" ng-src="../img/newsmedia/{{newList.urlPreferred}}" width="150px"> 
+		</div>
 	</div>
-	<div class="form-group col-sm-12">
-		<span>{{newList.date}}</span><br/><span>{{newList.title}}</span><br/><span>{{newList.titleSub}}</span>
+	<div class="col-sm-9">
+		<div class="row">
+			<div class="col-sm-3">
+			</div>
+			<div class="col-sm-5">
+				<span class="pull-right">Data Publicació {{newList.date}}</span>
+			</div>
+			<div class="col-sm-4">
+				<div class="form-group col-sm-12">
+					<input type="button" class="btn btn-success pull-left" value="Editar" alt="Edita dades de la noticia" class="btn btn-default" ng-click="createNew('Editar',newList.idNew)">&nbsp;&nbsp;&nbsp;
+					<input type="button" class="btn btn-success" value="Esborrar" alt="Esborrar dades de la noticia" class="btn btn-default" ng-click="deleteNew(newList.idNew)">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<span class="col-sm-12 pull-left"><strong>{{newList.title}}</strong></span>
+		</div>
+		<div class="row">
+			<span class="col-sm-12 pull-left">{{newList.titleSub}}</span>
+		</div>
+			
+		
 	</div>	
-	<div class="form-group col-sm-12">
-		<input type="button" class="btn btn-success pull-left" value="Editar" alt="Edita dades de la noticia" class="btn btn-default" ng-click="createNew('Editar',newList.idNew)">&nbsp;&nbsp;&nbsp;
-		<input type="button" class="btn btn-success" value="Esborrar" alt="Esborrar dades de la noticia" class="btn btn-default" ng-click="deleteNew(newList.idNew)">
-	</div>
 </form>
 
 

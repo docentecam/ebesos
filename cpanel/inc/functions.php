@@ -5,6 +5,7 @@
 		if (!$connexio)
 		{	die("Error al conectar");	}
 		mysqli_set_charset($connexio, "utf8");
+		mysqli_query($connexio,"SET lc_time_names = 'es_ES'");
 		return($connexio);
 	}
 	function disconnect($connexio)

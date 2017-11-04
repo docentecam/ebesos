@@ -2,12 +2,12 @@
 require("../inc/functions.php");
 
 	if(isset($_GET['acc']) && $_GET['acc'] == 'l'){
-
 		$mySql = "SELECT n.idNew , n.idUser, n.titleSub, w.description , DATE_FORMAT( n.date,'%d-%M-%Y') AS fecha, n.title , w.url";
 
 	$mySql .= " FROM news n, newsmedia w WHERE n.idNew=w.idNew AND w.preferred='Y'";
 	if(isset($_GET['idUser'])) $mySql.=" AND n.idUser=".$_GET["idUser"];
 	if(isset($_GET['idNew'])) $mySql.=" AND n.idNew=".$_GET['idNew'];
+	$mySql .= " ORDER BY fecha DESC";
 
 	$connexio = connect();
 	$resultNews = mysqli_query($connexio, $mySql);
