@@ -1,5 +1,5 @@
 <?php
-require('../inc/functions.php');
+require('../../inc/functions.php');
 
 		if(isset($_GET['acc']) && ($_GET['acc'] == "list"))
 		{

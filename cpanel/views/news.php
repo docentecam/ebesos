@@ -25,7 +25,7 @@
 			<div class="col-sm-3">
 			</div>
 			<div class="col-sm-5">
-				<span class="pull-right">Data Publicació {{newList.date}}</span>
+				<span class="pull-right">Data Publicació {{newList.dateList}}</span>
 			</div>
 			<div class="col-sm-4">
 				<div class="form-group col-sm-12">
@@ -47,35 +47,39 @@
 
 
 
-<form class="row" name="formNew" ng-show="divNew" >
-	<div class="form-group">
-		<h1>Notícia</h1>
+<form name="formNew" ng-show="divNew" >
+	<div class="row" >
+		<div class="form-group">
+			<h1>Notícia</h1>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-1" for="title">Títol</label>
+			<input type="text" class="col-sm-9 input-sm" name="title" ng-model="new.title">
+			<input type="date" class="col-sm-2 input-sm" name="dateBox" id="dateForm" name="date" ng-model="new.date">
+		</div>
+		<div class="form-group">
+			<label class="col-sm-1" for="titleSub">Subtítol</label>
+			<textarea class="col-sm-11" name="titleSub" ng-model="new.titleSub"></textarea>
+		</div>
 	</div>
-	<div class="form-group">
-		<label class="col-sm-1" for="title">Títol</label>
-		<input type="text" class="col-sm-8 input-sm" name="title" ng-model="new.title">
-		<span class="col-sm-1"></span>
-		<input type="date" class="col-sm-2 input-sm" name="dateBox" id="dateForm" name="date" ng-model="new.dateNew">
+	<div class="row form-group">
+
+			<label class="col-sm-10"><h2> Imatge Destacada</h2></label>
+			<label class="col-sm-2 btn btn-default" for="imgPref">Examinar</label>
+			<input type="file" id="imgPref" accept="image/jgp, image/png" onchange="angular.element(this).scope().selImages(this,'preferred')" ng-show="false"> 
+			<img class="col-sm-4 pull-left" id="photo" ng-src="../img/newsmedia/{{new.urlPreferred}}" > <span class="col-sm-8"></span>
+		</div>
+	<div class="row form-group">
+			<label class="col-sm-2" for="description">Descripció</label>
+			<input type="text" class="col-sm-10 input-sm" placeholder="Descripció" name="description" ng-model="new.descPreferred" required >
 	</div>
-	<div class="form-group">
-		<label class="col-sm-1" for="titleSub">Subtítol</label>
-		<textarea class="col-sm-11" name="titleSub" ng-model="new.titleSub"></textarea>
-	</div>
-	<div class="form-group">
-		<label for="description">Descripció</label>
-		<input type="text" class="input-sm" placeholder="Descripció" name="description" ng-model="new.descPreferred" required >
-	</div>
-	<div class="form-group">
-		<label for="title" class="col-sm-10"><h2> Imatge Destacada</h2></label>
-		<input type="file" class="col-sm-2 btn btn-default" value="Canviar preferida" accept="image/jgp, image/png" onchange="angular.element(this).scope().selImages(this,'preferred')"> 
-		<img class="col-sm-4 pull-left" id="photo" ng-src="../img/newsmedia/{{new.urlPreferred}}" > 
-	</div>
-	
-	<div class="form-group">
-		<span class="col-sm-1"></span>
-		<input type="button" class="btn btn-success pull-left col-sm-10" name="editNew" value="{{act}} Noticia" class="btn btn-default" ng-click="">
+	<div class="row form-group">
+			<span class="col-sm-1"></span>
+			<input type="button" class="btn btn-success pull-left col-sm-10" name="editNew" value="{{act}} Noticia" class="btn btn-default" ng-click="">
 	</div>
 </form>
+
+
 
 <form class="row" name="formImgs" ng-show="divImgs">
 	<div class="form-group">
@@ -89,8 +93,6 @@
 			<input type="button" class="col-sm-6 btn btn-default pull-left" value="Modificar" alt="" class="btn btn-default" ng-click="changeImgN()">
 			<input type="button" class="col-sm-6 btn btn-default pull-left" value="Eliminar" alt="" class="btn btn-default" ng-click="imgDelete(image.idNewMedia, image.url)">
 			<i class="col-sm-6 fa fa-pencil" aria-hidden="true"></i><i class=" col-sm-6 fa fa-trash" aria-hidden="true"></i>
-			<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
-<span class="sr-only">Loading...</span>
 		</div>
 	</div>
 </form>
