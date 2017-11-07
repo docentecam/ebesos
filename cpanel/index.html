@@ -30,9 +30,9 @@
 					<h3>LOGIN</h3>
 					<div class="row log20"></div>
 					<div ng-show="fail">
-						<div id="alertW"></div>
-						<div id="alert">
-							<i id="cross" class="fa fa-times" aria-hidden="true"></i>
+						<div ng-class="validation ? 'alert alert-success' : 'alert alert-danger'">
+							<i class="fa fa-times" ng-hide="validation" aria-hidden="true"></i>
+							<i class="fa fa-check" ng-show="validation" aria-hidden="true"></i>
 							<b>{{statusValidation}}</b>
 						</div>
 					</div>
@@ -181,15 +181,18 @@
 						$scope.checkL=response.data;
 						$scope.fail = false;
 						$scope.statusValidation=$scope.checkL[0]['status'];
+
 						
 						if($scope.statusValidation=="Correct")
 						{
 
 							$window.location.href = "main.php";
+							$scope.validation = true;
 						}
 						else
 						{
 							$scope.fail = true;
+							$scope.validation = false;
 							
 						}
 						

@@ -32,21 +32,7 @@ select
     background-color:white;
     opacity: 0.98;
 }
-#alertW
-{
-  background-color: #ffb0b0;
-  width: 100%;
-  height: 10px;
-}
-#alert
-{
-  background-color: #ffb0b0;
-  width: 100%;
-  height: 33px;
-  text-align: center;
-  vertical-align: middle;
-  margin-bottom: 2%;
-}
+
 .log20
 {
   height: 20px

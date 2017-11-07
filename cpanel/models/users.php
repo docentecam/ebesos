@@ -243,8 +243,18 @@ if(isset($_SESSION['user']['idUser']))
 			echo $dataUser;
 	}
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'listUsers') {
-		$mySql = "SELECT idUser, name, privileges
+		if($_SESSION['user']['idUser'] == 1)
+		{
+			$mySql = "SELECT idUser, name, privileges
 				FROM users";
+		}
+		else
+		{
+			$mySql = "SELECT idUser, name, privileges
+				FROM users
+				WHERE idUser=".$_SESSION['user']['idUser'];
+		}
+		
 		$connexio = connect();
 		$resultUser = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
