@@ -7,21 +7,20 @@ angular.module('spaApp')
 	}).then(function mySucces(response) {
 		$scope.shops = response.data;
     console.log($scope.shops);
-    $scope.loading = false;
 	}, function myError(response) {
 		$scope.shops = response.statusText;
 	});
 
-  $scope.loading = true;
   $http({
     method : "GET",
     url : "models/xmlCreation.php?acc=shop&idShop="+$routeParams.idShop
   }).then(function mySucces (response) {
     $scope.categories=response.data;
-    $scope.loading = false;
     console.log(response.data);
   }, function myError (response) {
     $scope.categories = response.statusText;
+  }).finally(function(){
+      $scope.loading = false;
   });
 });
 
@@ -33,24 +32,23 @@ angular.module('spaApp')
     url : "models/xmlCreation.php"
   }).then(function mySucces (response) {
     $scope.categories=response.data;
-    $scope.loading = false;
     console.log(response.data);
   }, function myError (response) {
     $scope.categories = response.statusText;
   });
 
-  $scope.loading = true;
   $http({
     method : "GET",
     url : "models/categories.php?acc=cat"
   }).then(function mySucces (response) {
     $scope.categories=response.data;
-    $scope.loading = false;
     var selectCategory = document.getElementsByName('selectSubCategory');
     console.log(selectCategory);
     console.log(response.data);
   }, function myError (response) {
     $scope.categories = response.statusText;
+  }).finally(function(){
+      $scope.loading = false;
   });
 
   $scope.categoryFilter = function(filter = "", parameter = ""){

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="shortcut icon" href="../img/logos-assoc/4.png">
 	<title>EIX COMERCIAL</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,12 +13,15 @@
 	<script type='text/javascript' src="./bower_components/angular/angular.js"></script>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
-	<link rel="shortcut icon" href="../img/logos-assoc/4.png">
+	
 
 
 
 </head>
 <body ng-app="myApp" ng-controller="LoginCtrl">
+	<div id="loadingData" ng-show="loading">
+		<center><img id="loadingIcon" src="../img/loading_icon.gif"></center>	<!-- ToDo -->
+	</div>
 	<div ng-show="login">
 		<div class="row log250"></div>
 		<div class="row">
@@ -26,9 +30,9 @@
 					<h3>LOGIN</h3>
 					<div class="row log20"></div>
 					<div ng-show="fail">
-						<div id="alertW"></div>
-						<div id="alert">
-							<i id="cross" class="fa fa-times" aria-hidden="true"></i>
+						<div ng-class="validation ? 'alert alert-success' : 'alert alert-danger'">
+							<i class="fa fa-times" ng-hide="validation" aria-hidden="true"></i>
+							<i class="fa fa-check" ng-show="validation" aria-hidden="true"></i>
 							<b>{{statusValidation}}</b>
 						</div>
 					</div>
@@ -74,7 +78,7 @@
 						<b>{{statusValidation}}</b>
 					</div>
 				</div>
-				<form class="form-horizontal" id="forgot" action="#">
+				<form class="form-horizontal" id="forgot" action="#" ng-show="formR">
 			  		<table id="tableForgot">
 			  			<tbody>
 				    		<div class="form-group">
@@ -84,7 +88,7 @@
 						     		</td>
 						    		<td>
 						      			<div class="col-sm-7">
-						        			<input type="email" class="form-control" id="mail" name="email" class="loginRadius">
+						        			<input type="email" class="form-control" id="mail" name="email" class="loginRadius" ng-model="mailR">
 						      			</div>
 						      		</td>
 				  				</tr>
@@ -93,7 +97,6 @@
 				    		<div class="form-group">
 				    			<tr>
 					  				<td>
-				      					<!-- <label style="padding-left: 15%" class="control-label col-sm-2" for="captcha">Captcha:</label> -->
 				      				</td>
 						    		<td>
 					      				<div class="col-sm-6 col-push-sm-3" id="captchaDiv"></div>
@@ -107,7 +110,7 @@
 				      				</td>
 					    				<td>
 			      						<div class="col-sm-5 mt5">
-			        						<input type="text" class="form-control" id="captchaIntro" name="captchaIntro" placeholder="Introdueixi els números" class="loginRadius">
+			        						<input type="text" class="form-control" id="captchaIntro" name="captchaIntro" placeholder="Introdueixi els números" class="loginRadius" ng-model="capR">
 			      						</div>
 				      					<div class="col-sm-1 mt5">
 				        					<input type="button" class="btn" value="Enviar" ng-click="checkForgot();" style="background: #ced2de;">
@@ -122,7 +125,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="row" id="footerLogin"> <!-- TODO Mirar y tocar -->
+	<div class="row" id="footerLogin">
 		<footer class="footer-bs" id="footer">
 			<div class="col-xs-7 footerLog">
 				<div class="row">
@@ -152,7 +155,9 @@
 				$scope.login = true;
 				$scope.forgot = false;
 				$scope.failForgot = false;
-				$scope.pass = "";
+				$scope.loading = true;
+				$scope.mailR = "";
+				$scope.capR = "";
 
 				$http({
 						method : "GET",
@@ -161,11 +166,14 @@
 						$scope.footer=response.data;
 					}, function myError (response) {
 						$scope.footer = response.statusText;
+					}).finally(function(){
+						$scope.loading = false;
 					});
 
   				$scope.checking = function(){
   					$scope.email = check['user'].value;
   					$scope.password = check['pswd'].value;
+  					$scope.loading = true;
 					$http({
 						method : "GET",
 						url : "models/users.php?acc=login&email="+$scope.email+"&password="+$scope.password
@@ -173,26 +181,32 @@
 						$scope.checkL=response.data;
 						$scope.fail = false;
 						$scope.statusValidation=$scope.checkL[0]['status'];
-						console.log($scope.checkL);
-						console.log($scope.statusValidation);
+
+						
 						if($scope.statusValidation=="Correct")
 						{
 
 							$window.location.href = "main.php";
+							$scope.validation = true;
 						}
 						else
 						{
 							$scope.fail = true;
+							$scope.validation = false;
 							
 						}
-						$scope.pass = "";
+						
 					}, function myError (response) {
 						$scope.checkL = response.statusText;
+					}).finally(function(){
+							$scope.loading = false;
+							$scope.pass = "";
 					});
 				};
 				$scope.showForgot = function(){
   					$scope.login = false;
   					$scope.forgot = true;
+  					$scope.formR  = true;
 
   					var a = Math.ceil(Math.random() * 9)+ '';
 					var b = Math.ceil(Math.random() * 9)+ '';
@@ -208,19 +222,26 @@
   					$scope.captcha = forgot['captchaIntro'].value;
   					$scope.checkCaptcha = forgot['txtCaptcha'].value
 
+
   					if ($scope.captcha == $scope.checkCaptcha)
   					{
-  						
+  						$scope.loading = true;
   						$http({
 						method : "POST",
 						url : "models/users.php?acc=forgot&mail="+$scope.mail
 						}).then(function mySucces (response) {
 							$scope.names = response.data;
 							$scope.failForgot = true;
+							$scope.formR  = false;
 							$scope.statusValidation = $scope.names[0]['status'];
 						}, function myError (response) {
 						$scope.names = response.statusText;
+						}).finally(function(){
+							$scope.loading = false;
+							$scope.mailR = "";
+							$scope.capR = "";
 						});
+
   					}
   					else
   					{

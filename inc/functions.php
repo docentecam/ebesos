@@ -4,9 +4,11 @@ require "phpmailer/phpmailer.class.php";
 	{
 		$connexio=@mysqli_connect("localhost","root","","ddb99266");
 		// $connexio=@mysqli_connect("mysql.hostinger.es","u287405309_ebeso","email12345","u287405309_ebeso");
+		// $connexio=@mysqli_connect("mysql.hostinger.es","u535170345_besos","ebesos","u535170345_besos");
 		if (!$connexio)
 		{	die("Error al conectar");	}
 		mysqli_set_charset($connexio, "utf8");
+		mysqli_query($connexio,"SET lc_time_names = 'ca_ES'");
 		return($connexio);
 	}
 	function disconnect($connexio)

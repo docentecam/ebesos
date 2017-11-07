@@ -3,6 +3,7 @@ angular.module('spaApp')
 	$scope.showShop = false;
 	$scope.shopOne = "[{{}}]";
 	$scope.filterId = 1;
+	$scope.loading = true;
 	console.log($scope.showShop);
 	$http({
 		method : "GET",
@@ -13,8 +14,6 @@ angular.module('spaApp')
 		$scope.privilegesLg = $scope.userLg[0].sessionPrivileges
 		if($scope.idUserLg==1) $scope.filterShops="!1";
 		else $scope.filterShops = $scope.idUserLg;
-		$scope.loading = false;
-    $scope.loading = false;
 	}, function myError(response) {
 		$scope.shops = response.statusText;
 	});
@@ -24,8 +23,6 @@ angular.module('spaApp')
 		url : "models/users.php?acc=listUsers"
 	}).then(function mySucces(response) {
 		$scope.userList = response.data;
-		$scope.loading = false;
-    $scope.loading = false;
 	}, function myError(response) {
 		$scope.shops = response.statusText;
 	});
@@ -35,14 +32,18 @@ angular.module('spaApp')
 		url : "models/shops.php?acc=list"
 	}).then(function mySucces(response) {
 		console.log(response.data);
-		$scope.shopsList = response.data;
-		$scope.loading = false;
-    $scope.loading = false;
+		$scope.data = response.data;
+		$scope.shopsList = $scope.data[0].list;
+		$scope.allSubCat = $scope.data[0].allSubCat;
+		console.log($scope.allSubCat);
 	}, function myError(response) {
 		$scope.shops = response.statusText;
+	}).finally(function(){
+			$scope.loading = false;
 	});
 
 	$scope.shopOneEdit = function(index, $type, $idShop){
+		$scope.loading = true;
 		$http({
 			method : "GET",
 			url : "models/shops.php?acc=e&idShop="+$idShop
@@ -52,9 +53,10 @@ angular.module('spaApp')
 			$scope.subCategories = $scope.personalData[0].subCategories;
 			$scope.images = $scope.personalData[0].images;
 			console.log($scope.personalData);
-	    $scope.loading = false;
 		}, function myError(response) {
 			$scope.shops = response.statusText;
+		}).finally(function(){
+			$scope.loading = false;
 		});
 		$scope.shopOne = $scope.shopsList[index];
 		$scope.type = $type;
@@ -64,7 +66,6 @@ angular.module('spaApp')
 		// $scope.users = $scope.showShop[index].users;
 		// $scope.subCategories = $scope.showShop[index].subCategories;
 		$scope.showShop = true;
-		$scope.loading = false;
 	};
 	$scope.shopOneDelete = function($idShop){
 		console.log($idShop);
@@ -74,11 +75,12 @@ angular.module('spaApp')
 			url : "models/shops.php?acc=delete&idShop=" + $idShop
 		}).then(function mySucces (response) {
 			$scope.shopDeleted = response.data
-			$scope.loading = false;
 			//shopOneEdit($idShop);
 			console.log("hola: " + $scope.shopDeleted);
 		}, function myError (response) {
 			$scope.shopOne = response.statusText;
+		}).finally(function(){
+			$scope.loading = false;
 		});
 	};
 	$scope.shopOneAdd = function($idShop){
@@ -91,13 +93,31 @@ angular.module('spaApp')
 		else $scope.filterShops = $idUserL;
 	};
 
-	$scope.preferredSubCat = function($idShopCategorySub){
+	$scope.preferredSubCat = function($idShopCategorySub, $idShop){
+		$scope.loading = true;
+		$http({
+			method : "GET",
+			url : "models/shops.php?acc=ePrefSubCat&idShop="+$idShop+"&idShopCategorySub="+$idShopCategorySub
+		}).then(function mySucces(response) {
+			//console.log(response.data);
+			$scope.subCategoriesData = response.data;
+			$scope.subCategoriesShop = $scope.subCategoriesData[0].shopCategories;
+			$scope.subCategories = $scope.personalData[0].subCategories;
+			
+			// console.log($scope.subCategoriesData);
+			// console.log($scope.subCategoriesShop);
+			//console.log($scope.subCategories);
+	    
+		}, function myError(response) {
+			$scope.shops = response.statusText;
+		}).finally(function(){
+			$scope.loading = false;
+		});
 		console.log($idShopCategorySub);
 
 	};
 	$scope.subCategory = function($idShopCategorySub){
 		console.log($idShopCategorySub);
-
 	};
 	$scope.deleteSubCategory = function($idShopCategorySub, $idShop){
 		$scope.loading = true;
@@ -109,13 +129,15 @@ angular.module('spaApp')
 			$scope.subCategoriesData = response.data;
 			$scope.subCategoriesShop = $scope.subCategoriesData[0].shopCategories;
 			$scope.subCategories = $scope.subCategoriesData[0].categoriesSub;
-			$scope.loading = false;
+			
 			console.log($scope.subCategoriesData);
 			console.log($scope.subCategoriesShop);
 			//console.log($scope.subCategories);
-	    $scope.loading = false;
+	    
 		}, function myError(response) {
 			$scope.shops = response.statusText;
+		}).finally(function(){
+			$scope.loading = false;
 		});
 		console.log($scope.subCategoriesShop);
 		console.log($idShop);

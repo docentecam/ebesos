@@ -1,5 +1,5 @@
 <?php 
-require("../inc/functions.php");
+require("../../inc/functions.php");
 session_start();
 
 	if(isset($_GET['acc']) && $_GET['acc'] == 'login')
@@ -60,7 +60,7 @@ session_start();
 
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'forgot')
 	{
-		$mySql = "SELECT idUser FROM users 
+		$mySql = "SELECT idUser, emailPass, name FROM users 
 					WHERE email='".$_GET['mail']."'";
 		$connexio = connect();
 		$resultCheck = mysqli_query($connexio, $mySql);
@@ -71,16 +71,16 @@ session_start();
 		$checkEmail=mysqli_num_rows($resultCheck);
 		if($checkEmail!=0)
 		{
-			$checkEmail=$row['idUser'];
+			$checkEmail = $row['idUser'];
+			$name = $row['name'];
 		}
-
 	 	if($checkEmail == 0)
 	 	{
 	 		$message = "L'usuari no existeix";
 	 	}
 	 	else if($connexio == "Error al conectar")
 	 	{
-	 		$message = "Error al conectar";
+	 		$message = "Error al connectar";
 	 	}
 	 	else
 	 	{
@@ -97,11 +97,87 @@ session_start();
 			$updateForgotToken = mysqli_query($connexio, $mySql);
 			disconnect($connexio);
 	 		$message = "Correct";
-	 		$mySql = "SELECT  FROM shops";
-	 		$body = "";
+	 		$mySql = "SELECT value FROM settings
+	 					WHERE idSetting = 7";
+	 		$connexio = connect();
+	 		$resultSetting = mysqli_query($connexio, $mySql);
+	 		disconnect($connexio);
+
+	 		$row=mySqli_fetch_array($resultSetting);
+			$Setting=mysqli_num_rows($resultSetting);
+
+			$Setting = $row['value'];
+			for($i=2;$i<6;$i++)
+			{
+				${"random". $i} = rand(0,9);
+				for($j=1;$j<149;$j++)
+				{
+					${"random". $i}.= rand(0,9);
+				}
+			}
+			
+			$mySql = "SELECT email, emailPass, logo, name FROM users
+	 					WHERE idUser = 1";
+	 		$connexio = connect();
+	 		$resultE = mysqli_query($connexio, $mySql);
+	 		disconnect($connexio);
+
+	 		$row=mySqli_fetch_array($resultE);
+			$mail=mysqli_num_rows($resultE);
+
+			$mail = $row['email'];
+			$passE = $row['emailPass'];
+			$logoM = $row['logo'];
+			$nameM = $row['name'];
+			
+
+	 		$body = "
+			 		<html>
+			 		<head>
+			 		</head>
+			 		<body>
+			 			<label>Benvolgut ".$name.",</label><br><br>
+			 			<p>
+			 				Hem rebut un avís que ens informa que no recorda la seva contrasenya, li adjuntem un enllaç perquè pugui canviar la seva contrasenya.
+			 			</p><br><br>
+			 			<a href='".$Setting."/cpanel/recover.php?acc=r&ft=".$random5."&dt=".$random3."&rt=".$random."&nt=".$random4."&pt=".$random2."'>Premi aquí</a>
+			 		</body>
+			 		</html>";
+
+
+	 		sendMails($_GET['mail'], "Reiniciar la contrasenya", $nameM, $mail, $passE, $body, $logoM);
 	 	}
 
 	 	echo '[{"status":"'.$message.'"}]';
+	}
+	else if(isset($_GET['acc']) && $_GET['acc'] == 'crPass')
+	{
+		$mySql = "SELECT forgotToken FROM users
+					WHERE forgotToken='".$_GET['fToken']."'";
+		$connexio = connect();
+		$resultPass = mysqli_query($connexio, $mySql);
+		disconnect($connexio);
+		$passC = 0;
+
+		$row=mySqli_fetch_array($resultPass);
+		$passC=mysqli_num_rows($resultPass);
+		if($passC != 0)
+		{
+
+			$mySql = "UPDATE users
+					SET password='".sha1(md5($_GET['password']))."', forgotToken=NULL 
+					WHERE forgotToken='".$_GET['fToken']."'";
+			$connexio = connect();
+			$updatePass = mysqli_query($connexio, $mySql);
+			disconnect($connexio);
+			$message = "La contrasenya s'ha actualitzat";
+		}
+		else
+		{
+			$message = "La contrasenya no es pot actualitzar";
+		}
+
+		echo '[{"status":"'.$message.'"}]';
 	}
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'footer'){
  		$mySql = "SELECT footer FROM users";
@@ -167,8 +243,18 @@ if(isset($_SESSION['user']['idUser']))
 			echo $dataUser;
 	}
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'listUsers') {
-		$mySql = "SELECT idUser, name, privileges
+		if($_SESSION['user']['idUser'] == 1)
+		{
+			$mySql = "SELECT idUser, name, privileges
 				FROM users";
+		}
+		else
+		{
+			$mySql = "SELECT idUser, name, privileges
+				FROM users
+				WHERE idUser=".$_SESSION['user']['idUser'];
+		}
+		
 		$connexio = connect();
 		$resultUser = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
@@ -233,9 +319,9 @@ if(isset($_SESSION['user']['idUser']))
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'createUser') {
 		$message='';
 
-		$mySql = "INSERT INTO users (email, emailPass, name, password, address, telephone, logo, history, forgotToken, footer)
-				VALUES ('".$_GET['email']."','".$_GET['pswdMail']."','".$_GET['name']."','".sha1(md5($_GET['pswd']))."','".$_GET['address']."','".$_GET['telephone']."','','".$_GET['history']."','','')";
-
+		$mySql = "INSERT INTO users (email, emailPass, name, password, address, telephone, logo, history, footer)
+				VALUES ('".$_GET['email']."','".$_GET['pswdMail']."','".$_GET['name']."','".sha1(md5($_GET['pswd']))."','".$_GET['address']."','".$_GET['telephone']."','','".$_GET['history']."','')";
+		
 		$connexio = connect();
 		$resultUser = mysqli_query($connexio, $mySql);
 		disconnect($connexio);

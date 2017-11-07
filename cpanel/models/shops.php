@@ -1,5 +1,5 @@
 <?php
-require('../inc/functions.php');
+require('../../inc/functions.php');
 session_start();
 
 if(isset($_GET['acc']) && $_GET['acc'] == 'list')
@@ -18,21 +18,23 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'list')
 
 	disconnect($connexio);
 
-	$dataShops = "[";
+	$dataShops = "[{";
+	$dataShops .= '"list":';
+	$dataShops .= "[";
 	$i = 0;
 	while($row = mysqli_fetch_array($resultShops))
 	{
 		if($i != 0) $dataShops .= ",";
 
 		$dataShops .= '{"idShop":"'.$row['idShop'].'", "name":"'.$row['name'].'", "lng":"'.$row['lng'].'", "lat":"'.$row['lat'].'", "logo":"'.$row['logo'].'", "telephone":"'.$row['telephone'].'", "email":"'.$row['email'].'", "address":"'.$row['address'].'", "schedule":"'.$row['schedule'].'", "description":"'.$row['description'].'", "descriptionLong":"'.$row['descriptionLong'].'", "web":"'.$row['web'].'", "cp":"'.$row['cp'].'", "ciutat":"'.$row['ciutat'].'", "idUser":"'.$row['idUser'].'", "imgPref":"'.$row['url'].'"';
-		
-		$dataShops .= ', "subCategoriesShop":';
-
-		$dataShops .= listShopCategoriesSub($row['idShop']);
 
 		$dataShops .= '}';
 		$i++;
 	}
+	$dataShops .= "]";
+	$dataShops .= ', "allSubCat":';
+	$dataShops .= listAllSubCat();
+	$dataShops .= '}';
 	$dataShops .= "]";
 
 	echo $dataShops;
@@ -169,7 +171,24 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'delsc')
 
 	disconnect($connexio);
 
-	//echo $mySql;
+	echo '[{"shopCategories":'.listShopCategoriesSub($idShop).', "categoriesSub":'.listCategoriesSub($idShop).'}]';
+}
+else if(isset($_GET['acc']) && $_GET['acc'] == 'ePrefSubCat')
+{	
+	$idShop = $_GET['idShop'];
+	$idShopCategorySub = $_GET['idShopCategorySub'];
+	$mySql = "UPDATE shopcategoriessub SET preferred='N' WHERE `idShop`='$idShop';";
+
+	$connexio = connect();
+
+	$updateOldPref = mysqli_query($connexio, $mySql);
+
+	$mySql = "UPDATE shopcategoriessub SET preferred='Y' WHERE `idShopCategorySub`='$idShopCategorySub';";
+
+	$updateNewPref = mysqli_query($connexio, $mySql);
+
+	disconnect($connexio);
+
 	echo '[{"shopCategories":'.listShopCategoriesSub($idShop).', "categoriesSub":'.listCategoriesSub($idShop).'}]';
 }
 else if(isset($_GET['acc']) && $_GET['acc'] == 'loginC'){
@@ -235,7 +254,31 @@ function listCategoriesSub($idShop)
 
 	return $datasc;
 }
+function listAllSubCat()
+{
+	$mySql = "SELECT cs.idSubCategory, cs.name
+			FROM categoriessub cs";
 
+	$connexio = connect();
+
+	$resultAllSubCategories = mysqli_query($connexio, $mySql);
+
+	disconnect($connexio);
+	$i = 0;
+
+	$datasc = '[';
+	while($row = mysqli_fetch_array($resultAllSubCategories))
+	{
+		if($i != 0) $datasc .= ",";
+
+		$datasc .= '{"idSubCategory":"'.$row['idSubCategory'].'", "nameSubCategory":"'.$row['name'].'"}';
+
+		$i++;
+	}
+	$datasc .= ']';
+
+	return $datasc;
+}
 function listShopCategoriesSub($idShop)
 {
 	$m = 0;
@@ -319,22 +362,4 @@ function listUsers()
 
 	return $datau;
 }
-function getVariables()
-{
-	$name = $_POST["name"];
-	$idUser = $_POST["idUser"];
-	$descriptionLong = $_POST["descriptionLong"];
-	$description = $_POST["description"];
-	$ciutat = $_POST["ciutat"];
-	$logo = $_FILES["logo"]["file"];
-	$web = $_POST["web"];
-	$lat = $_POST["lat"];
-	$lng = $_POST["lng"];
-	$telehpone = $_POST["telephone"];
-	$cp = $_POST["cp"];
-	$address = $_POST["address"];
-	$schedule = $_POST["schedule"];
-	$email = $_POST["email"];
-}
-
 ?>

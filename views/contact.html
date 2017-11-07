@@ -60,7 +60,7 @@
 			      					<label class="control-label col-lg-8" for="captcha"></label>
 			      				</td>
 					    		<td>
-					      			<div class="col-xs-11 col-lg-8" id="captchaDiv">
+					      			<div class="col-xs-11 col-sm-6 col-md-6 col-lg-8" id="captchaDiv">
 					     			</div>
 			     				</td>
 			  				</tr>
@@ -70,7 +70,7 @@
 				  				<td>
 			      				</td>
 				    			<td>
-		      						<div class="col-xs-12 col-lg-9 col-lg-offset-1">
+		      						<div id="captchaInput" class="col-xs-12 col-lg-8 col-sm-7 col-md-7">
 		      							<input type="hidden" id="txtCaptcha">
 		        						<input type="text" class="form-control" name="captchaInput" id="captchaInput" placeholder="Introdueixi els números">
 		      						</div>
@@ -86,7 +86,7 @@
 		  	<div class="col-lg-5 col-lg-push-1 col-xs-push-1" id="divInfo">
 		  		<label id="infoEix">Informació de l'Eix</label>
 		  		<div ng-repeat="mail in infoMail" class="row" id="emailContact"> 
-	  				<label>Email de Contacte:</label> {{mail.email}}
+	  				<label>Email de Contacte:</label> <a href="mailto:{{mail.email}}">{{mail.email}}</a>
 		  		</div>
 		  		<div ng-repeat="mail in infoMail" class="row" id="directionContact"> 
 		  			<label>Direcció:</label> {{mail.address}}

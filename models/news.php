@@ -36,7 +36,7 @@ if(isset($_GET['acc'])&&$_GET['acc']=='news'){
 
 else if(isset($_GET['acc'] )&& $_GET['acc']=='showNew') {
 
-$mySql = "SELECT n.idNew, n.date, n.title, n.titleSub, n.idNew, w.idNew, w.type, w.url FROM news n, newsmedia w WHERE n.idNew=w.idNew AND w.preferred='Y' AND w.type='I' AND n.idNew=".$_GET["idNew"] ;
+	$mySql = "SELECT n.idNew, n.date, n.title, n.titleSub, n.idNew, w.idNew, w.type, w.url FROM news n, newsmedia w WHERE n.idNew=w.idNew AND w.preferred='Y' AND w.type='I' AND n.idNew=".$_GET["idNew"] ;
 
 	$connexio = connect();
 	$resultNewImgPrefered = mysqli_query($connexio, $mySql);

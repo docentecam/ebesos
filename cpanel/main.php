@@ -5,6 +5,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 ?>
 	<html>
 <head>
+		<link rel="shortcut icon" href="../img/logos-assoc/4.png">
 		<title>EIX BESÒS MARESME</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +21,6 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 		</script>
 
 		<link rel="stylesheet" href="css/styles.css">
-		<link rel="shortcut icon" href="../img/logos-assoc/4.png">
 		<script src="js/app.js"></script>
 		<script src="controllers/news.js"></script>
 		<script src="controllers/shops.js"></script>
@@ -28,6 +28,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 		<script src="controllers/slider.js"></script>
 		<script src="controllers/users.js"></script>
 		<script src="controllers/settings.js"></script>
+		<script src="controllers/promotions.js"></script>
 		<script src="controllers/main.js"></script>
 	</head>
 	<body id="container" data-ng-app="spaApp"  ng-controller="MainCtrl">
@@ -75,25 +76,25 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
     					</div>
     					<div class="navbar-collapse collapse sidebar-navbar-collapse" >
 							<ul class="nav navbar-nav" >
-								<li role="presentation" class="mainNav"><a href="#/associations">Associacions</a></li>						   
-							    <li role="presentation" class="mainNav"><a href="#/shops">Comerços</a></li>
+								<?php if($_SESSION['user']['privileges'] =='E' || $_SESSION['user']['privileges'] =='A') echo '<li role="presentation" class="mainNav"><a href="#/associations">Associacions</a></li>
+								<li role="presentation" class="mainNav"><a href="#/shops">Comerços</a></li>' ?>
 							    <li role="presentation" class="mainNav"><a href="#/promotions">Promocions</a></li>
-							    <li role="presentation" class="mainNav"><a href="#/news">Notícies</a></li>
-							    <li role="presentation" class="mainNav"><a href="#/slider">Slider</a></li>
+							    <?php if($_SESSION['user']['privileges'] =='E' || $_SESSION['user']['privileges'] =='A') echo '<li role="presentation" class="mainNav"><a href="#/news">Notícies</a></li>' ?>
+							    <?php if($_SESSION['user']['privileges'] =='E') echo '<li role="presentation" class="mainNav"><a href="#/slider">Slider</a></li>
 							    <li role="presentation" class="mainNav"><a href="#/subcategories">Subcategories</a></li>
 							    <li role="presentation" class="mainNav"><a href="#/settings">Paràmetres</a></li>
-							    
-							    
-							    <li role="presentation" class="mainNav"><a href="#/formFichero">Enllaços del footer</a></li>
+							    <li role="presentation" class="mainNav"><a href="#/formFichero">Enllaços del footer</a></li>' ?>
 							</ul>
     					</div><!--/.nav-collapse -->
   					</div>
 				</div>  					
 			</div>
 			<div id="loadingData" ng-show="loading">
-					<center><img  src="../img/loading_icon.gif" style="margin-top: 21%;"></center>	
+					<center><!--TODO eliminar <img  src="../img/loading_icon.gif" style="margin-top: 21%;"> --><i class="fa fa-spinner fa-spin fa-3x fa-fw"></i> 
+<!--TODO eliminar <span class="sr-only">Loading...</span> -->
+</center>	
 				</div> 	
-				<div class="col-xs-9 editNgView" data-ng-view="" ng-hide="loading"> 				
+				<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 editNgView" data-ng-view="" ng-hide="loading"> 				
   				</div>
   			</div>
 		</div>

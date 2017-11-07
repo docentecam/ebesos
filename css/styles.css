@@ -57,16 +57,12 @@ a:hover{
 	text-decoration: none;
 	color: black;
 	outline: none;
-
 }
-.category-name
-{
-	margin-left: 3px;
-	margin-top: 4px;
+.no-padding{
+	padding: 0!important;
 }
 .category-select
 {
-	margin-left: 9px;
 	border-radius: 3px;
 	height: 35px;
 }
@@ -81,19 +77,20 @@ a:hover{
 .label-mer{
 	padding: 5px;
 }
-.acColor{
+.acColor, .xnoColor, .merColor{
 	height: 20px;
 	width: 20px;
+}
+.acColor{
+	margin-left: -15px;
 	background-color: #124290;
 }
 .xnoColor{
-	height: 20px;
-	width: 20px;
+	margin-left: -15px;
 	background-color: #952C20;
 }
 .merColor{
-	height: 20px;
-	width: 20px;
+	margin-left: -15px;
 	background-color: #80AE38;
 }
 /*FIN COMERCIAL MAP*/
@@ -104,9 +101,6 @@ a:hover{
 	border-left: 1px solid rgb(181, 183, 197);
 	padding-left: 25px;
 }
-.shop-name{
-	margin-top: 5%;
-}
 .shop-contact{
 	margin-top: 10px;
 }
@@ -114,7 +108,7 @@ a:hover{
 	color: rgb(181, 183, 197);
 	font-weight: 300;
 }
-.shop-photo{
+.shop-photos{
 	margin-top: 20px;
 }
 
@@ -376,8 +370,8 @@ padding: 0;
 	background-image: url("../img/captcha.jpg");
 	color: gray;
 	font-size: 40px;
-	letter-spacing: 10px;	
-	margin-left: 12.5%;
+	letter-spacing: 10px;
+	margin-left: 4%;	
 	text-align: center;
 	vertical-align: middle;
 }
@@ -556,10 +550,14 @@ padding: 0;
 
 
 
-
-
-
 @media (max-width: 575px){
+	body{
+		font-size: 0.9em;
+	}
+	h2{
+		font-size: 1.8em;
+		color: #BCBCBC;
+	}
 	.textSize{ 
 		font-size: 0.92em!important;
 	}
@@ -568,6 +566,57 @@ padding: 0;
 	}
 	.subMenu{
 		padding:  0px;
+	}
+	#map{
+		height: 250px;
+		padding: 0;
+		margin-left: -20px;
+		margin-right: -20px;
+	}
+	.category {
+		//height: 50px;
+		margin-top: 15px;
+		margin-bottom: 10px;
+	}
+	.a-category{
+		font-size: 1em;
+		font-weight: 700;
+		text-decoration: none;
+		color: black;
+		outline: none;
+	}
+	.category-name{
+		margin-left: -10px;
+	}
+	.category-select
+	{
+		margin-left: 15px;
+		border-radius: 5px;
+		height: 20px;
+	}
+	.legend{
+		margin-top: 10px;
+		bottom: 0px;
+	}
+	.label-legend{
+		font-size: 0.7em;
+		padding-top: 5px;
+		padding-bottom: 0px;
+		padding-left: 0px;
+		margin-left: 8px;
+	}
+	.acColor, .xnoColor, .merColor{
+		height: 10px;
+		width: 10px;
+	}
+	.acColor{
+		background-color: #124290;
+	}
+	.xnoColor{
+		background-color: #952C20;
+	}
+	.merColor{
+		background-color: #80AE38;
 	}
 	.marginTopAir{
 		margin-left: -8%;
@@ -621,15 +670,15 @@ padding: 0;
 	#captchaDiv{
 		background-image: url("../img/captcha.jpg");
 		color: gray;
-		font-size: 30px!important;
+		font-size: 30px;
 		letter-spacing: 10px;	
 		margin-left: 4.5%;
 		text-align: center;
 		vertical-align: middle;
 	}
 	#btnEnviar{
-		margin-left: 60%;
-    	margin-top: 8%;
+		margin-left: 78%;
+    	margin-top: 7%;
 	}
 	.dividerNav{
 		visibility: hidden;
@@ -645,10 +694,36 @@ padding: 0;
 		margin-bottom: 3%;
 	}
 	.contactMainDiv{
-		font-size: 1em!important;
+		font-size: 1em;
 	}
-
-@media (min-width: 575px) and (max-width: 767px){
+	.dividerNav{
+		visibility: hidden;
+	}
+	#homeIconNav{
+		position: absolute;
+    	left: 1%;
+    	top: 40.4%;
+	}
+	.shop-name h1{
+		font-size: 1.8em;
+	}
+	.shop-info-container{
+		border: none;
+		padding-left: 25px;
+	}
+	.shop-map #map
+	{
+		height: 150px;
+	}
+	.shop-image{
+		margin-bottom: 5%;
+	}
+}
+@media (min-width: 576px) and (max-width: 767px){
+	#btnEnviar{
+		margin-left: 80%;
+    	margin-top: 7%;
+	}
 	.dividerNav{
 		visibility: hidden;
 	}
@@ -656,26 +731,25 @@ padding: 0;
 		position: absolute;
     	left: -4%;
     	top: 33.4%;
-}
 	}
+	
 	.shopsList{
 		padding-bottom: 20%;
 	}
-		#captchaDiv{
+	#captchaDiv{
 		background-image: url("../img/captcha.jpg");
 		color: gray;
-		font-size: 30px!important;
+		font-size: 40px;
 		letter-spacing: 10px;	
 		margin-left: 4%;
 		text-align: center;
 		vertical-align: middle;
 	}
-		#tbodyContactTable{
+	#tbodyContactTable{
 		border-left: solid 0px;
 	}
-	#btnEnviar{
-		margin-left: 82%;
-    	margin-top: 7%;
+	#contactTable{
+		margin-left: 7.5%;
 	}
 }
 
@@ -691,8 +765,15 @@ padding: 0;
 	.shopsList{
 		padding-bottom: 12%;
 	}
+	#contactTable{
+		margin-left: 5%;
+	}
+	.shop-image{
+		margin-bottom: 5%;
+	}
 
 }
+
 @media (max-width: 1023px){
 	.titleSubE{
 		position: relative;
@@ -755,5 +836,15 @@ padding: 0;
 	}
 	.shopsList{
 		padding-bottom: 2%;
+	}
+}
+
+@media (min-width: 1200px){
+	#captchaDiv{
+		margin-left: 12.5%;
+	}
+	#captchaInput{
+		margin-left: 5%;
+		margin-right: 3%;
 	}
 }
