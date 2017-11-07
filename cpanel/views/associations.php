@@ -12,7 +12,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 			?>
 				<select ng-change="changeDataUser(idUser)" ng-model="idUser" id="selectAsso" disabled>
 					<option ng-repeat="user in users" ng-value="user.idUser" ng-selected="user.idUser==<?php echo $_SESSION['user']['idUser']?>">
-						{{user.name}} <!--Dar selected a la $_SESSION cuando exista-->
+						{{user.name}}
 					</option>
 				</select>
 			<?php
@@ -22,7 +22,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 			?>
 				<select ng-change="changeDataUser(idUser)" ng-model="idUser" id="selectAsso">
 					<option ng-repeat="user in users" ng-value="user.idUser" ng-selected="user.idUser==<?php echo $_SESSION['user']['idUser']?>">
-						{{user.name}} <!--Dar selected a la $_SESSION cuando exista-->
+						{{user.name}}
 					</option>
 				</select>
 			<?php
