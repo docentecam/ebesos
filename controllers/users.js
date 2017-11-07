@@ -16,7 +16,7 @@ angular.module('spaApp')
 
 angular.module('spaApp')															 
 	.controller('ContactCtrlUser', function($scope, $http ,$routeParams) {
-		// $scope.loading=true;
+		$scope.loading=true;
 		$scope.idUser = $routeParams.idUser;
 
 		var a = Math.ceil(Math.random() * 9)+ '';
@@ -36,10 +36,11 @@ angular.module('spaApp')
 			
 		}, function myError (response) {
 			$scope.infoMail = response.statusText;
-		});
-		// .finally(function() {
-		// $scope.loading=false;
-		// });	
+		})
+		.finally(function() {
+			$scope.loading=false;
+		
+		});	
 
 		$scope.checkform = function()
 		{

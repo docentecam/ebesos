@@ -15,6 +15,7 @@ angular.module('spaApp')
 
 angular.module('spaApp')
 	.controller('NewCtrl', function($scope, $http, $routeParams) {
+		$scope.loading=true;
 	$http({
 			method: "GET",
 			url: "models/news.php?acc=showNew&idNew=" + $routeParams.idNew
@@ -23,5 +24,7 @@ angular.module('spaApp')
 				$scope.subNews=$scope.news[0]['media'];
 		},function myError (response) {
 				$scope.news = response.statusText;
-		});
+		}).finally(function() {
+			$scope.loading=false;
+		});	
 });
