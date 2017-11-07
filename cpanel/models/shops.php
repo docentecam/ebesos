@@ -110,7 +110,7 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'upload')
 
 	if(isset($_GET['acc']) && $_GET['sentence'] == 'n')
 	{
-		$mySql = "INSERT INTO `ddb99266`.`shops` (`name`, `lat`, `lng`, `telephone`, `email`, `url`, `schedule`, `address`, `idUser`, `description`, `descriptionLong`, `logo`, `cp`, `ciutat`) VALUES ('".$name."', '".$lat."', '".$lng."', '".$telephone."', '".$email."', '".$url."', '".$schedule."', '".$address."', ".$idUser.", '".$description."', '".$descriptionLong."', '".$logo."', '".$cp."', '".$ciutat."');";
+		$mySql = 'INSERT INTO `ddb99266`.`shops` (`name`, `lat`, `lng`, `telephone`, `email`, `url`, `schedule`, `address`, `idUser`, `description`, `descriptionLong`, `logo`, `cp`, `ciutat`) VALUES ("'.$name.'", "'.$lat.'", "'.$lng.'", "'.$telephone.'", "'.$email.'", "'.$url.'", "'.$schedule.'", "'.$address.'", ".$idUser.", "'.$description.'", "'.$descriptionLong.'", "'.$logo.'", "'.$cp.'", "'.$ciutat.'");';
 
 		$fp=fopen("../files/newShop.txt",'w');
 			fputs($fp,'mySql="'.$mySql.'"');
@@ -125,7 +125,7 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'upload')
 
 	if(isset($_GET['sentence']) && $_GET['sentence'] == 'e')
 	{
-		$mySql = "UPDATE `ddb99266`.`shops` SET `name`='".$name."', `lat`='".$lat."', `lng`='".$lng."', `telephone`='".$telephone."', `email`='".$email."', `url`='".$url."', `schedule`='".$schedule."', `address`='".$address."', `idUser`='".$idUser."', `description`='".$description."', `descriptionLong`='".$descriptionLong."', `logo`='".$logo."', `cp`='".$cp."', `ciutat`='".$ciutat."' WHERE `idShop`='".$idShop."';";
+		$mySql = 'UPDATE `ddb99266`.`shops` SET `name`="'.$name.'", `lat`="'.$lat.'", `lng`="'.$lng.'", `telephone`="'.$telephone.'", `email`="'.$email.'", `url`="'.$url.'", `schedule`="'.$schedule.'", `address`="'.$address.'", `idUser`="'.$idUser.'", `description`="'.$description.'", `descriptionLong`="'.$descriptionLong.'", `logo`="'.$logo.'", `cp`="'.$cp.'", `ciutat`="'.$ciutat.'" WHERE `idShop`="'.$idShop.'";';
 
 		$fp=fopen("../files/editShop.txt",'w');
 			fputs($fp,'mySql="'.$mySql.'"');
