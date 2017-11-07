@@ -202,6 +202,9 @@ angular.module('spaApp')
   				else
   				{
   					$scope.error = "Error";
+  					$scope.validation = false;
+  					$scope.statusValidation = "Error";
+  					$scope.fail = true;
   				}
 			};
   			$scope.showEdit = function(){

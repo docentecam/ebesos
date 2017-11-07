@@ -215,7 +215,9 @@ angular.module('spaApp')
 							}
 					}, function myError (response) {
 							$scope.email = response.statusText;
-				});
+				}).finally(function(){
+				$scope.loading = false;
+		});
 			}
 		}
 	$scope.validCaptcha = function()
