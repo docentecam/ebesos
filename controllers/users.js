@@ -186,7 +186,7 @@ angular.module('spaApp')
 	};
 	$scope.checkform = function()
 		{
-			$scope.loading = false;
+			$scope.loading = true;
 			var error = "";
 			if(myForm['captchaInput'].value == ""){
 				error += "- Introdueix el CAPTCHA.";
