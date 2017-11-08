@@ -102,8 +102,8 @@
 	<div class="row col-md-12">
 		<div class="col-md-3 col-md-push-1">
 			<span>Subcategoria principal</span>
-			<select ng-change="preferredSubCat(idShopCategorySub)" ng-model="idShopCategorySub">
-				<option ng-repeat="subCategoryShop in subCategoriesShop" ng-value="subCategoryShop.idShopCategorySub" ng-selected="subCategoryShop.preferred=='Y'">{{subCategoryShop.nameSubCategoryShop}}</option>
+			<select ng-change="preferredSubCat(idSubCategory, shopOne.idShop)" ng-model="idSubCategory">
+				<option ng-repeat="subCategory in allSubCat" ng-value="subCategory.idSubCategory" ng-selected="subCategoriesShop.preferred=='Y'">{{subCategory.nameSubCategory}}</option>
 			</select>
 		</div>
 	</div>
@@ -111,13 +111,14 @@
 		<div id="subcategories" class="shop-email col-md-4 col-md-push-1">
 			<span class="row">Altres subcategories</span>
 			<ul class="col-md-10">
-				<li ng-repeat="subCategoryShop in subCategoriesShop | filter : {preferred:'N'}">{{subCategoryShop.nameSubCategoryShop}}<button ng-click="deleteSubCategory(subCategoryShop.idShopCategorySub, shopOne[0].idShop)">-</button></li>
+				<li ng-repeat="subCategoryShop in subCategoriesShop | filter : {preferred:'N'}">{{subCategoryShop.nameSubCategoryShop}}<button ng-click="deleteSubCategory(subCategoryShop.idShopCategorySub, shopOne.idShop)">-</button></li>
 			</ul>
 			<!-- <button ng-repeat="subCategoryShop in subCategoriesShop | filter : {preferred:'N'}" class="btn-default col-md-1" ng-click="deleteSubCategory(subCategoryShop.idShopCategorySub, shopOne[0].idShop)">-</button> -->
 		</div>
 		<div class="col-md-3 col-md-push-1">
 			<span>Subcategories</span>
-			<select ng-change="subCategory(idSubCategory)" ng-model="idSubCategory">
+			<select ng-change="subCategory(idSubCategory, shopOne.idShop)" ng-model="idSubCategory">
+				<option>--Escull subcategoria--</option>
 				<option ng-repeat="subCategory in subCategories" ng-value="subCategory.idSubCategory" ng-selected="subCategory.idSubCategory=='1'">{{subCategory.nameSubCategory}}</option>
 			</select>
 		</div>

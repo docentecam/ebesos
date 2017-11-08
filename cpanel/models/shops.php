@@ -171,25 +171,49 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'delsc')
 
 	disconnect($connexio);
 
-	echo '[{"shopCategories":'.listShopCategoriesSub($idShop).', "categoriesSub":'.listCategoriesSub($idShop).'}]';
+	echo '[{"shopCategories":'.listShopCategoriesSub($idShop).', "subCategories":'.listCategoriesSub($idShop).'}]';
+}
+else if(isset($_GET['acc']) && $_GET['acc'] == 'eSubCat')
+{
+	$idShop = $_GET['idShop'];
+	$idSubCategory = $_GET['idSubCategory'];
+
+	$mySql = "INSERT INTO shopcategoriessub (`idShop`, `idSubCategory`, `preferred`) VALUES ('$idShop', '$idSubCategory', 'N');";
+
+	$connexio = connect();
+
+	$insertNewSubCat = mysqli_query($connexio, $mySql);
+
+	echo '[{"shopCategories":'.listShopCategoriesSub($idShop).', "subCategories":'.listCategoriesSub($idShop).'}]';
 }
 else if(isset($_GET['acc']) && $_GET['acc'] == 'ePrefSubCat')
 {	
 	$idShop = $_GET['idShop'];
-	$idShopCategorySub = $_GET['idShopCategorySub'];
+	$idSubCategory = $_GET['idSubCategory'];
 	$mySql = "UPDATE shopcategoriessub SET preferred='N' WHERE `idShop`='$idShop';";
 
 	$connexio = connect();
 
 	$updateOldPref = mysqli_query($connexio, $mySql);
 
-	$mySql = "UPDATE shopcategoriessub SET preferred='Y' WHERE `idShopCategorySub`='$idShopCategorySub';";
+	$mySql = "SELECT idShopCategorySub FROM shopcategoriessub WHERE idShop=$idShop AND idSubCategory=$idSubCategory;";
 
-	$updateNewPref = mysqli_query($connexio, $mySql);
+	$checkNewPref = mysqli_query($connexio, $mySql);
 
-	disconnect($connexio);
+	if(mySqli_fetch_array($checkNewPref))
+	{
+		$mySql = "UPDATE shopcategoriessub SET preferred='Y' WHERE idShop=$idShop AND `idSubCategory`='$idSubCategory';";
 
-	echo '[{"shopCategories":'.listShopCategoriesSub($idShop).', "categoriesSub":'.listCategoriesSub($idShop).'}]';
+		$updateNewPref = mysqli_query($connexio, $mySql);
+	}
+	else
+	{
+		$mySql = "INSERT INTO shopcategoriessub (`idShop`, `idSubCategory`, `preferred`) VALUES ('$idShop', '$idSubCategory', 'Y');";
+
+		$insertNewPref = mysqli_query($connexio, $mySql);		
+	};
+
+	echo '[{"shopCategories":'.listShopCategoriesSub($idShop).', "subCategories":'.listCategoriesSub($idShop).'}]';
 }
 else if(isset($_GET['acc']) && $_GET['acc'] == 'loginC'){
 		$message='';

@@ -99,16 +99,36 @@ angular.module('spaApp')
 		else $scope.filterShops = $idUserL;
 	};
 
-	$scope.preferredSubCat = function($idShopCategorySub, $idShop){
-		$scope.loading = true;
+	$scope.preferredSubCat = function($idSubCategory, $idShop){
 		$http({
 			method : "GET",
-			url : "models/shops.php?acc=ePrefSubCat&idShop="+$idShop+"&idShopCategorySub="+$idShopCategorySub
+			url : "models/shops.php?acc=ePrefSubCat&idShop="+$idShop+"&idSubCategory="+$idSubCategory
 		}).then(function mySucces(response) {
 			//console.log(response.data);
 			$scope.subCategoriesData = response.data;
 			$scope.subCategoriesShop = $scope.subCategoriesData[0].shopCategories;
-			$scope.subCategories = $scope.personalData[0].subCategories;
+			$scope.subCategories = $scope.subCategoriesData[0].subCategories;
+			
+			console.log($scope.subCategoriesData);
+			// console.log($scope.subCategoriesShop);
+			console.log($scope.subCategories);
+	    
+		}, function myError(response) {
+			$scope.shops = response.statusText;
+		}).finally(function(){
+			$scope.loading = false;
+		});
+
+	};
+	$scope.subCategory = function($idSubCategory, $idShop){
+		$http({
+			method : "GET",
+			url : "models/shops.php?acc=eSubCat&idShop="+$idShop+"&idSubCategory="+$idSubCategory
+		}).then(function mySucces(response) {
+			//console.log(response.data);
+			$scope.subCategoriesData = response.data;
+			$scope.subCategoriesShop = $scope.subCategoriesData[0].shopCategories;
+			$scope.subCategories = $scope.subCategoriesData[0].subCategories;
 			
 			// console.log($scope.subCategoriesData);
 			// console.log($scope.subCategoriesShop);
@@ -119,14 +139,8 @@ angular.module('spaApp')
 		}).finally(function(){
 			$scope.loading = false;
 		});
-		console.log($idShopCategorySub);
-
-	};
-	$scope.subCategory = function($idShopCategorySub){
-		console.log($idShopCategorySub);
 	};
 	$scope.deleteSubCategory = function($idShopCategorySub, $idShop){
-		$scope.loading = true;
 		$http({
 			method : "GET",
 			url : "models/shops.php?acc=delsc&idShop="+$idShop+"&idShopCategorySub="+$idShopCategorySub
@@ -134,7 +148,7 @@ angular.module('spaApp')
 			//console.log(response.data);
 			$scope.subCategoriesData = response.data;
 			$scope.subCategoriesShop = $scope.subCategoriesData[0].shopCategories;
-			$scope.subCategories = $scope.subCategoriesData[0].categoriesSub;
+			$scope.subCategories = $scope.subCategoriesData[0].subCategories;
 			
 			console.log($scope.subCategoriesData);
 			console.log($scope.subCategoriesShop);
