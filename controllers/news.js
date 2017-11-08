@@ -15,7 +15,7 @@ angular.module('spaApp')
 
 angular.module('spaApp')
 	.controller('NewCtrl', function($scope, $http, $routeParams) {
-		$scope.loading=true;
+	$scope.loading=true;
 	$http({
 			method: "GET",
 			url: "models/news.php?acc=showNew&idNew=" + $routeParams.idNew

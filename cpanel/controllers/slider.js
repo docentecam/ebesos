@@ -19,20 +19,14 @@ angular.module('spaApp')
 		$scope.btnAfegir = true;
 		$scope.sliderSetting = true;
 		$scope.sliderAdding = true;
-		$http({
-				method : "GET",
-				url : "models/slider.php?acc=newSlider&idSlider="+$idSlider
-			}).then(function mySucces (response) {
-				$scope.onlyInfoSlider = response.data;
-			}, function myError (response) {
-				$scope.onlyInfoSlider = response.statusText;
-		});
 	};
+	
 	$scope.editImgSlide = function($idSlider, ){
 		$scope.spanEditarImatges = true;
 		$scope.btnAfegir = true;
 		$scope.sliderSetting = true;
 		$scope.sliderEditing = true;
+		$scope.loading=true;
 		$http({
 				method : "GET",
 				url : "models/slider.php?acc=showOnlySlider&idSlider="+$idSlider
@@ -41,6 +35,8 @@ angular.module('spaApp')
 				console.log($idSlider);
 			}, function myError (response) {
 				$scope.onlyInfoSlider = response.statusText;
+		}).finally(function() {
+			$scope.loading=false;
 		});
 	};
 	$scope.backSettingSlide = function(){
@@ -54,6 +50,7 @@ angular.module('spaApp')
   		$scope.editSubTitle = editingForm['subTitle'].value;
   		$scope.editLink = editingForm['linkSlider'].value;
   		$scope.editSlider = editingForm['hidEditSlider'].value;
+  		$scope.loading=true;
 		$http({
 				method : "GET",
 				url : "models/slider.php?acc=updateSlider&description="+$scope.editDescription+"&idSlider="+$scope.editSlider+"&title="+$scope.editTitle+"&subTitle="+$scope.editSubTitle+"&linkSlider="+$scope.editLink
@@ -61,6 +58,8 @@ angular.module('spaApp')
 				$scope.updateSlider = response.data;
 			}, function myError (response) {
 				$scope.updateSlider = response.statusText;
+		}).finally(function() {
+			$scope.loading=false;
 		});
 	};
 });

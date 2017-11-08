@@ -58,6 +58,7 @@ angular.module('spaApp')
 				return false;
 			}
 			else if (error == "") {
+				$scope.loading=true;
 				$http({
 						method : "GET",
 						url : "models/users.php?acc=mail&idUser="+ $scope.idUser + "&client="+ myForm['client'].value+
@@ -75,7 +76,10 @@ angular.module('spaApp')
 							}
 					}, function myError (response) {
 							$scope.email = response.statusText;
-				});
+					}).finally(function() {
+						$scope.loading=false;
+		
+					});	
 			}
 		}
 		$scope.validCaptcha = function()
