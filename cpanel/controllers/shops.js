@@ -16,8 +16,11 @@ angular.module('spaApp')
 		else $scope.filterShops = $scope.idUserLg;
 	}, function myError(response) {
 		$scope.shops = response.statusText;
-	});
+	}).finally(function(){
+      $scope.loading = false;
+  	});
 
+	$scope.loading = true;
 	$http({
 		method : "GET",
 		url : "models/users.php?acc=listUsers"
@@ -25,8 +28,11 @@ angular.module('spaApp')
 		$scope.userList = response.data;
 	}, function myError(response) {
 		$scope.shops = response.statusText;
-	});
+	}).finally(function(){
+      $scope.loading = false;
+  	});
 
+	$scope.loading = true;
 	$http({
 		method : "GET",
 		url : "models/shops.php?acc=list"

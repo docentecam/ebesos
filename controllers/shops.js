@@ -9,8 +9,11 @@ angular.module('spaApp')
     console.log($scope.shops);
 	}, function myError(response) {
 		$scope.shops = response.statusText;
-	});
+	}).finally(function(){
+      $scope.loading = false;
+  });
 
+  $scope.loading = true;
   $http({
     method : "GET",
     url : "models/xmlCreation.php?acc=shop&idShop="+$routeParams.idShop
@@ -35,8 +38,11 @@ angular.module('spaApp')
     console.log(response.data);
   }, function myError (response) {
     $scope.categories = response.statusText;
+  }).finally(function(){
+      $scope.loading = false;
   });
 
+  $scope.loading = true;
   $http({
     method : "GET",
     url : "models/categories.php?acc=cat"
