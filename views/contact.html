@@ -83,15 +83,15 @@
 		    		</tbody>
 				</table>
 		  	</form>
-		  	<div class="col-lg-5 col-lg-push-1 col-xs-push-1" id="divInfo">
-		  		<label id="infoEix">Informació de l'Eix</label>
-		  		<div ng-repeat="mail in infoMail" class="row" id="emailContact"> 
+		  	<div ng-repeat="mail in infoMail" class="col-lg-5 col-lg-push-1 col-xs-push-1" id="divInfo">
+		  		<label id="infoEix">Informació de <span>{{mail.name}}</span></label>
+		  		<div  class="row" id="emailContact"> 
 	  				<label>Email de Contacte:</label> <a href="mailto:{{mail.email}}">{{mail.email}}</a>
 		  		</div>
-		  		<div ng-repeat="mail in infoMail" class="row" id="directionContact"> 
+		  		<div class="row" id="directionContact"> 
 		  			<label>Direcció:</label> {{mail.address}}
 		  		</div>
-		  		<div ng-repeat="mail in infoMail" class="row" id="telContact"> 
+		  		<div class="row" id="telContact"> 
 		  			<label>Telèfon de Contacte:</label> {{mail.telephone}}
 		  		</div>
 		  		

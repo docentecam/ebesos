@@ -1,5 +1,5 @@
 <?php
-require("../inc/functions.php");
+require('../../inc/functions.php');
 
 $mensaje = "";
 $file = $_FILES["file"]["name"];

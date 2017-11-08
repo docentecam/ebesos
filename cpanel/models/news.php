@@ -1,5 +1,6 @@
 <?php 
-require("../inc/functions.php");
+require('../../inc/functions.php');
+
 
 	if(isset($_GET['acc']) && $_GET['acc'] == 'l'){
 		$mySql = "SELECT n.idNew , n.idUser, n.titleSub, w.description , DATE_FORMAT( n.date,'%d-%M-%Y') AS fecha, n.title , w.url";
