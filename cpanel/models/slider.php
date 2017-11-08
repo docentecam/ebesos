@@ -51,12 +51,38 @@ if (isset($_GET["acc"]) && ($_GET["acc"] == "imgSlider"))
 	}
 
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'updateSlider') {
-		$mySql = "UPDATE slider
-				SET title='".$_GET['title']."', subtitle='".$_GET['subTitle']."', link='".$_GET['linkSlider']."', description='".$_GET['description']."' 
-				WHERE idSlider=".$_GET['idSlider'];
+		//TODO dinamizar imagen
+		$mySql = 'UPDATE slider
+				SET title="'.$_GET['title'].'", subtitle="'.$_GET['subTitle'].'", link="'.$_GET['linkSlider'].'", description="'.$_GET['description'].'" 
+				WHERE idSlider='.$_GET['idSlider'];
 		$connexio = connect();
 		$updateSliderData = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
+
+		$message = "S'ha modificat la imatge del slider";
+		if($connexio == "Error al conectar")
+	 	{
+	 		$message = "Error al connectar";
+	 	}
+		echo '[{"status":"'.$message.'"}]';
+	}
+	else if (isset($_GET['acc']) && $_GET['acc'] == 'createSlider') {
+		$message='';
+
+		//TODO dinamizar imagen
+		$mySql = 'INSERT INTO slider (image, title, subTitle, link, description) 
+				VALUES ("Slider_Campus_Vals.jpg","'.$_GET['title'].'","'.$_GET['subTitle'].'","'.$_GET['linkSlider'].'","'.$_GET['description'].'")';
+		
+		$connexio = connect();
+		$resultSlider = mysqli_query($connexio, $mySql);
+		disconnect($connexio);
+		
+		$message = "S'ha creat la imatge del slider";
+		if($connexio == "Error al conectar")
+	 	{
+	 		$message = "Error al connectar";
+	 	}
+		echo '[{"status":"'.$message.'"}]';
 	}
 
 	// function editImgSlider($idUsuari="",$nom,$cog1,$cog2,$telf1,$telf2,$email,$direc,$direcPlta,$direcPrta,$direcEsc,$cp)

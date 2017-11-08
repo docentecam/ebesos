@@ -70,30 +70,31 @@
 				<!-- Al pulsar añadir -->
 
 			<div ng-show="sliderAdding">
-					<input type="hidden" id="hidSlider" ng-value="infoSlider.idSlider">
+				<form id="addingForm">
 					<div class="row">
 						<label class="col-lg-2 col-lg-offset-2 col-xs-2 col-xs-offset-1">Descripció: </label>
-						<textarea class=" col-lg-5 col-xs-6 col-xs-offset-1 editAndAddSlider" maxlength="" name="" id="" cols="30" rows="6" placeholder="Escriu aquí la descripció de la imatge a mostrar dins del Slider..."></textarea>
+						<textarea class=" col-lg-5 col-xs-6 col-xs-offset-1 editAndAddSlider" maxlength="" name="" id="descriptionC" cols="30" rows="6" placeholder="Escriu aquí la descripció de la imatge a mostrar dins del Slider..."></textarea>
 					</div>
 					<div class="row">
 						<label class="col-lg-2 col-lg-offset-2 col-xs-2 col-xs-offset-1">Títol: </label>
-						<textarea class=" col-lg-5 col-xs-6 col-xs-offset-1 editAndAddSlider" name="" id="" cols="30" rows="6" placeholder="Escriu aquí el títol de la imatge a mostrar dins del Slider..."></textarea>
+						<textarea class=" col-lg-5 col-xs-6 col-xs-offset-1 editAndAddSlider" name="" id="titleC" cols="30" rows="6" placeholder="Escriu aquí el títol de la imatge a mostrar dins del Slider..."></textarea>
 					</div>
 					<div class="row">
 						<label class="col-lg-2 col-lg-offset-2 col-xs-2 col-xs-offset-1">Subtítol: </label>
-						<textarea class=" col-lg-5 col-xs-6 col-xs-offset-1 editAndAddSlider" name="" id="" cols="30" rows="6" placeholder="Escriu aquí el subtítol de la imatge a mostrar dins del Slider..."></textarea>
+						<textarea class=" col-lg-5 col-xs-6 col-xs-offset-1 editAndAddSlider" name="" id="subTitleC" cols="30" rows="6" placeholder="Escriu aquí el subtítol de la imatge a mostrar dins del Slider..."></textarea>
 					</div>
 					<div class="row">
 						<label class="col-lg-2 col-lg-offset-2 col-xs-2 col-xs-offset-1">Enllaç: </label>
-						<input type="text" class="col-lg-5 col-xs-6 col-xs-offset-1 editAndAddSlider" name="" id="link" size="40" placeholder="Escriu aquí l'enllaç de la imatge a relacionar" >
+						<input type="text" class="col-lg-5 col-xs-6 col-xs-offset-1 editAndAddSlider" name="" id="linkC" size="40" placeholder="Escriu aquí l'enllaç de la imatge a relacionar" >
 					</div>
 					<div class="row">
 						<label class="col-lg-2 col-lg-offset-2 col-xs-2 col-xs-offset-1">Imatge: </label>
 						<input type="file" class="editAndAddSlider">
 					</div>
 					<div class="row">
-						<input class="col-lg-offset-5 col-xs-offset-5 editAndAddSlider" type="button" value="Actualitzar" ng-click=backSettingSlide()>
+						<input class="col-lg-offset-5 col-xs-offset-5 editAndAddSlider" type="button" value="Actualitzar" ng-click=createImgSlide()>
 					</div>
+				</form>
 			</div>
 
 				<!-- Al pulsar editar -->
@@ -122,7 +123,7 @@
 						<input type="file" class="editAndAddSlider">
 					</div>
 					<div class="row">
-						<input class="col-lg-offset-5 col-xs-offset-5 editAndAddSlider" type="button" value="Actualitzar" ng-click=backSettingSlide()>
+						<input class="col-lg-offset-5 col-xs-offset-5 editAndAddSlider" type="button" value="Actualitzar" ng-click=updateImgSlide()>
 					</div>
 				</form>
 			</div>
