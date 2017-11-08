@@ -175,8 +175,10 @@
 					    		</tbody>
 							</table>
 					  	</form>
-					  	<div ng-repeat="mail in infoMail" class="col-lg-5" id="divInfo">
-					  		<label id="infoEix" class="col-lg-12">Informació de <span>{{mail.name}}</span></label>
+					  	<div ng-repeat="mail in infoMail" class="col-lg-6" id="divInfo">
+					  		<div class="row">
+					  			<label id="infoEix" class="col-lg-12">Informació de <span>{{mail.name}}</span></label>
+					  		</div> 
 					  		<div  class="row" id="emailContact"> 
 				  				<label class="col-lg-12">Email de Contacte:</label> <a class="col-lg-12" href="mailto:{{mail.email}}">{{mail.email}}</a>
 					  		</div>
