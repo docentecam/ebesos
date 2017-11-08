@@ -115,6 +115,38 @@ angular.module('spaApp')
 								{
 									$scope.validation = true;
 								}
+								$scope.loading = true;
+								$http({
+									method : "GET",
+									url : "models/users.php?acc=loadUser" //modificar
+								}).then(function mySucces (response) {
+									$scope.associations = response.data;
+									$scope.idUserC = $scope.associations[0]['idUser'];
+									$scope.nameC = $scope.associations[0]['name'];
+									$scope.emailC = $scope.associations[0]['email'];
+									$scope.emailPassC = $scope.associations[0]['emailPass'];
+									$scope.addressC = $scope.associations[0]['address'];
+									$scope.telephoneC = $scope.associations[0]['telephone'];
+									$scope.logoC = $scope.associations[0]['logo'];
+									$scope.footerC = $scope.associations[0]['footer'];
+									$scope.historyC = $scope.associations[0]['history'];
+									$scope.activeC = $scope.associations[0]['active'];
+								}, function myError (response) {
+									$scope.associations = response.statusText;
+								}).finally(function(){
+									$scope.loading = false;
+								});
+								$scope.loading = true;
+								$http({
+									method : "GET",
+									url : "models/users.php?acc=listUsers"
+								}).then(function mySucces (response) {
+									$scope.users = response.data;
+								}, function myError (response) {
+									$scope.users = response.statusText;
+								}).finally(function(){
+									$scope.loading = false;
+								});
 								$scope.fail = true;
 						}, function myError (response) {
 							$scope.userUpdate = response.statusText;
@@ -137,6 +169,38 @@ angular.module('spaApp')
 								{
 									$scope.validation = true;
 								}
+								$scope.loading = true;
+								$http({
+									method : "GET",
+									url : "models/users.php?acc=loadUser" //modificar
+								}).then(function mySucces (response) {
+									$scope.associations = response.data;
+									$scope.idUserC = $scope.associations[0]['idUser'];
+									$scope.nameC = $scope.associations[0]['name'];
+									$scope.emailC = $scope.associations[0]['email'];
+									$scope.emailPassC = $scope.associations[0]['emailPass'];
+									$scope.addressC = $scope.associations[0]['address'];
+									$scope.telephoneC = $scope.associations[0]['telephone'];
+									$scope.logoC = $scope.associations[0]['logo'];
+									$scope.footerC = $scope.associations[0]['footer'];
+									$scope.historyC = $scope.associations[0]['history'];
+									$scope.activeC = $scope.associations[0]['active'];
+								}, function myError (response) {
+									$scope.associations = response.statusText;
+								}).finally(function(){
+									$scope.loading = false;
+								});
+								$scope.loading = true;
+								$http({
+									method : "GET",
+									url : "models/users.php?acc=listUsers"
+								}).then(function mySucces (response) {
+									$scope.users = response.data;
+								}, function myError (response) {
+									$scope.users = response.statusText;
+								}).finally(function(){
+									$scope.loading = false;
+								});
 								$scope.fail = true;
 						}, function myError (response) {
 							$scope.userUpdate = response.statusText;
@@ -145,11 +209,12 @@ angular.module('spaApp')
 						});
 
   					}
-  					else
+  					else if($scope.pswdC != $scope.confirmPswdC)
   					{
-  						$scope.error = "Error";
+	  					$scope.validation = false;
+	  					$scope.statusValidation = "Error";
+	  					$scope.fail = true;
   					}
-  					
   				}
   				else if($scope.pswdC == $scope.confirmPswdC && $scope.confirmPswdC != "" && $scope.pswdC != "" && $scope.idUserC == -1)
   				{
@@ -160,12 +225,12 @@ angular.module('spaApp')
 						}).then(function mySucces (response) {
 							$scope.userCreate = response.data;
 							$scope.statusValidation = $scope.userCreate[0]['status'];
-								$scope.validation = false;
-								if($scope.statusValidation == "S'ha creat l'usuari")
-								{
-									$scope.validation = true;
-								}
-								$scope.fail = true;
+							$scope.validation = false;
+							if($scope.statusValidation == "S'ha creat l'usuari")
+							{
+								$scope.validation = true;
+							}
+							$scope.fail = true;
 							$scope.idUserC = -1;
 							$scope.nameC = "";
 							$scope.emailC = "";
@@ -179,14 +244,33 @@ angular.module('spaApp')
 							$scope.pswdC = "";
 							$scope.confirmPswdC = "";
 							$scope.currentPswdC = "";
-
+							$scope.loading = true;
+								$http({
+									method : "GET",
+									url : "models/users.php?acc=loadUser" //modificar
+								}).then(function mySucces (response) {
+									$scope.associations = response.data;
+									$scope.idUserC = $scope.associations[0]['idUser'];
+									$scope.nameC = $scope.associations[0]['name'];
+									$scope.emailC = $scope.associations[0]['email'];
+									$scope.emailPassC = $scope.associations[0]['emailPass'];
+									$scope.addressC = $scope.associations[0]['address'];
+									$scope.telephoneC = $scope.associations[0]['telephone'];
+									$scope.logoC = $scope.associations[0]['logo'];
+									$scope.footerC = $scope.associations[0]['footer'];
+									$scope.historyC = $scope.associations[0]['history'];
+									$scope.activeC = $scope.associations[0]['active'];
+								}, function myError (response) {
+									$scope.associations = response.statusText;
+								}).finally(function(){
+									$scope.loading = false;
+								});
 							$scope.loading = true;
 								$http({
 									method : "GET",
 									url : "models/users.php?acc=listUsers"
 								}).then(function mySucces (response) {
 									$scope.users = response.data;
-									$scope.idUser = -1;
 								}, function myError (response) {
 									$scope.users = response.statusText;
 								}).finally(function(){
@@ -196,12 +280,12 @@ angular.module('spaApp')
 							$scope.userUCreate = response.statusText;
 						}).finally(function(){
 							$scope.loading = false;
+							$scope.cUser = true;
 						});
 
   				}
-  				else
+  				else if($scope.pswdC != $scope.confirmPswdC)
   				{
-  					$scope.error = "Error";
   					$scope.validation = false;
   					$scope.statusValidation = "Error";
   					$scope.fail = true;

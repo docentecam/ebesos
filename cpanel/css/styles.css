@@ -95,6 +95,10 @@ select
   padding: 0%;
   padding-top: 5%;
 }
+#validationAssociation
+{
+ margin-top: 8px;
+}
 .padd-t
 {
   padding-top: 16%;

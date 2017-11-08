@@ -278,9 +278,9 @@ if(isset($_SESSION['user']['idUser']))
 		$message='';
 		if(!isset($_GET['currentPswd']))
 		{
-			$mySql = "UPDATE users
-					SET email='".$_GET['email']."', emailPass='".$_GET['pswdMail']."', name='".$_GET['name']."', address='".$_GET['address']."', telephone='".$_GET['telephone']."', history='".$_GET['history']."', active='".$_GET['active']."' 
-					WHERE idUser=".$_GET['idUser'];
+			$mySql = 'UPDATE users
+					SET email="'.$_GET['email'].'", emailPass="'.$_GET['pswdMail'].'", name="'.$_GET['name'].'", address="'.$_GET['address'].'", telephone="'.$_GET['telephone'].'", history="'.$_GET['history'].'", active="'.$_GET['active'].'" 
+					WHERE idUser='.$_GET['idUser'];
 			$connexio = connect();
 			$updateUserData = mysqli_query($connexio, $mySql);
 			disconnect($connexio);
@@ -297,9 +297,9 @@ if(isset($_SESSION['user']['idUser']))
 			while ($row = mysqli_fetch_row($resultUser))
 			if(sha1(md5($_GET['currentPswd'])) == $row[0])
 			{
-				$mySql = "UPDATE users
-					SET email='".$_GET['email']."', emailPass='".$_GET['pswdMail']."', name='".$_GET['name']."', password='".sha1(md5($_GET['pswd']))."', address='".$_GET['address']."', telephone='".$_GET['telephone']."', history='".$_GET['history']."', active='".$_GET['active']."' 
-					WHERE idUser=".$_GET['idUser'];
+				$mySql = 'UPDATE users
+					SET email="'.$_GET['email'].'", emailPass="'.$_GET['pswdMail'].'", name="'.$_GET['name'].'", password="'.sha1(md5($_GET['pswd'])).'", address="'.$_GET['address'].'", telephone="'.$_GET['telephone'].'", history="'.$_GET['history'].'", active="'.$_GET['active'].'" 
+					WHERE idUser='.$_GET['idUser'];
 				$connexio = connect();
 				$updateUserData = mysqli_query($connexio, $mySql);
 				disconnect($connexio);
@@ -319,8 +319,8 @@ if(isset($_SESSION['user']['idUser']))
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'createUser') {
 		$message='';
 
-		$mySql = "INSERT INTO users (email, emailPass, name, password, address, telephone, logo, history, footer)
-				VALUES ('".$_GET['email']."','".$_GET['pswdMail']."','".$_GET['name']."','".sha1(md5($_GET['pswd']))."','".$_GET['address']."','".$_GET['telephone']."','','".$_GET['history']."','')";
+		$mySql = 'INSERT INTO users (email, emailPass, name, password, address, telephone, logo, history, footer)
+				VALUES ("'.$_GET['email'].'","'.$_GET['pswdMail'].'","'.$_GET['name'].'","'.sha1(md5($_GET['pswd'])).'","'.$_GET['address'].'","'.$_GET['telephone'].'","","'.$_GET['history'].'","")';
 		
 		$connexio = connect();
 		$resultUser = mysqli_query($connexio, $mySql);
