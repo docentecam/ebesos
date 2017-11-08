@@ -447,7 +447,10 @@ padding: 0;
 }
 #titleSubM{
 	font-size: 25px;
+	color: white;
+	font-weight: 600;
 }
+
 .newsAsso{
 	border-bottom: solid 1px;
 	border-color: #ced2de;
@@ -852,4 +855,8 @@ padding: 0;
 		margin-left: 5%;
 		margin-right: 3%;
 	}
+	.paddTitleSM
+{
+	padding-top: 8%;
+}
 }
