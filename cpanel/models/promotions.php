@@ -4,7 +4,7 @@ session_start();
 
 if(isset($_GET['acc']) && $_GET['acc'] == 'l'){
 
-	$mySql = "SELECT idPromotion , creation , image ,conditionsVals FROM promotions";
+	$mySql = "SELECT idPromotion , creation , image ,conditionsVals , active , dateExpireVals , dateExpireEix FROM promotions";
 
 
 	$connexio = connect();
@@ -18,7 +18,7 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'l'){
 	{
 		if($i != 0) $dataPromotions .= ",";
 
-		$dataPromotions .= '{"idPromotion":"'.$row['idPromotion'].'","creation":"'.$row['creation'].'","image":"'.$row['image'].'","conditionsVals":"'.$row['conditionsVals'].'"}';
+		$dataPromotions .= '{"dateExpireVals":"'.$row['dateExpireVals'].'","dateExpireEix":"'.$row['dateExpireEix'].'","idPromotion":"'.$row['idPromotion'].'","active":"'.$row['active'].'","creation":"'.$row['creation'].'","image":"'.$row['image'].'","conditionsVals":"'.$row['conditionsVals'].'"}';
 
 		$i++;
 	}

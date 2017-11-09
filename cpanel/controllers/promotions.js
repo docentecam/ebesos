@@ -9,6 +9,11 @@ angular.module('spaApp')
 				
 			}, function myError (response) {
 				$scope.promotionsList = response.statusText;
-			});
+			})
+			.finally(function() 
+		{ 
+		    $scope.loading=false; 
+		})
+
 		
 });
