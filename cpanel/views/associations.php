@@ -146,7 +146,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 		</div>
 		<div class="col-lg-3 pt-3">
 			<label for="logoA" ng-show="logoEdit" class="labelFor">Examinar</label>
-			<input type="file" id="logoA" name="" ng-show="false">
+			<input type="file" id="logoA" name="" ng-show="false" onchange="angular.element(this,{{idUserC}},'logo').scope().selImages(this)">
 		</div>
 	</div>
 	
@@ -166,7 +166,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 		</div>
 		<div class="col-lg-3 pt-3">
 			<label for="logoF" ng-show="logoEdit2" class="labelFor">Examinar</label>
-			<input type="file" id="logoF" name="" ng-show="false">
+			<input type="file" id="logoF" name="" ng-show="false" onchange="angular.element(this,{{idUserC}},'footer').scope().selImages(this)">
 		</div>
 	</div>
 </div>

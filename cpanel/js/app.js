@@ -38,6 +38,10 @@ app.config(['$routeProvider', function ($routeProvider) {
 		templateUrl:'views/formFichero.html',
 		controller:'SubirCtrl',
 	})
+	.when('/links',{
+		templateUrl:'views/links.php',
+		controller:'LinksCtrl',
+	})
 	
 
     .otherwise({
