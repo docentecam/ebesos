@@ -48,6 +48,15 @@ select
   border-color:#ced2de;
   padding-left: 5%;
 }
+
+#nameAssoLogged{
+  position: relative;
+  top: 30%;
+}
+
+
+
+
 #tableForgot
 {
   margin-left: 10%;
@@ -195,9 +204,7 @@ select
 #container{
   background-color: #E9E9E9;
 }
-.mainNav{
-  padding: 15%;
-}
+
 .editNgView{
   padding-left: 6%;
   padding-top: 3%;
@@ -338,16 +345,82 @@ select
   width: 20%;
 }
 
-@media (max-width: 575px){
-  .footerLog{
-  position: absolute;
-  bottom: 15px;
-  }
+.reduceNav:hover{
+  background-color: #2A4C5E;
 }
-@media (max-width: 767px){
+.colorLinksNavMobile{
+  color: white!important;
+}
+.navbar-collapse{
+  border: none!important;
+  padding-left: 0px!important;
+  padding-right:0px!important;
+}
+.navbar{
+  border: 0px solid transparent;
+}
+
+.mainNav{
+  padding-top: 5%!important;
+  padding-bottom: 5%!important;
+}
+
+
+
+
+
+
+
+@media (max-width: 575px){
+  .navbar-default .navbar-collapse, .navbar-default .navbar-form{
+    border-color: transparent!important;
+  }
+
+  .navbar-nav {
+    margin: 0px -15px;
+  }
+  .navbar-collapse{
+  border: none!important;
+  padding-left: 15px!important;
+  padding-right:15px!important;
+  }
+  .icon-bar{
+    background-color: white!important;
+  }
+ 
+
+  .footerLog{
+    position: absolute;
+    bottom: 15px;
+  }
+  #nameAssoLogged{
+    position: relative;
+    top:23%;
+    left: -9%;
+  }
+  .navGlobal{
+    background-color: transparent!important;
+    margin-bottom: 0px!important;
+    border-color: transparent!important;
+  }
+  #eraseBorderNavMobile{
+    border: none!important;
+    background-color: #325C73;
+  }
+  .mainNav{
+    padding: 2%;
+    border-bottom: 0.5px solid #BEBEBE;
+  }
+  .deleteUnderlineSignUp{
+    margin-top:27%;
+  }
+
+}
+
+@media (min-width: 576px) and (max-width: 767px){
   
 }
-@media (min-width: 768px) {
+@media (min-width: 768px)and (max-width: 1023px) {
   .footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns{
     border-left:solid 1px rgba(255,255,255,0.10);
   }
@@ -368,20 +441,21 @@ select
     padding-bottom: 12px;
   }
 }
-@media (max-width: 1023px){
-  
-  
-}
 @media (min-width: 1024px){
-  .log250
-  {
+  .log250{
     height: 250px;
   }
   .footerLog{
   position: absolute;
   right: 0px;
   bottom: 15px;
+  }
+  .deleteUnderlineSignUp{
+    margin-top:9%;
+  }
 }
+@media (min-width: 1200px){
+ 
 }
 
 

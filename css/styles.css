@@ -15,9 +15,6 @@ a{
 a:hover{
 	color: black!important;
 }
-.marginTopAir{
-	margin-top: 0.5%;
-}
 
 #loadingIcon{
 	 margin-top: 21%;
@@ -173,7 +170,6 @@ padding: 0;
 	font-weight: 600;
 	text-align: center;
 	font-weight: bold;
-	margin-top: 13%;
 }
 #typeLetter{
 	font-size: 15px;
@@ -292,9 +288,6 @@ padding: 0;
   text-align: center;
   background-color: white!important;  
 }
-.navGlobalClass{
-	background-color: white!important;
-}
 .footer-bs{
     background-color: #808BA7;
 	color: black;
@@ -318,7 +311,7 @@ padding: 0;
 #separatorDesign{
 	text-decoration: none;
 }
-.navGlobalClass>li>.hi{
+#navGlobal>li>.hi{
 	width: 300px!important;
 }
 .customazingNav{
@@ -559,15 +552,12 @@ padding: 0;
 
 
 @media (max-width: 575px){
-	body{
-		font-size: 0.9em;
-	}
 	h2{
 		font-size: 1.8em;
 		color: #BCBCBC;
 	}
-	.textSize{ 
-		font-size: 0.92em!important;
+	#eraseBorderNavMobile{
+		border: none;
 	}
 	#generalView{
 		font-size: 1em!important;
@@ -580,6 +570,9 @@ padding: 0;
 		padding: 0;
 		margin-left: -20px;
 		margin-right: -20px;
+	}
+	.navReduced{
+		border-top: transparent;
 	}
 	.category {
 		//height: 50px;
@@ -628,7 +621,10 @@ padding: 0;
 	}
 	.marginTopAir{
 		margin-left: -8%;
-		margin-top: 1%;		
+		margin-top: 0.5%;		
+	}
+	#indicatorSlider{
+	margin-bottom:-3%!important;
 	}
 	#logoTexto{
 		margin-top: 5%;
@@ -638,16 +634,22 @@ padding: 0;
 	}
 	#whoTop{
 		position: absolute;
-    	top: -20%;
+    	top: -50%;
+    	left: -11%;
 	}
+
 	#contactTop{
 		position: absolute;
-    	top: 72%;;
-    	left: 17%;
+    	top: 37%;
+    	left: -11%;
+	}
+	#contactWho{
+		margin-top: 3.8%;
 	}
 	#loginPicture{
 		position: absolute;
-   		top: 15%;
+   		top: -17%;
+    	right: 8%;
     	font-size: 1.8em!important;
 	}
 	.navGeneral{
@@ -659,14 +661,15 @@ padding: 0;
 	#navGlobal{
 		margin: 0!important;
 		text-align: left;
+		background-color: white!important;
 	}
 	.navbar .navbar-collapse{
 		text-align: left;
 	}
 	.arrowDown{
 		position: absolute;
-    	top: 42.2%;
-    	left: 65%;
+    	left: 32%;
+    	top: 35%;
 	}
 
 	#tbodyContactTable{
@@ -691,11 +694,6 @@ padding: 0;
 	.dividerNav{
 		visibility: hidden;
 	}
-	#homeIconNav{
-		position: absolute;
-    	left: -4%;
-    	top: 33.4%;
-    }
 
 	#telContact{
 		margin-left: 3%;
@@ -707,10 +705,13 @@ padding: 0;
 	.dividerNav{
 		visibility: hidden;
 	}
+	.alignComercialMap{
+		margin-left: 0%!important;
+	}
 	#homeIconNav{
 		position: absolute;
-    	left: 1%;
-    	top: 40.4%;
+    	left: -2%;
+    	top: 30%;
 	}
 	.shop-name h1{
 		font-size: 1.8em;
@@ -855,8 +856,7 @@ padding: 0;
 		margin-left: 5%;
 		margin-right: 3%;
 	}
-	.paddTitleSM
-{
+	.paddTitleSM{
 	padding-top: 8%;
-}
+	}
 }

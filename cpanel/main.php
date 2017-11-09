@@ -15,10 +15,19 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
 		<script data-require="ng-route@1.2.0" data-semver="1.2.0" src="http://code.angularjs.org/1.2.0-rc.3/angular-route.js"></script>
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<script>
+	<!-- 	<script>
 			$( document ).ready(function() {			
 		}); 
-		</script>
+		</script> -->
+		<script>
+				$(document).ready(function () {
+
+  					$(".reduceNav").click(function(event) {
+    				$(".navReduced").collapse('hide');
+					});
+					
+				});
+			</script>
 
 		<link rel="stylesheet" href="css/styles.css">
 		<script src="js/app.js"></script>
@@ -38,12 +47,12 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 					<a href="#"><img style="padding: 0px;" class="img-responsive" src="../img/logos-assoc/<?php echo $_SESSION['user']['logo']; ?>"></a>					
 				</div>
 				<div class="col-xs-7 col-lg-7" style="height: 88px;">
-					<h4 style="margin-top: 37%"><?php echo $_SESSION['user']['name']; ?></h4>
+					<span id="nameAssoLogged"><?php echo $_SESSION['user']['name']; ?></span>
 				</div>
 			</div>		
 			<div class="col-lg-3 pull-right">
 				<div class="row">
-					<div class="col-xs-2 col-lg-4 col-lg-push-7 deleteUnderlineSignUp" ng-click="showDisconnect()" style="margin-top:5%;">
+					<div class="col-xs-12 col-lg-4 col-lg-push-7 deleteUnderlineSignUp" ng-click="showDisconnect()">
 						<div class="colorLoginHidden">
 							<i class="fa fa-user-circle-o fa-2x" aria-hidden="true" title="Inicia Sessió"></i>
 							<i class="fa fa-caret-down fa-lg" style="margin-left: 10px;" aria-hidden="true"></i>
@@ -59,31 +68,28 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 			</div>		
 		</div>
 		
-		<div class="row">
-			<div class="col-xs-2" style="padding: 0px">
+		<div class="row" style="height: 100%;">
+			<div class="col-xs-12 col-md-2 col-lg-2" style="padding: 0%!important;">
 				<div class="sidebar-nav">
-					<div class="navbar navbar-default" role="navigation">
+					<div class="navbar navbar-default navGlobal" role="navigation">
     					<div class="navbar-header">
-      						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+      						<button type="button" class="navbar-toggle pull-left" data-toggle="collapse" data-target=".sidebar-navbar-collapse" id="eraseBorderNavMobile">
 					            <span class="sr-only">Toggle navigation</span>
 					            <span class="icon-bar"></span>
 					            <span class="icon-bar"></span>
 					            <span class="icon-bar"></span>
-      						</button>
-      						<div>
-      							<span class="visible-xs navbar-brand">Backend</span>
-      						</div>      						
+      						</button>     						
     					</div>
-    					<div class="navbar-collapse collapse sidebar-navbar-collapse" >
+    					<div class="navbar-collapse collapse sidebar-navbar-collapse navReduced" style="background-color: #325C73;">
 							<ul class="nav navbar-nav" >
-								<?php if($_SESSION['user']['privileges'] =='E' || $_SESSION['user']['privileges'] =='A') echo '<li role="presentation" class="mainNav"><a href="#/associations">Associacions</a></li>
-								<li role="presentation" class="mainNav"><a href="#/shops">Comerços</a></li>' ?>
-							    <li role="presentation" class="mainNav"><a href="#/promotions">Promocions</a></li>
-							    <?php if($_SESSION['user']['privileges'] =='E' || $_SESSION['user']['privileges'] =='A') echo '<li role="presentation" class="mainNav"><a href="#/news">Notícies</a></li>' ?>
-							    <?php if($_SESSION['user']['privileges'] =='E') echo '<li role="presentation" class="mainNav"><a href="#/slider">Slider</a></li>
-							    <li role="presentation" class="mainNav"><a href="#/subcategories">Subcategories</a></li>
-							    <li role="presentation" class="mainNav"><a href="#/settings">Paràmetres</a></li>
-							    <li role="presentation" class="mainNav"><a href="#/formFichero">Enllaços del footer</a></li>' ?>
+								<?php if($_SESSION['user']['privileges'] =='E' || $_SESSION['user']['privileges'] =='A') echo '<li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/associations">Associacions</a></li>
+								<li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/shops">Comerços</a></li>' ?>
+							    <li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/promotions">Promocions</a></li>
+							    <?php if($_SESSION['user']['privileges'] =='E' || $_SESSION['user']['privileges'] =='A') echo '<li role="presentation" class="mainNav reduceNav  col-lg-12"><a class="colorLinksNavMobile" href="#/news">Notícies</a></li>' ?>
+							    <?php if($_SESSION['user']['privileges'] =='E') echo '<li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/slider">Slider</a></li>
+							    <li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/subcategories">Subcategories</a></li>
+							    <li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/settings">Paràmetres</a></li>
+							    <li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/formFichero">Enllaços del footer</a></li>' ?>
 							</ul>
     					</div><!--/.nav-collapse -->
   					</div>
