@@ -82,15 +82,15 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
       						</button>     						
     					</div>
     					<div class="navbar-collapse collapse sidebar-navbar-collapse navReduced" style="background-color: #325C73;">
-							<ul class="nav navbar-nav" >
-								<?php if($_SESSION['user']['privileges'] =='E' || $_SESSION['user']['privileges'] =='A') echo '<li role="presentation" class="mainNav"><a href="#/associations">Associacions</a></li>
-								<li role="presentation" class="mainNav"><a href="#/shops">Comerços</a></li>' ?>
-							    <li role="presentation" class="mainNav"><a href="#/promotions">Promocions</a></li>
-							    <?php if($_SESSION['user']['privileges'] =='E' || $_SESSION['user']['privileges'] =='A') echo '<li role="presentation" class="mainNav"><a href="#/news">Notícies</a></li>' ?>
-							    <?php if($_SESSION['user']['privileges'] =='E') echo '<li role="presentation" class="mainNav"><a href="#/slider">Slider</a></li>
-							    <li role="presentation" class="mainNav"><a href="#/subcategories">Subcategories</a></li>
-							    <li role="presentation" class="mainNav"><a href="#/settings">Paràmetres</a></li>
-							    <li role="presentation" class="mainNav"><a href="#/links">Enllaços del footer</a></li>' ?>
+							<ul class="nav navbar-nav">
+								<?php if($_SESSION['user']['privileges'] =='E' || $_SESSION['user']['privileges'] =='A') echo '<li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/associations">Associacions</a></li>
+								<li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/shops">Comerços</a></li>' ?>
+							    <li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/promotions">Promocions</a></li>
+							    <?php if($_SESSION['user']['privileges'] =='E' || $_SESSION['user']['privileges'] =='A') echo '<li role="presentation" class="mainNav reduceNav  col-lg-12"><a class="colorLinksNavMobile" href="#/news">Notícies</a></li>' ?>
+							    <?php if($_SESSION['user']['privileges'] =='E') echo '<li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/slider">Slider</a></li>
+							    <li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/subcategories">Subcategories</a></li>
+							    <li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/settings">Paràmetres</a></li>
+							    <li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/formFichero">Enllaços del footer</a></li>' ?>
 							</ul>
     					</div><!--/.nav-collapse -->
   					</div>
