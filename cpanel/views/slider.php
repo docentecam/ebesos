@@ -59,7 +59,7 @@
 						<div class="col-lg-12 col-xs-12">
 							<input type="hidden" ng-value="sliderImg.idSlider">
 							<button id="btnEditarSlider" class="btn btn-default" ng-click="editImgSlide(sliderImg.idSlider, sliderImg.description, sliderImg.title, sliderImg.subtitle)">Editar <i class="fa fa-pencil" aria-hidden="true"></i></button>
-							<button id="btnDeleteSlider" class="col-xs-offset-1 btn btn-default">Eliminar <i class="fa fa-eraser" aria-hidden="true"></i></button>
+							<button id="btnDeleteSlider" class="col-xs-offset-1 btn btn-default" ng-click="deleteImgSlide(sliderImg.idSlider)">Eliminar <i class="fa fa-eraser" aria-hidden="true"></i></button>
 						</div>
 					</div>
 				</form>

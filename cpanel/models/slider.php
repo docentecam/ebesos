@@ -84,6 +84,24 @@ if (isset($_GET["acc"]) && ($_GET["acc"] == "imgSlider"))
 	 	}
 		echo '[{"status":"'.$message.'"}]';
 	}
+	else if (isset($_GET['acc']) && $_GET['acc'] == 'deleteSlider') {
+		$message='';
+
+		//TODO dinamizar imagen
+		$mySql = "DELETE FROM slider
+					WHERE idSlider=".$_GET['idSlider'];
+		
+		$connexio = connect();
+		$resultSlider = mysqli_query($connexio, $mySql);
+		disconnect($connexio);
+		
+		$message = "S'ha eliminat la imatge del slider";
+		if($connexio == "Error al conectar")
+	 	{
+	 		$message = "Error al connectar";
+	 	}
+		echo '[{"status":"'.$message.'"}]';
+	}
 
 	// function editImgSlider($idUsuari="",$nom,$cog1,$cog2,$telf1,$telf2,$email,$direc,$direcPlta,$direcPrta,$direcEsc,$cp)
 	// {

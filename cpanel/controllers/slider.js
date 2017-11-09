@@ -112,6 +112,7 @@ angular.module('spaApp')
 	};
 	$scope.deleteImgSlide = function($idSlider, ){
 		$scope.loading=true;
+		console.log($idSlider);
 		$http({
 				method : "GET",
 				url : "models/slider.php?acc=deleteSlider&idSlider="+$idSlider
@@ -122,7 +123,8 @@ angular.module('spaApp')
 						url : "models/slider.php?acc=imgSlider"
 					}).then(function mySucces (response) {
 						$scope.slider = response.data;
-						console.log($scope.slider);
+						
+						console.log("llega");
 					}, function myError (response) {
 						$scope.slider = response.statusText;
 					})
