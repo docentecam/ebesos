@@ -33,38 +33,36 @@
 			<div id="divSliderSetting" ng-hide="sliderSetting" class="col-lg-6 col-xs-12" ng-repeat="sliderImg in slider">
 				<form>
 					<div class="row">
-					<img id="imgSliderSetting" class="col-lg-12 col-xs-12" src="../img/slider/{{sliderImg.image}}" alt=""><!-- TODO alt + dinamizar la imagen con angular -->
-				</div>
-				
-				<div class="row">
-					<div class="col-lg-12 col-xs-12" id="sliderText">
-						<div class="row">
-							<span>Descripció:</span>
+						<img id="imgSliderSetting" class="col-lg-12 col-xs-12" src="../img/slider/{{sliderImg.image}}" alt=""><!-- TODO alt + dinamizar la imagen con angular -->
+					</div>
+					<div class="row">
+						<div class="col-lg-12 col-xs-12" id="sliderText">
+							<div class="row">
+								<span>Descripció:</span>
+							</div>
+							<div class="row">
+								<p>{{sliderImg.description}}</p>
+							</div>
+							<div class="row">
+								<span>Títol:</span>
+							</div>
+							<div class="row">
+								<p>{{sliderImg.title}}</p>
+							</div>
+							<div class="row">
+								<span>Subtítol:</span>
+							</div>
+							<div class="row">
+								<p>{{sliderImg.subtitle}}</p>
+							</div>
 						</div>
-						<div class="row">
-							<p>{{sliderImg.description}}</p>
-						</div>
-						<div class="row">
-							<span>Títol:</span>
-						</div>
-						<div class="row">
-							<p>{{sliderImg.title}}</p>
-						</div>
-						<div class="row">
-							<span>Subtítol:</span>
-						</div>
-						<div class="row">
-							<p>{{sliderImg.subtitle}}</p>
+						<div class="col-lg-12 col-xs-12">
+							<input type="hidden" ng-value="sliderImg.idSlider">
+							<button id="btnEditarSlider" class="btn btn-default" ng-click="editImgSlide(sliderImg.idSlider, sliderImg.description, sliderImg.title, sliderImg.subtitle)">Editar <i class="fa fa-pencil" aria-hidden="true"></i></button>
+							<button id="btnDeleteSlider" class="col-xs-offset-1 btn btn-default" ng-click="deleteImgSlide(sliderImg.idSlider,sliderImg.image)">Eliminar <i class="fa fa-eraser" aria-hidden="true"></i></button>
 						</div>
 					</div>
-					<div class="col-lg-12 col-xs-12">
-						<input type="hidden" ng-value="sliderImg.idSlider">
-						<button id="btnEditarSlider" class="btn btn-default" ng-click="editImgSlide(sliderImg.idSlider, sliderImg.description, sliderImg.title, sliderImg.subtitle)">Editar <i class="fa fa-pencil" aria-hidden="true"></i></button>
-						<button id="btnDeleteSlider" class="col-xs-offset-1 btn btn-default">Eliminar <i class="fa fa-eraser" aria-hidden="true"></i></button>
-					</div>
-				</div>
 				</form>
-				
 			</div>
 			
 				<!-- Al pulsar añadir -->
@@ -89,7 +87,7 @@
 					</div>
 					<div class="row">
 						<label class="col-lg-2 col-lg-offset-2 col-xs-2 col-xs-offset-1">Imatge: </label>
-						<input type="file" class="editAndAddSlider">
+						<input type="file" class="editAndAddSlider"  onchange="angular.element(this).scope().uploadedImgFileC(this)">
 					</div>
 					<div class="row">
 						<input class="col-lg-offset-5 col-xs-offset-5 editAndAddSlider" type="button" value="Actualitzar" ng-click=createImgSlide()>
@@ -102,6 +100,7 @@
 			<div ng-show="sliderEditing" ng-repeat="infoSlider in onlyInfoSlider">
 				<form id="editingForm">
 					<input type="hidden" id="hidEditSlider" ng-value="infoSlider.idSlider">
+					<input type="hidden" id="hidImage" ng-value="infoSlider.image">
 					<div class="row">
 						<label class="col-lg-2 col-lg-offset-2 col-xs-2 col-xs-offset-1">Descripció: </label>
 						<textarea class=" col-lg-5 col-xs-6 col-xs-offset-1 editAndAddSlider" name="" id="description" cols="30" rows="6">{{infoSlider.description}}</textarea>
@@ -120,7 +119,7 @@
 					</div>
 					<div class="row">
 						<label class="col-lg-2 col-lg-offset-2 col-xs-2 col-xs-offset-1">Imatge: </label>
-						<input type="file" class="editAndAddSlider">
+						<input type="file" class="editAndAddSlider" onchange="angular.element(this).scope().uploadedImgFileE(this)">
 					</div>
 					<div class="row">
 						<input class="col-lg-offset-5 col-xs-offset-5 editAndAddSlider" type="button" value="Actualitzar" ng-click=updateImgSlide()>

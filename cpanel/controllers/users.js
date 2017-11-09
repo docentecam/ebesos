@@ -1,5 +1,5 @@
 angular.module('spaApp')
- .controller('AssociationsCtrl', function($scope, $http) {
+ .controller('AssociationsCtrl', function($scope, $http, $q) {
  			$scope.cUser = true;
  			$scope.activeCY = 'Y';
  			$scope.activeCN = 'N';
@@ -297,6 +297,39 @@ angular.module('spaApp')
   			$scope.showEdit2 = function(){
   				$scope.logoEdit2 = true;
   			};
+  			$scope.selImages=function(e,nameField){
+  				var data = new FormData();
+				data.append("nameField",nameField);
+				data.append("idUser",$scope.idUserC);
+				data.append("uploadedFile",e.files[0]);
+				if(nameField == 'logo')
+				{
+					data.append("deleteLogo",$scope.logoC);
+				}
+				else
+				{
+					data.append("deleteLogo",$scope.footerC);
+				}
+
+
+				var deferred=$q.defer();
+				return $http.post("models/users.php?acc=updateImgAsso", data,{
+				headers:{
+				"Content-type":undefined
+				},
+				transformRequest:angular.identity
+				})
+				.then(function(res)
+				{
+				deferred.resolve(res);
+
+				})
+				
+				return
+				 deferred.promise;
+
+
+			}
  
 	});
 

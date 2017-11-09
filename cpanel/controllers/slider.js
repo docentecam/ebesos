@@ -1,53 +1,18 @@
 angular.module('spaApp')															 
-.controller('SliderCtrl', function($scope, $http) {
+.controller('SliderCtrl', function($scope, $http, $q) {
 	$scope.loading=true;
 	$http({
 			method : "GET",
 			url : "models/slider.php?acc=imgSlider"
 		}).then(function mySucces (response) {
 			$scope.slider = response.data;
-			console.log($scope.slider);
 		}, function myError (response) {
 			$scope.slider = response.statusText;
 		})
 		.finally(function() {
 			$scope.loading=false;
 		});
-	$scope.createImgSlide  = function(){
-		$scope.spanEditarImatges = false;
-		$scope.btnAfegir = false;
-		$scope.sliderSetting = false;
-		$scope.sliderAdding = false;
-		$scope.createDescription = addingForm['descriptionC'].value;
-  		$scope.createTitle = addingForm['titleC'].value;
-  		$scope.createSubTitle = addingForm['subTitleC'].value;
-  		$scope.createLink = addingForm['linkC'].value;
-  		$scope.loading=true;
-  		console.log("llega");
-  		$http({
-				method : "GET",
-				url : "models/slider.php?acc=createSlider&description="+$scope.createDescription+"&title="+$scope.createTitle+"&subTitle="+$scope.createSubTitle+"&linkSlider="+$scope.createLink
-			}).then(function mySucces (response) {
-				$scope.createSlider = response.data;
-				$scope.loading=true;
-				$http({
-						method : "GET",
-						url : "models/slider.php?acc=imgSlider"
-					}).then(function mySucces (response) {
-						$scope.slider = response.data;
-						console.log($scope.slider);
-					}, function myError (response) {
-						$scope.slider = response.statusText;
-					})
-					.finally(function() {
-						$scope.loading=false;
-					});
-			}, function myError (response) {
-				$scope.createSlider = response.statusText;
-			}).finally(function() {
-				$scope.loading=false;
-			});
-	}
+	
 
 	$scope.addImgSlide = function(){
 		$scope.spanEditarImatges = true;
@@ -68,28 +33,110 @@ angular.module('spaApp')
 				url : "models/slider.php?acc=showOnlySlider&idSlider="+$idSlider
 			}).then(function mySucces (response) {
 				$scope.onlyInfoSlider = response.data;
-				console.log($idSlider);
 			}, function myError (response) {
 				$scope.onlyInfoSlider = response.statusText;
 		}).finally(function() {
 			$scope.loading=false;
 		});
 	};
-	$scope.updateImgSlide = function(){
+	$scope.createImgSlide  = function(){
+		$scope.spanEditarImatges = false;
+		$scope.btnAfegir = false;
+		$scope.sliderSetting = false;
+		$scope.sliderAdding = false;
+		
+
+		$scope.loading=true;
+		$http({
+				method : "GET",
+				url : "models/slider.php?acc=imgSlider"
+			}).then(function mySucces (response) {
+				$scope.slider = response.data;
+			}, function myError (response) {
+				$scope.slider = response.statusText;
+			})
+			.finally(function() {
+				$scope.loading=false;
+			});
+  		
+	};
+	$scope.uploadedImgFileC  = function(e){
+			var data = new FormData();
+			data.append("description",addingForm['descriptionC'].value);
+			data.append("title",addingForm['titleC'].value);
+			data.append("subTitle",addingForm['subTitleC'].value);
+			data.append("link",addingForm['linkC'].value);
+			data.append("uploadedFile",e.files[0]);
+
+			
+
+			var deferred=$q.defer();
+			return $http.post("models/slider.php?acc=createSlider", data,{
+			headers:{
+			"Content-type":undefined
+			},
+			transformRequest:angular.identity
+			})
+			.then(function(res)
+			{
+			deferred.resolve(res);
+
+			})
+			return
+			deferred.promise;
+		}
+
+	$scope.updateImgSlide = function(e){
 		$scope.spanEditarImatges = false;
 		$scope.btnAfegir = false;
 		$scope.sliderSetting = false;
 		$scope.sliderEditing = false;
-  		$scope.editDescription = editingForm['description'].value;
-  		$scope.editTitle = editingForm['title'].value;
-  		$scope.editSubTitle = editingForm['subTitle'].value;
-  		$scope.editLink = editingForm['linkSlider'].value;
-  		$scope.editSlider = editingForm['hidEditSlider'].value;
-  		$scope.loading=true;
   		
+  		$scope.loading=true;
+  		$http({
+			method : "GET",
+			url : "models/slider.php?acc=imgSlider"
+		}).then(function mySucces (response) {
+			$scope.slider = response.data;
+		}, function myError (response) {
+			$scope.slider = response.statusText;
+		})
+		.finally(function() {
+			$scope.loading=false;
+		});
+		
+	};
+	$scope.uploadedImgFileE  = function(e){
+			var data = new FormData();
+			data.append("description",editingForm['description'].value);
+			data.append("title",editingForm['title'].value);
+			data.append("subTitle",editingForm['subTitle'].value);
+			data.append("link",editingForm['linkSlider'].value);
+			data.append("idSlider",editingForm['hidEditSlider'].value);
+			data.append("image",editingForm['hidImage'].value);
+			data.append("uploadedFile",e.files[0]);
+			
+
+			var deferred=$q.defer();
+			return $http.post("models/slider.php?acc=updateSlider", data,{
+			headers:{
+			"Content-type":undefined
+			},
+			transformRequest:angular.identity
+			})
+			.then(function(res)
+			{
+			deferred.resolve(res);
+
+			})
+			return
+			deferred.promise;
+		}
+	$scope.deleteImgSlide = function($idSlider, $imageSlider){
+		$scope.loading=true;
 		$http({
 				method : "GET",
-				url : "models/slider.php?acc=updateSlider&description="+$scope.editDescription+"&idSlider="+$scope.editSlider+"&title="+$scope.editTitle+"&subTitle="+$scope.editSubTitle+"&linkSlider="+$scope.editLink
+				url : "models/slider.php?acc=deleteSlider&idSlider="+$idSlider+"&image="+$imageSlider
 			}).then(function mySucces (response) {
 				$scope.updateSlider = response.data;
 				$http({
@@ -97,7 +144,18 @@ angular.module('spaApp')
 						url : "models/slider.php?acc=imgSlider"
 					}).then(function mySucces (response) {
 						$scope.slider = response.data;
-						console.log($scope.slider);
+						$scope.loading=true;
+				  		$http({
+							method : "GET",
+							url : "models/slider.php?acc=imgSlider"
+						}).then(function mySucces (response) {
+							$scope.slider = response.data;
+						}, function myError (response) {
+							$scope.slider = response.statusText;
+						})
+						.finally(function() {
+							$scope.loading=false;
+						});
 					}, function myError (response) {
 						$scope.slider = response.statusText;
 					})
