@@ -1,5 +1,5 @@
 angular.module('spaApp')
- .controller('AssociationsCtrl', function($scope, $http) {
+ .controller('AssociationsCtrl', function($scope, $http, $q) {
  			$scope.cUser = true;
  			$scope.activeCY = 'Y';
  			$scope.activeCN = 'N';
@@ -297,23 +297,24 @@ angular.module('spaApp')
   			$scope.showEdit2 = function(){
   				$scope.logoEdit2 = true;
   			};
-  			$scope.selImages=function(e,idUser,nameField){
-
-  				$scope.filesImages = [];
-  				$scope.$apply(function () {
-  					$scope.filesImages.push(e.files[0]);
-                	$scope.message=e.files[0][nameField];
-
-  				});
-
+  			$scope.selImages=function(e,nameField){
+  				console.log(e.files);
   				var data = new FormData();
 				data.append("nameField",nameField);
-				data.append("idUser",idUser);
-				data.append("uploadedFile",$scope.filesImages[0]);
+				data.append("idUser",$scope.idUserC);
+				data.append("uploadedFile",e.files[0]);
+				if(nameField == 'logo')
+				{
+					data.append("deleteLogo",$scope.logoC);
+				}
+				else
+				{
+					data.append("deleteLogo",$scope.footerC);
+				}
 
 
 				var deferred=$q.defer();
-				return $http.post("models/users.php", data,{
+				return $http.post("models/users.php?acc=updateImgAsso", data,{
 				headers:{
 				"Content-type":undefined
 				},
@@ -323,11 +324,11 @@ angular.module('spaApp')
 				{
 				deferred.resolve(res);
 
-				}).error(function(msg,code)
-				{ 
-					deferred.reject(msg);
 				})
-				return deferred.promise;
+				
+				return
+				 deferred.promise;
+
 
 			}
  

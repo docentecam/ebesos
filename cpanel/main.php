@@ -30,6 +30,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 		<script src="controllers/settings.js"></script>
 		<script src="controllers/promotions.js"></script>
 		<script src="controllers/main.js"></script>
+		<script src="controllers/links.js"></script>
 	</head>
 	<body id="container" data-ng-app="spaApp"  ng-controller="MainCtrl">
 		<div class="row">
@@ -83,7 +84,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 							    <?php if($_SESSION['user']['privileges'] =='E') echo '<li role="presentation" class="mainNav"><a href="#/slider">Slider</a></li>
 							    <li role="presentation" class="mainNav"><a href="#/subcategories">Subcategories</a></li>
 							    <li role="presentation" class="mainNav"><a href="#/settings">Paràmetres</a></li>
-							    <li role="presentation" class="mainNav"><a href="#/formFichero">Enllaços del footer</a></li>' ?>
+							    <li role="presentation" class="mainNav"><a href="#/links">Enllaços del footer</a></li>' ?>
 							</ul>
     					</div><!--/.nav-collapse -->
   					</div>

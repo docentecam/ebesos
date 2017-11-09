@@ -333,6 +333,22 @@ if(isset($_SESSION['user']['idUser']))
 	 	}
 		echo '[{"status":"'.$message.'"}]';
 	}
+	else if (isset($_GET['acc']) && $_GET['acc'] == 'updateImgAsso') {
+		
+	    $file = $_POST['idUser']."-".$_FILES["uploadedFile"]["name"];
+	    move_uploaded_file($_FILES["uploadedFile"]["tmp_name"], '../../img/logos-assoc/'.$file);
+
+	    
+		$mySql = 'UPDATE users
+			SET '.$_POST['nameField'].'="'.$file.'" WHERE idUser='.$_POST['idUser'];
+		$connexio = connect();
+		$updateLogo = mysqli_query($connexio, $mySql);
+		disconnect($connexio);
+
+
+		unlink('../../img/logos-assoc/'.$_POST['deleteLogo']);
+
+	}
 }
 else if(!isset($_GET['acc']))
 {

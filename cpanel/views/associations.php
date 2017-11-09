@@ -140,13 +140,12 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 				<img class="col-lg-3" src="../img/logos-assoc/{{logoC}}">
 				<div class="col-lg-6 col-lg-offset-3">
 					<div class="row"><a class="col-lg-8" href="" ng-click="showEdit()">Editar logo</a></div>
-					<div class="row"><a class=" col-lg-10" href="" ng-click="">Eliminar logo</a></div>
 				</div>
 			</div>
 		</div>
 		<div class="col-lg-3 pt-3">
 			<label for="logoA" ng-show="logoEdit" class="labelFor">Examinar</label>
-			<input type="file" id="logoA" name="" ng-show="false" onchange="angular.element(this,{{idUserC}},'logo').scope().selImages(this)">
+			<input type="file" id="logoA" name="" ng-show="false" onchange="angular.element(this).scope().selImages(this,'logo')">
 		</div>
 	</div>
 	
@@ -160,13 +159,12 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 				<img class="col-xs-6 col-lg-6" src="../img/logos-assoc/{{footerC}}">
 				<div class="col-xs-12 col-lg-6">
 					<div class="row"><a class="col-lg-8" href="" ng-click="showEdit2()">Editar logo</a></div>
-					<div class="row"><a class=" col-lg-10" href="" ng-click="">Eliminar logo</a></div>
 				</div>
 			</div>
 		</div>
 		<div class="col-lg-3 pt-3">
 			<label for="logoF" ng-show="logoEdit2" class="labelFor">Examinar</label>
-			<input type="file" id="logoF" name="" ng-show="false" onchange="angular.element(this,{{idUserC}},'footer').scope().selImages(this)">
+			<input type="file" id="logoF" name="" ng-show="false" onchange="angular.element(this).scope().selImages(this,'footer')">
 		</div>
 	</div>
 </div>
