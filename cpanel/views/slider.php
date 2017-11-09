@@ -33,38 +33,36 @@
 			<div id="divSliderSetting" ng-hide="sliderSetting" class="col-lg-6 col-xs-12" ng-repeat="sliderImg in slider">
 				<form>
 					<div class="row">
-					<img id="imgSliderSetting" class="col-lg-12 col-xs-12" src="../img/slider/{{sliderImg.image}}" alt=""><!-- TODO alt + dinamizar la imagen con angular -->
-				</div>
-				
-				<div class="row">
-					<div class="col-lg-12 col-xs-12" id="sliderText">
-						<div class="row">
-							<span>Descripció:</span>
+						<img id="imgSliderSetting" class="col-lg-12 col-xs-12" src="../img/slider/{{sliderImg.image}}" alt=""><!-- TODO alt + dinamizar la imagen con angular -->
+					</div>
+					<div class="row">
+						<div class="col-lg-12 col-xs-12" id="sliderText">
+							<div class="row">
+								<span>Descripció:</span>
+							</div>
+							<div class="row">
+								<p>{{sliderImg.description}}</p>
+							</div>
+							<div class="row">
+								<span>Títol:</span>
+							</div>
+							<div class="row">
+								<p>{{sliderImg.title}}</p>
+							</div>
+							<div class="row">
+								<span>Subtítol:</span>
+							</div>
+							<div class="row">
+								<p>{{sliderImg.subtitle}}</p>
+							</div>
 						</div>
-						<div class="row">
-							<p>{{sliderImg.description}}</p>
-						</div>
-						<div class="row">
-							<span>Títol:</span>
-						</div>
-						<div class="row">
-							<p>{{sliderImg.title}}</p>
-						</div>
-						<div class="row">
-							<span>Subtítol:</span>
-						</div>
-						<div class="row">
-							<p>{{sliderImg.subtitle}}</p>
+						<div class="col-lg-12 col-xs-12">
+							<input type="hidden" ng-value="sliderImg.idSlider">
+							<button id="btnEditarSlider" class="btn btn-default" ng-click="editImgSlide(sliderImg.idSlider, sliderImg.description, sliderImg.title, sliderImg.subtitle)">Editar <i class="fa fa-pencil" aria-hidden="true"></i></button>
+							<button id="btnDeleteSlider" class="col-xs-offset-1 btn btn-default">Eliminar <i class="fa fa-eraser" aria-hidden="true"></i></button>
 						</div>
 					</div>
-					<div class="col-lg-12 col-xs-12">
-						<input type="hidden" ng-value="sliderImg.idSlider">
-						<button id="btnEditarSlider" class="btn btn-default" ng-click="editImgSlide(sliderImg.idSlider, sliderImg.description, sliderImg.title, sliderImg.subtitle)">Editar <i class="fa fa-pencil" aria-hidden="true"></i></button>
-						<button id="btnDeleteSlider" class="col-xs-offset-1 btn btn-default">Eliminar <i class="fa fa-eraser" aria-hidden="true"></i></button>
-					</div>
-				</div>
 				</form>
-				
 			</div>
 			
 				<!-- Al pulsar añadir -->
