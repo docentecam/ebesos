@@ -71,6 +71,22 @@ if (isset($_GET["acc"]) && ($_GET["acc"] == "imgSlider"))
 	 	}
 		echo '[{"status":"'.$message.'"}]';
 	}
+	else if (isset($_GET['acc']) && $_GET['acc'] == 'updateSliderNI') {
+
+		//TODO dinamizar imagen
+		$mySql = 'UPDATE slider
+				SET title="'.$_GET['title'].'", subtitle="'.$_GET['subTitle'].'", link="'.$_GET['linkSlider'].'", description="'.$_GET['description'].'" WHERE idSlider='.$_GET['idSlider'];
+		$connexio = connect();
+		$updateSliderData = mysqli_query($connexio, $mySql);
+		disconnect($connexio);
+
+		$message = "S'ha modificat la imatge del slider";
+		if($connexio == "Error al conectar")
+	 	{
+	 		$message = "Error al connectar";
+	 	}
+		echo '[{"status":"'.$message.'"}]';
+	}
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'createSlider') {
 		$message='';
 

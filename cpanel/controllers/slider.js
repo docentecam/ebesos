@@ -86,24 +86,43 @@ angular.module('spaApp')
 			deferred.promise;
 		}
 
-	$scope.updateImgSlide = function(e){
+	$scope.updateImgSlide = function(){
 		$scope.spanEditarImatges = false;
 		$scope.btnAfegir = false;
 		$scope.sliderSetting = false;
 		$scope.sliderEditing = false;
   		
+
+  		$scope.editDescription = editingForm['description'].value;
+  		$scope.editTitle = editingForm['title'].value;
+  		$scope.editSubTitle = editingForm['subTitle'].value;
+  		$scope.editLink = editingForm['linkSlider'].value;
+  		$scope.editSlider = editingForm['hidEditSlider'].value;
   		$scope.loading=true;
-  		$http({
-			method : "GET",
-			url : "models/slider.php?acc=imgSlider"
-		}).then(function mySucces (response) {
-			$scope.slider = response.data;
-		}, function myError (response) {
-			$scope.slider = response.statusText;
-		})
-		.finally(function() {
-			$scope.loading=false;
-		});
+  		
+		$http({
+				method : "GET",
+				url : "models/slider.php?acc=updateSliderNI&description="+$scope.editDescription+"&idSlider="+$scope.editSlider+"&title="+$scope.editTitle+"&subTitle="+$scope.editSubTitle+"&linkSlider="+$scope.editLink
+			}).then(function mySucces (response) {
+				$scope.updateSlider = response.data;
+				$scope.loading=true;
+				$http({
+						method : "GET",
+						url : "models/slider.php?acc=imgSlider"
+					}).then(function mySucces (response) {
+						$scope.slider = response.data;
+					}, function myError (response) {
+						$scope.slider = response.statusText;
+					})
+					.finally(function() {
+						$scope.loading=false;
+					});
+			}, function myError (response) {
+				$scope.updateSlider = response.statusText;
+			}).finally(function() {
+				$scope.loading=false;
+			});
+  		
 		
 	};
 	$scope.uploadedImgFileE  = function(e){
