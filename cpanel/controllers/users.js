@@ -298,7 +298,6 @@ angular.module('spaApp')
   				$scope.logoEdit2 = true;
   			};
   			$scope.selImages=function(e,nameField){
-  				console.log(e.files);
   				var data = new FormData();
 				data.append("nameField",nameField);
 				data.append("idUser",$scope.idUserC);
