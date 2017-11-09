@@ -25,6 +25,7 @@ select
 .btn-edit, .btn-delete{
   height: 49px;
   font-size: 0.8em;
+  background: #DDE3E5 !important;
   margin: 0;
   padding: 2px !important;
   border: none !important;

@@ -17,7 +17,9 @@
 		</div>
 	</div>
 	<div class="col-lg-2 botones">
+		<button ng-click="shopOneEdit($index, 'e', shops.idShop)" class="btn-edit col-lg-5 col-lg-push-2">Editar</button>
 		<!-- <button ng-click="shopOneDelete(shops.idShop)" class="btn-default col-lg-6">delete tienda: {{shops.idShop}}</button> -->
+		<button class="btn-delete col-lg-5 col-lg-push-2">Eliminar</button>
 	</div>
 </div>
 	
