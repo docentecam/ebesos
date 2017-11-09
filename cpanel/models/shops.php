@@ -5,11 +5,11 @@ session_start();
 if(isset($_GET['acc']) && $_GET['acc'] == 'list')
 {
 	$mySql = "SELECT shopsimages.url, shops.idShop, shops.name, shops.lng, shops.lat, shops.logo, shops.telephone, shops.email, shops.address, shops.schedule, shops.description, shops.descriptionLong, shops.url AS web, shops.cp, shops.ciutat, shops.idUser
-			FROM shops INNER JOIN shopsimages ON shops.idShop = shopsimages.idShop AND
+			FROM shops LEFT JOIN shopsimages ON shops.idShop = shopsimages.idShop WHERE
 			shopsimages.preferred = 'Y'";
 	if($_SESSION['user']['privileges'] != 'E')
 	{
-		$mySql .= "AND shops.idUser =".$_SESSION['user']['idUser'];
+		$mySql .= " AND shops.idUser =".$_SESSION['user']['idUser'];
 	}
 
 	$connexio = connect();
@@ -147,11 +147,9 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'delete')
 
 	$connexio = connect();
 
-	$deleteShop = mysqli_query($connexio, $mySql);
+	$deleteShopImage = mysqli_query($connexio, $mySql);
 
-	$mySql = "	DELETE FROM shops WHERE idShop = $idShop";
-
-	$connexio = connect();
+	$mySql = "	DELETE FROM shops WHERE idShop = $idShop AND ";
 
 	$deleteShop = mysqli_query($connexio, $mySql);
 

@@ -1,6 +1,7 @@
 angular.module('spaApp')
 .controller('ShopsCtrl', function($scope, $http, $routeParams, upload) {
 	$scope.showShop = false;
+	$scope.showList = true;
 	$scope.shopOne = "[{{}}]";
 	$scope.filterId = 1;
 	$scope.loading = true;
@@ -72,6 +73,7 @@ angular.module('spaApp')
 		// $scope.users = $scope.showShop[index].users;
 		// $scope.subCategories = $scope.showShop[index].subCategories;
 		$scope.showShop = true;
+		$scope.showList = false;
 	};
 	$scope.shopOneDelete = function($idShop){
 		console.log($idShop);
@@ -91,6 +93,7 @@ angular.module('spaApp')
 	};
 	$scope.shopOneAdd = function($idShop){
 		$scope.showShop = true;
+		$scope.showList = false;
 		$scope.type = "A";
 	};
 

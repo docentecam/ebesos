@@ -8,15 +8,17 @@
 		<option ng-value="userL.idUser" ng-repeat="userL in userList" ng-selected="userL.idUser==idUserLg">{{userL.name}}</option>
 	</select>
 </div>
-<div class="row" ng-repeat="shops in shopsList | filter : {idUser:filterShops}:true">
-	<div class="col-md-3"><img src="img/shops/{{shops.image}}"></div>
-	<div class="col-md-9">
-		<div class="row"><label>{{shops.name}}/{{shops.idUser}}/{{idUserLg}}</label></div>
-		<div class="row"><p>{{shops.description}}</p></div>
+<div class="row shops-list" ng-repeat="shops in shopsList | filter : {idUser:filterShops}:true" ng-show="(showList)">
+	<div class="col-lg-10 shop-cage">
+		<div class="col-md-3"><img class="img-responsive" src="../img/shops/{{shops.imgPref}}"></div>
+		<div class="col-md-9">
+			<label class="col-lg-12">{{shops.name}}/{{shops.idUser}}/{{idUserLg}}</label>
+			<p class="col-lg-12">{{shops.description}}</p>
+		</div>
 	</div>
-	<button ng-click="shopOneEdit($index, 'e', shops.idShop)" class="btn-default">edit</button>
-	<!-- <button ng-click="shopOneDelete(shops.idShop)" class="btn-default">delete tienda: {{shops.idShop}}</button> -->
-	<button class="btn-default">delete</button>
+	<div class="col-lg-2 botones">
+		<!-- <button ng-click="shopOneDelete(shops.idShop)" class="btn-default col-lg-6">delete tienda: {{shops.idShop}}</button> -->
+	</div>
 </div>
 	
 <div class="row col-md-12" ng-show="showShop"> <!-- ng-repeat="shop in shopOne" -->

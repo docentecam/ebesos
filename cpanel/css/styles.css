@@ -22,6 +22,17 @@ select
   -webkit-appearance: none;
   appearance: none;
 }
+.btn-edit, .btn-delete{
+  height: 49px;
+  font-size: 0.8em;
+  margin: 0;
+  padding: 2px !important;
+  border: none !important;
+}
+.botones{
+  padding-right: 0;
+  margin-right: 0;
+}
 #loadingData{
   position:absolute;
     top:0;
@@ -155,6 +166,19 @@ select
   background-position-y: 5px;
   background-position-x: 150px;
   background-color: #BED1D7;
+}
+.shop-cage{
+  margin-top: 10px;
+}
+.shops-list{
+  padding-top: 0px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 0px;
+  background-color: #FFFFFF;
+  border-top: 1px solid #C5C5C5;
+  border-left: 1px solid #C5C5C5;
+  border-right: 1px solid #C5C5C5;
 }
 
 /* ------------------------ */
