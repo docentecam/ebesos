@@ -1,7 +1,7 @@
 angular.module('spaApp')
 .controller('PromotionsCtrl', function($scope, $http) {
   		
-  		$scope.loading=true;
+  		
   		$scope.showPromotions=false;
  		$scope.loadPromotions=true;
 
@@ -10,7 +10,7 @@ angular.module('spaApp')
  		$scope.promotions=[];
  		$scope.promotions.image="";
 
-
+ 			$scope.loading=true;
 			$http({
 				method : "GET",
 				url : "models/promotions.php?acc=l"

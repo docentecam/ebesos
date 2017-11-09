@@ -1,7 +1,7 @@
 angular.module('spaApp')
 
   .controller('AboutUsCtrl', function($scope, $http) {
-
+  		$scope.loading=true;
 		$http({
 			method : "GET",
 			url : "models/users.php?acc=history&idUser=1"
@@ -10,6 +10,10 @@ angular.module('spaApp')
 			
 		}, function myError (response) {
 			$scope.names = response.statusText;
+		})
+		.finally(function() {
+			$scope.loading=false;
+		
 		});
 			
 	});
@@ -118,7 +122,7 @@ angular.module('spaApp')
 			$scope.showDivH = false;
 		}, function myError(response) {
 			$scope.shops = response.statusText;
-	}).finally(function(){
+		}).finally(function(){
 				$scope.loading = false;
 		});
 	
@@ -204,7 +208,7 @@ angular.module('spaApp')
 	};
 	$scope.checkform = function()
 		{
-			$scope.loading = true;
+			
 			var error = "";
 			if(myForm['captchaInput'].value == ""){
 				error += "- Introdueix el CAPTCHA.";
@@ -219,6 +223,7 @@ angular.module('spaApp')
 				return false;
 			}
 			else if (error == "") {
+				$scope.loading = true;
 				$http({
 						method : "GET",
 						url : "models/users.php?acc=mail&idUser="+ $scope.idUser + "&client="+ myForm['client'].value+

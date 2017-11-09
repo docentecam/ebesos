@@ -103,6 +103,7 @@ angular.module('spaApp')
 	};
 
 	$scope.preferredSubCat = function($idSubCategory, $idShop){
+		$scope.loading=true;
 		$http({
 			method : "GET",
 			url : "models/shops.php?acc=ePrefSubCat&idShop="+$idShop+"&idSubCategory="+$idSubCategory
@@ -124,6 +125,7 @@ angular.module('spaApp')
 
 	};
 	$scope.subCategory = function($idSubCategory, $idShop){
+		$scope.loading=true;
 		$http({
 			method : "GET",
 			url : "models/shops.php?acc=eSubCat&idShop="+$idShop+"&idSubCategory="+$idSubCategory
@@ -144,6 +146,7 @@ angular.module('spaApp')
 		});
 	};
 	$scope.deleteSubCategory = function($idShopCategorySub, $idShop){
+		$scope.loading=true;
 		$http({
 			method : "GET",
 			url : "models/shops.php?acc=delsc&idShop="+$idShop+"&idShopCategorySub="+$idShopCategorySub

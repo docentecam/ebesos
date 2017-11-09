@@ -41,7 +41,7 @@ $scope.editParameter = function(act="",idSetting, value, literal ){
 		}
 
 		else if (act=="Update" || act=="Add"){
-
+			$scope.loading=true;
 			$http({
 				method : "GET",
 				url : "models/settings.php?acc=addUpdate&act="+act+"&literal="+$scope.literal+"&value="+$scope.value+"&idSetting="+$scope.idSetting
