@@ -6,7 +6,6 @@ angular.module('spaApp')
 			url : "models/slider.php?acc=imgSlider"
 		}).then(function mySucces (response) {
 			$scope.slider = response.data;
-			console.log($scope.slider);
 		}, function myError (response) {
 			$scope.slider = response.statusText;
 		})
@@ -53,7 +52,6 @@ angular.module('spaApp')
 				url : "models/slider.php?acc=imgSlider"
 			}).then(function mySucces (response) {
 				$scope.slider = response.data;
-				console.log($scope.slider);
 			}, function myError (response) {
 				$scope.slider = response.statusText;
 			})
@@ -63,7 +61,6 @@ angular.module('spaApp')
   		
 	};
 	$scope.uploadedImgFileC  = function(e){
-			console.log("llega");
 			var data = new FormData();
 			data.append("description",addingForm['descriptionC'].value);
 			data.append("title",addingForm['titleC'].value);
@@ -101,7 +98,6 @@ angular.module('spaApp')
 			url : "models/slider.php?acc=imgSlider"
 		}).then(function mySucces (response) {
 			$scope.slider = response.data;
-			console.log($scope.slider);
 		}, function myError (response) {
 			$scope.slider = response.statusText;
 		})
@@ -111,7 +107,6 @@ angular.module('spaApp')
 		
 	};
 	$scope.uploadedImgFileE  = function(e){
-			console.log("llega");
 			var data = new FormData();
 			data.append("description",editingForm['description'].value);
 			data.append("title",editingForm['title'].value);
@@ -139,7 +134,6 @@ angular.module('spaApp')
 		}
 	$scope.deleteImgSlide = function($idSlider, $imageSlider){
 		$scope.loading=true;
-		console.log($idSlider);
 		$http({
 				method : "GET",
 				url : "models/slider.php?acc=deleteSlider&idSlider="+$idSlider+"&image="+$imageSlider
@@ -156,14 +150,12 @@ angular.module('spaApp')
 							url : "models/slider.php?acc=imgSlider"
 						}).then(function mySucces (response) {
 							$scope.slider = response.data;
-							console.log($scope.slider);
 						}, function myError (response) {
 							$scope.slider = response.statusText;
 						})
 						.finally(function() {
 							$scope.loading=false;
 						});
-						console.log("llega");
 					}, function myError (response) {
 						$scope.slider = response.statusText;
 					})
