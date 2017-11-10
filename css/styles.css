@@ -228,11 +228,11 @@ padding: 0;
 }
 
 #footerColor{
-	background-color:#808BA7;
+	background-color:#659eab;
 	margin-top: 5%!important;
 }
 #linkBorder{
-	border-left: 1px solid #9C9C9C;
+	border-left: 1px solid white;
 }
 .linkNom{
 	font-weight: bold;
@@ -291,7 +291,7 @@ padding: 0;
 	height: 40%!important;
 }
 #mc_embed_signup{
-	background-color: #808BA7!important;
+	background-color: #659eab!important;
 	margin-left: 5%!important;
 }
 #mce-EMAIL, #mce-FNAME{
