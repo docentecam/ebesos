@@ -71,7 +71,6 @@ angular.module('spaApp')
 		if($scope.nameC == "" || $scope.urlC == "")
 		{
 			$scope.statusValidations = "Hi ha camps sense omplir";
-			console.log($scope.statusValidations);
 		}
 		else if($scope.idLinkC == -1)
 		{
