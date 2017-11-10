@@ -14,10 +14,11 @@
 <div class="row tableSubCategories">
 	<div class="col-lg-8 borderTableSubCategories noPadding">
 		<div class="col-lg-6 borderTitlesSubCategories centerPadding">
-			<div class="col-lg-12 tableCategoriaSubCategoria">
+			<div class="col-lg-12 tableCategoriaSubCategoria noPadding">
 				CATEGORIA
 			</div>
 		</div>
+		<img class="iconSubCategory" width="50px" height="50px" src="../img/burger.svg" alt="" >
 		<div class="col-lg-6 borderTitlesSubCategories centerPadding">
 			<div class="col-lg-12 tableAlimentacioSubCategoria">
 				<div ng-show="firstC">ALIMENTACIÓ</div>{{idCategoryC | uppercase}}

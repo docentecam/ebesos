@@ -500,11 +500,21 @@ select
 /*--------------------------------------*/
 
 /* Subcategories. */
+.iconSubCategory{
+    position: absolute;
+    left: 44.5%;
+    top: 1.4%;
+    z-index: 1;
+}
+
+.labelSubCategoria{
+  margin-bottom: 2%;
+}
 
 .btn-SubCategory{
   height: 49px;
   font-size: 0.8em;
-  background: ##d4dadc !important;
+  background: #d4dadc !important;
   margin: 0;
   padding: 2px !important;
   border-top: 1px solid #bbb;
@@ -512,18 +522,17 @@ select
   
 
 .tableCategoriaSubCategoria{
-  margin-left: 15%;
   font-weight: 600;
   font-size: 20px;
   color: gray;
+  margin-left: 25%;
 }
 
 .tableAlimentacioSubCategoria{
-  margin-left: 3%;
   font-weight: 600;
   font-size: 20px;
   color: gray;
-
+  text-align: center;
 }
 
 .titleCategoria{
@@ -548,7 +557,7 @@ select
 }
 
 .centerPadding{
-  padding: 6px 12px;
+  padding: 15px 12px;;
 }
 
 .tableSubCategories{
@@ -592,5 +601,5 @@ select
   border: 1px solid black;
   height: 50px;
   border-radius: 0px;
-  margin-left: 29.43%;
+  margin-left: 54.7%;
 }
