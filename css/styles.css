@@ -20,13 +20,6 @@ a:hover{
 	 margin-top: 21%;
 }
 
-
-
-
-
-
-
-
 /*lander sanahujes yañez*/
 #aboutUs{
 	width: 75%;
@@ -515,6 +508,7 @@ padding: 0;
 	margin-top: 1%;
 }
 
+
 /*--------------------------------------------------------Aida--------------------------------------------------------------------*/
 #photo{
 	border-radius: 10px;
@@ -534,6 +528,7 @@ padding: 0;
 #lorem{
 	padding: 5%;
 	padding-bottom: 0%!important;
+	margin-left: 46%!important;
 }
 #date{
 	margin-left: 5%;
@@ -589,8 +584,7 @@ padding: 0;
 	.category-name{
 		margin-left: -10px;
 	}
-	.category-select
-	{
+	.category-select	{
 		margin-left: 15px;
 		border-radius: 5px;
 		height: 20px;
@@ -627,7 +621,7 @@ padding: 0;
 	margin-bottom:-3%!important;
 	}
 	#logoTexto{
-		margin-top: 5%;
+		margin-top: 6%;
 	}
 	.headTitle{
 		margin-left: -23%;
@@ -635,21 +629,21 @@ padding: 0;
 	#whoTop{
 		position: absolute;
     	top: -50%;
-    	left: -11%;
+    	left: 14%;
 	}
 
 	#contactTop{
 		position: absolute;
     	top: 37%;
-    	left: -11%;
+    	left: 14%;
 	}
 	#contactWho{
 		margin-top: 3.8%;
 	}
 	#loginPicture{
 		position: absolute;
-   		top: -17%;
-    	right: 8%;
+   		top: -12%;
+    	right: -6%;
     	font-size: 1.8em!important;
 	}
 	.navGeneral{
@@ -671,7 +665,6 @@ padding: 0;
     	left: 32%;
     	top: 35%;
 	}
-
 	#tbodyContactTable{
 		border-left: solid 0px;
 	}
@@ -694,7 +687,6 @@ padding: 0;
 	.dividerNav{
 		visibility: hidden;
 	}
-
 	#telContact{
 		margin-left: 3%;
 		margin-bottom: 3%;
@@ -720,13 +712,13 @@ padding: 0;
 		border: none;
 		padding-left: 25px;
 	}
-	.shop-map #map
-	{
+	.shop-map #map{
 		height: 150px;
 	}
 	.shop-image{
 		margin-bottom: 5%;
 	}
+	
 }
 @media (min-width: 576px) and (max-width: 767px){
 	#btnEnviar{
@@ -740,8 +732,7 @@ padding: 0;
 		position: absolute;
     	left: -4%;
     	top: 33.4%;
-	}
-	
+	}	
 	.shopsList{
 		padding-bottom: 20%;
 	}
@@ -780,9 +771,7 @@ padding: 0;
 	.shop-image{
 		margin-bottom: 5%;
 	}
-
 }
-
 @media (max-width: 1023px){
 	.titleSubE{
 		position: relative;
@@ -799,7 +788,6 @@ padding: 0;
 		padding-bottom: 5%;
 	}
 }
-
 @media (min-width: 1024px){
 	.subMenu:hover{
 		background-color: #51576F;
@@ -847,7 +835,6 @@ padding: 0;
 		padding-bottom: 2%;
 	}
 }
-
 @media (min-width: 1200px){
 	#captchaDiv{
 		margin-left: 12.5%;
@@ -857,7 +844,7 @@ padding: 0;
 		margin-right: 3%;
 	}
 	.paddTitleSM{
-	padding-top: 8%;
+		padding-top: 8%;
 	}
 }
 

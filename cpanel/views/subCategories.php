@@ -15,7 +15,7 @@
 	</select>
 </div>
 <div class="row tableSubCategories">
-	<div class="col-lg-5 borderTableSubCategories noPadding">
+	<div class="col-lg-8 borderTableSubCategories noPadding">
 		<div class="col-lg-6 borderTitlesSubCategories centerPadding">
 			<div class="col-lg-12 tableCategoriaSubCategoria">
 				CATEGORIA
@@ -31,10 +31,10 @@
 				Aviram
 			</div>
 		</div>
-		<button class="col-lg-2 btn btn-default borderBtnEditSubCategories">
+		<button class="col-lg-2 btn btn-SubCategory borderBtnEditSubCategories">
 			Editar
 		</button>
-		<button class="col-lg-2 btn btn-default borderBtnDelSubCategories">
+		<button class="col-lg-2 btn btn-SubCategory borderBtnDelSubCategories">
 			Eliminar
 		</button>
 		<div class="col-lg-8 borderContentSubCategories">
@@ -42,10 +42,10 @@
 				Carnisseria
 			</div>
 		</div>
-		<button class="col-lg-2 btn btn-default borderBtnEditSubCategories">
+		<button class="col-lg-2 btn btn-SubCategory borderBtnEditSubCategories">
 			Editar
 		</button>
-		<button class="col-lg-2 btn btn-default borderBtnDelSubCategories">
+		<button class="col-lg-2 btn btn-SubCategory borderBtnDelSubCategories">
 			Eliminar
 		</button>
 		<div class="col-lg-8 borderContentSubCategories">
@@ -53,36 +53,36 @@
 				Verdures
 			</div>
 		</div>
-		<button class="col-lg-2 btn btn-default borderBtnEditSubCategories">
+		<button class="col-lg-2 btn btn-SubCategory borderBtnEditSubCategories">
 			Editar
 		</button>
-		<button class="col-lg-2 btn btn-default borderBtnDelSubCategories">
+		<button class="col-lg-2 btn btn-SubCategory borderBtnDelSubCategories">
 			Eliminar
 		</button><div class="col-lg-8 borderContentSubCategories">
 			<div class="col-lg-12 centerPadding">
 				Peixateria
 			</div>
 		</div>
-		<button class="col-lg-2 btn btn-default borderBtnEditSubCategories">
+		<button class="col-lg-2 btn btn-SubCategory borderBtnEditSubCategories">
 			Editar
 		</button>
-		<button class="col-lg-2 btn btn-default borderBtnDelSubCategories">
+		<button class="col-lg-2 btn btn-SubCategory borderBtnDelSubCategories">
 			Eliminar
 		</button><div class="col-lg-8 borderContentSubCategories">
 			<div class="col-lg-12 centerPadding">
 				Supermercats
 			</div>
 		</div>
-		<button class="col-lg-2 btn btn-default borderBtnEditSubCategories">
+		<button class="col-lg-2 btn btn-SubCategory borderBtnEditSubCategories">
 			Editar
 		</button>
-		<button class="col-lg-2 btn btn-default borderBtnDelSubCategories">
+		<button class="col-lg-2 btn btn-SubCategory borderBtnDelSubCategories">
 			Eliminar
 		</button>
 	</div>
 </div>
 <div class="row">
-	<button id="btnAfegirSubCategoria" class="btn btn-default" ng-hide="btnAfegir">Afegir <i class="fa fa-plus-circle"></i></button>
+	<button id="btnAfegirSubCategoria" class="btn btn-default">Afegir <i class="fa fa-plus-circle"></i></button>
 </div>
 <div class="row">
 	<span class="titleCategoria col-lg-1">Escull categoria:</span>
@@ -94,3 +94,8 @@
 	 	<option value="serveis">Serveis</option>
 	</select>
 </div>
+<div class="row">
+	<span class="titleCategoria col-lg-1">Nom subcategoria:</span>
+	<input type="text" class="col-lg-3 inputTextSubCategories">
+</div>
+<button id="afegirSubCategoria" class="btn btn-default centerPadding">Afegir</button> 

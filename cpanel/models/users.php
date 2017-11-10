@@ -312,7 +312,7 @@ if(isset($_SESSION['user']['idUser']))
 		}
 		if($connexio == "Error al conectar")
 	 	{
-	 		$message = "Error al conectar";
+	 		$message = "Error al connectar";
 	 	}
 		echo '[{"status":"'.$message.'"}]';
 	}
@@ -329,7 +329,7 @@ if(isset($_SESSION['user']['idUser']))
 		$message = "S'ha creat l'usuari";
 		if($connexio == "Error al conectar")
 	 	{
-	 		$message = "Error al conectar";
+	 		$message = "Error al connectar";
 	 	}
 		echo '[{"status":"'.$message.'"}]';
 	}
@@ -347,6 +347,13 @@ if(isset($_SESSION['user']['idUser']))
 
 
 		unlink('../../img/logos-assoc/'.$_POST['deleteLogo']);
+
+		$message = "S'ha pujat la imatge";
+		if($connexio == "Error al conectar")
+	 	{
+	 		$message = "Error al connectar";
+	 	}
+		echo '[{"status":"'.$message.'"}]';
 
 	}
 }

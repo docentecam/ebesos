@@ -236,7 +236,7 @@ select
   padding-top: 3%;
 }  
 .colorLoginHidden{
-  color: #52AFBA;
+  color: #3A6B86;
   cursor: pointer;
 }
 
@@ -390,6 +390,16 @@ select
   padding-top: 5%!important;
   padding-bottom: 5%!important;
 }
+.logOffDiv{
+  background-color: #D5D5D5;
+  position: absolute;
+  top: 120%;
+  right: 0%;
+  height: 40px;
+  text-align: center;
+  padding-top: 8.4px;
+  border-top: 3px solid #7CA3E3;
+}
 
 
 
@@ -413,8 +423,6 @@ select
   .icon-bar{
     background-color: white!important;
   }
- 
-
   .footerLog{
     position: absolute;
     bottom: 15px;
@@ -438,9 +446,12 @@ select
     border-bottom: 0.5px solid #BEBEBE;
   }
   .deleteUnderlineSignUp{
-    margin-top:27%;
+    margin-top:25%;
   }
-
+  .logOffDiv{
+    right: 29%;
+    width: 134px;
+  }
 }
 
 @media (min-width: 576px) and (max-width: 767px){
@@ -490,14 +501,29 @@ select
 
 /* Subcategories. */
 
-
+.btn-SubCategory{
+  height: 49px;
+  font-size: 0.8em;
+  background: ##d4dadc !important;
+  margin: 0;
+  padding: 2px !important;
+  border-top: 1px solid #bbb;
+}
+  
 
 .tableCategoriaSubCategoria{
-  margin-left: 30%;
+  margin-left: 15%;
+  font-weight: 600;
+  font-size: 20px;
+  color: gray;
 }
 
 .tableAlimentacioSubCategoria{
-  margin-left: 11%;
+  margin-left: 3%;
+  font-weight: 600;
+  font-size: 20px;
+  color: gray;
+
 }
 
 .titleCategoria{
@@ -513,6 +539,11 @@ select
   background-position-y: 5px;
   background-position-x: 175px;
   background-color: #95B4BE;
+  margin-bottom: 3%;
+}
+.inputTextSubCategories{
+  width: 200px;
+  border: 1px solid gray;
   margin-bottom: 3%;
 }
 
@@ -531,8 +562,9 @@ select
   padding: 0px;
 }
 .borderTitlesSubCategories{
-  border-top: 1px solid black;
   border-bottom-color: gray;
+  font-size: 600;
+  background: #bdd4de;
 }
 .borderContentSubCategories{
   border-top: 1px solid gray;
@@ -540,17 +572,13 @@ select
 }
 .borderBtnDelSubCategories{
   border-radius: 0px;
+  border-left-color: #bbb;
   border-top-color: gray;
-  border-left-color: gray;
-  border-bottom-color: gray;
-  border-right-color: gray;
-
 }
 .borderBtnEditSubCategories{
   border-radius: 0px;
+  border-right-color: #bbb;
   border-top-color: gray;
-  border-right-color: gray;
-  border-bottom-color: gray;
 }
 #btnAfegirSubCategoria{
   margin-left: 1.35%;
@@ -559,4 +587,10 @@ select
   border-radius: 0px;
 }
 
-
+#afegirSubCategoria{
+  width: 140px;
+  border: 1px solid black;
+  height: 50px;
+  border-radius: 0px;
+  margin-left: 29.43%;
+}

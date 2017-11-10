@@ -44,14 +44,14 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 	<body id="container" data-ng-app="spaApp"  ng-controller="MainCtrl">
 		<div class="row">
 			<div class="col-xs-6 col-md-2 col-lg-2 " style="padding: 0px;">				
-				<div style="padding: 0px; background-color: #6E79BF;" class="col-xs-5 col-lg-5">
+				<div style="padding: 0px; background-color: #3C708C;" class="col-xs-5 col-lg-5">
 					<a href="#"><img style="padding: 0px;" class="img-responsive" src="../img/logos-assoc/<?php echo $_SESSION['user']['logo']; ?>"></a>					
 				</div>
 				<div class="col-xs-7 col-lg-7" style="height: 88px;">
 					<span id="nameAssoLogged"><?php echo $_SESSION['user']['name']; ?></span>
 				</div>
 			</div>		
-			<div class="col-lg-3 pull-right">
+			<div class=" col-xs-3 col-lg-3 pull-right">
 				<div class="row">
 					<div class="col-xs-12 col-lg-4 col-lg-push-7 deleteUnderlineSignUp" ng-click="showDisconnect()">
 						<div class="colorLoginHidden">
@@ -61,8 +61,8 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 					</div>	
 				</div>
 				<div class="row" ng-hide="showLogOff">
-					<div class="col-xs-2 col-lg-6 col-lg-push-4" style="background-color: #D5D5D5; position: absolute; top: 120%; right: 0%; height: 40px; text-align: center; padding-top: 8.4px; border-top: 3px solid #7CA3E3;">
-						<i class="fa fa-sign-out" aria-hidden="true"></i>
+					<div class="col-xs-12 col-lg-6 col-lg-push-4 logOffDiv">
+						<i class="fa fa-sign-out" aria-hidden="true" style="margin-left: 1%;"></i>
 						<a href="models/users.php?acc=logout">Tancar Sessió</a>
 					</div>
 				</div>			
@@ -90,7 +90,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 							    <?php if($_SESSION['user']['privileges'] =='E') echo '<li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/slider">Slider</a></li>
 							    <li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/subcategories">Subcategories</a></li>
 							    <li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/settings">Paràmetres</a></li>
-							    <li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/formFichero">Enllaços del footer</a></li>' ?>
+							    <li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/links">Enllaços del footer</a></li>' ?>
 							</ul>
     					</div><!--/.nav-collapse -->
   					</div>
