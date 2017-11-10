@@ -353,7 +353,7 @@ if(isset($_SESSION['user']['idUser']))
 	 	{
 	 		$message = "Error al connectar";
 	 	}
-		echo '[{"status":"'.$message.'"}]'
+		echo '[{"status":"'.$message.'"}]';
 
 	}
 }
