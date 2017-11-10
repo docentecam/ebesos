@@ -235,7 +235,7 @@ select
   padding-top: 3%;
 }  
 .colorLoginHidden{
-  color: #52AFBA;
+  color: #3A6B86;
   cursor: pointer;
 }
 
@@ -389,6 +389,16 @@ select
   padding-top: 5%!important;
   padding-bottom: 5%!important;
 }
+.logOffDiv{
+  background-color: #D5D5D5;
+  position: absolute;
+  top: 120%;
+  right: 0%;
+  height: 40px;
+  text-align: center;
+  padding-top: 8.4px;
+  border-top: 3px solid #7CA3E3;
+}
 
 
 
@@ -412,8 +422,6 @@ select
   .icon-bar{
     background-color: white!important;
   }
- 
-
   .footerLog{
     position: absolute;
     bottom: 15px;
@@ -437,9 +445,12 @@ select
     border-bottom: 0.5px solid #BEBEBE;
   }
   .deleteUnderlineSignUp{
-    margin-top:27%;
+    margin-top:25%;
   }
-
+  .logOffDiv{
+    right: 29%;
+    width: 134px;
+  }
 }
 
 @media (min-width: 576px) and (max-width: 767px){
