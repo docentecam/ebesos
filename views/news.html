@@ -15,7 +15,10 @@
 			<a href="#/new/{{new.idNew}}"><img id="photo" src="img/newsmedia/{{new.url}}" class="col-lg-6 col-xs-12 col-sm-12  col-md-6" alt=""></a>
 			<p class="col-lg-6 col-md-6 col-sm-12 col-xs-12" id="loremUPPER">
 				{{new.title}}</p>
-			<p class="text-justify" id="lorem">{{new.titleSub | limitTo: 110}}...	</p>
+				<div class="col-lg-5">
+					<p class="text-justify" id="lorem">{{new.titleSub | limitTo: 110}}...	</p>
+				</div>
+			
 			<a href="#/new/{{new.idNew}}" class="col-lg-6 col-md-12 col-sm-12 col-xs-12" id="moreInfo">
 				Més info
 			</a>
