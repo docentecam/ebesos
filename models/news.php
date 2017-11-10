@@ -4,7 +4,7 @@ require('../inc/functions.php');
 
 if(isset($_GET['acc'])&&$_GET['acc']=='news'){
 
-	$mySql = "SELECT n.idNew , n.idUser , DATE_FORMAT( n.date,'%d-%M-%Y') AS fecha, n.title , n.titleSub  ,w.idNew, w.url,w.preferred";
+	$mySql = "SELECT n.idNew , n.idUser , DATE_FORMAT( n.date,'%d-%m-%Y') AS fecha, n.title , n.titleSub  ,w.idNew, w.url,w.preferred";
 
 	$mySql .= " FROM news n, newsmedia w WHERE n.idNew=w.idNew AND w.preferred='Y' ";
 

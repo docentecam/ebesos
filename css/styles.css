@@ -20,13 +20,6 @@ a:hover{
 	 margin-top: 21%;
 }
 
-
-
-
-
-
-
-
 /*lander sanahujes yañez*/
 #aboutUs{
 	width: 75%;
@@ -534,6 +527,7 @@ padding: 0;
 #lorem{
 	padding: 5%;
 	padding-bottom: 0%!important;
+	margin-left: 46%!important;
 }
 #date{
 	margin-left: 5%;
