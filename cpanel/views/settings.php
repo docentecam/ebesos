@@ -1,3 +1,7 @@
+<?php
+	session_start();
+	if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
+?>
 <div class="row">
 	<div><h1>Paràmetres</h1></div>	
 	<div ng-show="confirm"> <h3> Ha sigut actualizat o creat</h3> </div>

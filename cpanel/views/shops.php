@@ -1,7 +1,7 @@
-<!-- <?php
-	// session_start();
-	// if(!isset($_SESSION['user']['nom'])) header("Location: ../view/login.php");
-?> -->
+<?php
+	session_start();
+	if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
+?>
 <div class="row">
 	<button ng-click="shopOneAdd()" class="btn-default">add</button>
 	<select ng-disabled="privilegesLg=='A'" ng-change="listChange(idUserL)" ng-model="idUserL">

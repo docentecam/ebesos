@@ -1,10 +1,9 @@
-<?php 
-	// session_start()
-	// isset(var)
-
- ?>
+<?php
+	session_start();
+	if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
+?>
 <div class="col-lg-12 col-xs-12" id="sliderCpanel">
-  	<h2 class="col-lg-12 col-xs-12">Slider</h2>  
+  	<label class="col-lg-12 col-xs-12">Slider</label>  
   	<div class="row">
   		<div id="myCarousel" class="carousel slide col-lg-12 col-xs-12" data-ride="carousel">
 			<div class="col-lg-12 col-xs-12" id="myCarousel" class="carousel slide" data-ride="carousel" ng-controller="SliderCtrl">

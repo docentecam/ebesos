@@ -1,6 +1,6 @@
 <?php
-session_start();
-if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
+	session_start();
+	if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 ?>
 
 <div class="row">

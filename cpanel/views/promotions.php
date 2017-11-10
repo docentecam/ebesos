@@ -1,3 +1,7 @@
+<?php
+	session_start();
+	if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
+?>
 <div ng-show="loadPromotions"  class="row">
 
 	<button id="btnAdd" class="btn btn-default" ng-click="editPromotions('Afegir')">Afegir <i class="fa fa-plus-circle"></i></button>

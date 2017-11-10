@@ -1,6 +1,6 @@
 <?php
-// session_start();
-// if(!isset($_SESSION['user']['idUser']) header("Location: login.php");
+	session_start();
+	if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 ?>
 <div class="row">
 	<div class="col-sm-12 text-center" ng-show="divMessages">
