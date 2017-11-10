@@ -40,6 +40,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 		<script src="controllers/promotions.js"></script>
 		<script src="controllers/main.js"></script>
 		<script src="controllers/links.js"></script>
+		<script src="controllers/subCategories.js"></script>
 	</head>
 	<body id="container" data-ng-app="spaApp"  ng-controller="MainCtrl">
 		<div class="row">

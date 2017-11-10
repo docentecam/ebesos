@@ -6,7 +6,7 @@ angular.module('spaApp')
 			$scope.loading = true;
 			$http({
 				method : "GET",
-				url : "models/users.php?acc=loadUser" //modificar
+				url : "models/users.php?acc=loadUser" 
 			}).then(function mySucces (response) {
 				$scope.associations = response.data;
 				$scope.idUserC = $scope.associations[0]['idUser'];

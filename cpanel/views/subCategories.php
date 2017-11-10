@@ -2,16 +2,13 @@
 	session_start();
 	if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 ?>
-<div class="row" id="topDiv1">
+<div class="row">
 	<label class="col-lg-1 col-xs-12">Subcategories</label>
 </div>
 <div class="row">
 	<span class="col-lg-1 titleCategoria">Categoria:</span>
-	<select name="subCategoriesSelect" class="col-lg-3 selectSubCategories">
-		<option value="alimentacio">Alimentació</option>
-	  	<option value="restauració">Restauració</option>
-	  	<option value="comerç">Comerç al detall</option>
-	 	<option value="serveis">Serveis</option>
+	<select name="subCategoriesSelect" class="col-lg-3 selectSubCategories" ng-change="changeCat(idCategory,name,urlPicto1)" ng-model="idCategory">
+		<option ng-repeat="category in categories" ng-value="category.name" ng-selected="category.idCategory==1">{{category.name}}</option>
 	</select>
 </div>
 <div class="row tableSubCategories">
@@ -23,54 +20,12 @@
 		</div>
 		<div class="col-lg-6 borderTitlesSubCategories centerPadding">
 			<div class="col-lg-12 tableAlimentacioSubCategoria">
-				ALIMENTACIÓ
+				<div ng-show="firstC">ALIMENTACIÓ</div>{{idCategoryC | uppercase}}
 			</div>
 		</div>
 		<div class="col-lg-8 borderContentSubCategories">
 			<div class="col-lg-12 centerPadding">
 				Aviram
-			</div>
-		</div>
-		<button class="col-lg-2 btn btn-SubCategory borderBtnEditSubCategories">
-			Editar
-		</button>
-		<button class="col-lg-2 btn btn-SubCategory borderBtnDelSubCategories">
-			Eliminar
-		</button>
-		<div class="col-lg-8 borderContentSubCategories">
-			<div class="col-lg-12 centerPadding">
-				Carnisseria
-			</div>
-		</div>
-		<button class="col-lg-2 btn btn-SubCategory borderBtnEditSubCategories">
-			Editar
-		</button>
-		<button class="col-lg-2 btn btn-SubCategory borderBtnDelSubCategories">
-			Eliminar
-		</button>
-		<div class="col-lg-8 borderContentSubCategories">
-			<div class="col-lg-12 centerPadding">
-				Verdures
-			</div>
-		</div>
-		<button class="col-lg-2 btn btn-SubCategory borderBtnEditSubCategories">
-			Editar
-		</button>
-		<button class="col-lg-2 btn btn-SubCategory borderBtnDelSubCategories">
-			Eliminar
-		</button><div class="col-lg-8 borderContentSubCategories">
-			<div class="col-lg-12 centerPadding">
-				Peixateria
-			</div>
-		</div>
-		<button class="col-lg-2 btn btn-SubCategory borderBtnEditSubCategories">
-			Editar
-		</button>
-		<button class="col-lg-2 btn btn-SubCategory borderBtnDelSubCategories">
-			Eliminar
-		</button><div class="col-lg-8 borderContentSubCategories">
-			<div class="col-lg-12 centerPadding">
-				Supermercats
 			</div>
 		</div>
 		<button class="col-lg-2 btn btn-SubCategory borderBtnEditSubCategories">
@@ -89,9 +44,6 @@
 	<select name="subCategoriesSelect" class="col-lg-3 selectSubCategories">
 		<option value="-1">Categoria</option>
 		<option value="alimentacio">Alimentació</option>
-	  	<option value="restauració">Restauració</option>
-	  	<option value="comerç">Comerç al detall</option>
-	 	<option value="serveis">Serveis</option>
 	</select>
 </div>
 <div class="row">
