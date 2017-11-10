@@ -13,8 +13,8 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 		<table border="1">
 			<thead>
 			<tr>
-				<th>Literal</th>
-				<th>Value</th>
+				<th>Nom</th>
+				<th>Url</th>
 				<th>Editar</th>
 				<th>Eliminar</th>
 			</tr>
