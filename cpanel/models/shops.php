@@ -334,7 +334,7 @@ function listImages($idShop)
 {
 	$j = 0;
 
-	$mySql = "SELECT si.idShopImage, si.preferred, si.url
+	$mySql = "SELECT si.idShopImage, si.preferred, si.url, si.description
 			FROM shopsimages si
 			WHERE si.idShop = $idShop";
 
@@ -349,7 +349,7 @@ function listImages($idShop)
 	{
 		if($j != 0) $datai .= ",";
 
-		$datai .= '{"idShopImage":"'.$row['idShopImage'].'", "preferred":"'.$row['preferred'].'", "url":"'.$row['url'].'"}';
+		$datai .= '{"idShopImage":"'.$row['idShopImage'].'", "preferred":"'.$row['preferred'].'", "url":"'.$row['url'].'", "description":"'.$row['description'].'"}';
 
 		$j++;
 	}

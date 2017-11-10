@@ -182,6 +182,37 @@ select
   border-left: 1px solid #C5C5C5;
   border-right: 1px solid #C5C5C5;
 }
+.subCategory-list{
+  list-style-type: none;
+}
+.btn-subCat-delete{
+  width: 22px!important;
+  background-color: white;
+  padding: 0;
+  border-radius: 11px;
+  border: 1px solid #C5C5C5;
+  margin-top: -20px;
+}
+.images-prefered, .images-other{
+  padding-top: 35px;
+  padding-bottom: 25px;
+  background-color: white;
+  border-top: 1px solid #C5C5C5;
+  border-left: 1px solid #C5C5C5;
+  border-right: 1px solid #C5C5C5;
+}
+.image-span{
+  font-weight: 600;
+  color: #6E6E6E;
+  margin-bottom: 10px;
+}
+.images-shop{
+  margin-top: 15px;
+}
+.images-shop .btn-delete{
+  float: right;
+  height: 35px;
+}
 
 /* ------------------------ */
 
