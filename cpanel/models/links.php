@@ -28,7 +28,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 	{
 		$mySql = 'INSERT INTO links (url, description)
 				VALUES ("'.$_GET['url'].'","'.$_GET['name'].'")';
-		if($_GET['idLink'])
+		if(isset($_GET['idLink']))
 		{
 			$mySql = 'UPDATE links
 				SET url="'.$_GET['url'].'", description="'.$_GET['name'].'" 
@@ -43,7 +43,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 	 	{
 	 		$message = "Error al connectar";
 	 	}
-	 	else if($_GET['idLink'])
+	 	else if(isset($_GET['idLink']))
 		{
 			$message = "S'ha modificat el link";
 		}

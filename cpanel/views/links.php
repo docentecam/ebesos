@@ -13,8 +13,8 @@
 		<table border="1">
 			<thead>
 			<tr>
-				<th>Literal</th>
-				<th>Value</th>
+				<th>Nom</th>
+				<th>Url</th>
 				<th>Editar</th>
 				<th>Eliminar</th>
 			</tr>
@@ -34,11 +34,11 @@
 	<div class="row">
 		<form id="linksForm" ng-submit="updateLink()">
 			<input type="text" id="userId" ng-value="idLinkC" disabled hidden>
-			<label class="col-lg-3 padd">Nom: </label>
-			<div class="col-lg-9 padd"><input type="text" name="name" ng-model="nameC" style="width: 40%;"></div>
-			<label class="col-lg-3 padd">Url: </label>
-			<div class="col-lg-9 padd"><input type="text" name="url" ng-model="urlC" style="width: 40%;"></div>
-			<div class="col-lg-2 padd"><input class="btn btn-default" type="submit" value="Confirmar"></div>
+			<label class="col-lg-3">Nom: </label>
+			<div class="col-lg-9"><input type="text" name="name" ng-model="nameC" style="width: 40%;"></div>
+			<label class="col-lg-3">Url: </label>
+			<div class="col-lg-9"><input type="text" name="url" ng-model="urlC" style="width: 40%;"></div>
+			<div class="col-lg-2"><input class="btn btn-default" type="submit" value="Confirmar"></div>
 		</form>		
 	</div>
 </div>
