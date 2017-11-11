@@ -3,13 +3,12 @@ require('../../inc/functions.php');
 
 
 	if(isset($_GET['acc']) && $_GET['acc'] == 'l'){
-		$mySql = "SELECT n.idNew , n.idUser, n.titleSub, w.description , DATE_FORMAT( n.date,'%d-%M-%Y') AS fecha, n.title , w.url";
 
-	$mySql .= " FROM news n, newsmedia w WHERE n.idNew=w.idNew AND w.preferred='Y'";
+	$mySql = "SELECT n.idNew , n.idUser, n.titleSub, n.date, DATE_FORMAT( n.date,'%d-%M-%Y') AS dateList, n.title , w.url FROM news n, newsmedia w WHERE n.idNew=w.idNew";
+	if(isset($_GET['preferredImg'])) $mySql.="  AND w.preferred='Y'";
 	if(isset($_GET['idUser'])) $mySql.=" AND n.idUser=".$_GET["idUser"];
 	if(isset($_GET['idNew'])) $mySql.=" AND n.idNew=".$_GET['idNew'];
-	$mySql .= " ORDER BY fecha DESC";
-
+	$mySql .= " ORDER BY n.date DESC"; 
 	$connexio = connect();
 	$resultNews = mysqli_query($connexio, $mySql);
 	disconnect($connexio);
@@ -25,7 +24,7 @@ require('../../inc/functions.php');
 
 			$row['title']=str_replace("'", "·", $row['title']);
 			$row['titleSub']=str_replace("'", "·", $row['titleSub']);
-			$dataNews .= '{"urlPreferred":"'.$row['url'].'", "descPreferred":"'.$row['description'].'", "title":"'.$row['title'].'","date":"'.$row['fecha'].'","idNew":"'.$row['idNew'].'","titleSub":"'.$row['titleSub'].'"';
+			$dataNews .= '{"urlPreferred":"'.$row['url'].'", "title":"'.$row['title'].'", "dateList":"'.$row['dateList'].'","date":"'.$row['date'].'","idNew":"'.$row['idNew'].'","titleSub":"'.$row['titleSub'].'"';
 
 			if(isset($_GET['idNew'])){
 				$dataNews .= ',"images":';
@@ -44,19 +43,35 @@ require('../../inc/functions.php');
 
 
 
-if(isset($_GET['acc']) && $_GET['acc'] == 'delete'){  
-		$mySql = "DELETE";
-		$mySql .= " FROM `newsmedia` where idNewMedia=".$_GET["idNewMedia"];
+if(isset($_GET['acc']) && $_GET['acc'] == 'deleteNew'){  
+	if(isset($_GET["idNew"]))	{
+		$mySql ="SELECT url FROM newsMedia WHERE idNew=".$_GET["idNew"]." AND TYPE ='I'";
 		$connexio = connect();
-		$deleteImg = mysqli_query($connexio, $mySql);
+		$resultDeleteImg = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
+		$deleteImg[]="";
+		$i=0;
+		while ($row=mySqli_fetch_array($resultDeleteImg)){
+			$deleteImg[$i]=$row['url'];
+			$i++;
+		}
+		while($i>0){
+			//TODO echo "../../img/newsmedia/".$deleteImg[$i-1]."<br/>";
+			unlink("../../img/newsmedia/".$deleteImg[$i-1]); 
+			$i--;
+		}
+		$mySql ="DELETE FROM newsmedia WHERE idNew=".$_GET["idNew"];
+		$mySql2 ="DELETE FROM news WHERE idNew=".$_GET["idNew"];
+		//TODO echo $mySql;
+		//TODO echo "<br/>".$mySql2;
 
-		//unlink("../../img/newsmedia/".$_GET["url"]); 
-
-		echo  listNewsMedia($_GET["idNew"]);
-		
-
-	}	
+		$connexio = connect();
+		$resultDelete = mysqli_query($connexio, $mySql);
+		$resultDelete2 = mysqli_query($connexio, $mySql2);
+		disconnect($connexio);
+		echo '{"missatge":""}';
+	}
+}	
 
 
 	if(isset($_GET['acc']) && $_GET['acc'] == 'addImages'){  

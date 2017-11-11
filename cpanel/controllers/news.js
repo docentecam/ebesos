@@ -1,23 +1,13 @@
 angular.module('spaApp')
-.controller('NewsCtrl', function($scope, $http,upload,$q) {
+.controller('NewsCtrl', function($scope, $http) {
 	$scope.divMessages=true; //Div per mostrar missatge al esborrar, modificar...
-	$scope.message="fdfdfd";
+	$scope.message="";
 	$scope.btnAddNew=true;	//TODO botó afegir imatge
 	$scope.showListNews=true; //TODO div llistat notícies
 	$scope.divNew=false; //TODO div dades notícia seleccionada
 	$scope.divImgs=false;//TODO div mostra les imatges no preferides de la noticia
 	$scope.divVideos=false;//TODO div mostra els vídeos.
-	$scope.act="";
-	$scope.new = {};
-	$scope.new.idNew=""; /*TODO, actualizar este campo al insertarla.*/ $scope.new.idNew="1";
-	$scope.new.title="";
-	$scope.new.titleSub="";
-	$scope.new.urlPreferred="";
-	$scope.new.descPreferred="";
-	$scope.new.dateNew="";
-	$scope.new.idUser="";
-	$scope.new.images ="";
-
+	
 	$scope.loading=true;	
 	$http({
 			method : "GET",
@@ -33,51 +23,79 @@ angular.module('spaApp')
 		    $scope.loading=false; 
 		})
 
+	$scope.deleteNew= function(idNew=""){
+		$scope.divMessages=true; //Div per mostrar missatge al esborrar, modificar...
+		$scope.message="Esborrar notícia"+idNew;
 
-	$scope.createNew=function(act="", idNew=""){
-		$scope.btnAddNew=false;
-		
-		$scope.act=act;
-		$scope.divNew=true;
-		$scope.showListNews=false;
-		$scope.divImgs=true;
-		$scope.divVideos=true;
-		if (idNew!="")
-		{
-			$scope.loading=true;
-			$http({
+		$http({
 			method : "GET",
-			url : "models/news.php?acc=l&idNew="+idNew
-			}).then(function mySucces (response) {
-
-					$scope.newSelect = response.data;
-					$scope.new.idNew=$scope.newSelect[0].idNew;
-					$scope.new.title= $scope.newSelect[0].title;
-					$scope.new.titleSub= $scope.newSelect[0].titleSub;
-					$scope.new.urlPreferred=$scope.newSelect[0].urlPreferred;
-					$scope.new.descPreferred=$scope.newSelect[0].descPreferred;
-					$scope.new.dateNew= $scope.newSelect[0].date;
-					$scope.new.idUser= $scope.newSelect[0].idUser;
-					$scope.new.images = $scope.newSelect[0].images;
-
-
-					$scope.showListNews=false;	
-					$scope.divNew=true;
-					$scope.updateImgPreferred=false;
-					$scope.createVideo=false;
-
-					console.log($scope.newSelect);
-					
-				}, function myError (response) {
-					$scope.newSelect = response.statusText;
-				})
-			.finally(function() 
-			{ 
-			    $scope.loading=false; 
-			})
-
-		}
+			url : "models/news.php?acc=deleteNew&idNew="+idNew
+		}).then(function mySucces (response) {
+			// $scope.newsList= response.data;
+			$scope.divMessages="Notícia esborrada";
+		}, function myError (response) {
+			$scope.newsList = response.data;
+		});
 	};
+})
+angular.module('spaApp')
+.controller('NewsEditCtrl', function($scope, $http, $routeParams,upload,$q) {
+	$scope.showListNews=false;	
+	$scope.divNew=true;
+	$scope.divImgs=false;
+	$scope.videos=false;
+	$scope.new = {};
+	if($routeParams.idNew==0)
+	{
+		$scope.new.idNew=0;
+		$scope.act="Afegir";
+	}
+	else
+	{
+		$scope.new.idNew=$routeParams.idNew;
+		$scope.act="Editar";
+	}
+	
+	$scope.new.title="";
+	$scope.new.titleSub="";
+	$scope.new.urlPreferred="";
+	$scope.new.descPreferred="";
+	var d = new Date();
+	var yyyy = d.getFullYear();
+	var mm = d.getMonth() < 9 ? "0" + (d.getMonth() + 1) : (d.getMonth() + 1); // getMonth() is zero-based
+	var dd  = d.getDate() < 10 ? "0" + d.getDate() : d.getDate();
+	$scope.new.date=yyyy+"-"+mm+"-"+dd;
+	
+	if ($scope.new.idNew!=0)
+	{
+		$scope.loading=true;
+		$http({
+		method : "GET",
+		url : "models/news.php?acc=l&idNew="+$scope.new.idNew
+		}).then(function mySucces (response) {
+				
+				$scope.newSelect = response.data;
+				$scope.new.idNew=$scope.newSelect[0].idNew;
+				$scope.new.title= $scope.newSelect[0].title;
+				$scope.new.titleSub= $scope.newSelect[0].titleSub;
+				$scope.new.urlPreferred=$scope.newSelect[0].urlPreferred;
+				$scope.new.date= $scope.newSelect[0].date;
+				$scope.new.idUser= $scope.newSelect[0].idUser;
+				$scope.new.images = $scope.newSelect[0].images;
+
+				$scope.divImgs=true;
+				$scope.divVideos=true;
+				console.log($scope.newSelect);
+				
+			}, function myError (response) {
+				$scope.newSelect = response.statusText;
+			})
+		.finally(function() 
+		{ 
+		    $scope.loading=false; 
+		})
+
+	}
 
 	$scope.selImages=function(e,type="")
 	{
@@ -105,28 +123,6 @@ angular.module('spaApp')
 		console.log($scope.message+" "+$scope.divMessages);
 
 	}
-
-	$scope.deleteNew= function(idNew="",type=""){
-		$scope.divMessages=true; //Div per mostrar missatge al esborrar, modificar...
-
-		$scope.message="Esborrar notícia"+idNew;
-
-	}
-
-	$scope.imgDelete = function(idNewMedia=""){
-		console.log("elimi "+idNewMedia+" "+url+" "+$scope.idNew);
-		$scope.images="";
-		$http({
-			method : "GET",
-			url : "models/news.php?acc=delete&idNewMedia=" +idNewMedia+"&idNew="+$scope.idNew+"&url="+url
-		}).then(function mySucces (response) {
-			$scope.images = response.data;
-			$scope.divNew=true;
-
-		}, function myError (response) {
-			$scope.newSelect = response.data;
-		});
-	};
 
 
 	// $scope.cogeDetalleFicheros = function (e) {

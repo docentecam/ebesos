@@ -8,6 +8,10 @@ app.config(['$routeProvider', function ($routeProvider) {
 	.when('/news',{
 	templateUrl:'views/news.php',
 	controller:'NewsCtrl',
+	})
+	.when('/news/:idNew',{
+	templateUrl:'views/news.php',
+	controller:'NewsEditCtrl',
 
 	})
 	.when('/associations',{

@@ -9,8 +9,8 @@
 </div>
 
 <div class="row">
-	<div class="col-sm-12" ng-show="btnAddNew">
-		<input type="button" name="newNew" value="Afegir Noticia" alt="Afegir noticia" class="btn btn-default" ng-click="createNew('Afegir','')" >
+	<div class="col-sm-12" ng-show="showListNews">
+		<a ng-href="#/news/0"><input type="button" name="newNew" value="Afegir Noticia" alt="Afegir noticia" class="btn btn-default"></a>
 	</div>
 </div>
 
@@ -29,7 +29,7 @@
 			</div>
 			<div class="col-sm-4">
 				<div class="form-group col-sm-12">
-					<input type="button" class="btn btn-success pull-left" value="Editar" alt="Edita dades de la noticia" class="btn btn-default" ng-click="createNew('Editar',newList.idNew)">&nbsp;&nbsp;&nbsp;
+					<a ng-href="#/news/{{newList.idNew}}"><input type="button" class="btn btn-success pull-left" value="Editar" alt="Edita dades de la noticia" class="btn btn-default"></a>&nbsp;&nbsp;&nbsp;
 					<input type="button" class="btn btn-success" value="Esborrar" alt="Esborrar dades de la noticia" class="btn btn-default" ng-click="deleteNew(newList.idNew)">
 				</div>
 			</div>
@@ -65,14 +65,11 @@
 	<div class="row form-group">
 
 			<label class="col-sm-10"><h2> Imatge Destacada</h2></label>
-			<label class="col-sm-2 btn btn-default" for="imgPref">Examinar</label>
+			<label class="col-sm-2 btn btn-default" for="imgPref">{{act}}</label>
 			<input type="file" id="imgPref" accept="image/jgp, image/png" onchange="angular.element(this).scope().selImages(this,'preferred')" ng-show="false"> 
 			<img class="col-sm-4 pull-left" id="photo" ng-src="../img/newsmedia/{{new.urlPreferred}}" > <span class="col-sm-8"></span>
 		</div>
-	<div class="row form-group">
-			<label class="col-sm-2" for="description">Descripció</label>
-			<input type="text" class="col-sm-10 input-sm" placeholder="Descripció" name="description" ng-model="new.descPreferred" required >
-	</div>
+
 	<div class="row form-group">
 			<span class="col-sm-1"></span>
 			<input type="button" class="btn btn-success pull-left col-sm-10" name="editNew" value="{{act}} Noticia" class="btn btn-default" ng-click="">
@@ -82,10 +79,6 @@
 
 
 <form class="row" name="formImgs" ng-show="divImgs">
-	<div class="form-group">
-		<label class="col-sm-2" for="descripcio">Descripció</label>
-		<input type="text" class="col-sm-8 input-sm" placeholder="Descripció" name="descripcio" ng-model="newImgAdd.descripcio" required >
-	</div>
 	<div class="for-group">
 		<h2 class="col-sm-12"> Imatges de la noticia </h2> 
 		<div class="col-sm-4" ng-repeat="image in new.images | filter : {preferred:'N' , type:'I'}">
@@ -98,10 +91,10 @@
 </form>
 
 <form class="row" name="formVideos" ng-show="divVideos">
-	<div class="form-group">
+	<!-- <div class="form-group">
 		<label class="col-sm-2" for="url">Url</label>
 		<input type="text" class="col-sm-8 input-sm" placeholder="Descripció" name="descripcio" ng-model="newVideo.url" required >
-	</div>
+	</div> -->
 	<div class="for-group">
 		<h2 class="col-sm-12"> Vídeos de la noticia </h2> 
 		<div class="col-sm-4" ng-repeat="image in new.images | filter : {type:'V'}">
@@ -109,8 +102,6 @@
 			<input type="button" class="col-sm-6 btn btn-default pull-left" value="Modificar" alt="" class="btn btn-default" ng-click="changeImgN()">
 			<input type="button" class="col-sm-6 btn btn-default pull-left" value="Eliminar" alt="" class="btn btn-default" ng-click="imgDelete(image.idNewMedia, image.url)">
 			<i class="col-sm-6 fa fa-pencil" aria-hidden="true"></i><i class=" col-sm-6 fa fa-trash" aria-hidden="true"></i>
-			<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
-<span class="sr-only">Loading...</span>
 		</div>
 	</div>
 </form>
