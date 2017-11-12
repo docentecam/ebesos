@@ -8,10 +8,12 @@ angular.module('spaApp')
 	$scope.divImgs=false;//TODO div mostra les imatges no preferides de la noticia
 	$scope.divVideos=false;//TODO div mostra els vídeos.
 	
+	$scope.idUser="1"; //TODO coger del desplegable
+
 	$scope.loading=true;	
 	$http({
 			method : "GET",
-			url : "models/news.php?acc=l&iduser=1&preferredImg=Y"
+			url : "models/news.php?acc=l&iduser="+$scope.idUser+"&preferredImg=Y"
 		})
 		.then(function mySucces (response) {
 			$scope.newsList = response.data;
@@ -24,24 +26,27 @@ angular.module('spaApp')
 		})
 
 	$scope.deleteNew= function(idNew=""){
-		$scope.divMessages=true; //Div per mostrar missatge al esborrar, modificar...
-		$scope.message="Esborrar notícia"+idNew;
-
-		$http({
-			method : "GET",
-			url : "models/news.php?acc=deleteNew&idNew="+idNew
-		}).then(function mySucces (response) {
-			// $scope.newsList= response.data;
-			$scope.divMessages="Notícia esborrada";
-		}, function myError (response) {
-			$scope.newsList = response.data;
-		});
-	};
+		var confirmat=confirm("Segur vols esborrar la notícia?");
+		if(confirmat)
+		{
+			$http({
+				method : "GET",
+				url : "models/news.php?acc=deleteNew&idNew="+idNew
+			}).then(function mySucces (response) {
+				$scope.newsList=response.data;
+				$scope.divMessages=true; //Div per mostrar missatge al esborrar, modificar...
+				$scope.message="Notícia esborrada";
+			}, function myError (response) {
+				$scope.newsList = response.data;
+			});
+		};
+	}
 })
 angular.module('spaApp')
 .controller('NewsEditCtrl', function($scope, $http, $routeParams,upload,$q) {
 	$scope.showListNews=false;	
 	$scope.divNew=true;
+	$scope.addImage=false;
 	$scope.divImgs=false;
 	$scope.videos=false;
 	$scope.new = {};
@@ -83,6 +88,7 @@ angular.module('spaApp')
 				$scope.new.idUser= $scope.newSelect[0].idUser;
 				$scope.new.images = $scope.newSelect[0].images;
 
+				$scope.addImage=true;
 				$scope.divImgs=true;
 				$scope.divVideos=true;
 				console.log($scope.newSelect);
@@ -97,75 +103,114 @@ angular.module('spaApp')
 
 	}
 
-	$scope.selImages=function(e,type="")
-	{
-		console.log("Seleccionem imatges");
-		$scope.message="blabla-";
-		if(type=="preferred")
-		{
-			$scope.new.urlPreferred=e.files[0]["name"];
-			$scope.message+=$scope.new.urlPreferred;
-		}
-		else
-		{
-			$scope.filesImages = [];
-            $scope.$apply(function () {
-            	
-                // Guardamos los ficheros en un array.
 
-                for (var i = 0; i < e.files.length; i++) {
-                    $scope.filesImages.push(e.files[i]);
-                    $scope.message+=e.files[i]['name'];
-                }
-            });
+	$scope.newEdit=function(){
+		
+		if($scope.act=="Editar"){
+			$scope.loading=true;	
+			console.log("models/news.php?acc=editNew&idNew="+$scope.new.idNew+"&title="+$scope.new.title+"&titleSub="+$scope.new.titleSub+"&date="+$scope.new.date+"&idUser="+$scope.new.idUser);
+			$http({
+			method : "GET",
+			url : "models/news.php?acc=editNew&idNew="+$scope.new.idNew+"&title="+$scope.new.title+"&titleSub="+$scope.new.titleSub+"&date="+$scope.new.date+"&idUser="+$scope.new.idUser
+			}).then(function mySucces (response) {
+					$scope.newSelect = response.data;
+					$scope.new.idNew=$scope.newSelect[0].idNew;
+					$scope.new.title= $scope.newSelect[0].title;
+					$scope.new.titleSub= $scope.newSelect[0].titleSub;
+					$scope.new.urlPreferred=$scope.newSelect[0].urlPreferred;
+					$scope.new.date= $scope.newSelect[0].date;
+					$scope.new.idUser= $scope.newSelect[0].idUser;
+					$scope.new.images = $scope.newSelect[0].images;
+
+					$scope.addImage=true;
+					$scope.divImgs=true;
+					$scope.divVideos=true;
+					
+				}, function myError (response) {
+					$scope.newSelect = response.statusText;
+				})
+			.finally(function() 
+			{ 
+			    $scope.loading=false; 
+			});
+			
 		}
-		$scope.divMessages=true; 
-		console.log($scope.message+" "+$scope.divMessages);
+		else if($scope.act=="Afegir"){
+			$scope.loading=true;	
+			//TODO la llamada para hacer el insert, cambiar el idUser por el del combo.
+			$http({
+			method : "GET",
+			url : "models/news.php?acc=addNew&idNew="+$scope.new.idNew+"&title="+$scope.new.title+"&titleSub="+$scope.new.titleSub+"&date="+$scope.new.date+"&idUser=1"
+			}).then(function mySucces (response) {
+					console.log("Nueva noticia insertada:"+ response.data);
+					$scope.newSelect = response.data;
+					$scope.new.idNew=$scope.newSelect[0].idNew;
+					$scope.new.title= $scope.newSelect[0].title;
+					$scope.new.titleSub= $scope.newSelect[0].titleSub;
+					$scope.new.urlPreferred=$scope.newSelect[0].urlPreferred;
+					$scope.new.date= $scope.newSelect[0].date;
+					$scope.new.idUser= $scope.newSelect[0].idUser;
+					$scope.new.images = $scope.newSelect[0].images;
+
+					$scope.addImage=true;
+					$scope.divImgs=true;
+					$scope.divVideos=true;
+					
+				}, function myError (response) {
+					$scope.newSelect = response.statusText;
+				})
+			.finally(function() 
+			{ 
+			    $scope.loading=false; 
+			    $scope.addImage=true;
+			})
+
+		}
+	}
+
+	$scope.changePreferred=function(e){
+		var data = new FormData();
+		data.append("idNew", $scope.new.idNew);
+		data.append("uploadedFile",e.files[0]);
+		data.append("urlPreferred",$scope.new.urlPreferred);
+
+		var deferred=$q.defer();
+		$http.post("models/news.php?acc=changeImgPeferred", data,{
+			headers:{
+				"Content-type":undefined
+			},
+				transformRequest:angular.identity
+			})
+			.then(function(res)
+			{
+				deferred.resolve(res);
+				$scope.new.urlPreferred=$scope.new.idNew+"-"+e.files[0]['name'];
+				console.log($scope.new.idNew+"-"+e.files[0]['name']);
+			});
+	}
+
+
+
+	$scope.imgDelete=function(idNewMedia, url){
+		$scope.loading=true;	
+			//TODO la llamada para hacer el insert, cambiar el idUser por el del combo.
+		$http({
+			method : "GET",
+			url : "models/news.php?acc=imgDeleteNew&idNewMedia="+idNewMedia+"&urlDelete="+url+"&idNew="+$scope.new.idNew
+			}).then(function mySucces (response) {
+				$scope.newSelect = response.data;
+				$scope.new.images = $scope.newSelect;
+				}, function myError (response) {
+					$scope.newSelect = response.statusText;
+				})
+			.finally(function() 
+			{ 
+			    $scope.loading=false; 
+			})
 
 	}
 
 
-	// $scope.cogeDetalleFicheros = function (e) {
-	// 		console.log("entro a mirar ficheros, hay: "+e.files.length);
- //            $scope.filesImages = [];
- //            $scope.$apply(function () {
- //                // Guardamos los ficheros en un array.
- //                for (var i = 0; i < e.files.length; i++) {
- //                    $scope.filesImages.push(e.files[i])
- //                }
- //            });
- //        };
-
-    $scope.enviaForm = function (formNew) {
-        	console.log('Submit del Formulario con: ' + JSON.stringify(formNew));
-        	console.log( $scope.formNew.descripcio);
-			var data = new FormData();
-			data.append("idNew", $scope.idNew);
-			data.append("descripcio", $scope.formNew.descripcio);
-			for (var i in $scope.files) {
-                data.append("uploadedFile"+i, $scope.filesImages[i]);
-            }
-            data.append("cantImagen", i);
- 
-			var deferred=$q.defer();
-			return $http.post("models/news.php?acc=addImages", data,{
-				headers:{
-					"Content-type":undefined
-				},
-				transformRequest:angular.identity
-			})
-			.then(function(res)
-				{
-					console.log ("lo sube"+ res);
-					deferred.resolve(res);
-					console.log ("lo sube");
-				})
-			// .error(function(msg,code)
-			// 	{
-			// 		deferred.reject(msg);
-			// 	})
-			return deferred.promise;
-		};
 	
 
 })

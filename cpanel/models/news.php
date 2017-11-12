@@ -1,49 +1,21 @@
 <?php 
+// Desactivar notificació d'error
+	error_reporting(0);
 require('../../inc/functions.php');
 
 
 	if(isset($_GET['acc']) && $_GET['acc'] == 'l'){
 
-	$mySql = "SELECT n.idNew , n.idUser, n.titleSub, n.date, DATE_FORMAT( n.date,'%d-%M-%Y') AS dateList, n.title , w.url FROM news n, newsmedia w WHERE n.idNew=w.idNew";
-	if(isset($_GET['preferredImg'])) $mySql.="  AND w.preferred='Y'";
-	if(isset($_GET['idUser'])) $mySql.=" AND n.idUser=".$_GET["idUser"];
-	if(isset($_GET['idNew'])) $mySql.=" AND n.idNew=".$_GET['idNew'];
-	$mySql .= " ORDER BY n.date DESC"; 
-	$connexio = connect();
-	$resultNews = mysqli_query($connexio, $mySql);
-	disconnect($connexio);
+		$preferredImg=""; $idUser=""; $idNew="";
+		if(isset($_GET['preferredImg'])) $preferredImg=$_GET['preferredImg'];
+		if(isset($_GET['idUser'])) $idUser=$_GET['idUser'];
+		if(isset($_GET['idNew'])) $idNew=$_GET['idNew'];
 
-	$i=0;
-		$dataNews ='[';
-		while ($row=mySqli_fetch_array($resultNews))
-		{	
-			if($i != 0)
-			{
-				$dataNews .= ",";
-			} 
-
-			$row['title']=str_replace("'", "·", $row['title']);
-			$row['titleSub']=str_replace("'", "·", $row['titleSub']);
-			$dataNews .= '{"urlPreferred":"'.$row['url'].'", "title":"'.$row['title'].'", "dateList":"'.$row['dateList'].'","date":"'.$row['date'].'","idNew":"'.$row['idNew'].'","titleSub":"'.$row['titleSub'].'"';
-
-			if(isset($_GET['idNew'])){
-				$dataNews .= ',"images":';
-				$dataNews .= listNewsMedia($_GET["idNew"]);
-			}
-
-			$dataNews .= '}';
-			$i++;
-		}
-		$dataNews .=']';
-		echo $dataNews;	 
+		echo listNews($preferredImg, $idUser, $idNew);
 	}	
 
-
-
-
-
-
 if(isset($_GET['acc']) && $_GET['acc'] == 'deleteNew'){  
+	
 	if(isset($_GET["idNew"]))	{
 		$mySql ="SELECT url FROM newsMedia WHERE idNew=".$_GET["idNew"]." AND TYPE ='I'";
 		$connexio = connect();
@@ -57,21 +29,47 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'deleteNew'){
 		}
 		while($i>0){
 			//TODO echo "../../img/newsmedia/".$deleteImg[$i-1]."<br/>";
-			unlink("../../img/newsmedia/".$deleteImg[$i-1]); 
+			if($deleteImg[$i-1]!='nofoto.png') unlink("../../img/newsmedia/".$deleteImg[$i-1]); 
 			$i--;
 		}
-		$mySql ="DELETE FROM newsmedia WHERE idNew=".$_GET["idNew"];
-		$mySql2 ="DELETE FROM news WHERE idNew=".$_GET["idNew"];
+		$mySql2 ="DELETE FROM newsmedia WHERE idNew=".$_GET["idNew"];
+		$mySql3 ="DELETE FROM news WHERE idNew=".$_GET["idNew"];
 		//TODO echo $mySql;
 		//TODO echo "<br/>".$mySql2;
 
 		$connexio = connect();
-		$resultDelete = mysqli_query($connexio, $mySql);
-		$resultDelete2 = mysqli_query($connexio, $mySql2);
+		$resultDelete = mysqli_query($connexio, $mySql2);
+		$resultDelete2 = mysqli_query($connexio, $mySql3);
 		disconnect($connexio);
-		echo '{"missatge":""}';
+		//TODO echo $mySql."-".$mySql2."-".$mySql2."<br/>";
+		//TODO cambiar el segundo valor por el desplegable.
+		echo listNews("Y", "", "");
 	}
 }	
+
+
+
+	if(isset($_GET['acc']) && $_GET['acc'] == 'editNew'){  
+		//TODO echo '{"datos":"'.$_GET['idNew'].$_GET['title'].$_GET['titleSub'].$_GET['date'].'"}';
+	
+		$mySql ="UPDATE `news` SET `date`='".$_GET['date']."', `title`='".$_GET['title']."', `titleSub`='".$_GET['titleSub']."', `idUser`='".$_GET['idUser']."' WHERE `idNew`='".$_GET['idNew']."'";
+		$connexio = connect();
+		$resultDelete = mysqli_query($connexio, $mySql);
+		disconnect($connexio);
+		echo listNews("","", $_GET['idNew']);
+	}
+	if(isset($_GET['acc']) && $_GET['acc'] == 'addNew'){  
+
+		$mySql="INSERT INTO `news` (`date`, `title`, `titleSub`, `idUser`) VALUES ('".$_GET['date']."', '".$_GET['title']."', '".$_GET['titleSub']."', '".$_GET['idUser']."')";
+		$connexio = connect();
+		$resultDelete = mysqli_query($connexio, $mySql);
+		$idNewInsert=mysqli_insert_id($connexio);
+		$mySql="INSERT INTO `newsmedia` (`idNew`, `type`, `url`, `preferred`) VALUES ('".$idNewInsert."', 'I', 'nofoto.png', 'Y')";
+		$resultInsert = mysqli_query($connexio, $mySql);
+		disconnect($connexio);
+		echo listNews("","", $idNewInsert);
+	}
+	
 
 
 	if(isset($_GET['acc']) && $_GET['acc'] == 'addImages'){  
@@ -98,24 +96,68 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'deleteNew'){
 	}		
 
 	if(isset($_GET['acc']) && $_GET['acc'] == 'changeImgPeferred'){
-
-
-		$mySql = "UPDATE  n.idNew , n.idUser,.n.titleSub , n.date, n.title , w.url";
-		$mySql .= " FROM news n, newsmedia w WHERE n.idNew=w.idNew AND w.preferred='Y'AND n.idUser=1";//.$_GET["idUser"];
-
+		$newfile=$_POST['idNew'].'-'.$_FILES["uploadedFile"]["name"];
+		$mySql = "UPDATE `newsmedia` SET `url`='".$newfile."' WHERE preferred='Y' AND idNew='".$_POST['idNew']."'";
 		$connexio = connect();
-		$modifyImgPref = mysqli_query($connexio, $mySql);
+		$resultNews = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
-
-		return $modifyImgPref;
-
-
+		move_uploaded_file($_FILES["uploadedFile"]["tmp_name"], "../../img/newsmedia/".$newfile);
+		unlink("../../img/newsmedia/".$_POST['urlPreferred']);
 	}	
 
+	if(isset($_GET['acc']) && $_GET['acc'] == 'imgDeleteNew'){	
+		$mySql = "DELETE FROM `newsmedia` WHERE `idNewMedia`='".$_GET['idNewMedia']."';";
+		$connexio = connect();
+		$result = mysqli_query($connexio, $mySql);
+		disconnect($connexio);
+		if($_GET['urlDelete']!='0') unlink("../../img/newsmedia/".$_GET['urlDelete']);
+		echo listNewsMedia($_GET['idNew']);
 
+	}
 
+	function listNews($preferredImg="", $idUser="", $idNew=""){
+		//TODO echo $preferredImg."-".$idUser."-".$idNew.'<br>';
+		$mySql = "SELECT `news`.`idNew`, `news`.`idUser`, `news`.`title`, `news`.`titleSub`, `news`.`date`, DATE_FORMAT( `news`.`date`,'%d-%M-%Y') AS dateList, `newsmedia`.`url` FROM `news` LEFT JOIN `newsmedia` ON `newsmedia`.`idNew` = `news`.`idNew`";
+		if($preferredImg!="") $mySql.=" WHERE `newsmedia`.`preferred` ='Y'";
+		if($idUser!=""){
+			if($preferredImg!="") $mySql.=" AND ";	else $mySql.=" WHERE ";	
+			$mySql.="`news`.`idUser`=".$idUser;	
+		}
+		if($idNew!=""){
+			if($preferredImg!="" || $idUser!="") $mySql.=" AND ";	else $mySql.=" WHERE ";	
+			$mySql.="`newsmedia`.`idNew`=".$idNew;
+		} 
+		$mySql .= " ORDER BY `news`.`date` DESC"; 
+		//TODO echo $mySql."<br/>";
+		$connexio = connect();
+		$resultNews = mysqli_query($connexio, $mySql);
+		disconnect($connexio);
 
+		$i=0;
+		$dataNews ='[';
+		while ($row=mySqli_fetch_array($resultNews))
+		{	
+			if($i != 0)
+			{
+				$dataNews .= ",";
+			} 
 
+			$row['title']=str_replace("'", "\'", $row['title']);
+			$row['titleSub']=str_replace("'", "\'", $row['titleSub']);
+			$dataNews .= '{"urlPreferred":"'.$row['url'].'", "title":"'.$row['title'].'", "dateList":"'.$row['dateList'].'","date":"'.$row['date'].'","idNew":"'.$row['idNew'].'","titleSub":"'.$row['titleSub'].'","idUser":"'.$row['idUser'].'"';
+
+			if($idNew!=""){
+				$dataNews .= ',"images":';
+				$dataNews .= listNewsMedia($idNew);
+			}
+
+			$dataNews .= '}';
+			$i++;
+		}
+		$dataNews .=']';
+		return $dataNews;
+
+	}
 
 
 	function listNewsMedia($idNew)
@@ -139,94 +181,5 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'deleteNew'){
 			$dataNews .=']';
 			return $dataNews;
 	}
-
-
-	//if(isset($_GET['acc']) && $_GET['acc'] == 'newSel'){
-
-
-	// $mySql = "SELECT n.idNew , n.idUser, n.titleSub ,DATE_FORMAT( n.date,'%Y-%m-%d') AS fecha, n.title";
-
-	// $mySql .= " FROM news n WHERE n.idNew=".$_GET["idNew"];
-
-	// $connexio = connect();
-	// $resultNews = mysqli_query($connexio, $mySql);
-	// disconnect($connexio);
-	// $i=0;
-	// $dataNews ='[';
-	// 	while ($row=mySqli_fetch_array($resultNews))
-	// 	{	
-	// 		if($i != 0)
-	// 		{
-	// 			$dataNews .= ",";
-	// 		} 
-
-	// 		$row['title']=str_replace("'", "·", $row['title']);
-
-	// 		$row['titleSub']=str_replace("'", "·", $row['titleSub']);
-
-
-	// 		$dataNews .= '{"title":"'.$row['title'].'","date":"'.$row['fecha'].'","idNew":"'.$row['idNew'].'","titleSub":"'.$row['titleSub'].'","url":';
-
-			
-	// 		$dataNews .= listNewsMedia($_GET["idNew"]);
-
-	// 	$i++;
-
-	// 	}
-	// 	$dataNews .='}]';
-	// 	echo $dataNews;	 
-	// }
-
-
-	// if(isset($_GET['acc']) && $_GET['acc'] == 'img'){
-
-
-	// 	$mySql = "UPDATE  n.idNew , n.idUser,.n.titleSub , n.date, n.title , w.url";
-	// 	$mySql .= " FROM news n, newsmedia w WHERE n.idNew=w.idNew AND w.preferred='Y'AND n.idUser=1";//.$_GET["idUser"];
-
-	// 	$connexio = connect();
-	// 	$modifyImgPref = mysqli_query($connexio, $mySql);
-	// 	disconnect($connexio);
-
-	// 	return $modifyImgPref;
-
-
-	// }	
-
-
-
-	
-
-
-		// $fp=fopen("../files/infoShop.txt",'w');
-		// fputs($fp,'idNew:'.$_POST["idNew"]);
-		// fputs($fp,'numImages:'.$numImages);
-		// $connexio = connect();
-		// for ($i = 0; $i < $numImages; $i++)
-		// {
-		// 	// fputs($fp,'fichero:'.$_POST["file".$i]);
-		// 	$mySql = "INSERT INTO `newsmedia` (`idNewMedia`, `idNew`, `type`, `url`, `preferred`, `description`) VALUES (NULL, ".$_POST["idNew"].", 'I', '".$_POST["idNew"].'-'.$i.'-'.$_POST["file".$i]."', 'N', 'blabla');";
-		// $instImg = mysqli_query($connexio, $mySql);
-
-
-
-		// move_uploaded_file($_POST["file".$i],$_POST["idNew"].'-'.$i.'-'.$_POST["file".$i]);
-		//move_uploaded_file($_POST["file".$i],$_POST["idNew"].'-'.$i.'-'.$_POST["file".$i]);
-
-		// }
-		// disconnect($connexio);
-		
-	// fclose($fp);
-		
-		
-
-
-		//echo  listNewsMedia($_GET["idNew"]);
-	
-
-
-
-
-
 	
 ?>
