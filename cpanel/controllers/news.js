@@ -7,6 +7,7 @@ angular.module('spaApp')
 	$scope.divNew=false; //TODO div dades notícia seleccionada
 	$scope.divImgs=false;//TODO div mostra les imatges no preferides de la noticia
 	$scope.divVideos=false;//TODO div mostra els vídeos.
+	$scope.divAddVideo=false;
 	
 	$scope.idUser="1"; //TODO coger del desplegable
 
@@ -91,7 +92,6 @@ angular.module('spaApp')
 				$scope.addImage=true;
 				$scope.divImgs=true;
 				$scope.divVideos=true;
-				console.log($scope.newSelect);
 				
 			}, function myError (response) {
 				$scope.newSelect = response.statusText;
@@ -193,15 +193,14 @@ angular.module('spaApp')
 
 	$scope.imgDelete=function(idNewMedia, url){
 		$scope.loading=true;	
-			//TODO la llamada para hacer el insert, cambiar el idUser por el del combo.
 		$http({
 			method : "GET",
 			url : "models/news.php?acc=imgDeleteNew&idNewMedia="+idNewMedia+"&urlDelete="+url+"&idNew="+$scope.new.idNew
 			}).then(function mySucces (response) {
-				$scope.newSelect = response.data;
-				$scope.new.images = $scope.newSelect;
+				$scope.newSelectImg = response.data;
+				$scope.new.images = $scope.newSelectImg;
 				}, function myError (response) {
-					$scope.newSelect = response.statusText;
+					$scope.newSelectImg = response.statusText;
 				})
 			.finally(function() 
 			{ 
@@ -210,8 +209,50 @@ angular.module('spaApp')
 
 	}
 
+	$scope.addMedia=function(e,type){
+		var data = new FormData();
+		data.append("idNew", $scope.new.idNew);
+		data.append("type", type);
+		if(type=='I')
+		{		
+			data.append("url", e.files[0]["name"]);
+			data.append("uploadedFile",e.files[0]);
+		}
+		if(type=='V')
+		{		
+			data.append("url", $scope.urlVideoAdd);
+		}
 
+		var deferred=$q.defer();
+		$http.post("models/news.php?acc=addMedia", data,{
+			headers:{
+				"Content-type":undefined
+			},
+				transformRequest:angular.identity
+			})
+			.then(function(res)
+			{
+				deferred.resolve(res);
+				$scope.loading=true;	
+				$http({
+					method : "GET",
+					url : "models/news.php?acc=listMedia"+"&idNew="+$scope.new.idNew
+					}).then(function mySucces (response) {
+						$scope.newSelectImg = response.data;
+						$scope.new.images = $scope.newSelectImg;
+						}, function myError (response) {
+							$scope.newSelectImg = response.statusText;
+						})
+					.finally(function() 
+					{ 
+					    $scope.loading=false; 
+					    if(type=='V') $scope.divAddVideo=false;
+					});
+			});
+	}
+	$scope.activeAddVideo=function(){
+		$scope.divAddVideo=true;
+	}
 	
-
 })
 

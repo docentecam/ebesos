@@ -17,7 +17,7 @@
 <form name="formListNews" class="row" ng-show="showListNews" ng-repeat="newList in newsList">
 	<div class="col-sm-3">
 		<div class="form-group col-sm-12">
-			<img id="photo" ng-src="../img/newsmedia/{{newList.urlPreferred}}" width="150px"> 
+			<img class="img-fluid" id="photo" ng-src="../img/newsmedia/{{newList.urlPreferred}}" width="150px"> 
 		</div>
 	</div>
 	<div class="col-sm-9">
@@ -71,7 +71,7 @@
 			<label class="col-sm-12"><h2> Imatge Destacada</h2></label>
 			
 			<input type="file" id="imgPref" accept="image/jgp, image/jgep, image/png" onchange="angular.element(this).scope().changePreferred(this)" ng-show="false"> 
-			<img class="col-sm-4 pull-left" id="photo" ng-src="../img/newsmedia/{{new.urlPreferred}}" >
+			<img class="col-sm-4 pull-left img-fluid" id="photo" ng-src="../img/newsmedia/{{new.urlPreferred}}" >
 			<label class="col-sm-2 btn btn-default" for="imgPref" ng-show="addImage">Canviar preferida</label>
 		</div>
 
@@ -82,10 +82,13 @@
 
 <form class="row" name="formImgs" ng-show="divImgs">
 	<div class="for-group">
-		<h2 class="col-sm-12"> Imatges de la noticia </h2> 
+		<h2 class="col-sm-10"> Imatges de la noticia </h2> 
+		<span class="col-sm-2">
+			<label for="addImage"><i class="fa fa-plus" aria-hidden="true">Afegir</i></label>
+			<input type="file" id="addImage" accept="image/jgp, image/jgep, image/png" onchange="angular.element(this).scope().addMedia(this,'I')" ng-show="false"> 
+		</span>
 		<div class="col-sm-4" ng-repeat="image in new.images | filter : {preferred:'N' , type:'I'}">
-			<img class="col-sm-12" ng-src="../img/newsmedia/{{image.url}}">
-			
+			<img class="col-sm-12 img-fluid" ng-src="../img/newsmedia/{{image.url}}">		
 			<a href="" ng-click="imgDelete(image.idNewMedia, image.url)"><i class=" col-sm-6 fa fa-trash" aria-hidden="true" >Eliminar</i></a>
 		</div>
 	</div>
@@ -93,8 +96,14 @@
 
 <form class="row" name="formVideos" ng-show="divVideos">
 	<div class="for-group">
-		<h2 class="col-sm-12"> Vídeos de la noticia </h2> 
-		<div class="col-sm-4" ng-repeat="image in new.images | filter : {type:'V'}">
+		<h2 class="col-sm-10"> Vídeos de la noticia </h2> <span class="col-sm-2"><a href="" ng-click="activeAddVideo()"><i class="fa fa-plus" aria-hidden="true">Afegir</i></a></span>
+			<div class="col-sm-12" ng-show="divAddVideo">
+				<label>Url Vídeo youtube</label>
+				<input type="text" ng-model="urlVideoAdd" />
+				<input type="button" ng-click="addMedia('','V')" value="Pujar">
+			</div>
+
+		<div class="col-sm-2" ng-repeat="image in new.images | filter : {type:'V'}">
 			<iframe width="400" height="215"  frameborder="0" allowfullscreen ng-src="https://www.youtube.com/embed/image.url"></iframe>
 			<a href="" ng-click="imgDelete(image.idNewMedia, '0')"><i class=" col-sm-6 fa fa-trash" aria-hidden="true" >Eliminar</i></a>
 		</div>

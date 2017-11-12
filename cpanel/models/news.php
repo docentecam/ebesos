@@ -72,27 +72,17 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'deleteNew'){
 	
 
 
-	if(isset($_GET['acc']) && $_GET['acc'] == 'addImages'){  
-
-		//TODO cambiar el paso de todo el array de file, no file a file
-		 $fp=fopen("_pruebaForm.txt",'w');
-		 fputs($fp,'idNew:'.$_POST['idNew']);
-		 fputs($fp,'arriba escriure');
-	    fputs($fp,'. descripció de la imatge:'.$_POST['descripcio']);
-	    $cantImagen=$_POST['cantImagen']+1;
-	    fputs($fp,'. cantImagen:'.$cantImagen);
-	    $j=0;
-	    while($j<$cantImagen)
-	    {
-	    	$numUp='uploadedFile'.$j;
-	    	$file = $_FILES[$numUp]["name"];
-	 
-			fputs($fp,'. recibo: '.$file);
-			move_uploaded_file($_FILES[$numUp]["tmp_name"], $file);
-			$j++;
-	    }
-	     fclose($fp);	
-
+	if(isset($_GET['acc']) && $_GET['acc'] == 'addMedia'){  
+		$newfile=$_POST['idNew'].'--'.$_FILES["uploadedFile"]["name"];
+		$mySql = "INSERT INTO `newsmedia` (`idNew`, `type`, `url`, `preferred`) VALUES ('".$_POST['idNew']."', '".$_POST['type']."', '".$newfile."', 'N')";
+		$connexio = connect();
+		$resultNews = mysqli_query($connexio, $mySql);
+		disconnect($connexio);
+		move_uploaded_file($_FILES["uploadedFile"]["tmp_name"], "../../img/newsmedia/".$newfile);
+		
+	}
+	if(isset($_GET['acc']) && $_GET['acc'] == 'listMedia'){	
+		echo listNewsMedia($_GET['idNew']);
 	}		
 
 	if(isset($_GET['acc']) && $_GET['acc'] == 'changeImgPeferred'){
@@ -114,6 +104,7 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'deleteNew'){
 		echo listNewsMedia($_GET['idNew']);
 
 	}
+
 
 	function listNews($preferredImg="", $idUser="", $idNew=""){
 		//TODO echo $preferredImg."-".$idUser."-".$idNew.'<br>';
