@@ -12,9 +12,7 @@ body{
 a{
 	color: black!important;
 }
-a:hover{
-	color: black!important;
-}
+
 #loadingIcon{
 	 margin-top: 21%;
 }
