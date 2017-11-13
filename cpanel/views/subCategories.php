@@ -3,36 +3,36 @@
 	if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 ?>
 <div class="row">
-	<label class="col-lg-1 col-xs-12">Subcategories</label>
+	<label class="col-xs-1 col-xs-12">Subcategories</label>
 </div>
 <div class="row">
-	<span class="col-lg-1 titleCategoria">Categoria:</span>
-	<select name="subCategoriesSelect" class="col-lg-3 selectSubCategories" ng-change="changeCat(idCategory,name,urlPicto1)" ng-model="idCategory">
+	<span class="col-xs-4 titleCategoria">Categoria:</span>
+	<select name="subCategoriesSelect" class="col-xs-3 col-lg-pull-2 col-sm-pull-1 selectSubCategories" ng-change="changeCat(idCategory,name,urlPicto1)" ng-model="idCategory">
 		<option ng-repeat="category in categories" ng-value="category.name" ng-selected="category.idCategory==1">{{category.name}}</option>
 	</select>
 </div>
 <div class="row tableSubCategories">
-	<div class="col-lg-8 borderTableSubCategories noPadding">
-		<div class="col-lg-6 borderTitlesSubCategories centerPadding">
-			<div class="col-lg-12 tableCategoriaSubCategoria noPadding">
+	<div class="col-xs-11 col-lg-8 borderTableSubCategories noPadding">
+		<div class="col-xs-6 borderTitlesSubCategories centerPadding">
+			<div class="col-xs-12 tableCategoriaSubCategoria noPadding">
 				CATEGORIA
 			</div>
 		</div>
 		<img class="iconSubCategory" width="50px" height="50px" src="../img/burger.svg" alt="" >
-		<div class="col-lg-6 borderTitlesSubCategories centerPadding">
-			<div class="col-lg-12 tableAlimentacioSubCategoria">
+		<div class="col-xs-6 borderTitlesSubCategories centerPadding">
+			<div class="col-xs-12 tableAlimentacioSubCategoria">
 				<div ng-show="firstC">ALIMENTACIÓ</div>{{idCategoryC | uppercase}}
 			</div>
 		</div>
-		<div class="col-lg-8 borderContentSubCategories">
-			<div class="col-lg-12 centerPadding">
+		<div class="col-xs-8 borderContentSubCategories">
+			<div class="col-xs-12 centerPadding">
 				Aviram
 			</div>
 		</div>
-		<button class="col-lg-2 btn btn-SubCategory borderBtnEditSubCategories">
+		<button class="col-xs-2 btn btn-SubCategory borderBtnEditSubCategories">
 			Editar
 		</button>
-		<button class="col-lg-2 btn btn-SubCategory borderBtnDelSubCategories">
+		<button class="col-xs-2 btn btn-SubCategory borderBtnDelSubCategories">
 			Eliminar
 		</button>
 	</div>
@@ -41,14 +41,16 @@
 	<button id="btnAfegirSubCategoria" class="btn btn-default">Afegir <i class="fa fa-plus-circle"></i></button>
 </div>
 <div class="row">
-	<span class="titleCategoria col-lg-1">Escull categoria:</span>
-	<select name="subCategoriesSelect" class="col-lg-3 selectSubCategories">
+	<span class="titleCategoria col-xs-4">Escull categoria:</span>
+	<select name="subCategoriesSelect" class="col-xs-3 col-lg-pull-2 col-sm-pull-1 selectSubCategories">
 		<option value="-1">Categoria</option>
 		<option value="alimentacio">Alimentació</option>
 	</select>
 </div>
 <div class="row">
-	<span class="titleCategoria col-lg-1">Nom subcategoria:</span>
-	<input type="text" class="col-lg-3 inputTextSubCategories">
+	<span class="titleCategoria col-xs-4">Nom subcategoria:</span>
+	<input type="text" class="col-xs-3 col-lg-pull-2 col-sm-pull-1 inputTextSubCategories">
 </div>
-<button id="afegirSubCategoria" class="btn btn-default centerPadding">Afegir</button> 
+<div class="row">
+	<button id="afegirSubCategoria" class="btn btn-default col-xs-offset-8 col-lg-offset-6 centerPadding">Afegir</button> 
+</div>
