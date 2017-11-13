@@ -71,7 +71,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 		</div>
 		
 		<div class="row" style="height: 100%;">
-			<div class="col-xs-12 col-md-2 col-lg-2" style="padding: 0%!important;">
+			<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2" style="padding: 0%!important;">
 				<div class="sidebar-nav">
 					<div class="navbar navbar-default navGlobal" role="navigation">
     					<div class="navbar-header">
