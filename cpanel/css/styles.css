@@ -569,7 +569,6 @@ select
 
 .titleCategoria{
   margin-top: 0.57%;
-  width: 15%;
 }
 
 .selectSubCategories{
@@ -635,5 +634,4 @@ select
   border: 1px solid black;
   height: 50px;
   border-radius: 0px;
-  margin-left: 54.7%;
 }

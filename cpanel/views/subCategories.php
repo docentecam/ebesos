@@ -3,7 +3,7 @@
 	if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 ?>
 <div class="row">
-	<label class="col-lg-1 col-xs-12">Subcategories</label>
+	<label class="col-xs-1 col-xs-12">Subcategories</label>
 </div>
 <div ng-show="subCatTable">
 	<div class="row">

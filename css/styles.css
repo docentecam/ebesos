@@ -12,22 +12,16 @@ body{
 a{
 	color: black!important;
 }
-a:hover{
-	color: black!important;
-}
 
 #loadingIcon{
 	 margin-top: 21%;
 }
-
-/*lander sanahujes yañez*/
 #aboutUs{
 	width: 75%;
 	height: 250px;
 	margin-left: 12%;
 	margin-top: 5%;
 }
-/*COMERCIAL MAP*/
 #map{
 	height: 500px;
 	//width: 1000px;
@@ -51,8 +45,7 @@ a:hover{
 .no-padding{
 	padding: 0!important;
 }
-.category-select
-{
+.category-select{
 	border-radius: 3px;
 	height: 35px;
 }
@@ -101,7 +94,6 @@ a:hover{
 .shop-photos{
 	margin-top: 20px;
 }
-
 /* Optional: Makes the sample page fill the window. */
 
 /*html, body {
@@ -109,8 +101,6 @@ height: 100%;
 margin: 0;
 padding: 0;
 }*/
-
-/*BLOQUE COOKIES*/
 #cookie-agree{
     display:none;
     position:fixed;
@@ -143,7 +133,6 @@ padding: 0;
     text-decoration:none;
     color:#faff00;
 }
-/*FIN BLOQUE COOKIES*/
 
 /*
 #photo{
@@ -156,9 +145,6 @@ padding: 0;
 	margin-top: 25%; 
 }
 */
-
-
-/*--------------------------------------------------------Javi--------------------------------------------------------------------*/
 .headTitle{
 	font-weight: 600;
 	text-align: center;
@@ -226,7 +212,6 @@ padding: 0;
 #indicatorSlider{
 	margin-bottom:-1%!important;
 }
-
 #footerColor{
 	background-color:#659eab;
 	margin-top: 5%!important;
@@ -245,8 +230,8 @@ padding: 0;
     color: white!important;
 }
 #logoTexto{
-		margin-top: 8%;
-	}
+	margin-top: 8%;
+}
 .footerLinksColor{
 	color: white!important;
 }
@@ -349,9 +334,6 @@ padding: 0;
 }
 .footer-bs .footer-ns p { font-size:12px; color:rgba(255,255,255,0.70); }
 
-
-/*----------------------------------------------------------Jordi------------------------------------------------------------------*/
-
 #captchaDiv{
 	background-image: url("../img/captcha.jpg");
 	color: gray;
@@ -375,7 +357,6 @@ padding: 0;
 	border-left: solid 1px;
 	border-color:#ced2de;
 }
-
 #titleNew{
 	text-align: center;
 }
@@ -422,8 +403,6 @@ padding: 0;
 	height:255px; 
 	margin-bottom: 7%;
 }
-
-/*--------------------------------------------------------Dídac--------------------------------------------------------------------*/
 .assoNews{
 	width: 80%;
 	height: 80%;
@@ -436,7 +415,6 @@ padding: 0;
 	color: white;
 	font-weight: 600;
 }
-
 .newsAsso{
 	border-bottom: solid 1px;
 	border-color: #ced2de;
@@ -480,8 +458,6 @@ padding: 0;
 	background-color: #659eab;
 	padding-left: 0%!important;
 }
-
-
 .assoDivContact{
 	margin-top: 4%;
 }
@@ -507,9 +483,6 @@ padding: 0;
 	position: absolute;
 	margin-top: 1%;
 }
-
-
-/*--------------------------------------------------------Aida--------------------------------------------------------------------*/
 #photo{
 	border-radius: 10px;
 	border: solid 1px black;
@@ -542,8 +515,6 @@ padding: 0;
 	text-transform: uppercase;
 	text-align: center;
 }
-
-
 
 @media (max-width: 575px){
 	h2{
@@ -630,7 +601,6 @@ padding: 0;
     	top: -50%;
     	left: 14%;
 	}
-
 	#contactTop{
 		position: absolute;
     	top: 37%;
@@ -716,8 +686,7 @@ padding: 0;
 	}
 	.shop-image{
 		margin-bottom: 5%;
-	}
-	
+	}	
 }
 @media (min-width: 576px) and (max-width: 767px){
 	#btnEnviar{
@@ -751,15 +720,14 @@ padding: 0;
 		margin-left: 7.5%;
 	}
 }
-
 @media (min-width: 768px){
 	.footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns{
 		border-left:solid 1px rgba(255,255,255,0.10);
 	}
 	#homeIconNav{
-	position: absolute;
-	left: 18%;
-    top: 34%;
+		position: absolute;
+		left: 18%;
+		top: 34%;
 	}
 	.shopsList{
 		padding-bottom: 12%;
@@ -846,5 +814,3 @@ padding: 0;
 		padding-top: 8%;
 	}
 }
-
-

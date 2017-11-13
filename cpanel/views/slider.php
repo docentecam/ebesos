@@ -27,12 +27,11 @@
 		</div>
 		<div id="whiteSliderDiv" class="col-lg-12 col-xs-12">
 
-				<!-- Estado Inicial -->
 
 			<div id="divSliderSetting" ng-hide="sliderSetting" class="col-lg-6 col-xs-12" ng-repeat="sliderImg in slider">
 				<form>
 					<div class="row">
-						<img id="imgSliderSetting" class="col-lg-12 col-xs-12" src="../img/slider/{{sliderImg.image}}" alt=""><!-- TODO alt + dinamizar la imagen con angular -->
+						<img id="imgSliderSetting" class="col-lg-12 col-xs-12" src="../img/slider/{{sliderImg.image}}" alt="">
 					</div>
 					<div class="row">
 						<div class="col-lg-12 col-xs-12" id="sliderText">
@@ -63,9 +62,6 @@
 					</div>
 				</form>
 			</div>
-			
-				<!-- Al pulsar añadir -->
-
 			<div ng-show="sliderAdding">
 				<form id="addingForm">
 					<div class="row">
@@ -93,9 +89,6 @@
 					</div>
 				</form>
 			</div>
-
-				<!-- Al pulsar editar -->
-
 			<div ng-show="sliderEditing" ng-repeat="infoSlider in onlyInfoSlider">
 				<form id="editingForm">
 					<input type="hidden" id="hidEditSlider" ng-value="infoSlider.idSlider">
