@@ -14,11 +14,11 @@
 	</div>
 </div>
 <div class="col-sm-12">
-	<select name="assocSelect">
-		<option ng-repeat="association in assoList" ng-value="association.idUser">{{association.name}}</option>
+	Associació:<select name="assocSelect" id="assocSelect" ng-model="new.idUser" ng-change="changeAssociation()">
+		<option ng-repeat="association in assoList" ng-value="association.idUser" ng-selected="association.idUser==new.idUser" >{{association.name}}</option> 
 	</select>
 </div>
-<form name="formListNews" class="row" ng-show="showListNews" ng-repeat="newList in newsList">
+<form name="formListNews" class="row" ng-show="showListNews" ng-repeat="newList in newsList | filter:{idUser:filterAssoc}">
 	<div class="col-sm-3">
 		<div class="form-group col-sm-12">
 			<img class="img-fluid" id="photo" ng-src="../img/newsmedia/{{newList.urlPreferred}}" width="150px"> 

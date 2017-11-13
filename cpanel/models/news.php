@@ -92,7 +92,7 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'deleteNew'){
 		$resultNews = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
 		move_uploaded_file($_FILES["uploadedFile"]["tmp_name"], "../../img/newsmedia/".$newfile);
-		unlink("../../img/newsmedia/".$_POST['urlPreferred']);
+		if($_POST['urlPreferred']!='nofoto.png') unlink("../../img/newsmedia/".$_POST['urlPreferred']);
 	}	
 
 	if(isset($_GET['acc']) && $_GET['acc'] == 'imgDeleteNew'){	

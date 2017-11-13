@@ -3,14 +3,15 @@ angular.module('spaApp')
 	$scope.divMessages=true; //Div per mostrar missatge al esborrar, modificar...
 	$scope.message="";
 	$scope.btnAddNew=true;	//TODO botó afegir imatge
+
 	$scope.showListNews=true; //TODO div llistat notícies
 	$scope.divNew=false; //TODO div dades notícia seleccionada
 	$scope.divImgs=false;//TODO div mostra les imatges no preferides de la noticia
 	$scope.divVideos=false;//TODO div mostra els vídeos.
 	$scope.divAddVideo=false;
-	
-	$scope.idUser="1"; //TODO coger del desplegable
-
+	$scope.new={};
+	$scope.new.idUser=1; 
+	$scope.filterAssoc="";
 	$scope.loading=true;	
 	$http({
 			method : "GET",
@@ -27,6 +28,10 @@ angular.module('spaApp')
 		{ 
 		    $scope.loading=false; 
 		})
+	$scope.changeAssociation=function(){
+		if($scope.new.idUser==1)$scope.filterAssoc="";
+		else $scope.filterAssoc=$scope.new.idUser;
+	}
 
 	$scope.deleteNew= function(idNew=""){
 		var confirmat=confirm("Segur vols esborrar la notícia?");
@@ -56,6 +61,7 @@ angular.module('spaApp')
 	if($routeParams.idNew==0)
 	{
 		$scope.new.idNew=0;
+		$scope.new.idUser=1;
 		$scope.act="Afegir";
 	}
 	else
@@ -74,26 +80,29 @@ angular.module('spaApp')
 	var dd  = d.getDate() < 10 ? "0" + d.getDate() : d.getDate();
 	$scope.new.date=yyyy+"-"+mm+"-"+dd;
 	
-	if ($scope.new.idNew!=0)
-	{
+	
 		$scope.loading=true;
 		$http({
 		method : "GET",
 		url : "models/news.php?acc=l&idNew="+$scope.new.idNew
 		}).then(function mySucces (response) {
 				$scope.assoList= response.data.associations;
-				$scope.newSelect = response.data.news;
-				$scope.new.idNew=$scope.newSelect[0].idNew;
-				$scope.new.title= $scope.newSelect[0].title;
-				$scope.new.titleSub= $scope.newSelect[0].titleSub;
-				$scope.new.urlPreferred=$scope.newSelect[0].urlPreferred;
-				$scope.new.date= $scope.newSelect[0].date;
-				$scope.new.idUser= $scope.newSelect[0].idUser;
-				$scope.new.images = $scope.newSelect[0].images;
+				if ($scope.new.idNew!=0)
+				{
+					$scope.newSelect = response.data.news;
+					$scope.new.idNew=$scope.newSelect[0].idNew;
+					$scope.new.title= $scope.newSelect[0].title;
+					$scope.new.titleSub= $scope.newSelect[0].titleSub;
+					$scope.new.urlPreferred=$scope.newSelect[0].urlPreferred;
+					$scope.new.date= $scope.newSelect[0].date;
+					$scope.new.idUser= $scope.newSelect[0].idUser;
+					$scope.new.images = $scope.newSelect[0].images;
 
-				$scope.addImage=true;
-				$scope.divImgs=true;
-				$scope.divVideos=true;
+					$scope.addImage=true;
+					$scope.divImgs=true;
+					$scope.divVideos=true;
+					$scope.assocSelec=$scope.newSelect[0].idUser;
+				}
 				
 			}, function myError (response) {
 				$scope.newSelect = response.statusText;
@@ -103,14 +112,13 @@ angular.module('spaApp')
 		    $scope.loading=false; 
 		})
 
-	}
+	
 
 
 	$scope.newEdit=function(){
 		
 		if($scope.act=="Editar"){
 			$scope.loading=true;	
-			console.log("models/news.php?acc=editNew&idNew="+$scope.new.idNew+"&title="+$scope.new.title+"&titleSub="+$scope.new.titleSub+"&date="+$scope.new.date+"&idUser="+$scope.new.idUser);
 			$http({
 			method : "GET",
 			url : "models/news.php?acc=editNew&idNew="+$scope.new.idNew+"&title="+$scope.new.title+"&titleSub="+$scope.new.titleSub+"&date="+$scope.new.date+"&idUser="+$scope.new.idUser
@@ -142,7 +150,7 @@ angular.module('spaApp')
 			//TODO la llamada para hacer el insert, cambiar el idUser por el del combo.
 			$http({
 			method : "GET",
-			url : "models/news.php?acc=addNew&idNew="+$scope.new.idNew+"&title="+$scope.new.title+"&titleSub="+$scope.new.titleSub+"&date="+$scope.new.date+"&idUser=1"
+			url : "models/news.php?acc=addNew&idNew="+$scope.new.idNew+"&title="+$scope.new.title+"&titleSub="+$scope.new.titleSub+"&date="+$scope.new.date+"&idUser="+$scope.new.idUser
 			}).then(function mySucces (response) {
 					$scope.assoList= response.data.associations;
 					$scope.newSelect = response.data.news;
