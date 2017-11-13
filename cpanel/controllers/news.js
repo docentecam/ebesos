@@ -14,10 +14,12 @@ angular.module('spaApp')
 	$scope.loading=true;	
 	$http({
 			method : "GET",
-			url : "models/news.php?acc=l&iduser="+$scope.idUser+"&preferredImg=Y"
+			url : "models/news.php?acc=l&preferredImg=Y"
 		})
 		.then(function mySucces (response) {
-			$scope.newsList = response.data;
+			$scope.newsList = response.data.news;
+			$scope.assoList= response.data.associations;
+			//TODO console.log("Datos: "+$scope.assoList[0].nameAssoc);
 		}, function myError (response) {
 			$scope.newsList = response.statusText;
 		})
@@ -34,7 +36,7 @@ angular.module('spaApp')
 				method : "GET",
 				url : "models/news.php?acc=deleteNew&idNew="+idNew
 			}).then(function mySucces (response) {
-				$scope.newsList=response.data;
+				$scope.newsList=response.data.news;
 				$scope.divMessages=true; //Div per mostrar missatge al esborrar, modificar...
 				$scope.message="Notícia esborrada";
 			}, function myError (response) {
@@ -60,7 +62,7 @@ angular.module('spaApp')
 	{
 		$scope.new.idNew=$routeParams.idNew;
 		$scope.act="Editar";
-	}
+	} 
 	
 	$scope.new.title="";
 	$scope.new.titleSub="";
@@ -79,8 +81,8 @@ angular.module('spaApp')
 		method : "GET",
 		url : "models/news.php?acc=l&idNew="+$scope.new.idNew
 		}).then(function mySucces (response) {
-				
-				$scope.newSelect = response.data;
+				$scope.assoList= response.data.associations;
+				$scope.newSelect = response.data.news;
 				$scope.new.idNew=$scope.newSelect[0].idNew;
 				$scope.new.title= $scope.newSelect[0].title;
 				$scope.new.titleSub= $scope.newSelect[0].titleSub;
@@ -113,7 +115,7 @@ angular.module('spaApp')
 			method : "GET",
 			url : "models/news.php?acc=editNew&idNew="+$scope.new.idNew+"&title="+$scope.new.title+"&titleSub="+$scope.new.titleSub+"&date="+$scope.new.date+"&idUser="+$scope.new.idUser
 			}).then(function mySucces (response) {
-					$scope.newSelect = response.data;
+					$scope.newSelect = response.data.news;
 					$scope.new.idNew=$scope.newSelect[0].idNew;
 					$scope.new.title= $scope.newSelect[0].title;
 					$scope.new.titleSub= $scope.newSelect[0].titleSub;
@@ -142,8 +144,8 @@ angular.module('spaApp')
 			method : "GET",
 			url : "models/news.php?acc=addNew&idNew="+$scope.new.idNew+"&title="+$scope.new.title+"&titleSub="+$scope.new.titleSub+"&date="+$scope.new.date+"&idUser=1"
 			}).then(function mySucces (response) {
-					console.log("Nueva noticia insertada:"+ response.data);
-					$scope.newSelect = response.data;
+					$scope.assoList= response.data.associations;
+					$scope.newSelect = response.data.news;
 					$scope.new.idNew=$scope.newSelect[0].idNew;
 					$scope.new.title= $scope.newSelect[0].title;
 					$scope.new.titleSub= $scope.newSelect[0].titleSub;
@@ -197,7 +199,7 @@ angular.module('spaApp')
 			method : "GET",
 			url : "models/news.php?acc=imgDeleteNew&idNewMedia="+idNewMedia+"&urlDelete="+url+"&idNew="+$scope.new.idNew
 			}).then(function mySucces (response) {
-				$scope.newSelectImg = response.data;
+				$scope.newSelectImg = response.data.news;
 				$scope.new.images = $scope.newSelectImg;
 				}, function myError (response) {
 					$scope.newSelectImg = response.statusText;
@@ -238,7 +240,7 @@ angular.module('spaApp')
 					method : "GET",
 					url : "models/news.php?acc=listMedia"+"&idNew="+$scope.new.idNew
 					}).then(function mySucces (response) {
-						$scope.newSelectImg = response.data;
+						$scope.newSelectImg = response.data.news;
 						$scope.new.images = $scope.newSelectImg;
 						}, function myError (response) {
 							$scope.newSelectImg = response.statusText;

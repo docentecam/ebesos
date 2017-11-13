@@ -13,7 +13,11 @@
 		<a ng-href="#/news/0"><input type="button" name="newNew" value="Afegir Noticia" alt="Afegir noticia" class="btn btn-default"></a>
 	</div>
 </div>
-
+<div class="col-sm-12">
+	<select name="assocSelect">
+		<option ng-repeat="association in assoList" ng-value="association.idUser">{{association.name}}</option>
+	</select>
+</div>
 <form name="formListNews" class="row" ng-show="showListNews" ng-repeat="newList in newsList">
 	<div class="col-sm-3">
 		<div class="form-group col-sm-12">

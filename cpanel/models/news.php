@@ -107,10 +107,11 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'deleteNew'){
 
 
 	function listNews($preferredImg="", $idUser="", $idNew=""){
-		//TODO echo $preferredImg."-".$idUser."-".$idNew.'<br>';
+		
+		
 		$mySql = "SELECT `news`.`idNew`, `news`.`idUser`, `news`.`title`, `news`.`titleSub`, `news`.`date`, DATE_FORMAT( `news`.`date`,'%d-%M-%Y') AS dateList, `newsmedia`.`url` FROM `news` LEFT JOIN `newsmedia` ON `newsmedia`.`idNew` = `news`.`idNew`";
 		if($preferredImg!="") $mySql.=" WHERE `newsmedia`.`preferred` ='Y'";
-		if($idUser!=""){
+		if($idUser!="" && $idUser!="1"){
 			if($preferredImg!="") $mySql.=" AND ";	else $mySql.=" WHERE ";	
 			$mySql.="`news`.`idUser`=".$idUser;	
 		}
@@ -119,13 +120,36 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'deleteNew'){
 			$mySql.="`newsmedia`.`idNew`=".$idNew;
 		} 
 		$mySql .= " ORDER BY `news`.`date` DESC"; 
-		//TODO echo $mySql."<br/>";
+
+		$mySqlAssoc= "SELECT name, idUser FROM users";
+		// if($idUser==""){
+		// 	if($_SESSION['user']['idUser']!='1') $mySqlAssoc .=" WHERE idUser='".$_SESSION['user']['idUser']."'";
+		// 	}
+		// 	echo $mySqlAssoc;
 		$connexio = connect();
 		$resultNews = mysqli_query($connexio, $mySql);
+		$resultAssoc=mysqli_query($connexio, $mySqlAssoc);
 		disconnect($connexio);
 
+		
+		$dataNews ='{"associations":[';
+	
+		$j=0;
+		while ($row=mySqli_fetch_array($resultAssoc))
+		{
+			if($j != 0)
+			{
+				$dataNews .= ",";
+			} 
+			$dataNews .= '{"name":"'.$row['name'].'", "idUser":"'.$row['idUser'].'"}';
+			$j++;
+		}
+
+
+
+
+		$dataNews .='], "news": [';
 		$i=0;
-		$dataNews ='[';
 		while ($row=mySqli_fetch_array($resultNews))
 		{	
 			if($i != 0)
@@ -145,7 +169,7 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'deleteNew'){
 			$dataNews .= '}';
 			$i++;
 		}
-		$dataNews .=']';
+		$dataNews .=']}';
 		return $dataNews;
 
 	}
@@ -156,6 +180,7 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'deleteNew'){
 		$mySql = "SELECT idNewMedia, url , type, preferred
 					FROM  news n, newsmedia w
 					WHERE n.idNew=w.idNew AND w.idNew=".$idNew;
+	
 		$connexio = connect();
 		$resultImgs = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
