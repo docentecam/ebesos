@@ -28,7 +28,7 @@
 			<div ng-repeat="subCategory in subCategories">
 				<div class="col-lg-8 borderContentSubCategories">
 					<div class="col-lg-12 centerPadding">
-						{{subCategory.name+"-"+subCategory.idSubCategory}}
+						{{subCategory.name}}
 					</div>
 				</div>
 				<button class="col-lg-2 btn btn-SubCategory borderBtnEditSubCategories" id="editTable" ng-click="editSubCat(subCategory.idSubCategory,subCategory.name,'e')">
