@@ -38,7 +38,18 @@ app.config(['$routeProvider', function ($routeProvider) {
 		templateUrl:'views/shop.html',
 		controller:'ShopCtrl',
 	})
-	
+
+    .when('/', {
+        templateUrl: 'views/inicio.html',
+        controller: 'PromotionsCtrl',
+    })
+    .when('/promotion/:idPromotion', {
+        templateUrl: 'views/promotion.html',
+        controller: 'PromotionCtrl',
+    })
+    .otherwise({
+        redirectTo: '/'
+    }); 
 
     // .otherwise({
     //     redirectTo: '/'
