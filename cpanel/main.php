@@ -44,9 +44,9 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 	</head>
 	<body id="container" data-ng-app="spaApp"  ng-controller="MainCtrl">
 		<div class="row">
-			<div class="col-xs-6 col-md-2 col-lg-2 " style="padding: 0px;">				
+			<div class="col-xs-6 col-md-2 col-lg-2" style="padding: 0px;">				
 				<div style="padding: 0px; background-color: #3C708C;" class="col-xs-5 col-lg-5">
-					<a href="#"><img style="padding: 0px;" class="img-responsive" src="../img/logos-assoc/<?php echo $_SESSION['user']['logo']; ?>"></a>					
+					<a href="#"><img style="padding: 0px;" class="img-responsive logoEixTop" src="../img/logos-assoc/<?php echo $_SESSION['user']['logo']; ?>"></a>					
 				</div>
 				<div class="col-xs-7 col-lg-7" style="height: 88px;">
 					<span id="nameAssoLogged"><?php echo $_SESSION['user']['name']; ?></span>
