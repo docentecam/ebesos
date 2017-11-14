@@ -533,8 +533,8 @@ select
 /* Subcategories. */
 .iconSubCategory{
     position: absolute;
-    left: 44.5%;
-    top: 1.4%;
+    left: 43%;
+    top: 0.65%;
     z-index: 1;
 }
 
