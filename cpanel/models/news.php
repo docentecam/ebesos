@@ -108,16 +108,17 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'deleteNew'){
 
 	function listNews($preferredImg="", $idUser="", $idNew=""){
 		
-		
+		$optionWhere=false;
 		$mySql = "SELECT `news`.`idNew`, `news`.`idUser`, `news`.`title`, `news`.`titleSub`, `news`.`date`, DATE_FORMAT( `news`.`date`,'%d-%M-%Y') AS dateList, `newsmedia`.`url` FROM `news` LEFT JOIN `newsmedia` ON `newsmedia`.`idNew` = `news`.`idNew`";
-		if($preferredImg!="") $mySql.=" WHERE `newsmedia`.`preferred` ='Y'";
-		if($idUser!="" && $idUser!="1"){
-			if($preferredImg!="") $mySql.=" AND ";	else $mySql.=" WHERE ";	
-			$mySql.="`news`.`idUser`=".$idUser;	
+		if($preferredImg!=""){ $mySql.=" WHERE `newsmedia`.`preferred` ='Y'"; $optionWhere=true;}
+
+		if($idUser=="" && $_SESSION['user']['idUser']!="1"){
+			if($optionWhere) $mySql.=" AND ";	else{ $mySql.=" WHERE ";	$optionWhere=true;}
+			$mySql.="`news`.`idUser`=".$_SESSION['user']['idUser'];	
 		}
 
 		if($idNew!=""){
-			if($preferredImg!="" || $idUser!="") $mySql.=" AND ";	else $mySql.=" WHERE ";	
+			if($optionWhere) $mySql.=" AND ";	else{ $mySql.=" WHERE ";	$optionWhere=true;}
 			$mySql.="`newsmedia`.`idNew`=".$idNew;
 		} 
 		$mySql .= " ORDER BY `news`.`date` DESC"; 
