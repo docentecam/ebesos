@@ -2,7 +2,7 @@
 // Desactivar notificació d'error
 	error_reporting(0);
 require('../../inc/functions.php');
-
+session_start();
 
 	if(isset($_GET['acc']) && $_GET['acc'] == 'l'){
 
@@ -115,6 +115,7 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'deleteNew'){
 			if($preferredImg!="") $mySql.=" AND ";	else $mySql.=" WHERE ";	
 			$mySql.="`news`.`idUser`=".$idUser;	
 		}
+
 		if($idNew!=""){
 			if($preferredImg!="" || $idUser!="") $mySql.=" AND ";	else $mySql.=" WHERE ";	
 			$mySql.="`newsmedia`.`idNew`=".$idNew;
@@ -122,17 +123,19 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'deleteNew'){
 		$mySql .= " ORDER BY `news`.`date` DESC"; 
 
 		$mySqlAssoc= "SELECT name, idUser FROM users";
-		// if($idUser==""){
-		// 	if($_SESSION['user']['idUser']!='1') $mySqlAssoc .=" WHERE idUser='".$_SESSION['user']['idUser']."'";
-		// 	}
-		// 	echo $mySqlAssoc;
+		if($idUser==""){
+			if($_SESSION['user']['idUser']!='1') $mySqlAssoc .=" WHERE idUser='".$_SESSION['user']['idUser']."'";
+			}
+			//TODO echo $mySql.'<br>';
+			//echo $mySqlAssoc;
 		$connexio = connect();
 		$resultNews = mysqli_query($connexio, $mySql);
 		$resultAssoc=mysqli_query($connexio, $mySqlAssoc);
 		disconnect($connexio);
 
-		
-		$dataNews ='{"associations":[';
+		$dataNews='{"userConnect":"'.$_SESSION['user']['idUser'].'"';
+
+		$dataNews .=',"associations":[';
 	
 		$j=0;
 		while ($row=mySqli_fetch_array($resultAssoc))

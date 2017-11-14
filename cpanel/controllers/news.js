@@ -10,7 +10,6 @@ angular.module('spaApp')
 	$scope.divVideos=false;//TODO div mostra els vídeos.
 	$scope.divAddVideo=false;
 	$scope.new={};
-	$scope.new.idUser=1; 
 	$scope.filterAssoc="";
 	$scope.loading=true;	
 	$http({
@@ -20,7 +19,7 @@ angular.module('spaApp')
 		.then(function mySucces (response) {
 			$scope.newsList = response.data.news;
 			$scope.assoList= response.data.associations;
-			//TODO console.log("Datos: "+$scope.assoList[0].nameAssoc);
+			$scope.new.idUser=response.data.userConnect;
 		}, function myError (response) {
 			$scope.newsList = response.statusText;
 		})
