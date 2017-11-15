@@ -23,7 +23,6 @@ select
   -webkit-appearance: none;
   appearance: none;
 }
-<<<<<<< HEAD
 select:active{
   outline: none;
   -moz-appearance: none;
@@ -63,7 +62,7 @@ label.btn-add, button.btn-add{
   background-position-x: 195px;
   background-color: #B0C2C8;
   margin-top: 3%;
-=======
+}
 #selectAsso
 {
   margin-top: 3%;
@@ -82,7 +81,6 @@ label.btn-add, button.btn-add{
   background-position-y: 5px;
   background-position-x: 150px;
   background-color: #BED1D7;
->>>>>>> origin/master
 }
 .btn-edit, .btn-delete{
   height: 49px;
@@ -213,23 +211,9 @@ label.btn-add, button.btn-add{
   padding-top: 11%;
   padding-bottom: 5%;
 }
-<<<<<<< HEAD
-#active
-{
-  width: 174px;
-  background-image: url("../img/circledown.svg");
-  background-repeat: no-repeat;
-  background-position-y: 5px;
-  background-position-x: 150px;
-  background-color: #BED1D7;
-}
 .title-comerços{
   margin-top: 6px;
 }
-=======
-
-
->>>>>>> origin/master
 .shop-cage{
   margin-top: 10px;
 }
