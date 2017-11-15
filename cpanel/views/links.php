@@ -8,6 +8,13 @@
 		<button id="btnAfegir" class="btn btn-default" ng-hide="btnAfegir" ng-click="createLink()">Afegir <i class="fa fa-plus-circle"></i></button>
 	</div>
 </div>
+<div ng-show="fail">
+	<div ng-class="validation ? 'alert alert-success' : 'alert alert-danger'" id="validationAssociation">
+		<i class="fa fa-times" ng-hide="validation" aria-hidden="true"></i>
+		<i class="fa fa-check" ng-show="validation" aria-hidden="true"></i>
+		<b>{{statusValidation}}</b>
+	</div>
+</div>
 <div ng-show="tableLinks">
 	<div class="row">
 		<table border="1">
