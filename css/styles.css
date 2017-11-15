@@ -882,6 +882,9 @@ padding: 0;
 	#linkBorder{
 	border-left: 1px solid white;
 	}
+	.fa-bookmark{
+		margin-right: 5%;
+	} 
 }
 @media (min-width: 1200px){
 	#captchaDiv{
@@ -928,76 +931,62 @@ padding: 0;
 
 
 
-.content
-{
+.content{
     padding: 2%!important;
     padding-bottom: 5%!important;
     padding-top: 5%!important;
 }
-#categories
-{
+#categories{
     background-color: #f0f1f1!important;
     text-align: center;
     font-size: 15px;
     margin-bottom: 15%;
 }
-.subCat
-{
+.subCat{
     font-weight: 600!important;
     padding-bottom: 2.5%;
 }
-.titleOffer
-{
+.titleOffer{
     font-weight: 600!important;
     padding: 0;
 }
-#shopMargin
-{
+#shopMargin{
     margin-left: -3.5%!important;
     font-size: 20px;
 }
-.date
-{
+.date{
     font-size: 12px;
     color: #969797; 
     padding-bottom: 0.5%;
 }
-.pictoImg
-{
+.pictoImg{
     padding-right: 5%!important;
     margin-top: -2.5%;
 }
-.filtersMargin
-{
+.filtersMargin{
     margin-bottom: 5%!important;
 }
-.alert-info
-{
+.alert-info{
     background-color: white;
     width: 30%;
     padding: 3%;
     border-radius: 10px; 
 }
-.icoLight
-{
+.icoLight{
     padding: 2%;
 }
-.urlVals
-{
+.urlVals{
     color: black;
 }
-.urlVals:hover
-{
+.urlVals:hover{
     text-decoration: none;
     color: black;
     font-weight: 600!important;
 }
-.imgCat:hover
-{
+.imgCat:hover{
     opacity: 0.7!important;
 }
-.imgOpa
-{
+.imgOpa{
     background-color: #A8A9AB;
     z-index: 2;
     height: 40px;
@@ -1008,69 +997,56 @@ padding: 0;
     vertical-align: middle;
     padding: 0%;
 }
-.addressImg
-{
+.addressImg{
     margin-top: 2.5%;
     font-size: 0.9em;
     color: black!important;
     padding-left: 4%;
 }
-.fa-map-marker {
+.fa-map-marker{
     padding-right: 2%;
 }
-.imgPromoSel
-{
+.imgPromoSel{
     z-index: 1;
 }
-.imgPadd
-{
+.imgPadd{
     padding: 0!important;
 }
-.infoPromo
-{
+.infoPromo{
     margin-top: 1%;
     padding-bottom: 4%;
 }
-.promosAll
-{
+.promosAll{
     margin-bottom: 5%!important;
 }
-.titleOfferPromo
-{
+.titleOfferPromo{
     font-weight: 600!important;
     font-size: 25px!important;
     margin-top: 8%!important;
     padding: 0;
 }
-.condPromo
-{
+.condPromo{
     margin-top: 5%!important;
     margin-left: 2%;
 }
-.condicionsPromo
-{
+.condicionsPromo{
     font-weight: 600!important;
 }
-.offerPromo
-{
+.offerPromo{
     padding-bottom: 2%!important;
     padding: 0;
 }
-#marginTelf
-{
+#marginTelf{
     margin-top: 1%;
 }
-#marginDate
-{
+#marginDate{
     margin-bottom: 5%;
 }
-.breadCrumb
-{
+.breadCrumb{
     padding-bottom: 3%!important;
     padding-top: 3%;
 }
-hr.style14 
-{ 
+hr.style14 { 
     width: 80%;
     border: 0; 
     height: 1px; 
@@ -1079,227 +1055,184 @@ hr.style14
     background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
     background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
 }
-.imgShop
-{
+.imgShop{
     margin-bottom: 10%;
     padding: 0!important;
 }
-.condPromoShop
-{
+.condPromoShop{
     margin-top: 1%;
 }
-.descShopSel
-{
+.descShopSel{
     font-size: 15px;
     text-align: center;
 }
-.descShopBold
-{
+.descShopBold{
  font-weight: 600!important;
  margin-top: 10%;
 }
-.descShop
-{
+.descShop{
     margin-top: 10%!important;
 }
-.descLongShop
-{
+.descLongShop{
     padding:0!important;
 }
 /*Extra small devices (portrait phones, less than 576px)*/
 @media (min-width: 320px) { 
-   .subCat
-    {
+   .subCat{
         padding-bottom: 1%;
         font-weight: 600!important;
     }
-    #categories
-    {
+    #categories{
         margin-bottom: 5%;
     }
-    .descShopBold
-    {
+    .descShopBold{
     font-weight: 600!important;
     margin-top: 0;
     }
-   .imgLogo
-    {
+   .imgLogo{
         padding-right: 5%;
     }
-    .promoLogo
-    {
+    .promoLogo{
         margin-bottom: 5%;
         margin-top: 2%;
     }
 }
 @media (min-width: 320px) and (max-width: 479px) {    
-    .pictoImg
-    {
+    .pictoImg{
         margin-top: -0.5%;
         width: 14%;  
     } 
-    .infoPromo
-    {
+    .infoPromo{
         margin-left: 1.6%;
     }
-    .condPromo
-    {
+    .condPromo{
         margin-left: -2.3%;
     }
-    .alert-info
-    {
+    .alert-info{
         width: 70%;
         padding: 5%;
     }
-    .imgShop
-    {
+    .imgShop{
         margin-top: 10%;
         margin-bottom: 10%;
         padding: 0!important;
     }
-    .descShopSel
-    {
+    .descShopSel{
         margin-top: 10%;
     }
-    .breadCrumb
-    {
+    .breadCrumb{
         padding-top: 6%;
     }
-    #marginDate
-    {
+    #marginDate{
         margin-bottom: 10%;
     }
 }
 @media (min-width: 480px) and (max-width: 575px) {    
-    .pictoImg
-    {
+    .pictoImg{
         margin-top: -0.5%;
         width: 12%;  
     } 
-    .infoPromo
-    {
+    .infoPromo{
         margin-left: 1%;
     }
-    .alert-info
-    {
+    .alert-info{
         width: 60%;
         padding: 5%;
     }
 }
 @media (min-width: 480px) and (max-width: 767px) {
-    .date
-    {
+    .date{
         margin-left: 4%;
     }
 }
 @media (min-width: 576px) and (max-width: 700px) { 
-    .pictoImg
-    {
+    .pictoImg{
         margin-top: -0.5%;
         width: 11%;  
     } 
-    .infoPromo
-    {
+    .infoPromo{
         margin-left: 0%;
     }
-    .alert-info
-    {
+    .alert-info{
         width: 55%;
         padding: 5%;
     }
 }   
 @media (min-width: 701px) and (max-width: 767px) {    
-     .pictoImg
-    {
+     .pictoImg{
         margin-top: -0.5%;
         width: 11%;  
     } 
-    .infoPromo
-    {
+    .infoPromo{
         margin-left: 0%;
     }
-    .alert-info
-    {
+    .alert-info{
         width: 55%;
         padding: 5%;
     }
 }
 /*Small devices (landscape phones, less than 768px)*/
 @media (min-width: 768px) {    
-   .subCat
-   {
+   .subCat{
     padding-bottom: 1%;
     font-weight: 600!important;
     }
-    #categories
-    {
+    #categories{
         margin-bottom: 10%;
     }
-    .infoPromo
-    {
+    .infoPromo{
         margin-left: 8.5%;
     }
 }
 @media (min-width: 768px) and (max-width: 950px) {    
-     .pictoImg
-    {
+     .pictoImg{
         margin-top: -0.5%;
         width: 25%;  
     } 
-    .alert-info
-    {
+    .alert-info{
         width: 55%;
         padding: 5%;
     }
 }
 @media (min-width: 951px) and (max-width: 992px) {
-        .pictoImg
-        {
-            margin-top: -0.5%;
-            width: 20%;  
-        } 
-        .alert-info
-        {
-            width: 60%;
-            padding: 5%;
-        }   
-}
-@media (min-width: 951px) and (max-width: 1199px) {    
-     .pictoImg
-    {
+    .pictoImg{
         margin-top: -0.5%;
         width: 20%;  
     } 
-    .alert-info
-    {
+    .alert-info{
+        width: 60%;
+        padding: 5%;
+    }   
+}
+@media (min-width: 951px) and (max-width: 1199px) {    
+     .pictoImg{
+        margin-top: -0.5%;
+        width: 20%;  
+    } 
+    .alert-info{
         width: 60%;
         padding: 5%;
     }
 }
 /*Medium devices (tablets, less than 992px)*/
 @media (min-width: 992px) {   
-   .subCat
-    {
+   .subCat{
         padding-bottom: 1%;
         font-weight: 600!important;
     }
-    #categories
-    {
+    #categories{
         margin-bottom: 10%;
     }
 }
 /*Large devices (desktops, less than 1200px)*/
-@media (min-width: 1200px) {    
-   #categories
-    {
+@media (min-width: 1200px) {  
+    #categories{
         margin-bottom: 10%;
     }
-    .infoPromo
-    {
+    .infoPromo{
         margin-left: 8.5%;
     }
-    .alert-info
-    {
+    .alert-info{
         width: 55%;
         padding: 5%;
     }
