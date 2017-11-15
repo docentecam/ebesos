@@ -153,27 +153,17 @@ angular.module('spaApp')
 		var code = a + b + c + d + e;
 		document.getElementById("txtCaptcha").value = code;
 		document.getElementById("captchaDiv").innerHTML = code;
-		$scope.loading = true;
-		$http({
-			method : "GET",
-			url : "models/users.php?acc=mail&idUser="+ $scope.idUser
-		}).then(function mySucces (response) {
-			$scope.email = response.data;
-			$scope.showDivH = false;
-			$scope.showDivN = false;
-			$scope.showDivCA = false;
-			$scope.showDivC = true;
-		}, function myError (response) {
-			$scope.email = response.statusText;
-		}).finally(function(){
-				$scope.loading = false;
-		});
+		
 		$scope.loading = true;
 		$http({
 			method : "GET",
 			url : "models/users.php?acc=infoMail&idUser="+ $scope.idUser
 		}).then(function mySucces (response) {
 			$scope.infoMail = response.data;
+			$scope.showDivH = false;
+			$scope.showDivN = false;
+			$scope.showDivCA = false;
+			$scope.showDivC = true;
 			
 		}, function myError (response) {
 			$scope.infoMail = response.statusText;

@@ -4,6 +4,8 @@ angular.module('spaApp')
  			$scope.activeCY = 'Y';
  			$scope.activeCN = 'N';
 			$scope.loading = true;
+			$scope.fail = false;
+			$scope.fail2 = false;
 			$http({
 				method : "GET",
 				url : "models/users.php?acc=loadUser" 
@@ -43,6 +45,7 @@ angular.module('spaApp')
 				$scope.confirmPswdC = "";
 				$scope.currentPswdC = "";
 				$scope.fail = false;
+				$scope.fail2 = false;
 
 				if(idUser == -1)
 				{
@@ -89,6 +92,7 @@ angular.module('spaApp')
 			
 			$scope.updateUser = function(){
   				$scope.active = dataUser['active'].value;
+  				$scope.fail2 = false;
 
 				if($scope.active == 'Y')
 				{
@@ -298,6 +302,7 @@ angular.module('spaApp')
   				$scope.logoEdit2 = true;
   			};
   			$scope.selImages=function(e,nameField){
+  				$scope.fail = false;
   				var data = new FormData();
 				data.append("nameField",nameField);
 				data.append("idUser",$scope.idUserC);
@@ -310,8 +315,10 @@ angular.module('spaApp')
 				{
 					data.append("deleteLogo",$scope.footerC);
 				}
-
-
+				console.log($scope.idUserC+"-"+e.files[0].name);
+				$scope.fail2 = true;
+				$scope.statusValidation2 = "Error";
+				$scope.validation2 = false;
 				var deferred=$q.defer();
 				return $http.post("models/users.php?acc=updateImgAsso", data,{
 				headers:{
@@ -322,7 +329,16 @@ angular.module('spaApp')
 				.then(function(res)
 				{
 				deferred.resolve(res);
-
+					if(nameField == 'logo')
+					{
+						$scope.logoC = $scope.idUserC+"-"+e.files[0].name;
+					}
+					else
+					{
+						$scope.footerC = $scope.idUserC+"-"+e.files[0].name;
+					}
+					$scope.statusValidation2 = "La imatge s'ha inserit correctament";
+					$scope.validation2 = true;
 				})
 				
 				return

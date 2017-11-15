@@ -19,6 +19,10 @@ app.config(['$routeProvider', function ($routeProvider) {
 		templateUrl:'views/promotions.html',
 		controller:'PromotionsCtrl',
 	})
+	.when('/promotion/:idPromotion', {
+        templateUrl: 'views/promotion.html',
+        controller: 'PromotionCtrl',
+    })
 	.when('/associations/:idUser/:name',{
 		templateUrl:'views/associations.html',
 		controller:'AssociationsCtrl',
@@ -37,8 +41,10 @@ app.config(['$routeProvider', function ($routeProvider) {
 	.when('/shop/:idShop',{
 		templateUrl:'views/shop.html',
 		controller:'ShopCtrl',
-	})
-	
+	})    
+    .otherwise({
+        redirectTo: '/'
+    }); 
 
     // .otherwise({
     //     redirectTo: '/'

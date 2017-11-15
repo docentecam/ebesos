@@ -10,24 +10,27 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
 		<script data-require="ng-route@1.2.0" data-semver="1.2.0" src="http://code.angularjs.org/1.2.0-rc.3/angular-route.js"></script>
+		<!-- <script src="js/angular.js"></script>
+		<script data-require="ng-route@1.2.0" data-semver="1.2.0" src="js/angular-route.js"></script> -->
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
 
-<!-- 		<script>
+		<script>
 			$( document ).ready(function() {
+				
 					if(getCookie('eixbesosavis')!="1"){
     					document.getElementById("cookie-agree").style.display="block";
 					}
-			(function($) {window.fnames = new Array();
-				window.ftypes = new Array();
-				fnames[0]='EMAIL';
-				ftypes[0]='email';
-				fnames[1]='FNAME';
-				ftypes[1]='text';}(jQuery));
-				var $mcj = jQuery.noConflict(true);
+			// (function($) {window.fnames = new Array();
+			// 	window.ftypes = new Array();
+			// 	fnames[0]='EMAIL';
+			// 	ftypes[0]='email';
+			// 	fnames[1]='FNAME';
+			// 	ftypes[1]='text';}(jQuery));
+			// 	var $mcj = jQuery.noConflict(true);
 
 				});
-			</script> -->
+			</script>
 			<script>
 				$(document).ready(function () {
 
@@ -43,15 +46,16 @@
 		<script src="controllers/users.js"></script>
 		<script src="controllers/news.js"></script>
 		<script src="controllers/home.js"></script>
+		<script src="controllers/promotions.js"></script>
 	</head> 
 
 	<body data-ng-app="spaApp" ng-controller="HomeCtrl">
 		<div class="row textSize">
 			<div class="col-xs-8 col-lg-3 marginTopAir">
 				<div class="col-xs-4 col-lg-4" id="imgLogoTop" ng-repeat="association in associations | filter:{ idUser:'1'}:true">
-					<a href="#"><img class="img-responsive" ng-src="img/logos-assoc/{{association.logo}}"></a>
+					<a href="#"><img class="img-responsive" id="imgLogoTopId" ng-src="img/logos-assoc/{{association.logo}}"></a>
 				</div>
-				<div class="col-xs-8 col-lg-8" id="logoTexto" ng-repeat="association in associations | filter:{ idUser:'1'}:true">
+				<div class="col-xs-8 col-lg-8" id="logoText" ng-repeat="association in associations | filter:{ idUser:'1'}:true">
 					<span class="headTitle">{{association.name}}</span>	
 				</div>		
 			</div> 
@@ -90,7 +94,7 @@
 		        		<li class="dividerNav">|</li>
 		        		<li role="presentation" class="customNav reduceNav"><a href="#/news/1"><span class="underline">Notícies</span></a></li>	
 		        		<li class="dividerNav">|</li>
-		        		<li role="presentation" class="customNav reduceNav"><a href="#/formation"><span class="underline">Formació al Comerç</span></a></li>
+		        		<li role="presentation" class="customNav reduceNav"><a href="#/formation" class="alignOneLine"><i class="fa fa-bookmark" aria-hidden="true"></i><span class="underline">Formació al Comerç</span></a></li>
 		      		</ul>    
 				</div>
 	   		</div>
@@ -163,7 +167,7 @@
 								<a href="{{link.url}}" class="footerLinksColor" target="_blank">{{link.description}}</a>
 							</div>	
 						</div> 
-						<div class="col-xs-12 col-lg-12">
+						<div class="col-xs-12 col-lg-12 footerLogos">
 							<img class="img-responsive col-xs-7 col-xs- col-lg-4 pull-left" ng-src="img/logo_ayuntamiento.svg">		
 							<div class="icoFooterEix" ng-repeat="association in associations | orderBy: 'idUser'">
 								<img class="img-responsive col-xs-4 col-lg-2 pull-left" ng-src="img/logos-assoc/{{association.footer}}">

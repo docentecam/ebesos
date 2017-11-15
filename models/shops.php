@@ -90,7 +90,7 @@ require('../inc/functions.php');
 			{
 				if($i != 0) $dataShops .= ",";
 
-				$dataShops .= '{"nameShop":"'.$row['NameShop'].'", "idShop":"'.$row['idShop'].'", "telephone":"'.$row['telephone'].'", "cp":"'.$row['cp'].'", "schedule":"'.$row['schedule'].'", "address":"'.$row['address'].'", "ciutat":"'.$row['ciutat'].'", "descriptionLong":"'.$row['descriptionLong'].'", "logo":"'.$row['logo'].'" , "email":"'.$row['email'].'", "nameCategory":"'.$row['NameCategory'].'", "nameAssociacio":"'.$row['NameAssociacio'].'", "nameSubCategory":"'.$row['NameSubCategory'].'", "imagePref":"'.$row['ImagePreferred'].'", "imgUrl":';
+				$dataShops .= '{"nameShop":"'.$row['NameShop'].'", "idShop":"'.$row['idShop'].'", "telephone":"'.$row['telephone'].'", "cp":"'.$row['cp'].'", "schedule":"'.$row['schedule'].'", "address":"'.$row['address'].'", "ciutat":"'.$row['ciutat'].'", "descriptionLong":"'.str_replace(array("\r\n", "\r", "\n"), "\\n", $row['descriptionLong']).'", "logo":"'.$row['logo'].'" , "email":"'.$row['email'].'", "nameCategory":"'.$row['NameCategory'].'", "nameAssociacio":"'.$row['NameAssociacio'].'", "nameSubCategory":"'.$row['NameSubCategory'].'", "imagePref":"'.$row['ImagePreferred'].'", "imgUrl":';
 				$j = 0;
 
 				$dataShops .= '[';

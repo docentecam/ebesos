@@ -131,13 +131,21 @@
 		</form>
 	</div>
 
+	<div ng-show="fail2">
+		<div ng-class="validation2 ? 'alert alert-success' : 'alert alert-danger'" id="validationAssociation">
+			<i class="fa fa-times" ng-hide="validation2" aria-hidden="true"></i>
+			<i class="fa fa-check" ng-show="validation2" aria-hidden="true"></i>
+			<b>{{statusValidation2}}</b>
+		</div>
+	</div>
+
 	<div class="row padd-t" ng-show="cUser">
 		<div class="col-lg-4 col-lg-offset-1">
 			<div class="row">
 				<div class="col-lg-6">Logo Associació</div>
 			</div>
 			<div class="row">
-				<img class="col-lg-3" src="../img/logos-assoc/{{logoC}}">
+				<img class="col-lg-3" ng-src="../img/logos-assoc/{{logoC}}">
 				<div class="col-lg-6 col-lg-offset-3">
 					<div class="row"><a class="col-lg-8" href="" ng-click="showEdit()">Editar logo</a></div>
 				</div>
@@ -156,7 +164,7 @@
 				<div class="col-lg-6">Logo Footer</div>
 			</div>
 			<div class="row">
-				<img class="col-xs-6 col-lg-6" src="../img/logos-assoc/{{footerC}}">
+				<img class="col-xs-6 col-lg-6" ng-src="../img/logos-assoc/{{footerC}}">
 				<div class="col-xs-12 col-lg-6">
 					<div class="row"><a class="col-lg-8" href="" ng-click="showEdit2()">Editar logo</a></div>
 				</div>
