@@ -3,9 +3,11 @@
 	if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 ?>
 <div class="row">
-	<button ng-click="shopOneAdd()" class="btn-default">add</button>
-	<select ng-disabled="privilegesLg=='A'" ng-change="listChange(idUserL)" ng-model="idUserL">
-		<option ng-value="userL.idUser" ng-repeat="userL in userList" ng-selected="userL.idUser==idUserLg">{{userL.name}}</option>
+	<label class="col-lg-1 title-comerços no-padding">Comerços:</label>
+	<button ng-click="shopOneAdd()" class="btn-add col-lg-1 col-lg-offset-1 no-padding">Afegir <i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+	<div class="col-lg-12"></div>
+	<select class="col-lg-4 select-users" ng-disabled="privilegesLg=='A'" ng-change="listChange(idUserL)" ng-model="idUserL">
+		<option ng-value="userL.idUser" ng-repeat="userL in userList" ng-selected="userL.idUser==<?php echo $_SESSION['user']['idUser']?>">{{userL.name}}</option>
 	</select>
 </div>
 <div class="row shops-list" ng-repeat="shops in shopsList | filter : {idUser:filterShops}:true" ng-show="(showList)">
@@ -93,21 +95,17 @@
 	<div class="row images-edit">
 		<div class="col-lg-11 images-prefered">
 			<span class="col-lg-10 col-lg-offset-2 image-span">Imatge Destacada</span>
-			<div class="col-lg-8 col-lg-offset-2" ng-repeat="image in images | filter : {preferred:'Y'}">
+			<div class="col-lg-8 col-lg-offset-2 images-shop" ng-repeat="image in images | filter : {preferred:'Y'}">
 				<img class="img-responsive" src="../img/shops/{{image.url}}">
-				<span class="col-lg-12">Descripció</span>
-				<input type="text" name="" class="col-lg-6" ng-model="image.description">
-				<input type="file" class="col-lg-4 col-lg-offset-2" name="" ng-value="shopOne[0].image">
 			</div>
+			<label for="addImagePref" class="btn-image-edit col-lg-offset-7">Canviar imatge destacada</label><input type="file" id="addImagePref" ng-show="false" ng-model="image.url" onchange="angular.element(this).scope().changeImagesShops(this,'e')">
 		</div>
 		<div class="col-lg-11 images-other">
-			<input type="file" placeholder="nom de la tenda" class="row" name="" ng-value="shopOne.image">
-			<span class="col-lg-10 col-lg-offset-2 image-span">Imatges</span>
+			<label for="addImage" class="btn-add col-lg-2">Afegir imatge <i class="fa fa-plus-circle" aria-hidden="true"></i></label><input type="file" id="addImage" ng-show="false" onchange="angular.element(this).scope().changeImagesShops(this,'n')">
+			<span class="col-lg-10 image-span">Imatges</span>
 			<div class="col-md-6 images-shop" ng-repeat="image in images | filter : {preferred:'N'}">
 				<img class="img-responsive" src="../img/shops/{{image.url}}">
-				<span class="col-lg-12">Descripció</span>
-				<input type="text" name="" class="col-lg-6" ng-model="image.description">
-				<button class="col-lg-4 col-lg-offset-5 btn-delete">delete</button>
+				<button class="col-lg-3 col-lg-offset-5 btn-delete" ng-model="imageDelete" ng-click="deleteImage(image.idShopImage, image.url, shopOne.idShop)">Eliminar <i class="fa fa-times" aria-hidden="true"></i></button>
 			</div>				
 		</div>
 	</div>
