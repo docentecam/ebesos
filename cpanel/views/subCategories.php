@@ -3,7 +3,7 @@
 	if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 ?>
 <div class="row">
-	<label class="col-lg-1 col-xs-12">Subcategories</label>
+	<label class="col-lg-1 col-xs-12 titleSubcategoria">Subcategories</label>
 </div>
 <div ng-show="fail">
 	<div ng-class="validation ? 'alert alert-success' : 'alert alert-danger'" id="validationAssociation">
