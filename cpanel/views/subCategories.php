@@ -5,6 +5,13 @@
 <div class="row">
 	<label class="col-lg-1 col-xs-12">Subcategories</label>
 </div>
+<div ng-show="fail">
+	<div ng-class="validation ? 'alert alert-success' : 'alert alert-danger'" id="validationAssociation">
+		<i class="fa fa-times" ng-hide="validation" aria-hidden="true"></i>
+		<i class="fa fa-check" ng-show="validation" aria-hidden="true"></i>
+		<b>{{statusValidation}}</b>
+	</div>
+</div>
 <div ng-show="subCatTable">
 	<div class="row">
 		<span class="col-xs-4 col-sm-3 col-md-2 titleCategoria">Categoria:</span>

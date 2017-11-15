@@ -2,6 +2,7 @@ angular.module('spaApp')
 .controller('SubcategoriesCtrl', function($scope, $http) {
 	$scope.loading=true;
 	$scope.firstC = true;
+	$scope.fail = false;
 	$scope.subCatTable = true;
 	$http({
 			method : "GET",
@@ -29,6 +30,7 @@ angular.module('spaApp')
 	});
 	$scope.changeCat = function(name){
 		$scope.firstC = false;
+		$scope.fail = false;
 		$scope.nameC = name;
 		$scope.loading=true;
 		$http({
@@ -60,12 +62,14 @@ angular.module('spaApp')
 	$scope.addSubCat = function(action){
 		$scope.subCatTable = false;
 		$scope.btnName = true;
+		$scope.fail = false;
 		$scope.nameSC = "";
 		$scope.accA = action;
 	}
 	$scope.editSubCatT = function(idSubCategory,name,action){
 		$scope.subCatTable = false;
 		$scope.btnName = false;
+		$scope.fail = false;
 		$scope.nameSC = name;
 		$scope.idSubCategorySC = idSubCategory;
 		$scope.accA = action;
@@ -78,7 +82,9 @@ angular.module('spaApp')
 
 		if($scope.idC == -1 || $scope.idSCName == "")
 		{
-			alert("Camp buit");
+			$scope.fail = true;
+			$scope.statusValidation = "Camp buit";
+			$scope.validation = false;
 		}
 		else if($scope.action == "a")
 		{
@@ -88,6 +94,13 @@ angular.module('spaApp')
 			}).then(function mySucces (response) {
 				$scope.createSubCat = response.data;
 				$scope.loading=true;
+				$scope.fail = true;
+				$scope.statusValidation = $scope.createSubCat[0]['status'];
+				$scope.validation = true;
+				if($scope.statusValidation == "Error al connectar")
+				{
+					$scope.validation = false;
+				}
 				$http({
 					method : "GET",
 					url : "models/subCategories.php?acc=l"
@@ -129,6 +142,14 @@ angular.module('spaApp')
 				url : "models/subCategories.php?acc=e&idCategory="+$scope.idC+"&name="+$scope.idSCName+"&idSubCategory="+$scope.idSC
 			}).then(function mySucces (response) {
 				$scope.editSubCat = response.data;
+				$scope.loading=true;
+				$scope.fail = true;
+				$scope.statusValidation = $scope.editSubCat[0]['status'];
+				$scope.validation = true;
+				if($scope.statusValidation == "Error al connectar")
+				{
+					$scope.validation = false;
+				}
 				$http({
 					method : "GET",
 					url : "models/subCategories.php?acc=l"
@@ -170,6 +191,14 @@ angular.module('spaApp')
 				url : "models/subCategories.php?acc=d&idSubCategory="+idSubCategory
 			}).then(function mySucces (response) {
 				$scope.deleteSubCat = response.data;
+				$scope.loading=true;
+				$scope.fail = true;
+				$scope.statusValidation = $scope.deleteSubCat[0]['status'];
+				$scope.validation = true;
+				if($scope.statusValidation == "Error al connectar")
+				{
+					$scope.validation = false;
+				}
 				$http({
 					method : "GET",
 					url : "models/subCategories.php?acc=l"
