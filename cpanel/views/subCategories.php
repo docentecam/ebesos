@@ -31,10 +31,10 @@
 						{{subCategory.name}}
 					</div>
 				</div>
-				<button class="col-xs-2 btn btn-SubCategory borderBtnEditSubCategories" id="editTable" ng-click="editSubCat(subCategory.idSubCategory,subCategory.name,'e')">
+				<button class="col-xs-2 btn btn-SubCategory borderBtnEditSubCategories" id="editTable" ng-click="editSubCatT(subCategory.idSubCategory,subCategory.name,'e')">
 					Editar
 				</button>
-				<button class="col-xs-2 btn btn-SubCategory borderBtnDelSubCategories" id="deleteTable" ng-click="deleteSubCat(subCategory.idSubCategory)">
+				<button class="col-xs-2 btn btn-SubCategory borderBtnDelSubCategories" id="deleteTable" ng-click="deleteSubCatT(subCategory.idSubCategory)">
 					Eliminar
 				</button>
 			</div>
