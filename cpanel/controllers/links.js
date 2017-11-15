@@ -1,6 +1,7 @@
 angular.module('spaApp')															 
 .controller('LinksCtrl', function($scope, $http) {
 	$scope.loading=true;
+	$scope.fail = false;
 	$scope.tableLinks = true;
 	$scope.formLinks = false;
 	$scope.nameC = "";
@@ -23,6 +24,7 @@ angular.module('spaApp')
 
 	$scope.createLink = function(){
 		$scope.tableLinks = false;
+		$scope.fail = false;
 		$scope.formLinks = true;
 		$scope.idLinkC = -1;
 				
@@ -30,6 +32,7 @@ angular.module('spaApp')
 	$scope.editLink = function(idLink,name,url){
 		$scope.tableLinks = false;
 		$scope.formLinks = true;
+		$scope.fail = false;
 		$scope.idLinkC = idLink;
 		$scope.nameC = name;
 		$scope.urlC = url;
@@ -43,6 +46,13 @@ angular.module('spaApp')
 			.then(function mySucces (response) {
 				$scope.linksDelete = response.data;
 				$scope.loading=true;
+				$scope.fail = true;
+				$scope.statusValidation = $scope.linksDelete[0]['status'];
+				$scope.validation = true;
+				if($scope.statusValidation == "Error al connectar")
+				{
+					$scope.validation = false;
+				}
 				$http({
 					method : "GET",
 					url : "models/links.php?acc=l"
@@ -70,7 +80,9 @@ angular.module('spaApp')
 
 		if($scope.nameC == "" || $scope.urlC == "")
 		{
-			$scope.statusValidations = "Hi ha camps sense omplir";
+			$scope.statusValidation = "Hi ha camps sense omplir";
+			$scope.fail = true;
+			$scope.validation = false;
 		}
 		else if($scope.idLinkC == -1)
 		{
@@ -82,6 +94,13 @@ angular.module('spaApp')
 			.then(function mySucces (response) {
 				$scope.linksCreate = response.data;
 				$scope.loading=true;
+				$scope.fail = true;
+				$scope.statusValidation = $scope.linksCreate[0]['status'];
+				$scope.validation = true;
+				if($scope.statusValidation == "Error al connectar")
+				{
+					$scope.validation = false;
+				}
 				$http({
 					method : "GET",
 					url : "models/links.php?acc=l"
@@ -117,6 +136,13 @@ angular.module('spaApp')
 			.then(function mySucces (response) {
 				$scope.linksCreate = response.data;
 				$scope.loading=true;
+				$scope.fail = true;
+				$scope.statusValidation = $scope.linksCreate[0]['status'];
+				$scope.validation = true;
+				if($scope.statusValidation == "Error al connectar")
+				{
+					$scope.validation = false;
+				}
 				$http({
 					method : "GET",
 					url : "models/links.php?acc=l"

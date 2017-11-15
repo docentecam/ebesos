@@ -63,7 +63,7 @@ angular.module('spaApp')
 		$scope.nameSC = "";
 		$scope.accA = action;
 	}
-	$scope.editSubCat = function(idSubCategory,name,action){
+	$scope.editSubCatT = function(idSubCategory,name,action){
 		$scope.subCatTable = false;
 		$scope.btnName = false;
 		$scope.nameSC = name;
@@ -164,7 +164,7 @@ angular.module('spaApp')
 			});
 		}
 	}
-	$scope.deleteSubCat = function(idSubCategory){
+	$scope.deleteSubCatT = function(idSubCategory){
 			$http({
 				method : "GET",
 				url : "models/subCategories.php?acc=d&idSubCategory="+idSubCategory
