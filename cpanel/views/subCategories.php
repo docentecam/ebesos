@@ -20,7 +20,7 @@
 		</select>
 	</div>
 	<div class="row tableSubCategories">
-		<div class="col-xs-11 col-lg-8 borderTableSubCategories noPadding">
+		<div class="col-xs-11 col-lg-10 borderTableSubCategories noPadding">
 			<div class="col-xs-6 borderTitlesSubCategories centerPadding">
 				<div class="col-xs-12 tableCategoriaSubCategoria noPadding">
 					CATEGORIA

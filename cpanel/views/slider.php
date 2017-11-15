@@ -81,8 +81,8 @@
 						<input type="text" class="col-lg-5 col-xs-6 col-xs-offset-1 editAndAddSlider" name="" id="linkC" size="40" placeholder="Escriu aquí l'enllaç de la imatge a relacionar" >
 					</div>
 					<div class="row">
-						<label class="col-lg-2 col-lg-offset-2 col-xs-2 col-xs-offset-1">Imatge: </label>
-						<input type="file" class="editAndAddSlider"  onchange="angular.element(this).scope().uploadedImgFileC(this)">
+						<label class="col-lg-offset-2 col-xs-3 col-xs-offset-1">Imatge: </label>
+						<input type="file" class="col-xs-5 editAndAddSlider noPadding"  onchange="angular.element(this).scope().uploadedImgFileC(this)">
 					</div>
 					<div class="row">
 						<input class="col-lg-offset-5 col-xs-offset-5 editAndAddSlider" type="button" value="Actualitzar" ng-click=createImgSlide()>
@@ -110,8 +110,8 @@
 						<input type="text" class=" col-lg-5 col-xs-6 col-xs-offset-1 editAndAddSlider" name="" id="linkSlider" size="40"  ng-value="infoSlider.link">
 					</div>
 					<div class="row">
-						<label class="col-lg-2 col-lg-offset-2 col-xs-2 col-xs-offset-1">Imatge: </label>
-						<input type="file" class="editAndAddSlider" onchange="angular.element(this).scope().uploadedImgFileE(this)">
+						<label class="col-lg-offset-2 col-xs-3 col-xs-offset-1">Imatge: </label>
+						<input type="file" class="col-xs-5 editAndAddSlider noPadding" onchange="angular.element(this).scope().uploadedImgFileE(this)">
 					</div>
 					<div class="row">
 						<input class="col-lg-offset-5 col-xs-offset-5 editAndAddSlider" type="button" value="Actualitzar" ng-click=updateImgSlide()>
