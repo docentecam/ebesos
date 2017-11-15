@@ -3,7 +3,7 @@
 	if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 ?>
 <div class="col-lg-12 col-xs-12" id="sliderCpanel">
-  	<label class="col-lg-12 col-xs-12">Slider</label>  
+  	<label class="col-lg-12 col-xs-12 sliderTitle">Slider</label>  
   	<div class="row">
   		<div id="myCarousel" class="carousel slide col-lg-12 col-xs-12" data-ride="carousel">
 			<div class="col-lg-12 col-xs-12" id="myCarousel" class="carousel slide" data-ride="carousel" ng-controller="SliderCtrl">
