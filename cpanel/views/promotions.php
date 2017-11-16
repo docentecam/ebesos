@@ -4,7 +4,7 @@
 ?>
 <div ng-show="loadPromotions"  class="row">
 
-	<button id="btnAdd" class="btn btn-default" ng-click="editPromotions('Afegir')">Afegir <i class="fa fa-plus-circle"></i></button>
+	<a ng-href="#/promotion/0"><button id="btnAdd" class="btn btn-default" >Afegir <i class="fa fa-plus-circle"></i></button></a>
 
 	<div class="row" ng-repeat="promotionList in promotionsList | filter:{active: 'N'}">		
 		<div class="col-lg-3">
@@ -13,7 +13,7 @@
 		
 		<div class="col-lg-5">
 			{{promotionList.conditionsVals}}<br>
-			<label>Pendent De Aprovació</label> &nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-success" value="Activar"  class="btn btn-default">
+			<label>Pendent De Aprovació</label> &nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-success" value="Activar"  class="btn btn-default" ng-click="activePromotion(promotionList.idPromotion)" >
 		</div>
 		<div class="col-lg-2">
 			Data Caducitat Vals {{promotionList.dateExpireVals}}
@@ -21,7 +21,7 @@
 			Data Caducitat Eix{{promotionList.dateExpireEix}} 
 		</div>
 		<div class="col-lg-1">
-			<button id="" class="btn btn-default" ng-click="editPromotions('Editar' , promotionList.idPromotion)">Editar <i class="fa fa-pencil" aria-hidden="true"></i></button>
+			<a ng-href="#/promotion/{{promotionList.idPromotion}}"><button id="" class="btn btn-default">Editar <i class="fa fa-pencil" aria-hidden="true"></i></button></a>
 
 		</div>
 		<div class="col-lg-1">
@@ -47,8 +47,7 @@
 			 Data Caducitat Eix{{promotionList.dateExpireEix}}
 		</div>
 		<div class="col-lg-1">
-			<button id="" class="btn btn-default" ng-click="dataPromotion('Editar', promotionList.idPromotion)">Editar <i class="fa fa-pencil" aria-hidden="true"></i></button>
-
+			<a ng-href="#/promotion/{{promotionList.idPromotion}}"><button id="" class="btn btn-default">Editar <i class="fa fa-pencil" aria-hidden="true"></i></button></a>
 		</div>
 		<div class="col-lg-1">
 			<button id="" class="btn btn-default">Eliminar <i class="fa fa-eraser" aria-hidden="true"></i></button>
@@ -57,12 +56,15 @@
 </div>
 
 
-<div class="row" ng-show="showPromotions">
+<div class="row" ng-hide="loadPromotions">
 	<form action="#" id="validationPromotion" name="validation" method="POST" >
 		<h1>{{act}} Promocions</h1>
-		<label>Seleccionar comerç </label> <select name="listShops" ng-model="promotion.shopSelected" > <option ng-repeat="shop in shopsList" ng-selected="promotion.shopSelected==shop.idShop">{{shop.name}}</option> </select>
+		<label>Seleccionar comerç </label> <select name="listShops" ng-model="promotion.shopSelected" > <option ng-repeat="shop in shopsList" ng-selected="promotion.shopSelected==shop.idShop" ng-value="shop.idShop">{{shop.name}}</option> </select>
 		<br><br>
-		<label>Imatge: </label>  <input type="file" name="">
+		<label>Imatge: </label>
+		<img class="img-responsive" ng-src="../img/promotions/{{promotion.image}}">
+		<label for="updateImg" class="labelFor"> examinar</label>
+		<input type="file" id="updateImg" onchange="angular.element(this).scope().changeImg(this)" ng-hide="true">
 
 	<div class="row">
 		<div class="col-lg-6">
@@ -70,17 +72,18 @@
 			 <legend> VALS </legend>
 				<div>
 					<label>OFERTA </label>
-					<textarea>{{promotion.oferVals}}</textarea>
+					<input type="text" ng-model="promotion.oferVals">
 				</div>
 				<div>
 					<label>Data Expire Vals </label>
-					<input type="date" ng-model="promotion.dateExpireVals" id="">
+					<input type="date" ng-model="promotion.dateExpireVals">
 				</div>
 				
 				<div>
 					<label>Condicions del Val </label>
-					<textarea>{{promotion.conditionsVals}}</textarea>
+					<input type="text"  ng-model="promotion.conditionsVals">
 				</div>
+				
 			</fieldset>
 		</div>
 
@@ -92,7 +95,7 @@
 			
 			<div>
 				<label>OFERTA </label>
-			<textarea>{{promotion.oferEix}}</textarea>
+				<input type="text" ng-model="promotion.oferEix">
 			</div>
 
 			<div>
@@ -102,12 +105,12 @@
 
 			<div>
 				<label>Condicions del Val </label>
-				<textarea>{{promotion.conditionsEix}}</textarea>
+				<input type="text" ng-model="promotion.conditionsEix">
 			</div>
 		</div>
 	</div>
 	<div>
-		<input type="submit" class="btn btn-default" value="Guardar dades" ng-click="editPromotion()">
+		<input type="button" class="btn btn-default"  value="{{act}}" ng-click="editPromotion(act)">
 	</div>
 	
 	</form>

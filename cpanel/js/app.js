@@ -34,6 +34,12 @@ app.config(['$routeProvider', function ($routeProvider) {
 		templateUrl:'views/promotions.php',
 		controller:'PromotionsCtrl',
 	})
+
+	.when('/promotion/:idPromotion',{
+	templateUrl:'views/promotions.php',
+	controller:'PromotionCtrl',
+
+	})
 	.when('/subcategories',{
 		templateUrl:'views/subcategories.php',
 		controller:'SubcategoriesCtrl',
