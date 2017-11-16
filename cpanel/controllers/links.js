@@ -71,6 +71,8 @@ angular.module('spaApp')
 .controller('LinkCtrl', function($scope, $http, $routeParams) {
 	$scope.action = $routeParams.acc;
 	$scope.idLinkC = $routeParams.idLink;
+	$scope.nameC = "";
+	$scope.urlC = "";
 
 	if($scope.idLinkC != -1)
 	{
