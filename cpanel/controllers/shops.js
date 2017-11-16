@@ -42,10 +42,9 @@ angular.module('spaApp')
 			$scope.subCategoriesShop = $scope.personalData[0].subCategoriesShop;
 			$scope.subCategories = $scope.personalData[0].subCategories;
 			$scope.images = $scope.personalData[0].images;
-			$scope.currentImagePref = $scope.personalData[0].images[0].url;
 			$scope.currentIdPref = $scope.personalData[0].images[0].idShopImage;
 			//$scope.currentImagePref = $scope.personalData[0].images.
-			console.log($scope.currentImagePref);
+			console.log($scope.subCategoriesShop);
 			console.log($scope.personalData);
 		}, function myError(response) {
 			$scope.shops = response.statusText;
@@ -183,11 +182,8 @@ angular.module('spaApp')
 
 		formData.append("type",type);
 		formData.append("uploadedFile",e.files[0]);
-		formData.append("idShopImage",$scope.currentIdPref);
-		if(type=='e')
-		{
-			formData.append("deleteImagePref",$scope.currentImagePref);
-		}
+		formData.append("idShopImage",$scope.personalData[0].images[0].idShopImage);
+
 		var deferred=$q.defer();
 		return $http.post("models/shops.php?acc=uploadImage&sentence="+type, formData,{
 		headers:{
@@ -198,6 +194,19 @@ angular.module('spaApp')
 		.then(function(res)
 		{
 			deferred.resolve(res);
+			$scope.loading=true;
+			$idShop = $scope.shopOne.idShop;
+			$http({
+				method : "GET",
+				url : "models/shops.php?acc=listImages&idShop="+$idShop
+			}).then(function mySucces(response) {
+				$scope.imagesData = response.data;
+				$scope.images = $scope.imagesData[0].images;
+			}, function myError(response) {
+				$scope.shops = response.statusText;
+			}).finally(function(){
+				$scope.loading = false;
+			});
 		})
 		return deferred.promise;
 	}
@@ -219,12 +228,11 @@ angular.module('spaApp')
 		var address = $scope.shopOne.address;
 		var schedule = $scope.shopOne.schedule;
 		var email = $scope.shopOne.email;
-		var deleteLogo = $scope.currentShopLogo;
 		//var file= $scope.file;
 		console.log(name);
 		console.log(type);
 		console.log(logo);
-		var variable = upload.uploadFile(type, idShop, name, idUser, descriptionLong, description, ciutat, logo, web, lat, lng, telephone, cp, address, schedule, email, deleteLogo);
+		var variable = upload.uploadFile(type, idShop, name, idUser, descriptionLong, description, ciutat, logo, web, lat, lng, telephone, cp, address, schedule, email);
 	}
 
 })
@@ -245,7 +253,7 @@ angular.module('spaApp')
 
 .service('upload',["$http","$q", function($http,$q)
 {
-	this.uploadFile=function(type, idShop, name, idUser, descriptionLong, description, ciutat, logo, web, lat, lng, telephone, cp, address, schedule, email, deleteLogo)
+	this.uploadFile=function(type, idShop, name, idUser, descriptionLong, description, ciutat, logo, web, lat, lng, telephone, cp, address, schedule, email)
 	{
 		console.log("nombre en upload: "+name);
 		console.log("nombre en upload: "+logo); 
@@ -267,7 +275,6 @@ angular.module('spaApp')
 				formData.append("address", address);
 				formData.append("schedule", schedule);
 				formData.append("email", email);
-				formData.append("deleteLogo", deleteLogo);
 				return 	$http.post("models/shops.php?acc=upload&sentence="+type, formData,{
 					headers:{
 						"Content-type":undefined
