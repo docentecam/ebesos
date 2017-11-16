@@ -22,12 +22,11 @@
 	</div>
 	<div class="col-lg-2 botones">
 		<button ng-click="shopOneEdit($index, 'e', shops.idShop)" class="btn-edit col-lg-5 col-lg-push-2">Editar</button>
-		<!-- <button ng-click="shopOneDelete(shops.idShop)" class="btn-default col-lg-6">delete tienda: {{shops.idShop}}</button> -->
-		<button class="btn-delete col-lg-5 col-lg-push-2">Eliminar</button>
+		<button ng-click="shopOneDelete(shops.idShop)" class="btn-default col-lg-6">delete tienda: {{shops.idShop}}</button>
 	</div>
 </div>
 	
-<div class="row" ng-show="showShop"> <!-- ng-repeat="shop in shopOne" -->
+<div class="row" ng-show="showShop">
 	<label class="col-lg-2 title-comerços no-padding">Afegir comerç:</label>
 	<form id="i-shop" class="row" name="i-shop" ng-submit="uploadFile()">
 		<input type="text" name="" ng-model="shopOne.idShop" hidden>
@@ -59,10 +58,10 @@
 			<input type="text" class="col-lg-4 col-lg-offset-2" id="lng-shop" name="lng-shop" placeholder="00.000000" name="" ng-model="shopOne.lng">
 		</div>
 		<div class="col-md-12">
-				<span class="col-lg-6 no-padding">Teléfon</span>
-				<span class="col-lg-6 no-padding">Codi Postal</span>
-				<input type="text" class="col-lg-4" id="p-shop" name="p-shop" placeholder="telefon o móbil" name="" ng-model="shopOne.telephone">
-				<input type="text" class="col-lg-4 col-lg-offset-2" id="cp-shop" name="cp-shop" placeholder="XXXXX" name="" ng-model="shopOne.cp">
+			<span class="col-lg-6 no-padding">Teléfon</span>
+			<span class="col-lg-6 no-padding">Codi Postal</span>
+			<input type="text" class="col-lg-4" id="p-shop" name="p-shop" placeholder="telefon o móbil" name="" ng-model="shopOne.telephone">
+			<input type="text" class="col-lg-4 col-lg-offset-2" id="cp-shop" name="cp-shop" placeholder="XXXXX" name="" ng-model="shopOne.cp">
 		</div>
 		<div class="col-md-12">
 			<span class="col-lg-6 no-padding">Adreça</span>
@@ -92,7 +91,6 @@
 			<ul class="col-lg-4 col-lg-offset-3 subCategory-list no-padding">
 				<li class="col-lg-12 no-padding" ng-repeat="subCategoryShop in subCategoriesShop | filter : {preferred:'N'}">{{subCategoryShop.nameSubCategoryShop}}<button class="col-lg-1 col-lg-offset-11 btn-subCat-delete" ng-click="deleteSubCategory(subCategoryShop.idShopCategorySub, shopOne.idShop)">-</button></li>
 			</ul>
-			<!-- <button ng-repeat="subCategoryShop in subCategoriesShop | filter : {preferred:'N'}" class="btn-default col-md-1" ng-click="deleteSubCategory(subCategoryShop.idShopCategorySub, shopOne[0].idShop)">-</button> -->
 		</div>
 	</div>
 	<div class="row images-edit">

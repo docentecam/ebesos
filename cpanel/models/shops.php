@@ -65,7 +65,6 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'e')
 }
 else if(isset($_GET['acc']) && $_GET['acc'] == 'upload')
 {
-	//getVariables();
 	$idShop = $_POST["idShop"];
 	$name = $_POST["name"];
 	$idUser = $_POST["idUser"];
