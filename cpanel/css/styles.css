@@ -666,7 +666,11 @@ label.btn-add, button.btn-add{
   .navbar-default .navbar-collapse, .navbar-default .navbar-form{
     border-color: transparent!important;
   }
-
+  #history {
+    height: 400px;
+    width: 310px;
+    margin-bottom: 5%;
+  }
   .navbar-nav {
     margin: 0px -15px;
   }
