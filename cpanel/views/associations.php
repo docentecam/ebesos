@@ -10,7 +10,7 @@
 			if(isset($_SESSION['user']['privileges']) && $_SESSION['user']['privileges'] != 'E')
 			{
 			?>
-				<select ng-change="changeDataUser(idUser)" ng-model="idUser" id="selectAsso" disabled>
+				<select ng-change="changeDataUser(idUser)" ng-model="idUser" class="select-users" disabled>
 					<option ng-repeat="user in users" ng-value="user.idUser" ng-selected="user.idUser==<?php echo $_SESSION['user']['idUser']?>">
 						{{user.name}}
 					</option>
@@ -20,7 +20,7 @@
 			else
 			{
 			?>
-				<select ng-change="changeDataUser(idUser)" ng-model="idUser" id="selectAsso">
+				<select ng-change="changeDataUser(idUser)" ng-model="idUser" class="select-users">
 					<option ng-repeat="user in users" ng-value="user.idUser" ng-selected="user.idUser==<?php echo $_SESSION['user']['idUser']?>">
 						{{user.name}}
 					</option>

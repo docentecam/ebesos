@@ -63,16 +63,6 @@ label.btn-add, button.btn-add{
   background-color: #B0C2C8;
   margin-top: 3%;
 }
-#selectAsso
-{
-  margin-top: 3%;
-  width: 200px;
-  background-image: url("../img/circledown.svg");
-  background-repeat: no-repeat;
-  background-position-y: 5px;
-  background-position-x: 175px;
-  background-color: #95B4BE;
-}
 #active
 {
   width: 174px;
