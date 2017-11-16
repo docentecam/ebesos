@@ -571,6 +571,7 @@ padding: 0;
     font-size: 0.9em;
     color: black!important;
     padding-left: 4%;
+    font-weight: 300;
 }
 .fa-map-marker{
     padding-right: 2%;
@@ -605,15 +606,22 @@ padding: 0;
     padding-bottom: 2%!important;
     padding: 0;
 }
-#marginTelf{
+#marginPhone{
     margin-top: 1%;
 }
 #marginDate{
     margin-bottom: 5%;
 }
-.breadCrumb{
-    padding-bottom: 3%!important;
-    padding-top: 3%;
+#containerBCPromo
+{
+	padding: 0;
+	margin-bottom: 4%;
+	margin-top: 4%;
+}
+#containerBCPromos
+{
+	padding: 0;
+	margin-top: 4%;
 }
 hr.style14 { 
     width: 80%;
@@ -645,7 +653,10 @@ hr.style14 {
 .descLongShop{
     padding:0!important;
 }
-
+.dateCaducityPromo
+{
+	font-weight: 300;
+}
 #imgPadd{
 	padding-left: 5%;
 	border-bottom: solid 1px #DEE4DD;
