@@ -12,6 +12,9 @@ body{
 a{
 	color: black!important;
 }
+textarea{
+  resize: none;
+}
 
 #loadingIcon{
 	 margin-top: 21%;

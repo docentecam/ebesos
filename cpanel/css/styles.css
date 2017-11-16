@@ -41,6 +41,9 @@ button.btn-add{
   padding-left: 7px!important;
   padding-top: 3px!important;
 }
+textarea{
+  resize: none;
+}
 label.btn-add, button.btn-add{
   height: 35px;
   font-weight: 300;
