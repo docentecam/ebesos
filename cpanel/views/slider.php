@@ -20,6 +20,13 @@
 			</div>
 		</div>
 	</div>
+	<div ng-show="fail">
+		<div ng-class="validation ? 'alert alert-success' : 'alert alert-danger'" id="validationAssociation">
+			<i class="fa fa-times" ng-hide="validation" aria-hidden="true"></i>
+			<i class="fa fa-check" ng-show="validation" aria-hidden="true"></i>
+			<b>{{statusValidation}}</b>
+		</div>
+	</div>
 	<div class="col-lg-12 col-xs-12">
 		<span id=editarSliderSpan ng-hide="spanEditarImatges" class="col-lg-2 col-xs-3">Editar Imatges: </span>
 		<div id="divOpcioAfegir" class="col-lg-3 col-xs-6 col-xs-offset-1">

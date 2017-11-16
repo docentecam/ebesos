@@ -315,7 +315,6 @@ angular.module('spaApp')
 				{
 					data.append("deleteLogo",$scope.footerC);
 				}
-				console.log($scope.idUserC+"-"+e.files[0].name);
 				$scope.fail2 = true;
 				$scope.statusValidation2 = "Error";
 				$scope.validation2 = false;

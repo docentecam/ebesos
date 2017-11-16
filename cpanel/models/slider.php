@@ -22,7 +22,12 @@ if (isset($_GET["acc"]) && ($_GET["acc"] == "imgSlider"))
 			$i++;
 		}
 		$dataImgSlider .="]";
+		
 		echo $dataImgSlider;
+		if($connexio == "Error al conectar")
+	 	{
+	 		echo '[{"status":"'.$message.'"}]';
+	 	}
 	}
 
 
