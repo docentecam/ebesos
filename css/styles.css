@@ -1205,9 +1205,10 @@ padding: 0;
 	.paddTitleSM{
 		padding-top: 8%;
 	}
-	 #categories{
-        margin-bottom: 10%;
-    }
+	#categories
+    {
+    margin-bottom: 10%;
+    } 
     .infoPromo{
         margin-left: 8.5%;
     }
