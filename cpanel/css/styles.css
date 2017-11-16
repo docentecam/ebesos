@@ -41,6 +41,9 @@ button.btn-add{
   padding-left: 7px!important;
   padding-top: 3px!important;
 }
+textarea{
+  resize: none;
+}
 label.btn-add, button.btn-add{
   height: 35px;
   font-weight: 300;
@@ -666,7 +669,11 @@ label.btn-add, button.btn-add{
   .navbar-default .navbar-collapse, .navbar-default .navbar-form{
     border-color: transparent!important;
   }
-
+  #history {
+    height: 400px;
+    width: 310px;
+    margin-bottom: 5%;
+  }
   .navbar-nav {
     margin: 0px -15px;
   }
