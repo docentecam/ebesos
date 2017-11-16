@@ -305,6 +305,7 @@ padding: 0;
 	font-weight: 600;
 	text-align: center;
 	font-weight: bold;
+	font-size: 1.2em;
 }
 #typeLetter{
 	font-size: 15px;
@@ -384,13 +385,14 @@ padding: 0;
     color: white!important;
 }
 #logoText{
-	margin-top: 8%;
+	margin-top: 7%;
+    margin-left: -8%;
 }
 .footerLinksColor{
 	color: white!important;
 }
 #contactWho{
-	margin-top: 1.8%;
+	margin-top: 2%;
 }
 #marginLinks{
 	padding: 1%!important;
@@ -672,6 +674,33 @@ padding: 0;
 #linkBorder{
 	border-left:none;
 }
+#imgLogoTop{
+	margin-bottom: -2%;
+}
+#eraseBorderNavMobile{
+		border: none;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media (min-width: 320px) { 
    .subCat{
@@ -762,8 +791,8 @@ padding: 0;
 		font-size: 1.8em;
 		color: #BCBCBC;
 	}
-	#eraseBorderNavMobile{
-		border: none;
+	.navGeneral{
+		border-right: none;		
 	}
 	#generalView{
 		font-size: 1em!important;
@@ -777,8 +806,19 @@ padding: 0;
 		margin-left: -20px;
 		margin-right: -20px;
 	}
+	.fa-bookmark{
+		position: absolute;
+    	left: 0%;
+    	top: 31%;
+	}
+	.footer-nav{
+		padding: 10px!important;
+	}
 	.navReduced{
 		border-top: transparent;
+	}
+	#imgLogoTop{
+		margin-bottom: 0%;
 	}
 	.category {
 		//height: 50px;
@@ -833,6 +873,9 @@ padding: 0;
 	}
 	#logoText{
 		margin-top: 5%;
+		 margin-top: 5%;
+    	font-size: 0.8em!important;
+    	margin-left: -3%;
 	}
 	.headTitle{
 		margin-left: -23%;
@@ -856,14 +899,11 @@ padding: 0;
     	right: -6%;
     	font-size: 1.8em!important;
 	}
-	.navGeneral{
-		border-right: none;		
-	}
 	.customNav{
 		width: 100%!important;
 	}
 	#navGlobal{
-		margin: 0!important;
+		margin: 0px!important;
 		text-align: left;
 		background-color: white!important;
 	}
@@ -927,9 +967,13 @@ padding: 0;
 	}
 	.shop-image{
 		margin-bottom: 5%;
+	}
+	#mc_embed_signup {
+ 		margin-left: 0%!important;
 	}	
 }
 @media (min-width: 576px) and (max-width: 767px){
+
 	#imgLogoTop {
     	margin-left: -7%;
 	}
@@ -937,19 +981,21 @@ padding: 0;
 		max-width: 63%!important;
 	}
 	#logoText{
-		margin-top: 5.7%!important;
+		margin-top: 5.2%!important;
     	margin-left: -15%!important;
+    	font-size: 1.2em;
 	}
 	#contactWho{
     	margin-top: 3.8%;
 	}
 	#loginPicture{
-		margin-top: -3%;
-   	 	font-size: 1.5em!important;
-   	 	margin-left: 51%;
+		position: absolute;
+    	right: 0%;
+    	top: -10%;
+    	font-size: 1.8em!important;
 	}
 	#navGlobal{
-		margin: 0!important;
+		margin: 0px!important;
 		text-align: left;
 		background-color: white!important;
 	}
@@ -995,7 +1041,16 @@ padding: 0;
 	#contactTable{
 		margin-left: 7.5%;
 	}
+	#mc_embed_signup {
+ 		margin-left: 0%!important;
+ 	}
+ 	.fa-bookmark{
+ 		position: absolute;
+    	left: 0%;
+    	top: 32%;
+ 	}
 }
+<<<<<<< HEAD
 
 @media (min-width: 701px) and (max-width: 767px) {    
      .pictoImg{
@@ -1065,6 +1120,9 @@ padding: 0;
     }
 }
 @media (min-width: 768px)and (max-width: 1023px){
+=======
+@media (min-width: 768px) and (max-width: 1023px){
+>>>>>>> origin/master
 	.footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns{
 		border-left:solid 1px rgba(255,255,255,0.10);
 	}
@@ -1087,8 +1145,14 @@ padding: 0;
     	margin-left: -23%;
 	}
 	#logoText {
+<<<<<<< HEAD
     	margin-top: 6%;
     	margin-left: -21%;
+=======
+    	margin-top: 5%;
+    	margin-left: -21%;
+    	font-size: 1.5em;
+>>>>>>> origin/master
 	}
 	#contactWho {
     	margin-top: 3.8%;
@@ -1123,6 +1187,10 @@ padding: 0;
 	.footerLogos{
 		max-width: 50%;
 	}
+	#mc_embed_signup {
+ 		margin-left: 0%!important;
+	}
+	
 	
 }
 @media (max-width: 1023px){
@@ -1141,7 +1209,7 @@ padding: 0;
 		padding-bottom: 5%;
 	}
 }
-@media (min-width: 1024px){
+@media (min-width: 1024px) and (max-width: 1199px){
 	.subMenu:hover{
 		background-color: #51576F;
 		cursor: pointer;
@@ -1180,7 +1248,7 @@ padding: 0;
 	    text-decoration: underline; 
 	}
 	#loginPicture{
-		margin-top: -3%;
+		margin-top: -8%;
 		font-size: 1.8em!important;
 		margin-left: -47%;
 	}
@@ -1192,7 +1260,33 @@ padding: 0;
 	}
 	.fa-bookmark{
 		margin-right: 5%;
-	} 
+	}
+	#imgLogoTopId{		
+		max-width: 46%!important;
+    	margin-bottom: -2%;
+    	margin-left: -16%;
+	}
+	#logoText {
+	    position: absolute;
+	    top: -27%;
+	    right: 20%;
+	    font-size: 1.3em;
+	}
+	#contactWho{
+		margin-top: 3.2%;
+		margin-right: -9%;
+	}
+	#loginPicture {
+	    margin-top: -8%;
+	    font-size: 1.8em!important;
+	    margin-left: -47%;
+	}
+	.newsAsso{
+		border-bottom: solid 1px;
+		border-color: #ced2de;
+		padding-bottom: 100px;
+		text-align: center;
+	}
 }
 @media (min-width: 1200px){
 	#captchaDiv{
@@ -1205,9 +1299,9 @@ padding: 0;
 	.paddTitleSM{
 		padding-top: 8%;
 	}
-	#categories
+    #categories
     {
-    margin-bottom: 10%;
+    	margin-bottom: 10%;
     } 
     .infoPromo{
         margin-left: 8.5%;

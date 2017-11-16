@@ -72,7 +72,7 @@
 			<div class="row">
 				<div ng-repeat="new in news" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 					<div class="row">
-						<div class="col-xs-12 upperTitle"><!--modificar-->
+						<div class="col-xs-12 upperTitle">
 							<b>{{new.title}}</b>
 						</div>
 					</div>
@@ -87,7 +87,6 @@
 						<div  class="col-lg-6"><img id="photo" class="assoNews" src="img/newsmedia/{{new.url}}"></div>
 						<div id="title" class="col-lg-6">
 							<div class="row">
-								<!-- <div class="col-sm-12" id="loremUPPER">{{new.title}}</div>  -->
 								<div class="col-sm-12 text-justify titleSubE">
 									{{new.titleSub | limitTo: 110}}...
 									<b><a href="#/new/{{new.idNew}}">Més info</a></b>
