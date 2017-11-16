@@ -207,7 +207,7 @@ padding: 0;
 	width: 19.2%!important;
 }
 .dividerNav{
-	margin-top:1.2% ;
+	margin-top:1.2%;
 	width: 1%; 
 }
 #indicatorSlider{
@@ -285,9 +285,6 @@ padding: 0;
 
 #separationLine{
 	text-align: center;
-}
-#separatorDesign{
-	text-decoration: none;
 }
 #navGlobal>li>.hi{
 	width: 300px!important;
@@ -518,9 +515,6 @@ padding: 0;
 #linkBorder{
 	border-left:none;
 }
-#imgLogoTop{
-	margin-bottom: -2%;
-}
 #eraseBorderNavMobile{
 		border: none;
 	}
@@ -704,12 +698,6 @@ padding: 0;
 	.contactMainDiv{
 		font-size: 1em;
 	}
-	.dividerNav{
-		visibility: hidden;
-	}
-	.alignComercialMap{
-		margin-left: 0%!important;
-	}
 	#homeIconNav{
 		position: absolute;
     	left: -2%;
@@ -741,7 +729,7 @@ padding: 0;
 		max-width: 63%!important;
 	}
 	#logoText{
-		margin-top: 5.2%!important;
+		margin-top: 4.1%!important;;
     	margin-left: -15%!important;
     	font-size: 1.2em;
 	}
@@ -816,8 +804,8 @@ padding: 0;
 	}
 	#homeIconNav{
 		position: absolute;
-		left: 18%;
-		top: 34%;
+		left: -6%;
+    	top: 35%;
 	}
 	.shopsList{
 		padding-bottom: 12%;
@@ -833,9 +821,9 @@ padding: 0;
     	margin-left: -23%;
 	}
 	#logoText {
-    	margin-top: 5%;
+    	margin-top: 4.3%;
     	margin-left: -21%;
-    	font-size: 1.5em;
+    	font-size: 1.3em;
 	}
 	#contactWho {
     	margin-top: 3.8%;
@@ -844,11 +832,6 @@ padding: 0;
     	margin-top: -14%;
     	font-size: 2em!important;
     	margin-left: -50%;
-	}
-	#homeIconNav {
-    	position: absolute;
-    	left: -10%;
-    	top: 34%;
 	}
 	.dividerNav {
     	margin-top: 2%;
@@ -899,10 +882,10 @@ padding: 0;
 		font-weight: 600;
 		color: white!;
 	}
-	#homeIconNav{
-		position: absolute;
-    	left: 17%;
-    	top: 35%;
+	.arrowDown{
+    	position: absolute;
+    	top: 37.2%;
+    	right: 15%;
 	}
 	.subMenu{
 		padding:  30px;
