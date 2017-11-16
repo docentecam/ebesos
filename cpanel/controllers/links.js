@@ -23,7 +23,10 @@ angular.module('spaApp')
 		})
 
 	$scope.deleteLink = function(idLink){
-		$scope.loading=true;
+		$scope.deleteConfirm = confirm("Estàs segur que vols eliminar aquest enllaç?")
+		if($scope.deleteConfirm == true)
+		{
+			$scope.loading=true;
 			$http({
 				method : "GET",
 				url : "models/links.php?acc=deleteLink&idLink="+idLink
@@ -58,6 +61,8 @@ angular.module('spaApp')
 			{ 
 			    $scope.loading=false;
 			})
+		}
+		
 		
 	}
 	
