@@ -1,5 +1,6 @@
 angular.module('spaApp')															 
 .controller('SliderCtrl', function($scope, $http, $q) {
+	$scope.fail = false;
 	$scope.loading=true;
 	$http({
 			method : "GET",
@@ -15,6 +16,7 @@ angular.module('spaApp')
 	
 
 	$scope.addImgSlide = function(){
+		$scope.fail = false;
 		$scope.spanEditarImatges = true;
 		$scope.btnAfegir = true;
 		$scope.sliderSetting = true;
@@ -23,6 +25,7 @@ angular.module('spaApp')
 	};
 	
 	$scope.editImgSlide = function($idSlider, ){
+		$scope.fail = false;
 		$scope.spanEditarImatges = true;
 		$scope.btnAfegir = true;
 		$scope.sliderSetting = true;
@@ -52,6 +55,14 @@ angular.module('spaApp')
 				url : "models/slider.php?acc=imgSlider"
 			}).then(function mySucces (response) {
 				$scope.slider = response.data;
+				$scope.statusValidation = "S'ha creat la imatge del slider";
+				$scope.fail = true;
+				$scope.validation = true;
+				if(isset($scope.slider[0]['status']))
+				{	
+					$scope.statusValidation = $scope.slider[0]['status'];
+					$scope.validation = false;
+				}
 			}, function myError (response) {
 				$scope.slider = response.statusText;
 			})
@@ -68,8 +79,9 @@ angular.module('spaApp')
 			data.append("link",addingForm['linkC'].value);
 			data.append("uploadedFile",e.files[0]);
 
-			
-
+			$scope.fail = true;
+			$scope.statusValidation = "Error";
+			$scope.validation = false;
 			var deferred=$q.defer();
 			return $http.post("models/slider.php?acc=createSlider", data,{
 			headers:{
@@ -80,6 +92,8 @@ angular.module('spaApp')
 			.then(function(res)
 			{
 			deferred.resolve(res);
+			$scope.statusValidation = "S'ha creat la imatge del slider";
+			$scope.validation= true;
 
 			})
 			return
@@ -105,6 +119,13 @@ angular.module('spaApp')
 				url : "models/slider.php?acc=updateSliderNI&description="+$scope.editDescription+"&idSlider="+$scope.editSlider+"&title="+$scope.editTitle+"&subTitle="+$scope.editSubTitle+"&linkSlider="+$scope.editLink
 			}).then(function mySucces (response) {
 				$scope.updateSlider = response.data;
+				$scope.statusValidation = $scope.updateSlider[0]['status'];
+				$scope.fail = true;
+				$scope.validation = false;
+				if($scope.statusValidation == "S'ha modificat la imatge del slider")
+				{
+					$scope.validation = true;
+				}
 				$scope.loading=true;
 				$http({
 						method : "GET",
@@ -135,7 +156,9 @@ angular.module('spaApp')
 			data.append("image",editingForm['hidImage'].value);
 			data.append("uploadedFile",e.files[0]);
 			
-
+			$scope.fail = true;
+			$scope.statusValidation = "Error";
+			$scope.validation = false;
 			var deferred=$q.defer();
 			return $http.post("models/slider.php?acc=updateSlider", data,{
 			headers:{
@@ -146,6 +169,8 @@ angular.module('spaApp')
 			.then(function(res)
 			{
 			deferred.resolve(res);
+			$scope.statusValidation = "S'ha modificat la imatge del slider";
+			$scope.validation= true;
 
 			})
 			return
@@ -158,23 +183,18 @@ angular.module('spaApp')
 				url : "models/slider.php?acc=deleteSlider&idSlider="+$idSlider+"&image="+$imageSlider
 			}).then(function mySucces (response) {
 				$scope.updateSlider = response.data;
+				$scope.statusValidation = $scope.updateSlider[0]['status'];
+				$scope.fail = true;
+				$scope.validation = false;
+				if($scope.statusValidation == "S'ha eliminat la imatge del slider")
+				{
+					$scope.validation = true;
+				}
 				$http({
 						method : "GET",
 						url : "models/slider.php?acc=imgSlider"
 					}).then(function mySucces (response) {
 						$scope.slider = response.data;
-						$scope.loading=true;
-				  		$http({
-							method : "GET",
-							url : "models/slider.php?acc=imgSlider"
-						}).then(function mySucces (response) {
-							$scope.slider = response.data;
-						}, function myError (response) {
-							$scope.slider = response.statusText;
-						})
-						.finally(function() {
-							$scope.loading=false;
-						});
 					}, function myError (response) {
 						$scope.slider = response.statusText;
 					})

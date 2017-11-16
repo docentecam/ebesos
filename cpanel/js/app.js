@@ -52,6 +52,10 @@ app.config(['$routeProvider', function ($routeProvider) {
 		templateUrl:'views/links.php',
 		controller:'LinksCtrl',
 	})
+	.when('/links/:acc/:idLink',{
+		templateUrl:'views/links.php',
+		controller:'LinkCtrl',
+	})
 	
 
     .otherwise({

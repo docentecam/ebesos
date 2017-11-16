@@ -1,3 +1,8 @@
+<div class="container">
+	<div class="col-lg-12 col-lg-pull-1">
+		<a class="breadJS" href="#">Inici</a><span> | </span><span>Promocions</span>
+	</div>
+</div>
 <div class="content">
 	<div class="row">
 		<div class="col-lg-2 col-xs-12 col-md-3 col-sm-3">
@@ -8,13 +13,13 @@
 				<label ng-repeat="filter in filters" class="col-lg-12 col-xs-12 col-md-12 col-sm-12 subCat">
 					<a class="urlVals" href="" ng-click="filterCat(filter.idCategory)">
 						<div class="col-lg-3 col-xs-2 col-md-4 col-sm-4 pictoImg">
-							<img ng-src="{{web}}/img/pictograms/{{filter.urlPicto1}}" class="img-responsive">
+							<img ng-src="img/pictograms/{{filter.urlPicto1}}" class="img-responsive">
 						</div>
 						{{filter.name}}
 					</a>
 				</label>
 				<label class="col-lg-12 col-xs-12 col-md-12 col-sm-12 subCatTOTS">
-					<a href="" ng-click="filterCat('')">
+					<a href="" ng-click="filterCat('')" class="urlTots">
 						<div class="col-lg-3 col-xs-2 col-md-4 col-sm-4 pictoImg">
 							<img ng-src="img/pictograms/pictoTOTS.svg" class="img-responsive"> 
 						</div>
@@ -30,7 +35,7 @@
 			</div>
 			<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6 promosAll" ng-repeat="promo in promos | filter:{idCategory:idCategorySearch}">
 				<a ng-href="#/promotion/{{promo.idPromo}}" ><!-- ng-click="searchOffer(promo.idPromo)" -->
-					<img ng-src="{{web}}/img/promotions/{{promo.image}}" alt="categoria3" class="img-responsive imgCat">
+					<img ng-src="img/promotions/{{promo.image}}" alt="categoria3" class="img-responsive imgCat">
 				</a>
 				<label class="date">
 					Data de caducitat {{promo.dateExpire}}
