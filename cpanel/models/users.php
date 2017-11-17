@@ -22,7 +22,6 @@ session_start();
 			$getName = str_replace(array("\r\n", "\r", "\n"), "\\n",$row['name']);
 			$getLogo = $row['logo'];
 		}
-			
 		if($checkLogin == 0)
 	 	{
 	 		$mySql = "SELECT idShop, name, privileges, logo FROM shops 
