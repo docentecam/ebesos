@@ -41,6 +41,11 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'updatePromotion'){
 				
 	}
 
+	else if (isset($_POST['idPromotion']) && $_POST['idPromotion']==0) {
+		$mySql = "INSERT INTO promotions (idPromotion , idShop, image,oferVals,conditionsVals,dateExpireVals)
+		VALUES ('', '".$_POST['oferVals']."', '".$_POST['conditionsVals']."')";
+	}
+
 
 }
 
@@ -66,6 +71,9 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'd'){
 			$resultActivePromotion = mysqli_query($connexio, $mySql);
 			disconnect($connexio);
 
+			echo listPromotions();
+
+}
 		
 
 

@@ -43,22 +43,30 @@ angular.module('spaApp')
 		$scope.deletePromotion=function(idPromotion){
 
 			$scope.loading=true;
-				$http({
-					method : "GET",
-					url : "models/promotions.php?acc=d&idPromotionSelected="+idPromotion
-				}).then(function mySucces (response) {
-					$scope.shopsList = response.data[0].dataShops;
-					$scope.promotionsList=response.data[0].dataPromotions;
-					$scope.loadPromotions=true;
-					
-				}, function myError (response) {
-					$scope.promotionsList = response.statusText;
-				})
-				.finally(function() 
-			{ 
-			    $scope.loading=false; 
-			})
+			$scope.confirmDelete= confirm("Segur que vols esborrar la promoció?");
 
+			if ($scope.confirmDelete==true) {
+
+					$http({
+						method : "GET",
+						url : "models/promotions.php?acc=d&idPromotionSelected="+idPromotion
+					}).then(function mySucces (response) {
+						$scope.shopsList = response.data[0].dataShops;
+						$scope.promotionsList=response.data[0].dataPromotions;
+						$scope.loadPromotions=true;
+					}	
+			
+				
+					, function myError (response) {
+						$scope.promotionsList = response.statusText;
+					})
+					.finally(function() 
+				{ 
+				    $scope.loading=false; 
+				})
+				
+			}
+			
 		}
 
 

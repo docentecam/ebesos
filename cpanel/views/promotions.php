@@ -25,7 +25,7 @@
 
 		</div>
 		<div class="col-lg-1">
-			<button id="" class="btn btn-default">Eliminar <i class="fa fa-eraser" aria-hidden="true"></i></button>
+			<button id="" class="btn btn-default" ng-click="deletePromotion(promotionList.idPromotion)">Eliminar <i class="fa fa-eraser" aria-hidden="true"></i></button>
 		</div>
 	</div>
 <hr>
@@ -50,7 +50,7 @@
 			<a ng-href="#/promotion/{{promotionList.idPromotion}}"><button id="" class="btn btn-default">Editar <i class="fa fa-pencil" aria-hidden="true"></i></button></a>
 		</div>
 		<div class="col-lg-1">
-			<button id="" class="btn btn-default">Eliminar <i class="fa fa-eraser" aria-hidden="true"></i></button>
+			<button id="" class="btn btn-default" ng-click="deletePromotion(promotionList.idPromotion)">Eliminar <i class="fa fa-eraser" aria-hidden="true"></i></button>
 		</div>
 	</div>
 </div>
