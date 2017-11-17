@@ -60,8 +60,6 @@ $scope.editParameter = function(act="",idSetting, value, literal ){
 					console.log($scope.settingsList);
 
 			});	
-
-		}
 }
 
 	}
