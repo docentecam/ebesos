@@ -44,10 +44,10 @@
 		</div>
 		<div class="col-lg-9 col-xs-12 newsDiv">
 			<div class="col-lg-12 col-xs-12">
-				<label class="col-lg-12 col-xs-11 col-xs-offset-1 titleNews">{{newList.title}}</label>
+				<label class="col-lg-12 col-lg-offset-0 col-xs-11 col-xs-offset-1 titleNews">{{newList.title}}</label>
 			</div>
 			<div class="">
-				<span class="col-lg-12 col-xs-11 col-xs-offset-1">{{newList.titleSub | limitTo: 110}}...</span>
+				<span class="col-lg-12 col-lg-offset-0 col-xs-11 col-xs-offset-1">{{newList.titleSub | limitTo: 110}}...</span>
 			</div>
 		</div>
 	</div>
@@ -84,11 +84,14 @@
 	<div class="for-group">
 		<label class="col-lg-1 col-lg-offset-1 imgNewlabel">Imatges</label> 
 			<label for="addImage" class="btn btn-default col-lg-2 col-lg-offset-1 btnAddImgNew">Afegir imatges</label>
-			<input type="file" id="addImage" accept="image/jgp, image/jgep, image/png" onchange="angular.element(this).scope().addMedia(this,'I')" ng-show="false"> 
-		<div class="col-sm-4" ng-repeat="image in new.images | filter : {preferred:'N' , type:'I'}">
-			<img class="col-sm-12 img-responsive" ng-src="../img/newsmedia/{{image.url}}">		
-			<a href="" ng-click="imgDelete(image.idNewMedia, image.url)"><i class=" col-sm-6 fa fa-trash" aria-hidden="true" >Eliminar</i></a>
+			<input type="file" id="addImage" accept="image/jgp, image/jgep, image/png" onchange="angular.element(this).scope().addMedia(this,'I')" ng-show="false">
+			<div class="col-lg-12">
+				<div class="col-lg-4 imgNewChange" ng-repeat="image in new.images | filter : {preferred:'N' , type:'I'}">
+			<img class="img-responsive imgNewsPadd" ng-src="../img/newsmedia/{{image.url}}">		
+			<a href="" ng-click="imgDelete(image.idNewMedia, image.url)" class="btn btn-default">Eliminar</a>
 		</div>
+			</div>
+		
 	</div>
 </div>
 <div class="col-lg-11 col-lg-offset-1" name="formVideos" ng-show="divVideos" id="whiteDivVidNew">
@@ -100,11 +103,13 @@
 				<input type="text" ng-model="urlVideoAdd">
 				<input type="button" ng-click="addMedia('','V')" value="Pujar">
 			</div>
-
-		<div class="col-sm-2" ng-repeat="image in new.images | filter : {type:'V'}">
-			<iframe  frameborder="0" allowfullscreen ng-src="https://www.youtube.com/embed/image.url"></iframe>
-			<a href="" ng-click="imgDelete(image.idNewMedia, '0')"><i class=" col-sm-6 fa fa-trash" aria-hidden="true" >Eliminar</i></a>
+		<div class="col-lg-12">
+			<div class="col-lg-4 vidChangeNews" ng-repeat="image in new.images | filter : {type:'V'}">
+				<iframe  frameborder="0" allowfullscreen ng-src="https://www.youtube.com/embed/image.url" class="col-lg-12"></iframe>
+				<a href="" ng-click="imgDelete(image.idNewMedia, '0')" class="btn btn-default btnDeleteVid">Eliminar</a>
+			</div>
 		</div>
+		
 	</div>
 </div>
 
