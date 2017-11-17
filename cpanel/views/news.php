@@ -8,17 +8,17 @@
 	</div>
 </div>
 <div class="row" ng-hide="divNew">
-	<label class="col-lg-12">
+	<label class="col-lg-12 col-xs-12">
 		Notícies
 	</label>
 </div>
 <div class="row">
-	<div class="col-sm-12 col-lg-2 col-lg-offset-10" ng-show="showListNews">
+	<div class="col-lg-2 col-lg-offset-10 col-xs-4 col-xs-offset-8" ng-show="showListNews">
 		<a ng-href="#/news/0"><input type="button" name="newNew" value="Afegir Noticia" alt="Afegir noticia" class="btn btn-default"></a>
 	</div>
 </div>
 <div class="row">
-	<div class="col-sm-12 col-lg-12">
+	<div class="col-lg-12 col-xs-12">
 		<select name="assocSelect" id="assocSelect" ng-model="new.idUser" ng-change="changeAssociation()" class="select-users">
 			<option ng-repeat="association in assoList" ng-value="association.idUser" ng-selected="association.idUser==new.idUser" >{{association.name}}</option> 
 		</select>
@@ -26,28 +26,28 @@
 </div>
 <div id="whiteDivNews" ng-hide="divNew">
 	<div name="formListNews" class="row" ng-show="showListNews" ng-repeat="newList in newsList | filter:{idUser:filterAssoc}">
-		<div class="col-sm-3 col-lg-3">
-			<div class="form-group col-sm-12 col-lg-12 imgNews">
+		<div class="col-lg-3 col-xs-12">
+			<div class="form-group col-lg-12 imgNews">
 				<img class="img-responsive" id="photo" ng-src="../img/newsmedia/{{newList.urlPreferred}}"> 
 			</div>
 		</div>
-		<div class="col-sm-9 col-lg-3 col-lg-offset-3">
-			<div class="col-sm-5 col-lg-12 dateNews">
+		<div class="col-lg-3 col-lg-offset-3 col-xs-8">
+			<div class="col-lg-12 col-xs-12 dateNews">
 				<span class="">Data Publicació {{newList.dateList}}</span>
 			</div>
 		</div>
-		<div class="col-sm-4 col-lg-3">
-			<div class="form-group col-sm-12 col-lg-12 buttonsNews">
-				<a ng-href="#/news/{{newList.idNew}}" class="urlBlackEditNews"><button class="btn-edit col-lg-4 col-lg-push-2 " value="Editar" alt="Edita dades de la noticia">Editar</a></button>
-				<button class="btn-delete col-lg-5 col-lg-push-2" value="Esborrar" alt="Esborrar dades de la noticia" ng-click="deleteNew(newList.idNew)">Eliminar</button>
+		<div class="col-lg-3 col-xs-12">
+			<div class="form-group col-lg-12 col-xs-8 col-xs-offset-4 buttonsNews">
+				<a ng-href="#/news/{{newList.idNew}}" class="urlBlackEditNews"><button class="btn-edit col-lg-4 col-lg-push-2 col-xs-4 " value="Editar" alt="Edita dades de la noticia">Editar</a></button>
+				<button class="btn-delete col-lg-5 col-lg-push-2 col-xs-4" value="Esborrar" alt="Esborrar dades de la noticia" ng-click="deleteNew(newList.idNew)">Eliminar</button>
 			</div>
 		</div>
-		<div class="col-lg-9 newsDiv">
-			<div class="col-lg-12">
-				<label class="col-sm-12 col-lg-12 titleNews">{{newList.title}}</label>
+		<div class="col-lg-9 col-xs-12 newsDiv">
+			<div class="col-lg-12 col-xs-12">
+				<label class="col-lg-12 col-xs-11 col-xs-offset-1 titleNews">{{newList.title}}</label>
 			</div>
 			<div class="">
-				<span class="col-sm-12 col-lg-12">{{newList.titleSub | limitTo: 110}}...</span>
+				<span class="col-lg-12 col-xs-11 col-xs-offset-1">{{newList.titleSub | limitTo: 110}}...</span>
 			</div>
 		</div>
 	</div>
@@ -102,7 +102,7 @@
 			</div>
 
 		<div class="col-sm-2" ng-repeat="image in new.images | filter : {type:'V'}">
-			<iframe width="400" height="215"  frameborder="0" allowfullscreen ng-src="https://www.youtube.com/embed/image.url"></iframe>
+			<iframe  frameborder="0" allowfullscreen ng-src="https://www.youtube.com/embed/image.url"></iframe>
 			<a href="" ng-click="imgDelete(image.idNewMedia, '0')"><i class=" col-sm-6 fa fa-trash" aria-hidden="true" >Eliminar</i></a>
 		</div>
 	</div>

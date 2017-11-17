@@ -867,6 +867,15 @@ button.btn-edit, button.btn-delete{
   .marginFormulariLinks {
     margin-bottom: 6%;
   }
+ .dateNews
+  {
+    padding-top: 0%;
+    margin-left: 0%;
+  }
+  .buttonsNews
+  {
+    margin-left: 0;
+  }
 }
 
 @media (min-width: 576px) and (max-width: 767px){
