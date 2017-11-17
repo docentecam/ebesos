@@ -3,6 +3,9 @@ angular.module('spaApp')
  			$scope.cUser = true;
  			$scope.activeCY = 'Y';
  			$scope.activeCN = 'N';
+ 			$scope.pswdC = "";
+			$scope.confirmPswdC = "";
+			$scope.currentPswdC = "";
 			$scope.loading = true;
 			$scope.fail = false;
 			$scope.fail2 = false;
@@ -110,7 +113,7 @@ angular.module('spaApp')
   						$scope.loading = true;
 						$http({
 							method : "GET",
-							url : "models/users.php?acc=updateUser&name="+$scope.nameC+"&email="+$scope.emailC+"&pswdMail="+$scope.emailPassC+"&address="+$scope.addressC+"&telephone="+$scope.telephoneC+"&idUser="+$scope.idUser+"&active="+$scope.activeC+"&history="+$scope.historyC+"&pswd="+$scope.pswdC+"&currentPswd="+$scope.currentPswdC
+							url : "models/users.php?acc=updateUser&name="+$scope.nameC+"&email="+$scope.emailC+"&pswdMail="+$scope.emailPassC+"&address="+$scope.addressC+"&telephone="+$scope.telephoneC+"&idUser="+$scope.idUserC+"&active="+$scope.activeC+"&history="+$scope.historyC+"&pswd="+$scope.pswdC+"&currentPswd="+$scope.currentPswdC
 						}).then(function mySucces (response) {
 							$scope.userUpdate = response.data;
 							$scope.statusValidation = $scope.userUpdate[0]['status'];
@@ -119,6 +122,7 @@ angular.module('spaApp')
 								{
 									$scope.validation = true;
 								}
+								console.log("llega");
 								$scope.loading = true;
 								$http({
 									method : "GET",
@@ -156,6 +160,9 @@ angular.module('spaApp')
 							$scope.userUpdate = response.statusText;
 						}).finally(function(){
 								$scope.loading = false;
+								$scope.pswdC = "";
+								$scope.confirmPswdC = "";
+								$scope.currentPswdC = "";
 						});
 
   					}
@@ -164,7 +171,7 @@ angular.module('spaApp')
   						$scope.loading = true;
   						$http({
 							method : "GET",
-							url : "models/users.php?acc=updateUser&name="+$scope.nameC+"&email="+$scope.emailC+"&pswdMail="+$scope.emailPassC+"&address="+$scope.addressC+"&telephone="+$scope.telephoneC+"&idUser="+$scope.idUser+"&active="+$scope.activeC+"&history="+$scope.historyC
+							url : "models/users.php?acc=updateUser&name="+$scope.nameC+"&email="+$scope.emailC+"&pswdMail="+$scope.emailPassC+"&address="+$scope.addressC+"&telephone="+$scope.telephoneC+"&idUser="+$scope.idUserC+"&active="+$scope.activeC+"&history="+$scope.historyC
 						}).then(function mySucces (response) {
 							$scope.userUpdate = response.data;
 							$scope.statusValidation = $scope.userUpdate[0]['status'];
@@ -176,7 +183,7 @@ angular.module('spaApp')
 								$scope.loading = true;
 								$http({
 									method : "GET",
-									url : "models/users.php?acc=loadUser" //modificar
+									url : "models/users.php?acc=loadUser"
 								}).then(function mySucces (response) {
 									$scope.associations = response.data;
 									$scope.idUserC = $scope.associations[0]['idUser'];
