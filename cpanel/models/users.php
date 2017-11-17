@@ -1,7 +1,6 @@
 <?php 
 require("../../inc/functions.php");
 session_start();
-
 	if(isset($_GET['acc']) && $_GET['acc'] == 'login')
 	{
 		$message='';
@@ -31,7 +30,6 @@ session_start();
 			$connexio = connect();
 			$resultLogin = mysqli_query($connexio, $mySql);
 			disconnect($connexio);
-
 			$row=mySqli_fetch_array($resultLogin);
 			$checkLogin=mysqli_num_rows($resultLogin);
 			if($checkLogin!=0)
@@ -42,7 +40,6 @@ session_start();
 				$getLogo = $row['logo'];
 			}
 		}
-
 		if($checkLogin == 0)
 		{
 			$message = "L'usuari o la contrasenya no són correctes";
@@ -57,7 +54,6 @@ session_start();
 		}
 		echo '[{"status":"'.$message.'"}]';
 	}
-
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'forgot')
 	{
 		$mySql = "SELECT idUser, emailPass, name FROM users 
@@ -66,7 +62,6 @@ session_start();
 		$resultCheck = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
 		$checkEmail=0;
-
 		$row=mySqli_fetch_array($resultCheck);
 		$checkEmail=mysqli_num_rows($resultCheck);
 		if($checkEmail!=0)
@@ -102,10 +97,8 @@ session_start();
 	 		$connexio = connect();
 	 		$resultSetting = mysqli_query($connexio, $mySql);
 	 		disconnect($connexio);
-
 	 		$row=mySqli_fetch_array($resultSetting);
 			$Setting=mysqli_num_rows($resultSetting);
-
 			$Setting = $row['value'];
 			for($i=2;$i<6;$i++)
 			{
@@ -121,16 +114,13 @@ session_start();
 	 		$connexio = connect();
 	 		$resultE = mysqli_query($connexio, $mySql);
 	 		disconnect($connexio);
-
 	 		$row=mySqli_fetch_array($resultE);
 			$mail=mysqli_num_rows($resultE);
-
 			$mail = $row['email'];
 			$passE = $row['emailPass'];
 			$logoM = $row['logo'];
 			$nameM = str_replace(array("\r\n", "\r", "\n"), "\\n",$row['name']);
 			
-
 	 		$body = "
 			 		<html>
 			 		<head>
@@ -143,11 +133,8 @@ session_start();
 			 			<a href='".$Setting."/cpanel/recover.php?acc=r&ft=".$random5."&dt=".$random3."&rt=".$random."&nt=".$random4."&pt=".$random2."'>Premi aquí</a>
 			 		</body>
 			 		</html>";
-
-
 	 		sendMails($_GET['mail'], "Reiniciar la contrasenya", $nameM, $mail, $passE, $body, $logoM);
 	 	}
-
 	 	echo '[{"status":"'.$message.'"}]';
 	}
 	else if(isset($_GET['acc']) && $_GET['acc'] == 'crPass')
@@ -158,12 +145,10 @@ session_start();
 		$resultPass = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
 		$passC = 0;
-
 		$row=mySqli_fetch_array($resultPass);
 		$passC=mysqli_num_rows($resultPass);
 		if($passC != 0)
 		{
-
 			$mySql = "UPDATE users
 					SET password='".sha1(md5($_GET['password']))."', forgotToken=NULL 
 					WHERE forgotToken='".$_GET['fToken']."'";
@@ -176,7 +161,6 @@ session_start();
 		{
 			$message = "La contrasenya no es pot actualitzar";
 		}
-
 		echo '[{"status":"'.$message.'"}]';
 	}
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'footer'){
@@ -198,10 +182,8 @@ session_start();
  		$showFooter .= "]";
  	 	echo $showFooter;
  	}
-
 if(isset($_SESSION['user']['idUser'])) 
 {
-
 	if(isset($_GET['acc']) && $_GET['acc'] == 'logout')
 	{ 
 	 		unset($_SESSION['user']['idUser']);
@@ -226,7 +208,6 @@ if(isset($_SESSION['user']['idUser']))
 		$connexio = connect();
 		$resultUser = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
-
 		$dataUser = "[";
 			$i = 0;
 			while($row = mysqli_fetch_array($resultUser))
@@ -239,7 +220,6 @@ if(isset($_SESSION['user']['idUser']))
 				$i++;
 			}
 			$dataUser .= "]";
-
 			echo $dataUser;
 	}
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'listUsers') {
@@ -258,7 +238,6 @@ if(isset($_SESSION['user']['idUser']))
 		$connexio = connect();
 		$resultUser = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
-
 		$dataUser = "[";
 			$i = 0;
 			while($row = mysqli_fetch_array($resultUser))
@@ -271,7 +250,6 @@ if(isset($_SESSION['user']['idUser']))
 				$i++;
 			}
 			$dataUser .= "]";
-
 			echo $dataUser;
 	}
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'updateUser') {
@@ -279,7 +257,7 @@ if(isset($_SESSION['user']['idUser']))
 		if(!isset($_GET['currentPswd']))
 		{
 			$mySql = 'UPDATE users
-					SET email="'.$_GET['email'].'", emailPass="'.$_GET['pswdMail'].'", name="'.$_GET['name'].'", address="'.$_GET['address'].'", telephone="'.$_GET['telephone'].'", history="'.$_GET['history'].'", active="'.$_GET['active'].'" 
+					SET email="'.$_GET['email'].'", emailPass="'.$_GET['pswdMail'].'", name="'.$_GET['name'].'", address="'.$_GET['address'].'", telephone="'.$_GET['telephone'].'", history="'.str_replace('\'', '',$row['history']).'", active="'.$_GET['active'].'" 
 					WHERE idUser='.$_GET['idUser'];
 			$connexio = connect();
 			$updateUserData = mysqli_query($connexio, $mySql);
@@ -318,7 +296,6 @@ if(isset($_SESSION['user']['idUser']))
 	}
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'createUser') {
 		$message='';
-
 		$mySql = 'INSERT INTO users (email, emailPass, name, password, address, telephone, logo, history, footer)
 				VALUES ("'.$_GET['email'].'","'.$_GET['pswdMail'].'","'.$_GET['name'].'","'.sha1(md5($_GET['pswd'])).'","'.$_GET['address'].'","'.$_GET['telephone'].'","","'.$_GET['history'].'","")';
 		
@@ -344,24 +321,19 @@ if(isset($_SESSION['user']['idUser']))
 	    	$file = $_POST['idUser']."f-".$_FILES["uploadedFile"]["name"];
 	    }
 	    move_uploaded_file($_FILES["uploadedFile"]["tmp_name"], '../../img/logos-assoc/'.$file);
-
 	    
 		$mySql = 'UPDATE users
 			SET '.$_POST['nameField'].'="'.$file.'" WHERE idUser='.$_POST['idUser'];
 		$connexio = connect();
 		$updateLogo = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
-
-
 		unlink('../../img/logos-assoc/'.$_POST['deleteLogo']);
-
 		$message = "S'ha pujat la imatge";
 		if($connexio == "Error al conectar")
 	 	{
 	 		$message = "Error al connectar";
 	 	}
 		echo '[{"status":"'.$message.'"}]';
-
 	}
 }
 else if(!isset($_GET['acc']))
