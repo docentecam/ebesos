@@ -5,7 +5,7 @@
     <span> | Comerç </span>
   </div>
 </div>
-<div class="row">
+<div class="row shop-header">
 	<div class="col-xs-3 col-lg-3 col-lg-offset-1"><img class="img-responsive" src="img/logos-shops/{{shops[0].logo}}"/></div>
 	<div class="col-xs-9 col-lg-8 shop-name no-padding"><h1>{{shops[0].nameShop}}</h1></div>
   <span class="col-lg-6"></span>
@@ -19,9 +19,9 @@
       <label class="col-xs-12">Tel. {{shops[0].telephone}}</label>
       <label class="col-xs-12">{{shops[0].email}}</label>
       <label class="col-xs-12"><i class="fa fa-whatsapp" aria-hidden="true"></i>{{shops[0].mobile}}</label>
-      <label class="col-xs-2"><i class="fa fa-facebook-official" aria-hidden="true"></i></label>
-      <label class="col-xs-2"><i class="fa fa-twitter-square" aria-hidden="true"></i></label>
-      <label class="col-xs-2"><i class="fa fa-instagram" aria-hidden="true"></i></label>
+      <label class="col-xs-1"><i class="fa fa-facebook-official" aria-hidden="true"></i></label>
+      <label class="col-xs-1"><i class="fa fa-twitter-square" aria-hidden="true"></i></label>
+      <label class="col-xs-1"><i class="fa fa-instagram" aria-hidden="true"></i></label>
     </div>
   </div>
   <div class="col-xs-6 col-lg-7 col-lg-offset-1">
@@ -141,13 +141,6 @@
           infowincontent.appendChild(time);
           infowincontent.appendChild(document.createElement('br'));
 
-          var link = document.createElement('a');
-          link.setAttribute('href', "#/shop/"+idShop+"");
-
-          link.textContent = "Ver mas"
-
-          infowincontent.appendChild(link);
-
           var icon = customLabel[type] || {};
 
           var marker = new google.maps.Marker({
@@ -156,13 +149,10 @@
             label: icon.label
           });
 
-          marker.addListener('mouseover', function() {
+          marker.addListener('click', function() {
+            //alert("Obrirem finestra amb dades del comerç");
             infoWindow.setContent(infowincontent);
             infoWindow.open(map, marker);
-          });
-
-          marker.addListener('click', function() {
-            alert("Obrirem finestra amb dades del comerç");
           });
 
           /*Mostrem els icones segons la categoria i associacio*/
