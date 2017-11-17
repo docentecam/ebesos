@@ -326,6 +326,14 @@ button.btn-edit, button.btn-delete{
   margin-top: 2%;
 }*/
 
+#whiteDivNews
+{
+  background-color: white;
+  border: 1px solid black; 
+  margin-top: 4%;
+  padding-top: 1.5%; 
+  margin-bottom: 10%;
+}
 
 #containerImg{
   background-color: white;
@@ -593,6 +601,7 @@ button.btn-edit, button.btn-delete{
 
 .centerPadding{
   padding: 15px 12px;
+  padding-right: 19px !important;
 }
 
 .tableSubCategories{
@@ -696,6 +705,105 @@ button.btn-edit, button.btn-delete{
   margin-left: 20%;
   margin-top: 5%;
 }
+
+.titleNews
+{
+  padding: 0;
+}
+
+.newsDiv
+{
+  padding: 0;
+  margin-left: -3%;
+}
+
+.urlBlackEditNews
+{
+  color: black!important;
+}
+.urlBlackEditNews:hover
+{
+  text-decoration: none;
+}
+.buttonsNews
+{
+  margin-left: 14%;
+}
+#whiteDivNews
+{
+  padding-top: 0;
+}
+.imgNews
+{
+  padding-top: 6%;
+}
+.dateNews
+{
+  padding-top: 7%;
+  margin-left: 50%;
+}
+.txtAreaNew
+{
+  border: none;
+}
+.btnEditNew
+{
+  margin-left: 4%!important;
+  font-size: 1em!important;
+}
+.divNewPadd
+{
+  padding-top: 4%;
+}
+.imgPreferNew
+{
+  padding-top: 4%;
+  margin-left: 9.7%;
+}
+.imgPrefChange
+{
+  margin-top: 4%;
+}
+#photoNew
+{
+  padding-top: 4%;
+  padding-bottom: 4%;
+}
+#whiteDivImgNew
+{
+  background-color: white;
+  border: solid 1px;
+  margin-top: -5%
+}
+.imgNewlabel
+{
+  padding-top: 4%;
+}
+.btnAddImgNew
+{
+  margin-top: 4%; 
+  margin-bottom: 4%;
+}
+#whiteDivVidNew
+{
+ background-color: white;
+ border: solid 1px;
+ margin-top: 1%;
+}
+.addVidNew
+{
+  margin-bottom: 4%;
+  margin-top: 4%;
+}
+.vidLabel
+{
+  padding-top: 4%;
+}
+
+
+
+
+
 
 
 

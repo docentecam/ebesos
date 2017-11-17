@@ -54,7 +54,7 @@
 					<div class="row">
 						<div class="row">
 							<div class="col-lg-12 padd">
-								<input type="text" id="userId" ng-value="idUserC" disabled hidden>
+								<input type="text" id="userId" ng-model="idUserC" disabled hidden>
 							</div>
 						</div>
 						<div class="col-lg-6 padd">Associació / Eix:</div>

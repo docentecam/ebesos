@@ -30,6 +30,16 @@ app.config(['$routeProvider', function ($routeProvider) {
 		templateUrl:'views/slider.php',
 		controller:'SliderCtrl',
 	})
+
+	.when('/slider/:idSlider',{
+		templateUrl:'views/slider.php',
+		controller:'SliderDescCtrl',
+	})
+
+
+
+
+
 	.when('/settings',{
 		templateUrl:'views/settings.php',
 		controller:'SettingsCtrl',

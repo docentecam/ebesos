@@ -3,107 +3,101 @@
 	if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 ?>
 <div class="row">
-	<div class="col-sm-12 text-center" ng-show="divMessages">
+	<div class="col-sm-12 col-lg-12 text-center" ng-show="divMessages">
 		<label>{{message}}</label>
 	</div>
 </div>
-
+<div class="row" ng-hide="divNew">
+	<label class="col-lg-12">
+		Notícies
+	</label>
+</div>
 <div class="row">
-	<div class="col-sm-12" ng-show="showListNews">
+	<div class="col-sm-12 col-lg-2 col-lg-offset-10" ng-show="showListNews">
 		<a ng-href="#/news/0"><input type="button" name="newNew" value="Afegir Noticia" alt="Afegir noticia" class="btn btn-default"></a>
 	</div>
 </div>
-<div class="col-sm-12">
-	Associació:<select name="assocSelect" id="assocSelect" ng-model="new.idUser" ng-change="changeAssociation()">
-		<option ng-repeat="association in assoList" ng-value="association.idUser" ng-selected="association.idUser==new.idUser" >{{association.name}}</option> 
-	</select>
+<div class="row">
+	<div class="col-sm-12 col-lg-12">
+		<select name="assocSelect" id="assocSelect" ng-model="new.idUser" ng-change="changeAssociation()" class="select-users">
+			<option ng-repeat="association in assoList" ng-value="association.idUser" ng-selected="association.idUser==new.idUser" >{{association.name}}</option> 
+		</select>
+	</div>
 </div>
-<form name="formListNews" class="row" ng-show="showListNews" ng-repeat="newList in newsList | filter:{idUser:filterAssoc}">
-	<div class="col-sm-3">
-		<div class="form-group col-sm-12">
-			<img class="img-fluid" id="photo" ng-src="../img/newsmedia/{{newList.urlPreferred}}" width="150px"> 
+<div id="whiteDivNews" ng-hide="divNew">
+	<div name="formListNews" class="row" ng-show="showListNews" ng-repeat="newList in newsList | filter:{idUser:filterAssoc}">
+		<div class="col-sm-3 col-lg-3">
+			<div class="form-group col-sm-12 col-lg-12 imgNews">
+				<img class="img-responsive" id="photo" ng-src="../img/newsmedia/{{newList.urlPreferred}}"> 
+			</div>
+		</div>
+		<div class="col-sm-9 col-lg-3 col-lg-offset-3">
+			<div class="col-sm-5 col-lg-12 dateNews">
+				<span class="">Data Publicació {{newList.dateList}}</span>
+			</div>
+		</div>
+		<div class="col-sm-4 col-lg-3">
+			<div class="form-group col-sm-12 col-lg-12 buttonsNews">
+				<a ng-href="#/news/{{newList.idNew}}" class="urlBlackEditNews"><button class="btn-edit col-lg-4 col-lg-push-2 " value="Editar" alt="Edita dades de la noticia">Editar</a></button>
+				<button class="btn-delete col-lg-5 col-lg-push-2" value="Esborrar" alt="Esborrar dades de la noticia" ng-click="deleteNew(newList.idNew)">Eliminar</button>
+			</div>
+		</div>
+		<div class="col-lg-9 newsDiv">
+			<div class="col-lg-12">
+				<label class="col-sm-12 col-lg-12 titleNews">{{newList.title}}</label>
+			</div>
+			<div class="">
+				<span class="col-sm-12 col-lg-12">{{newList.titleSub | limitTo: 110}}...</span>
+			</div>
 		</div>
 	</div>
-	<div class="col-sm-9">
-		<div class="row">
-			<div class="col-sm-3">
-			</div>
-			<div class="col-sm-5">
-				<span class="pull-right">Data Publicació {{newList.dateList}}</span>
-			</div>
-			<div class="col-sm-4">
-				<div class="form-group col-sm-12">
-					<a ng-href="#/news/{{newList.idNew}}"><input type="button" class="btn btn-success pull-left" value="Editar" alt="Edita dades de la noticia" class="btn btn-default"></a>&nbsp;&nbsp;&nbsp;
-					<input type="button" class="btn btn-success" value="Esborrar" alt="Esborrar dades de la noticia" class="btn btn-default" ng-click="deleteNew(newList.idNew)">
-				</div>
-			</div>
+</div>	
+							
+<div name="formNew" ng-show="divNew">
+	<div class="row">
+		<div class="form-group col-lg-12 divNewPadd">
+			<label>
+				Notícia
+			</label>
 		</div>
-		<div class="row">
-			<span class="col-sm-12 pull-left"><strong>{{newList.title}}</strong></span>
+		<div class="form-group col-lg-12">
+			<span class="col-sm-1 col-lg-1" for="title">Títol</span>
+			<input type="text" class="col-lg-9" name="title" ng-model="new.title">
+			<input type="date" class="col-lg-2" name="dateBox" id="dateForm" name="date" ng-model="new.date">
 		</div>
-		<div class="row">
-			<span class="col-sm-12 pull-left">{{newList.titleSub}}</span>
-		</div>
-			
-		
-	</div>	
-</form>
-
-
-
-<form name="formNew" ng-show="divNew" >
-	<div class="row" >
-		<div class="form-group">
-			<h1>Notícia</h1>
-		</div>
-		<div class="form-group">
-			<label class="col-sm-1" for="title">Títol</label>
-			<input type="text" class="col-sm-9 input-sm" name="title" ng-model="new.title">
-			<input type="date" class="col-sm-2 input-sm" name="dateBox" id="dateForm" name="date" ng-model="new.date">
-		</div>
-		<div class="form-group">
-			<label class="col-sm-1" for="titleSub">Subtítol</label>
-			<textarea class="col-sm-11" name="titleSub" ng-model="new.titleSub"></textarea>
+		<div class="form-group col-lg-12">
+			<span class="col-lg-1" for="titleSub">Subtítol</span>
+			<textarea cols=30 rows=12 class="col-lg-11 txtAreaNew" name="titleSub" ng-model="new.titleSub"></textarea>
 		</div>
 		<div class="row form-group">
-			<span class="col-sm-1"></span>
-			<input type="button" class="btn btn-success pull-left col-sm-10" name="editNew" value="{{act}} Noticia" class="btn btn-default" ng-click="newEdit()">
+			<button class="btn-edit col-lg-10 col-lg-push-1 btnEditNew" name="editNew" value="{{act}} Noticia" ng-click="newEdit()">Editar Notícia</button>
 		</div>
 	</div>
-	<div class="row form-group">
-
-			<label class="col-sm-12"><h2> Imatge Destacada</h2></label>
-			
-			<input type="file" id="imgPref" accept="image/jgp, image/jgep, image/png" onchange="angular.element(this).scope().changePreferred(this)" ng-show="false"> 
-			<img class="col-sm-4 pull-left img-fluid" id="photo" ng-src="../img/newsmedia/{{new.urlPreferred}}" >
-			<label class="col-sm-2 btn btn-default" for="imgPref" ng-show="addImage">Canviar preferida</label>
-		</div>
-
-	
-</form>
-
-
-
-<form class="row" name="formImgs" ng-show="divImgs">
+	<div id="whiteDivNews" class="col-lg-11 col-lg-offset-1">
+		<label class="col-lg-4 col-lg-offset-1 imgPreferNew">Imatge Destacada</label>
+		<input type="file" id="imgPref" accept="image/jgp, image/jgep, image/png" onchange="angular.element(this).scope().changePreferred(this)" ng-show="false"> 
+		<label class="col-lg-3 col-lg-pull-2 btn btn-default imgPrefChange" for="imgPref" ng-show="addImage">Canviar imatge destacada</label>
+		<img class="col-lg-5 col-lg-offset-3 img-responsive" id="photoNew" ng-src="../img/newsmedia/{{new.urlPreferred}}" >
+	</div>	
+</div>
+<div id="whiteDivImgNew" class="col-lg-11 col-lg-offset-1" name="formImgs" ng-show="divImgs">
 	<div class="for-group">
-		<h2 class="col-sm-10"> Imatges de la noticia </h2> 
-		<span class="col-sm-2">
-			<label for="addImage"><i class="fa fa-plus" aria-hidden="true">Afegir</i></label>
+		<label class="col-lg-1 col-lg-offset-1 imgNewlabel">Imatges</label> 
+			<label for="addImage" class="btn btn-default col-lg-2 col-lg-offset-1 btnAddImgNew">Afegir imatges</label>
 			<input type="file" id="addImage" accept="image/jgp, image/jgep, image/png" onchange="angular.element(this).scope().addMedia(this,'I')" ng-show="false"> 
-		</span>
 		<div class="col-sm-4" ng-repeat="image in new.images | filter : {preferred:'N' , type:'I'}">
-			<img class="col-sm-12 img-fluid" ng-src="../img/newsmedia/{{image.url}}">		
+			<img class="col-sm-12 img-responsive" ng-src="../img/newsmedia/{{image.url}}">		
 			<a href="" ng-click="imgDelete(image.idNewMedia, image.url)"><i class=" col-sm-6 fa fa-trash" aria-hidden="true" >Eliminar</i></a>
 		</div>
 	</div>
-</form>
-
-<form class="row" name="formVideos" ng-show="divVideos">
+</div>
+<div class="col-lg-11 col-lg-offset-1" name="formVideos" ng-show="divVideos" id="whiteDivVidNew">
 	<div class="for-group">
-		<h2 class="col-sm-10"> Vídeos de la noticia </h2> <span class="col-sm-2"><a href="" ng-click="activeAddVideo()"><i class="fa fa-plus" aria-hidden="true">Afegir</i></a></span>
-			<div class="col-sm-12" ng-show="divAddVideo">
+		<label class="col-lg-1 col-lg-offset-1 vidLabel">Vídeos</label>
+		<a href="" ng-click="activeAddVideo()" class="btn btn-default col-lg-2 col-lg-offset-1 addVidNew">Afegir vídeos</a>
+			<div class="col-lg-12" ng-show="divAddVideo">
 				<label>Url Vídeo youtube</label>
-				<input type="text" ng-model="urlVideoAdd" />
+				<input type="text" ng-model="urlVideoAdd">
 				<input type="button" ng-click="addMedia('','V')" value="Pujar">
 			</div>
 
@@ -112,7 +106,7 @@
 			<a href="" ng-click="imgDelete(image.idNewMedia, '0')"><i class=" col-sm-6 fa fa-trash" aria-hidden="true" >Eliminar</i></a>
 		</div>
 	</div>
-</form>
+</div>
 
 
 <!-- <div id="containerImagesOfNew">
