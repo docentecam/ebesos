@@ -2,10 +2,10 @@
 	session_start();
 	if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 ?>
-<div class="row users-list" ng-show="(showList)">
+<div class="row users-list" ng-show="showList">
 	<label class="col-lg-1 title-comerços no-padding">Comerços:</label>
 	<div class="col-lg-1 no-padding">
-		<button ng-click="shopOneAdd()" class="btn-add col-lg-12 col-lg-offset-2 no-padding">Afegir <i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+		<a href="#/shops/0/a"><button class="btn-add col-lg-12 col-lg-offset-2 no-padding">Afegir <i class="fa fa-plus-circle" aria-hidden="true"></i></button></a>
 	</div>
 	<div class="col-lg-12"></div>
 	<select class="col-lg-4 select-users" ng-disabled="privilegesLg=='A'" ng-change="listChange(idUserL)" ng-model="idUserL">
@@ -21,7 +21,7 @@
 		</div>
 	</div>
 	<div class="col-lg-2 botones">
-		<button ng-click="shopOneEdit($index, 'e', shops.idShop)" class="btn-edit col-lg-5 col-lg-push-2">Editar</button>
+		<a ng-href="#/shops/{{shops.idShop}}/{{$index}}"><button class="btn-edit col-lg-5 col-lg-push-2">Editar</button></a>
 		<button ng-click="shopOneDelete(shops.idShop)" class="btn-delete col-lg-5 col-lg-push-2">Eliminar</button>
 	</div>
 </div>
@@ -71,8 +71,8 @@
 		</div>
 		<div class="col-md-12">
 			<span class="col-lg-12 no-padding">Email</span>
-			<input type="text" class="col-lg-4" id="e-shop" name="e-shop" placeholder="tenda@gmail.com" name="" ng-model="shopOne.email">
-			<input type="submit" class="col-lg-2 col-lg-offset-3 btn-up" value="Actualitzar" class="btn-default">
+			<input type="text" class="col-lg-4" id="e-shop" name="e-shop" placeholder="comerç@gmail.com" name="" ng-model="shopOne.email">
+			<input type="submit" class="col-lg-2 col-lg-offset-3 btn-up" value="Actualitzar">
 	</form>
 	<div class="row categories-edit">
 		<div class="col-lg-12">

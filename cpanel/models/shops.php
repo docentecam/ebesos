@@ -26,7 +26,7 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'list')
 	{
 		if($i != 0) $dataShops .= ",";
 
-		$dataShops .= '{"idShop":"'.$row['idShop'].'", "name":"'.$row['name'].'", "lng":"'.$row['lng'].'", "lat":"'.$row['lat'].'", "logo":"'.$row['logo'].'", "telephone":"'.$row['telephone'].'", "email":"'.$row['email'].'", "address":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['address']).'", "schedule":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['schedule']).'", "description":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['description']).'", "descriptionLong":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['descriptionLong']).'", "web":"'.$row['web'].'", "cp":"'.$row['cp'].'", "ciutat":"'.$row['ciutat'].'", "idUser":"'.$row['idUser'].'", "imgPref":"'.$row['url'].'"';
+		$dataShops .= '{"idShop":"'.$row['idShop'].'", "name":"'.$row['name'].'", "lng":"'.$row['lng'].'", "lat":"'.$row['lat'].'", "logo":"'.$row['logo'].'", "telephone":"'.$row['telephone'].'", "email":"'.$row['email'].'", "address":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['address']).'", "schedule":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['schedule']).'", "description":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['description']).'", "descriptionLong":"'.str_replace(array("\r\n", "\r", "\n", "'\'"), "\\n",$row['descriptionLong']).'", "web":"'.$row['web'].'", "cp":"'.$row['cp'].'", "ciutat":"'.$row['ciutat'].'", "idUser":"'.$row['idUser'].'", "imgPref":"'.$row['url'].'"';
 
 		$dataShops .= '}';
 		$i++;
@@ -105,9 +105,9 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'upload')
 		fputs($fp,'deleteLogo="'.$deleteLogo.'"');
 	fclose($fp);
 
-	if(isset($_GET['acc']) && $_GET['sentence'] == 'n')
+	if(isset($_GET['acc']) && $_GET['sentence'] == 'a')
 	{
-		$mySql = 'INSERT INTO `ddb99266`.`shops` (`name`, `lat`, `lng`, `telephone`, `email`, `url`, `schedule`, `address`, `idUser`, `description`, `descriptionLong`, `logo`, `cp`, `ciutat`) VALUES ("'.$name.'", "'.$lat.'", "'.$lng.'", "'.$telephone.'", "'.$email.'", "'.$url.'", "'.$schedule.'", "'.$address.'", ".$idUser.", "'.$description.'", "'.$descriptionLong.'", "'.$logo.'", "'.$cp.'", "'.$ciutat.'");';
+		$mySql = 'INSERT INTO `ddb99266`.`shops` (`name`, `lat`, `lng`, `telephone`, `email`, `url`, `schedule`, `address`, `idUser`, `description`, `descriptionLong`, `logo`, `cp`, `ciutat`) VALUES ("'.$name.'", "'.$lat.'", "'.$lng.'", "'.$telephone.'", "'.$email.'", "'.$web.'", "'.$schedule.'", "'.$address.'", "'.$idUser.'", "'.$description.'", "'.str_replace(array("\r\n", "\r", "\n"), "\\n",$descriptionLong).'", "'.$logo.'", "'.$cp.'", "'.$ciutat.'");';
 
 		$fp=fopen("../files/newShop.txt",'w');
 			fputs($fp,'mySql="'.$mySql.'"');
@@ -119,8 +119,7 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'upload')
 
 		disconnect($connexio);
 	}
-
-	else if(isset($_GET['sentence']) && $_GET['sentence'] == 'e')
+	else
 	{
 		$mySql = 'UPDATE `ddb99266`.`shops` SET `name`="'.$name.'", `lat`="'.$lat.'", `lng`="'.$lng.'", `telephone`="'.$telephone.'", `email`="'.$email.'", `url`="'.$url.'", `schedule`="'.$schedule.'", `address`="'.$address.'", `idUser`="'.$idUser.'", `description`="'.$description.'", `descriptionLong`="'.$descriptionLong.'", `logo`="'.$logo.'", `cp`="'.$cp.'", `ciutat`="'.$ciutat.'" WHERE `idShop`="'.$idShop.'";';
 

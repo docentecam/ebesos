@@ -1,8 +1,8 @@
 angular.module('spaApp')
-.controller('ShopsCtrl', function($scope, $http, $routeParams, $q, upload) {
+.controller('ShopsCtrl', function($scope, $http) {
 	$scope.showShop = false;
 	$scope.showList = true;
-	$scope.shopOne = "[{{}}]";
+	
 	$scope.filterId = 1;
 	$scope.loading = true;
 	$http({
@@ -32,47 +32,84 @@ angular.module('spaApp')
 			$scope.loading = false;
 	});
 
-	$scope.shopOneEdit = function(index, $type, $idShop){
-		$scope.loading = true;
-		$http({
-			method : "GET",
-			url : "models/shops.php?acc=e&idShop="+$idShop
-		}).then(function mySucces(response) {
-			$scope.personalData = response.data;
-			$scope.subCategoriesShop = $scope.personalData[0].subCategoriesShop;
-			$scope.subCategories = $scope.personalData[0].subCategories;
-			$scope.images = $scope.personalData[0].images;
-			$scope.currentIdPref = $scope.personalData[0].images[0].idShopImage;
-		}, function myError(response) {
-			$scope.shops = response.statusText;
-		}).finally(function(){
-			$scope.loading = false;
-		});
-		$scope.shopOne = $scope.shopsList[index];
-		$scope.currentShopLogo = $scope.shopOne.logo;
-		$scope.type = $type;
-		$scope.showShop = true;
-		$scope.showList = false;
-	};
 	$scope.shopOneDelete = function($idShop){
-		console.log($idShop);
-		$scope.loading = true;
-		$http({
-			method : "GET",
-			url : "models/shops.php?acc=delete&idShop=" + $idShop
-		}).then(function mySucces (response) {
-			$scope.shopDeleted = response.data
-			console.log("hola: " + $scope.shopDeleted);
-		}, function myError (response) {
-			$scope.shopOne = response.statusText;
-		}).finally(function(){
-			$scope.loading = false;
-		});
+		var confirmed = confirm("Desitja esborrar aquest comerç?");
+		if(confirmed)
+		{
+			console.log($idShop);
+			$scope.loading = true;
+			$http({
+				method : "GET",
+				url : "models/shops.php?acc=delete&idShop="+$idShop
+			}).then(function mySucces (response) {
+				$scope.shopDeleted = response.data
+				console.log("hola: " + $scope.shopDeleted);
+			}, function myError (response) {
+				$scope.shopOne = response.statusText;
+			}).finally(function(){
+				$scope.loading = false;
+			});
+		}
 	};
+});
+
+angular.module('spaApp')
+.controller('ShopsEditCtrl', function($scope, $http, $routeParams, $q, upload) {
+	$scope.loading = true;
+	$scope.idShop = $routeParams.idShop;
+	$scope.indexList = $routeParams.indexList;
+	$scope.shopOne = "[{{}}]";
+	$http({
+		method : "GET",
+		url : "models/users.php?acc=listUsers"
+	}).then(function mySucces(response) {
+		$scope.userList = response.data;
+	}, function myError(response) {
+		$scope.shops = response.statusText;
+	}).finally(function(){
+      $scope.loading = false;
+  	});
+
+	$http({
+		method : "GET",
+		url : "models/shops.php?acc=list"
+	}).then(function mySucces(response) {
+		console.log(response.data);
+		$scope.data = response.data;
+		$scope.shopsList = $scope.data[0].list;
+		$scope.allSubCat = $scope.data[0].allSubCat;
+		$scope.shopOne = $scope.shopsList[$scope.indexList];
+		console.log($scope.allSubCat);
+	}, function myError(response) {
+		$scope.shops = response.statusText;
+	}).finally(function(){
+			$scope.loading = false;
+	});
+
+	$scope.loading = true;
+	$http({
+		method : "GET",
+		url : "models/shops.php?acc=e&idShop="+$scope.idShop
+	}).then(function mySucces(response) {
+		$scope.personalData = response.data;
+		$scope.subCategoriesShop = $scope.personalData[0].subCategoriesShop;
+		$scope.subCategories = $scope.personalData[0].subCategories;
+		$scope.images = $scope.personalData[0].images;
+		$scope.currentIdPref = $scope.personalData[0].images[0].idShopImage;
+	}, function myError(response) {
+		$scope.shops = response.statusText;
+	}).finally(function(){
+		$scope.loading = false;
+	});
+
+	$scope.currentShopLogo = $scope.shopOne.logo;
+	$scope.showShop = true;
+	$scope.showList = false;
+
+	
 	$scope.shopOneAdd = function($idShop){
 		$scope.showShop = true;
 		$scope.showList = false;
-		$scope.type = "A";
 	};
 	$scope.listChange = function($idUserL){
 		if($idUserL==1) $scope.filterShops="!1";
@@ -176,7 +213,7 @@ angular.module('spaApp')
 	}
 	$scope.uploadFile = function(){
 		console.log("carga");
-		var type = $scope.type;
+		var type = $scope.indexList;
 		var idShop = $scope.shopOne.idShop
 		var name = $scope.shopOne.name;
 		var idUser = $scope.idUser;

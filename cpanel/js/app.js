@@ -22,6 +22,10 @@ app.config(['$routeProvider', function ($routeProvider) {
 		templateUrl:'views/shops.php',
 		controller:'ShopsCtrl',
 	})
+	.when('/shops/:idShop/:indexList',{
+		templateUrl:'views/shops.php',
+		controller:'ShopsEditCtrl',
+	})
 	.when('/slider',{
 		templateUrl:'views/slider.php',
 		controller:'SliderCtrl',
