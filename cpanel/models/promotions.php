@@ -26,7 +26,7 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'updatePromotion'){
 								
 			 				}
 						$mySql.= ',image="'.$file.'"';
-					}
+					}                                               
 
 
 

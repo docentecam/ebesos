@@ -55,8 +55,6 @@ angular.module('spaApp')
 						$scope.promotionsList=response.data[0].dataPromotions;
 						$scope.loadPromotions=true;
 					}	
-			
-				
 					, function myError (response) {
 						$scope.promotionsList = response.statusText;
 					})
@@ -132,9 +130,7 @@ angular.module('spaApp')
 			.finally(function(){ 
 		    $scope.loading=false; 
 		})
-
-
-			
+	
 		}
 	
 
@@ -174,9 +170,7 @@ angular.module('spaApp')
 					deferred.resolve(res);
 					if ($scope.imgForChange!="") {
 						console.log($scope.imgForChange.name);
-						$scope.promotion.image=$scope.promotion.idPromotion+"-"+$scope.imgForChange.name;}
-					
-					
+						$scope.promotion.image=$scope.promotion.idPromotion+"-"+$scope.imgForChange.name;}	
 				})
 	}
 
