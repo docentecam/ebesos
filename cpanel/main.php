@@ -98,9 +98,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 				</div>  					
 			</div>
 			<div id="loadingData" ng-show="loading">
-					<center><!--TODO eliminar <img  src="../img/loading_icon.gif" style="margin-top: 21%;"> --><i class="fa fa-spinner fa-spin fa-3x fa-fw"></i> 
-<!--TODO eliminar <span class="sr-only">Loading...</span> -->
-</center>	
+					<center><i class="fa fa-spinner fa-spin fa-3x fa-fw"></i></center>	
 				</div> 	
 				<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 editNgView" data-ng-view="" ng-hide="loading"> 				
   				</div>

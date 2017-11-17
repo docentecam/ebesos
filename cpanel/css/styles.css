@@ -554,6 +554,7 @@ label.btn-add, button.btn-add{
 
 .centerPadding{
   padding: 15px 12px;
+  padding-right: 19px !important;
 }
 
 .tableSubCategories{

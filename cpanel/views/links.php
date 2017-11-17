@@ -31,7 +31,7 @@
 		<tbody>
 			<tr ng-repeat="link in linksList">
 				<td class="tdCenterLinks borderTableLinks">{{link.description}}</td>
-				<td class="tdCenterLinks borderTableLinks">{{link.url | limitTo: 20}}</td>
+				<td class="tdCenterLinks borderTableLinks">{{link.url}}</td>
 				<td class="centerPadding borderTableLinks"><a ng-click="editLink(link.idLink,link.description,link.url)" class="iconLinkCenter" href=""><i class="fa fa-2x fa-pencil editDeleteIconLinks" aria-hidden="true"></i></a></td>
 				<td class="centerPadding borderTableLinks"><a ng-click="deleteLink(link.idLink)" class="iconLinkCenter" href=""><i class="fa fa-2x fa-times editDeleteIconLinks" aria-hidden="true"></i></a></td>	
 			</tr>
