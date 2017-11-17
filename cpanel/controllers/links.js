@@ -155,8 +155,6 @@ angular.module('spaApp')
 			.finally(function() 
 			{ 
 			    $scope.loading=false;
-			    $scope.nameC = "";
-				$scope.urlC = "";
 			})
 			
 		}
