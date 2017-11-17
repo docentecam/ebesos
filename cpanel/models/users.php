@@ -335,7 +335,14 @@ if(isset($_SESSION['user']['idUser']))
 	}
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'updateImgAsso') {
 		
-	    $file = $_POST['idUser']."-".$_FILES["uploadedFile"]["name"];
+	    if($_POST['nameField'] == 'logo')
+	    {
+	    	$file = $_POST['idUser']."-".$_FILES["uploadedFile"]["name"];
+	    }
+	    else
+	    {
+	    	$file = $_POST['idUser']."f-".$_FILES["uploadedFile"]["name"];
+	    }
 	    move_uploaded_file($_FILES["uploadedFile"]["tmp_name"], '../../img/logos-assoc/'.$file);
 
 	    

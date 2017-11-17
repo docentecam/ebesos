@@ -341,7 +341,7 @@ angular.module('spaApp')
 					}
 					else
 					{
-						$scope.footerC = $scope.idUserC+"-"+e.files[0].name;
+						$scope.footerC = $scope.idUserC+"f-"+e.files[0].name;
 					}
 					$scope.statusValidation2 = "La imatge s'ha inserit correctament";
 					$scope.validation2 = true;
