@@ -20,7 +20,7 @@ session_start();
 		{
 			$checkLogin = $row['idUser'];
 			$getPrivileges = $row['privileges'];
-			$getName = $row['name'];
+			$getName = str_replace(array("\r\n", "\r", "\n"), "\\n",$row['name']);
 			$getLogo = $row['logo'];
 		}
 			
@@ -38,7 +38,7 @@ session_start();
 			{
 				$checkLogin = $row['idShop'];
 				$getPrivileges = $row['privileges'];
-				$getName = $row['name'];
+				$getName = str_replace(array("\r\n", "\r", "\n"), "\\n",$row['name']);
 				$getLogo = $row['logo'];
 			}
 		}
@@ -72,7 +72,7 @@ session_start();
 		if($checkEmail!=0)
 		{
 			$checkEmail = $row['idUser'];
-			$name = $row['name'];
+			$name = str_replace(array("\r\n", "\r", "\n"), "\\n",$row['name']);
 		}
 	 	if($checkEmail == 0)
 	 	{
@@ -128,7 +128,7 @@ session_start();
 			$mail = $row['email'];
 			$passE = $row['emailPass'];
 			$logoM = $row['logo'];
-			$nameM = $row['name'];
+			$nameM = str_replace(array("\r\n", "\r", "\n"), "\\n",$row['name']);
 			
 
 	 		$body = "
@@ -235,7 +235,7 @@ if(isset($_SESSION['user']['idUser']))
 				{
 					$dataUser .= ",";
 				}
-				$dataUser .= '{"idUser":"'.$row['idUser'].'", "name":"'.$row['name'].'", "email":"'.$row['email'].'", "emailPass":"'.$row['emailPass'].'", "password":"'.$row['password'].'", "address":"'.$row['address'].'", "telephone":"'.$row['telephone'].'", "logo":"'.$row['logo'].'", "history":"'.$row['history'].'", "active":"'.$row['active'].'", "footer":"'.$row['footer'].'"}'; 
+				$dataUser .= '{"idUser":"'.$row['idUser'].'", "name":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['name']).'", "email":"'.$row['email'].'", "emailPass":"'.$row['emailPass'].'", "password":"'.$row['password'].'", "address":"'.$row['address'].'", "telephone":"'.$row['telephone'].'", "logo":"'.$row['logo'].'", "history":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['history']).'", "active":"'.$row['active'].'", "footer":"'.$row['footer'].'"}'; 
 				$i++;
 			}
 			$dataUser .= "]";
@@ -267,7 +267,7 @@ if(isset($_SESSION['user']['idUser']))
 				{
 					$dataUser .= ",";
 				}
-				$dataUser .= '{"idUser":"'.$row['idUser'].'", "name":"'.$row['name'].'", "privileges":"'.$row['privileges'].'"}'; 
+				$dataUser .= '{"idUser":"'.$row['idUser'].'", "name":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['name']).'", "privileges":"'.$row['privileges'].'"}'; 
 				$i++;
 			}
 			$dataUser .= "]";
@@ -335,7 +335,14 @@ if(isset($_SESSION['user']['idUser']))
 	}
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'updateImgAsso') {
 		
-	    $file = $_POST['idUser']."-".$_FILES["uploadedFile"]["name"];
+	    if($_POST['nameField'] == 'logo')
+	    {
+	    	$file = $_POST['idUser']."-".$_FILES["uploadedFile"]["name"];
+	    }
+	    else
+	    {
+	    	$file = $_POST['idUser']."f-".$_FILES["uploadedFile"]["name"];
+	    }
 	    move_uploaded_file($_FILES["uploadedFile"]["tmp_name"], '../../img/logos-assoc/'.$file);
 
 	    

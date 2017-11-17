@@ -109,7 +109,7 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'deleteNew'){
 	function listNews($preferredImg="", $idUser="", $idNew=""){
 		
 		$optionWhere=false;
-		$mySql = "SELECT `news`.`idNew`, `news`.`idUser`, `news`.`title`, `news`.`titleSub`, `news`.`date`, DATE_FORMAT( `news`.`date`,'%d-%M-%Y') AS dateList, `newsmedia`.`url` FROM `news` LEFT JOIN `newsmedia` ON `newsmedia`.`idNew` = `news`.`idNew`";
+		$mySql = "SELECT `news`.`idNew`, `news`.`idUser`, `news`.`title`, `news`.`titleSub`, `news`.`date`, DATE_FORMAT( `news`.`date`,'%d-%m-%Y') AS dateList, `newsmedia`.`url` FROM `news` LEFT JOIN `newsmedia` ON `newsmedia`.`idNew` = `news`.`idNew`";
 		if($preferredImg!=""){ $mySql.=" WHERE `newsmedia`.`preferred` ='Y'"; $optionWhere=true;}
 
 		if($idUser=="" && $_SESSION['user']['idUser']!="1"){

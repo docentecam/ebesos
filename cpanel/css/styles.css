@@ -35,13 +35,20 @@ select:focus{
   -webkit-appearance: none;
   appearance: none;
 }
+option{
+  background-color: #EDEDED;
+}
 button.btn-add{
   outline: none;
   border: none;
   padding-left: 7px!important;
   padding-top: 3px!important;
 }
+textarea{
+  resize: none;
+}
 label.btn-add, button.btn-add{
+  outline: none;
   height: 35px;
   font-weight: 300;
   font-size: 0.9em;
@@ -51,17 +58,48 @@ label.btn-add, button.btn-add{
   padding-left: 17px;
   background-color: #C0D0D7;
 }
-.select-users{
-  width: 220px;
-  margin-top: 20px;
+label.btn-add:active, button.btn-add:active{
+  background-color: #B1C0C6;
+}
+input.btn-up{
+  background-color: #D4DBDE!important;
+  border: 1px solid #A4A4A4;
+  outline: none;
+}
+input.btn-up:active{
+  background-color: #C4CACD!important;
+}
+button.btn-edit, button.btn-delete{
+  outline: none;
+  height: 49px;
+  font-size: 0.8em;
+  background: #DDE3E5 !important;
+  margin: 0;
+  padding: 2px !important;
+  border: none !important;
+}
+.images-shop button.btn-delete{
+  float: right;
+}
+.btn-edit:active, .btn-delete:active{
+  background: #CDD2D4 !important;
+}
+.botones{
+  padding-right: 0;
+  margin-right: 0;
+}
+.users-list .select-users{
   margin-bottom: 20px;
+  margin-top: 3%;
+}
+.select-users, .categories-edit select{
+  width: 220px;
   border: 1px solid #808080;
   background-image: url("../img/circledown.svg");
   background-repeat: no-repeat;
   background-position-y: 5px;
   background-position-x: 195px;
   background-color: #B0C2C8;
-  margin-top: 3%;
 }
 #active
 {
@@ -71,18 +109,6 @@ label.btn-add, button.btn-add{
   background-position-y: 5px;
   background-position-x: 150px;
   background-color: #BED1D7;
-}
-.btn-edit, .btn-delete{
-  height: 49px;
-  font-size: 0.8em;
-  background: #DDE3E5 !important;
-  margin: 0;
-  padding: 2px !important;
-  border: none !important;
-}
-.botones{
-  padding-right: 0;
-  margin-right: 0;
 }
 #loadingData{
   position:absolute;
@@ -207,6 +233,13 @@ label.btn-add, button.btn-add{
 .shop-cage{
   margin-top: 10px;
 }
+#i-shop div span, #i-shop div label, .categories-edit label{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#i-shop-city{
+  margin-top: 55px!important;
+}
 .shops-list{
   padding-top: 0px;
   padding-bottom: 10px;
@@ -227,6 +260,12 @@ label.btn-add, button.btn-add{
   border-radius: 11px;
   border: 1px solid #C5C5C5;
   margin-top: -20px;
+}
+.categories-edit{
+  margin-top: 120px;
+}
+.images-edit{
+  margin-top: 100px;
 }
 .images-prefered, .images-other{
   padding-top: 35px;
@@ -287,6 +326,14 @@ label.btn-add, button.btn-add{
   margin-top: 2%;
 }*/
 
+#whiteDivNews
+{
+  background-color: white;
+  border: 1px solid black; 
+  margin-top: 4%;
+  padding-top: 1.5%; 
+  margin-bottom: 10%;
+}
 
 #containerImg{
   background-color: white;
@@ -658,6 +705,105 @@ label.btn-add, button.btn-add{
   margin-left: 20%;
   margin-top: 5%;
 }
+
+.titleNews
+{
+  padding: 0;
+}
+
+.newsDiv
+{
+  padding: 0;
+  margin-left: -3%;
+}
+
+.urlBlackEditNews
+{
+  color: black!important;
+}
+.urlBlackEditNews:hover
+{
+  text-decoration: none;
+}
+.buttonsNews
+{
+  margin-left: 14%;
+}
+#whiteDivNews
+{
+  padding-top: 0;
+}
+.imgNews
+{
+  padding-top: 6%;
+}
+.dateNews
+{
+  padding-top: 7%;
+  margin-left: 50%;
+}
+.txtAreaNew
+{
+  border: none;
+}
+.btnEditNew
+{
+  margin-left: 4%!important;
+  font-size: 1em!important;
+}
+.divNewPadd
+{
+  padding-top: 4%;
+}
+.imgPreferNew
+{
+  padding-top: 4%;
+  margin-left: 9.7%;
+}
+.imgPrefChange
+{
+  margin-top: 4%;
+}
+#photoNew
+{
+  padding-top: 4%;
+  padding-bottom: 4%;
+}
+#whiteDivImgNew
+{
+  background-color: white;
+  border: solid 1px;
+  margin-top: -5%
+}
+.imgNewlabel
+{
+  padding-top: 4%;
+}
+.btnAddImgNew
+{
+  margin-top: 4%; 
+  margin-bottom: 4%;
+}
+#whiteDivVidNew
+{
+ background-color: white;
+ border: solid 1px;
+ margin-top: 1%;
+}
+.addVidNew
+{
+  margin-bottom: 4%;
+  margin-top: 4%;
+}
+.vidLabel
+{
+  padding-top: 4%;
+}
+
+
+
+
+
 
 
 

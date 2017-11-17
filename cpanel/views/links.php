@@ -14,7 +14,7 @@
 </div>
 <div class="row">
 	<div class="col-xs-1 noPadding" ng-show="tableLinks">
-		<button id="btnAfegir" class="btn btn-default btnAfegirLinks " ng-hide="btnAfegir" ng-click="createLink()">Afegir <i class="fa fa-plus-circle"></i></button>
+		<a ng-href="#/links/a/-1"><button id="btnAfegir" class="btn btn-default btnAfegirLinks " ng-hide="btnAfegir" ng-click="createLink()">Afegir <i class="fa fa-plus-circle"></i></button></a>
 	</div>
 </div>
 <div ng-show="tableLinks">
@@ -31,8 +31,8 @@
 		<tbody>
 			<tr ng-repeat="link in linksList">
 				<td class="tdCenterLinks borderTableLinks">{{link.description}}</td>
-				<td class="tdCenterLinks borderTableLinks">{{link.url}}</td>
-				<td class="centerPadding borderTableLinks"><a ng-click="editLink(link.idLink,link.description,link.url)" class="iconLinkCenter" href=""><i class="fa fa-2x fa-pencil editDeleteIconLinks" aria-hidden="true"></i></a></td>
+				<td class="tdCenterLinks borderTableLinks">{{link.url | limitTo: 20}}</td>
+				<td class="centerPadding borderTableLinks"><a ng-href="#/links/e/{{link.idLink}}" class="iconLinkCenter" href=""><i class="fa fa-2x fa-pencil editDeleteIconLinks" aria-hidden="true"></i></a></td>
 				<td class="centerPadding borderTableLinks"><a ng-click="deleteLink(link.idLink)" class="iconLinkCenter" href=""><i class="fa fa-2x fa-times editDeleteIconLinks" aria-hidden="true"></i></a></td>	
 			</tr>
 		</tbody>
@@ -41,7 +41,7 @@
 </div>
 
 
-<div ng-show="formLinks">
+<div ng-hide="tableLinks">
 	<form id="linksForm" ng-submit="updateLink()">
 		<div class="row">
 			<input type="text" id="userId" ng-value="idLinkC"  disabled hidden>

@@ -26,7 +26,7 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'list')
 	{
 		if($i != 0) $dataShops .= ",";
 
-		$dataShops .= '{"idShop":"'.$row['idShop'].'", "name":"'.$row['name'].'", "lng":"'.$row['lng'].'", "lat":"'.$row['lat'].'", "logo":"'.$row['logo'].'", "telephone":"'.$row['telephone'].'", "email":"'.$row['email'].'", "address":"'.$row['address'].'", "schedule":"'.$row['schedule'].'", "description":"'.$row['description'].'", "descriptionLong":"'.$row['descriptionLong'].'", "web":"'.$row['web'].'", "cp":"'.$row['cp'].'", "ciutat":"'.$row['ciutat'].'", "idUser":"'.$row['idUser'].'", "imgPref":"'.$row['url'].'"';
+		$dataShops .= '{"idShop":"'.$row['idShop'].'", "name":"'.$row['name'].'", "lng":"'.$row['lng'].'", "lat":"'.$row['lat'].'", "logo":"'.$row['logo'].'", "telephone":"'.$row['telephone'].'", "email":"'.$row['email'].'", "address":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['address']).'", "schedule":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['schedule']).'", "description":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['description']).'", "descriptionLong":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['descriptionLong']).'", "web":"'.$row['web'].'", "cp":"'.$row['cp'].'", "ciutat":"'.$row['ciutat'].'", "idUser":"'.$row['idUser'].'", "imgPref":"'.$row['url'].'"';
 
 		$dataShops .= '}';
 		$i++;
@@ -65,7 +65,6 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'e')
 }
 else if(isset($_GET['acc']) && $_GET['acc'] == 'upload')
 {
-	//getVariables();
 	$idShop = $_POST["idShop"];
 	$name = $_POST["name"];
 	$idUser = $_POST["idUser"];
@@ -81,12 +80,9 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'upload')
 	$address = $_POST["address"];
 	$schedule = $_POST["schedule"];
 	$email = $_POST["email"];
-	$deleteLogo = $_POST['deleteLogo'];
 
 	if(!is_dir("../files/"))
 	mkdir("../files/", 0777);
-
-	unlink('../../img/logos-shops/'.$deleteLogo);
 
 	move_uploaded_file($_FILES["logo"]["tmp_name"],	"../../img/logos-shops/".$logo);
 
@@ -143,12 +139,10 @@ else if (isset($_GET['acc']) && $_GET['acc'] == 'uploadImage')
 {
 	$img = $_FILES["uploadedFile"]["name"];
 	$idShopImage = $_POST['idShopImage'];
+	$idShop = $_POST['idShop'];
 
 	if(isset($_GET['acc']) && $_GET['sentence'] == 'e')
 	{
-		
-		$deleteImagePref = $_POST['deleteImagePref'];
-		
 		move_uploaded_file($_FILES["uploadedFile"]["tmp_name"], '../../img/shops/'.$img);
 
 		$mySql = 'UPDATE shopsimages
@@ -159,8 +153,6 @@ else if (isset($_GET['acc']) && $_GET['acc'] == 'uploadImage')
 		$updateImgPref = mysqli_query($connexio, $mySql);
 
 		disconnect($connexio);
-
-		unlink('../../img/shops/'.$_POST['deleteImagePref']);
 
 		$fp=fopen("../files/imgPrefShop.txt",'w');
 			fputs($fp,'mySql="'.$mySql.'"');
@@ -319,6 +311,13 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'loginC'){
 
 	 	echo '[{"status":"'.$message.'"}]';
 	}
+
+else if(isset($_GET['acc']) && $_GET['acc'] == 'listImages')
+{
+	$idShop = $_GET['idShop'];
+
+	echo '[{"images":'.listImages($idShop).'}]';
+}
 function listCategoriesSub($idShop)
 {
 	

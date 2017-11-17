@@ -1,0 +1,2 @@
+consulta:UPDATE promotions
+			SET conditionsVals="Presentant el carnet universitari.", dateExpireVals="2018-07-31",dateExpireEix="0000-00-00",oferVals="5555555343355% Descompte",conditionsEix="",oferEix="",idShop="32",image="1-d10s.jpg" WHERE idPromotion=1
