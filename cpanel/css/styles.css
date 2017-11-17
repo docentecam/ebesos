@@ -724,16 +724,88 @@ button.btn-edit, button.btn-delete{
 {
   text-decoration: none;
 }
-.buttonNews
+.buttonsNews
 {
-  padding: 0;
   margin-left: 14%;
 }
-
 #whiteDivNews
 {
   padding-top: 0;
 }
+.imgNews
+{
+  padding-top: 6%;
+}
+.dateNews
+{
+  padding-top: 7%;
+  margin-left: 50%;
+}
+.txtAreaNew
+{
+  border: none;
+}
+.btnEditNew
+{
+  margin-left: 4%!important;
+  font-size: 1em!important;
+}
+.divNewPadd
+{
+  padding-top: 4%;
+}
+.imgPreferNew
+{
+  padding-top: 4%;
+  margin-left: 9.7%;
+}
+.imgPrefChange
+{
+  margin-top: 4%;
+}
+#photoNew
+{
+  padding-top: 4%;
+  padding-bottom: 4%;
+}
+#whiteDivImgNew
+{
+  background-color: white;
+  border: solid 1px;
+  margin-top: -5%
+}
+.imgNewlabel
+{
+  padding-top: 4%;
+}
+.btnAddImgNew
+{
+  margin-top: 4%; 
+  margin-bottom: 4%;
+}
+#whiteDivVidNew
+{
+ background-color: white;
+ border: solid 1px;
+ margin-top: 1%;
+}
+.addVidNew
+{
+  margin-bottom: 4%;
+  margin-top: 4%;
+}
+.vidLabel
+{
+  padding-top: 4%;
+}
+
+
+
+
+
+
+
+
 
 
 @media (max-width: 575px){
