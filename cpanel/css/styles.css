@@ -326,6 +326,14 @@ button.btn-edit, button.btn-delete{
   margin-top: 2%;
 }*/
 
+#whiteDivNews
+{
+  background-color: white;
+  border: 1px solid black; 
+  margin-top: 4%;
+  padding-top: 1.5%; 
+  margin-bottom: 10%;
+}
 
 #containerImg{
   background-color: white;
@@ -697,8 +705,35 @@ button.btn-edit, button.btn-delete{
   margin-top: 5%;
 }
 
+.titleNews
+{
+  padding: 0;
+}
 
+.newsDiv
+{
+  padding: 0;
+  margin-left: -3%;
+}
 
+.urlBlackEditNews
+{
+  color: black!important;
+}
+.urlBlackEditNews:hover
+{
+  text-decoration: none;
+}
+.buttonNews
+{
+  padding: 0;
+  margin-left: 14%;
+}
+
+#whiteDivNews
+{
+  padding-top: 0;
+}
 
 
 @media (max-width: 575px){
