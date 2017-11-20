@@ -283,7 +283,6 @@ padding: 0;
 }
 #mc_embed_signup{
 	background-color: #659eab!important;
-	margin-left: 5%!important;
 }
 #mce-EMAIL, #mce-FNAME{
 	color: black;
@@ -682,9 +681,11 @@ hr.style14 {
 	border-left:none;
 }
 #eraseBorderNavMobile{
-		border: none;
-	}
-
+	border: none;
+}
+.footerLogos{
+	max-width: 50%;
+}
 
 
 
@@ -805,6 +806,9 @@ hr.style14 {
 	#imgLogoTop{
 		margin-bottom: 0%;
 	}
+	.footerLogos{
+		max-width: 80%;
+	}
 	.category {
 		//height: 50px;
 		margin-top: 15px;
@@ -863,7 +867,7 @@ hr.style14 {
     	margin-left: -3%;
 	}
 	.headTitle{
-		margin-left: -23%;
+		margin-left: -16%;
 	}
 	#whoTop{
 		position: absolute;
@@ -983,9 +987,6 @@ hr.style14 {
 	}
 	.arrowDown{
 		margin-left: 15%;
-	}
-	.footerLogos{
-		max-width: 50%;
 	}
 	#btnEnviar{
 		margin-left: 80%;
@@ -1172,9 +1173,6 @@ hr.style14 {
     	right: -18%;
     	top: 36%;
 	}
-	.footerLogos{
-		max-width: 50%;
-	}
 	#mc_embed_signup {
  		margin-left: 0%!important;
 	}	
@@ -1231,6 +1229,9 @@ hr.style14 {
 	padding-bottom: 100px;
 	text-align: center;
 	}
+	.footerLogos{
+		max-width: 40%;
+	}
 }
 @media (min-width: 1024px) and (max-width: 1199px){
 	#captchaDiv{
@@ -1261,8 +1262,8 @@ hr.style14 {
 	}
 	.arrowDown{
 		position: absolute;
-   		top: 37.2%;
-    	right: 25%;
+   		top: 36.2%;
+    	right: 17%;
 	}
 	.titleSubE{
 		position: absolute;
@@ -1280,15 +1281,13 @@ hr.style14 {
 	    text-decoration: underline; 
 	}
 	#loginPicture{
-		margin-top: -8%;
-		font-size: 1.8em!important;
-		margin-left: -47%;
+   		font-size: 2em!important;
+    	position: absolute;
+    	top: 111%;
+    	left: 103%;
 	}
 	.shopsList{
 		padding-bottom: 2%;
-	}
-	#linkBorder{
-	border-left: 1px solid white;
 	}
 	.fa-bookmark{
 		margin-right: 5%;
@@ -1313,6 +1312,17 @@ hr.style14 {
 	    font-size: 1.8em!important;
 	    margin-left: -47%;
 	}
+	#homeIconNav{
+		position: absolute;
+    	left: 9%;
+    	top: 33%;
+	}
+	#mc_embed_signup form {
+    	display: block;
+    	position: relative;
+    	text-align: left;
+    	padding: 10px 0 10px 2.55%;
+	}
 }
 @media (min-width: 1200px){
 	#captchaDiv{
@@ -1323,6 +1333,9 @@ hr.style14 {
 		text-align: center;
 		margin-left: 12%;
 		vertical-align: middle;
+	}
+	.footerLogos{
+		max-width: 100%;
 	}
 	#captchaInput{
 		margin-left: 5%;
@@ -1341,6 +1354,10 @@ hr.style14 {
 		position: absolute;
     	left: 17%;
     	top: 35%;
+	}
+	#mc_embed_signup{
+		background-color: #659eab!important;
+		margin-left: 5%!important;
 	}
 	.subMenu{
 		padding:  30px;
@@ -1393,4 +1410,32 @@ hr.style14 {
         width: 55%;
         padding: 5%;
     }
+}
+@media (min-width: 1919px){
+	#logoText {
+    	margin-top: 9%;
+    	margin-left: -2%;
+	}
+	.headTitle {
+    	font-weight: bold;
+    	font-size: 2em;
+	}
+	#loginPicture {
+    	font-size: 3em!important;
+    }
+    .dividerNav {
+    	margin-top: 0.5%;
+	}
+	#whoTop{
+		font-size: 1.8em;
+	}
+	#contactTop{
+		font-size: 1.8em;
+	}
+	#dividerMav{
+		font-size: 1.8em;
+	}
+	.footerLogos{
+		max-width: 80%;
+	}
 }
