@@ -84,6 +84,7 @@ angular.module('spaApp')
  		$scope.promotion.oferVals="";
  		$scope.promotion.conditionsEix="";
  		$scope.promotion.oferEix="";
+ 		$scope.promotion.shopSelected="-1";
  		
 		if($scope.promotion.idPromotion==0) $scope.act="Afegir"; else $scope.act="Editar";
 
@@ -98,12 +99,10 @@ angular.module('spaApp')
 
 
 
-	console.log($scope.promotion.idPromotion);
+	
 		$scope.loadPromotions=false;
 		$scope.imgForChange="";
  		
-		if ($scope.promotion.idPromotion!=0)
-		{
 			
 			$http({
 				method : "GET",
@@ -112,6 +111,8 @@ angular.module('spaApp')
 				$scope.shopsList = response.data[0].dataShops;
 				$scope.promotionSel = response.data[0].dataPromotions;
 
+		if ($scope.promotion.idPromotion!=0)
+		{
 				$scope.promotion.idPromotion=$scope.promotionSel[0].idPromotion;
 				$scope.promotion.image=$scope.promotionSel[0].image;
 				$scope.promotion.conditionsVals=$scope.promotionSel[0].conditionsVals;
@@ -120,8 +121,8 @@ angular.module('spaApp')
 				$scope.promotion.oferVals=$scope.promotionSel[0].oferVals;
 				$scope.promotion.conditionsEix=$scope.promotionSel[0].conditionsEix;
 				$scope.promotion.oferEix=$scope.promotionSel[0].oferEix;
-				$scope.promotion.shopSelected=$scope.promotionSel[0].idShop;
-
+				$scope.promotion.shopSelected=$scope.promotionSel[0].idShop;}
+				console.log("comercios"+$scope.shopsList);
 
 				
 			}, function myError (response) {
@@ -131,7 +132,8 @@ angular.module('spaApp')
 		    $scope.loading=false; 
 		})
 	
-		}
+		console.log($scope.promotion.shopSelected);
+		if ($scope.promotion.shopSelected="") {alert("");}
 	
 
 	$scope.changeImg=function(e){
@@ -141,7 +143,19 @@ angular.module('spaApp')
 
 	$scope.editPromotion=function()
 	{
-		console.log($scope.promotion);
+		
+
+		if(($scope.promotion.conditionsVals=="" ||$scope.promotion.oferVals=="")&&($scope.promotion.conditionsEix=="" ||$scope.promotion.oferEix==""))
+		{
+			alert("N'hi ha un camp buit");
+		}
+
+		else if( $scope.promotion.shopSelected=="-1"){
+			alert("tens que seleccionar un comerç");
+		}
+
+		else{
+			console.log($scope.promotion);
 		var data = new FormData();
 		data.append("idPromotion", $scope.promotion.idPromotion);
 		data.append("imageChange", $scope.imgForChange);
@@ -153,9 +167,6 @@ angular.module('spaApp')
 		data.append("conditionsEix", $scope.promotion.conditionsEix);
 		data.append("oferEix", $scope.promotion.oferEix);
 		data.append("shopSelected", $scope.promotion.shopSelected);
-
-
-
 
 		var deferred=$q.defer();
 			return $http.post("models/promotions.php?acc=updatePromotion",data,{
@@ -172,6 +183,8 @@ angular.module('spaApp')
 						console.log($scope.imgForChange.name);
 						$scope.promotion.image=$scope.promotion.idPromotion+"-"+$scope.imgForChange.name;}	
 				})
+		}
+		
 	}
 
 
