@@ -111,49 +111,79 @@ angular.module('spaApp')
   					if($scope.pswdC == $scope.confirmPswdC && $scope.confirmPswdC != "" && $scope.pswdC != "" && $scope.currentPswdC != "")
   					{
   						$scope.loading = true;
-						$http({
-							method : "GET",
-							url : "models/users.php?acc=updateUser&name="+$scope.nameC+"&email="+$scope.emailC+"&pswdMail="+$scope.emailPassC+"&address="+$scope.addressC+"&telephone="+$scope.telephoneC+"&idUser="+$scope.idUserC+"&active="+$scope.activeC+"&history="+$scope.historyC+"&pswd="+$scope.pswdC+"&currentPswd="+$scope.currentPswdC
-						}).then(function mySucces (response) {
-							$scope.userUpdate = response.data;
-							$scope.statusValidation = $scope.userUpdate[0]['status'];
-								$scope.validation = false;
-								if($scope.statusValidation == "L'usuari s'ha actualitzat")
-								{
-									$scope.validation = true;
-								}
-								$scope.fail = true;
-						}, function myError (response) {
-							$scope.userUpdate = response.statusText;
-						}).finally(function(){
-								$scope.loading = false;
-								$scope.pswdC = "";
-								$scope.confirmPswdC = "";
-								$scope.currentPswdC = "";
-						});
+
+  						var data = new FormData();
+						data.append("name",$scope.nameC);
+						data.append("email",$scope.emailC);
+						data.append("pswdMail",$scope.emailPassC);
+						data.append("address",$scope.addressC);
+						data.append("telephone",$scope.telephoneC);
+						data.append("idUser",$scope.idUserC);
+						data.append("active",$scope.activeC);
+						data.append("history",$scope.historyC);
+						data.append("pswd",$scope.pswdC);
+						data.append("currentPswd",$scope.currentPswdC);
+
+
+						var deferred=$q.defer();
+						$http.post("models/users.php?acc=updateUser", data,{
+						headers:{
+						"Content-type":undefined
+						},
+						transformRequest:angular.identity
+						})
+						.then(function(res)
+						{
+							deferred.resolve(res);
+							$scope.statusValidation =  res.data[0]['status'];
+							console.log($scope.statusValidation);
+							$scope.validation = false;
+							$scope.fail = true;
+							if($scope.statusValidation == "L'usuari s'ha actualitzat")
+							{
+								$scope.validation = true;
+							}
+
+						})
+						$scope.loading = false;
 
   					}
   					else if($scope.pswdC == "" && $scope.confirmPswdC == "" && $scope.currentPswdC == "")
   					{
   						$scope.loading = true;
-  						$http({
-							method : "GET",
-							url : "models/users.php?acc=updateUser&name="+$scope.nameC+"&email="+$scope.emailC+"&pswdMail="+$scope.emailPassC+"&address="+$scope.addressC+"&telephone="+$scope.telephoneC+"&idUser="+$scope.idUserC+"&active="+$scope.activeC+"&history="+$scope.historyC
-						}).then(function mySucces (response) {
-							$scope.userUpdate = response.data;
-							$scope.statusValidation = $scope.userUpdate[0]['status'];
-								$scope.validation = false;
-								if($scope.statusValidation == "L'usuari s'ha actualitzat")
-								{
-									$scope.validation = true;
-								}
-								$scope.fail = true;
-						}, function myError (response) {
-							$scope.userUpdate = response.statusText;
-						}).finally(function(){
-								$scope.loading = false;
-						});
 
+  						var data = new FormData();
+						data.append("name",$scope.nameC);
+						data.append("email",$scope.emailC);
+						data.append("pswdMail",$scope.emailPassC);
+						data.append("address",$scope.addressC);
+						data.append("telephone",$scope.telephoneC);
+						data.append("idUser",$scope.idUserC);
+						data.append("active",$scope.activeC);
+						data.append("history",$scope.historyC);
+						
+
+						var deferred=$q.defer();
+						$http.post("models/users.php?acc=updateUser", data,{
+						headers:{
+						"Content-type":undefined
+						},
+						transformRequest:angular.identity
+						})
+						.then(function(res)
+						{
+							deferred.resolve(res);
+							$scope.statusValidation =  res.data[0]['status'];
+							console.log($scope.statusValidation);
+							$scope.validation = false;
+							$scope.fail = true;
+							if($scope.statusValidation == "L'usuari s'ha actualitzat")
+							{
+								$scope.validation = true;
+							}
+
+						})
+						$scope.loading = false;
   					}
   					else if($scope.pswdC != $scope.confirmPswdC)
   					{
@@ -165,31 +195,37 @@ angular.module('spaApp')
   				else if($scope.pswdC == $scope.confirmPswdC && $scope.confirmPswdC != "" && $scope.pswdC != "" && $scope.idUserC == -1)
   				{
   					$scope.loading = true;
-  					$http({
-							method : "GET",
-							url : "models/users.php?acc=createUser&name="+$scope.nameC+"&email="+$scope.emailC+"&pswdMail="+$scope.emailPassC+"&address="+$scope.addressC+"&telephone="+$scope.telephoneC+"&history="+$scope.historyC+"&pswd="+$scope.pswdC
-						}).then(function mySucces (response) {
-							$scope.userCreate = response.data;
-							$scope.statusValidation = $scope.userCreate[0]['status'];
+
+  						var data = new FormData();
+						data.append("name",$scope.nameC);
+						data.append("email",$scope.emailC);
+						data.append("pswdMail",$scope.emailPassC);
+						data.append("address",$scope.addressC);
+						data.append("telephone",$scope.telephoneC);
+						data.append("idUser",$scope.idUserC);
+						data.append("active",$scope.activeC);
+						data.append("history",$scope.historyC);
+						data.append("pswd",$scope.pswdC);
+
+
+						var deferred=$q.defer();
+						$http.post("models/users.php?acc=createUser", data,{
+						headers:{
+						"Content-type":undefined
+						},
+						transformRequest:angular.identity
+						})
+						.then(function(res)
+						{
+							deferred.resolve(res);
+							$scope.statusValidation =  res.data[0]['status'];
+							console.log($scope.statusValidation);
 							$scope.validation = false;
+							$scope.fail = true;
 							if($scope.statusValidation == "S'ha creat l'usuari")
 							{
 								$scope.validation = true;
 							}
-							$scope.fail = true;
-							$scope.idUserC = -1;
-							$scope.nameC = "";
-							$scope.emailC = "";
-							$scope.emailPassC = "";
-							$scope.addressC = "";
-							$scope.telephoneC = "";
-							$scope.logoC = "";
-							$scope.footerC = "";
-							$scope.historyC = "";
-							$scope.activeC = "";
-							$scope.pswdC = "";
-							$scope.confirmPswdC = "";
-							$scope.currentPswdC = "";
 							$scope.loading = true;
 								$http({
 									method : "GET",
@@ -222,12 +258,9 @@ angular.module('spaApp')
 								}).finally(function(){
 									$scope.loading = false;
 								});
-						}, function myError (response) {
-							$scope.userUCreate = response.statusText;
-						}).finally(function(){
-							$scope.loading = false;
-							$scope.cUser = true;
-						});
+
+						})
+						$scope.loading = false;
 
   				}
   				else if($scope.pswdC != $scope.confirmPswdC)
