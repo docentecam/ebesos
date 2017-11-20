@@ -2,30 +2,38 @@
 	session_start();
 	if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 ?>
-<div ng-show="loadPromotions"  class="row">
 
-	<a ng-href="#/promotion/0"><button id="btnAdd" class="btn btn-default" >Afegir <i class="fa fa-plus-circle"></i></button></a>
+<div class="row">
+	<label class="col-lg-1 col-xs-12">
+		Promocions
+	</label>
+	<div class="col-lg-2 btnAddPromo">
+		<a ng-href="#/promotion/0"><button id="btnAdd" class="btn btn-default">Afegir<i class="fa fa-plus-circle"></i></button></a>
+	</div>	
+</div>
+<div ng-show="loadPromotions" class="row">
+	<div id="whiteDivNews">
+		<div class="row" ng-repeat="promotionList in promotionsList | filter:{active: 'N'}">		
+			<div class="col-lg-4">
+				<img class="img-responsive col-lg-10 imgPromos" ng-src="../img/promotions/{{promotionList.image}}">	
+			</div>
+			
+			<div class="col-lg-5">
+				{{promotionList.conditionsVals}}<br>
+				<label>Pendent De Aprovació</label> &nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-success" value="Activar"  class="btn btn-default" ng-click="activePromotion(promotionList.idPromotion)" >
+			</div>
+			<div class="col-lg-2">
+				Data Caducitat Vals {{promotionList.dateExpireVals}}
+				<br>
+				Data Caducitat Eix{{promotionList.dateExpireEix}} 
+			</div>
+			<div class="col-lg-1">
+				<a ng-href="#/promotion/{{promotionList.idPromotion}}"><button id="" class="btn btn-default">Editar <i class="fa fa-pencil" aria-hidden="true"></i></button></a>
 
-	<div class="row" ng-repeat="promotionList in promotionsList | filter:{active: 'N'}">		
-		<div class="col-lg-3">
-			<img class="img-responsive" ng-src="../img/promotions/{{promotionList.image}}">	
-		</div>
-		
-		<div class="col-lg-5">
-			{{promotionList.conditionsVals}}<br>
-			<label>Pendent De Aprovació</label> &nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-success" value="Activar"  class="btn btn-default" ng-click="activePromotion(promotionList.idPromotion)" >
-		</div>
-		<div class="col-lg-2">
-			Data Caducitat Vals {{promotionList.dateExpireVals}}
-			<br>
-			Data Caducitat Eix{{promotionList.dateExpireEix}} 
-		</div>
-		<div class="col-lg-1">
-			<a ng-href="#/promotion/{{promotionList.idPromotion}}"><button id="" class="btn btn-default">Editar <i class="fa fa-pencil" aria-hidden="true"></i></button></a>
-
-		</div>
-		<div class="col-lg-1">
-			<button id="" class="btn btn-default" ng-click="deletePromotion(promotionList.idPromotion)">Eliminar <i class="fa fa-eraser" aria-hidden="true"></i></button>
+			</div>
+			<div class="col-lg-1">
+				<button id="" class="btn btn-default" ng-click="deletePromotion(promotionList.idPromotion)">Eliminar <i class="fa fa-eraser" aria-hidden="true"></i></button>
+			</div>
 		</div>
 	</div>
 <hr>
