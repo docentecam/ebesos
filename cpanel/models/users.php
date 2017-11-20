@@ -22,7 +22,6 @@ session_start();
 			$getName = str_replace(array("\r\n", "\r", "\n"), "\\n",$row['name']);
 			$getLogo = $row['logo'];
 		}
-			
 		if($checkLogin == 0)
 	 	{
 	 		$mySql = "SELECT idShop, name, privileges, logo FROM shops 
@@ -257,7 +256,7 @@ if(isset($_SESSION['user']['idUser']))
 		if(!isset($_GET['currentPswd']))
 		{
 			$mySql = 'UPDATE users
-					SET email="'.$_GET['email'].'", emailPass="'.$_GET['pswdMail'].'", name="'.$_GET['name'].'", address="'.$_GET['address'].'", telephone="'.$_GET['telephone'].'", history="'.str_replace('\'', '',$row['history']).'", active="'.$_GET['active'].'" 
+					SET email="'.$_GET['email'].'", emailPass="'.$_GET['pswdMail'].'", name="'.$_GET['name'].'", address="'.$_GET['address'].'", telephone="'.$_GET['telephone'].'", history="'.str_replace(array("'",'"'), array("\'",'\"'),$_GET['history']).'", active="'.$_GET['active'].'" 
 					WHERE idUser='.$_GET['idUser'];
 			$connexio = connect();
 			$updateUserData = mysqli_query($connexio, $mySql);
@@ -276,7 +275,7 @@ if(isset($_SESSION['user']['idUser']))
 			if(sha1(md5($_GET['currentPswd'])) == $row[0])
 			{
 				$mySql = 'UPDATE users
-					SET email="'.$_GET['email'].'", emailPass="'.$_GET['pswdMail'].'", name="'.$_GET['name'].'", password="'.sha1(md5($_GET['pswd'])).'", address="'.$_GET['address'].'", telephone="'.$_GET['telephone'].'", history="'.$_GET['history'].'", active="'.$_GET['active'].'" 
+					SET email="'.$_GET['email'].'", emailPass="'.$_GET['pswdMail'].'", name="'.$_GET['name'].'", password="'.sha1(md5($_GET['pswd'])).'", address="'.$_GET['address'].'", telephone="'.$_GET['telephone'].'", history="'.str_replace(array("'",'"'), array("\'",'\"'),$_GET['history']).'", active="'.$_GET['active'].'" 
 					WHERE idUser='.$_GET['idUser'];
 				$connexio = connect();
 				$updateUserData = mysqli_query($connexio, $mySql);
@@ -297,7 +296,7 @@ if(isset($_SESSION['user']['idUser']))
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'createUser') {
 		$message='';
 		$mySql = 'INSERT INTO users (email, emailPass, name, password, address, telephone, logo, history, footer)
-				VALUES ("'.$_GET['email'].'","'.$_GET['pswdMail'].'","'.$_GET['name'].'","'.sha1(md5($_GET['pswd'])).'","'.$_GET['address'].'","'.$_GET['telephone'].'","","'.$_GET['history'].'","")';
+				VALUES ("'.$_GET['email'].'","'.$_GET['pswdMail'].'","'.$_GET['name'].'","'.sha1(md5($_GET['pswd'])).'","'.$_GET['address'].'","'.$_GET['telephone'].'","","'.str_replace(array("'",'"'), array("\'",'\"'),$_GET['history']).'","")';
 		
 		$connexio = connect();
 		$resultUser = mysqli_query($connexio, $mySql);

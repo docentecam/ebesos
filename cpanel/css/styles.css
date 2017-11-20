@@ -5,13 +5,10 @@
   font-family: 'Open Sans', sans-serif;
 }
 /* ---------ToDo Login---------- */
-
-
 body, .editNgView {
   margin-left:15px!important;
   margin-right:15px!important;
 }
-
 input
 {
   height: 35px; 
@@ -123,12 +120,10 @@ button.btn-edit, button.btn-delete{
 .no-padding{
   padding: 0;
 }
-
 .log20
 {
   height: 20px
 }
-
 #cross
 {
   color: #e51c23;
@@ -139,15 +134,10 @@ button.btn-edit, button.btn-delete{
   border-color:#ced2de;
   padding-left: 5%;
 }
-
 #nameAssoLogged{
   position: relative;
   top: 30%;
 }
-
-
-
-
 #tableForgot
 {
   margin-left: 10%;
@@ -376,8 +366,6 @@ button.btn-edit, button.btn-delete{
   color: #3A6B86;
   cursor: pointer;
 }
-
-
 
 
 /*----------TO DO SLIDER---------------*//*----------TO DO SLIDER---------------*/
@@ -755,11 +743,7 @@ button.btn-edit, button.btn-delete{
 {
   padding-top: 4%;
 }
-.imgPreferNew
-{
-  padding-top: 4%;
-  margin-left: 9.7%;
-}
+
 .imgPrefChange
 {
   margin-top: 4%;
@@ -799,6 +783,28 @@ button.btn-edit, button.btn-delete{
 {
   padding-top: 4%;
 }
+.imgNewChange
+{
+  padding-bottom: 4%;
+}
+.imgNewsPadd
+{
+  padding-bottom: 2%;
+}
+.vidChangeNews
+{
+  padding-bottom: 4%;
+}
+.btnDeleteVid
+{
+  margin-left: 6%;
+}
+
+
+
+
+
+
 
 
 
@@ -867,12 +873,72 @@ button.btn-edit, button.btn-delete{
   .marginFormulariLinks {
     margin-bottom: 6%;
   }
+ .dateNews
+  {
+    padding-top: 0%;
+    margin-left: 0%;
+  }
+  .buttonsNews
+  {
+    margin-left: 0;
+  }
+  .txtAreaNew
+  {
+    margin-bottom: 2%;
+  }
+  .imgPreferNew
+  {
+    padding-top: 4%;
+    margin-left: 0%;
+  }
+  .btnDeleteVid {
+    margin-left: 5%;
+    margin-top: 1%;
+  }
+  .imgPrefChange
+  {
+    margin-left: 6%;
+  }
+  .subtitolNewsMargin
+  {
+    margin-top: 4%;
+  }
+  .noPaddNews
+  {
+    padding-left: 0%;
+  }
 }
 
 @media (min-width: 576px) and (max-width: 767px){
   .tdCenterLinks{
     padding-left: 3%;
   }
+  .dateNews
+  {
+    padding-top: 0%;
+    margin-left: 0%;
+  }
+  .buttonsNews
+  {
+    margin-left: 0%;
+  }
+  .btnDeleteVid {
+    margin-left: 2.5%;
+  }
+    .imgPreferNew
+  {
+    padding-top: 4%;
+    margin-left: 9.7%;
+  }
+  .noPaddNews
+  {
+    padding-left: 0%;
+  }
+  .subtitolNewsMargin
+  {
+    margin-top: 4%;
+  }
+
 }
 @media (min-width: 768px)and (max-width: 1023px) {
   .footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns{
@@ -897,6 +963,28 @@ button.btn-edit, button.btn-delete{
     .tdCenterLinks{
     padding-left: 3%;
   }
+   .dateNews
+  {
+    padding-top: 0%;
+    margin-left: 0%;
+  }
+  .buttonsNews
+  {
+    margin-left: 0%;
+  }
+  .btnDeleteVid 
+  {
+    margin-left: 3.5%;
+  }
+  .noPaddNews
+  {
+    padding-left: 0%;
+  }
+  .subtitolNewsMargin
+  {
+    margin-top: 4%;
+  }
+
 }
 @media (min-width: 1024px){
   .log250{
@@ -910,12 +998,51 @@ button.btn-edit, button.btn-delete{
   .deleteUnderlineSignUp{
     margin-top:9%;
   }
+     .dateNews
+  {
+    padding-top: 0%;
+    margin-left: 0%;
+  }
+    .imgPreferNew
+  {
+    padding-top: 4%;
+    margin-left: 9.7%;
+  }
+  .btnDeleteVid {
+      margin-left: 2.5%;
+  }
+  .noPaddNews
+  {
+    padding-left: 0%;
+  }
+  .subtitolNewsMargin
+  {
+    margin-top: 4%;
+  }
 
 }
 @media (min-width: 1200px){
+     .dateNews
+  {
+    padding-top: 7%;
+    margin-left: 35%;
+  }
+  .imgPreferNew
+  {
+    padding-top: 4%;
+    margin-left: 9.7%;
+  }
+  .btnDeleteVid {
+    margin-left: 5.5%;
+  }
+  .noPaddNews
+  {
+    padding-left: 0%;
+  }
+  .subtitolNewsMargin
+  {
+    margin-top: 4%;
+  }
 }
-
-
-
 /*--------------------------------------*/
 
