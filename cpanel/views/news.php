@@ -2,11 +2,12 @@
 	session_start();
 	if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 ?>
-<div class="row">
+<!-- <div class="row">
 	<div class="col-sm-12 col-lg-12 text-center" ng-show="divMessages">
 		<label>{{message}}</label>
 	</div>
-</div>
+</div> -->
+
 <div class="row" ng-hide="divNew">
 	<label class="col-lg-12 col-xs-12">
 		Notícies
@@ -31,8 +32,8 @@
 				<img class="img-responsive" id="photo" ng-src="../img/newsmedia/{{newList.urlPreferred}}"> 
 			</div>
 		</div>
-		<div class="col-lg-3 col-lg-offset-3 col-xs-8">
-			<div class="col-lg-12 col-xs-12 dateNews">
+		<div class="col-lg-4 col-lg-offset-2 col-xs-8 col-sm-6">
+			<div class="col-lg-12 col-xs-12 col-sm-12 dateNews">
 				<span class="">Data Publicació {{newList.dateList}}</span>
 			</div>
 		</div>
@@ -44,10 +45,10 @@
 		</div>
 		<div class="col-lg-9 col-xs-12 newsDiv">
 			<div class="col-lg-12 col-xs-12">
-				<label class="col-lg-12 col-lg-offset-0 col-xs-11 col-xs-offset-1 titleNews">{{newList.title}}</label>
+				<label class="col-lg-12 col-lg-offset-0 col-xs-11 col-xs-offset-1 col-sm-8 titleNews">{{newList.title}}</label>
 			</div>
 			<div class="">
-				<span class="col-lg-12 col-lg-offset-0 col-xs-11 col-xs-offset-1">{{newList.titleSub | limitTo: 110}}...</span>
+				<span class="col-lg-12 col-lg-offset-0 col-xs-11 col-xs-offset-1 col-sm-11 col-sm-offset-1">{{newList.titleSub | limitTo: 110}}...</span>
 			</div>
 		</div>
 	</div>
@@ -61,23 +62,23 @@
 			</label>
 		</div>
 		<div class="form-group col-lg-12">
-			<span class="col-sm-1 col-lg-1" for="title">Títol</span>
-			<input type="text" class="col-lg-9" name="title" ng-model="new.title">
-			<input type="date" class="col-lg-2" name="dateBox" id="dateForm" name="date" ng-model="new.date">
+			<span class="col-lg-1 col-xs-2 noPaddNews" for="title">Títol</span>
+			<input type="text" class="col-lg-9 col-xs-12" name="title" ng-model="new.title">
+			<input type="date" class="col-lg-2 col-xs-6 col-sm-4 name="dateBox" id="dateForm" name="date" ng-model="new.date">
 		</div>
 		<div class="form-group col-lg-12">
-			<span class="col-lg-1" for="titleSub">Subtítol</span>
-			<textarea cols=30 rows=12 class="col-lg-11 txtAreaNew" name="titleSub" ng-model="new.titleSub"></textarea>
+			<span class="col-lg-1 col-xs-8 col-sm-10 subtitolNewsMargin noPaddNews" for="titleSub">Subtítol</span>
+			<textarea cols=30 rows=12 class="col-lg-11 col-xs-12 txtAreaNew" name="titleSub" ng-model="new.titleSub"></textarea>
 		</div>
-		<div class="row form-group">
-			<button class="btn-edit col-lg-10 col-lg-push-1 btnEditNew" name="editNew" value="{{act}} Noticia" ng-click="newEdit()">Editar Notícia</button>
+		<div class="form-group">
+			<button class="btn-edit col-lg-10 col-lg-push-1 col-xs-11 btnEditNew" name="editNew" value="{{act}} Noticia" ng-click="newEdit()">Editar Notícia</button>
 		</div>
 	</div>
 	<div id="whiteDivNews" class="col-lg-11 col-lg-offset-1">
-		<label class="col-lg-4 col-lg-offset-1 imgPreferNew">Imatge Destacada</label>
+		<label class="col-lg-4 col-lg-offset-1 col-xs-4 col-xs-offset-0 imgPreferNew">Imatge Destacada</label>
 		<input type="file" id="imgPref" accept="image/jgp, image/jgep, image/png" onchange="angular.element(this).scope().changePreferred(this)" ng-show="false"> 
-		<label class="col-lg-3 col-lg-pull-2 btn btn-default imgPrefChange" for="imgPref" ng-show="addImage">Canviar imatge destacada</label>
-		<img class="col-lg-5 col-lg-offset-3 img-responsive" id="photoNew" ng-src="../img/newsmedia/{{new.urlPreferred}}" >
+		<label class="col-lg-3 col-lg-pull-2 col-xs-pull-1 btn btn-default imgPrefChange" for="imgPref" ng-show="addImage">Canviar imatge destacada</label>
+		<img class="col-lg-6 col-lg-offset-3 img-responsive" id="photoNew" ng-src="../img/newsmedia/{{new.urlPreferred}}" >
 	</div>	
 </div>
 <div id="whiteDivImgNew" class="col-lg-11 col-lg-offset-1" name="formImgs" ng-show="divImgs">
@@ -105,7 +106,7 @@
 			</div>
 		<div class="col-lg-12">
 			<div class="col-lg-4 vidChangeNews" ng-repeat="image in new.images | filter : {type:'V'}">
-				<iframe  frameborder="0" allowfullscreen ng-src="https://www.youtube.com/embed/image.url" class="col-lg-12"></iframe>
+				<iframe  frameborder="0" allowfullscreen ng-src="https://www.youtube.com/embed/image.url" class="col-lg-12 col-xs-12"></iframe>
 				<a href="" ng-click="imgDelete(image.idNewMedia, '0')" class="btn btn-default btnDeleteVid">Eliminar</a>
 			</div>
 		</div>
