@@ -42,8 +42,27 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'updatePromotion'){
 	}
 
 	else if (isset($_POST['idPromotion']) && $_POST['idPromotion']==0) {
-		$mySql = "INSERT INTO promotions (idPromotion , idShop, image,oferVals,conditionsVals,dateExpireVals)
-		VALUES ('', '".$_POST['oferVals']."', '".$_POST['conditionsVals']."')";
+		$mySql = "INSERT INTO promotions (idPromotion , idShop,oferVals,conditionsVals,dateExpireVals,image)
+		VALUES ('',  '".$_POST['shopSelected']."','".$_POST['oferVals']."', '".$_POST['conditionsVals']."', '".$_POST['dateExpireVals']."')";
+
+
+		if(!isset($_POST['imageChange']) ){
+							$file = $_POST['idPromotion']."-".$_FILES['imageChange']["name"];
+							move_uploaded_file($_FILES['imageChange']["tmp_name"], "../../img/promotions/".$file);
+			 				if ($_POST['imageActual']!='nofoto.png') {
+								unlink("../../img/promotions/".$_POST['imageActual']);
+								
+			 				}
+						$mySql.= ',image="'.$file.'"';
+					}                                               
+
+
+			$mySql.= "  image=".$_POST['imageChange'];
+			$fp=fopen("_pruebaPromotion.txt",'w');
+					fputs($fp,'consulta:'.$mySql);
+			$connexio = connect();
+			$resultNewSettings = mysqli_query($connexio, $mySql);
+			disconnect($connexio);
 	}
 
 
@@ -84,6 +103,7 @@ function listPromotions(){
 	if($_SESSION['user']['idUser']!="1"){
 		$mySqlShops.=" WHERE idUser='".$_SESSION['user']['idUser']."'";
 	}
+
 
 		
 		 	

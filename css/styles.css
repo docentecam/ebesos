@@ -681,10 +681,20 @@ hr.style14 {
 	border-left:none;
 }
 #eraseBorderNavMobile{
+<<<<<<< HEAD
 	border: none;
 }
 .footerLogos{
 	max-width: 50%;
+=======
+		border: none;
+	}
+
+.homePromos
+{
+	font-weight: 600;
+	text-decoration: underline;
+>>>>>>> origin/master
 }
 
 
@@ -727,7 +737,7 @@ hr.style14 {
     .pictoImg{
         margin-top: -0.5%;
         width: 14%;  
-    } 12:22 16/11/2017
+    }
     .infoPromo{
         margin-left: 1.6%;
     }
@@ -745,9 +755,6 @@ hr.style14 {
     }
     .descShopSel{
         margin-top: 10%;
-    }
-    .breadCrumb{
-        padding-top: 6%;
     }
     #marginDate{
         margin-bottom: 10%;
@@ -862,9 +869,9 @@ hr.style14 {
 	}
 	#logoText{
 		margin-top: 5%;
-		 margin-top: 5%;
-    	font-size: 0.8em!important;
-    	margin-left: -3%;
+	 	margin-top: 5%;
+		font-size: 0.8em!important;
+		margin-left: -3%;
 	}
 	.headTitle{
 		margin-left: -16%;
@@ -1081,18 +1088,6 @@ hr.style14 {
     }
 }
 
-
-@media (min-width: 951px) and (max-width: 992px) {
-    .pictoImg{
-        margin-top: -0.5%;
-        width: 20%;  
-    } 
-    .alert-info{
-        width: 60%;
-        padding: 5%;
-    }   
-}
-
 @media (min-width: 951px) and (max-width: 1199px) {    
      .pictoImg{
         margin-top: -0.5%;
@@ -1101,15 +1096,6 @@ hr.style14 {
     .alert-info{
         width: 60%;
         padding: 5%;
-    }
-}
-
-@media (min-width: 992px) {   
-   .subCat{
-        padding-bottom: 1%;
-    }
-    #categories{
-        margin-bottom: 10%;
     }
 }
 
@@ -1146,7 +1132,6 @@ hr.style14 {
     	margin-top: 4.3%;
     	margin-left: -21%;
     	font-size: 1.3em;
-
 	}
 	#contactWho {
     	margin-top: 3.8%;
@@ -1221,18 +1206,6 @@ hr.style14 {
 		padding-bottom: 5%;
 	}
 }
-@media (min-width: 1024px) and (max-width: 1199px) {    
-    
-    .newsAsso{
-	border-bottom: solid 1px;
-	border-color: #ced2de;
-	padding-bottom: 100px;
-	text-align: center;
-	}
-	.footerLogos{
-		max-width: 40%;
-	}
-}
 @media (min-width: 1024px) and (max-width: 1199px){
 	#captchaDiv{
 		background-image: url("../img/captcha.jpg");
@@ -1248,6 +1221,9 @@ hr.style14 {
 		cursor: pointer;
 		font-weight: 600;
 		color: white!;
+	}
+	.footerLogos{
+		max-width: 40%;
 	}
 	.arrowDown{
     	position: absolute;
@@ -1322,6 +1298,12 @@ hr.style14 {
     	position: relative;
     	text-align: left;
     	padding: 10px 0 10px 2.55%;
+	}
+	.newsAsso{
+		border-bottom: solid 1px;
+		border-color: #ced2de;
+		padding-bottom: 100px;
+		text-align: center;
 	}
 }
 @media (min-width: 1200px){

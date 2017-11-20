@@ -59,7 +59,7 @@
 <div class="row" ng-hide="loadPromotions">
 	<form action="#" id="validationPromotion" name="validation" method="POST" >
 		<h1>{{act}} Promocions</h1>
-		<label>Seleccionar comerç </label> <select name="listShops" ng-model="promotion.shopSelected" > <option ng-repeat="shop in shopsList" ng-selected="promotion.shopSelected==shop.idShop" ng-value="shop.idShop">{{shop.name}}</option> </select>
+		<label>Seleccionar comerç </label> <select id="listShops" name="listShops" ng-model="promotion.shopSelected" > <option value="-1"> --Escull Comerç</option><option ng-repeat="shop in shopsList" ng-selected="promotion.shopSelected==shop.idShop" ng-value="shop.idShop">{{shop.name}}</option> </select>
 		<br><br>
 		<label>Imatge: </label>
 		<img class="img-responsive" ng-src="../img/promotions/{{promotion.image}}">
