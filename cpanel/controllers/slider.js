@@ -1,8 +1,14 @@
+angular.module('spaApp').factory('msgEdits', function(){
+	return {data:{}};
+});
 angular.module('spaApp')															 
-.controller('SliderCtrl', function($scope, $http) {
+.controller('SliderCtrl', function($scope, $http, msgEdits ) {
+
 	$scope.fail = false;
 	$scope.listSliders=true;
-
+	$scope.statusValidation=msgEdits.data.message;
+	$scope.validation=msgEdits.data.validation;
+	$scope.fail = msgEdits.data.fail;
 	$scope.loading=true;
 	$http({
 			method : "GET",
@@ -26,6 +32,7 @@ angular.module('spaApp')
 			}).then(function mySucces (response) {
 				$scope.updateSlider = response.data;
 				$scope.statusValidation = $scope.updateSlider[0]['status'];
+				console.log('STATUS: '+$scope.statusValidation);
 				$scope.fail = true;
 				$scope.validation = false;
 				if($scope.statusValidation == "S'ha eliminat la imatge del slider")
@@ -53,7 +60,7 @@ angular.module('spaApp')
 });
 
 angular.module('spaApp')															 
-.controller('SliderDescCtrl', function($scope, $http, $routeParams, $q) {
+.controller('SliderDescCtrl', function($scope, $http, $routeParams, $q, $location, msgEdits) {
 	$scope.listSliders=false;
 	$scope.loading=false;
 	$scope.slider={};
@@ -93,14 +100,17 @@ console.log($scope.slider.idSlider);
 	
 	console.log('entra3');
 	$scope.uploadedImgFileE  = function(e){
-		if($scope.slider.image!="")
+		console.log("Escollim foto"+e.files[0].name);
+		if($scope.slider.image=="")
 		{
-			$scope.slider.image=0;
+			$scope.slider.image="0";
 		} 
 		$scope.slider.imageChange=e.files[0];
 	}
-	$scope.updateImgSlide = function(){
-		if($scope.slider.image!="")
+	$scope.updateImgSlider = function(){
+		console.log("Intentem enviar"+$scope.slider.image);
+		
+		if($scope.slider.image!="" && $scope.slider.description!="" && $scope.slider.title!="" && $scope.slider.subTitle!="" && $scope.slider.linkSlider!="")
 		{
 	  		$scope.loading=true;
 	  		console.log("arriba");
@@ -112,8 +122,9 @@ console.log($scope.slider.idSlider);
 			data.append("linkSlider",$scope.slider.linkSlider);
 			data.append("image",$scope.slider.image);
 			data.append("imageChange",$scope.slider.imageChange);
+			console.log($scope.slider.imageChange);
 			var deferred=$q.defer();
-			return $http.post("models/slider.php?acc=updateSlider", data,{
+			$http.post("models/slider.php?acc=updateSlider", data,{
 			headers:{
 				"Content-type":undefined
 			},
@@ -121,132 +132,21 @@ console.log($scope.slider.idSlider);
 			})
 			.then(function(res)
 			{
-				console.log(res.data);
+				console.log("llega"+res.data);
 				deferred.resolve(res);
 				$scope.statusValidation = res.data;
 				$scope.validation= true;
+				$scope.loading=false;
+				msgEdits.data.message=res.data;
+				msgEdits.data.validation=true;
+				msgEdits.data.fail=true;
+				$location.url("/slider");
 			})
-			return
-			deferred.promise;
+  		}
+  		else{
+  			if($scope.slider.image=="") alert("Selecciona Imatge");
+  			else alert("Tots els camps necessiten valor");
   		}
   	}
 });
 
-
-		// $http({
-		// 		method : "GET",
-		// 		url : "models/slider.php?acc=updateSlider&idSlider="+$scope.slider.idSlider
-		// 	}).then(function mySucces (response) {
-		// 		$scope.updateSlider = response.data;
-		// 		$scope.statusValidation = $scope.updateSlider[0]['status'];
-		// 		$scope.fail = true;
-		// 		$scope.validation = false;
-		// 		if($scope.statusValidation == "S'ha modificat la imatge del slider")
-		// 		{
-		// 			$scope.validation = true;
-		// 		}
-		// 		$scope.loading=true;
-		// 		$http({
-		// 				method : "GET",
-		// 				url : "models/slider.php?acc=imgSlider"
-		// 			}).then(function mySucces (response) {
-		// 				$scope.slider = response.data;
-		// 			}, function myError (response) {
-		// 				$scope.slider = response.statusText;
-		// 			})
-		// 			.finally(function() {
-		// 				$scope.loading=false;
-		// 			});
-		// 	}, function myError (response) {
-		// 		$scope.updateSlider = response.statusText;
-		// 	}).finally(function() {
-		// 		$scope.loading=false;
-		// 	});
-  		
-		
-	
-	// TODO $scope.createImgSlide  = function(){
-	
-	// 	$scope.loading=true;
-	// 	$http({
-	// 			method : "GET",
-	// 			url : "models/slider.php?acc=imgSlider"
-	// 		}).then(function mySucces (response) {
-	// 			$scope.slider = response.data;
-	// 			$scope.statusValidation = "S'ha creat la imatge del slider";
-	// 			$scope.fail = true;
-	// 			$scope.validation = true;
-	// 			if(isset($scope.slider[0]['status']))
-	// 			{	
-	// 				$scope.statusValidation = $scope.slider[0]['status'];
-	// 				$scope.validation = false;
-	// 			}
-	// 		}, function myError (response) {
-	// 			$scope.slider = response.statusText;
-	// 		})
-	// 		.finally(function() {
-	// 			$scope.loading=false;
-	// 		});
-  		
-	// };
-	// $scope.uploadedImgFileC  = function(e){
-	// 		var data = new FormData();
-	// 		data.append("description",$scope.slider.description);
-	// 		data.append("title",$scope.slider.title);
-	// 		data.append("subTitle",$scope.slider.subtitle);
-	// 		data.append("link",$scope.slider.linkSlider);
-	// 		data.append("uploadedFile",e.files[0]);
-
-	// 		$scope.fail = true;
-	// 		$scope.statusValidation = "Error";
-	// 		$scope.validation = false;
-	// 		var deferred=$q.defer();
-	// 		return $http.post("models/slider.php?acc=createSlider", data,{
-	// 		headers:{
-	// 		"Content-type":undefined
-	// 		},
-	// 		transformRequest:angular.identity
-	// 		})
-	// 		.then(function(res)
-	// 		{
-	// 		deferred.resolve(res);
-	// 		$scope.statusValidation = "S'ha creat la imatge del slider";
-	// 		$scope.validation= true;
-
-	// 		})
-	// 		return
-	// 		deferred.promise;
-	// 	}
-	// $scope.uploadedImgFileE  = function(e){
-	// 		var data = new FormData();
-	// 		data.append("description",editingForm['description'].value);
-	// 		data.append("title",editingForm['title'].value);
-	// 		data.append("subTitle",editingForm['subTitle'].value);
-	// 		data.append("link",editingForm['linkSlider'].value);
-	// 		data.append("idSlider",editingForm['hidEditSlider'].value);
-	// 		data.append("image",editingForm['hidImage'].value);
-	// 		data.append("uploadedFile",e.files[0]);
-			
-	// 		$scope.fail = true;
-	// 		$scope.statusValidation = "Error";
-	// 		$scope.validation = false;
-	// 		var deferred=$q.defer();
-	// 		return $http.post("models/slider.php?acc=updateSlider", data,{
-	// 		headers:{
-	// 		"Content-type":undefined
-	// 		},
-	// 		transformRequest:angular.identity
-	// 		})
-	// 		.then(function(res)
-	// 		{
-	// 		deferred.resolve(res);
-	// 		$scope.statusValidation = "S'ha modificat la imatge del slider";
-	// 		$scope.validation= true;
-
-	// 		})
-	// 		return
-	// 		deferred.promise;
-	// 	}
-	
-
-	

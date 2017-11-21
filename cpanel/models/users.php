@@ -215,7 +215,7 @@ if(isset($_SESSION['user']['idUser']))
 				{
 					$dataUser .= ",";
 				}
-				$dataUser .= '{"idUser":"'.$row['idUser'].'", "name":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['name']).'", "email":"'.$row['email'].'", "emailPass":"'.$row['emailPass'].'", "password":"'.$row['password'].'", "address":"'.$row['address'].'", "telephone":"'.$row['telephone'].'", "logo":"'.$row['logo'].'", "history":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['history']).'", "active":"'.$row['active'].'", "footer":"'.$row['footer'].'"}'; 
+				$dataUser .= '{"idUser":"'.$row['idUser'].'", "name":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",htmlspecialchars($row['name'])).'", "email":"'.$row['email'].'", "emailPass":"'.$row['emailPass'].'", "password":"'.$row['password'].'", "address":"'.$row['address'].'", "telephone":"'.$row['telephone'].'", "logo":"'.$row['logo'].'", "history":"'.str_replace(array("\'", '\"', "\r\n"), array("&#39",'&#34',"\\n"),htmlspecialchars($row['history'])).'", "active":"'.$row['active'].'", "footer":"'.$row['footer'].'"}'; 
 				$i++;
 			}
 			$dataUser .= "]";
@@ -253,11 +253,12 @@ if(isset($_SESSION['user']['idUser']))
 	}
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'updateUser') {
 		$message='';
-		if(!isset($_GET['currentPswd']))
+
+		if(!isset($_POST['currentPswd']))
 		{
 			$mySql = 'UPDATE users
-					SET email="'.$_GET['email'].'", emailPass="'.$_GET['pswdMail'].'", name="'.$_GET['name'].'", address="'.$_GET['address'].'", telephone="'.$_GET['telephone'].'", history="'.str_replace(array("'",'"'), array("\'",'\"'),$_GET['history']).'", active="'.$_GET['active'].'" 
-					WHERE idUser='.$_GET['idUser'];
+					SET email="'.$_POST['email'].'", emailPass="'.$_POST['pswdMail'].'", name="'.str_replace(array("'",'"',"\\n"), array("\'",'\"',"\r\n"),$_POST['name']).'", address="'.$_POST['address'].'", telephone="'.$_POST['telephone'].'", history="'.str_replace(array("'",'"',"\\n"), array("\'",'\"',"\r\n"),$_POST['history']).'", active="'.$_POST['active'].'" 
+					WHERE idUser='.$_POST['idUser'];
 			$connexio = connect();
 			$updateUserData = mysqli_query($connexio, $mySql);
 			disconnect($connexio);
@@ -267,16 +268,16 @@ if(isset($_SESSION['user']['idUser']))
 		{
 			$mySql = "SELECT password 
 				FROM users 
-				WHERE idUser='".$_GET['idUser']."'";
+				WHERE idUser='".$_POST['idUser']."'";
 			$connexio = connect();
 			$resultUser = mysqli_query($connexio, $mySql);
 			disconnect($connexio);
 			while ($row = mysqli_fetch_row($resultUser))
-			if(sha1(md5($_GET['currentPswd'])) == $row[0])
+			if(sha1(md5($_POST['currentPswd'])) == $row[0])
 			{
 				$mySql = 'UPDATE users
-					SET email="'.$_GET['email'].'", emailPass="'.$_GET['pswdMail'].'", name="'.$_GET['name'].'", password="'.sha1(md5($_GET['pswd'])).'", address="'.$_GET['address'].'", telephone="'.$_GET['telephone'].'", history="'.str_replace(array("'",'"'), array("\'",'\"'),$_GET['history']).'", active="'.$_GET['active'].'" 
-					WHERE idUser='.$_GET['idUser'];
+					SET email="'.$_POST['email'].'", emailPass="'.$_POST['pswdMail'].'", name="'.str_replace(array("'",'"',"\\n"), array("\'",'\"',"\r\n"),$_POST['name']).'", password="'.sha1(md5($_POST['pswd'])).'", address="'.$_POST['address'].'", telephone="'.$_POST['telephone'].'", history="'.str_replace(array("'",'"',"\\n"), array("\'",'\"',"\r\n"),$_POST['history']).'", active="'.$_POST['active'].'" 
+					WHERE idUser='.$_POST['idUser'];
 				$connexio = connect();
 				$updateUserData = mysqli_query($connexio, $mySql);
 				disconnect($connexio);
@@ -296,7 +297,7 @@ if(isset($_SESSION['user']['idUser']))
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'createUser') {
 		$message='';
 		$mySql = 'INSERT INTO users (email, emailPass, name, password, address, telephone, logo, history, footer)
-				VALUES ("'.$_GET['email'].'","'.$_GET['pswdMail'].'","'.$_GET['name'].'","'.sha1(md5($_GET['pswd'])).'","'.$_GET['address'].'","'.$_GET['telephone'].'","","'.str_replace(array("'",'"'), array("\'",'\"'),$_GET['history']).'","")';
+				VALUES ("'.$_POST['email'].'","'.$_POST['pswdMail'].'","'.str_replace(array("'",'"',"\\n"), array("\'",'\"',"\r\n"),$_POST['name']).'","'.sha1(md5($_POST['pswd'])).'","'.$_POST['address'].'","'.$_POST['telephone'].'","","'.str_replace(array("'",'"',"\\n"), array("\'",'\"',"\r\n"),$_POST['history']).'","")';
 		
 		$connexio = connect();
 		$resultUser = mysqli_query($connexio, $mySql);

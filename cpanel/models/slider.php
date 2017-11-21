@@ -30,18 +30,7 @@ if (isset($_GET["acc"]) && ($_GET["acc"] == "imgSlider"))
 }
 else if (isset($_GET['acc']) && $_GET['acc'] == 'updateSlider') {
 	$message="";
-	$fp=fopen("_dadesSlider.txt","w");
-	fputs($fp,"idSlider: ".$_POST['idSlider']." | ");
-	fputs($fp,"description: ".$_POST['description']." | ");
-	fputs($fp,"title: ".$_POST['title']." | ");
-	fputs($fp,"subtitle: ".$_POST['subTitle']." | ");
-	fputs($fp,"link: ".$_POST['linkSlider']." | ");
-	fputs($fp,"imatgeSenseModificar: ".$_POST['image']." | ");
-	fputs($fp,"imatgeModificada: ".$_FILES['image']." | ");
-	//TODO IF
-	echo "S'ha modificat la imatge del slider";
-
-	if ($_POST['idSlider'] == 0) {
+	if ($_POST['idSlider'] == "0") {
 		$mySql = 'INSERT INTO slider (title, subTitle, link, description) 
 		 		VALUES ("'.$_POST['title'].'","'.$_POST['subTitle'].'","'.$_POST['linkSlider'].'","'.$_POST['description'].'")';
 		$connexio = connect();
@@ -51,7 +40,10 @@ else if (isset($_GET['acc']) && $_GET['acc'] == 'updateSlider') {
 		$file = $idSliderInsert."-".$_FILES["imageChange"]["name"];
 				move_uploaded_file($_FILES["imageChange"]["tmp_name"], '../../img/slider/'.$file);
 		$mySql = 'UPDATE slider SET image="'.$file.'" WHERE idSlider='.$idSliderInsert;
-		$message = "S'ha creat la imatge del slider";
+		$connexio = connect();
+		mysqli_query($connexio, $mySql);
+				disconnect($connexio);
+		$message = "S'ha creat la nova imatge del slider";
 	}
 	else {
 		$mySql = 'UPDATE slider SET title="'.$_POST['title'].'", subtitle="'.$_POST['subTitle'].'", link="'.$_POST['linkSlider'].'", description="'.$_POST['description'].'"' ;

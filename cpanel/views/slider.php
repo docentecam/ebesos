@@ -27,19 +27,12 @@
 			<b>{{statusValidation}}</b>
 		</div>
 	</div>
-
-
-
-
-
 	<div class="col-lg-12 col-xs-12">
 		<span id="editarSliderSpan" ng-show="listSliders" class="col-lg-2 col-xs-3">Editar Imatges: </span>
 		<div id="divOpcioAfegir" class="col-lg-3 col-xs-6 col-xs-offset-1">
 				<a ng-href="#/slider/0"><button id="btnAfegir" class="btn btn-default" ng-hide="btnAfegir" >Afegir <i class="fa fa-plus-circle"></i></button></a>
 		</div>
 		<div id="whiteSliderDiv" class="col-lg-12 col-xs-12">
-
-
 			<div id="divSliderSetting" ng-show="listSliders" class="col-lg-6 col-xs-12" ng-repeat="sliderImg in slider">
 				<form>
 					<div class="row">
@@ -73,7 +66,6 @@
 					</div>
 				</form>
 			</div>
-			
 			<div ng-hide="listSliders">
 				<form id="editingForm">
 					<div class="row">
@@ -97,39 +89,11 @@
 						<input type="file" class="col-xs-5 editAndAddSlider noPadding" onchange="angular.element(this).scope().uploadedImgFileE(this)">
 					</div>
 					<div class="row">
-						<input class="col-lg-offset-5 col-xs-offset-5 editAndAddSlider" type="button" value="Guardar" ng-click=updateImgSlide()>
+						<input class="col-lg-offset-5 col-xs-offset-5 editAndAddSlider" type="button" value="Guardar" ng-click="updateImgSlider()">
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
 </div>
-
-<!-- TODO <div ng-show="sliderAdding">
-				<form id="addingForm">
-					<div class="row">
-						<label class="col-lg-2 col-lg-offset-2 col-xs-2 col-xs-offset-1">Descripció: </label>
-						<textarea class=" col-lg-5 col-xs-6 col-xs-offset-1 editAndAddSlider" maxlength="" name="" id="descriptionC" cols="30" rows="6" placeholder="Escriu aquí la descripció de la imatge a mostrar dins del Slider..."></textarea>
-					</div>
-					<div class="row">
-						<label class="col-lg-2 col-lg-offset-2 col-xs-2 col-xs-offset-1">Títol: </label>
-						<textarea class=" col-lg-5 col-xs-6 col-xs-offset-1 editAndAddSlider" name="" id="titleC" cols="30" rows="6" placeholder="Escriu aquí el títol de la imatge a mostrar dins del Slider..."></textarea>
-					</div>
-					<div class="row">
-						<label class="col-lg-2 col-lg-offset-2 col-xs-2 col-xs-offset-1">Subtítol: </label>
-						<textarea class=" col-lg-5 col-xs-6 col-xs-offset-1 editAndAddSlider" name="" id="subTitleC" cols="30" rows="6" placeholder="Escriu aquí el subtítol de la imatge a mostrar dins del Slider..."></textarea>
-					</div>
-					<div class="row">
-						<label class="col-lg-2 col-lg-offset-2 col-xs-2 col-xs-offset-1">Enllaç: </label>
-						<input type="text" class="col-lg-5 col-xs-6 col-xs-offset-1 editAndAddSlider" name="" id="linkC" size="40" placeholder="Escriu aquí l'enllaç de la imatge a relacionar" >
-					</div>
-					<div class="row">
-						<label class="col-lg-offset-2 col-xs-3 col-xs-offset-1">Imatge: </label>
-						<input type="file" class="col-xs-5 editAndAddSlider noPadding"  onchange="angular.element(this).scope().uploadedImgFileC(this)">
-					</div>
-					<div class="row">
-						<input class="col-lg-offset-5 col-xs-offset-5 editAndAddSlider" type="button" value="Actualitzar" ng-click=createImgSlide()>
-					</div>
-				</form>
-			</div> -->
 

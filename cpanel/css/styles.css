@@ -75,6 +75,14 @@ button.btn-edit, button.btn-delete{
   padding: 2px !important;
   border: none !important;
 }
+a
+{
+  color: black!important;
+}
+a:hover
+{
+  text-decoration: none;
+}
 .images-shop button.btn-delete{
   float: right;
 }
@@ -704,15 +712,6 @@ button.btn-edit, button.btn-delete{
   padding: 0;
   margin-left: -3%;
 }
-
-.urlBlackEditNews
-{
-  color: black!important;
-}
-.urlBlackEditNews:hover
-{
-  text-decoration: none;
-}
 .buttonsNews
 {
   margin-left: 14%;
@@ -799,6 +798,26 @@ button.btn-edit, button.btn-delete{
 {
   margin-left: 6%;
 }
+.btnAddPromo
+{
+  margin-left: 3%;
+  margin-bottom: 5%;
+}
+.imgPromos
+{
+  padding: 5%;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -39,7 +39,7 @@
 		</div>
 		<div class="col-lg-3 col-xs-12">
 			<div class="form-group col-lg-12 col-xs-8 col-xs-offset-4 buttonsNews">
-				<a ng-href="#/news/{{newList.idNew}}" class="urlBlackEditNews"><button class="btn-edit col-lg-4 col-lg-push-2 col-xs-4 " value="Editar" alt="Edita dades de la noticia">Editar</a></button>
+				<a ng-href="#/news/{{newList.idNew}}"><button class="btn-edit col-lg-4 col-lg-push-2 col-xs-4 " value="Editar" alt="Edita dades de la noticia">Editar</a></button>
 				<button class="btn-delete col-lg-5 col-lg-push-2 col-xs-4" value="Esborrar" alt="Esborrar dades de la noticia" ng-click="deleteNew(newList.idNew)">Eliminar</button>
 			</div>
 		</div>
