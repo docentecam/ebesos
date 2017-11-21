@@ -12,58 +12,71 @@
 	</div>	
 </div>
 <div ng-show="loadPromotions" class="row">
-	<div id="whiteDivNews">
-		<div class="row" ng-repeat="promotionList in promotionsList | filter:{active: 'N'}">		
+	<div id="whiteDivNews" class="col-lg-12">
+		<div class="row divContainerPromos" ng-repeat="promotionList in promotionsList | filter:{active: 'N'}">
 			<div class="col-lg-4">
-				<img class="img-responsive col-lg-10 imgPromos" ng-src="../img/promotions/{{promotionList.image}}">	
-			</div>
-			
-			<div class="col-lg-5">
-				{{promotionList.conditionsVals}}<br>
-				<label>Pendent De Aprovació</label> &nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-success" value="Activar"  class="btn btn-default" ng-click="activePromotion(promotionList.idPromotion)" >
+				<div class="col-lg-12">
+					<img class="img-responsive imgPromos" ng-src="../img/promotions/{{promotionList.image}}">	
+				</div>
+			</div>		
+			<div class="col-lg-4 divPromosCond">
+				<label>
+					Condicions:
+				</label>
+				<span>
+					{{promotionList.conditionsVals}}
+					{{promotionList.conditionsEix}}
+				</span>
+				<label>
+					Pendent d'aprovació
+				</label> &nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-success" value="Activar"  class="btn btn-default" ng-click="activePromotion(promotionList.idPromotion)" >
 			</div>
 			<div class="col-lg-2">
-				Data Caducitat Vals {{promotionList.dateExpireVals}}
+				<div class="col-lg-12 col-lg-push-5 divDatePromos">
+					Caducitat Vals {{promotionList.dateExpireValsE}}
 				<br>
-				Data Caducitat Eix{{promotionList.dateExpireEix}} 
+					Caducitat Eix {{promotionList.dateExpireEixE}} 
+				</div>
 			</div>
-			<div class="col-lg-1">
-				<a ng-href="#/promotion/{{promotionList.idPromotion}}"><button id="" class="btn btn-default">Editar <i class="fa fa-pencil" aria-hidden="true"></i></button></a>
-
-			</div>
-			<div class="col-lg-1">
-				<button id="" class="btn btn-default" ng-click="deletePromotion(promotionList.idPromotion)">Eliminar <i class="fa fa-eraser" aria-hidden="true"></i></button>
+			<div class="col-lg-2">
+				<div class="col-lg-12 col-lg-push-5 buttonsPromos">
+					<a ng-href="#/promotion/{{promotionList.idPromotion}}"><button id="" class="btn-edit col-lg-5">Editar</button></a>
+					<button id="" class="btn-delete col-lg-6" ng-click="deletePromotion(promotionList.idPromotion)">Eliminar</button>
+				</div>
 			</div>
 		</div>
 	</div>
-<hr>
-	<div class="row" ng-repeat="promotionList in promotionsList | filter:{active: 'Y'}">		
-		<div class="col-lg-3">
-			<img class="img-responsive" ng-src="../img/promotions/{{promotionList.image}}">	
-		</div>
-		
-		<div>
-			{{promotionList.creation}}
-		</div>
-		<div class="col-lg-5">
-			{{promotionList.conditionsVals}}
-			{{promotionList.conditionsEix}}
-		</div>
-		<div class="col-lg-2">
-			Data Caducitat Vals{{promotionList.dateExpireVals}}
-			<br>
-			 Data Caducitat Eix{{promotionList.dateExpireEix}}
-		</div>
-		<div class="col-lg-1">
-			<a ng-href="#/promotion/{{promotionList.idPromotion}}"><button id="" class="btn btn-default">Editar <i class="fa fa-pencil" aria-hidden="true"></i></button></a>
-		</div>
-		<div class="col-lg-1">
-			<button id="" class="btn btn-default" ng-click="deletePromotion(promotionList.idPromotion)">Eliminar <i class="fa fa-eraser" aria-hidden="true"></i></button>
+	<div id="whiteDivNews" class="col-lg-12">
+		<div class="row divContainerPromos" ng-repeat="promotionList in promotionsList | filter:{active: 'Y'}">
+			<div class="col-lg-4">
+				<div class="col-lg-12">
+					<img class="img-responsive imgPromos" ng-src="../img/promotions/{{promotionList.image}}">	
+				</div>
+			</div>		
+			<div class="col-lg-2 divPromosCond">
+				<label>
+					Condicions:
+				</label>
+				<span>
+					{{promotionList.conditionsVals}}
+					{{promotionList.conditionsEix}}
+				</span>
+			</div>
+			<div class="col-lg-4">
+				<div class="col-lg-12 col-lg-push-2 divDatePromos">
+					Caducitat Vals {{promotionList.dateExpireValsE}}
+				<br>
+					Caducitat Eix {{promotionList.dateExpireEixE}} 
+				</div>
+			</div>
+			<div class="col-lg-2">
+				<div class="col-lg-12 col-lg-push-5 buttonsPromos">
+					<a ng-href="#/promotion/{{promotionList.idPromotion}}"><button id="" class="btn-edit col-lg-5">Editar</button></a>
+					<button id="" class="btn-delete col-lg-6" ng-click="deletePromotion(promotionList.idPromotion)">Eliminar</button>
+				</div>
+			</div>
 		</div>
 	</div>
-</div>
-
-
 <div class="row" ng-hide="loadPromotions">
 	<form action="#" id="validationPromotion" name="validation" method="POST" >
 		<h1>{{act}} Promocions</h1>

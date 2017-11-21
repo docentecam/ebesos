@@ -805,8 +805,31 @@ a:hover
 }
 .imgPromos
 {
-  padding: 5%;
+  margin-left: -4%;
+  padding-top: 5%;
+  padding-bottom: 5%;
 }
+.buttonsPromos
+{
+  padding-left: 2%;
+  padding-right: 1%;
+}
+.divDatePromos
+{
+  margin-top: 5%;
+}
+.divContainerPromos
+{
+  border-bottom: 1px solid;
+}
+.divPromosCond
+{
+  margin-top: 7%;
+  margin-left: -3%;
+}
+
+
+
 
 
 
