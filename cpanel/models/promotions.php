@@ -35,35 +35,44 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'updatePromotion'){
 			$fp=fopen("_pruebaPromotion.txt",'w');
 					fputs($fp,'consulta:'.$mySql);
 			$connexio = connect();
-			$resultNewSettings = mysqli_query($connexio, $mySql);
+			$resultNewPromotionUpdate = mysqli_query($connexio, $mySql);
 			disconnect($connexio);
 			
 				
 	}
 
 	else if (isset($_POST['idPromotion']) && $_POST['idPromotion']==0) {
-		$mySql = "INSERT INTO promotions (idPromotion , idShop,oferVals,conditionsVals,dateExpireVals,image)
-		VALUES ('',  '".$_POST['shopSelected']."','".$_POST['oferVals']."', '".$_POST['conditionsVals']."', '".$_POST['dateExpireVals']."')";
+		$mySql = "INSERT INTO `promotions` (`idPromotion` , `idShop`,`oferVals`,`conditionsVals`,`dateExpireVals`,`image`)
+		VALUES (NULL,  ".$_POST['shopSelected'].",'".$_POST['oferVals']."', '".$_POST['conditionsVals']."', '".$_POST['dateExpireVals']."','nofoto.png')";
+
+		$connexio = connect();
+			$resultNewPromotion = mysqli_query($connexio, $mySql);
+			$resultidPromotion=mysqli_insert_id($connexio);
+			disconnect($connexio);
+		$fp=fopen("_pruebaPromotion.txt",'w');
+		fputs($fp,'consulta:'.$mySql);
+	}
 
 
 		if(!isset($_POST['imageChange']) ){
-							$file = $_POST['idPromotion']."-".$_FILES['imageChange']["name"];
+							$file = $resultidPromotion."-".$_FILES['imageChange']["name"];
 							move_uploaded_file($_FILES['imageChange']["tmp_name"], "../../img/promotions/".$file);
 			 				if ($_POST['imageActual']!='nofoto.png') {
 								unlink("../../img/promotions/".$_POST['imageActual']);
 								
 			 				}
-						$mySql.= ',image="'.$file.'"';
+						$mySql= 'UPDATE promotions SET image="'.$file.'" WHERE idPromotion='.$resultidPromotion;	
+						fputs($fp,'consulta:'.$mySql);
+						$connexio = connect();
+						$resultNewPromotion = mysqli_query($connexio, $mySql);
+			
+			disconnect($connexio);
+
 					}                                               
 
-
-			$mySql.= "  image=".$_POST['imageChange'];
-			$fp=fopen("_pruebaPromotion.txt",'w');
-					fputs($fp,'consulta:'.$mySql);
-			$connexio = connect();
-			$resultNewSettings = mysqli_query($connexio, $mySql);
-			disconnect($connexio);
-	}
+			
+				
+			
 
 
 }
@@ -98,7 +107,7 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'd'){
 
 function listPromotions(){
 
-	$mySql = "SELECT idPromotion , oferVals, oferEix, image , conditionsVals, conditionsEix , active , dateExpireVals , dateExpireEix,idShop FROM promotions ";
+	$mySql = "SELECT idPromotion , oferVals, oferEix, image , conditionsVals, conditionsEix , active ,dateExpireVals, DATE_FORMAT( dateExpireVals,'%d-%m-%Y') AS  dateExpireValsE,dateExpireEix, DATE_FORMAT( dateExpireEix,'%d-%m-%Y') AS dateExpireEixE,idShop FROM promotions ";
 	$mySqlShops = "SELECT * FROM shops";
 	if($_SESSION['user']['idUser']!="1"){
 		$mySqlShops.=" WHERE idUser='".$_SESSION['user']['idUser']."'";
@@ -127,7 +136,7 @@ function listPromotions(){
 	{
 		if($i != 0) $dataPromotions .= ",";
 
-		$dataPromotions .= '{"conditionsEix":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['conditionsEix']).'","oferEix":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['oferEix']).'","oferVals":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['oferVals']).'","dateExpireVals":"'.$row['dateExpireVals'].'","dateExpireEix":"'.$row['dateExpireEix'].'","idPromotion":"'.$row['idPromotion'].'","idShop":"'.$row['idShop'].'","active":"'.$row['active'].'","image":"'.$row['image'].'","conditionsVals":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['conditionsVals']).'"}';
+		$dataPromotions .= '{"conditionsEix":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['conditionsEix']).'","oferEix":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['oferEix']).'","oferVals":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['oferVals']).'","dateExpireVals":"'.$row['dateExpireVals'].'","dateExpireEix":"'.$row['dateExpireEix'].'","dateExpireValsE":"'.$row['dateExpireValsE'].'","dateExpireEixE":"'.$row['dateExpireEixE'].'","idPromotion":"'.$row['idPromotion'].'","idShop":"'.$row['idShop'].'","active":"'.$row['active'].'","image":"'.$row['image'].'","conditionsVals":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['conditionsVals']).'"}';
 
 		$i++;
 	}
