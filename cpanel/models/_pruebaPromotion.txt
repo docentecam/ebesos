@@ -1,2 +1,1 @@
-consulta:UPDATE promotions
-			SET conditionsVals="Presentant el carnet universitari.", dateExpireVals="2018-07-31",dateExpireEix="0000-00-00",oferVals="5555555343355% Descompte",conditionsEix="",oferEix="",idShop="32",image="1-d10s.jpg" WHERE idPromotion=1
+consulta:SELECT idPromotion , oferVals, oferEix, image , conditionsVals, conditionsEix , promotions.active ,dateExpireVals, DATE_FORMAT( dateExpireVals,'%d-%m-%Y') AS dateExpireValsE,dateExpireEix, DATE_FORMAT( dateExpireEix,'%d-%m-%Y') AS dateExpireEixE,shops.idShop FROM promotions, shops WHERE promotions.idShop=shops.idShop  AND shops.idUser=2 AND idPromotion=0cons shopsSELECT * FROM shops WHERE idUser='2'
