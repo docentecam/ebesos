@@ -109,7 +109,7 @@
 					Oferta:
 				</span>
 				<div class="col-lg-10">
-					<textarea name="" id="" cols="30" rows="3" ng-model="promotion.oferVals" class="txtAreaNoBorder">promotion.oferVals</textarea>
+					<textarea name="" id="" cols="50" rows="3" ng-model="promotion.oferVals" class="txtAreaNoBorder">promotion.oferVals</textarea>
 				</div>
 			</div>
 			<div class="col-lg-12">
@@ -125,38 +125,48 @@
 					Condicions del val:
 				</span>
 				<div class="col-lg-10">
-					<textarea name="" id="" cols="30" rows="3" ng-model="promotion.conditionsVals" class="txtAreaNoBorder txtAreaMarginTop">promotion.conditionsVals</textarea>
+					<textarea name="" id="" cols="50" rows="3" ng-model="promotion.conditionsVals" class="txtAreaNoBorder txtAreaMarginTop">promotion.conditionsVals</textarea>
 				</div>
 			</div>
-			
 		</fieldset>
 	</div>
 </div>
-
-	<div class="row">
-		<div class="col-lg-6">
-			<h1>Eix</h1>
-			
-			<div>
-				<label>OFERTA </label>
-				<input type="text" ng-model="promotion.oferEix">
+<div class="row">
+	<div class="col-lg-12">
+		<fieldset class="col-lg-12">
+			<label class="labelFontSizePromo marginTopLabel"> 
+				Eix 
+			</label>
+			<div class="col-lg-12">
+				<span class="col-lg-2 noPadding">
+					Oferta:
+				</span>
+				<div class="col-lg-10">
+					<textarea name="" id="" cols="50" rows="3" ng-model="promotion.oferEix" class="txtAreaNoBorder">promotion.oferEix</textarea>
+				</div>
 			</div>
-
-			<div>
-				<label>Data Expire Eix </label>
-				<input type="date" ng-model="promotion.dateExpireEix" id="">
+			<div class="col-lg-12">
+				<span class="col-lg-2 noPadding">
+					Data d'expiració vals:
+				</span>
+				<div class="col-lg-10">
+					<input type="date" ng-model="promotion.dateExpireEix" class="txtAreaNoBorder">
+				</div>
 			</div>
-
-			<div>
-				<label>Condicions del Val </label>
-				<input type="text" ng-model="promotion.conditionsEix">
+			<div class="col-lg-12">
+				<span class="col-lg-2 noPadding">
+					Condicions del val:
+				</span>
+				<div class="col-lg-10">
+					<textarea name="" id="" cols="50" rows="3" ng-model="promotion.conditionsEix" class="txtAreaNoBorder txtAreaMarginTop">promotion.conditionsEix</textarea>
+					<div class="col-lg-2 col-lg-offset-6">
+						<input type="button" class="btn btn-default"  value="{{act}}" ng-click="editPromotion(act)">
+					</div>
+				</div>
 			</div>
-		</div>
+		</fieldset>
 	</div>
-	<div>
-		<input type="button" class="btn btn-default"  value="{{act}}" ng-click="editPromotion(act)">
-	</div>
-	
+</div>
 	</form>
 </div>
 
