@@ -150,7 +150,7 @@
 					Data d'expiració vals:
 				</span>
 				<div class="col-lg-10">
-					<input type="date" ng-model="promotion.dateExpireEix" class="txtAreaNoBorder">
+					<input type="date" ng-model="promotion.dateExpireEix" class="">
 				</div>
 			</div>
 			<div class="col-lg-12">
