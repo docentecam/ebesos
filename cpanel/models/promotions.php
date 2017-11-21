@@ -42,16 +42,17 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'updatePromotion'){
 	}
 
 	else if (isset($_POST['idPromotion']) && $_POST['idPromotion']==0) {
-		$mySql = "INSERT INTO `promotions` (`idPromotion` , `idShop`,`oferVals`,`conditionsVals`,`dateExpireVals`,`image`)
-		VALUES (NULL,  ".$_POST['shopSelected'].",'".$_POST['oferVals']."', '".$_POST['conditionsVals']."', '".$_POST['dateExpireVals']."','nofoto.png')";
+		$mySql = "INSERT INTO `promotions` (`idPromotion` , `idShop`,`oferVals`,`conditionsVals`,`dateExpireVals`,`image`,`active`)
+		VALUES (NULL,  ".$_POST['shopSelected'].",'".$_POST['oferVals']."', '".$_POST['conditionsVals']."', '".$_POST['dateExpireVals']."','nofoto.png','";
+		if ($_SESSION['user']['privileges']!="S")  $mySql.= "Y"; 
 
+		$mySql .= "')";
+$fp=fopen("_pruebaPromotion.txt",'w');
+					fputs($fp,'consulta:'.$mySql);
 		$connexio = connect();
 			$resultNewPromotion = mysqli_query($connexio, $mySql);
 			$resultidPromotion=mysqli_insert_id($connexio);
 			disconnect($connexio);
-		$fp=fopen("_pruebaPromotion.txt",'w');
-		fputs($fp,'consulta:'.$mySql);
-	}
 
 
 		if(!isset($_POST['imageChange']) ){
@@ -61,16 +62,20 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'updatePromotion'){
 								unlink("../../img/promotions/".$_POST['imageActual']);
 								
 			 				}
-						$mySql= 'UPDATE promotions SET image="'.$file.'" WHERE idPromotion='.$resultidPromotion;	
-						fputs($fp,'consulta:'.$mySql);
+						$mySql= 'UPDATE promotions SET image="'.$file.'"';
+						   
+						$mySql.=' WHERE idPromotion='.$resultidPromotion;	
+
 						$connexio = connect();
 						$resultNewPromotion = mysqli_query($connexio, $mySql);
 			
 			disconnect($connexio);
 
-					}                                               
+					}
 
-			
+		                                
+
+}			
 				
 			
 
@@ -80,7 +85,7 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'updatePromotion'){
 
 if(isset($_GET['acc']) && $_GET['acc'] == 'a'){
 	$mySql = "UPDATE promotions
-			SET active='Y'
+			SET active='".$_GET['active']."'
 			WHERE idPromotion=".$_GET['idPromotionSelected'];
 
 			$connexio = connect();
@@ -107,24 +112,27 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'd'){
 
 function listPromotions(){
 
-	$mySql = "SELECT idPromotion , oferVals, oferEix, image , conditionsVals, conditionsEix , active ,dateExpireVals, DATE_FORMAT( dateExpireVals,'%d-%m-%Y') AS  dateExpireValsE,dateExpireEix, DATE_FORMAT( dateExpireEix,'%d-%m-%Y') AS dateExpireEixE,idShop FROM promotions ";
+	// $mySql = "SELECT idPromotion , oferVals, oferEix, image , conditionsVals, conditionsEix , active ,dateExpireVals, DATE_FORMAT( dateExpireVals,'%d-%m-%Y') AS  dateExpireValsE,dateExpireEix, DATE_FORMAT( dateExpireEix,'%d-%m-%Y') AS dateExpireEixE,idShop FROM promotions ";
+
+	$mySql = "SELECT idPromotion , oferVals, oferEix, image , conditionsVals, conditionsEix , promotions.active ,dateExpireVals, DATE_FORMAT( dateExpireVals,'%d-%m-%Y') AS dateExpireValsE,dateExpireEix, DATE_FORMAT( dateExpireEix,'%d-%m-%Y') AS dateExpireEixE,shops.idShop FROM promotions, shops WHERE promotions.idShop=shops.idShop ";
+
+
+
 	$mySqlShops = "SELECT * FROM shops";
 	if($_SESSION['user']['idUser']!="1"){
-		if($_SESSION['user']['privileges']=="A") $mySqlShops.=" WHERE idUser='".$_SESSION['user']['idUser']."'";
-		else { $mySqlShops.=" WHERE idShop='".$_SESSION['user']['idUser']."'";}
+		$mySqlShops.=" WHERE idUser='".$_SESSION['user']['idUser']."'";
+		$mySql .= " AND shops.idUser=".$_SESSION['user']['idUser'];
+
 	}
 
-
-		
 		 	
 	if (isset($_GET['idPromotion']))
 	{
-		if($_SESSION['user']['idUser']!="1") $mySql .= " AND";
-		else $mySql .= " WHERE ";
-		$mySql .= " idPromotion=".$_GET['idPromotion'];
+		$mySql .= " AND idPromotion=".$_GET['idPromotion'];
 	}
-
-
+$fp=fopen("_pruebaPromotion.txt",'w');
+					fputs($fp,'consulta:'.$mySql.'cons shops'.$mySqlShops);
+	
 	$connexio = connect();
 
 	$resultPromotions = mysqli_query($connexio, $mySql);

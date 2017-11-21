@@ -29,7 +29,7 @@
 				</span>
 				<label>
 					Pendent d'aprovació
-				</label> &nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-success" value="Activar"  class="btn btn-default" ng-click="activePromotion(promotionList.idPromotion)" >
+				</label> &nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-success" value="Activar"  ng-click="activePromotion(promotionList.idPromotion,'Y')" >
 			</div>
 			<div class="col-lg-2">
 				<div class="col-lg-12 col-lg-push-5 divDatePromos">
@@ -61,6 +61,9 @@
 					{{promotionList.conditionsVals}}
 					{{promotionList.conditionsEix}}
 				</span>
+			<label>
+					Desactivar
+				</label> &nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-warning"  value="Desactivar"  ng-click="activePromotion(promotionList.idPromotion,'N')" >
 			</div>
 			<div class="col-lg-4">
 				<div class="col-lg-12 col-lg-push-2 divDatePromos">
@@ -79,6 +82,7 @@
 	</div>
 </div>
 <div class="row" ng-hide="loadPromotions">
+	
 	<form action="#" id="validationPromotion" name="validation" method="POST" >
 		<h1>{{act}} Promocions</h1>
 		<label>Seleccionar comerç </label> <select id="listShops" name="listShops" ng-model="promotion.shopSelected" > <option value="-1"> --Escull Comerç</option><option ng-repeat="shop in shopsList" ng-selected="promotion.shopSelected==shop.idShop" ng-value="shop.idShop">{{shop.name}}</option> </select>

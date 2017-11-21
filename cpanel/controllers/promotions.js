@@ -19,12 +19,12 @@ angular.module('spaApp')
 		    $scope.loading=false; 
 		})
 
-		$scope.activePromotion=function(idPromotion){
+		$scope.activePromotion=function(idPromotion,active){
 
 			$scope.loading=true;
 				$http({
 					method : "GET",
-					url : "models/promotions.php?acc=a&idPromotionSelected="+idPromotion
+					url : "models/promotions.php?acc=a&idPromotionSelected="+idPromotion+"&active="+active
 				}).then(function mySucces (response) {
 					$scope.shopsList = response.data[0].dataShops;
 					$scope.promotionsList=response.data[0].dataPromotions;
@@ -52,6 +52,7 @@ angular.module('spaApp')
 						url : "models/promotions.php?acc=d&idPromotionSelected="+idPromotion
 					}).then(function mySucces (response) {
 						$scope.shopsList = response.data[0].dataShops;
+						console.log("comercios"+$scope.shopsList);
 						$scope.promotionsList=response.data[0].dataPromotions;
 						$scope.loadPromotions=true;
 					}	
