@@ -29,7 +29,13 @@
 				</span>
 				<label>
 					Pendent d'aprovació
-				</label> &nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-success" value="Activar" ng-click="activePromotion(promotionList.idPromotion)" >
+				</label> &nbsp;&nbsp;&nbsp;
+				<div class="col-xs-12">
+					<div class="col-xs-3 col-xs-push-3 btnActivePromos">
+					<input type="button" class="btn btn-success " value="Activar" ng-click="activePromotion(promotionList.idPromotion)" >
+				</div>
+				</div>
+				
 			</div>
 			<div class="col-lg-2">
 				<div class="col-lg-12 col-lg-push-5  col-xs-12 divDatePromos">

@@ -1004,9 +1004,13 @@ a:hover
     margin-top: -5%;
   }
   .divPromosCond
-{
-  margin-top: 0%;
-}
+  {
+    margin-top: 0%;
+  }
+  .btnActivePromos
+  {
+    margin-left: 2.5%;
+  }
 
 }
 
