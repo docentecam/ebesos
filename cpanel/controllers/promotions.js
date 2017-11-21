@@ -1,7 +1,30 @@
+angular.module('spaApp').factory('msgEdits', function(){
+	return {data:{}};
+});
 angular.module('spaApp')
-.controller('PromotionsCtrl', function($scope, $http) {
+.controller('PromotionsCtrl', function($scope, $http,msgEdits) {
   		
   	$scope.loadPromotions=true;
+  	
+  	// $scope.message="";
+  	$scope.message=msgEdits.data.message;
+	$scope.validation=msgEdits.data.validation;
+
+	console.log(msgEdits.data.message);
+
+	if ($scope.message==null) {
+  		$scope.messageConfirm=false;
+  		console.log("entra oculto");
+
+  	}
+  	
+  	else{
+  		$scope.messageConfirm=true;
+  		console.log("entra visible");
+  		
+  	}
+
+  	 	
 
  			$scope.loading=true;
 			$http({
@@ -15,9 +38,11 @@ angular.module('spaApp')
 				$scope.promotionsList = response.statusText;
 			})
 			.finally(function() 
+  	
 		{ 
 		    $scope.loading=false; 
 		})
+
 
 		$scope.activePromotion=function(idPromotion,active){
 
@@ -63,8 +88,9 @@ angular.module('spaApp')
 				{ 
 				    $scope.loading=false; 
 				})
-				
+				msgEdits.data.message="Promoció esborrada";
 			}
+
 			
 		}
 
@@ -72,7 +98,7 @@ angular.module('spaApp')
 });
 
 angular.module('spaApp')
-.controller('PromotionCtrl', function($scope, $http,$routeParams,$q) {
+.controller('PromotionCtrl', function($scope, $http,$routeParams,$q, $location,msgEdits) {
 	$scope.loadPromotions=false;
 
 
@@ -133,8 +159,6 @@ angular.module('spaApp')
 		    $scope.loading=false; 
 		})
 	
-		console.log($scope.promotion.shopSelected);
-		if ($scope.promotion.shopSelected="") {alert("");}
 	
 
 	$scope.changeImg=function(e){
@@ -145,18 +169,17 @@ angular.module('spaApp')
 	$scope.editPromotion=function()
 	{
 		
-
-		if(($scope.promotion.conditionsVals=="" ||$scope.promotion.oferVals=="")&&($scope.promotion.conditionsEix=="" ||$scope.promotion.oferEix==""))
+		if( $scope.promotion.shopSelected=="-1"){
+			alert("tens que seleccionar un comerç");
+		}
+		else if(($scope.promotion.conditionsVals=="" ||$scope.promotion.oferVals=="")&&($scope.promotion.conditionsEix=="" ||$scope.promotion.oferEix==""))
 		{
 			alert("N'hi ha un camp buit");
 		}
 
-		else if( $scope.promotion.shopSelected=="-1"){
-			alert("tens que seleccionar un comerç");
-		}
+		
 
 		else{
-			console.log($scope.promotion);
 		var data = new FormData();
 		data.append("idPromotion", $scope.promotion.idPromotion);
 		data.append("imageChange", $scope.imgForChange);
@@ -170,7 +193,7 @@ angular.module('spaApp')
 		data.append("shopSelected", $scope.promotion.shopSelected);
 
 		var deferred=$q.defer();
-			return $http.post("models/promotions.php?acc=updatePromotion",data,{
+		$http.post("models/promotions.php?acc=updatePromotion",data,{
 				headers:{
 					"Content-type":undefined
 				},
@@ -185,6 +208,10 @@ angular.module('spaApp')
 						$scope.promotion.image=$scope.promotion.idPromotion+"-"+$scope.imgForChange.name;}	
 				})
 		}
+		if ( $scope.promotion.idPromotion==0) {msgEdits.data.message="S'ha afegit correctament ";msgEdits.data.validation=true;}
+		else {msgEdits.data.message="S'ha modificat correctament ";msgEdits.data.validation=true;}
+		
+		$location.url("/promotions");
 		
 	}
 
