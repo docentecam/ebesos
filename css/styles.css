@@ -776,6 +776,9 @@ hr.style14 {
 }
 
 @media (max-width: 575px){
+	select{
+		font-size: 0.8em;
+	}
 	h2{
 		font-size: 1.8em;
 		color: #BCBCBC;
@@ -818,7 +821,7 @@ hr.style14 {
 		margin-bottom: 10px;
 	}
 	.a-category{
-		font-size: 1em;
+		font-size: 0.9em;
 		font-weight: 700;
 		text-decoration: none;
 		color: black;
@@ -826,6 +829,9 @@ hr.style14 {
 	}
 	.category-name{
 		margin-left: -10px;
+	}
+	.category-pictograms{
+		margin-top: 5px;
 	}
 	.category-select	{
 		margin-left: 15px;
@@ -1162,7 +1168,17 @@ hr.style14 {
 	}
 	#mc_embed_signup {
  		margin-left: 0%!important;
-	}	
+	}
+	.category {
+		margin-top: 20px;
+		margin-bottom: 10px;
+	}
+	.legend{
+		bottom: -15px;
+	}
+	.acColor, .xnoColor, .merColor{
+		margin-left: 0;
+	}
 }
 @media (min-width: 951px) and (max-width: 992px) {
     .pictoImg{
@@ -1209,6 +1225,16 @@ hr.style14 {
 	}
 }
 @media (min-width: 1024px) and (max-width: 1199px){
+	.category {
+		margin-top: 20px;
+		margin-bottom: 10px;
+	}
+	.legend{
+		bottom: -15px;
+	}
+	.acColor, .xnoColor, .merColor{
+		margin-left: 0;
+	}
 	#captchaDiv{
 		background-image: url("../img/captcha.jpg");
 		color: gray;
