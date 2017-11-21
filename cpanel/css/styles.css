@@ -997,6 +997,17 @@ a:hover
   {
     padding-left: 0%;
   }
+  .buttonsPromos
+  {
+    padding: 0;
+    margin-left: 4%;
+    margin-top: -5%;
+  }
+  .divPromosCond
+{
+  margin-top: 0%;
+}
+
 }
 
 @media (min-width: 576px) and (max-width: 767px){

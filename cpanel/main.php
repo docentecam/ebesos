@@ -99,7 +99,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 			<div id="loadingData" ng-show="loading">
 					<center><i class="fa fa-spinner fa-spin fa-3x fa-fw"></i></center>	
 				</div> 	
-				<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 editNgView" data-ng-view="" ng-hide="loading"> 				
+				<div class="col-xs-11 col-sm-9 col-md-9 col-lg-9 editNgView" data-ng-view="" ng-hide="loading"> 				
   				</div>
   			</div>
 		</div>
