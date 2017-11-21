@@ -44,19 +44,29 @@ button.btn-add{
 textarea{
   resize: none;
 }
+.add-examinar{
+  margin-left: 15px!important;
+}
+label.btn-add{
+  padding-left: 30px;
+}
+.images-other .btn-add{
+  padding-left: 17px;  
+}
 label.btn-add, button.btn-add{
   outline: none;
   height: 35px;
   font-weight: 300;
   font-size: 0.9em;
+  border: 1px solid #808080;
   cursor: pointer;
   opacity: 0.8;
   padding-top: 8px;
-  padding-left: 17px;
-  background-color: #C0D0D7;
+  background-color: #B0C2C8;
+
 }
 label.btn-add:active, button.btn-add:active{
-  background-color: #B1C0C6;
+  background-color: #BED1D7;
 }
 input.btn-up{
   background-color: #D4DBDE!important;
@@ -84,6 +94,8 @@ a:hover
   text-decoration: none;
 }
 .images-shop button.btn-delete{
+  margin-top: 15px;
+  height: 40px!important;
   float: right;
 }
 .btn-edit:active, .btn-delete:active{
