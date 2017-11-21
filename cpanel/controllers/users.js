@@ -15,14 +15,14 @@ angular.module('spaApp')
 			}).then(function mySucces (response) {
 				$scope.associations = response.data;
 				$scope.idUserC = $scope.associations[0]['idUser'];
-				$scope.nameC = $scope.associations[0]['name'];
+				$scope.nameC = $scope.associations[0]['name'].replace(/&quot;/g,'"').replace(/&quot/g,'"');
 				$scope.emailC = $scope.associations[0]['email'];
 				$scope.emailPassC = $scope.associations[0]['emailPass'];
 				$scope.addressC = $scope.associations[0]['address'];
 				$scope.telephoneC = $scope.associations[0]['telephone'];
 				$scope.logoC = $scope.associations[0]['logo'];
 				$scope.footerC = $scope.associations[0]['footer'];
-				$scope.historyC = $scope.associations[0]['history'];
+				$scope.historyC = $scope.associations[0]['history'].replace(/&quot;/g,'"').replace(/&quot/g,'"');
 				$scope.activeC = $scope.associations[0]['active'];
 			}, function myError (response) {
 				$scope.associations = response.statusText;
@@ -75,14 +75,14 @@ angular.module('spaApp')
 					}).then(function mySucces (response) {
 						$scope.associations = response.data;
 						$scope.idUserC = $scope.associations[0]['idUser'];
-						$scope.nameC = $scope.associations[0]['name'];
+						$scope.nameC = $scope.associations[0]['name'].replace(/&quot;/g,'"').replace(/&quot/g,'"');
 						$scope.emailC = $scope.associations[0]['email'];
 						$scope.emailPassC = $scope.associations[0]['emailPass'];
 						$scope.addressC = $scope.associations[0]['address'];
 						$scope.telephoneC = $scope.associations[0]['telephone'];
 						$scope.logoC = $scope.associations[0]['logo'];
 						$scope.footerC = $scope.associations[0]['footer'];
-						$scope.historyC = $scope.associations[0]['history'];
+						$scope.historyC = $scope.associations[0]['history'].replace(/&quot;/g,'"').replace(/&quot/g,'"');
 						$scope.activeC = $scope.associations[0]['active'];
 						
 					}, function myError (response) {
@@ -229,7 +229,7 @@ angular.module('spaApp')
 							$scope.loading = true;
 								$http({
 									method : "GET",
-									url : "models/users.php?acc=loadUser" //modificar
+									url : "models/users.php?acc=loadUser"
 								}).then(function mySucces (response) {
 									$scope.associations = response.data;
 									$scope.idUserC = $scope.associations[0]['idUser'];

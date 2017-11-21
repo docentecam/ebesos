@@ -215,7 +215,7 @@ if(isset($_SESSION['user']['idUser']))
 				{
 					$dataUser .= ",";
 				}
-				$dataUser .= '{"idUser":"'.$row['idUser'].'", "name":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['name']).'", "email":"'.$row['email'].'", "emailPass":"'.$row['emailPass'].'", "password":"'.$row['password'].'", "address":"'.$row['address'].'", "telephone":"'.$row['telephone'].'", "logo":"'.$row['logo'].'", "history":"'.str_replace(array("\'", '\"', "\r\n"), array("&#39",'&#34',"\\n"),$row['history']).'", "active":"'.$row['active'].'", "footer":"'.$row['footer'].'"}'; 
+				$dataUser .= '{"idUser":"'.$row['idUser'].'", "name":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",htmlspecialchars($row['name'])).'", "email":"'.$row['email'].'", "emailPass":"'.$row['emailPass'].'", "password":"'.$row['password'].'", "address":"'.$row['address'].'", "telephone":"'.$row['telephone'].'", "logo":"'.$row['logo'].'", "history":"'.str_replace(array("\'", '\"', "\r\n"), array("&#39",'&#34',"\\n"),htmlspecialchars($row['history'])).'", "active":"'.$row['active'].'", "footer":"'.$row['footer'].'"}'; 
 				$i++;
 			}
 			$dataUser .= "]";
@@ -257,7 +257,7 @@ if(isset($_SESSION['user']['idUser']))
 		if(!isset($_POST['currentPswd']))
 		{
 			$mySql = 'UPDATE users
-					SET email="'.$_POST['email'].'", emailPass="'.$_POST['pswdMail'].'", name="'.$_POST['name'].'", address="'.$_POST['address'].'", telephone="'.$_POST['telephone'].'", history="'.str_replace(array("'",'"',"\\n"), array("\'",'\"',"\r\n"),$_POST['history']).'", active="'.$_POST['active'].'" 
+					SET email="'.$_POST['email'].'", emailPass="'.$_POST['pswdMail'].'", name="'.str_replace(array("'",'"',"\\n"), array("\'",'\"',"\r\n"),$_POST['name']).'", address="'.$_POST['address'].'", telephone="'.$_POST['telephone'].'", history="'.str_replace(array("'",'"',"\\n"), array("\'",'\"',"\r\n"),$_POST['history']).'", active="'.$_POST['active'].'" 
 					WHERE idUser='.$_POST['idUser'];
 			$connexio = connect();
 			$updateUserData = mysqli_query($connexio, $mySql);
@@ -276,7 +276,7 @@ if(isset($_SESSION['user']['idUser']))
 			if(sha1(md5($_POST['currentPswd'])) == $row[0])
 			{
 				$mySql = 'UPDATE users
-					SET email="'.$_POST['email'].'", emailPass="'.$_POST['pswdMail'].'", name="'.$_POST['name'].'", password="'.sha1(md5($_POST['pswd'])).'", address="'.$_POST['address'].'", telephone="'.$_POST['telephone'].'", history="'.str_replace(array("'",'"',"\\n"), array("\'",'\"',"\r\n"),$_POST['history']).'", active="'.$_POST['active'].'" 
+					SET email="'.$_POST['email'].'", emailPass="'.$_POST['pswdMail'].'", name="'.str_replace(array("'",'"',"\\n"), array("\'",'\"',"\r\n"),$_POST['name']).'", password="'.sha1(md5($_POST['pswd'])).'", address="'.$_POST['address'].'", telephone="'.$_POST['telephone'].'", history="'.str_replace(array("'",'"',"\\n"), array("\'",'\"',"\r\n"),$_POST['history']).'", active="'.$_POST['active'].'" 
 					WHERE idUser='.$_POST['idUser'];
 				$connexio = connect();
 				$updateUserData = mysqli_query($connexio, $mySql);
@@ -297,7 +297,7 @@ if(isset($_SESSION['user']['idUser']))
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'createUser') {
 		$message='';
 		$mySql = 'INSERT INTO users (email, emailPass, name, password, address, telephone, logo, history, footer)
-				VALUES ("'.$_POST['email'].'","'.$_POST['pswdMail'].'","'.$_POST['name'].'","'.sha1(md5($_POST['pswd'])).'","'.$_POST['address'].'","'.$_POST['telephone'].'","","'.str_replace(array("'",'"',"\\n"), array("\'",'\"',"\r\n"),$_POST['history']).'","")';
+				VALUES ("'.$_POST['email'].'","'.$_POST['pswdMail'].'","'.str_replace(array("'",'"',"\\n"), array("\'",'\"',"\r\n"),$_POST['name']).'","'.sha1(md5($_POST['pswd'])).'","'.$_POST['address'].'","'.$_POST['telephone'].'","","'.str_replace(array("'",'"',"\\n"), array("\'",'\"',"\r\n"),$_POST['history']).'","")';
 		
 		$connexio = connect();
 		$resultUser = mysqli_query($connexio, $mySql);
