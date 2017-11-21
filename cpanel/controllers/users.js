@@ -118,6 +118,13 @@ angular.module('spaApp')
   								$scope.slashInv = true;
   							}
   						}
+  						for($i=0;$i<$scope.nameC.length;$i++)
+  						{
+  							if($scope.nameC[$i] == '\\')
+  							{
+  								$scope.slashInv = true;
+  							}
+  						}
   						if($scope.slashInv == false)
   						{
 	  						$scope.loading = true;
@@ -171,6 +178,13 @@ angular.module('spaApp')
   						for($i=0;$i<$scope.historyC.length;$i++)
   						{
   							if($scope.historyC[$i] == '\\')
+  							{
+  								$scope.slashInv = true;
+  							}
+  						}
+  						for($i=0;$i<$scope.nameC.length;$i++)
+  						{
+  							if($scope.nameC[$i] == '\\')
   							{
   								$scope.slashInv = true;
   							}
@@ -232,6 +246,13 @@ angular.module('spaApp')
   						for($i=0;$i<$scope.historyC.length;$i++)
   						{
   							if($scope.historyC[$i] == '\\')
+  							{
+  								$scope.slashInv = true;
+  							}
+  						}
+  						for($i=0;$i<$scope.nameC.length;$i++)
+  						{
+  							if($scope.nameC[$i] == '\\')
   							{
   								$scope.slashInv = true;
   							}
