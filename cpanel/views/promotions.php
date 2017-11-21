@@ -3,7 +3,7 @@
 	if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 ?>
 
-<div class="row">
+<div class="row" ng-show="loadPromotions">
 	<label class="col-lg-1 col-xs-12">
 		Promocions
 	</label>
@@ -79,37 +79,59 @@
 	</div>
 </div>
 <div class="row" ng-hide="loadPromotions">
-	<form action="#" id="validationPromotion" name="validation" method="POST" >
-		<h1>{{act}} Promocions</h1>
-		<label>Seleccionar comerç </label> <select id="listShops" name="listShops" ng-model="promotion.shopSelected" > <option value="-1"> --Escull Comerç</option><option ng-repeat="shop in shopsList" ng-selected="promotion.shopSelected==shop.idShop" ng-value="shop.idShop">{{shop.name}}</option> </select>
-		<br><br>
-		<label>Imatge: </label>
-		<img class="img-responsive" ng-src="../img/promotions/{{promotion.image}}">
-		<label for="updateImg" class="labelFor"> examinar</label>
-		<input type="file" id="updateImg" onchange="angular.element(this).scope().changeImg(this)" ng-hide="true">
+	<form action="#" id="validationPromotion" name="validation" method="POST">
 
-	<div class="row">
-		<div class="col-lg-6">
-			<fieldset>
-			 <legend> VALS </legend>
-				<div>
-					<label>OFERTA </label>
-					<input type="text" ng-model="promotion.oferVals">
-				</div>
-				<div>
-					<label>Data Expire Vals </label>
-					<input type="date" ng-model="promotion.dateExpireVals">
-				</div>
-				
-				<div>
-					<label>Condicions del Val </label>
-					<input type="text"  ng-model="promotion.conditionsVals">
-				</div>
-				
-			</fieldset>
+		<div class="col-lg-12">
+			<label class="labelFontSizePromo">{{act}} promocions</label>
 		</div>
-
+		<div class="col-lg-12">
+			<label class="marginTopLabel">Seleccionar comerç:&nbsp&nbsp&nbsp </label>
+			<select name="listShops" ng-model="promotion.shopSelected" class="select-users"> <option value="-1"> --Escull Comerç</option><option ng-repeat="shop in shopsList" ng-selected="promotion.shopSelected==shop.idShop" ng-value="shop.idShop">{{shop.name}}</option> </select>
+		</div>
+		<div class="col-lg-12">
+			<label class="labelImgMarginTop">
+				Imatge: 
+			</label>
+		</div>
+		<div class="col-lg-12">
+			<img class="img-responsive col-lg-8 imgPromo" ng-src="../img/promotions/{{promotion.image}}">
+				<label for="updateImg" class="labelFor col-lg-4">Examinar</label>
+				<input type="file" id="updateImg" onchange="angular.element(this).scope().changeImg(this)" ng-hide="true">
+		</div>
+<div class="row">
+	<div class="col-lg-12">
+		<fieldset class="col-lg-12">
+			<label class="labelFontSizePromo marginTopLabel"> 
+				Vals 
+			</label>
+			<div class="col-lg-12">
+				<span class="col-lg-2 noPadding">
+					Oferta:
+				</span>
+				<div class="col-lg-10">
+					<textarea name="" id="" cols="30" rows="3" ng-model="promotion.oferVals" class="txtAreaNoBorder">promotion.oferVals</textarea>
+				</div>
+			</div>
+			<div class="col-lg-12">
+				<span class="col-lg-2 noPadding">
+					Data d'expiració vals:
+				</span>
+				<div class="col-lg-10">
+					<input type="date" ng-model="promotion.dateExpireVals" class="inputDateWidth txtAreaNoBorder">
+				</div>
+			</div>
+			<div class="col-lg-12">
+				<span class="col-lg-2 noPadding">
+					Condicions del val:
+				</span>
+				<div class="col-lg-10">
+					<textarea name="" id="" cols="30" rows="3" ng-model="promotion.conditionsVals" class="txtAreaNoBorder txtAreaMarginTop">promotion.conditionsVals</textarea>
+				</div>
+			</div>
+			
+		</fieldset>
 	</div>
+</div>
 
 	<div class="row">
 		<div class="col-lg-6">
