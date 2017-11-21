@@ -159,8 +159,10 @@
 				</span>
 				<div class="col-lg-10">
 					<textarea name="" id="" cols="50" rows="3" ng-model="promotion.conditionsEix" class="txtAreaNoBorder txtAreaMarginTop">promotion.conditionsEix</textarea>
-					<div class="col-lg-2 col-lg-offset-6">
-						<input type="button" class="btn btn-default"  value="{{act}}" ng-click="editPromotion(act)">
+					<div class="col-lg-12">
+						<div class="col-lg-2 col-lg-pull-1">
+							<input type="button" class="btn btn-default btnEditPromo"  value="{{act}}" ng-click="editPromotion(act)">
+						</div>
 					</div>
 				</div>
 			</div>
