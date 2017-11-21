@@ -32,7 +32,7 @@ select:focus{
   -webkit-appearance: none;
   appearance: none;
 }
-option{ 
+option{
   background-color: #EDEDED;
 }
 button.btn-add{
@@ -221,16 +221,6 @@ a:hover
 .pt-3
 {
   padding-top: 3%;
-}
-.labelFor
-{
-  background-color: #B8C5CB;
-  padding: 4% 13% 4% 13%;
-}
-.labelFor:active
-{
-  background-color: #B0BEC4;
-  padding: 4% 13% 4% 13%;
 }
 #textTitleHistory
 {
@@ -839,6 +829,52 @@ a:hover
   margin-top: 7%;
   margin-left: -3%;
 }
+.labelFontSizePromo
+{
+  font-size: 22px;
+}
+.labelFor
+{
+  background-color: #CFD8DA;
+  font-weight: 300;
+  width: 100px;
+  height: 50px;  
+  border-radius: 10px;
+  text-align: center;
+  padding-top: 1.5%;
+  margin-top: 43.3%;
+  margin-left: 1%;
+}
+.labelFor:hover
+{
+  background-color: #B8C2C4;
+  cursor: pointer;
+}
+.imgPromo
+{
+  padding: 0;
+}
+.marginTopLabel
+{
+  margin-top: 5%;
+}
+.labelImgMarginTop
+{
+  margin-top: 2%;
+}
+.noPadding{
+  padding: 0px;
+}
+.txtAreaMarginTop
+{
+  margin-top: 0.7%;
+}
+.btnEditPromo
+{
+  margin-left: 32.6%;
+  margin-top: 7%;
+}
+
 
 
 
@@ -961,6 +997,21 @@ a:hover
   {
     padding-left: 0%;
   }
+  .buttonsPromos
+  {
+    padding: 0;
+    margin-left: 4%;
+    margin-top: -5%;
+  }
+  .divPromosCond
+  {
+    margin-top: 0%;
+  }
+  .btnActivePromos
+  {
+    margin-left: 2.5%;
+  }
+
 }
 
 @media (min-width: 576px) and (max-width: 767px){
@@ -1038,7 +1089,6 @@ a:hover
   {
     margin-top: 4%;
   }
-
 }
 @media (min-width: 1024px){
   .log250{

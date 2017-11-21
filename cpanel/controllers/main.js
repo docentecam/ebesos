@@ -20,5 +20,10 @@ $scope.showLogOff=true;
 	}).finally(function(){
 	  $scope.loading = false;
 		});
+	$scope.showDisconnect = function(){
+		if ($scope.showLogOff = !$scope.showLogOff) {
+			
+		}			
+	};
 	
 });

@@ -104,58 +104,105 @@ angular.module('spaApp')
 		}
 		else if($scope.idLinkC == -1)
 		{
-			$scope.loading=true;
-			$http({
-				method : "GET",
-				url : "models/links.php?acc=createLink&name="+$scope.nameC+"&url="+$scope.urlC
-			})
-			.then(function mySucces (response) {
-				$scope.linksCreate = response.data;
-				$scope.loading=true;
-				$scope.fail = true;
-				$scope.statusValidation = $scope.linksCreate[0]['status'];
-				$scope.validation = true;
-				if($scope.statusValidation == "Error al connectar")
+			$scope.slashInv = false;
+			for($i=0;$i<$scope.urlC.length;$i++)
+			{
+				if($scope.urlC[$i] == '\\')
 				{
-					$scope.validation = false;
+					$scope.slashInv = true;
 				}
-				
-			}, function myError (response) {
-				$scope.linksCreate = response.statusText;
-			})
-			.finally(function() 
-			{ 
-			    $scope.loading=false;
-			    $scope.nameC = "";
-				$scope.urlC = "";
-			})
-			
+			}
+			for($i=0;$i<$scope.nameC.length;$i++)
+			{
+				if($scope.nameC[$i] == '\\')
+				{
+					$scope.slashInv = true;
+				}
+			}
+			if($scope.slashInv == false)
+			{
+				$scope.loading=true;
+				$http({
+					method : "GET",
+					url : "models/links.php?acc=createLink&name="+$scope.nameC+"&url="+$scope.urlC
+				})
+				.then(function mySucces (response) {
+					$scope.linksCreate = response.data;
+					$scope.loading=true;
+					$scope.fail = true;
+					$scope.statusValidation = $scope.linksCreate[0]['status'];
+					$scope.validation = true;
+					if($scope.statusValidation == "Error al connectar")
+					{
+						$scope.validation = false;
+					}
+					
+				}, function myError (response) {
+					$scope.linksCreate = response.statusText;
+				})
+				.finally(function() 
+				{ 
+				    $scope.loading=false;
+				    $scope.nameC = "";
+					$scope.urlC = "";
+				})
+			}
+			else
+			{
+				$scope.fail = true;
+				$scope.validation = false;
+				$scope.statusValidation = "Error, el símbol \\ no es pot utilitzar";
+			}
 		}
 		else
 		{
-			$scope.loading=true;
-			$http({
-				method : "GET",
-				url : "models/links.php?acc=createLink&name="+$scope.nameC+"&url="+$scope.urlC+"&idLink="+$scope.idLinkC
-			})
-			.then(function mySucces (response) {
-				$scope.linksCreate = response.data;
-				$scope.loading=true;
-				$scope.fail = true;
-				$scope.statusValidation = $scope.linksCreate[0]['status'];
-				$scope.validation = true;
-				if($scope.statusValidation == "Error al connectar")
+			$scope.slashInv = false;
+			for($i=0;$i<$scope.urlC.length;$i++)
+			{
+				if($scope.urlC[$i] == '\\')
 				{
-					$scope.validation = false;
+					$scope.slashInv = true;
 				}
-				
-			}, function myError (response) {
-				$scope.linksCreate = response.statusText;
-			})
-			.finally(function() 
-			{ 
-			    $scope.loading=false;
-			})
+			}
+			for($i=0;$i<$scope.nameC.length;$i++)
+			{
+				if($scope.nameC[$i] == '\\')
+				{
+					$scope.slashInv = true;
+				}
+			}
+			if($scope.slashInv == false)
+			{	
+				$scope.loading=true;
+				$http({
+					method : "GET",
+					url : "models/links.php?acc=createLink&name="+$scope.nameC+"&url="+$scope.urlC+"&idLink="+$scope.idLinkC
+				})
+				.then(function mySucces (response) {
+					$scope.linksCreate = response.data;
+					$scope.loading=true;
+					$scope.fail = true;
+					$scope.statusValidation = $scope.linksCreate[0]['status'];
+					$scope.validation = true;
+					if($scope.statusValidation == "Error al connectar")
+					{
+						$scope.validation = false;
+					}
+					
+				}, function myError (response) {
+					$scope.linksCreate = response.statusText;
+				})
+				.finally(function() 
+				{ 
+				    $scope.loading=false;
+				})
+			}
+			else
+			{
+				$scope.fail = true;
+				$scope.validation = false;
+				$scope.statusValidation = "Error, el símbol \\ no es pot utilitzar";
+			}
 			
 		}
 		
