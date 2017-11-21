@@ -93,6 +93,33 @@ a:hover
 {
   text-decoration: none;
 }
+.divClientLoggedImage{
+  padding-left: 1%;
+}
+.divClientLoggedName{
+  height: 88px;
+}
+.arrowDown{
+  margin-left: 10px;
+}
+.iSignOff{
+  margin-right: 2%;
+}
+.navGeneral{
+  height: 100%;
+}
+.navGeneral2{
+  padding: 0%!important;
+}
+#divNavTabsGlobal{
+  background-color: #325C73;
+}
+
+
+
+
+
+
 .images-shop button.btn-delete{
   margin-top: 15px;
   height: 40px!important;
@@ -538,6 +565,7 @@ a:hover
   text-align: center;
   padding-top: 8.4px;
   border-top: 3px solid #7CA3E3;
+  z-index: 1;
 }
 
 /* Subcategories. */

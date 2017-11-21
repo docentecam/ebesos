@@ -44,11 +44,11 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 	</head>
 	<body id="container" data-ng-app="spaApp"  ng-controller="MainCtrl">
 		<div class="row">
-			<div class="col-xs-6 col-md-2 col-lg-2" style="padding: 0px;">				
-				<div style="padding: 0px; background-color: #3C708C;" class="col-xs-5 col-lg-5">
-					<a href="#"><img style="padding: 0px;" class="img-responsive logoEixTop" src="../img/logos-assoc/<?php echo $_SESSION['user']['logo']; ?>"></a>					
+			<div class="col-xs-6 col-md-2 col-lg-2 noPadding">				
+				<div class="col-xs-5 col-lg-5 noPadding divClientLoggedImage">
+					<a href="#"><img class="img-responsive noPadding" src="../img/logos-assoc/<?php echo $_SESSION['user']['logo']; ?>"></a>	
 				</div>
-				<div class="col-xs-7 col-lg-7" style="height: 88px;">
+				<div class="col-xs-7 col-lg-7 divClientLoggedName">
 					<span id="nameAssoLogged"><?php echo $_SESSION['user']['name']; ?></span>
 				</div>
 			</div>		
@@ -57,20 +57,20 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 					<div class="col-xs-12 col-lg-4 col-lg-push-7 deleteUnderlineSignUp" ng-click="showDisconnect()">
 						<div class="colorLoginHidden">
 							<i class="fa fa-user-circle-o fa-2x" aria-hidden="true" title="Inicia Sessió"></i>
-							<i class="fa fa-caret-down fa-lg" style="margin-left: 10px;" aria-hidden="true"></i>
+							<i class="fa fa-caret-down fa-lg arrowDown" aria-hidden="true"></i>
 						</div>						
 					</div>	
 				</div>
 				<div class="row" ng-hide="showLogOff">
-					<div class="col-xs-12 col-lg-6 col-lg-push-4 logOffDiv" style="z-index: 1;">
-						<a href="models/users.php?acc=logout"><i class="fa fa-sign-out" aria-hidden="true" style="margin-right: 2%;"></i>Tancar Sessió</a>						
+					<div class="col-xs-12 col-lg-6 col-lg-push-4 logOffDiv">
+						<a href="models/users.php?acc=logout"><i class="fa fa-sign-out iSignOff" aria-hidden="true"></i>Tancar Sessió</a>						
 					</div>
 				</div>			
 			</div>		
 		</div>
 		
-		<div class="row" style="height: 100%;">
-			<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2" style="padding: 0%!important;">
+		<div class="row navGeneral">
+			<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 navGeneral2">
 				<div class="sidebar-nav">
 					<div class="navbar navbar-default navGlobal" role="navigation">
     					<div class="navbar-header">
@@ -81,7 +81,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 					            <span class="icon-bar"></span>
       						</button>     						
     					</div>
-    					<div class="navbar-collapse collapse sidebar-navbar-collapse navReduced" style="background-color: #325C73;">
+    					<div class="navbar-collapse collapse sidebar-navbar-collapse navReduced" id="divNavTabsGlobal">
 							<ul class="nav navbar-nav">
 								<?php if($_SESSION['user']['privileges'] =='E' || $_SESSION['user']['privileges'] =='A') echo '<li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/associations">Associacions</a></li>
 								<li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/shops">Comerços</a></li>' ?>
