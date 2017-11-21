@@ -110,7 +110,8 @@ function listPromotions(){
 	$mySql = "SELECT idPromotion , oferVals, oferEix, image , conditionsVals, conditionsEix , active ,dateExpireVals, DATE_FORMAT( dateExpireVals,'%d-%m-%Y') AS  dateExpireValsE,dateExpireEix, DATE_FORMAT( dateExpireEix,'%d-%m-%Y') AS dateExpireEixE,idShop FROM promotions ";
 	$mySqlShops = "SELECT * FROM shops";
 	if($_SESSION['user']['idUser']!="1"){
-		$mySqlShops.=" WHERE idUser='".$_SESSION['user']['idUser']."'";
+		if($_SESSION['user']['privileges']=="A") $mySqlShops.=" WHERE idUser='".$_SESSION['user']['idUser']."'";
+		else { $mySqlShops.=" WHERE idShop='".$_SESSION['user']['idUser']."'";}
 	}
 
 

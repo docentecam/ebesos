@@ -77,6 +77,7 @@
 			</div>
 		</div>
 	</div>
+</div>
 <div class="row" ng-hide="loadPromotions">
 	<form action="#" id="validationPromotion" name="validation" method="POST" >
 		<h1>{{act}} Promocions</h1>
