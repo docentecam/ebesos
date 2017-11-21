@@ -47,7 +47,7 @@
 		</div>
 		<div class="col-md-12">
 			<span class="col-lg-6 no-padding">Logo comerç</span>
-			<span class="col-lg-6 no-padding">Adreça electronica</span>
+			<span class="col-lg-6 no-padding">Pàgina web</span>
 			<label for="lg-shop" class="btn-add col-lg-2">Examinar<i class="fa fa-plus-circle add-examinar" aria-hidden="true"></i></label><input type="file" class="col-lg-4" id="lg-shop" name="lg-shop" uploader-model="shopOne.logo" ng-show="false">
 			<input type="text" class="col-lg-4 col-lg-offset-4" id="url-shop" name="url-shop" placeholder="www.webtenda.com" name="" ng-model="shopOne.web">
 		</div>
