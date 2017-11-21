@@ -32,7 +32,7 @@ select:focus{
   -webkit-appearance: none;
   appearance: none;
 }
-option{ 
+option{
   background-color: #EDEDED;
 }
 button.btn-add{
