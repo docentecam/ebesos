@@ -110,80 +110,114 @@ angular.module('spaApp')
   				{
   					if($scope.pswdC == $scope.confirmPswdC && $scope.confirmPswdC != "" && $scope.pswdC != "" && $scope.currentPswdC != "")
   					{
-  						$scope.loading = true;
+	  					$scope.slashInv = false;
+  						for($i=0;$i<$scope.historyC.length;$i++)
+  						{
+  							if($scope.historyC[$i] == '\\')
+  							{
+  								$scope.slashInv = true;
+  							}
+  						}
+  						if($scope.slashInv == false)
+  						{
+	  						$scope.loading = true;
 
-  						var data = new FormData();
-						data.append("name",$scope.nameC);
-						data.append("email",$scope.emailC);
-						data.append("pswdMail",$scope.emailPassC);
-						data.append("address",$scope.addressC);
-						data.append("telephone",$scope.telephoneC);
-						data.append("idUser",$scope.idUserC);
-						data.append("active",$scope.activeC);
-						data.append("history",$scope.historyC);
-						data.append("pswd",$scope.pswdC);
-						data.append("currentPswd",$scope.currentPswdC);
+	  						var data = new FormData();
+							data.append("name",$scope.nameC);
+							data.append("email",$scope.emailC);
+							data.append("pswdMail",$scope.emailPassC);
+							data.append("address",$scope.addressC);
+							data.append("telephone",$scope.telephoneC);
+							data.append("idUser",$scope.idUserC);
+							data.append("active",$scope.activeC);
+							data.append("history",$scope.historyC);
+							data.append("pswd",$scope.pswdC);
+							data.append("currentPswd",$scope.currentPswdC);
 
 
-						var deferred=$q.defer();
-						$http.post("models/users.php?acc=updateUser", data,{
-						headers:{
-						"Content-type":undefined
-						},
-						transformRequest:angular.identity
-						})
-						.then(function(res)
-						{
-							deferred.resolve(res);
-							$scope.statusValidation =  res.data[0]['status'];
-							console.log($scope.statusValidation);
-							$scope.validation = false;
-							$scope.fail = true;
-							if($scope.statusValidation == "L'usuari s'ha actualitzat")
+							var deferred=$q.defer();
+							$http.post("models/users.php?acc=updateUser", data,{
+							headers:{
+							"Content-type":undefined
+							},
+							transformRequest:angular.identity
+							})
+							.then(function(res)
 							{
-								$scope.validation = true;
-							}
+								deferred.resolve(res);
+								$scope.statusValidation =  res.data[0]['status'];
+								$scope.validation = false;
+								$scope.fail = true;
+								if($scope.statusValidation == "L'usuari s'ha actualitzat")
+								{
+									$scope.validation = true;
+								}
 
-						})
-						$scope.loading = false;
+							})
+							$scope.loading = false;
+						}
+  						else
+  						{
+  							$scope.fail = true;
+  							$scope.validation = false;
+  							$scope.statusValidation = "Error, el símbol \\ no es pot utilitzar";
+  						}
 
   					}
   					else if($scope.pswdC == "" && $scope.confirmPswdC == "" && $scope.currentPswdC == "")
   					{
-  						$scope.loading = true;
+  						
+  						$scope.slashInv = false;
+  						for($i=0;$i<$scope.historyC.length;$i++)
+  						{
+  							if($scope.historyC[$i] == '\\')
+  							{
+  								$scope.slashInv = true;
+  							}
+  						}
+  						if($scope.slashInv == false)
+  						{
+  							$scope.loading = true;
 
-  						var data = new FormData();
-						data.append("name",$scope.nameC);
-						data.append("email",$scope.emailC);
-						data.append("pswdMail",$scope.emailPassC);
-						data.append("address",$scope.addressC);
-						data.append("telephone",$scope.telephoneC);
-						data.append("idUser",$scope.idUserC);
-						data.append("active",$scope.activeC);
-						data.append("history",$scope.historyC);
-						
+	  						var data = new FormData();
+							data.append("name",$scope.nameC);
+							data.append("email",$scope.emailC);
+							data.append("pswdMail",$scope.emailPassC);
+							data.append("address",$scope.addressC);
+							data.append("telephone",$scope.telephoneC);
+							data.append("idUser",$scope.idUserC);
+							data.append("active",$scope.activeC);
+							data.append("history",$scope.historyC);
+							
 
-						var deferred=$q.defer();
-						$http.post("models/users.php?acc=updateUser", data,{
-						headers:{
-						"Content-type":undefined
-						},
-						transformRequest:angular.identity
-						})
-						.then(function(res)
-						{
-							deferred.resolve(res);
-							$scope.statusValidation =  res.data[0]['status'];
-							console.log($scope.statusValidation);
-							$scope.validation = false;
-							$scope.fail = true;
-							if($scope.statusValidation == "L'usuari s'ha actualitzat")
+							var deferred=$q.defer();
+							$http.post("models/users.php?acc=updateUser", data,{
+							headers:{
+							"Content-type":undefined
+							},
+							transformRequest:angular.identity
+							})
+							.then(function(res)
 							{
-								$scope.validation = true;
-							}
+								deferred.resolve(res);
+								$scope.statusValidation =  res.data[0]['status'];
+								$scope.validation = false;
+								$scope.fail = true;
+								if($scope.statusValidation == "L'usuari s'ha actualitzat")
+								{
+									$scope.validation = true;
+								}
 
-						})
-						$scope.loading = false;
+							})
+							$scope.loading = false;
+  						}
+  						else
+  						{
+  							$scope.fail = true;
+  							$scope.validation = false;
+  							$scope.statusValidation = "Error, el símbol \\ no es pot utilitzar";
+  						}
+  						
   					}
   					else if($scope.pswdC != $scope.confirmPswdC)
   					{
@@ -194,73 +228,89 @@ angular.module('spaApp')
   				}
   				else if($scope.pswdC == $scope.confirmPswdC && $scope.confirmPswdC != "" && $scope.pswdC != "" && $scope.idUserC == -1)
   				{
-  					$scope.loading = true;
+	  				$scope.slashInv = false;
+  						for($i=0;$i<$scope.historyC.length;$i++)
+  						{
+  							if($scope.historyC[$i] == '\\')
+  							{
+  								$scope.slashInv = true;
+  							}
+  						}
+  						if($scope.slashInv == false)
+  						{
+	  						$scope.loading = true;
 
-  						var data = new FormData();
-						data.append("name",$scope.nameC);
-						data.append("email",$scope.emailC);
-						data.append("pswdMail",$scope.emailPassC);
-						data.append("address",$scope.addressC);
-						data.append("telephone",$scope.telephoneC);
-						data.append("idUser",$scope.idUserC);
-						data.append("active",$scope.activeC);
-						data.append("history",$scope.historyC);
-						data.append("pswd",$scope.pswdC);
+	  						var data = new FormData();
+							data.append("name",$scope.nameC);
+							data.append("email",$scope.emailC);
+							data.append("pswdMail",$scope.emailPassC);
+							data.append("address",$scope.addressC);
+							data.append("telephone",$scope.telephoneC);
+							data.append("idUser",$scope.idUserC);
+							data.append("active",$scope.activeC);
+							data.append("history",$scope.historyC);
+							data.append("pswd",$scope.pswdC);
 
 
-						var deferred=$q.defer();
-						$http.post("models/users.php?acc=createUser", data,{
-						headers:{
-						"Content-type":undefined
-						},
-						transformRequest:angular.identity
-						})
-						.then(function(res)
-						{
-							deferred.resolve(res);
-							$scope.statusValidation =  res.data[0]['status'];
-							console.log($scope.statusValidation);
-							$scope.validation = false;
-							$scope.fail = true;
-							if($scope.statusValidation == "S'ha creat l'usuari")
+							var deferred=$q.defer();
+							$http.post("models/users.php?acc=createUser", data,{
+							headers:{
+							"Content-type":undefined
+							},
+							transformRequest:angular.identity
+							})
+							.then(function(res)
 							{
-								$scope.validation = true;
-							}
-							$scope.loading = true;
-								$http({
-									method : "GET",
-									url : "models/users.php?acc=loadUser"
-								}).then(function mySucces (response) {
-									$scope.associations = response.data;
-									$scope.idUserC = $scope.associations[0]['idUser'];
-									$scope.nameC = $scope.associations[0]['name'];
-									$scope.emailC = $scope.associations[0]['email'];
-									$scope.emailPassC = $scope.associations[0]['emailPass'];
-									$scope.addressC = $scope.associations[0]['address'];
-									$scope.telephoneC = $scope.associations[0]['telephone'];
-									$scope.logoC = $scope.associations[0]['logo'];
-									$scope.footerC = $scope.associations[0]['footer'];
-									$scope.historyC = $scope.associations[0]['history'];
-									$scope.activeC = $scope.associations[0]['active'];
-								}, function myError (response) {
-									$scope.associations = response.statusText;
-								}).finally(function(){
-									$scope.loading = false;
-								});
-							$scope.loading = true;
-								$http({
-									method : "GET",
-									url : "models/users.php?acc=listUsers"
-								}).then(function mySucces (response) {
-									$scope.users = response.data;
-								}, function myError (response) {
-									$scope.users = response.statusText;
-								}).finally(function(){
-									$scope.loading = false;
-								});
+								deferred.resolve(res);
+								$scope.statusValidation =  res.data[0]['status'];
+								$scope.validation = false;
+								$scope.fail = true;
+								if($scope.statusValidation == "S'ha creat l'usuari")
+								{
+									$scope.validation = true;
+								}
+								$scope.loading = true;
+									$http({
+										method : "GET",
+										url : "models/users.php?acc=loadUser"
+									}).then(function mySucces (response) {
+										$scope.associations = response.data;
+										$scope.idUserC = $scope.associations[0]['idUser'];
+										$scope.nameC = $scope.associations[0]['name'];
+										$scope.emailC = $scope.associations[0]['email'];
+										$scope.emailPassC = $scope.associations[0]['emailPass'];
+										$scope.addressC = $scope.associations[0]['address'];
+										$scope.telephoneC = $scope.associations[0]['telephone'];
+										$scope.logoC = $scope.associations[0]['logo'];
+										$scope.footerC = $scope.associations[0]['footer'];
+										$scope.historyC = $scope.associations[0]['history'];
+										$scope.activeC = $scope.associations[0]['active'];
+									}, function myError (response) {
+										$scope.associations = response.statusText;
+									}).finally(function(){
+										$scope.loading = false;
+									});
+								$scope.loading = true;
+									$http({
+										method : "GET",
+										url : "models/users.php?acc=listUsers"
+									}).then(function mySucces (response) {
+										$scope.users = response.data;
+									}, function myError (response) {
+										$scope.users = response.statusText;
+									}).finally(function(){
+										$scope.loading = false;
+									});
 
-						})
+							})
 						$scope.loading = false;
+					}
+					else
+					{
+						$scope.fail = true;
+						$scope.validation = false;
+						$scope.statusValidation = "Error, el símbol \\ no es pot utilitzar";
+					}
 
   				}
   				else if($scope.pswdC != $scope.confirmPswdC)
