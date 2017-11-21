@@ -49,7 +49,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 					<a href="#"><img style="padding: 0px;" class="img-responsive logoEixTop" src="../img/logos-assoc/<?php echo $_SESSION['user']['logo']; ?>"></a>					
 				</div>
 				<div class="col-xs-7 col-lg-7" style="height: 88px;">
-					<span id="nameAssoLogged"><?php echo $_SESSION['user']['name']; ?></span>
+					<span id="nameAssoLogged"><?php echo $_SESSION['user']['name'];?></span>
 				</div>
 			</div>		
 			<div class=" col-xs-3 col-lg-3 pull-right">
