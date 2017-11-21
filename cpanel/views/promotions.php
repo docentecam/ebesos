@@ -92,15 +92,8 @@
 		</div>
 	</div>
 </div>
-
-
-
-
-<div class="row" ng-hide="loadPromotions">
-
-	
-	<form action="#" id="validationPromotion" name="validation" >
-		
+<div class="row" ng-hide="loadPromotions">	
+	<form action="#" id="validationPromotion" name="validation" >	
 		<div class="col-lg-12">
 			<label class="labelFontSizePromo">{{act}} promoció</label>
 		</div>
