@@ -4,7 +4,7 @@
 ?>
 <div class="glb">	
 	<div class="row">
-		<div class="col-lg-12"><b>Associacions</b></div>
+		<div class="col-lg-12 noPadding linkTitle"><b>Associacions</b></div>
 		<div class="col-lg-5">
 			<?php
 			if(isset($_SESSION['user']['privileges']) && $_SESSION['user']['privileges'] != 'E')
