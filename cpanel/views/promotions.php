@@ -3,6 +3,14 @@
 	if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 ?>
 
+<div ng-show="messageConfirm">
+	<div ng-class="validation ? 'alert alert-success' : 'alert alert-danger'" id="validationAssociation">
+		<i class="fa fa-times" ng-hide="validation" aria-hidden="true"></i>
+		<i class="fa fa-check" ng-show="validation" aria-hidden="true"></i>
+		<b>{{message}}</b>
+	</div>
+</div>
+
 <div class="row" ng-show="loadPromotions">
 	<label class="col-lg-1 col-xs-3">
 		Promocions
@@ -52,6 +60,11 @@
 			</div>
 		</div>
 	</div>
+
+
+
+
+
 	<div id="whiteDivNews" class="col-lg-12">
 		<div class="row divContainerPromos" ng-repeat="promotionList in promotionsList | filter:{active: 'Y'}">
 			<div class="col-lg-4">
@@ -87,27 +100,15 @@
 		</div>
 	</div>
 </div>
-<div class="row" ng-hide="loadPromotions">
-<<<<<<< HEAD
-	
-	<form action="#" id="validationPromotion" name="validation" method="POST" >
-		<h1>{{act}} Promocions</h1>
-		<label>Seleccionar comerç </label> <select id="listShops" name="listShops" ng-model="promotion.shopSelected" > <option value="-1"> --Escull Comerç</option><option ng-repeat="shop in shopsList" ng-selected="promotion.shopSelected==shop.idShop" ng-value="shop.idShop">{{shop.name}}</option> </select>
-		<br><br>
-		<label>Imatge: </label>
-		<img class="img-responsive" ng-src="../img/promotions/{{promotion.image}}">
-		<label for="updateImg" class="labelFor"> examinar</label>
-		<input type="file" id="updateImg" onchange="angular.element(this).scope().changeImg(this)" ng-hide="true">
-=======
-	<form action="#" id="validationPromotion" name="validation" method="POST">
->>>>>>> c695e956385b4ef6875ed716ca4b33bf99535229
-
+<div class="row" ng-hide="loadPromotions">	
+	<form action="#" id="validationPromotion" name="validation" >	
 		<div class="col-lg-12">
-			<label class="labelFontSizePromo">{{act}} promocions</label>
+			<label class="labelFontSizePromo">{{act}} promoció</label>
 		</div>
 		<div class="col-lg-12">
-			<label class="marginTopLabel">Seleccionar comerç:&nbsp&nbsp&nbsp </label>
-			<select name="listShops" ng-model="promotion.shopSelected" class="select-users"> <option value="-1"> --Escull Comerç</option><option ng-repeat="shop in shopsList" ng-selected="promotion.shopSelected==shop.idShop" ng-value="shop.idShop">{{shop.name}}</option> </select>
+			<label class="marginTopLabel">Seleccionar comerç:&nbsp;&nbsp;&nbsp; </label>
+			<select id="listShops" name="listShops" ng-model="promotion.shopSelected" class="select-users"> <option value="-1" ng-selected="promotion.shopSelected==-1"> --Escull Comerç</option>
+				<option ng-repeat="shop in shopsList" ng-selected="promotion.shopSelected==shop.idShop" ng-value="shop.idShop">{{shop.name}}</option> </select>
 		</div>
 		<div class="col-lg-12">
 			<label class="labelImgMarginTop">

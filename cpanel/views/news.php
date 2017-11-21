@@ -14,7 +14,7 @@
 	</label>
 </div>
 <div class="row">
-	<div class="col-lg-2 col-lg-offset-10 col-xs-4 col-xs-offset-8" ng-show="showListNews">
+	<div class="col-lg-2 col-lg-offset-10 col-xs-3 col-xs-offset-8" ng-show="showListNews">
 		<a ng-href="#/news/0"><input type="button" name="newNew" value="Afegir Noticia" alt="Afegir noticia" class="btn btn-default"></a>
 	</div>
 </div>

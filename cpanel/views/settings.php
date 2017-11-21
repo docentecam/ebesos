@@ -4,7 +4,7 @@
 ?>
 <div class="row">
 	<div><h1>Paràmetres</h1></div>	
-	<div ng-show="confirm"> <h3> Ha sigut actualizat o creat</h3> </div>
+	<div ng-show="confirm"> <h3> Ha sigut actualizat</h3> </div>
 </div>
 <div class="row">
 	<button id="btnAfegir" class="btn btn-default" ng-hide="btnAfegir" ng-click="editParameter('Afegir')" >Afegir <i class="fa fa-plus-circle"></i></button>
