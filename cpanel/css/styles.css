@@ -97,7 +97,7 @@ a:hover
   padding-left: 1%;
 }
 .divClientLoggedName{
-  height: 88px;
+  height: 88px; 
 }
 .arrowDown{
   margin-left: 10px;
@@ -184,6 +184,7 @@ a:hover
 #nameAssoLogged{
   position: relative;
   top: 30%;
+  font-weight: bold;
 }
 #tableForgot
 {
@@ -552,10 +553,7 @@ a:hover
   border: 0px solid transparent;
 }
 
-.mainNav{
-  padding-top: 5%!important;
-  padding-bottom: 5%!important;
-}
+
 .logOffDiv{
   background-color: #D5D5D5;
   position: absolute;
@@ -950,9 +948,6 @@ a:hover
   padding-left: 15px!important;
   padding-right:15px!important;
   }
-  .icon-bar{
-    background-color: white!important;
-  }
   .footerLog{
     position: absolute;
     bottom: 15px;
@@ -961,19 +956,6 @@ a:hover
     position: relative;
     top:23%;
     left: -9%;
-  }
-  .navGlobal{
-    background-color: transparent!important;
-    margin-bottom: 0px!important;
-    border-color: transparent!important;
-  }
-  #eraseBorderNavMobile{
-    border: none!important;
-    background-color: #325C73;
-  }
-  .mainNav{
-    padding: 2%;
-    border-bottom: 0.5px solid #BEBEBE;
   }
   .deleteUnderlineSignUp{
     margin-top:25%;
@@ -1039,6 +1021,10 @@ a:hover
   {
     margin-left: 2.5%;
   }
+  .mainNav{
+    padding-top: 4%!important;
+    padding-bottom: 4%!important;
+  }
 
 }
 
@@ -1046,30 +1032,50 @@ a:hover
   .tdCenterLinks{
     padding-left: 3%;
   }
-  .dateNews
-  {
+  .dateNews{
     padding-top: 0%;
     margin-left: 0%;
   }
-  .buttonsNews
-  {
+  .divClientLoggedName{
+    margin-left: -13%;  
+  }
+  #nameAssoLogged {
+    position: absolute;
+    top: 39%;
+    right: 12%;
+    font-size: 1.2em;
+  }
+  .colorLoginHidden {
+    color: #3A6B86;
+    cursor: pointer;
+    margin-top: 24%;
+    margin-left: 53%;
+  }
+  .logOffDiv {
+    right: 14%;
+  }
+  .buttonsNews{
     margin-left: 0%;
   }
+  
   .btnDeleteVid {
     margin-left: 2.5%;
   }
-    .imgPreferNew
-  {
+  .imgPreferNew{
     padding-top: 4%;
     margin-left: 9.7%;
   }
-  .noPaddNews
-  {
+  .noPaddNews{
     padding-left: 0%;
   }
-  .subtitolNewsMargin
-  {
+  .subtitolNewsMargin{
     margin-top: 4%;
+  }
+  .navbar-nav {
+    margin:0px!important;
+  }
+  .aLogoClient{
+    width: 70%;
   }
 
 }
@@ -1093,29 +1099,62 @@ a:hover
     padding-top: 12px;
     padding-bottom: 12px;
   }
-    .tdCenterLinks{
+  .tdCenterLinks{
     padding-left: 3%;
   }
-   .dateNews
-  {
+  .dateNews{
     padding-top: 0%;
     margin-left: 0%;
   }
-  .buttonsNews
-  {
+  #nameAssoLogged {
+    position: absolute;
+    top: 47%;
+    right: 13%;
+    font-size: 1.4em;
+  }
+  .divClientLoggedName{
+    margin-left: -13%;  
+  }
+  .deleteUnderlineSignUp{
+    margin-top:20%;
+  }
+  .colorLoginHidden{
+    margin-left: 49%;
+  }
+  }
+  .buttonsNews{
     margin-left: 0%;
   }
-  .btnDeleteVid 
-  {
+  .btnDeleteVid {
     margin-left: 3.5%;
   }
-  .noPaddNews
-  {
+  .noPaddNews{
     padding-left: 0%;
   }
-  .subtitolNewsMargin
-  {
+  .subtitolNewsMargin{
     margin-top: 4%;
+  }
+  .aLogoClient{
+    width: 70%;
+  }
+}
+@media (max-width: 1023px){
+
+  .navGlobal{
+    background-color: transparent!important;
+    margin-bottom: 0px!important;
+    border-color: transparent!important;
+  }
+  #eraseBorderNavMobile{
+    border: none!important;
+    background-color: #325C73;
+  }
+  .icon-bar{
+    background-color: white!important;
+  }
+  .mainNav{
+    padding: 2%;
+    border-bottom: 0.5px solid #BEBEBE;
   }
 }
 @media (min-width: 1024px){
@@ -1174,6 +1213,10 @@ a:hover
   .subtitolNewsMargin
   {
     margin-top: 4%;
+  }
+  .mainNav{
+  padding-top: 5%!important;
+  padding-bottom: 5%!important;
   }
 }
 /*--------------------------------------*/
