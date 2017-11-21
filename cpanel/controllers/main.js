@@ -1,19 +1,25 @@
 angular.module('spaApp')
-.controller('MainCtrl', function($scope, $http) {
+.factory('usersList', function(){
+	return{
+		data: {}
+	};
+});
+angular.module('spaApp')
+.controller('MainCtrl', function($scope, $http, usersList) {
 $scope.loading=true;
 $scope.showLogOff=true;
 
-$http({
+	$http({
 		method : "GET",
-		url : "models/main.php?acc=main"
-	}).then(function mySucces (response) {
-		$scope.assoTopImages=response.data;
-	}, function myError (response) {
-		$scope.assoTopImages = response.statusText;
-	})
-	.finally(function(){
-			$scope.loading=false;
-	});				
+		url : "models/users.php?acc=listUsers"
+	}).then(function mySucces(response) {
+		$scope.userList = response.data;
+		usersList.data.userList = $scope.userList;
+	}, function myError(response) {
+		$scope.shops = response.statusText;
+	}).finally(function(){
+	  $scope.loading = false;
+		});
 	$scope.showDisconnect = function(){
 		if ($scope.showLogOff = !$scope.showLogOff) {
 			

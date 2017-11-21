@@ -44,19 +44,29 @@ button.btn-add{
 textarea{
   resize: none;
 }
+.add-examinar{
+  margin-left: 15px!important;
+}
+label.btn-add{
+  padding-left: 30px;
+}
+.images-other .btn-add{
+  padding-left: 17px;  
+}
 label.btn-add, button.btn-add{
   outline: none;
   height: 35px;
   font-weight: 300;
   font-size: 0.9em;
+  border: 1px solid #808080;
   cursor: pointer;
   opacity: 0.8;
   padding-top: 8px;
-  padding-left: 17px;
-  background-color: #C0D0D7;
+  background-color: #B0C2C8;
+
 }
 label.btn-add:active, button.btn-add:active{
-  background-color: #B1C0C6;
+  background-color: #BED1D7;
 }
 input.btn-up{
   background-color: #D4DBDE!important;
@@ -84,6 +94,8 @@ a:hover
   text-decoration: none;
 }
 .images-shop button.btn-delete{
+  margin-top: 15px;
+  height: 40px!important;
   float: right;
 }
 .btn-edit:active, .btn-delete:active{
@@ -209,16 +221,6 @@ a:hover
 .pt-3
 {
   padding-top: 3%;
-}
-.labelFor
-{
-  background-color: #B8C5CB;
-  padding: 4% 13% 4% 13%;
-}
-.labelFor:active
-{
-  background-color: #B0BEC4;
-  padding: 4% 13% 4% 13%;
 }
 #textTitleHistory
 {
@@ -827,6 +829,52 @@ a:hover
   margin-top: 7%;
   margin-left: -3%;
 }
+.labelFontSizePromo
+{
+  font-size: 22px;
+}
+.labelFor
+{
+  background-color: #CFD8DA;
+  font-weight: 300;
+  width: 100px;
+  height: 50px;  
+  border-radius: 10px;
+  text-align: center;
+  padding-top: 1.5%;
+  margin-top: 43.3%;
+  margin-left: 1%;
+}
+.labelFor:hover
+{
+  background-color: #B8C2C4;
+  cursor: pointer;
+}
+.imgPromo
+{
+  padding: 0;
+}
+.marginTopLabel
+{
+  margin-top: 5%;
+}
+.labelImgMarginTop
+{
+  margin-top: 2%;
+}
+.noPadding{
+  padding: 0px;
+}
+.txtAreaMarginTop
+{
+  margin-top: 0.7%;
+}
+.btnEditPromo
+{
+  margin-left: 32.6%;
+  margin-top: 7%;
+}
+
 
 
 
@@ -949,6 +997,21 @@ a:hover
   {
     padding-left: 0%;
   }
+  .buttonsPromos
+  {
+    padding: 0;
+    margin-left: 4%;
+    margin-top: -5%;
+  }
+  .divPromosCond
+  {
+    margin-top: 0%;
+  }
+  .btnActivePromos
+  {
+    margin-left: 2.5%;
+  }
+
 }
 
 @media (min-width: 576px) and (max-width: 767px){
@@ -1026,7 +1089,6 @@ a:hover
   {
     margin-top: 4%;
   }
-
 }
 @media (min-width: 1024px){
   .log250{

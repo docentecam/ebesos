@@ -41,25 +41,17 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'list')
 }
 else if(isset($_GET['acc']) && $_GET['acc'] == 'e')
 {
-	$idShop=$_GET['idShop'];
+	$idShop = $_GET['idShop'];
 
 	$dataShop = "[{";
 
-	$dataShop .= '"images":';
-
-	$dataShop .= listImages($idShop);
+	$dataShop .= '"images":'.listImages($idShop);
 	
-	$dataShop .= ', "subCategoriesShop":';
+	$dataShop .= ', "subCategoriesShop":'.listShopCategoriesSub($idShop);
 
-	$dataShop .= listShopCategoriesSub($idShop);
+	$dataShop .= ', "subCategories":'.listCategoriesSub($idShop);
 
-	$dataShop .= ', "subCategories":';
-
-	$dataShop .= listCategoriesSub($idShop);
-
-	$dataShop .= '}';
-		
-	$dataShop .= "]";
+	$dataShop .= '}]';
 
 	echo $dataShop;
 }
