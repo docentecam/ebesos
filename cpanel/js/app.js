@@ -2,8 +2,8 @@ var app= angular.module('spaApp', ['ngRoute']);
 app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
 	.when('/', {
-		templateUrl:'views/settings.php',
-		controller:'SettingsCtrl',
+		templateUrl:'views/promotions.php',
+		controller:'PromotionsCtrl',
 	})
 	.when('/news',{
 	templateUrl:'views/news.php',
