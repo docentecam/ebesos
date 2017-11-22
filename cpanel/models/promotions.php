@@ -72,16 +72,9 @@ $fp=fopen("_pruebaPromotion.txt",'w');
 			disconnect($connexio);
 
 					}
-
-		                                
-
 }			
 				
-			
-
-
 }
-
 
 if(isset($_GET['acc']) && $_GET['acc'] == 'a'){
 	$mySql = "UPDATE promotions
