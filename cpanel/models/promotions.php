@@ -42,8 +42,8 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'updatePromotion'){
 	}
 
 	else if (isset($_POST['idPromotion']) && $_POST['idPromotion']==0) {
-		$mySql = "INSERT INTO `promotions` (`idPromotion` , `idShop`,`oferVals`,`conditionsVals`,`dateExpireVals`,`image`,`active`)
-		VALUES (NULL,  ".$_POST['shopSelected'].",'".$_POST['oferVals']."', '".$_POST['conditionsVals']."', '".$_POST['dateExpireVals']."','nofoto.png','";
+		$mySql = "INSERT INTO `promotions` (`idPromotion` , `idShop`,`oferVals`,`conditionsVals`,`dateExpireVals`,`oferEix`,`conditionsEix`,`dateExpireEix`,`image`,`active`)
+		VALUES (NULL,  ".$_POST['shopSelected'].",'".$_POST['oferVals']."', '".$_POST['conditionsVals']."', '".$_POST['dateExpireVals']."','".$_POST['oferEix']."', '".$_POST['conditionsEix']."', '".$_POST['dateExpireEix']."','nofoto.png','";
 		if ($_SESSION['user']['privileges']!="S")  $mySql.= "Y"; 
 
 		$mySql .= "')";
