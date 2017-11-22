@@ -38,8 +38,8 @@
 						{{subCategory.name}}
 					</div>
 				</div>
-				<button class="col-xs-2 btn btn-SubCategory borderBtnEditSubCategories" id="editTable" ng-click="editSubCatT(subCategory.idSubCategory,subCategory.name,'e')">
-					Editar
+				<button class="col-xs-2 btn btn-SubCategory borderBtnEditSubCategories" id="editTable">
+					<a ng-href="#/subcategories/e/{{subCategory.idSubCategory}}/{{subCategory.name}}">Editar</a>
 				</button>
 				<button class="col-xs-2 btn btn-SubCategory borderBtnDelSubCategories" id="deleteTable" ng-click="deleteSubCatT(subCategory.idSubCategory)">
 					Eliminar
@@ -48,7 +48,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<button id="btnAfegirSubCategoria" class="btn btn-default" ng-click="addSubCat('a')">Afegir <i class="fa fa-plus-circle"></i></button>
+		<button id="btnAfegirSubCategoria" class="btn btn-default" ng-click="addSubCat('a')"><a ng-href="#/subcategories/a/-1/n">Afegir <i class="fa fa-plus-circle"></i></a></button>
 	</div>
 </div>
 <div ng-hide="subCatTable">

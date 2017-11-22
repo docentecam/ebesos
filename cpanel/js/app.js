@@ -35,11 +35,6 @@ app.config(['$routeProvider', function ($routeProvider) {
 		templateUrl:'views/slider.php',
 		controller:'SliderDescCtrl',
 	})
-
-
-
-
-
 	.when('/settings',{
 		templateUrl:'views/settings.php',
 		controller:'SettingsCtrl',
@@ -57,6 +52,10 @@ app.config(['$routeProvider', function ($routeProvider) {
 	.when('/subcategories',{
 		templateUrl:'views/subcategories.php',
 		controller:'SubcategoriesCtrl',
+	})
+	.when('/subcategories/:action/:idSubCategory/:name',{
+		templateUrl:'views/subcategories.php',
+		controller:'SubcategoriyCtrl',
 	})
 	.when('/formFichero',{
 		templateUrl:'views/formFichero.html',
