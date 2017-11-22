@@ -44,7 +44,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 	</head>
 	<body id="container" data-ng-app="spaApp"  ng-controller="MainCtrl">
 		<div class="row">
-			<div class="col-xs-6 col-md-2 col-lg-2 noPadding">				
+			<div class="col-xs-6 col-md-4 col-lg-4 noPadding">				
 				<div class="col-xs-5 col-lg-5 noPadding divClientLoggedImage">
 					<a href="#"><img class="img-responsive noPadding aLogoClient" src="../img/logos-assoc/<?php echo $_SESSION['user']['logo']; ?>"></a>	
 				</div>

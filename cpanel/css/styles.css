@@ -93,9 +93,6 @@ a:hover
 {
   text-decoration: none;
 }
-.divClientLoggedImage{
-  padding-left: 1%;
-}
 .divClientLoggedName{
   height: 88px; 
 }
@@ -183,7 +180,7 @@ a:hover
 }
 #nameAssoLogged{
   position: relative;
-  top: 30%;
+  top: 28%;
   font-weight: bold;
 }
 #tableForgot
@@ -1134,9 +1131,6 @@ a:hover
   .subtitolNewsMargin{
     margin-top: 4%;
   }
-  .aLogoClient{
-    width: 70%;
-  }
 }
 @media (max-width: 1023px){
 
@@ -1193,30 +1187,37 @@ a:hover
 
 }
 @media (min-width: 1200px){
-     .dateNews
-  {
+  .dateNews{
     padding-top: 7%;
     margin-left: 35%;
   }
-  .imgPreferNew
-  {
+  .imgPreferNew{
     padding-top: 4%;
     margin-left: 9.7%;
   }
-  .btnDeleteVid {
+  .btnDeleteVid{
     margin-left: 5.5%;
   }
-  .noPaddNews
-  {
+  .noPaddNews{
     padding-left: 0%;
   }
-  .subtitolNewsMargin
-  {
+  .subtitolNewsMargin{
     margin-top: 4%;
   }
   .mainNav{
   padding-top: 5%!important;
   padding-bottom: 5%!important;
+  }
+  .divClientLoggedImage{
+    width: 20%;
+    padding-left: 1%;
+  }
+  #nameAssoLogged{
+    position: relative;
+    top: 30%;
+    left: -2%;
+    font-weight: bold;
+    font-size: 1.3em;
   }
 }
 /*--------------------------------------*/
