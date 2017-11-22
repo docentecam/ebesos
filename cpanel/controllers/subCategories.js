@@ -77,6 +77,11 @@ angular.module('spaApp')
 					{
 						$scope.validation = false;
 					}
+					else if($scope.statusValidation == "")
+					{
+						$scope.validation = false;
+						$scope.statusValidation = "Aquesta subcategoria no es pot eliminar, ja que té com a mínim una tenda associada";
+					}
 					$http({
 						method : "GET",
 						url : "models/subCategories.php?acc=l"
@@ -98,14 +103,6 @@ angular.module('spaApp')
 						}).then(function mySucces (response) {
 							$scope.subCategories = response.data;
 							$scope.subCatTable = true;
-							for($i=0;$i<$scope.subCategories.length;$i++)
-							{
-								if($scope.subCategories[$i]['idSubCategory']==idSubCategory)
-								{
-									$scope.validation = false;
-									$scope.statusValidation = "Aquesta subcategoria no es pot eliminar, ja que té com a mínim una tenda associada"
-								}
-							}
 						}, function myError (response) {
 							$scope.subCategories = response.statusText;
 						})
