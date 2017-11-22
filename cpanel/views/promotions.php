@@ -19,7 +19,7 @@
 	</div>	
 </div>
 <div ng-show="loadPromotions" class="row">
-	<div id="whiteDivNews" class="col-lg-12">
+	<div id="whiteDivNews" class="col-lg-12" ng-if="promotionList in promotionsList | filter:{active: 'N'}.length!=0">
 		<div class="row divContainerPromos" ng-repeat="promotionList in promotionsList | filter:{active: 'N'}">
 			<div class="col-lg-4">
 				<div class="col-lg-12">
@@ -39,10 +39,10 @@
 				</label> &nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-success"  value="Activar"  ng-click="activePromotion(promotionList.idPromotion,'Y')" >
 			</div>
 			<div class="col-lg-4">
-				<div class="col-lg-12 col-lg-push-2 divDatePromos">
-					Caducitat Vals {{promotionList.dateExpireValsE}}
+				<div class="col-lg-12 col-lg-push-2 divDatePromos" >
+					<span ng-if="promotionList.dateExpireValsE!=''">Caducitat Vals {{promotionList.dateExpireValsE}}</span>
 				<br>
-					Caducitat Eix {{promotionList.dateExpireEixE}} 
+					<span ng-if="promotionList.dateExpireEixE!=''">Caducitat Eix {{promotionList.dateExpireEixE}}</span>
 				</div>
 			</div>
 			<div class="col-lg-2">
@@ -74,9 +74,9 @@
 			</div>
 			<div class="col-lg-4">
 				<div class="col-lg-12 col-lg-push-2 divDatePromos">
-					Caducitat Vals {{promotionList.dateExpireValsE}}
+					<span ng-if="promotionList.dateExpireValsE!=''">Caducitat Vals {{promotionList.dateExpireValsE}}</span>
 				<br>
-					Caducitat Eix {{promotionList.dateExpireEixE}} 
+					<span ng-if="promotionList.dateExpireEixE!=''">Caducitat Eix {{promotionList.dateExpireEixE}} </span>
 				</div>
 			</div>
 			<div class="col-lg-2">
