@@ -1130,7 +1130,7 @@ a:hover
   .subtitolNewsMargin{
     margin-top: 4%;
   }
-<<<<<<< HEAD
+
   .aLogoClient{
     width: 70%;
   }
@@ -1143,8 +1143,7 @@ a:hover
     position: absolute;
     bottom: 0px;
   }
-=======
->>>>>>> origin/master
+
 }
 @media (max-width: 1023px){
 
@@ -1198,8 +1197,13 @@ a:hover
   {
     margin-top: 4%;
   }
-
 }
+@media (max-width: 1200px){
+  .labelFor
+    {
+      padding: 3%;
+    } 
+  }
 @media (min-width: 1200px){
   .dateNews{
     padding-top: 7%;
@@ -1234,5 +1238,6 @@ a:hover
     font-size: 1.3em;
   }
 }
+
 /*--------------------------------------*/
 
