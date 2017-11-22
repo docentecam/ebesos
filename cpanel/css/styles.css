@@ -861,19 +861,18 @@ a:hover
 }
 .labelFor
 {
-  background-color: #CFD8DA;
-  font-weight: 300;
-  width: 100px;
-  height: 50px;  
-  border-radius: 10px;
+  background-color: #B6BFC1;
   text-align: center;
-  padding-top: 1.5%;
-  margin-top: 43.3%;
-  margin-left: 1%;
+  padding: 8%;
 }
 .labelFor:hover
 {
-  background-color: #B8C2C4;
+  background-color: #B0B9BB;
+  cursor: pointer;
+} 
+.labelFor:active
+{
+  background-color: #9FA6A8;
   cursor: pointer;
 }
 .imgPromo
@@ -1137,6 +1136,15 @@ a:hover
   .aLogoClient{
     width: 70%;
   }
+  #container2
+  {
+    position: absolute;
+    top: 25%;
+  }
+  .footerLog{
+    position: absolute;
+    bottom: 0px;
+  }
 }
 @media (max-width: 1023px){
 
@@ -1162,9 +1170,9 @@ a:hover
     height: 250px;
   }
   .footerLog{
-  position: absolute;
-  right: 0px;
-  bottom: 15px;
+    position: absolute;
+    right: 0px;
+    bottom: 15px;
   }
   .deleteUnderlineSignUp{
     margin-top:9%;
