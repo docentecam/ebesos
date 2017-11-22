@@ -947,6 +947,18 @@ a:hover
 
 
 @media (max-width: 575px){
+  .tableCategoriaSubCategoria {
+    font-weight: 600;
+    font-size: 19px;
+    color: gray;
+    margin-left: 10%;
+  }
+  .tableAlimentacioSubCategoria {
+    font-weight: 600;
+    font-size: 19px;
+    color: gray;
+    text-align: center;
+  }
   .navbar-default .navbar-collapse, .navbar-default .navbar-form{
     border-color: transparent!important;
   }

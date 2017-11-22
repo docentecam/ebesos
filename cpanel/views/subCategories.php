@@ -66,7 +66,7 @@
 		</div>
 		<div class="row">
 			<span class="titleCategoria col-xs-4 col-md-3">Nom subcategoria:</span>
-			<input type="text" class="col-xs-3 inputTextSubCategories" ng-model="nameSC" id="nsc">
+			<input type="text" maxlength="20" class="col-xs-3 inputTextSubCategories" ng-model="nameSC" id="nsc">
 		</div>
 		<button id="afegirSubCategoria" class="btn btn-default centerPadding" ng-click="addBBDDSubCat()"><span ng-show="btnName">Afegir</span><span ng-hide="btnName">Editar</span></button>
 	</form>
