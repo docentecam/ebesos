@@ -357,7 +357,7 @@ a:hover
   border: 1px solid black; 
   margin-top: 4%;
   padding-top: 1.5%; 
-  margin-bottom: 10%;
+  margin-bottom: 2%;
 }
 
 #containerImg{
@@ -841,18 +841,19 @@ a:hover
 {
   padding-left: 2%;
   padding-right: 1%;
+  margin-left: 2.5%;
 }
 .divDatePromos
 {
   margin-top: 5%;
+  margin-left: 30%;
 }
 .divContainerPromos
 {
   border-bottom: 1px solid;
 }
 .divPromosCond
-{
-  margin-top: 7%;
+{ 
   margin-left: -3%;
 }
 .labelFontSizePromo
@@ -1058,7 +1059,7 @@ a:hover
   }
   .btnActivePromos
   {
-    margin-left: 2.5%;
+    margin-left: 2%;
   }
   .mainNav{
     padding-top: 4%!important;
