@@ -1244,9 +1244,12 @@ a:hover
     border-bottom: 0.5px solid #BEBEBE;
     width: 100%!important;
   }
+}
+@media (max-width: 1200px) {
+  
   .labelFor{
       padding: 3%;
-    }
+  }  
 }
 
 @media (min-width: 1200px){
