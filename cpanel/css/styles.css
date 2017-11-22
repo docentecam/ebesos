@@ -1271,7 +1271,6 @@ a:hover
   }
   .mainNav {
     padding: 12%;
-    border-bottom: 0.5px solid #BEBEBE;
     width: 100%!important;
   }
 }
@@ -1303,6 +1302,7 @@ a:hover
   .mainNav{
   padding-top: 5%!important;
   padding-bottom: 5%!important;
+  border-bottom: none;
   }
   .divClientLoggedImage{
     width: 20%;
