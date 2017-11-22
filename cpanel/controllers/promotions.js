@@ -1,16 +1,17 @@
-angular.module('spaApp').factory('msgEdits', function(){
+angular.module('spaApp').factory('msgEditP', function(){
 	return {data:{}};
 });
 angular.module('spaApp')
-.controller('PromotionsCtrl', function($scope, $http,msgEdits) {
+.controller('PromotionsCtrl', function($scope, $http,msgEditP) {
   		
   	$scope.loadPromotions=true;
   	
     $scope.message="";
-  	$scope.message=msgEdits.data.message;
-	$scope.validation=msgEdits.data.validation;
+  	$scope.message=msgEditP.data.message;
+	$scope.validation=msgEditP.data.validation;
+	$scope.fail = msgEditP.data.fail;
 
-	console.log(msgEdits.data.message);
+	console.log(msgEditP.data.message);
 
 	if ($scope.message==null) {
   		$scope.messageConfirm=false;
@@ -98,7 +99,7 @@ angular.module('spaApp')
 });
 
 angular.module('spaApp')
-.controller('PromotionCtrl', function($scope, $http,$routeParams,$q, $location,msgEdits) {
+.controller('PromotionCtrl', function($scope, $http,$routeParams,$q, $location,msgEditP) {
 	$scope.loadPromotions=false;
 
 
@@ -208,16 +209,14 @@ angular.module('spaApp')
 						$scope.promotion.image=$scope.promotion.idPromotion+"-"+$scope.imgForChange.name;}	
 				})
 		}
-		if ( $scope.promotion.idPromotion==0) {msgEdits.data.message="S'ha afegit correctament ";msgEdits.data.validation=true;}
-		else {msgEdits.data.message="S'ha modificat correctament ";msgEdits.data.validation=true;}
+
+		if ( $scope.promotion.idPromotion==0) 
+			{msgEditP.data.message="S'ha afegit correctament ";msgEditP.data.validation=true;}
+		
+		else {msgEditP.data.message="S'ha modificat correctament ";msgEditP.data.fail=true;}
 		
 		$location.url("/promotions");
 		
 	}
-
-
-	
-
-
 
 });
