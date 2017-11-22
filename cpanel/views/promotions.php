@@ -10,7 +10,6 @@
 		<b>{{message}}</b>
 	</div>
 </div>
-
 <div class="row" ng-show="loadPromotions">
 	<label class="col-lg-1 col-xs-3">
 		Promocions
@@ -54,11 +53,6 @@
 			</div>
 		</div>
 	</div>
-
-
-
-
-
 	<div id="whiteDivNews" class="col-lg-12">
 		<div class="row divContainerPromos" ng-repeat="promotionList in promotionsList | filter:{active: 'Y'}">
 			<div class="col-lg-4">
