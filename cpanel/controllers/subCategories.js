@@ -61,52 +61,65 @@ angular.module('spaApp')
 	}
 
 	$scope.deleteSubCatT = function(idSubCategory){
-			$http({
-				method : "GET",
-				url : "models/subCategories.php?acc=d&idSubCategory="+idSubCategory
-			}).then(function mySucces (response) {
-				$scope.deleteSubCat = response.data;
-				$scope.loading=true;
-				$scope.fail = true;
-				$scope.statusValidation = $scope.deleteSubCat[0]['status'];
-				$scope.validation = true;
-				if($scope.statusValidation == "Error al connectar")
-				{
-					$scope.validation = false;
-				}
+			$scope.deleteConfirm = confirm("Estàs segur de voler eliminar aquesta subcategoria?");
+			if($scope.deleteConfirm == true)
+			{
 				$http({
 					method : "GET",
-					url : "models/subCategories.php?acc=l"
+					url : "models/subCategories.php?acc=d&idSubCategory="+idSubCategory
 				}).then(function mySucces (response) {
-					$scope.categories = response.data;
-					$scope.urlPicto1C = $scope.categories[0]['urlPicto1'];
-					$scope.nameC = $scope.categories[0]['name'];
-					$scope.firstC = false;
+					$scope.deleteSubCat = response.data;
+					$scope.loading=true;
+					$scope.fail = true;
+					$scope.statusValidation = $scope.deleteSubCat[0]['status'];
+					$scope.validation = true;
+					if($scope.statusValidation == "Error al connectar")
+					{
+						$scope.validation = false;
+					}
+					$http({
+						method : "GET",
+						url : "models/subCategories.php?acc=l"
+					}).then(function mySucces (response) {
+						$scope.categories = response.data;
+						$scope.urlPicto1C = $scope.categories[0]['urlPicto1'];
+						$scope.nameC = $scope.categories[0]['name'];
+						$scope.firstC = false;
+					}, function myError (response) {
+						$scope.categories = response.statusText;
+					})
+					.finally(function() {
+						$scope.loading=false;
+					});
+					$scope.loading=true;
+					$http({
+							method : "GET",
+							url : "models/subCategories.php?acc=ls"
+						}).then(function mySucces (response) {
+							$scope.subCategories = response.data;
+							$scope.subCatTable = true;
+							for($i=0;$i<$scope.subCategories.length;$i++)
+							{
+								if($scope.subCategories[$i]['idSubCategory']==idSubCategory)
+								{
+									$scope.validation = false;
+									$scope.statusValidation = "Aquesta subcategoria no es pot eliminar, ja que té com a mínim una tenda associada"
+								}
+							}
+						}, function myError (response) {
+							$scope.subCategories = response.statusText;
+						})
+						.finally(function() {
+							$scope.loading=false;
+					});
 				}, function myError (response) {
-					$scope.categories = response.statusText;
+					$scope.deleteSubCat = response.statusText;
 				})
 				.finally(function() {
 					$scope.loading=false;
 				});
-				$scope.loading=true;
-				$http({
-						method : "GET",
-						url : "models/subCategories.php?acc=ls"
-					}).then(function mySucces (response) {
-						$scope.subCategories = response.data;
-						$scope.subCatTable = true;
-					}, function myError (response) {
-						$scope.subCategories = response.statusText;
-					})
-					.finally(function() {
-						$scope.loading=false;
-				});
-			}, function myError (response) {
-				$scope.deleteSubCat = response.statusText;
-			})
-			.finally(function() {
-				$scope.loading=false;
-			});
+			}
+			
 	}
 });
 angular.module('spaApp')															 
