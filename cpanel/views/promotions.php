@@ -32,7 +32,7 @@
 				</label>
 				<span>
 					{{promotionList.conditionsVals}}
-					 {{promotionList.conditionsEix}}
+					{{promotionList.conditionsEix}}
 				</span>
 			<label>
 
