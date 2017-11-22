@@ -7,8 +7,9 @@
 </div>
 <div ng-show="confirm">
 		<div ng-class="validation ? 'alert alert-success' : 'alert alert-danger'">
+			<i class="fa fa-times" ng-hide="validation" aria-hidden="true"></i>
 			<i class="fa fa-check" ng-show="validation" aria-hidden="true"></i>
-			<b>Ha estat actualizat</b>
+			<b>{{statusValidation}}</b>
 		</div>
 	</div>
 <div class="row">
