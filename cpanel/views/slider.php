@@ -60,8 +60,8 @@
 							</div>
 						</div>
 						<div class="col-lg-12 col-xs-12">
-							<a ng-href="#/slider/{{sliderImg.idSlider}}"><button id="btnEditarSlider" class="btn btn-default" >Editar <i class="fa fa-pencil" aria-hidden="true"></i></button></a>
-							<button id="btnDeleteSlider" class="col-xs-offset-1 btn btn-default" ng-click="deleteImgSlide(sliderImg.idSlider,sliderImg.image)">Eliminar <i class="fa fa-eraser" aria-hidden="true"></i></button>
+							<a ng-href="#/slider/{{sliderImg.idSlider}}"><button id="btnEditarSlider" class="btn btn-default" >Editar</button></a>
+							<button id="btnDeleteSlider" class="col-xs-offset-1 btn btn-default" ng-click="deleteImgSlide(sliderImg.idSlider,sliderImg.image)">Eliminar</button>
 						</div>
 					</div>
 				</form>
