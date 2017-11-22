@@ -172,7 +172,7 @@ a:hover
 {
   color: #e51c23;
 }
-#container2
+.container2
 {
   border-left: solid 1px;
   border-color:#ced2de;
@@ -1073,7 +1073,11 @@ a:hover
   .aLogoClient{
     width: 70%;
   }
-
+  .container2
+  {
+    position: absolute;
+    top: 0%;
+  }
 }
 @media (min-width: 768px)and (max-width: 1023px) {
   .footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns{
@@ -1134,7 +1138,7 @@ a:hover
   .aLogoClient{
     width: 70%;
   }
-  #container2
+  .container2
   {
     position: absolute;
     top: 25%;
