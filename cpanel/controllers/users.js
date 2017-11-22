@@ -334,10 +334,11 @@ angular.module('spaApp')
 					}
 
   				}
-  				else if($scope.pswdC != $scope.confirmPswdC)
+  				else if($scope.pswdC != $scope.confirmPswdC || $scope.pswdC == "" || $scope.confirmPswdC == "" || $scope.nameC == "" || $scope.emailC == "" || $scope.emailPassC == "")
   				{
+  					console.log("llega");
   					$scope.validation = false;
-  					$scope.statusValidation = "Error";
+  					$scope.statusValidation = "Error, els següents camps no poden estar buits: contrasenya, confirmar contrasenya, e-mail, password e-mail, associació";
   					$scope.fail = true;
   				}
 			};

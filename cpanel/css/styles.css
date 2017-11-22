@@ -172,7 +172,7 @@ a:hover
 {
   color: #e51c23;
 }
-#container2
+.container2
 {
   border-left: solid 1px;
   border-color:#ced2de;
@@ -858,19 +858,18 @@ a:hover
 }
 .labelFor
 {
-  background-color: #CFD8DA;
-  font-weight: 300;
-  width: 100px;
-  height: 50px;  
-  border-radius: 10px;
+  background-color: #B6BFC1;
   text-align: center;
-  padding-top: 1.5%;
-  margin-top: 43.3%;
-  margin-left: 1%;
+  padding: 8%;
 }
 .labelFor:hover
 {
-  background-color: #B8C2C4;
+  background-color: #B0B9BB;
+  cursor: pointer;
+} 
+.labelFor:active
+{
+  background-color: #9FA6A8;
   cursor: pointer;
 }
 .imgPromo
@@ -1082,7 +1081,11 @@ a:hover
   .aLogoClient{
     width: 70%;
   }
-
+  .container2
+  {
+    position: absolute;
+    top: 0%;
+  }
 }
 @media(max-width: 767px) {
 
@@ -1159,6 +1162,16 @@ a:hover
   #divNavTabsGlobal{
     width: 110%;
   }
+
+  .container2
+  {
+    position: absolute;
+    top: 25%;
+  }
+  .footerLog{
+    position: absolute;
+    bottom: 0px;
+  }
 }
 @media (max-width: 1023px){
 
@@ -1176,9 +1189,9 @@ a:hover
     height: 250px;
   }
   .footerLog{
-  position: absolute;
-  right: 0px;
-  bottom: 15px;
+    position: absolute;
+    right: 0px;
+    bottom: 15px;
   }
   .deleteUnderlineSignUp{
     margin-top:9%;
@@ -1204,7 +1217,6 @@ a:hover
   {
     margin-top: 4%;
   }
-
 }
 
 @media (min-width: 1024px) and (max-width: 1199px){
@@ -1232,8 +1244,10 @@ a:hover
     border-bottom: 0.5px solid #BEBEBE;
     width: 100%!important;
   }
+  .labelFor{
+      padding: 3%;
+    }
 }
-
 
 @media (min-width: 1200px){
   .dateNews{
@@ -1269,5 +1283,6 @@ a:hover
     font-size: 1.3em;
   }
 }
+
 /*--------------------------------------*/
 
