@@ -918,7 +918,12 @@ a:hover
   padding: 2%;
   border-bottom: 0.5px solid #BEBEBE;
 }
-
+#numPromo{
+  color: red;
+}
+#positionNumberPromo{
+  color: white;
+}
 
 
 
@@ -1007,6 +1012,11 @@ a:hover
   {
     padding-top: 0%;
     margin-left: 0%;
+  }
+  #positionNumberPromo{
+    position: absolute;
+    top: 37.5%;
+    right: 9%;
   }
   .buttonsNews
   {
@@ -1116,6 +1126,11 @@ a:hover
     position: absolute;
     top: 0%;
   }
+  #positionNumberPromo{
+    position: absolute;
+    top: 37.5%;
+    right: 9%;
+  }
 }
 @media(max-width: 767px) {
 
@@ -1202,6 +1217,11 @@ a:hover
     position: absolute;
     bottom: 0px;
   }
+  #positionNumberPromo{
+    position: absolute;
+    top: 59.5%;
+    right: 34%;
+  }
 }
 @media (max-width: 1023px){
 
@@ -1273,6 +1293,11 @@ a:hover
     padding: 12%;
     width: 100%!important;
   }
+  #positionNumberPromo{
+    position: absolute;
+    top: 59.5%;
+    right: 40%;
+  }
 }
 @media (max-width: 1200px) {
   
@@ -1315,6 +1340,12 @@ a:hover
     font-weight: bold;
     font-size: 1.3em;
   }
+  #positionNumberPromo{
+    position: absolute;
+    top: 37.5%;
+    right: 16%;
+  }
+    
 }
 
 /*--------------------------------------*/
