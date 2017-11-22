@@ -47,18 +47,17 @@ $scope.editParameter = function(act="",idSetting, value, literal ){
 				url : "models/settings.php?acc=addUpdate&act="+act+"&literal="+$scope.literal+"&value="+$scope.value+"&idSetting="+$scope.idSetting
 			}).then(function mySucces(response) {
 				$scope.settingsList = response.data;
-				console.log($scope.settingsList);
 				$scope.value= "";
 				$scope.literal= "";
 				$scope.confirm=true;
+				$scope.validation = true;
 
 			}, function myError(response) {
 				$scope.prueba = response.statusText;
 			})
 			.finally(function() {
 					$scope.loading=false;
-					console.log($scope.settingsList);
-
+					$scope.showSettings=false;
 			});	
 }
 

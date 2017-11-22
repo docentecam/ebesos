@@ -3,9 +3,14 @@
 	if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 ?>
 <div class="row">
-	<div class="col-xs-6 noPadding linkTitle"><b>Enllaços peu de pàgina</b></div>	
-	<div ng-show="confirm"> <h3> Ha sigut actualizat</h3> </div>
+	<div class="col-xs-6 noPadding linkTitle"><b>Paràmetres</b></div><br>
 </div>
+<div ng-show="confirm">
+		<div ng-class="validation ? 'alert alert-success' : 'alert alert-danger'">
+			<i class="fa fa-check" ng-show="validation" aria-hidden="true"></i>
+			<b>Ha estat actualizat</b>
+		</div>
+	</div>
 <div class="row">
 	<button id="btnAfegir" class="btn btn-default" ng-hide="btnAfegir" ng-click="editParameter('Afegir')" >Afegir <i class="fa fa-plus-circle"></i></button>
 	<br>
