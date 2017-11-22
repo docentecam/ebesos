@@ -54,7 +54,7 @@ $scope.editParameter = function(act="",idSetting, value, literal ){
 					$scope.literal= "";
 					$scope.confirm=true;
 					$scope.validation = true;
-					if(act=="Update")
+					if(act=="Add")
 					{
 						$scope.statusValidation = "El paràmetre s'ha creat correctament";
 					}
