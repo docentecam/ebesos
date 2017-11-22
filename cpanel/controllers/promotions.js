@@ -6,7 +6,7 @@ angular.module('spaApp')
   		
   	$scope.loadPromotions=true;
   	
-  	// $scope.message="";
+    $scope.message="";
   	$scope.message=msgEdits.data.message;
 	$scope.validation=msgEdits.data.validation;
 
