@@ -2,15 +2,18 @@
 require('../../inc/functions.php');
 session_start();
 
-if(isset($_GET['acc']) && $_GET['acc'] == 'list')
+if(isset($_GET['acc']) && $_GET['acc'] == 'l')
 {
-	$mySql = "SELECT shopsimages.url, shops.idShop, shops.name, shops.lng, shops.lat, shops.logo, shops.telephone, shops.email, shops.address, shops.schedule, shops.description, shops.descriptionLong, shops.url AS web, shops.cp, shops.ciutat, shops.idUser
-			FROM shops LEFT JOIN shopsimages ON shops.idShop = shopsimages.idShop WHERE
+	//TODO: pasar a una funcion
+	$mySql = "SELECT shopsimages.url, shops.idShop, shops.name, shops.description, shops.idUser";
+	if(isset($_GET['idShop'])) $mySql .= ", shops.lng, shops.lat, shops.logo, shops.telephone, shops.email, shops.address, shops.schedule, shops.descriptionLong, shops.url AS web, shops.cp, shops.ciutat";
+
+	$mySql .= "	FROM shops LEFT JOIN shopsimages ON shops.idShop = shopsimages.idShop WHERE
 			shopsimages.preferred = 'Y'";
-	if($_SESSION['user']['privileges'] != 'E')
-	{
-		$mySql .= " AND shops.idUser =".$_SESSION['user']['idUser'];
-	}
+
+	if(isset($_GET['idShop'])) $mySql .= " AND shops.idShop =".$_GET['idShop'];
+
+	if($_SESSION['user']['privileges'] != 'E')	$mySql .= " AND shops.idUser =".$_SESSION['user']['idUser'];
 
 	$connexio = connect();
 
@@ -26,16 +29,29 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'list')
 	{
 		if($i != 0) $dataShops .= ",";
 
-		$dataShops .= '{"idShop":"'.$row['idShop'].'", "name":"'.$row['name'].'", "lng":"'.$row['lng'].'", "lat":"'.$row['lat'].'", "logo":"'.$row['logo'].'", "telephone":"'.$row['telephone'].'", "email":"'.$row['email'].'", "address":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['address']).'", "schedule":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['schedule']).'", "description":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['description']).'", "descriptionLong":"'.str_replace(array("\r\n", "\r", "\n", "'\'"), "\\n",$row['descriptionLong']).'", "web":"'.$row['web'].'", "cp":"'.$row['cp'].'", "ciutat":"'.$row['ciutat'].'", "idUser":"'.$row['idUser'].'", "imgPref":"'.$row['url'].'"';
+		$dataShops .= '{"idShop":"'.$row['idShop'].'", "name":"'.$row['name'].'", "idUser":"'.$row['idUser'].'", "description":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['description']).'", "imgPref":"'.$row['url'].'"';
+
+		if(isset($_GET['idShop']))
+		{
+			$dataShops .= ', "lng":"'.$row['lng'].'", "lat":"'.$row['lat'].'", "logo":"'.$row['logo'].'", "telephone":"'.$row['telephone'].'", "email":"'.$row['email'].'", "address":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['address']).'", "schedule":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['schedule']).'", "descriptionLong":"'.str_replace(array("\r\n", "\r", "\n", "'\'"), "\\n",$row['descriptionLong']).'", "web":"'.$row['web'].'", "cp":"'.$row['cp'].'", "ciutat":"'.$row['ciutat'].'"';
+		}
 
 		$dataShops .= '}';
 		$i++;
 	}
 	$dataShops .= "]";
-	$dataShops .= ', "allSubCat":';
-	$dataShops .= listAllSubCat();
-	$dataShops .= '}';
-	$dataShops .= "]";
+	if(isset($_GET['idShop']))
+	{
+		$dataShops .= ', "allSubCat":'.listAllSubCat();
+
+		$dataShops .= ', "images":'.listImages($_GET['idShop']);
+	
+		$dataShops .= ', "subCategoriesShop":'.listShopCategoriesSub($_GET['idShop']);
+
+		$dataShops .= ', "subCategories":'.listCategoriesSub($_GET['idShop']);
+	}
+	
+	$dataShops .= '}]';
 
 	echo $dataShops;
 }
@@ -78,46 +94,24 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'upload')
 
 	move_uploaded_file($_FILES["logo"]["tmp_name"],	"../../img/logos-shops/".$logo);
 
-	$fp=fopen("../files/infoShop.txt",'w');
-		fputs($fp,'msg="'.$mensaje.'"');
-		fputs($fp,'name="'.$name.'"');
-		fputs($fp,'idUser="'.$idUser.'"');
-		fputs($fp,'descriptionLong="'.$descriptionLong.'"');
-		fputs($fp,'description="'.$description.'"');
-		fputs($fp,'ciutat="'.$ciutat.'"');
-		fputs($fp,'logo="'.$logo.'"');
-		fputs($fp,'web="'.$web.'"');
-		fputs($fp,'lat="'.$lat.'"');
-		fputs($fp,'lng="'.$lng.'"');
-		fputs($fp,'telephone="'.$telephone.'"');
-		fputs($fp,'cp="'.$cp.'"');
-		fputs($fp,'address="'.$address.'"');
-		fputs($fp,'schedule="'.$schedule.'"');
-		fputs($fp,'email="'.$email.'"');
-		fputs($fp,'deleteLogo="'.$deleteLogo.'"');
-	fclose($fp);
-
 	if(isset($_GET['acc']) && $_GET['sentence'] == 'a')
 	{
 		$mySql = 'INSERT INTO `ddb99266`.`shops` (`name`, `lat`, `lng`, `telephone`, `email`, `url`, `schedule`, `address`, `idUser`, `description`, `descriptionLong`, `logo`, `cp`, `ciutat`) VALUES ("'.$name.'", "'.$lat.'", "'.$lng.'", "'.$telephone.'", "'.$email.'", "'.$web.'", "'.$schedule.'", "'.$address.'", "'.$idUser.'", "'.$description.'", "'.str_replace(array("\r\n", "\r", "\n"), "\\n",$descriptionLong).'", "'.$logo.'", "'.$cp.'", "'.$ciutat.'");';
 
-		$fp=fopen("../files/newShop.txt",'w');
-			fputs($fp,'mySql="'.$mySql.'"');
-		fclose($fp);
-
 		$connexio = connect();
 
 		$resultNewShop = mysqli_query($connexio, $mySql);
+		$idShopIns=mysqli_insert_id($connexio);
+
+		$mySql = 'INSERT INTO shopsimages (`preferred`, `idShop`, `url`) VALUES ("Y", "'.$idShopIns.'", "nofoto.png");';
+
+		$resultNewImgPref = mysqli_query($connexio, $mySql);
 
 		disconnect($connexio);
 	}
 	else
 	{
 		$mySql = 'UPDATE `ddb99266`.`shops` SET `name`="'.$name.'", `lat`="'.$lat.'", `lng`="'.$lng.'", `telephone`="'.$telephone.'", `email`="'.$email.'", `url`="'.$url.'", `schedule`="'.$schedule.'", `address`="'.$address.'", `idUser`="'.$idUser.'", `description`="'.$description.'", `descriptionLong`="'.$descriptionLong.'", `logo`="'.$logo.'", `cp`="'.$cp.'", `ciutat`="'.$ciutat.'" WHERE `idShop`="'.$idShop.'";';
-
-		$fp=fopen("../files/editShop.txt",'w');
-			fputs($fp,'mySql="'.$mySql.'"');
-		fclose($fp);
 		
 		$connexio = connect();
 
@@ -131,13 +125,13 @@ else if (isset($_GET['acc']) && $_GET['acc'] == 'uploadImage')
 	$img = $_FILES["uploadedFile"]["name"];
 	$idShopImage = $_POST['idShopImage'];
 	$idShop = $_POST['idShop'];
+	$deleteImagePref = $_POST['deleteImagePref'];
 
 	if(isset($_GET['acc']) && $_GET['sentence'] == 'e')
 	{
 		move_uploaded_file($_FILES["uploadedFile"]["tmp_name"], '../../img/shops/'.$img);
 
-		$mySql = 'UPDATE shopsimages
-				SET url ="'.$img.'" WHERE idShopImage='.$idShopImage;
+		if($img != "") $mySql = 'UPDATE shopsimages SET url ="'.$img.'" WHERE idShopImage='.$idShopImage;
 
 		$connexio = connect();
 
@@ -145,29 +139,19 @@ else if (isset($_GET['acc']) && $_GET['acc'] == 'uploadImage')
 
 		disconnect($connexio);
 
-		$fp=fopen("../files/imgPrefShop.txt",'w');
-			fputs($fp,'mySql="'.$mySql.'"');
-			fputs($fp,'idShopImage="'.$idShopImage.'"');
-			fputs($fp,'deleteImagePref="'.$deleteImagePref.'"');
-		fclose($fp);
+		if($deleteImagePref != "nofoto.png") unlink('../../img/shops/'.$deleteImagePref);
 	}
 	else if(isset($_GET['acc']) && $_GET['sentence'] == 'n')
 	{
 		move_uploaded_file($_FILES["uploadedFile"]["tmp_name"], '../../img/shops/'.$img);
 
-		$mySql = 'INSERT INTO shopsimages (`preferred`, `idShop`, `url`) VALUES ("'.N.'", "'.$idShopImage.'", "'.$img.'");';
+		$mySql = 'INSERT INTO shopsimages (`preferred`, `idShop`, `url`) VALUES ("'.N.'", "'.$idShop.'", "'.$img.'");';
 
 		$connexio = connect();
 
 		$updateImg = mysqli_query($connexio, $mySql);
 
 		disconnect($connexio);
-
-		$fp=fopen("../files/imgShop.txt",'w');
-			fputs($fp,'mySql="'.$mySql.'"');
-			fputs($fp,'img="'.$img.'"');
-			fputs($fp,'idShopImage="'.$idShopImage.'"');
-		fclose($fp);
 	}
 }
 else if(isset($_GET['acc']) && $_GET['acc'] == 'delis')
@@ -186,11 +170,6 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'delis')
 
 	unlink('../../img/shops/'.$deleteImage);
 
-	$fp=fopen("../files/delImgShop.txt",'w');
-		fputs($fp,'mySql="'.$mySql.'"');
-		fputs($fp,'idShopImage="'.$idShopImage.'"');
-	fclose($fp);
-
 	echo '[{"images":'.listImages($idShop).'}]';
 }
 else if(isset($_GET['acc']) && $_GET['acc'] == 'delete')
@@ -198,6 +177,7 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'delete')
 	//TODO: Hay que borrar tambien los archivos fisicos
 	
 	$idShop=$_GET['idShop'];
+
 	$mySql = "DELETE FROM shopsimages WHERE idShop = $idShop";
 
 	$connexio = connect();
@@ -216,6 +196,7 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'delsc')
 {	
 	$idShop = $_GET['idShop'];
 	$idShopCategorySub = $_GET['idShopCategorySub'];
+
 	$mySql = "DELETE FROM shopcategoriessub WHERE idShopCategorySub = $idShopCategorySub AND idShop = $idShop;";
 
 	$connexio = connect();
@@ -311,7 +292,6 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'listImages')
 }
 function listCategoriesSub($idShop)
 {
-	
 	$mySql = "SELECT cs.idSubCategory, cs.name
 			FROM categoriessub cs
 			WHERE cs.idSubcategory NOT IN (SELECT scs.idSubCategory 
@@ -396,7 +376,7 @@ function listImages($idShop)
 {
 	$j = 0;
 
-	$mySql = "SELECT si.idShopImage, si.preferred, si.url, si.description
+	$mySql = "SELECT si.idShopImage, si.preferred, si.url
 			FROM shopsimages si
 			WHERE si.idShop = $idShop
 			ORDER BY si.preferred = 'Y' DESC";
@@ -412,7 +392,7 @@ function listImages($idShop)
 	{
 		if($j != 0) $datai .= ",";
 
-		$datai .= '{"idShopImage":"'.$row['idShopImage'].'", "preferred":"'.$row['preferred'].'", "url":"'.$row['url'].'", "description":"'.$row['description'].'"}';
+		$datai .= '{"idShopImage":"'.$row['idShopImage'].'", "preferred":"'.$row['preferred'].'", "url":"'.$row['url'].'"}';
 
 		$j++;
 	}
