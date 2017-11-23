@@ -4,6 +4,10 @@ angular.module('spaApp')
 		data: {}
 	};
 });
+
+
+
+
 angular.module('spaApp')
 .controller('MainCtrl', function($scope, $http, usersList) {
 $scope.loading=true;
@@ -26,13 +30,14 @@ $scope.showLogOff=true;
 		url : "models/main.php?acc=showActivePromotion"
 	}).then(function mySucces(response) {
 		$scope.notifyPromo = response.data;
-		$scope.alertPromo = $scope.notifyPromo[0]['promos'];
+		$scope.alertPromo=$scope.notifyPromo[0]['promos'];
+		
 	}, function myError(response) {
 		$scope.notifyPromo = response.statusText;
 	}).finally(function(){
 		$scope.loading = false;
 	});	
-	
+
 	
 	$scope.showDisconnect = function(){
 		if ($scope.showLogOff = !$scope.showLogOff) {

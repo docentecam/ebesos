@@ -63,7 +63,9 @@ angular.module('spaApp')
 			{ 
 			    $scope.loading=false; 
 			})
-
+if(active=="Y")$parent.alertPromo--;
+if(active=="N")$parent.alertPromo++;
+console.log($parent.alertPromo);
 		}
 
 		$scope.deletePromotion=function(idPromotion){
