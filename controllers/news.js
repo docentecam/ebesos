@@ -21,10 +21,12 @@ angular.module('spaApp')
 			url: "models/news.php?acc=showNew&idNew=" + $routeParams.idNew
 		}).then(function mySucces (response) {
 				$scope.news = response.data;
-				$scope.subNews=$scope.news[0]['media'];
+				$scope.medias=$scope.news[0]['media'];
+				console.log($scope.medias);
 		},function myError (response) {
 				$scope.news = response.statusText;
 		}).finally(function() {
 			$scope.loading=false;
 		});	
+
 });

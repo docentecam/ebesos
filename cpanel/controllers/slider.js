@@ -2,24 +2,19 @@ angular.module('spaApp').factory('msgEdits', function(){
 	return {data:{}};
 });
 angular.module('spaApp')															 
+
 .controller('SliderCtrl', function($scope, $http, msgEdits, $routeParams) {
 	$scope.check = $routeParams.check;
-	$scope.getRekt = true; 
-	if($scope.check == 't' && $scope.getRekt == true)
+	if($scope.check == 't')
 	{
 		msgEdits.data.fail = true;
-		$scope.getRekt=false;
 	}
-	else if($scope.check == 'f' && $scope.getRekt == true)
-	{
-		msgEdits.data.fail = false;
-		$scope.getRekt=false;
-	}
-	else if($scope.getRekt == false)
+	else if($scope.check == 'f')
 	{
 		msgEdits.data.fail = false;
 	}
-	
+
+
 	$scope.listSliders=true;
 	$scope.statusValidation=msgEdits.data.message;
 	$scope.validation=msgEdits.data.validation;
@@ -128,6 +123,7 @@ console.log($scope.slider.idSlider);
 		if($scope.slider.image!="")
 		{
 	  		$scope.loading=true;
+	  		var welcomeBack = 1;
 	  		console.log("arriba");
 	  		var data = new FormData();
   			data.append("idSlider",$scope.slider.idSlider);
