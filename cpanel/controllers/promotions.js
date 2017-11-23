@@ -68,7 +68,7 @@ angular.module('spaApp')
 
 		$scope.deletePromotion=function(idPromotion){
 
-		
+		console.log("entra elimina");
 			$scope.confirmDelete= confirm("Segur que vols esborrar la promoció?");
 
 			if ($scope.confirmDelete) {
@@ -101,7 +101,7 @@ angular.module('spaApp')
 angular.module('spaApp')
 .controller('PromotionCtrl', function($scope, $http,$routeParams,$q, $location,msgEditP) {
 	$scope.loadPromotions=false;
-
+console.log("entra");
 
  		$scope.promotion={};
  		$scope.promotion.idPromotion=$routeParams.idPromotion;
@@ -165,19 +165,26 @@ angular.module('spaApp')
 
 	$scope.editPromotion=function()
 	{
+		var error=false;
 		
 		if( $scope.promotion.shopSelected=="-1"){
 			alert("tens que seleccionar un comerç");
+			error=true;
 		}
 		else if(($scope.promotion.conditionsVals=="" ||$scope.promotion.oferVals=="")&&($scope.promotion.conditionsEix=="" ||$scope.promotion.oferEix==""))
 		{
 			alert("N'hi ha un camp buit");
+			error=true;
 		}
 
 		
 
-		else{
+		if(!error){
 		var data = new FormData();
+
+		if ($scope.promotion.conditionsVals=="" ) {$scope.promotion.dateExpireVals=""}
+		
+		if ($scope.promotion.conditionsEix=="") {$scope.promotion.dateExpireEix=""}			
 		data.append("idPromotion", $scope.promotion.idPromotion);
 		data.append("imageChange", $scope.imgForChange);
 		data.append("imageActual", $scope.promotion.image);
@@ -203,15 +210,18 @@ angular.module('spaApp')
 					if ($scope.imgForChange!="") {
 						console.log($scope.imgForChange.name);
 						$scope.promotion.image=$scope.promotion.idPromotion+"-"+$scope.imgForChange.name;}	
-				})
-		}
+				console.log(res.data);
+				 })
 
-		if ( $scope.promotion.idPromotion==0) 
+			if ( $scope.promotion.idPromotion==0) 
 			{msgEditP.data.message="S'ha afegit correctament ";msgEditP.data.validation=true;}
 		
 		else {msgEditP.data.message="S'ha modificat correctament ";msgEditP.data.fail=true;}
 		
 		$location.url("/promotions");
+		}
+
+		
 		
 	}
 
