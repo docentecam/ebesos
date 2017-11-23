@@ -1161,6 +1161,9 @@ hr.style14 {
 		padding-left:0%!important;
 		margin-left: 5%;
 	}
+	#date{
+		margin-left: 3%;
+	}
 	.fa-bookmark{
 		position: absolute;
     	right: -18%;
@@ -1290,6 +1293,9 @@ hr.style14 {
     	top: 111%;
     	left: 103%;
 	}
+	#date{
+		margin-left: 3%;
+	}
 	.shopsList{
 		padding-bottom: 2%;
 	}
@@ -1343,6 +1349,9 @@ hr.style14 {
 		text-align: center;
 		margin-left: 12%;
 		vertical-align: middle;
+	}
+	.navGeneral{		
+		margin-top: 0%!important;
 	}
 	.footerLogos{
 		max-width: 100%;

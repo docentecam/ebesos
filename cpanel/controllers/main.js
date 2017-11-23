@@ -27,7 +27,6 @@ $scope.showLogOff=true;
 	}).then(function mySucces(response) {
 		$scope.notifyPromo = response.data;
 		$scope.alertPromo = $scope.notifyPromo[0]['promos'];
-		console.log($scope.alertPromo);
 	}, function myError(response) {
 		$scope.notifyPromo = response.statusText;
 	}).finally(function(){

@@ -919,11 +919,8 @@ a:hover
   padding: 2%;
   border-bottom: 0.5px solid #BEBEBE;
 }
-#numPromo{
-  color: red;
-}
 #positionNumberPromo{
-  color: white;
+  color: red;
 }
 
 
@@ -1202,7 +1199,7 @@ a:hover
     margin-top: 9%;
     margin-left: 12%;
   }
-    .mainNav{
+  .mainNav{
     padding: 10%!important;
   }
   #divNavTabsGlobal{
@@ -1220,8 +1217,8 @@ a:hover
   }
   #positionNumberPromo{
     position: absolute;
-    top: 59.5%;
-    right: 34%;
+    top: 36.3%;
+    right: 10%;
   }
 }
 @media (max-width: 1023px){
@@ -1296,8 +1293,8 @@ a:hover
   }
   #positionNumberPromo{
     position: absolute;
-    top: 59.5%;
-    right: 40%;
+    top: 39.6%;
+    right: 17%;
   }
 }
 @media (max-width: 1200px) {
