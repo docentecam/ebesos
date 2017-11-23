@@ -4,6 +4,7 @@ angular.module('spaApp').factory('msgEdits', function(){
 angular.module('spaApp')															 
 .controller('SliderCtrl', function($scope, $http, msgEdits ) {
 
+	// msgEdits.data.validation=false;
 	$scope.fail = false;
 	$scope.listSliders=true;
 	$scope.statusValidation=msgEdits.data.message;
@@ -110,9 +111,10 @@ console.log($scope.slider.idSlider);
 	$scope.updateImgSlider = function(){
 		console.log("Intentem enviar"+$scope.slider.image);
 		
-		if($scope.slider.image!="" && $scope.slider.description!="" && $scope.slider.title!="" && $scope.slider.subTitle!="" && $scope.slider.linkSlider!="")
+		if($scope.slider.image!="")
 		{
 	  		$scope.loading=true;
+	  		var welcomeBack = 1;
 	  		console.log("arriba");
 	  		var data = new FormData();
   			data.append("idSlider",$scope.slider.idSlider);
