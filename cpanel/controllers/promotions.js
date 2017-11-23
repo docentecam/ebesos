@@ -124,10 +124,6 @@ angular.module('spaApp')
 
 		$scope.promotion.dateExpireEix = yyyy+"-"+mm+"-"+dd;
 
-
-
-
-	
 		$scope.loadPromotions=false;
 		$scope.imgForChange="";
  		

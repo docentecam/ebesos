@@ -145,7 +145,6 @@ console.log($scope.slider.idSlider);
   		}
   		else{
   			if($scope.slider.image=="") alert("Selecciona Imatge");
-  			else alert("Tots els camps necessiten valor");
   		}
   	}
 });
