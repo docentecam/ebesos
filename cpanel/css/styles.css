@@ -357,7 +357,7 @@ a:hover
   border: 1px solid black; 
   margin-top: 4%;
   padding-top: 1.5%; 
-  margin-bottom: 10%;
+  margin-bottom: 2%;
 }
 
 #containerImg{
@@ -414,6 +414,10 @@ a:hover
 #divOpcioAfegir{
   margin-top: 9.5%;
 }
+#btnAfegir{
+  border-radius: 0px;
+  background: #d4dadc;
+}
 .slideEditAndAdd{
   margin-bottom: 3.5%;
 }
@@ -433,20 +437,19 @@ a:hover
 
 #btnEditarSlider{
   margin-top: 5%;
+  border-radius: 0px;
+  background: #d4dadc;
+  margin-left: 4.166666665%;
 }
 
 #btnDeleteSlider{
   margin-top: 5%;
-}
-.btn-default{
-  background: #96a8b0 !important;
+  border-radius: 0px;
+  background: #d4dadc;
 }
 #sliderText{
   margin-top: 5%;
   margin-left: 3.3%;
-}
-#btnEditarSlider{
-  margin-left: 4.166666665%;
 }
 .sliderTitle{
   font-size: 17px;
@@ -838,18 +841,19 @@ a:hover
 {
   padding-left: 2%;
   padding-right: 1%;
+  margin-left: 2.5%;
 }
 .divDatePromos
 {
   margin-top: 5%;
+  margin-left: 30%;
 }
 .divContainerPromos
 {
   border-bottom: 1px solid;
 }
 .divPromosCond
-{
-  margin-top: 7%;
+{ 
   margin-left: -3%;
 }
 .labelFontSizePromo
@@ -876,16 +880,18 @@ a:hover
 {
   background-color: #CFD8DA;
   font-weight: 300;
-  width: 100px;
-  height: 50px;  
-  border-radius: 10px;
-  padding-top: 1.5%;
+  width: 80px;
+  height: 40px;  
+  padding-top: 1%;
   margin-top: 43.3%;
   margin-left: 1%;
+  cursor: pointer;
+  padding-right: 9%;
 }  
 .labelForPromo:hover
 {
   background-color: #B8C2C4;
+  border: 1px solid;
 }
 .imgPromo
 {
@@ -915,8 +921,26 @@ a:hover
   padding: 2%;
   border-bottom: 0.5px solid #BEBEBE;
 }
-
-
+#numPromo{
+  color: red;
+}
+#positionNumberPromo{
+  color: white;
+}
+.btnsPromos{
+  border-radius: 0px;
+  background: #d4dadc;
+}
+.bttnsPromos{
+  border-radius: 0px;
+  background: #d4dadc;
+  margin-left: 30%;
+}
+.bttnsPromos:hover
+{
+  background-color: #B8C2C4;
+  border: 1px solid;
+}
 
 
 
@@ -947,6 +971,18 @@ a:hover
 
 
 @media (max-width: 575px){
+  .tableCategoriaSubCategoria {
+    font-weight: 600;
+    font-size: 19px;
+    color: gray;
+    margin-left: 10%;
+  }
+  .tableAlimentacioSubCategoria {
+    font-weight: 600;
+    font-size: 19px;
+    color: gray;
+    text-align: center;
+  }
   .navbar-default .navbar-collapse, .navbar-default .navbar-form{
     border-color: transparent!important;
   }
@@ -993,6 +1029,11 @@ a:hover
     padding-top: 0%;
     margin-left: 0%;
   }
+  #positionNumberPromo{
+    position: absolute;
+    top: 37.5%;
+    right: 9%;
+  }
   .buttonsNews
   {
     margin-left: 0;
@@ -1030,10 +1071,11 @@ a:hover
   .divPromosCond
   {
     margin-top: 0%;
+    margin-left: 0%;
   }
   .btnActivePromos
   {
-    margin-left: 2.5%;
+    margin-left: 2%;
   }
   .mainNav{
     padding-top: 4%!important;
@@ -1100,6 +1142,11 @@ a:hover
   {
     position: absolute;
     top: 0%;
+  }
+  #positionNumberPromo{
+    position: absolute;
+    top: 37.5%;
+    right: 9%;
   }
 }
 @media(max-width: 767px) {
@@ -1187,6 +1234,11 @@ a:hover
     position: absolute;
     bottom: 0px;
   }
+  #positionNumberPromo{
+    position: absolute;
+    top: 59.5%;
+    right: 34%;
+  }
 }
 @media (max-width: 1023px){
 
@@ -1256,8 +1308,12 @@ a:hover
   }
   .mainNav {
     padding: 12%;
-    border-bottom: 0.5px solid #BEBEBE;
     width: 100%!important;
+  }
+  #positionNumberPromo{
+    position: absolute;
+    top: 59.5%;
+    right: 40%;
   }
 }
 @media (max-width: 1200px) {
@@ -1288,6 +1344,7 @@ a:hover
   .mainNav{
   padding-top: 5%!important;
   padding-bottom: 5%!important;
+  border-bottom: none;
   }
   .divClientLoggedImage{
     width: 20%;
@@ -1300,6 +1357,12 @@ a:hover
     font-weight: bold;
     font-size: 1.3em;
   }
+  #positionNumberPromo{
+    position: absolute;
+    top: 37.5%;
+    right: 16%;
+  }
+    
 }
 
 /*--------------------------------------*/

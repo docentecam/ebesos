@@ -76,13 +76,17 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 					WHERE idSubCategory=".$_GET['idSubCategory'];
 		
 		$connexio = connect();
-		$resultSlider = mysqli_query($connexio, $mySql);
+		$resultSubC = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
 		
 		$message = "S'ha eliminat la subcategoria";
 		if($connexio == "Error al conectar")
 	 	{
 	 		$message = "Error al connectar";
+	 	}
+	 	else if ($resultSubC=="")
+	 	{
+	 		$message = $resultSubC;
 	 	}
 		echo '[{"status":"'.$message.'"}]';
 	}

@@ -16,7 +16,7 @@
 	<div class="col-lg-10 shop-cage">
 		<div class="col-md-3"><img class="img-responsive" src="../img/shops/{{shops.imgPref}}"></div>
 		<div class="col-md-9">
-			<label class="col-lg-12">{{shops.name}}/{{shops.idUser}}/{{idUserLg}}</label><!-- TODO: quitar shops.idUser y idUserLg -->
+			<label class="col-lg-12">{{shops.name}}</label><!-- TODO: quitar shops.idUser y idUserLg -->
 			<p class="col-lg-12">{{shops.description}}</p>
 		</div>
 	</div>
@@ -74,7 +74,7 @@
 			<input type="text" class="col-lg-4" id="e-shop" name="e-shop" placeholder="comerç@gmail.com" name="" ng-model="shopOne.email">
 			<input type="submit" class="col-lg-2 col-lg-offset-3 btn-up" value="Actualitzar">
 	</form>
-	<div class="row categories-edit">
+	<div class="row categories-edit" ng-hide="new">
 		<div class="col-lg-12">
 			<label class="col-lg-12 no-padding">Subcategoria principal</label>
 			<select class="col-lg-4" ng-change="preferredSubCat(idSubCategory, shopOne.idShop)" ng-model="idSubCategory">
@@ -93,7 +93,7 @@
 			</ul>
 		</div>
 	</div>
-	<div class="row images-edit">
+	<div class="row images-edit" ng-hide="new">
 		<div class="col-lg-11 images-prefered">
 			<span class="col-lg-10 col-lg-offset-2 image-span">Imatge Destacada</span>
 			<div class="col-lg-8 col-lg-offset-2 images-shop" ng-repeat="image in images | filter : {preferred:'Y'}">

@@ -3,26 +3,32 @@
 	if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 ?>
 <div class="row">
-	<div><h1>Paràmetres</h1></div>	
-	<div ng-show="confirm"> <h3> Ha sigut actualizat</h3> </div>
+	<div class="col-xs-6 noPadding linkTitle"><b>Paràmetres</b></div><br>
 </div>
+<div ng-show="confirm">
+		<div ng-class="validation ? 'alert alert-success' : 'alert alert-danger'">
+			<i class="fa fa-times" ng-hide="validation" aria-hidden="true"></i>
+			<i class="fa fa-check" ng-show="validation" aria-hidden="true"></i>
+			<b>{{statusValidation}}</b>
+		</div>
+	</div>
 <div class="row">
 	<button id="btnAfegir" class="btn btn-default" ng-hide="btnAfegir" ng-click="editParameter('Afegir')" >Afegir <i class="fa fa-plus-circle"></i></button>
 	<br>
-	<table border="1">
+	<table class="tableLinks  col-xs-4 col-sm-7 col-md-9 col-lg-11">
 		<thead>
 		<tr>
-			<th>Literal</th>
-			<th>Value</th>
-			<th>Editar</th>
+			<th class="centerPadding thCenterLinks col-xs-2">Literal</th>
+			<th class="centerPadding thCenterLinks col-xs-2">Valors</th>
+			<th class="centerPadding thCenterLinks col-xs-5">Editar</th>
 		</tr>
 	</thead>
 
 	<tbody>
 		<tr ng-repeat="setting in settingsList">
-			<td>{{setting.literal}}</td>
-			<td>{{setting.value}}</td>
-			<td><a ng-click="editParameter('Editar',setting.idSetting, setting.value, setting.literal)" href=""><i class="fa fa-pencil" aria-hidden="true"></i></a></td>		
+			<td class="tdCenterLinks borderTableLinks">{{setting.literal}}</td>
+			<td class="tdCenterLinks borderTableLinks">{{setting.value | limitTo: 20}}</td>
+			<td class="centerPadding tdCenterLinks borderTableLinks"><a ng-click="editParameter('Editar',setting.idSetting, setting.value, setting.literal)" href="" class="iconLinkCenter"><i class="fa fa-2x fa-pencil editDeleteIconLinks" aria-hidden="true"></i></a></td>		
 		</tr>
 	</tbody>
 	</table>

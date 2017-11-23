@@ -19,6 +19,7 @@
 			<option ng-repeat="category in categories" ng-value="category.name" ng-selected="category.idCategory==1">{{category.name}}</option>
 		</select>
 	</div>
+	<label>* Recorda que les subcategories que tinguin tendes no podran ser eliminades</label>
 	<div class="row tableSubCategories">
 		<div class="col-xs-11 col-lg-10 borderTableSubCategories noPadding">
 			<div class="col-xs-6 borderTitlesSubCategories centerPadding">
@@ -38,8 +39,8 @@
 						{{subCategory.name}}
 					</div>
 				</div>
-				<button class="col-xs-2 btn btn-SubCategory borderBtnEditSubCategories" id="editTable" ng-click="editSubCatT(subCategory.idSubCategory,subCategory.name,'e')">
-					Editar
+				<button class="col-xs-2 btn btn-SubCategory borderBtnEditSubCategories" id="editTable">
+					<a ng-href="#/subcategories/e/{{subCategory.idSubCategory}}/{{subCategory.name}}">Editar</a>
 				</button>
 				<button class="col-xs-2 btn btn-SubCategory borderBtnDelSubCategories" id="deleteTable" ng-click="deleteSubCatT(subCategory.idSubCategory)">
 					Eliminar
@@ -48,7 +49,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<button id="btnAfegirSubCategoria" class="btn btn-default" ng-click="addSubCat('a')">Afegir <i class="fa fa-plus-circle"></i></button>
+		<button id="btnAfegirSubCategoria" class="btn btn-default" ng-click="addSubCat('a')"><a ng-href="#/subcategories/a/-1/n">Afegir <i class="fa fa-plus-circle"></i></a></button>
 	</div>
 </div>
 <div ng-hide="subCatTable">
@@ -66,7 +67,7 @@
 		</div>
 		<div class="row">
 			<span class="titleCategoria col-xs-4 col-md-3">Nom subcategoria:</span>
-			<input type="text" class="col-xs-3 inputTextSubCategories" ng-model="nameSC" id="nsc">
+			<input type="text" maxlength="20" class="col-xs-3 inputTextSubCategories" ng-model="nameSC" id="nsc">
 		</div>
 		<button id="afegirSubCategoria" class="btn btn-default centerPadding" ng-click="addBBDDSubCat()"><span ng-show="btnName">Afegir</span><span ng-hide="btnName">Editar</span></button>
 	</form>

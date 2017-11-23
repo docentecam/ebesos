@@ -20,6 +20,7 @@ $scope.accBbdd="";
 
 $scope.editParameter = function(act="",idSetting, value, literal ){
 	
+
 		if (act=='Editar'){
 			$scope.act=act;
 			$scope.showSettings=true;
@@ -41,25 +42,42 @@ $scope.editParameter = function(act="",idSetting, value, literal ){
 		}
 
 		else if (act=="Update" || act=="Add"){
-			$scope.loading=true;
-			$http({
-				method : "GET",
-				url : "models/settings.php?acc=addUpdate&act="+act+"&literal="+$scope.literal+"&value="+$scope.value+"&idSetting="+$scope.idSetting
-			}).then(function mySucces(response) {
-				$scope.settingsList = response.data;
-				console.log($scope.settingsList);
-				$scope.value= "";
-				$scope.literal= "";
+			if($scope.value != "" && $scope.literal != "")
+			{
+				$scope.loading=true;
+				$http({
+					method : "GET",
+					url : "models/settings.php?acc=addUpdate&act="+act+"&literal="+$scope.literal+"&value="+$scope.value+"&idSetting="+$scope.idSetting
+				}).then(function mySucces(response) {
+					$scope.settingsList = response.data;
+					$scope.value= "";
+					$scope.literal= "";
+					$scope.confirm=true;
+					$scope.validation = true;
+					if(act=="Add")
+					{
+						$scope.statusValidation = "El paràmetre s'ha creat correctament";
+					}
+					else
+					{
+						$scope.statusValidation = "El paràmetre s'ha modificat correctament";
+					}
+
+				}, function myError(response) {
+					$scope.prueba = response.statusText;
+				})
+				.finally(function() {
+						$scope.loading=false;
+						$scope.showSettings=false;
+				});	
+			}
+			else
+			{
 				$scope.confirm=true;
-
-			}, function myError(response) {
-				$scope.prueba = response.statusText;
-			})
-			.finally(function() {
-					$scope.loading=false;
-					console.log($scope.settingsList);
-
-			});	
+				$scope.validation = false;
+				$scope.statusValidation = "Hi ha camps sense omplir";
+			}
+				
 }
 
 	}
