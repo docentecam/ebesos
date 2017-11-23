@@ -880,18 +880,18 @@ a:hover
 {
   background-color: #CFD8DA;
   font-weight: 300;
-  width: 100px;
-  height: 50px;  
-  border-radius: 10px;
-  padding-top: 1.5%;
+  width: 80px;
+  height: 40px;  
+  padding-top: 1%;
   margin-top: 43.3%;
   margin-left: 1%;
   cursor: pointer;
-  text-align: center;
+  padding-right: 9%;
 }  
 .labelForPromo:hover
 {
   background-color: #B8C2C4;
+  border: 1px solid;
 }
 .imgPromo
 {
@@ -927,7 +927,20 @@ a:hover
 #positionNumberPromo{
   color: white;
 }
-
+.btnsPromos{
+  border-radius: 0px;
+  background: #d4dadc;
+}
+.bttnsPromos{
+  border-radius: 0px;
+  background: #d4dadc;
+  margin-left: 30%;
+}
+.bttnsPromos:hover
+{
+  background-color: #B8C2C4;
+  border: 1px solid;
+}
 
 
 

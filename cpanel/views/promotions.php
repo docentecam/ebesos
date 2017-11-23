@@ -15,7 +15,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 		Promocions
 	</label>
 	<div class="col-lg-2 col-xs-3 btnAddPromo">
-		<a ng-href="#/promotion/0"><button id="btnAdd" class="btn btn-default">Afegir<i class="fa fa-plus-circle"></i></button></a>
+		<a ng-href="#/promotion/0"><button id="btnAdd" class="btn btnsPromos">Afegir<i class="fa fa-plus-circle"></i></button></a>
 	</div>	
 </div>
 <div ng-show="loadPromotions" class="row">
@@ -117,7 +117,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 		</div>
 		<div class="col-lg-12">
 			<label class="marginTopLabel">Seleccionar comerç:&nbsp;&nbsp;&nbsp; </label>
-			<select id="listShops" name="listShops" ng-model="promotion.shopSelected" class="select-users"> <option value="-1" ng-selected="promotion.shopSelected==-1"> --Escull Comerç</option>
+			<select id="listShops" name="listShops" ng-model="promotion.shopSelected" class="select-users"> <option value="-1" ng-selected="promotion.shopSelected==-1"> --Escull Comerç--</option>
 				<option ng-repeat="shop in shopsList" ng-selected="promotion.shopSelected==shop.idShop" ng-value="shop.idShop">{{shop.name}}</option></select>
 			</div>
 			<div class="col-lg-12">
@@ -193,7 +193,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 								<textarea name="" id="" cols="50" rows="3" ng-model="promotion.conditionsEix" class="txtAreaNoBorder txtAreaMarginTop">promotion.conditionsEix</textarea>
 								<div class="col-lg-12">
 									<div class="col-lg-2 col-lg-pull-1">
-										<input type="button" class="btn btn-default btnEditPromo"  value="{{act}}" ng-click="editPromotion(act)">
+										<input type="button" class="btn bttnsPromos" value="{{act}}" ng-click="editPromotion(act)">
 									</div>
 								</div>
 							</div>
