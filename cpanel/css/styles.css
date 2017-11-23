@@ -1126,6 +1126,29 @@ a:hover
     top: 37.5%;
     right: 9%;
   }
+   .imgPromos 
+  {
+    margin-left: 0%;
+  }
+  .btnAddPromo
+  {
+    margin-left: -10%
+  }
+  .buttonsPromos
+  {
+    margin-left: 15.5%;
+    margin-top: -5%;
+  }
+  .divPromosCond
+  {
+    margin-left: 5.85%;
+    margin-top: 1%;
+  }
+  .btnActivePromos 
+  {
+    margin-left: 0%;
+    margin-bottom: 2%;
+  }
 }
 @media(max-width: 767px) {
 
@@ -1217,6 +1240,28 @@ a:hover
     top: 36.3%;
     right: 10%;
   }
+    .imgPromos 
+  {
+    margin-left: 0%;
+  }
+  .btnAddPromo {
+    margin-left: -5%;
+  }
+  .buttonsPromos
+  {
+    margin-left: 6.5%;
+    margin-top: -7%;
+  }
+  .divPromosCond
+  {
+    margin-left: 5.3%;
+    margin-top: 1%;
+  }
+  .btnActivePromos 
+  {
+    margin-left: 0%;
+    margin-bottom: 4%;
+  }
 }
 @media (max-width: 1023px){
 
@@ -1297,6 +1342,33 @@ a:hover
     position: absolute;
     top: 39.6%;
     right: 17%;
+  }
+    .imgPromos 
+  {
+    margin-left: 0%;
+  }
+  .btnAddPromo {
+    margin-left: -5%;
+  }
+  .buttonsPromos
+  {
+    margin-left: 6.5%;
+    margin-top: -7%;
+  }
+  .divPromosCond
+  {
+    margin-left: 6.3%;
+    margin-top: 1%;
+  }
+  .btnActivePromos 
+  {
+    margin-left: 0%;
+    margin-bottom: 4%;
+  }
+    .divDatePromos
+  {
+    margin-top: 1%;
+    margin-left: 0%;
   }
 }
 @media (max-width: 1200px) {

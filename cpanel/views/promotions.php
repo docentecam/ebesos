@@ -28,13 +28,13 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 				</div>
 				<div class="col-lg-3">
 					<div class="col-lg-8 col-lg-push-12 col-xs-10 divDatePromos">
-						<span ng-if="promotionList.dateExpireValsE!=''">Caducitat Vals {{promotionList.dateExpireValsE}}</span>
-						<br>
+						<span ng-if="promotionList.dateExpireValsE!=''">Caducitat Vals {{promotionList.dateExpireValsE}}<br></span>
+						
 						<span ng-if="promotionList.dateExpireEixE!=''">Caducitat Eix {{promotionList.dateExpireEixE}}</span>
 					</div>
 				</div>
 				<div class="col-lg-3 col-xs-12">
-					<div class="col-lg-12 col-lg-push-11 col-xs-3 col-xs-push-7 buttonsPromos">
+					<div class="col-lg-12 col-lg-push-11 col-xs-3 col-xs-push-7 col-sm-push-8 buttonsPromos">
 						<a ng-href="#/promotion/{{promotionList.idPromotion}}"><button id="" class="btn-edit col-lg-5 col-xs-5">Editar</button></a>
 						<button id="" class="btn-delete col-lg-6 col-xs-7" ng-click="deletePromotion(promotionList.idPromotion)">Eliminar
 						</button>
@@ -49,9 +49,8 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 						</div>
 						<div class="col-lg-12 col-lg-pull-2">
 							<span ng-if="promotionList.conditionsVals!=''">
-								Vals: {{promotionList.conditionsVals}}
+								Vals: {{promotionList.conditionsVals}}<br>
 							</span>
-							<br>
 							<span ng-if="promotionList.conditionsEix!=''">
 								Eix: {{promotionList.conditionsEix}}
 							</span>
@@ -76,13 +75,12 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 				</div>
 				<div class="col-lg-3">
 					<div class="col-lg-8 col-lg-push-12 col-xs-10 divDatePromos">
-						<span ng-if="promotionList.dateExpireValsE!=''">Caducitat Vals {{promotionList.dateExpireValsE}}</span>
-						<br>
+						<span ng-if="promotionList.dateExpireValsE!=''">Caducitat Vals {{promotionList.dateExpireValsE}}<br></span>
 						<span ng-if="promotionList.dateExpireEixE!=''">Caducitat Eix {{promotionList.dateExpireEixE}}</span>
 					</div>
 				</div>
 				<div class="col-lg-3 col-xs-12">
-					<div class="col-lg-12 col-lg-push-11 col-xs-3 col-xs-push-7 buttonsPromos">
+					<div class="col-lg-12 col-lg-push-11 col-xs-3 col-xs-push-7 col-sm-push-8 buttonsPromos">
 						<a ng-href="#/promotion/{{promotionList.idPromotion}}"><button id="" class="btn-edit col-lg-5 col-xs-5">Editar</button></a>
 						<button id="" class="btn-delete col-lg-6 col-xs-7" ng-click="deletePromotion(promotionList.idPromotion)">Eliminar
 						</button>
@@ -98,9 +96,8 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 						<div class="col-lg-12 col-lg-pull-2">
 							<span>
 								<span ng-if="promotionList.conditionsVals!=''">
-									Vals: {{promotionList.conditionsVals}}
+									Vals: {{promotionList.conditionsVals}}<br>
 								</span>
-								<br>
 								<span ng-if="promotionList.conditionsEix!=''">
 									Eix: {{promotionList.conditionsEix}}
 								</span>
