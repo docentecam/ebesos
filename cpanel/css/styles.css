@@ -940,6 +940,37 @@ a:hover
   {
     margin-left: 1%;
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media (max-width: 575px){
   .tableCategoriaSubCategoria {
     font-weight: 600;
@@ -1064,6 +1095,19 @@ a:hover
   {
     margin-bottom: 3%;
   }
+ .labelForPromo 
+  {
+    margin-left: 0%;
+    padding-right: 21%;
+  }
+  .txtAreaNoBorder
+  {
+    padding: 0;
+  }
+  .marginBtnPromo
+  {
+    margin-left: 5%;
+  }
 
 }
 
@@ -1149,6 +1193,21 @@ a:hover
     margin-left: 0%;
     margin-bottom: 2%;
   }
+  .labelForPromo 
+  {
+    padding-top: 1.5%;
+    padding-right: 12%;
+    margin-left: 19%;
+  }
+  .marginBtnPromo
+  {
+    margin-left: 11%;
+  }
+  .txtAreaNoBorder
+  {
+    padding: 0;
+  }
+
 }
 @media(max-width: 767px) {
 
@@ -1262,6 +1321,21 @@ a:hover
     margin-left: 0%;
     margin-bottom: 4%;
   }
+  .labelForPromo 
+  {
+    padding-top: 2%;
+    padding-right: 14%;
+    margin-left: 6%;
+  }
+  .marginBtnPromo
+  {
+    margin-left: 10%;
+  }
+  .txtAreaNoBorder
+  {
+    padding: 0;
+  }
+
 }
 @media (max-width: 1023px){
 
@@ -1369,6 +1443,20 @@ a:hover
   {
     margin-top: 1%;
     margin-left: 0%;
+  }
+  .txtAreaNoBorder
+  {
+    padding: 0;
+  }
+  .labelForPromo 
+  {
+    padding-top: 2%;
+    padding-right: 11%;
+    margin-left: 8%;
+  }
+  .marginBtnPromo
+  {
+    margin-left: 12%;
   }
 }
 @media (max-width: 1200px) {
