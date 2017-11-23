@@ -41,7 +41,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 				</div>
 			</div>
 			<div class="col-lg-8">
-				<div class="col-xs-11 col-xs-push-1 col-lg-12 col-lg-push-0  divPromosCond">
+				<div class="col-xs-11 col-lg-12 col-lg-push-0 col-xs-pull-1  divPromosCond">
 					<div class="col-lg-12 col-lg-pull-1">
 						<label>
 							Condicions:
@@ -56,7 +56,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 				</div>
 				<div class="row">
 					<div class="col-xs-12 col-lg-8">
-						<div class="col-xs-3 col-xs-push-3 btnActivePromos">
+						<div class="col-xs-2 btnActivePromos">
 							<input type="button" class="btn btn-success " value="Activar" ng-click="activePromotion(promotionList.idPromotion,'Y')" >
 						</div>
 					</div>
