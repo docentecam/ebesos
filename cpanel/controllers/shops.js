@@ -20,6 +20,7 @@ angular.module('spaApp')
 	});
 
 	$scope.shopOneDelete = function($idShop){
+		console.log($idShop);
 		var confirmed = confirm("Desitja esborrar aquest comerç?");
 		if(confirmed)
 		{
@@ -28,9 +29,10 @@ angular.module('spaApp')
 				method : "GET",
 				url : "models/shops.php?acc=delete&idShop="+$idShop
 			}).then(function mySucces (response) {
-				$scope.shopDeleted = response.data
+				$scope.data = response.data;
+				$scope.shopsList = $scope.data[0].list;
 			}, function myError (response) {
-				$scope.shopOne = response.statusText;
+				$scope.shopDeleted = response.statusText;
 			}).finally(function(){
 				$scope.loading = false;
 			});
@@ -39,9 +41,10 @@ angular.module('spaApp')
 });
 
 angular.module('spaApp')
-.controller('ShopsEditCtrl', function($scope, $http, $routeParams, $q, upload, usersList) {
-	
-	
+.controller('ShopsEditCtrl', function($scope, $http, $routeParams, $q, usersList) {
+
+	$scope.indexList = $routeParams.indexList;
+
 	$scope.userList = usersList.data.userList;
 
 	$scope.showShop = true;
@@ -50,12 +53,15 @@ angular.module('spaApp')
 
 	$scope.shopOne = {};
 	$scope.shopOne.idShop = $routeParams.idShop;
+	console.log($scope.shopOne.idShop);
 	$scope.shopOne.name = "";
-	$scope.idUser = "";
+	$scope.shopOne.idUser = "";
 	$scope.shopOne.descriptionLong = "";
 	$scope.shopOne.description = "";
 	$scope.shopOne.ciutat = "";
 	$scope.shopOne.logo = "";
+	$scope.shopOne.logoUp = "";
+	$scope.shopOne.currentLogo = "";
 	$scope.shopOne.web = "";
 	$scope.shopOne.lat = "";
 	$scope.shopOne.lng = "";
@@ -73,6 +79,8 @@ angular.module('spaApp')
 		}).then(function mySucces(response) {
 			$scope.data = response.data;
 			$scope.shopOne = $scope.data[0].list[0];
+			$scope.shopOne.currentLogo = $scope.shopOne.logo;
+			console.log($scope.shopOne.currentLogo)
 			$scope.allSubCat = $scope.data[0].allSubCat;
 			$scope.subCategoriesShop = $scope.data[0].subCategoriesShop;
 			$scope.subCategories = $scope.data[0].subCategories;
@@ -193,11 +201,12 @@ angular.module('spaApp')
 		formData.append("type",type);
 		formData.append("uploadedFile",e.files[0]);
 		formData.append("idShop",$scope.shopOne.idShop);
-		formData.append("idShopImage",$scope.personalData[0].images[0].idShopImage);
-		formData.append("deleteImagePref",$scope.currentImgPref);
+		formData.append("deleteImagePref",$scope.images[0].url);
+		formData.append("idShopImage",$scope.images[0].idShopImage);
+		console.log($scope.images[0].url);
 
 		var deferred=$q.defer();
-		return $http.post("models/shops.php?acc=uploadImage&sentence="+type, formData,{
+		$http.post("models/shops.php?acc=uploadImage&sentence="+type, formData,{
 		headers:{
 		"Content-type":undefined
 		},
@@ -214,6 +223,7 @@ angular.module('spaApp')
 			}).then(function mySucces(response) {
 				$scope.imagesData = response.data;
 				$scope.images = $scope.imagesData[0].images;
+				console.log($scope.images[0].url);
 			}, function myError(response) {
 				$scope.shops = response.statusText;
 			}).finally(function(){
@@ -222,75 +232,129 @@ angular.module('spaApp')
 		})
 		return deferred.promise;
 	}
+	$scope.uploadLogo = function(e){
+		console.log("Escollim foto"+e.files[0].name);
+		$scope.shopOne.logoUp=e.files[0];
+	}
 	$scope.uploadFile = function(){
-		$scope.new = false;
-		var type = $scope.indexList;
-		//var idShop = $scope.shopOne.idShop
-		var idShop = 1
-		var name = $scope.shopOne.name;
-		var idUser = $scope.idUser;
-		var descriptionLong = $scope.shopOne.descriptionLong;
-		var description = $scope.shopOne.description;
-		var ciutat = $scope.shopOne.ciutat;
-		var logo = $scope.shopOne.logo;
-		var web = $scope.shopOne.web;
-		var lat = $scope.shopOne.lat;
-		var lng = $scope.shopOne.lng;
-		var telephone = $scope.shopOne.telephone;
-		var cp = $scope.shopOne.cp;
-		var address = $scope.shopOne.address;
-		var schedule = $scope.shopOne.schedule;
-		var email = $scope.shopOne.email;
-		var variable = upload.uploadFile(type, idShop, name, idUser, descriptionLong, description, ciutat, logo, web, lat, lng, telephone, cp, address, schedule, email);
+		if($scope.shopOne.idUser != "")
+		{
+			$scope.new = false;
+
+			var formData = new FormData();
+			formData.append("idShop", $scope.shopOne.idShop);
+			console.log($scope.shopOne.idShop);
+			formData.append("name", $scope.shopOne.name);
+			formData.append("idUser", $scope.shopOne.idUser);
+			console.log($scope.shopOne.idUser);
+			formData.append("descriptionLong", $scope.shopOne.descriptionLong);
+			formData.append("description", $scope.shopOne.description);
+			formData.append("ciutat", $scope.shopOne.ciutat);
+			formData.append("logo", $scope.shopOne.logoUp);
+			console.log($scope.shopOne.logoUp);
+			formData.append("deleteLogo", $scope.shopOne.logo);
+			console.log($scope.shopOne.logo);
+			formData.append("web", $scope.shopOne.web);
+			formData.append("lat", $scope.shopOne.lat);
+			formData.append("lng", $scope.shopOne.lng);
+			formData.append("telephone", $scope.shopOne.telephone);
+			formData.append("cp", $scope.shopOne.cp);
+			formData.append("address", $scope.shopOne.address);
+			formData.append("schedule", $scope.shopOne.schedule);
+			formData.append("email", $scope.shopOne.email);
+
+			var deferred=$q.defer();
+			$http.post("models/shops.php?acc=upload", formData,{
+			headers:{
+			"Content-type":undefined
+			},
+				transformRequest:angular.identity
+			})
+			.then(function(res)
+			{
+				deferred.resolve(res);
+				$scope.data = res.data[0];
+				$scope.shopOne = $scope.data.list[0];
+				$scope.allSubCat = $scope.data[0].allSubCat;
+				$scope.subCategoriesShop = $scope.data[0].subCategoriesShop;
+				$scope.subCategories = $scope.data[0].subCategories;
+				$scope.images = $scope.data[0].images;
+				console.log(res.data[0]);
+				console.log($scope.images);
+				
+			})
+		}
+		else alert("Has d'escollir una associació");
+		//return deferred.promise;
+
+
+		// var type = $scope.indexList;
+		// var idShop = $scope.shopOne.idShop
+		// var idShop = 1
+		// var name = $scope.shopOne.name;
+		// var idUser = $scope.idUser;
+		// var descriptionLong = $scope.shopOne.descriptionLong;
+		// var description = $scope.shopOne.description;
+		// var ciutat = $scope.shopOne.ciutat;
+		// var logo = $scope.shopOne.logo;
+		// var web = $scope.shopOne.web;
+		// var lat = $scope.shopOne.lat;
+		// var lng = $scope.shopOne.lng;
+		// var telephone = $scope.shopOne.telephone;
+		// var cp = $scope.shopOne.cp;
+		// var address = $scope.shopOne.address;
+		// var schedule = $scope.shopOne.schedule;
+		// var email = $scope.shopOne.email;
+		// var variable = upload.uploadFile(type, idShop, name, idUser, descriptionLong, description, ciutat, logo, web, lat, lng, telephone, cp, address, schedule, email);
 	}
 })
 
-.directive('uploaderModel', ["$parse",function($parse){
-	return{
-		restrict:'A',
-		link: 	function(scope, iElement, iAtrrs){
-				iElement.on("change",
-				function(e)
-				{
-					$parse(iAtrrs.uploaderModel).assign(scope,
-						iElement[0].files[0]);
-				});
-		}
-	};
-}])
+// .directive('uploaderModel', ["$parse",function($parse){
+// 	return{
+// 		restrict:'A',
+// 		link: 	function(scope, iElement, iAtrrs){
+// 				iElement.on("change",
+// 				function(e)
+// 				{
+// 					$parse(iAtrrs.uploaderModel).assign(scope,
+// 						iElement[0].files[0]);
+// 				});
+// 		}
+// 	};
+// }])
 
-.service('upload',["$http","$q", function($http,$q)
-{
-	this.uploadFile=function(type, idShop, name, idUser, descriptionLong, description, ciutat, logo, web, lat, lng, telephone, cp, address, schedule, email)
-	{
-		var	deferred=$q.defer();
-		var formData= new FormData();
+// .service('upload',["$http","$q", function($http,$q)
+// {
+// 	this.uploadFile=function(type, idShop, name, idUser, descriptionLong, description, ciutat, logo, web, lat, lng, telephone, cp, address, schedule, email)
+// 	{
+// 		var	deferred=$q.defer();
+// 		var formData= new FormData();
 
-		formData.append("idShop", idShop);
-		formData.append("name", name);
-		formData.append("idUser", idUser);
-		formData.append("descriptionLong", descriptionLong);
-		formData.append("description", description);
-		formData.append("ciutat", ciutat);
-		formData.append("logo", logo);
-		formData.append("web", web);
-		formData.append("lat", lat);
-		formData.append("lng", lng);
-		formData.append("telephone", telephone);
-		formData.append("cp", cp);
-		formData.append("address", address);
-		formData.append("schedule", schedule);
-		formData.append("email", email);
+// 		formData.append("idShop", idShop);
+// 		formData.append("name", name);
+// 		formData.append("idUser", idUser);
+// 		formData.append("descriptionLong", descriptionLong);
+// 		formData.append("description", description);
+// 		formData.append("ciutat", ciutat);
+// 		formData.append("logo", logo);
+// 		formData.append("web", web);
+// 		formData.append("lat", lat);
+// 		formData.append("lng", lng);
+// 		formData.append("telephone", telephone);
+// 		formData.append("cp", cp);
+// 		formData.append("address", address);
+// 		formData.append("schedule", schedule);
+// 		formData.append("email", email);
 
-		$http.post("models/shops.php?acc=upload&sentence="+type, formData,{
-			headers:{
-				"Content-type":undefined
-			},
-			transformRequest:angular.identity
-		})
-		.then(function()
-		{
-		})
-	}
+// 		$http.post("models/shops.php?acc=upload&sentence="+type, formData,{
+// 			headers:{
+// 				"Content-type":undefined
+// 			},
+// 			transformRequest:angular.identity
+// 		})
+// 		.then(function()
+// 		{
+// 		})
+// 	}
 	
-}]);
+// }]);

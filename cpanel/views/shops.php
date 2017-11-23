@@ -28,12 +28,12 @@
 	
 <div class="row" ng-show="showShop">
 	<label class="col-lg-2 title-comerços no-padding">Afegir comerç:</label>
-	<form id="i-shop" class="row" name="i-shop" ng-submit="uploadFile()">
+	<form id="i-shop" class="row" name="i-shop">
 		<input type="text" name="" ng-model="shopOne.idShop" hidden>
 		<div class="col-md-12">
 			<span class="col-lg-12 no-padding">Nom comerç</span>
-			<input class="col-lg-4" type="text" id="n-shop" ng-name="n-shop" ng-model="shopOne.name" placeholder="nom de la tenda" name="">
-			<select class="col-lg-4 col-lg-offset-2 select-users" id="u-shop" name="u-shop" ng-change="userOwner(idUser)" ng-model="idUser">
+			<input class="col-lg-4" type="text" id="n-shop" ng-name="n-shop" ng-model="shopOne.name" placeholder="nom de la tenda" name="" required>
+			<select class="col-lg-4 col-lg-offset-2 select-users" id="u-shop" name="u-shop" ng-change="userOwner(idUser)" ng-model="shopOne.idUser">
 				<option ng-value="userL.idUser" ng-repeat="userL in userList | filter: {idUser:'!1'}" ng-selected="userL.idUser==shopOne.idUser">{{userL.name}}</option>
 			</select>
 		</div>
@@ -48,7 +48,7 @@
 		<div class="col-md-12">
 			<span class="col-lg-6 no-padding">Logo comerç</span>
 			<span class="col-lg-6 no-padding">Pàgina web</span>
-			<label for="lg-shop" class="btn-add col-lg-2">Examinar<i class="fa fa-plus-circle add-examinar" aria-hidden="true"></i></label><input type="file" class="col-lg-4" id="lg-shop" name="lg-shop" uploader-model="shopOne.logo" ng-show="false">
+			<label for="lg-shop" class="btn-add col-lg-2">Examinar<i class="fa fa-plus-circle add-examinar" aria-hidden="true"></i></label><input type="file" class="col-lg-4" id="lg-shop" name="lg-shop" uploader-model="shopOne.logo" ng-show="false" onchange="angular.element(this).scope().uploadLogo(this)">
 			<input type="text" class="col-lg-4 col-lg-offset-4" id="url-shop" name="url-shop" placeholder="www.webtenda.com" name="" ng-model="shopOne.web">
 		</div>
 		<div class="col-md-12">
@@ -72,7 +72,7 @@
 		<div class="col-md-12">
 			<span class="col-lg-12 no-padding">Email</span>
 			<input type="text" class="col-lg-4" id="e-shop" name="e-shop" placeholder="comerç@gmail.com" name="" ng-model="shopOne.email">
-			<input type="submit" class="col-lg-2 col-lg-offset-3 btn-up" value="Actualitzar">
+			<input type="button" class="col-lg-2 col-lg-offset-3 btn-up" value="Actualitzar" ng-click="uploadFile()">
 	</form>
 	<div class="row categories-edit" ng-hide="new">
 		<div class="col-lg-12">
@@ -97,7 +97,7 @@
 		<div class="col-lg-11 images-prefered">
 			<span class="col-lg-10 col-lg-offset-2 image-span">Imatge Destacada</span>
 			<div class="col-lg-8 col-lg-offset-2 images-shop" ng-repeat="image in images | filter : {preferred:'Y'}">
-				<img class="img-responsive" src="../img/shops/{{image.url}}">
+				<img class="img-responsive" ng-src="../img/shops/{{image.url}}">
 			</div>
 			<label for="addImagePref" class="btn-image-edit col-lg-offset-7">Canviar imatge destacada</label><input type="file" id="addImagePref" ng-show="false" ng-model="image.url" onchange="angular.element(this).scope().changeImagesShops(this,'e')">
 		</div>
