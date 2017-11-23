@@ -19,7 +19,7 @@
 			<option ng-repeat="category in categories" ng-value="category.name" ng-selected="category.idCategory==1">{{category.name}}</option>
 		</select>
 	</div>
-	<label>* Recorda que les subcategories que tinguin tendes no podran ser eliminades</label>
+	<label>* Recorda que les subcategories que tinguin comerços no podràn ser eliminades</label>
 	<div class="row tableSubCategories">
 		<div class="col-xs-11 col-lg-10 borderTableSubCategories noPadding">
 			<div class="col-xs-6 borderTitlesSubCategories centerPadding">

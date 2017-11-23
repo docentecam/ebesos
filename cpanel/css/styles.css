@@ -843,11 +843,6 @@ a:hover
   padding-right: 1%;
   margin-left: 2.5%;
 }
-.divDatePromos
-{
-  margin-top: 5%;
-  margin-left: 30%;
-}
 .divContainerPromos
 {
   border-bottom: 1px solid;
@@ -882,8 +877,7 @@ a:hover
   font-weight: 300;
   width: 80px;
   height: 40px;  
-  padding-top: 1%;
-  margin-top: 43.3%;
+  padding-top: 3%;
   margin-left: 1%;
   cursor: pointer;
   padding-right: 9%;
@@ -921,11 +915,8 @@ a:hover
   padding: 2%;
   border-bottom: 0.5px solid #BEBEBE;
 }
-#numPromo{
-  color: red;
-}
 #positionNumberPromo{
-  color: white;
+  color: red;
 }
 .btnsPromos{
   border-radius: 0px;
@@ -941,35 +932,14 @@ a:hover
   background-color: #B8C2C4;
   border: 1px solid;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.spanMarginTopPromo
+{
+  margin-top: 138%;
+}
+ .btnActivePromos
+  {
+    margin-left: 1%;
+  }
 @media (max-width: 575px){
   .tableCategoriaSubCategoria {
     font-weight: 600;
@@ -1063,18 +1033,22 @@ a:hover
   {
     padding-left: 0%;
   }
-  .buttonsPromos{
+  .buttonsPromos {
     padding: 0;
-    margin-left: 4%;
-    margin-top: -5%;
+    margin-left: 12.5%;
+    margin-top: -8%;
   }
   .divPromosCond
   {
+<<<<<<< HEAD
     margin-top: 0%;
   }
   .btnActivePromos
   {
     margin-left: 2%;
+=======
+   margin-left: 4%;
+>>>>>>> origin/master
   }
   .mainNav{
     padding-top: 4%!important;
@@ -1086,6 +1060,15 @@ a:hover
   .aLogoClient{
     width: 100%!important;
   }
+  .imgPromos 
+  {
+    margin-left: 0%;
+  }
+  .btnActivePromos
+  {
+    margin-bottom: 3%;
+  }
+
 }
 
 @media (min-width: 576px) and (max-width: 767px){
@@ -1217,7 +1200,7 @@ a:hover
     margin-top: 9%;
     margin-left: 12%;
   }
-    .mainNav{
+  .mainNav{
     padding: 10%!important;
   }
   #divNavTabsGlobal{
@@ -1235,8 +1218,8 @@ a:hover
   }
   #positionNumberPromo{
     position: absolute;
-    top: 59.5%;
-    right: 34%;
+    top: 36.3%;
+    right: 10%;
   }
 }
 @media (max-width: 1023px){
@@ -1283,6 +1266,11 @@ a:hover
   {
     margin-top: 4%;
   }
+    .divDatePromos
+  {
+    margin-top: 5%;
+    margin-left: 30%;
+  }
 }
 
 @media (min-width: 1024px) and (max-width: 1199px){
@@ -1311,8 +1299,8 @@ a:hover
   }
   #positionNumberPromo{
     position: absolute;
-    top: 59.5%;
-    right: 40%;
+    top: 39.6%;
+    right: 17%;
   }
 }
 @media (max-width: 1200px) {

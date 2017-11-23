@@ -812,8 +812,10 @@ hr.style14 {
 	.navReduced{
 		border-top: transparent;
 	}
-	#imgLogoTop{
-		margin-bottom: 0%;
+	#imgLogoTop {
+    	margin-top: 1%;
+    	margin-bottom: 1%;
+    	margin-left: 3%;
 	}
 	.footerLogos{
 		max-width: 80%;
@@ -975,8 +977,10 @@ hr.style14 {
 }
 @media (min-width: 576px) and (max-width: 767px){
 
-	#imgLogoTop {
-    	margin-left: -7%;
+	#imgLogoTop{
+    	margin-left: -5%;
+    	margin-top: 2%;
+    	margin-bottom: 1%;
 	}
 	#imgLogoTopId{
 		max-width: 63%!important;
@@ -986,8 +990,8 @@ hr.style14 {
     	margin-left: -15%!important;
     	font-size: 1.2em;
 	}
-	#contactWho{
-    	margin-top: 3.8%;
+	#contactWho {
+    	margin-top: 3.4%;
 	}
 	#loginPicture{
 		position: absolute;
@@ -1128,9 +1132,11 @@ hr.style14 {
 	.shop-image{
 		margin-bottom: 5%;
 	}
-	#imgLogoTopId{
+	#imgLogoTopId {
     	max-width: 58%;
-    	margin-left: -23%;
+    	margin-left: -16%;
+    	margin-top: 8%;
+    	margin-bottom: 3%;
 	}
 	#logoText {
 
@@ -1164,6 +1170,9 @@ hr.style14 {
 		padding-left:0%!important;
 		margin-left: 5%;
 	}
+	#date{
+		margin-left: 3%;
+	}
 	.fa-bookmark{
 		position: absolute;
     	right: -18%;
@@ -1182,6 +1191,7 @@ hr.style14 {
 	.acColor, .xnoColor, .merColor{
 		margin-left: 0;
 	}
+
 }
 @media (min-width: 951px) and (max-width: 992px) {
     .pictoImg{
@@ -1248,7 +1258,7 @@ hr.style14 {
 		vertical-align: middle;
 	}
 	.subMenu:hover{
-		background-color: #51576F;
+		background-color: #53828c;
 		cursor: pointer;
 		font-weight: 600;
 		color: white!;
@@ -1293,16 +1303,20 @@ hr.style14 {
     	top: 111%;
     	left: 103%;
 	}
+	#date{
+		margin-left: 3%;
+	}
 	.shopsList{
 		padding-bottom: 2%;
 	}
 	.fa-bookmark{
 		margin-right: 5%;
 	}
-	#imgLogoTopId{		
-		max-width: 46%!important;
-    	margin-bottom: -2%;
-    	margin-left: -16%;
+	#imgLogoTopId {
+   		max-width: 46%!important;
+    	margin-bottom: 2%;
+    	margin-top: 5%;
+    	margin-left: -12%;
 	}
 	#logoText {
 	    position: absolute;
@@ -1347,6 +1361,9 @@ hr.style14 {
 		margin-left: 12%;
 		vertical-align: middle;
 	}
+	.navGeneral{		
+		margin-top: 0%!important;
+	}
 	.footerLogos{
 		max-width: 100%;
 	}
@@ -1358,7 +1375,7 @@ hr.style14 {
 		padding-top: 8%;
 	}
 	.subMenu:hover{
-		background-color: #51576F;
+		background-color: #53828c;
 		cursor: pointer;
 		font-weight: 600;
 		color: white!;
@@ -1423,6 +1440,11 @@ hr.style14 {
         width: 55%;
         padding: 5%;
     }
+    #imgLogoTop{
+		margin-top: 3%;
+    	margin-bottom: 3%;
+	}
+}
 }
 @media (min-width: 1919px){
 	#logoText {

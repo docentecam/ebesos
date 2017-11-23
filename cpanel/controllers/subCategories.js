@@ -80,7 +80,7 @@ angular.module('spaApp')
 					else if($scope.statusValidation == "")
 					{
 						$scope.validation = false;
-						$scope.statusValidation = "Aquesta subcategoria no es pot eliminar, ja que té com a mínim una tenda associada";
+						$scope.statusValidation = "Aquesta subcategoria no es pot eliminar ja que té com a mínim una comerç associat";
 					}
 					$http({
 						method : "GET",
