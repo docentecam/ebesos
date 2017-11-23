@@ -2,9 +2,24 @@ angular.module('spaApp').factory('msgEdits', function(){
 	return {data:{}};
 });
 angular.module('spaApp')															 
-.controller('SliderCtrl', function($scope, $http, msgEdits ) {
-
-	$scope.fail = false;
+.controller('SliderCtrl', function($scope, $http, msgEdits, $routeParams) {
+	$scope.check = $routeParams.check;
+	$scope.getRekt = true; 
+	if($scope.check == 't' && $scope.getRekt == true)
+	{
+		msgEdits.data.fail = true;
+		$scope.getRekt=false;
+	}
+	else if($scope.check == 'f' && $scope.getRekt == true)
+	{
+		msgEdits.data.fail = false;
+		$scope.getRekt=false;
+	}
+	else if($scope.getRekt == false)
+	{
+		msgEdits.data.fail = false;
+	}
+	
 	$scope.listSliders=true;
 	$scope.statusValidation=msgEdits.data.message;
 	$scope.validation=msgEdits.data.validation;
@@ -110,7 +125,7 @@ console.log($scope.slider.idSlider);
 	$scope.updateImgSlider = function(){
 		console.log("Intentem enviar"+$scope.slider.image);
 		
-		if($scope.slider.image!="" && $scope.slider.description!="" && $scope.slider.title!="" && $scope.slider.subTitle!="" && $scope.slider.linkSlider!="")
+		if($scope.slider.image!="")
 		{
 	  		$scope.loading=true;
 	  		console.log("arriba");
@@ -140,7 +155,7 @@ console.log($scope.slider.idSlider);
 				msgEdits.data.message=res.data;
 				msgEdits.data.validation=true;
 				msgEdits.data.fail=true;
-				$location.url("/slider");
+				$location.url("/slider/t/l");
 			})
   		}
   		else{
