@@ -15,7 +15,7 @@
 </div>
 <div class="row">
 	<div class="col-lg-2 col-lg-offset-10 col-xs-3 col-xs-offset-8" ng-show="showListNews">
-		<a ng-href="#/news/0"><input type="button" name="newNew" value="Afegir Noticia" alt="Afegir noticia" class="btn btn-default"></a>
+		<a ng-href="#/news/0"><input type="button" name="newNew" value="Afegir Noticia" alt="Afegir noticia" class="btn btnsPromos"></a>
 	</div>
 </div>
 <div class="row">
@@ -77,19 +77,19 @@
 	<div id="whiteDivNews" class="col-lg-11 col-lg-offset-1">
 		<label class="col-lg-4 col-lg-offset-1 col-xs-4 col-xs-offset-0 imgPreferNew">Imatge Destacada</label>
 		<input type="file" id="imgPref" accept="image/jgp, image/jgep, image/png" onchange="angular.element(this).scope().changePreferred(this)" ng-show="false"> 
-		<label class="col-lg-3 col-lg-pull-2 col-xs-pull-1 btn btn-default imgPrefChange" for="imgPref" ng-show="addImage">Canviar imatge destacada</label>
+		<label class="col-lg-3 col-lg-pull-2 col-xs-pull-1 btn btnsPromos imgPrefChange" for="imgPref" ng-show="addImage">Canviar imatge destacada</label>
 		<img class="col-lg-6 col-lg-offset-3 img-responsive" id="photoNew" ng-src="../img/newsmedia/{{new.urlPreferred}}" >
 	</div>	
 </div>
 <div id="whiteDivImgNew" class="col-lg-11 col-lg-offset-1" name="formImgs" ng-show="divImgs">
 	<div class="for-group">
 		<label class="col-lg-1 col-lg-offset-1 imgNewlabel">Imatges</label> 
-			<label for="addImage" class="btn btn-default col-lg-2 col-lg-offset-1 btnAddImgNew">Afegir imatges</label>
+			<label for="addImage" class="btn btnsPromos col-lg-2 col-lg-offset-1 btnAddImgNew">Afegir imatges</label>
 			<input type="file" id="addImage" accept="image/jgp, image/jgep, image/png" onchange="angular.element(this).scope().addMedia(this,'I')" ng-show="false">
 			<div class="col-lg-12">
 				<div class="col-lg-4 imgNewChange" ng-repeat="image in new.images | filter : {preferred:'N' , type:'I'}">
 			<img class="img-responsive imgNewsPadd" ng-src="../img/newsmedia/{{image.url}}">		
-			<a href="" ng-click="imgDelete(image.idNewMedia, image.url)" class="btn btn-default">Eliminar</a>
+			<a href="" ng-click="imgDelete(image.idNewMedia, image.url)" class="btn btnsPromos">Eliminar</a>
 		</div>
 			</div>
 		
@@ -98,7 +98,7 @@
 <div class="col-lg-11 col-lg-offset-1" name="formVideos" ng-show="divVideos" id="whiteDivVidNew">
 	<div class="for-group">
 		<label class="col-lg-1 col-lg-offset-1 vidLabel">Vídeos</label>
-		<a href="" ng-click="activeAddVideo()" class="btn btn-default col-lg-2 col-lg-offset-1 addVidNew">Afegir vídeos</a>
+		<a href="" ng-click="activeAddVideo()" class="btn btnsPromos col-lg-2 col-lg-offset-1 addVidNew">Afegir vídeos</a>
 			<div class="col-lg-12" ng-show="divAddVideo">
 				<label>Url Vídeo youtube</label>
 				<input type="text" ng-model="urlVideoAdd">
@@ -107,7 +107,7 @@
 		<div class="col-lg-12">
 			<div class="col-lg-4 vidChangeNews" ng-repeat="image in new.images | filter : {type:'V'}">
 				<iframe  frameborder="0" allowfullscreen ng-src="https://www.youtube.com/embed/image.url" class="col-lg-12 col-xs-12"></iframe>
-				<a href="" ng-click="imgDelete(image.idNewMedia, '0')" class="btn btn-default btnDeleteVid">Eliminar</a>
+				<a href="" ng-click="imgDelete(image.idNewMedia, '0')" class="btn btnsPromos btnDeleteVid">Eliminar</a>
 			</div>
 		</div>
 		
