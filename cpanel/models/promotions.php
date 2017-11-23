@@ -47,7 +47,7 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'updatePromotion'){
 		if ($_SESSION['user']['privileges']!="S")  $mySql.= "Y"; 
 
 		$mySql .= "')";
-$fp=fopen("_pruebaPromotion.txt",'w');
+		$fp=fopen("_pruebaPromotion.txt",'w');
 					fputs($fp,'consulta:'.$mySql);
 		$connexio = connect();
 			$resultNewPromotion = mysqli_query($connexio, $mySql);
