@@ -843,11 +843,6 @@ a:hover
   padding-right: 1%;
   margin-left: 2.5%;
 }
-.divDatePromos
-{
-  margin-top: 5%;
-  margin-left: 30%;
-}
 .divContainerPromos
 {
   border-bottom: 1px solid;
@@ -882,8 +877,7 @@ a:hover
   font-weight: 300;
   width: 80px;
   height: 40px;  
-  padding-top: 1%;
-  margin-top: 43.3%;
+  padding-top: 3%;
   margin-left: 1%;
   cursor: pointer;
   padding-right: 9%;
@@ -938,7 +932,14 @@ a:hover
   background-color: #B8C2C4;
   border: 1px solid;
 }
-
+.spanMarginTopPromo
+{
+  margin-top: 138%;
+}
+ .btnActivePromos
+  {
+    margin-left: 1%;
+  }
 
 
 
@@ -1060,19 +1061,14 @@ a:hover
   {
     padding-left: 0%;
   }
-  .buttonsPromos{
+  .buttonsPromos {
     padding: 0;
-    margin-left: 4%;
-    margin-top: -5%;
+    margin-left: 12.5%;
+    margin-top: -8%;
   }
   .divPromosCond
   {
-    margin-top: 0%;
-    margin-left: 0%;
-  }
-  .btnActivePromos
-  {
-    margin-left: 2%;
+   margin-left: 4%;
   }
   .mainNav{
     padding-top: 4%!important;
@@ -1084,6 +1080,15 @@ a:hover
   .aLogoClient{
     width: 100%!important;
   }
+  .imgPromos 
+  {
+    margin-left: 0%;
+  }
+  .btnActivePromos
+  {
+    margin-bottom: 3%;
+  }
+
 }
 
 @media (min-width: 576px) and (max-width: 767px){
@@ -1280,6 +1285,11 @@ a:hover
   .subtitolNewsMargin
   {
     margin-top: 4%;
+  }
+    .divDatePromos
+  {
+    margin-top: 5%;
+    margin-left: 30%;
   }
 }
 
