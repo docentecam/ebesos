@@ -12,7 +12,7 @@ require("../inc/functions.php");
 				
 				$historyAboutUs=$row['history'];
 			}
-		echo $historyAboutUs;
+		echo nl2br($historyAboutUs);
 	}
 
  	else if (isset($_GET["acc"]) && $_GET["acc"] == "mail") {
