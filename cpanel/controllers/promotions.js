@@ -68,11 +68,11 @@ angular.module('spaApp')
 
 		$scope.deletePromotion=function(idPromotion){
 
-			$scope.loading=true;
+		
 			$scope.confirmDelete= confirm("Segur que vols esborrar la promoció?");
 
-			if ($scope.confirmDelete==true) {
-
+			if ($scope.confirmDelete) {
+				$scope.loading=true;
 					$http({
 						method : "GET",
 						url : "models/promotions.php?acc=d&idPromotionSelected="+idPromotion
