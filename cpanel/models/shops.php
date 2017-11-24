@@ -109,7 +109,7 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'upload')
 	}
 	else
 	{
-		$mySql = 'UPDATE shops SET `name`="'.$name.'", `lat`="'.$lat.'", `lng`="'.$lng.'", `telephone`="'.$telephone.'", `email`="'.$email.'", `url`="'.$web.'", `schedule`="'.$schedule.'", `address`="'.$address.'", `idUser`="'.$idUser.'", `description`="'.$description.'", `descriptionLong`="'.$descriptionLong.'", `cp`="'.$cp.'", `ciutat`="'.$ciutat.'"';
+		$mySql = 'UPDATE shops SET `name`="'.$name.'", `lat`="'.$lat.'", `lng`="'.$lng.'", `telephone`="'.$telephone.'", `email`="'.$email.'", `url`="'.$web.'", `schedule`="'.$schedule.'", `address`="'.$address.'", `idUser`="'.$idUser.'", `description`="'.str_replace(array("'",'"',"\\n"), array("\'",'\"',"\r\n"),$description).'", `descriptionLong`="'.str_replace(array("'",'"',"\\n"), array("\'",'\"',"\r\n"),$descriptionLong).'", `cp`="'.$cp.'", `ciutat`="'.$ciutat.'"';
 
 		if(isset($_FILES["logo"]))
 		{
@@ -333,11 +333,11 @@ function listShop($idShop="")
 	{
 		if($i != 0) $listShops .= ",";
 
-		$listShops .= '{"idShop":"'.$row['idShop'].'", "name":"'.$row['name'].'", "idUser":"'.$row['idUser'].'", "description":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['description']).'", "imgPref":"'.$row['url'].'"';
+		$listShops .= '{"idShop":"'.$row['idShop'].'", "name":"'.$row['name'].'", "idUser":"'.$row['idUser'].'", "description":"'.str_replace("\r\n", "\\n",htmlspecialchars($row['description'])).'", "imgPref":"'.$row['url'].'"';
 
 		if($idShop != "")
 		{
-			$listShops .= ', "lng":"'.$row['lng'].'", "lat":"'.$row['lat'].'", "logo":"'.$row['logo'].'", "telephone":"'.$row['telephone'].'", "email":"'.$row['email'].'", "address":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['address']).'", "schedule":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['schedule']).'", "descriptionLong":"'.str_replace(array("\r\n", "\r", "\n", "'\'"), "\\n",$row['descriptionLong']).'", "web":"'.$row['web'].'", "cp":"'.$row['cp'].'", "ciutat":"'.$row['ciutat'].'"';
+			$listShops .= ', "lng":"'.$row['lng'].'", "lat":"'.$row['lat'].'", "logo":"'.$row['logo'].'", "telephone":"'.$row['telephone'].'", "email":"'.$row['email'].'", "address":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['address']).'", "schedule":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['schedule']).'", "descriptionLong":"'.str_replace("\r\n", "\\n",htmlspecialchars($row['descriptionLong'])).'", "web":"'.$row['web'].'", "cp":"'.$row['cp'].'", "ciutat":"'.$row['ciutat'].'"';
 		}
 
 		$listShops .= '}';
