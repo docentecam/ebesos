@@ -4,12 +4,14 @@ angular.module('spaApp')
 		data: {}
 	};
 });
-
+app.run(['$rootScope',function($rootScope) {
+  $rootScope.alertPromo=0;
+}]);
 
 
 
 angular.module('spaApp')
-.controller('MainCtrl', function($scope, $http, usersList) {
+.controller('MainCtrl', function($scope, $http, usersList,$rootScope) {
 $scope.loading=true;
 $scope.showLogOff=true;
 
@@ -30,7 +32,7 @@ $scope.showLogOff=true;
 		url : "models/main.php?acc=showActivePromotion"
 	}).then(function mySucces(response) {
 		$scope.notifyPromo = response.data;
-		$scope.alertPromo=$scope.notifyPromo[0]['promos'];
+		$rootScope.alertPromo=$scope.notifyPromo[0]['promos'];
 		
 	}, function myError(response) {
 		$scope.notifyPromo = response.statusText;

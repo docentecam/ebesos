@@ -2,7 +2,7 @@ angular.module('spaApp').factory('msgEditP', function(){
 	return {data:{}};
 });
 angular.module('spaApp')
-.controller('PromotionsCtrl', function($scope, $http,msgEditP) {
+.controller('PromotionsCtrl', function($scope, $http,msgEditP,$rootScope) {
   		
   	$scope.loadPromotions=true;
   	
@@ -63,9 +63,10 @@ angular.module('spaApp')
 			{ 
 			    $scope.loading=false; 
 			})
-if(active=="Y")$parent.alertPromo--;
-if(active=="N")$parent.alertPromo++;
-console.log($parent.alertPromo);
+				console.log($rootScope.alertPromo);
+if(active=="Y")$rootScope.alertPromo--;
+if(active=="N")$rootScope.alertPromo++;
+console.log($rootScope.alertPromo);
 		}
 
 		$scope.deletePromotion=function(idPromotion){
