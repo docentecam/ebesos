@@ -15,13 +15,11 @@ angular.module('spaApp')
 
 	if ($scope.message==null) {
   		$scope.messageConfirm=false;
-  		console.log("entra oculto");
 
   	}
   	
   	else{
   		$scope.messageConfirm=true;
-  		console.log("entra visible");
   		
   	}
 
@@ -63,10 +61,8 @@ angular.module('spaApp')
 			{ 
 			    $scope.loading=false; 
 			})
-				console.log($rootScope.alertPromo);
 if(active=="Y")$rootScope.alertPromo--;
 if(active=="N")$rootScope.alertPromo++;
-console.log($rootScope.alertPromo);
 		}
 
 		$scope.deletePromotion=function(idPromotion){
@@ -81,7 +77,6 @@ console.log($rootScope.alertPromo);
 						url : "models/promotions.php?acc=d&idPromotionSelected="+idPromotion
 					}).then(function mySucces (response) {
 						$scope.shopsList = response.data[0].dataShops;
-						console.log("comercios"+$scope.shopsList);
 						$scope.promotionsList=response.data[0].dataPromotions;
 						$scope.loadPromotions=true;
 					}	
