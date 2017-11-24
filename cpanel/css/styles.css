@@ -1502,7 +1502,11 @@ a:hover
   }
   .divClientLoggedImage{
     width: 20%;
-    padding-left: 1%;
+    margin-left: 2%;
+    margin-top: 2%;
+  }
+  .divHeaderReduceSpace{
+    margin-bottom: -0.9%;
   }
   #nameAssoLogged{
     position: relative;
@@ -1516,8 +1520,7 @@ a:hover
     top: 37.5%;
     right: 16%;
   }
-  .txtAreaNoBorder
-  {
+  .txtAreaNoBorder{
     padding: 0;
   }
     
