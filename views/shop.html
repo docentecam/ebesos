@@ -96,10 +96,11 @@
 
           var idShop = markerElem.getAttribute('idShop');
 
-          var point = new google.maps.LatLng(
-            parseFloat(markerElem.getAttribute('lat')),
-            parseFloat(markerElem.getAttribute('lng'))
-          );
+          var lat = parseFloat(markerElem.getAttribute('lat'));
+
+          var lng = parseFloat(markerElem.getAttribute('lng'))
+
+          var point = new google.maps.LatLng(lat,lng);
 
           var infowincontent = document.createElement('div');
 
@@ -140,6 +141,15 @@
 
           infowincontent.appendChild(time);
           infowincontent.appendChild(document.createElement('br'));
+
+          var link = document.createElement('a');
+          link.setAttribute('target', "_blank");
+          link.setAttribute('href', "https://www.google.es/maps/search/"+lat+","+lng+"");
+          link.setAttribute('class', "a-more");
+
+          link.textContent = "Com arribar-hi"
+
+          infowincontent.appendChild(link);
 
           var icon = customLabel[type] || {};
 
