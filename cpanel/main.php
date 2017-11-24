@@ -53,22 +53,20 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 				</div>
 			</div>		
 			<div class=" col-xs-3 col-lg-3 pull-right">
-				<div class="row">
-					<div class="col-xs-12 col-lg-4 col-lg-push-7 deleteUnderlineSignUp" ng-click="showDisconnect()">
+				
+				<!-- 	<div class="col-xs-12 col-lg-4 col-lg-push-7 deleteUnderlineSignUp">
 						<div class="colorLoginHidden">
 							<i class="fa fa-user-circle-o fa-2x" aria-hidden="true" title="Inicia Sessió"></i>
 							<i class="fa fa-caret-down fa-lg arrowDown" aria-hidden="true"></i>
 						</div>						
 					</div>	
 				</div>
-				<div class="row" ng-hide="showLogOff">
-					<div class="col-xs-12 col-lg-6 col-lg-push-4 logOffDiv">
-						<a href="models/users.php?acc=logout"><i class="fa fa-sign-out iSignOff" aria-hidden="true"></i>Tancar Sessió</a>						
-					</div>
-				</div>			
+				<div class="row" ng-hide="showLogOff"> -->
+				<div class="col-xs-12 col-lg-6 col-lg-push-4 logOffDiv">
+					<a href="models/users.php?acc=logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Tancar Sessió</a>				
+				</div>							
 			</div>		
-		</div>
-		
+		</div>		
 		<div class="row navGeneral">
 			<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 navGeneral2">
 				<div class="sidebar-nav">

@@ -8,15 +8,11 @@ app.run(['$rootScope',function($rootScope) {
   $rootScope.alertPromo=0;
 }]);
 
-
-
 angular.module('spaApp')
 .controller('MainCtrl', function($scope, $http, usersList,$rootScope) {
 $scope.loading=true;
-$scope.showLogOff=true;
 
-
-		$http({
+	$http({
 		method : "GET",
 		url : "models/users.php?acc=listUsers"
 	}).then(function mySucces(response) {
@@ -26,8 +22,7 @@ $scope.showLogOff=true;
 		$scope.userList = response.statusText;
 	}).finally(function(){
 	  $scope.loading = false;
-	});
-	
+	});	
 	
 	$scope.loading=true;
 	$http({
@@ -43,16 +38,4 @@ $scope.showLogOff=true;
 	}).finally(function(){
 		$scope.loading = false;
 	});	
-
-
-
-
-
-	
-	$scope.showDisconnect = function(){
-		if ($scope.showLogOff = !$scope.showLogOff) {
-			
-		}			
-	};
-	
 });
