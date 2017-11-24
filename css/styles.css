@@ -26,6 +26,10 @@ a{
 	height: 500px;
 	//width: 1000px;
 }
+.a-more{
+	font-weight: 600;
+	color: #464646!important;
+}
 .category {
 	height: 50px;
 	margin-bottom: 60px;
