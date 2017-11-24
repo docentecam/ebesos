@@ -9,12 +9,10 @@ body, .editNgView {
   margin-left:15px!important;
   margin-right:15px!important;
 }
-input
-{
+input{
   height: 35px; 
 }
-select
-{
+select{
   height: 35px;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -85,12 +83,10 @@ button.btn-edit, button.btn-delete{
   padding: 2px !important;
   border: none !important;
 }
-a
-{
+a{
   color: black!important;
 }
-a:hover
-{
+a:hover{
   text-decoration: none;
 }
 .divClientLoggedName{
@@ -111,12 +107,6 @@ a:hover
 #divNavTabsGlobal{
   background-color: #325C73;
 }
-
-
-
-
-
-
 .images-shop button.btn-delete{
   margin-top: 15px;
   height: 40px!important;
@@ -142,8 +132,7 @@ a:hover
   background-position-x: 195px;
   background-color: #B0C2C8;
 }
-#active
-{
+#active{
   width: 174px;
   background-image: url("../img/circledown.svg");
   background-repeat: no-repeat;
@@ -153,27 +142,24 @@ a:hover
 }
 #loadingData{
   position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    z-index:1000;
-    background-color:white;
-    opacity: 0.98;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:1000;
+  background-color:white;
+  opacity: 0.98;
 }
 .no-padding{
   padding: 0;
 }
-.log20
-{
+.log20{
   height: 20px
 }
-#cross
-{
+#cross{
   color: #e51c23;
 }
-.container2
-{
+.container2{
   border-left: solid 1px;
   border-color:#ced2de;
   padding-left: 5%;
@@ -183,26 +169,21 @@ a:hover
   top: 28%;
   font-weight: bold;
 }
-#tableForgot
-{
+#tableForgot{
   margin-left: 10%;
 }
-.pl15
-{
+.pl15{
   padding-left: 15%;
 }
-.mt5
-{
+.mt5{
   margin-top:  5%;
 }
-#alertW2
-{
+#alertW2{
   background-color: #ffb0b0;
   width: 100%;
   height: 10px;
 }
-#alert2
-{
+#alert2{
   background-color: #ffb0b0;
   width: 100%;
   height: 33px;
@@ -210,45 +191,33 @@ a:hover
   vertical-align: middle;
   margin-bottom: 2%;
 }
-#cross2
-{
+#cross2{
   color: #e51c23;
 }
-.trmb
-{
+.trmb{
   height: 10px;
 }
-/* ------------------------ */
-/* ---------Associations---------- */
-#history
-{
+#history{
   height: 400px;
   width: 380px;
 }
-.padd
-{
+.padd{
   padding: 0%;
   padding-top: 5%;
 }
-#validationAssociation
-{
+#validationAssociation{
  margin-top: 8px;
 }
-.padd-t
-{
+.padd-t{
   padding-top: 16%;
 }
-.padd-p
-{
+.padd-p{
   padding: 2%;
 }
-
-.pt-3
-{
+.pt-3{
   padding-top: 3%;
 }
-#textTitleHistory
-{
+#textTitleHistory{
   padding-top: 11%;
   padding-bottom: 5%;
 }
@@ -336,63 +305,38 @@ a:hover
   color: #788386;
   padding-left: 5px;
 }
-
-/* ------------------------ */
-
-/*.titleForm{
-  width: 85%;
-}*/
-
-/*.titleSub{
-  
-  height: 250px;
-  width: 76%;
-  margin-bottom: 5%;
-  margin-top: 2%;
-}*/
-
-#whiteDivNews
-{
+#whiteDivNews{
   background-color: white;
   border: 1px solid black; 
   margin-top: 4%;
   padding-top: 1.5%; 
   margin-bottom: 2%;
 }
-
 #containerImg{
   background-color: white;
   width: 100%;
-  border: 1px solid #e2e2e2;
-  
+  border: 1px solid #e2e2e2;  
 }
-
 #containerPreferred{
   margin-top: 5%;
   margin-bottom: 7%;
   margin-left: 5%;
 }
-
 #containerImagesOfNew{
   margin-top: 13%;
   margin-bottom: 7%;
   margin-left: 5%;
   background-color: white;
 }
-
 .containerEditImg{
   margin-left: 20%;
   background-color: white;
   width: 65%;
   margin-top: 25%;
 }
-
-/*----------TO DO MAIN.HTML---------------*/
-
 #container{
   background-color: #E9E9E9;
 }
-
 .editNgView{
   padding-left: 6%;
   padding-top: 3%;
@@ -401,10 +345,6 @@ a:hover
   color: #3A6B86;
   cursor: pointer;
 }
-
-
-/*----------TO DO SLIDER---------------*//*----------TO DO SLIDER---------------*/
-
 .editAndAddSlider{
   margin-bottom: 3.5%
 }
@@ -429,19 +369,17 @@ a:hover
   margin-bottom: 10%;
 }
 #divSliderSetting{
-  margin-bottom: 4%
+  margin-bottom: 4%;
 }
 #imgSliderSetting{
   margin-top: 0.5%;
 }
-
 #btnEditarSlider{
   margin-top: 5%;
   border-radius: 0px;
   background: #d4dadc;
   margin-left: 4.166666665%;
 }
-
 #btnDeleteSlider{
   margin-top: 5%;
   border-radius: 0px;
@@ -453,20 +391,16 @@ a:hover
 }
 .sliderTitle{
   font-size: 17px;
-  margin-bottom: 3%
+  margin-bottom: 3%;
 }
-
-/*------------------Footer--------------------*/
-
-
 #footerColor{
   background-color:#808BA7;
   margin-top: 5%!important;
 }
- #mc_embed_signup .button{
+#mc_embed_signup .button{
   color: black!important;
 }
-.footer-bs {
+.footer-bs{
   background-color: #808BA7;
   color: white;
   margin-top: 1%;
@@ -478,17 +412,14 @@ a:hover
 #mc_embed_signup{
   background-color: #808BA7!important;
   margin-left: 5%!important;
-
 }
 #mce-EMAIL, #mce-FNAME{
-  color: black;
-
+  color: black
 }
 .footer-bs .footer-brand, .footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { padding:10px 25px; }
 .footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { border-color: transparent; }
 .footer-bs .footer-brand h2 { margin:0px 0px 10px; }
 .footer-bs .footer-brand p { font-size:12px; color:rgba(255,255,255,0.70); }
-
 .footer-bs .footer-nav ul.pages { list-style:none; padding:0px; }
 .footer-bs .footer-nav ul.pages li { padding:5px 0px;}
 .footer-bs .footer-nav ul.pages a { color:rgba(255,255,255,1.00); font-weight:bold; text-transform:uppercase; }
@@ -503,7 +434,6 @@ a:hover
 .footer-bs .footer-nav ul.list li { padding:5px 0px;}
 .footer-bs .footer-nav ul.list a { color:rgba(255,255,255,0.80); }
 .footer-bs .footer-nav ul.list a:hover { color:rgba(255,255,255,0.60); text-decoration:none; }
-
 .footer-bs .footer-social ul { list-style:none; padding:0px; }
 .footer-bs .footer-social h4 {
   font-size: 11px;
@@ -513,7 +443,6 @@ a:hover
 .footer-bs .footer-social li { padding:5px 4px;}
 .footer-bs .footer-social a { color:rgba(255,255,255,1.00);}
 .footer-bs .footer-social a:hover { color:rgba(255,255,255,0.80); text-decoration:none; }
-
 .footer-bs .footer-ns h4 {
   font-size: 11px;
   text-transform: uppercase;
@@ -521,23 +450,18 @@ a:hover
   margin-bottom:10px;
 }
 .footer-bs .footer-ns p { font-size:12px; color:rgba(255,255,255,0.70); }
-
-
 #separationLine{
   text-align: center;
 }
 #separatorDesign{
   text-decoration: none;
 }
-
-.navGlobalClass>li>.hi
-{
+.navGlobalClass>li>.hi{
   width: 300px!important;
 }
 .customazingNav{
   width: 20%;
 }
-
 .reduceNav:hover{
   background-color: #2A4C5E;
 }
@@ -552,8 +476,6 @@ a:hover
 .navbar{
   border: 0px solid transparent;
 }
-
-
 .logOffDiv{
   background-color: #D5D5D5;
   position: absolute;
@@ -565,20 +487,15 @@ a:hover
   border-top: 3px solid #7CA3E3;
   z-index: 1;
 }
-
-/* Subcategories. */
 .iconSubCategory{
-    position: absolute;
-    left: 43%;
-    top: 0.65%;
-    z-index: 1;
+  position: absolute;
+  left: 43%;
+  top: 0.65%;
+  z-index: 1;
 }
-
-
 .labelSubCategoria{
   margin-bottom: 2%;
 }
-
 .btn-SubCategory{
   height: 49px;
   font-size: 0.8em;
@@ -587,26 +504,21 @@ a:hover
   padding: 2px !important;
   border-top: 1px solid #bbb;
 }
-  
-
 .tableCategoriaSubCategoria{
   font-weight: 600;
   font-size: 20px;
   color: gray;
   margin-left: 25%;
 }
-
 .tableAlimentacioSubCategoria{
   font-weight: 600;
   font-size: 20px;
   color: gray;
   text-align: center;
 }
-
 .titleCategoria{
   margin-top: 0.57%;
 }
-
 .selectSubCategories{
   width: 200px;
   border: 1px solid black;
@@ -622,16 +534,13 @@ a:hover
   border: 1px solid gray;
   margin-bottom: 3%;
 }
-
 .centerPadding{
   padding: 15px 12px;
   padding-right: 19px !important;
 }
-
 .tableSubCategories{
   margin-left: auto;
 }
-
 .borderTableSubCategories{
   border: 1px solid gray;
 }
@@ -665,7 +574,6 @@ a:hover
   width: 100px;
   height: 43px;
 }
-
 #afegirSubCategoria{
   width: 140px;
   border: 1px solid black;
@@ -676,7 +584,6 @@ a:hover
   font-size: 17px;
   margin-bottom: 3%;
 }
-/*      L I N K S        */
 .iconLinkCenter{
   width: 50px;
   position: relative;
@@ -729,150 +636,117 @@ a:hover
   margin-left: 20%;
   margin-top: 5%;
 }
-
-.titleNews
-{
+.titleNews{
   padding: 0;
 }
-
-.newsDiv
-{
+.newsDiv{
   padding: 0;
   margin-left: -3%;
 }
-.buttonsNews
-{
+.buttonsNews{
   margin-left: 14%;
 }
-#whiteDivNews
-{
+#whiteDivNews{
   padding-top: 0;
 }
-.imgNews
-{
+.imgNews{
   padding-top: 6%;
 }
-.dateNews
-{
+.dateNews{
   padding-top: 7%;
   margin-left: 50%;
 }
-.txtAreaNew
-{
+.txtAreaNew{
   border: none;
 }
-.btnEditNew
-{
+.btnEditNew{
   margin-left: 4%!important;
   font-size: 1em!important;
 }
-.divNewPadd
-{
+.divNewPadd{
   padding-top: 4%;
 }
 
-.imgPrefChange
-{
+.imgPrefChange{
   margin-top: 4%;
 }
-#photoNew
-{
+#photoNew{
   padding-top: 4%;
   padding-bottom: 4%;
 }
-#whiteDivImgNew
-{
+#whiteDivImgNew{
   background-color: white;
   border: solid 1px;
   margin-top: -5%
 }
-.imgNewlabel
-{
+.imgNewlabel{
   padding-top: 4%;
 }
-.btnAddImgNew
-{
+.btnAddImgNew{
   margin-top: 4%; 
   margin-bottom: 4%;
 }
-#whiteDivVidNew
-{
+#whiteDivVidNew{
  background-color: white;
  border: solid 1px;
  margin-top: 1%;
 }
-.addVidNew
-{
+.addVidNew{
   margin-bottom: 4%;
   margin-top: 4%;
 }
-.vidLabel
-{
+.vidLabel{
   padding-top: 4%;
 }
-.imgNewChange
-{
+.imgNewChange{
   padding-bottom: 4%;
 }
-.imgNewsPadd
-{
+.imgNewsPadd{
   padding-bottom: 2%;
 }
-.vidChangeNews
-{
+.vidChangeNews{
   padding-bottom: 4%;
 }
-.btnDeleteVid
-{
+.btnDeleteVid{
   margin-left: 6%;
 }
-.btnAddPromo
-{
+.btnAddPromo{
   margin-left: 3%;
   margin-bottom: 5%;
 }
-.imgPromos
-{
+.imgPromos{
   margin-left: -4%;
   padding-top: 5%;
   padding-bottom: 5%;
 }
-.buttonsPromos
-{
+.buttonsPromos{
   padding-left: 2%;
   padding-right: 1%;
   margin-left: 2.5%;
 }
-.divContainerPromos
-{
+.divContainerPromos{
   border-bottom: 1px solid;
 }
-.divPromosCond
-{ 
+.divPromosCond{ 
   margin-left: -3%;
 }
-.labelFontSizePromo
-{
+.labelFontSizePromo{
   font-size: 22px;
 }
-.labelFor
-{
+.labelFor{
   background-color: #B6BFC1;
   text-align: center;
   padding: 8%;
 }
-.labelFor:hover
-{
+.labelFor:hover{
   background-color: #B0B9BB;
   cursor: pointer;
 } 
-.labelFor:active
-{
+.labelFor:active{
   background-color: #9FA6A8;
   cursor: pointer;
 }
-.labelForPromo
-{
+.labelForPromo{
   background-color: #CFD8DA;
   font-weight: 300;
   width: 80px;
@@ -882,32 +756,26 @@ a:hover
   cursor: pointer;
   padding-right: 9%;
 }  
-.labelForPromo:hover
-{
+.labelForPromo:hover{
   background-color: #B8C2C4;
   border: 1px solid;
 }
-.imgPromo
-{
+.imgPromo{
   padding: 0;
 }
-.marginTopLabel
-{
+.marginTopLabel{
   margin-top: 5%;
 }
-.labelImgMarginTop
-{
+.labelImgMarginTop{
   margin-top: 2%;
 }
 .noPadding{
   padding: 0px;
 }
-.txtAreaMarginTop
-{
+.txtAreaMarginTop{
   margin-top: 0.7%;
 }
-.btnEditPromo
-{
+.btnEditPromo{
   margin-left: 32.6%;
   margin-top: 7%;
 }
@@ -927,60 +795,25 @@ a:hover
   background: #d4dadc;
   margin-left: 30%;
 }
-.bttnsPromos:hover
-{
+.bttnsPromos:hover{
   background-color: #B8C2C4;
   border: 1px solid;
 }
-.spanMarginTopPromo
-{
+.spanMarginTopPromo{
   margin-top: 138%;
 }
-.btnActivePromos
-{
+.btnActivePromos{
   margin-left: 1%;
 }
-.datePaddNew
-{
+.datePaddNew{
   padding-right: 0%;
   padding-left: 0.5%;
 }
-.colorBlue
-{
+.colorBlue{
   background-color: #bdd4de;
   padding-right: 0;
   padding-left: 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @media (max-width: 575px){
   .tableCategoriaSubCategoria {
@@ -1017,11 +850,11 @@ a:hover
   }
   #nameAssoLogged{
     position: relative;
-    top:23%;
+    top:15%;
     left: -9%;
   }
   .deleteUnderlineSignUp{
-    margin-top:25%;
+    margin-top:20%;
   }
   .logOffDiv{
     right: 29%;
@@ -1036,8 +869,7 @@ a:hover
   .marginFormulariLinks {
     margin-bottom: 6%;
   }
- .dateNews
-  {
+ .dateNews{
     padding-top: 0%;
     margin-left: 0%;
   }
@@ -1046,16 +878,13 @@ a:hover
     top: 37.5%;
     right: 9%;
   }
-  .buttonsNews
-  {
+  .buttonsNews{
     margin-left: 0;
   }
-  .txtAreaNew
-  {
+  .txtAreaNew{
     margin-bottom: 2%;
   }
-  .imgPreferNew
-  {
+  .imgPreferNew{
     padding-top: 4%;
     margin-left: 0%;
   }
@@ -1063,16 +892,13 @@ a:hover
     margin-left: 5%;
     margin-top: 1%;
   }
-  .imgPrefChange
-  {
+  .imgPrefChange{
     margin-left: 6%;
   }
-  .subtitolNewsMargin
-  {
+  .subtitolNewsMargin{
     margin-top: 4%;
   }
-  .noPaddNews
-  {
+  .noPaddNews{
     padding-left: 0%;
   }
   .buttonsPromos {
@@ -1080,12 +906,10 @@ a:hover
     margin-left: 12.5%;
     margin-top: -8%;
   }
-  .divPromosCond
-  {
+  .divPromosCon{
     margin-top: 0%;
   }
-  .btnActivePromos
-  {
+  .btnActivePromos{
    margin-left: 4%;
   }
   .mainNav{
@@ -1093,35 +917,32 @@ a:hover
     padding-bottom: 4%!important;
   }
   .divHeaderReduceSpace{
-    margin-bottom: -3%;
+    margin-bottom: -8%;
   }
   .aLogoClient{
     width: 100%!important;
   }
-  .imgPromos 
-  {
+  .imgPromos {
     margin-left: 0%;
   }
-  .btnActivePromos
-  {
+  .btnActivePromos{
     margin-bottom: 3%;
   }
- .labelForPromo 
-  {
+ .labelForPromo {
     margin-left: 0%;
     padding-right: 21%;
   }
-  .txtAreaNoBorder
-  {
+  .txtAreaNoBorder{
     padding: 0;
   }
-  .marginBtnPromo
-  {
+  .marginBtnPromo{
     margin-left: 5%;
   }
-
+  .divClientLoggedImage{
+    margin-top: 6%;
+    margin-left: 4%;
+  }
 }
-
 @media (min-width: 576px) and (max-width: 767px){
   .tdCenterLinks{
     padding-left: 3%;
@@ -1135,14 +956,14 @@ a:hover
   }
   #nameAssoLogged {
     position: absolute;
-    top: 39%;
-    right: 12%;
-    font-size: 1.2em;
+    top: 30%;
+    right: -2%;
+    font-size: 1.3em;
   }
   .colorLoginHidden {
     color: #3A6B86;
     cursor: pointer;
-    margin-top: 24%;
+    margin-top: 18%;
     margin-left: 53%;
   }
   .logOffDiv {
@@ -1150,8 +971,7 @@ a:hover
   }
   .buttonsNews{
     margin-left: 0%;
-  }
-  
+  }  
   .btnDeleteVid {
     margin-left: 2.5%;
   }
@@ -1171,8 +991,7 @@ a:hover
   .aLogoClient{
     width: 70%;
   }
-  .container2
-  {
+  .container2{
     position: absolute;
     top: 0%;
   }
@@ -1181,47 +1000,44 @@ a:hover
     top: 37.5%;
     right: 9%;
   }
-   .imgPromos 
-  {
+   .imgPromos {
     margin-left: 0%;
   }
-  .btnAddPromo
-  {
+  .btnAddPromo{
     margin-left: -10%
   }
-  .buttonsPromos
-  {
+  .buttonsPromos{
     margin-left: 15.5%;
     margin-top: -5%;
   }
-  .divPromosCond
-  {
+  .divPromosCond{
     margin-left: 5.85%;
     margin-top: 1%;
   }
-  .btnActivePromos 
-  {
+  .btnActivePromos {
     margin-left: 0%;
     margin-bottom: 2%;
   }
-  .labelForPromo 
-  {
+  .labelForPromo {
     padding-top: 1.5%;
     padding-right: 12%;
     margin-left: 19%;
   }
-  .marginBtnPromo
-  {
+  .marginBtnPromo{
     margin-left: 11%;
   }
-  .txtAreaNoBorder
-  {
+  .txtAreaNoBorder{
     padding: 0;
   }
-
+  .divClientLoggedImage{
+    margin-top: 3%;
+    margin-left: 3%;
+  }
+  .divHeaderReduceSpace{
+    margin-bottom: -3%;
+  }
 }
 @media(max-width: 767px) {
-
   #eraseBorderNavMobile{
     border: none!important;
     background-color: #325C73;
@@ -1257,8 +1073,8 @@ a:hover
   }
   #nameAssoLogged {
     position: absolute;
-    top: 41%;
-    right: 13%;
+    top: 31%;
+    right: 7%;
     font-size: 1.4em;
   }
   .divClientLoggedName{
@@ -1269,7 +1085,7 @@ a:hover
   }
   .logOffDiv{
     right: 10%;
-    }
+  }
   .buttonsNews{
     margin-left: 0%;
   }
@@ -1286,7 +1102,7 @@ a:hover
     width: 65%;
   }
   .deleteUnderlineSignUp {
-    margin-top: 9%;
+    margin-top: 15%;
     margin-left: 12%;
   }
   .mainNav{
@@ -1295,9 +1111,7 @@ a:hover
   #divNavTabsGlobal{
     width: 110%;
   }
-
-  .container2
-  {
+  .container2{
     position: absolute;
     top: 25%;
   }
@@ -1310,46 +1124,41 @@ a:hover
     top: 36.3%;
     right: 10%;
   }
-    .imgPromos 
-  {
+  .imgPromos {
     margin-left: 0%;
   }
   .btnAddPromo {
     margin-left: -5%;
   }
-  .buttonsPromos
-  {
+  .buttonsPromos{
     margin-left: 6.5%;
     margin-top: -7%;
   }
-  .divPromosCond
-  {
+  .divPromosCond{
     margin-left: 5.3%;
     margin-top: 1%;
   }
-  .btnActivePromos 
-  {
+  .btnActivePromos {
     margin-left: 0%;
     margin-bottom: 4%;
   }
-  .labelForPromo 
-  {
+  .labelForPromo {
     padding-top: 2%;
     padding-right: 14%;
     margin-left: 6%;
   }
-  .marginBtnPromo
-  {
+  .marginBtnPromo{
     margin-left: 10%;
   }
-  .txtAreaNoBorder
-  {
+  .txtAreaNoBorder{
     padding: 0;
   }
-
+  .divClientLoggedImage{
+    margin-top: 3%;
+    margin-left: 3%;
+  }
 }
 @media (max-width: 1023px){
-
   .navGlobal{
     background-color: transparent!important;
     margin-bottom: 0px!important;
@@ -1371,36 +1180,29 @@ a:hover
   .deleteUnderlineSignUp{
     margin-top:9%;
   }
-     .dateNews
-  {
+  .dateNews{
     padding-top: 0%;
     margin-left: 0%;
   }
-    .imgPreferNew
-  {
+  .imgPreferNew{
     padding-top: 4%;
     margin-left: 9.7%;
   }
   .btnDeleteVid {
       margin-left: 2.5%;
   }
-  .noPaddNews
-  {
+  .noPaddNews{
     padding-left: 0%;
   }
-  .subtitolNewsMargin
-  {
+  .subtitolNewsMargin{
     margin-top: 4%;
   }
-    .divDatePromos
-  {
+  .divDatePromos{
     margin-top: 5%;
     margin-left: 30%;
   }
 }
-
 @media (min-width: 1024px) and (max-width: 1199px){
-
   .aLogoClient{
     width: 63%;
   }
@@ -1428,50 +1230,48 @@ a:hover
     top: 39.6%;
     right: 17%;
   }
-    .imgPromos 
-  {
+  .imgPromos {
     margin-left: 0%;
   }
   .btnAddPromo {
     margin-left: -5%;
   }
-  .buttonsPromos
-  {
+  .buttonsPromos{
     margin-left: 6.5%;
     margin-top: -7%;
   }
-  .divPromosCond
-  {
+  .divPromosCond{
     margin-left: 6.3%;
     margin-top: 1%;
   }
-  .btnActivePromos 
-  {
+  .btnActivePromos {
     margin-left: 0%;
     margin-bottom: 4%;
   }
-    .divDatePromos
-  {
+  .divDatePromos{
     margin-top: 1%;
     margin-left: 0%;
   }
-  .txtAreaNoBorder
-  {
+  .txtAreaNoBorder{
     padding: 0;
   }
-  .labelForPromo 
-  {
+  .labelForPromo {
     padding-top: 2%;
     padding-right: 11%;
     margin-left: 8%;
   }
-  .marginBtnPromo
-  {
+  .marginBtnPromo{
     margin-left: 12%;
   }
+  .divClientLoggedImage{
+    margin-top: 4%;
+    margin-left: 3%;
+  }
+  .divheaderReduceSpace{
+    margin-bottom: -1%;
+  }
 }
-@media (max-width: 1200px) {
-  
+@media (max-width: 1200px) {  
   .labelFor{
       padding: 3%;
   }  
@@ -1496,9 +1296,9 @@ a:hover
     margin-top: 4%;
   }
   .mainNav{
-  padding-top: 5%!important;
-  padding-bottom: 5%!important;
-  border-bottom: none;
+    padding-top: 5%!important;
+    padding-bottom: 5%!important;
+    border-bottom: none;
   }
   .divClientLoggedImage{
     width: 20%;
@@ -1522,9 +1322,5 @@ a:hover
   }
   .txtAreaNoBorder{
     padding: 0;
-  }
-    
+  }    
 }
-
-/*--------------------------------------*/
-
