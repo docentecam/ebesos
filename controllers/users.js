@@ -68,10 +68,12 @@ angular.module('spaApp')
 						url : "models/users.php?acc=mail&idUser="+ $scope.idUser + "&client="+ myForm['client'].value+
 						"&email="+ myForm['email'].value+ "&message="+ myForm['message'].value
 					}).then(function mySucces (response) {
+						
 							$scope.email = response.data;
 							$scope.muestraStatusEmail=true;
 							$scope.emailText='Ha hagut un error';
 							$scope.emailStatus=false;
+							console.log($scope.email[0].envioStatus);
 							if ($scope.email[0].envioStatus=='1')
 							{
 								$scope.escondeForm=true;
@@ -220,12 +222,15 @@ angular.module('spaApp')
 						url : "models/users.php?acc=mail&idUser="+ $scope.idUser + "&client="+ myForm['client'].value+
 						"&email="+ myForm['email'].value+ "&message="+ myForm['message'].value
 					}).then(function mySucces (response) {
+							
 							$scope.email = response.data;
 							$scope.muestraStatusEmail=true;
 							$scope.emailText='Ha hagut un error';
 							$scope.emailStatus=false;
+							console.log($scope.email[0].envioStatus);
 							if ($scope.email[0].envioStatus=='1')
 							{
+								$scope.escondeForm=true;
 								$scope.emailText='Misatge enviat amb exit';
 								$scope.emailStatus=true;
 							}

@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(0);
 require("../inc/functions.php");
 
 	if(isset($_GET['acc'])&&$_GET['acc']=='history'){

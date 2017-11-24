@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 require "phpmailer/phpmailer.class.php";
 	function connect()
 	{
