@@ -92,12 +92,7 @@ a:hover{
 .divClientLoggedName{
   height: 88px; 
 }
-.arrowDown{
-  margin-left: 10px;
-}
-.iSignOff{
-  margin-right: 2%;
-}
+
 .navGeneral{
   height: 100%;
 }
@@ -341,10 +336,6 @@ a:hover{
   padding-left: 6%;
   padding-top: 3%;
 }  
-.colorLoginHidden{
-  color: #3A6B86;
-  cursor: pointer;
-}
 .editAndAddSlider{
   margin-bottom: 3.5%
 }
@@ -854,9 +845,6 @@ a:hover{
     top:15%;
     left: -9%;
   }
-  .deleteUnderlineSignUp{
-    margin-top:20%;
-  }
   .logOffDiv{
     right: 29%;
     width: 134px;
@@ -960,12 +948,6 @@ a:hover{
     top: 30%;
     right: -2%;
     font-size: 1.3em;
-  }
-  .colorLoginHidden {
-    color: #3A6B86;
-    cursor: pointer;
-    margin-top: 18%;
-    margin-left: 53%;
   }
   .logOffDiv {
     right: 14%;
@@ -1077,9 +1059,6 @@ a:hover{
   .divClientLoggedName{
     margin-left: -13%;  
   }
-  .colorLoginHidden{
-    margin-left: 49%;
-  }
   .logOffDiv{
     right: 10%;
   }
@@ -1097,10 +1076,6 @@ a:hover{
   }
   .aLogoClient{
     width: 65%;
-  }
-  .deleteUnderlineSignUp {
-    margin-top: 15%;
-    margin-left: 12%;
   }
   .mainNav{
     padding: 10%!important;
@@ -1170,9 +1145,6 @@ a:hover{
     right: 0px;
     bottom: 15px;
   }
-  .deleteUnderlineSignUp{
-    margin-top:9%;
-  }
   .dateNews{
     padding-top: 0%;
     margin-left: 0%;
@@ -1201,18 +1173,14 @@ a:hover{
   }
   #nameAssoLogged {
     position: relative;
-    top: 37%;
-    left: -35%;
+    top: 32%;
+    left: -27%;
     font-weight: bold;
     font-size: 1.2em;
   }
   .logOffDiv {
     right: 29%;
     width: 56%;
-  }
-  .deleteUnderlineSignUp {
-    margin-top: 9%;
-    margin-left: 44%;
   }
   .mainNav {
     padding: 12%;
