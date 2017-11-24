@@ -105,7 +105,7 @@
 			<label for="addImage" class="btn-add col-lg-2">Afegir imatge <i class="fa fa-plus-circle" aria-hidden="true"></i></label><input type="file" id="addImage" ng-show="false" onchange="angular.element(this).scope().changeImagesShops(this,'n')">
 			<span class="col-lg-10 image-span">Imatges</span>
 			<div class="col-md-6 images-shop" ng-repeat="image in images | filter : {preferred:'N'}">
-				<img class="img-responsive" src="../img/shops/{{image.url}}">
+				<img class="img-responsive" ng-src="../img/shops/{{image.url}}">
 				<button class="col-lg-3 col-lg-offset-5 btn-delete" ng-model="imageDelete" ng-click="deleteImage(image.idShopImage, image.url, shopOne.idShop)">Eliminar <i class="fa fa-times" aria-hidden="true"></i></button>
 			</div>				
 		</div>

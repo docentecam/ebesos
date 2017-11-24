@@ -275,10 +275,10 @@ angular.module('spaApp')
 				deferred.resolve(res);
 				$scope.data = res.data[0];
 				$scope.shopOne = $scope.data.list[0];
-				$scope.allSubCat = $scope.data[0].allSubCat;
-				$scope.subCategoriesShop = $scope.data[0].subCategoriesShop;
-				$scope.subCategories = $scope.data[0].subCategories;
-				$scope.images = $scope.data[0].images;
+				$scope.allSubCat = $scope.data.allSubCat;
+				$scope.subCategoriesShop = $scope.data.subCategoriesShop;
+				$scope.subCategories = $scope.data.subCategories;
+				$scope.images = $scope.data.images;
 				console.log(res.data[0]);
 				console.log($scope.images);
 				

@@ -56,7 +56,7 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'upload')
 		fputs($fp,'descriptionLong="'.$descriptionLong.'"');
 		fputs($fp,'description="'.$description.'"');
 		fputs($fp,'ciutat="'.$ciutat.'"');
-		//fputs($fp,'logo="'.$logo.'"');
+		if(isset($_FILES["logo"])) fputs($fp,'logo="'.$logo.'"');
 		fputs($fp,'web="'.$web.'"');
 		fputs($fp,'lat="'.$lat.'"');
 		fputs($fp,'lng="'.$lng.'"');
@@ -206,7 +206,7 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'delete')
 
 	disconnect($connexio);
 
-	echo listShop()."}]";
+	echo listShop();
 }
 else if(isset($_GET['acc']) && $_GET['acc'] == 'delsc')
 {	
@@ -304,7 +304,7 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'listImages')
 {
 	$idShop = $_GET['idShop'];
 
-	echo '[{"images":'.listImages($idShop);
+	echo '[{"images":'.listImages($idShop).'}]';
 }
 function listShop($idShop="")
 {
