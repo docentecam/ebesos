@@ -1,6 +1,8 @@
 angular.module('spaApp').factory('msgEditP', function(){
 	return {data:{}};
 });
+
+
 angular.module('spaApp')
 .controller('PromotionsCtrl', function($scope, $http,msgEditP) {
   		

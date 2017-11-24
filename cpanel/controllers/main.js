@@ -13,6 +13,24 @@ angular.module('spaApp')
 $scope.loading=true;
 $scope.showLogOff=true;
 
+$scope.notify=function(){
+	$scope.vm = this;
+	$scope.loading=true;
+	$http({
+		method : "GET",
+		url : "models/main.php?acc=showActivePromotion"
+	}).then(function mySucces(response) {
+		$scope.notifyPromo = response.data;
+		$scope.vm.alertPromo=$scope.notifyPromo[0]['promos'];
+		
+	}, function myError(response) {
+		$scope.notifyPromo = response.statusText;
+	}).finally(function(){
+		$scope.loading = false;
+	});	
+
+}
+
 	$http({
 		method : "GET",
 		url : "models/users.php?acc=listUsers"
@@ -24,19 +42,7 @@ $scope.showLogOff=true;
 	}).finally(function(){
 	  $scope.loading = false;
 	});
-	$scope.loading=true;
-	$http({
-		method : "GET",
-		url : "models/main.php?acc=showActivePromotion"
-	}).then(function mySucces(response) {
-		$scope.notifyPromo = response.data;
-		$scope.alertPromo=$scope.notifyPromo[0]['promos'];
-		
-	}, function myError(response) {
-		$scope.notifyPromo = response.statusText;
-	}).finally(function(){
-		$scope.loading = false;
-	});	
+	
 
 	
 	$scope.showDisconnect = function(){
