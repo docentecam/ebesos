@@ -145,7 +145,7 @@
 				<div class="col-lg-6">Logo Associació</div>
 			</div>
 			<div class="row">
-				<img class="col-lg-3" ng-src="../img/logos-assoc/{{logoC}}">
+				<img class="col-lg-3 logoPAsso" ng-src="../img/logos-assoc/{{logoC}}">
 				<div class="col-lg-6 col-lg-offset-3">
 					<div class="row"><a class="col-lg-8" href="" ng-click="showEdit()">Editar logo</a></div>
 				</div>

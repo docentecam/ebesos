@@ -225,6 +225,7 @@ a:hover
   height: 400px;
   width: 380px;
 }
+
 .padd
 {
   padding: 0%;
@@ -1475,7 +1476,10 @@ a:hover
   
   .labelFor{
       padding: 3%;
-  }  
+  } 
+  .logoPAsso{
+    width: 20%;
+  } 
 }
 
 @media (min-width: 1200px){
