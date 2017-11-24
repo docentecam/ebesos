@@ -77,7 +77,7 @@ angular.module('spaApp')
 							if ($scope.email[0].envioStatus=='1')
 							{
 								$scope.escondeForm=true;
-								$scope.emailText='Misatge enviat amb exit';
+								$scope.emailText='Missatge enviat amb èxit';
 								$scope.emailStatus=true;
 							}
 					}, function myError (response) {
@@ -111,8 +111,20 @@ angular.module('spaApp')
 	
 	$scope.idUser = $routeParams.idUser;
 	$scope.name = $routeParams.name;
+	
 	$scope.loading = true;
+	$http({
+		method : "GET",
+		url : "models/users.php?acc=logo&idUser="+$scope.idUser
+		}).then(function mySucces (response) {
+			$scope.imageAsso=response.data;
+		}, function myError (response) {
+			$scope.homeData = response.statusText;
+		}).finally(function(){
+				$scope.loading = false;
+		});
 
+	$scope.loading = true;
 	$http({
 		method : "GET",
 		url : "models/shops.php?acc=l&idUser="+$scope.idUser

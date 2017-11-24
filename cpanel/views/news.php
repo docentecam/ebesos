@@ -64,7 +64,7 @@
 		<div class="form-group col-lg-12">
 			<span class="col-lg-1 col-xs-2 noPaddNews" for="title">Títol</span>
 			<input type="text" class="col-lg-9 col-xs-12" name="title" ng-model="new.title">
-			<input type="date" class="col-lg-2 col-xs-6 col-sm-4 name="dateBox" id="dateForm" name="date" ng-model="new.date">
+			<input type="date" class="col-lg-2 col-xs-6 col-sm-4 datePaddNew name="dateBox" id="dateForm" name="date" ng-model="new.date">
 		</div>
 		<div class="form-group col-lg-12">
 			<span class="col-lg-1 col-xs-8 col-sm-10 subtitolNewsMargin noPaddNews" for="titleSub">Subtítol</span>

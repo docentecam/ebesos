@@ -26,6 +26,10 @@ a{
 	height: 500px;
 	//width: 1000px;
 }
+.a-more{
+	font-weight: 600;
+	color: #464646!important;
+}
 .category {
 	height: 50px;
 	margin-bottom: 60px;
@@ -444,7 +448,10 @@ padding: 0;
 	margin-top: 4%;
 }
 .pictoShops{
-	width: 15px;
+	width: 20px;
+}
+.logoSubMAsso{
+	margin-right: 2%;
 }
 .subMA{
 	color: white!important;
@@ -469,6 +476,9 @@ padding: 0;
 .formAssoContact{
 	margin-left: -5%!important;
 	margin-top: -15%;
+}
+.shopNameAsso{
+	font-size: 18px;
 }
 #divImgsNew{
 	padding: 0px !important;
@@ -662,8 +672,7 @@ hr.style14 {
 #imgPadd{
 	padding-right: 5%;
 	padding-left: 5%;
-	border-bottom: solid 1px #DEE4DD;
-	padding-bottom: 8%;
+	padding-bottom: 5%;
 }
 #lorem{
 	padding-bottom: 0%!important;
@@ -974,6 +983,38 @@ hr.style14 {
 	}
 	#mc_embed_signup {
  		margin-left: 0%!important;
+	}
+	#cookie-agree{
+	    display:none;
+	    position:fixed;
+	    left:0px;
+	    right:0px;
+	    bottom:0px;
+	    padding-bottom:0px;
+	    width:100%;
+	    text-align:center;
+	    min-height:90px;
+	    background-color: rgba(0, 0, 0, 0.5);
+	    color:#fff;
+	    z-index:99999;
+	} 
+	.inner{
+	    width:100%;
+	    position:absolute;
+	    padding-left:5px;
+	    font-family:verdana;
+	    font-size:12px;
+	    top:0%;
+	} 
+	.inner a.ok{
+	    padding:4px;
+	    color:#00ff2e;
+	    text-decoration:none;
+	} 
+	.inner a.info{
+	    padding-left:5px;
+	    text-decoration:none;
+	    color:#faff00;
 	}	
 }
 @media (min-width: 576px) and (max-width: 767px){
@@ -1351,6 +1392,11 @@ hr.style14 {
 		padding-bottom: 100px;
 		text-align: center;
 	}
+	#lorem
+	{
+		margin-left: 51%;
+	}
+	
 }
 @media (min-width: 1200px){
 	#captchaDiv{
@@ -1445,7 +1491,8 @@ hr.style14 {
 		margin-top: 3%;
     	margin-bottom: 3%;
 	}
-}
+
+
 }
 @media (min-width: 1919px){
 	#logoText {

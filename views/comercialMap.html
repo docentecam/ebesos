@@ -6,11 +6,14 @@
     <div class="col-xs-6 col-lg-12">
       <div ng-repeat="category in categories" class="category">
         <img class="category-pictograms img-responsive col-xs-1 col-lg-1 no-padding" ng-src="img/pictograms/{{category.urlPicto}}">
-        <label class="col-xs-11 col-lg-11 category-name"><a class="a-category" href='' ng-click="categoryFilter('category', category.idCategory)">{{category.name}}:</a></label>
-        <select ng-show="true" class="category-select col-xs-11 col-lg-10 col-lg-offset-2 no-padding" name="selectSubCategory" ng-change="categoryFilter('categorySub', subCategories, this)" ng-model="subCategories">
-          <option disabled ng-selected="true">--Escull una subcategoria</option>
+
+        <label class="col-xs-11 col-lg-11 category-name"><a class="a-category" href='' ng-click="categoryFilter('category', category.idCategory, category.idCategory)">{{category.name}}:</a></label>
+
+        <select ng-show="true" class="category-select col-xs-11 col-lg-10 col-lg-offset-2 no-padding" id="selectSubCategory-{{category.idCategory}}" ng-change="categoryFilter('categorySub', subCategories, category.idCategory)" ng-model="subCategories">
+          <option disabled ng-selected="true" ng-value="-1">--Escull una subcategoria</option>
           <option ng-repeat="subCategory in category.subCategories" ng-value="subCategory.idSubCategory">{{subCategory.name}}</option>
         </select>
+
       </div>
     </div>
     <div class="col-xs-6 col-lg-10 col-lg-offset-4 legend">
@@ -125,6 +128,7 @@
 
           var link = document.createElement('a');
           link.setAttribute('href', "#/shop/"+idShop+"");
+          link.setAttribute('class', "a-more");
 
           link.textContent = "Veure més"
 

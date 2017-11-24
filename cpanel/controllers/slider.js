@@ -2,10 +2,19 @@ angular.module('spaApp').factory('msgEdits', function(){
 	return {data:{}};
 });
 angular.module('spaApp')															 
-.controller('SliderCtrl', function($scope, $http, msgEdits ) {
 
-	// msgEdits.data.validation=false;
-	$scope.fail = false;
+.controller('SliderCtrl', function($scope, $http, msgEdits, $routeParams) {
+	$scope.check = $routeParams.check;
+	if($scope.check == 't')
+	{
+		msgEdits.data.fail = true;
+	}
+	else if($scope.check == 'f')
+	{
+		msgEdits.data.fail = false;
+	}
+
+
 	$scope.listSliders=true;
 	$scope.statusValidation=msgEdits.data.message;
 	$scope.validation=msgEdits.data.validation;
@@ -142,7 +151,7 @@ console.log($scope.slider.idSlider);
 				msgEdits.data.message=res.data;
 				msgEdits.data.validation=true;
 				msgEdits.data.fail=true;
-				$location.url("/slider");
+				$location.url("/slider/t/l");
 			})
   		}
   		else{

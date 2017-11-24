@@ -28,13 +28,13 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 				</div>
 				<div class="col-lg-3">
 					<div class="col-lg-8 col-lg-push-12 col-xs-10 divDatePromos">
-						<span ng-if="promotionList.dateExpireValsE!=''">Caducitat Vals {{promotionList.dateExpireValsE}}</span>
-						<br>
+						<span ng-if="promotionList.dateExpireValsE!=''">Caducitat Vals {{promotionList.dateExpireValsE}}<br></span>
+						
 						<span ng-if="promotionList.dateExpireEixE!=''">Caducitat Eix {{promotionList.dateExpireEixE}}</span>
 					</div>
 				</div>
 				<div class="col-lg-3 col-xs-12">
-					<div class="col-lg-12 col-lg-push-11 col-xs-3 col-xs-push-7 buttonsPromos">
+					<div class="col-lg-12 col-lg-push-11 col-xs-3 col-xs-push-7 col-sm-push-8 buttonsPromos">
 						<a ng-href="#/promotion/{{promotionList.idPromotion}}"><button id="" class="btn-edit col-lg-5 col-xs-5">Editar</button></a>
 						<button id="" class="btn-delete col-lg-6 col-xs-7" ng-click="deletePromotion(promotionList.idPromotion)">Eliminar
 						</button>
@@ -49,9 +49,8 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 						</div>
 						<div class="col-lg-12 col-lg-pull-2">
 							<span ng-if="promotionList.conditionsVals!=''">
-								Vals: {{promotionList.conditionsVals}}
+								Vals: {{promotionList.conditionsVals}}<br>
 							</span>
-							<br>
 							<span ng-if="promotionList.conditionsEix!=''">
 								Eix: {{promotionList.conditionsEix}}
 							</span>
@@ -76,13 +75,12 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 				</div>
 				<div class="col-lg-3">
 					<div class="col-lg-8 col-lg-push-12 col-xs-10 divDatePromos">
-						<span ng-if="promotionList.dateExpireValsE!=''">Caducitat Vals {{promotionList.dateExpireValsE}}</span>
-						<br>
+						<span ng-if="promotionList.dateExpireValsE!=''">Caducitat Vals {{promotionList.dateExpireValsE}}<br></span>
 						<span ng-if="promotionList.dateExpireEixE!=''">Caducitat Eix {{promotionList.dateExpireEixE}}</span>
 					</div>
 				</div>
 				<div class="col-lg-3 col-xs-12">
-					<div class="col-lg-12 col-lg-push-11 col-xs-3 col-xs-push-7 buttonsPromos">
+					<div class="col-lg-12 col-lg-push-11 col-xs-3 col-xs-push-7 col-sm-push-8 buttonsPromos">
 						<a ng-href="#/promotion/{{promotionList.idPromotion}}"><button id="" class="btn-edit col-lg-5 col-xs-5">Editar</button></a>
 						<button id="" class="btn-delete col-lg-6 col-xs-7" ng-click="deletePromotion(promotionList.idPromotion)">Eliminar
 						</button>
@@ -98,9 +96,8 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 						<div class="col-lg-12 col-lg-pull-2">
 							<span>
 								<span ng-if="promotionList.conditionsVals!=''">
-									Vals: {{promotionList.conditionsVals}}
+									Vals: {{promotionList.conditionsVals}}<br>
 								</span>
-								<br>
 								<span ng-if="promotionList.conditionsEix!=''">
 									Eix: {{promotionList.conditionsEix}}
 								</span>
@@ -136,10 +133,10 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 				<div class="col-lg-12">
 					<img class="img-responsive col-lg-8 imgPromo" ng-src="../img/promotions/{{promotion.image}}">
 					<span class="col-lg-4">
-						<span class="col-lg-12 spanMarginTopPromo" ng-if="promotion.image!=''">
+						<span class="col-lg-12 col-lg-offset-0 col-xs-offset-7 spanMarginTopPromo ng-scope" ng-if="promotion.image!=''">
 							&nbsp;	
 						</span>
-						<label for="updateImg" class="labelForPromo col-lg-12">Examinar</label>
+						<label for="updateImg" class="labelForPromo col-lg-12 col-xs-push-1 col-lg-push-0">Examinar</label>
 						<input type="file" id="updateImg" onchange="angular.element(this).scope().changeImg(this)" ng-hide="true">
 					</span>
 				</div>
@@ -154,7 +151,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 									Oferta:
 								</span>
 								<div class="col-lg-10">
-									<textarea name="" id="" cols="50" rows="3" ng-model="promotion.oferVals" class="txtAreaNoBorder">promotion.oferVals</textarea>
+									<textarea name="" id="" cols="50" rows="3" ng-model="promotion.oferVals" class="txtAreaNoBorder col-xs-12">promotion.oferVals</textarea>
 								</div>
 							</div>
 							<div class="col-lg-12">
@@ -170,7 +167,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 									Condicions del val:
 								</span>
 								<div class="col-lg-10">
-									<textarea name="" id="" cols="50" rows="3" ng-model="promotion.conditionsVals" class="txtAreaNoBorder txtAreaMarginTop">promotion.conditionsVals</textarea>
+									<textarea name="" id="" cols="50" rows="3" ng-model="promotion.conditionsVals" class="txtAreaNoBorder col-xs-12 txtAreaMarginTop">promotion.conditionsVals</textarea>
 								</div>
 							</div>
 						</fieldset>
@@ -187,7 +184,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 									Oferta:
 								</span>
 								<div class="col-lg-10">
-									<textarea name="" id="" cols="50" rows="3" ng-model="promotion.oferEix" class="txtAreaNoBorder">promotion.oferEix</textarea>
+									<textarea name="" id="" cols="50" rows="3" ng-model="promotion.oferEix" class="txtAreaNoBorder col-xs-12">promotion.oferEix</textarea>
 								</div>
 							</div>
 							<div class="col-lg-12">
@@ -203,9 +200,9 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 									Condicions del val:
 								</span>
 								<div class="col-lg-10">
-									<textarea name="" id="" cols="50" rows="3" ng-model="promotion.conditionsEix" class="txtAreaNoBorder txtAreaMarginTop">promotion.conditionsEix</textarea>
+									<textarea name="" id="" cols="50" rows="3" ng-model="promotion.conditionsEix" class="txtAreaNoBorder col-xs-12 txtAreaMarginTop">promotion.conditionsEix</textarea>
 									<div class="col-lg-12">
-										<div class="col-lg-2 col-lg-pull-1">
+										<div class="col-xs-pull-5 col-lg-2 col-lg-pull-1 marginBtnPromo">
 											<input type="button" class="btn bttnsPromos" value="{{act}}" ng-click="editPromotion(act)">
 										</div>
 									</div>

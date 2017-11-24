@@ -26,7 +26,7 @@ app.config(['$routeProvider', function ($routeProvider) {
 		templateUrl:'views/shops.php',
 		controller:'ShopsEditCtrl',
 	})
-	.when('/slider',{
+	.when('/slider/:check/:l',{
 		templateUrl:'views/slider.php',
 		controller:'SliderCtrl',
 	})

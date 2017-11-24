@@ -57,7 +57,7 @@ angular.module('spaApp')
       $scope.loading = false;
   });
 
-  $scope.categoryFilter = function(filter = "", parameter = ""){
+  $scope.categoryFilter = function(filter = "", parameter = "", resetCombo = ""){
      var map = new google.maps.Map(document.getElementById('map'), {
       center: new google.maps.LatLng(41.416962, 2.214625),
       zoom: 16
@@ -217,6 +217,24 @@ angular.module('spaApp')
           }
         }// fin Comprobacio categoria
       });
+    if(filter == "category")
+    {
+      for(var i = 1; i<=4; i++)
+      {
+        $("#selectSubCategory-"+i).val("-1");
+      }
+    }
+    else
+    {
+      for(var i = 1; i<=4; i++)
+      {
+        if(i != resetCombo) 
+        {
+          $("#selectSubCategory-"+i).val("-1");
+          console.log(filter+"selectSubCategory-"+i);
+        }
+      }
+    }
     });
   };
 
