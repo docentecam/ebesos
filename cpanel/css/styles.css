@@ -201,7 +201,13 @@ a:hover{
   height: 400px;
   width: 380px;
 }
+<<<<<<< HEAD
 .padd{
+=======
+
+.padd
+{
+>>>>>>> origin/master
   padding: 0%;
   padding-top: 5%;
 }
@@ -655,6 +661,7 @@ a:hover{
 .dateNews{
   padding-top: 7%;
   margin-left: 50%;
+  color: #B1B1B1;
 }
 .txtAreaNew{
   border: none;
@@ -1274,7 +1281,10 @@ a:hover{
 @media (max-width: 1200px) {  
   .labelFor{
       padding: 3%;
-  }  
+  } 
+  .logoPAsso{
+    width: 20%;
+  } 
 }
 
 @media (min-width: 1200px){

@@ -448,7 +448,10 @@ padding: 0;
 	margin-top: 4%;
 }
 .pictoShops{
-	width: 15px;
+	width: 20px;
+}
+.logoSubMAsso{
+	margin-right: 2%;
 }
 .subMA{
 	color: white!important;
@@ -473,6 +476,9 @@ padding: 0;
 .formAssoContact{
 	margin-left: -5%!important;
 	margin-top: -15%;
+}
+.shopNameAsso{
+	font-size: 18px;
 }
 #divImgsNew{
 	padding: 0px !important;

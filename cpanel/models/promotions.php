@@ -71,7 +71,29 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'updatePromotion'){
 			
 			disconnect($connexio);
 
-					}
+			$mySql ="SELECT u.email,u.emailPass,u.logo, u.name,s.idShop,u.idUser FROM promotions p , users u ,shops s WHERE s.idShop=".$_POST["shopSelected"]." AND u.idUser=".$_POST["idUser"]. " ORDER BY p.idPromotion DESC limit 1";
+	 		$resultEmail = mysqli_query($connexio, $mySql);
+	 		disconnect($connexio);
+	 		$row=mySqli_fetch_row($resultEmail);
+
+	 		$emailAssociation = $row[0];
+	 		$emailPass = $row[1];
+	 		$logoAssociation = $row[2];
+	 		$nameAssociation = $row[3];
+
+	 			$body = 
+					"<html>
+			 			<head>
+			 			</head>
+			 			<body>
+							Tens una Promoció pendent d'activar
+			 			</body>
+		 			</html>";
+
+	 	$envioStatus= sendMails( $emailAssociation, "Promoció Pendent d'Activar ".$nameAssociation,$emailAssociation,   
+	 		$emailPass, $body, $logoAssociation);
+
+		}
 }			
 				
 }
@@ -94,18 +116,17 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'd'){
 			WHERE idPromotion=".$_GET['idPromotionSelected'];
 
 			$connexio = connect();
-			$resultActivePromotion = mysqli_query($connexio, $mySql);
+			$resultDeletePromotion = mysqli_query($connexio, $mySql);
 			disconnect($connexio);
 
 			echo listPromotions();
 
 }
-		
 
 
 function listPromotions(){
 
-	// $mySql = "SELECT idPromotion , oferVals, oferEix, image , conditionsVals, conditionsEix , active ,dateExpireVals, DATE_FORMAT( dateExpireVals,'%d-%m-%Y') AS  dateExpireValsE,dateExpireEix, DATE_FORMAT( dateExpireEix,'%d-%m-%Y') AS dateExpireEixE,idShop FROM promotions ";
+	
 
 	$mySql = "SELECT idPromotion , oferVals, oferEix, image , conditionsVals, conditionsEix , promotions.active ,dateExpireVals, DATE_FORMAT( dateExpireVals,'%d-%m-%Y') AS dateExpireValsE,dateExpireEix, DATE_FORMAT( dateExpireEix,'%d-%m-%Y') AS dateExpireEixE,shops.idShop FROM promotions, shops WHERE promotions.idShop=shops.idShop ";
 
@@ -114,6 +135,7 @@ function listPromotions(){
 	$mySqlShops = "SELECT * FROM shops";
 	if($_SESSION['user']['idUser']!="1"){
 		$mySqlShops.=" WHERE idUser='".$_SESSION['user']['idUser']."'";
+		$mySqlShops.=" OR idShop='".$_SESSION['user']['idUser']."'";
 		$mySql .= " AND shops.idUser=".$_SESSION['user']['idUser'];
 
 	}

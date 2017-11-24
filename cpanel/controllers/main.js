@@ -15,7 +15,8 @@ angular.module('spaApp')
 $scope.loading=true;
 $scope.showLogOff=true;
 
-	$http({
+
+		$http({
 		method : "GET",
 		url : "models/users.php?acc=listUsers"
 	}).then(function mySucces(response) {
@@ -26,12 +27,15 @@ $scope.showLogOff=true;
 	}).finally(function(){
 	  $scope.loading = false;
 	});
+	
+	
 	$scope.loading=true;
 	$http({
 		method : "GET",
 		url : "models/main.php?acc=showActivePromotion"
 	}).then(function mySucces(response) {
 		$scope.notifyPromo = response.data;
+
 		$rootScope.alertPromo=$scope.notifyPromo[0]['promos'];
 		
 	}, function myError(response) {
@@ -39,6 +43,10 @@ $scope.showLogOff=true;
 	}).finally(function(){
 		$scope.loading = false;
 	});	
+
+
+
+
 
 	
 	$scope.showDisconnect = function(){

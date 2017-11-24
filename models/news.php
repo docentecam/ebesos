@@ -36,7 +36,7 @@ if(isset($_GET['acc'])&&$_GET['acc']=='news'){
 
 else if(isset($_GET['acc'] )&& $_GET['acc']=='showNew') {
 
-	$mySql = "SELECT n.idNew, n.date, n.title, n.titleSub, n.idNew, w.idNew, w.type, w.url FROM news n, newsmedia w WHERE n.idNew=w.idNew AND w.preferred='Y' AND w.type='I' AND n.idNew=".$_GET["idNew"] ;
+	$mySql = "SELECT n.idNew, DATE_FORMAT( n.date,'%d-%m-%Y') AS fecha, n.title, n.titleSub, n.idNew, w.idNew, w.type, w.url FROM news n, newsmedia w WHERE n.idNew=w.idNew AND w.preferred='Y' AND w.type='I' AND n.idNew=".$_GET["idNew"] ;
 
 	$connexio = connect();
 	$resultNewImgPrefered = mysqli_query($connexio, $mySql);
@@ -57,7 +57,7 @@ else if(isset($_GET['acc'] )&& $_GET['acc']=='showNew') {
 			$dataNewImagePrefered .= ",";
 		} 
 
-		$dataNewImagePrefered .= '{"titleSub":"'.$row['titleSub'].'", "photo":"'.$row['url'].'", "title":"'.$row['title'].'","date":"'.$row['date'].'", "media":';
+		$dataNewImagePrefered .= '{"titleSub":"'.$row['titleSub'].'", "photo":"'.$row['url'].'", "title":"'.$row['title'].'","date":"'.$row['fecha'].'", "media":';
 
 		$j=0;
 		$dataNewImagePrefered .='[';
