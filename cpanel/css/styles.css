@@ -945,6 +945,12 @@ a:hover
   padding-right: 0%;
   padding-left: 0.5%;
 }
+.colorBlue
+{
+  background-color: #bdd4de;
+  padding-right: 0;
+  padding-left: 0;
+}
 
 
 
@@ -979,13 +985,13 @@ a:hover
 @media (max-width: 575px){
   .tableCategoriaSubCategoria {
     font-weight: 600;
-    font-size: 19px;
+    font-size: 0.9em;
     color: gray;
     margin-left: 10%;
   }
   .tableAlimentacioSubCategoria {
     font-weight: 600;
-    font-size: 19px;
+    font-size: 0.9em;
     color: gray;
     text-align: center;
   }
