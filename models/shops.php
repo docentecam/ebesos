@@ -66,7 +66,7 @@ require('../inc/functions.php');
 		{
 			$idShop=$_GET['idShop'];
 			$mySql= "SELECT s.idShop, s.name AS NameShop, s.address, s.cp, s.ciutat, s.telephone, s.descriptionLong, s.schedule, s.logo, s.email,
-					u.name AS NameAssociacio, c.name AS NameCategory, cs.name AS NameSubCategory, si.url AS ImagePreferred
+					u.name AS NameAssociacio, u.footer AS LogoAssociacio, c.name AS NameCategory, cs.name AS NameSubCategory, si.url AS ImagePreferred
 					FROM shops s, users u, categories c, categoriessub cs, shopcategoriessub scs, shopsimages si
 					WHERE u.idUser = s.idUser
 					AND scs.idShop = s.idShop
@@ -90,7 +90,7 @@ require('../inc/functions.php');
 			{
 				if($i != 0) $dataShops .= ",";
 
-				$dataShops .= '{"nameShop":"'.$row['NameShop'].'", "idShop":"'.$row['idShop'].'", "telephone":"'.$row['telephone'].'", "cp":"'.$row['cp'].'", "schedule":"'.$row['schedule'].'", "address":"'.$row['address'].'", "ciutat":"'.$row['ciutat'].'", "descriptionLong":"'.str_replace(array("\r\n", "\r", "\n"), "\\n", $row['descriptionLong']).'", "logo":"'.$row['logo'].'" , "email":"'.$row['email'].'", "nameCategory":"'.$row['NameCategory'].'", "nameAssociacio":"'.$row['NameAssociacio'].'", "nameSubCategory":"'.$row['NameSubCategory'].'", "imagePref":"'.$row['ImagePreferred'].'", "imgUrl":';
+				$dataShops .= '{"nameShop":"'.$row['NameShop'].'", "idShop":"'.$row['idShop'].'", "telephone":"'.$row['telephone'].'", "cp":"'.$row['cp'].'", "schedule":"'.$row['schedule'].'", "address":"'.$row['address'].'", "ciutat":"'.$row['ciutat'].'", "descriptionLong":"'.str_replace(array("\r\n", "\r", "\n"), "\\n", $row['descriptionLong']).'", "logo":"'.$row['logo'].'" , "email":"'.$row['email'].'", "nameCategory":"'.$row['NameCategory'].'", "nameAssociacio":"'.$row['NameAssociacio'].'", "logoAssociacio":"'.$row['LogoAssociacio'].'", "nameSubCategory":"'.$row['NameSubCategory'].'", "imagePref":"'.$row['ImagePreferred'].'", "imgUrl":';
 				$j = 0;
 
 				$dataShops .= '[';

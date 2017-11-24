@@ -6,7 +6,7 @@ angular.module('spaApp')
 		url : "models/shops.php?acc=shop&idShop="+$routeParams.idShop
 	}).then(function mySucces(response) {
 		$scope.shops = response.data;
-    console.log($scope.shops);
+    console.log($scope.shops[0].logoAssociacio);
 	}, function myError(response) {
 		$scope.shops = response.statusText;
 	}).finally(function(){

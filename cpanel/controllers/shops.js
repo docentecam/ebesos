@@ -12,9 +12,6 @@ angular.module('spaApp')
 	}).then(function mySucces(response) {
 		$scope.data = response.data;
 		$scope.shopsList = $scope.data[0].list;
-		$scope.name = $scope.shopsList[0].name.replace(/&quot;/g,'"').replace(/&quot/g,'"');
-		$scope.description = $scope.shopsList[0].description.replace(/&quot;/g,'"').replace(/&quot/g,'"');
-		$scope.descriptionLong = $scope.shopsList[0].descriptionLong.replace(/&quot;/g,'"').replace(/&quot/g,'"');
 		$scope.allSubCat = $scope.data[0].allSubCat;
 	}, function myError(response) {
 		$scope.shops = response.statusText;
@@ -34,9 +31,6 @@ angular.module('spaApp')
 			}).then(function mySucces (response) {
 				$scope.data = response.data;
 				$scope.shopsList = $scope.data[0].list;
-				$scope.name = $scope.shopsList[0].name.replace(/&quot;/g,'"').replace(/&quot/g,'"');
-				$scope.description = $scope.shopsList[0].description.replace(/&quot;/g,'"').replace(/&quot/g,'"');
-				$scope.descriptionLong = $scope.shopsList[0].descriptionLong.replace(/&quot;/g,'"').replace(/&quot/g,'"');
 			}, function myError (response) {
 				$scope.shopDeleted = response.statusText;
 			}).finally(function(){
@@ -85,10 +79,6 @@ angular.module('spaApp')
 		}).then(function mySucces(response) {
 			$scope.data = response.data;
 			$scope.shopOne = $scope.data[0].list[0];
-			$scope.name = $scope.shopOne.name.replace(/&quot;/g,'"').replace(/&quot/g,'"');
-			$scope.description = $scope.shopOne.description.replace(/&quot;/g,'"').replace(/&quot/g,'"');
-			$scope.descriptionLong = $scope.shopOne.descriptionLong.replace(/&quot;/g,'"').replace(/&quot/g,'"');
-			$scope.address = $scope.shopOne.address.replace(/&quot;/g,'"').replace(/&quot/g,'"');
 			$scope.shopOne.currentLogo = $scope.shopOne.logo;
 			console.log($scope.shopOne.currentLogo)
 			$scope.allSubCat = $scope.data[0].allSubCat;
@@ -254,11 +244,11 @@ angular.module('spaApp')
 			var formData = new FormData();
 			formData.append("idShop", $scope.shopOne.idShop);
 			console.log($scope.shopOne.idShop);
-			formData.append("name", $scope.name);
+			formData.append("name", $scope.shopOne.name);
 			formData.append("idUser", $scope.shopOne.idUser);
 			console.log($scope.shopOne.idUser);
 			formData.append("descriptionLong", $scope.descriptionLong);
-			formData.append("description", $scope.description);
+			formData.append("description", $scope.shopOne.description);
 			formData.append("ciutat", $scope.shopOne.ciutat);
 			formData.append("logo", $scope.shopOne.logoUp);
 			console.log($scope.shopOne.logoUp);
@@ -269,7 +259,7 @@ angular.module('spaApp')
 			formData.append("lng", $scope.shopOne.lng);
 			formData.append("telephone", $scope.shopOne.telephone);
 			formData.append("cp", $scope.shopOne.cp);
-			formData.append("address", $scope.address);
+			formData.append("address", $scope.shopOne.address);
 			formData.append("schedule", $scope.shopOne.schedule);
 			formData.append("email", $scope.shopOne.email);
 
@@ -285,10 +275,6 @@ angular.module('spaApp')
 				deferred.resolve(res);
 				$scope.data = res.data[0];
 				$scope.shopOne = $scope.data.list[0];
-				$scope.name = $scope.shopOne.name.replace(/&quot;/g,'"').replace(/&quot/g,'"');
-				$scope.description = $scope.shopOne.description.replace(/&quot;/g,'"').replace(/&quot/g,'"');
-				$scope.descriptionLong = $scope.shopOne.descriptionLong.replace(/&quot;/g,'"').replace(/&quot/g,'"');
-				$scope.address = $scope.shopOne.address.replace(/&quot;/g,'"').replace(/&quot/g,'"');
 				$scope.allSubCat = $scope.data.allSubCat;
 				$scope.subCategoriesShop = $scope.data.subCategoriesShop;
 				$scope.subCategories = $scope.data.subCategories;
