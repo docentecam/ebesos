@@ -936,10 +936,15 @@ a:hover
 {
   margin-top: 138%;
 }
- .btnActivePromos
-  {
-    margin-left: 1%;
-  }
+.btnActivePromos
+{
+  margin-left: 1%;
+}
+.datePaddNew
+{
+  padding-right: 0%;
+  padding-left: 0.5%;
+}
 
 
 
