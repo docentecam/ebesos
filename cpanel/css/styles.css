@@ -756,6 +756,7 @@ a:hover
 {
   padding-top: 7%;
   margin-left: 50%;
+  color: #B1B1B1;
 }
 .txtAreaNew
 {
@@ -936,20 +937,62 @@ a:hover
 {
   margin-top: 138%;
 }
- .btnActivePromos
-  {
-    margin-left: 1%;
-  }
+.btnActivePromos
+{
+  margin-left: 1%;
+}
+.datePaddNew
+{
+  padding-right: 0%;
+  padding-left: 0.5%;
+}
+.colorBlue
+{
+  background-color: #bdd4de;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media (max-width: 575px){
   .tableCategoriaSubCategoria {
     font-weight: 600;
-    font-size: 19px;
+    font-size: 0.9em;
     color: gray;
     margin-left: 10%;
   }
   .tableAlimentacioSubCategoria {
     font-weight: 600;
-    font-size: 19px;
+    font-size: 0.9em;
     color: gray;
     text-align: center;
   }
@@ -1064,6 +1107,19 @@ a:hover
   {
     margin-bottom: 3%;
   }
+ .labelForPromo 
+  {
+    margin-left: 0%;
+    padding-right: 21%;
+  }
+  .txtAreaNoBorder
+  {
+    padding: 0;
+  }
+  .marginBtnPromo
+  {
+    margin-left: 5%;
+  }
 
 }
 
@@ -1149,6 +1205,21 @@ a:hover
     margin-left: 0%;
     margin-bottom: 2%;
   }
+  .labelForPromo 
+  {
+    padding-top: 1.5%;
+    padding-right: 12%;
+    margin-left: 19%;
+  }
+  .marginBtnPromo
+  {
+    margin-left: 11%;
+  }
+  .txtAreaNoBorder
+  {
+    padding: 0;
+  }
+
 }
 @media(max-width: 767px) {
 
@@ -1262,6 +1333,21 @@ a:hover
     margin-left: 0%;
     margin-bottom: 4%;
   }
+  .labelForPromo 
+  {
+    padding-top: 2%;
+    padding-right: 14%;
+    margin-left: 6%;
+  }
+  .marginBtnPromo
+  {
+    margin-left: 10%;
+  }
+  .txtAreaNoBorder
+  {
+    padding: 0;
+  }
+
 }
 @media (max-width: 1023px){
 
@@ -1370,6 +1456,20 @@ a:hover
     margin-top: 1%;
     margin-left: 0%;
   }
+  .txtAreaNoBorder
+  {
+    padding: 0;
+  }
+  .labelForPromo 
+  {
+    padding-top: 2%;
+    padding-right: 11%;
+    margin-left: 8%;
+  }
+  .marginBtnPromo
+  {
+    margin-left: 12%;
+  }
 }
 @media (max-width: 1200px) {
   
@@ -1403,7 +1503,11 @@ a:hover
   }
   .divClientLoggedImage{
     width: 20%;
-    padding-left: 1%;
+    margin-left: 2%;
+    margin-top: 2%;
+  }
+  .divHeaderReduceSpace{
+    margin-bottom: -0.9%;
   }
   #nameAssoLogged{
     position: relative;
@@ -1416,6 +1520,9 @@ a:hover
     position: absolute;
     top: 37.5%;
     right: 16%;
+  }
+  .txtAreaNoBorder{
+    padding: 0;
   }
     
 }

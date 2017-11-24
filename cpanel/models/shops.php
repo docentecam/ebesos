@@ -5,53 +5,12 @@ session_start();
 if(isset($_GET['acc']) && $_GET['acc'] == 'l')
 {
 	//TODO: pasar a una funcion
-	$mySql = "SELECT shopsimages.url, shops.idShop, shops.name, shops.description, shops.idUser";
-	if(isset($_GET['idShop'])) $mySql .= ", shops.lng, shops.lat, shops.logo, shops.telephone, shops.email, shops.address, shops.schedule, shops.descriptionLong, shops.url AS web, shops.cp, shops.ciutat";
+	$idShop = "";
 
-	$mySql .= "	FROM shops LEFT JOIN shopsimages ON shops.idShop = shopsimages.idShop WHERE
-			shopsimages.preferred = 'Y'";
-
-	if(isset($_GET['idShop'])) $mySql .= " AND shops.idShop =".$_GET['idShop'];
-
-	if($_SESSION['user']['privileges'] != 'E')	$mySql .= " AND shops.idUser =".$_SESSION['user']['idUser'];
-
-	$connexio = connect();
-
-	$resultShops = mysqli_query($connexio, $mySql);
-
-	disconnect($connexio);
-
-	$dataShops = "[{";
-	$dataShops .= '"list":';
-	$dataShops .= "[";
-	$i = 0;
-	while($row = mysqli_fetch_array($resultShops))
-	{
-		if($i != 0) $dataShops .= ",";
-
-		$dataShops .= '{"idShop":"'.$row['idShop'].'", "name":"'.$row['name'].'", "idUser":"'.$row['idUser'].'", "description":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['description']).'", "imgPref":"'.$row['url'].'"';
-
-		if(isset($_GET['idShop']))
-		{
-			$dataShops .= ', "lng":"'.$row['lng'].'", "lat":"'.$row['lat'].'", "logo":"'.$row['logo'].'", "telephone":"'.$row['telephone'].'", "email":"'.$row['email'].'", "address":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['address']).'", "schedule":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['schedule']).'", "descriptionLong":"'.str_replace(array("\r\n", "\r", "\n", "'\'"), "\\n",$row['descriptionLong']).'", "web":"'.$row['web'].'", "cp":"'.$row['cp'].'", "ciutat":"'.$row['ciutat'].'"';
-		}
-
-		$dataShops .= '}';
-		$i++;
-	}
-	$dataShops .= "]";
-	if(isset($_GET['idShop']))
-	{
-		$dataShops .= ', "allSubCat":'.listAllSubCat();
-
-		$dataShops .= ', "images":'.listImages($_GET['idShop']);
+	if(isset($_GET['idShop'])) $idShop = $_GET['idShop'];
 	
-		$dataShops .= ', "subCategoriesShop":'.listShopCategoriesSub($_GET['idShop']);
-
-		$dataShops .= ', "subCategories":'.listCategoriesSub($_GET['idShop']);
-	}
-	
-	$dataShops .= '}]';
+	$dataShops = listShop($idShop);
+	//echo $dataShops;
 
 	echo $dataShops;
 }
@@ -79,7 +38,8 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'upload')
 	$descriptionLong = $_POST["descriptionLong"];
 	$description = $_POST["description"];
 	$ciutat = $_POST["ciutat"];
-	$logo = $_FILES["logo"]["name"];
+	if(isset($_FILES["logo"])) $logo = $_FILES["logo"]["name"];
+	$deleteLogo = $_POST["deleteLogo"];
 	$web = $_POST["web"];
 	$lat = $_POST["lat"];
 	$lng = $_POST["lng"];
@@ -89,35 +49,89 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'upload')
 	$schedule = $_POST["schedule"];
 	$email = $_POST["email"];
 
+	$fp=fopen("../files/infoShop.txt",'w');
+		fputs($fp,'idShop="'.$idShop.'"');
+		fputs($fp,'name="'.$name.'"');
+		fputs($fp,'idUser="'.$idUser.'"');
+		fputs($fp,'descriptionLong="'.$descriptionLong.'"');
+		fputs($fp,'description="'.$description.'"');
+		fputs($fp,'ciutat="'.$ciutat.'"');
+		if(isset($_FILES["logo"])) fputs($fp,'logo="'.$logo.'"');
+		fputs($fp,'web="'.$web.'"');
+		fputs($fp,'lat="'.$lat.'"');
+		fputs($fp,'lng="'.$lng.'"');
+		fputs($fp,'telephone="'.$telephone.'"');
+		fputs($fp,'cp="'.$cp.'"');
+		fputs($fp,'address="'.$address.'"');
+		fputs($fp,'schedule="'.$schedule.'"');
+		fputs($fp,'email="'.$email.'"');
+		fputs($fp,'deleteLogo="'.$deleteLogo.'"');
+	fclose($fp);
+
 	if(!is_dir("../files/"))
 	mkdir("../files/", 0777);
 
-	move_uploaded_file($_FILES["logo"]["tmp_name"],	"../../img/logos-shops/".$logo);
-
-	if(isset($_GET['acc']) && $_GET['sentence'] == 'a')
+	if(isset($_POST["idShop"]) && $_POST["idShop"] == "0")
 	{
-		$mySql = 'INSERT INTO `ddb99266`.`shops` (`name`, `lat`, `lng`, `telephone`, `email`, `url`, `schedule`, `address`, `idUser`, `description`, `descriptionLong`, `logo`, `cp`, `ciutat`) VALUES ("'.$name.'", "'.$lat.'", "'.$lng.'", "'.$telephone.'", "'.$email.'", "'.$web.'", "'.$schedule.'", "'.$address.'", "'.$idUser.'", "'.$description.'", "'.str_replace(array("\r\n", "\r", "\n"), "\\n",$descriptionLong).'", "'.$logo.'", "'.$cp.'", "'.$ciutat.'");';
+		$mySql = 'INSERT INTO shops (`name`, `lat`, `lng`, `telephone`, `email`, `url`, `schedule`, `address`, `idUser`, `description`, `descriptionLong`, `cp`, `ciutat`) VALUES ("'.$name.'", "'.$lat.'", "'.$lng.'", "'.$telephone.'", "'.$email.'", "'.$web.'", "'.$schedule.'", "'.$address.'", "'.$idUser.'", "'.$description.'", "'.str_replace(array("\r\n", "\r", "\n"), "\\n",$descriptionLong).'", "'.$cp.'", "'.$ciutat.'");';
 
 		$connexio = connect();
 
 		$resultNewShop = mysqli_query($connexio, $mySql);
+		if($resultNewShop)
+		{
+			$fp=fopen("../files/newShop.txt",'w');
+				fputs($fp,'mySql="'.$mySql.'"');
+			fclose($fp);
+		}
+		
 		$idShopIns=mysqli_insert_id($connexio);
-
+		if(isset($_FILES["logo"]))
+		{
+			$logo = $idShopIns."-".$logo;
+			$mySql = 'UPDATE shops SET logo = "'.$logo.'" WHERE idShop='.$idShopIns;
+			mysqli_query($connexio, $mySql);
+			move_uploaded_file($_FILES["logo"]["tmp_name"],	"../../img/logos-shops/".$logo);
+		}
 		$mySql = 'INSERT INTO shopsimages (`preferred`, `idShop`, `url`) VALUES ("Y", "'.$idShopIns.'", "nofoto.png");';
 
 		$resultNewImgPref = mysqli_query($connexio, $mySql);
+		if($resultNewImgPref)
+		{
+			$fp=fopen("../files/newImgShop.txt",'w');
+				fputs($fp,'mySql="'.$mySql.'"');
+			fclose($fp);
+		}
 
 		disconnect($connexio);
+
+		echo listShop($idShopIns);
 	}
 	else
 	{
-		$mySql = 'UPDATE `ddb99266`.`shops` SET `name`="'.$name.'", `lat`="'.$lat.'", `lng`="'.$lng.'", `telephone`="'.$telephone.'", `email`="'.$email.'", `url`="'.$url.'", `schedule`="'.$schedule.'", `address`="'.$address.'", `idUser`="'.$idUser.'", `description`="'.$description.'", `descriptionLong`="'.$descriptionLong.'", `logo`="'.$logo.'", `cp`="'.$cp.'", `ciutat`="'.$ciutat.'" WHERE `idShop`="'.$idShop.'";';
+		$mySql = 'UPDATE shops SET `name`="'.$name.'", `lat`="'.$lat.'", `lng`="'.$lng.'", `telephone`="'.$telephone.'", `email`="'.$email.'", `url`="'.$web.'", `schedule`="'.$schedule.'", `address`="'.$address.'", `idUser`="'.$idUser.'", `description`="'.str_replace(array("'",'"',"\\n"), array("\'",'\"',"\r\n"),$description).'", `descriptionLong`="'.str_replace(array("'",'"',"\\n"), array("\'",'\"',"\r\n"),$descriptionLong).'", `cp`="'.$cp.'", `ciutat`="'.$ciutat.'"';
+
+		if(isset($_FILES["logo"]))
+		{
+			$logo = $idShop."-".$logo;
+			$mySql .= ', `logo`="'.$logo.'"';
+			move_uploaded_file($_FILES["logo"]["tmp_name"],	"../../img/logos-shops/".$logo);
+			unlink('../../img/logos-shops/'.$deleteLogo);
+		}
+
+		$mySql .= 'WHERE `idShop`="'.$idShop.'";';
+
+		$fp=fopen("../files/editShop.txt",'w');
+			fputs($fp,'mySql="'.$mySql.'"');
+		fclose($fp);
 		
 		$connexio = connect();
 
 		$resultEditShop = mysqli_query($connexio, $mySql);
 
 		disconnect($connexio);
+
+		echo listShop($idShop);
 	}
 }
 else if (isset($_GET['acc']) && $_GET['acc'] == 'uploadImage') 
@@ -129,6 +143,7 @@ else if (isset($_GET['acc']) && $_GET['acc'] == 'uploadImage')
 
 	if(isset($_GET['acc']) && $_GET['sentence'] == 'e')
 	{
+		$img = $idShop."-".$img;
 		move_uploaded_file($_FILES["uploadedFile"]["tmp_name"], '../../img/shops/'.$img);
 
 		if($img != "") $mySql = 'UPDATE shopsimages SET url ="'.$img.'" WHERE idShopImage='.$idShopImage;
@@ -143,6 +158,7 @@ else if (isset($_GET['acc']) && $_GET['acc'] == 'uploadImage')
 	}
 	else if(isset($_GET['acc']) && $_GET['sentence'] == 'n')
 	{
+		$img = $idShop."-".$img;
 		move_uploaded_file($_FILES["uploadedFile"]["tmp_name"], '../../img/shops/'.$img);
 
 		$mySql = 'INSERT INTO shopsimages (`preferred`, `idShop`, `url`) VALUES ("'.N.'", "'.$idShop.'", "'.$img.'");';
@@ -184,13 +200,13 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'delete')
 
 	$deleteShopImage = mysqli_query($connexio, $mySql);
 
-	$mySql = "	DELETE FROM shops WHERE idShop = $idShop AND ";
+	$mySql = "DELETE FROM shops WHERE idShop = $idShop";
 
 	$deleteShop = mysqli_query($connexio, $mySql);
 
 	disconnect($connexio);
 
-	echo $mySql;
+	echo listShop();
 }
 else if(isset($_GET['acc']) && $_GET['acc'] == 'delsc')
 {	
@@ -289,6 +305,59 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'listImages')
 	$idShop = $_GET['idShop'];
 
 	echo '[{"images":'.listImages($idShop).'}]';
+}
+function listShop($idShop="")
+{
+	$i = 0;
+	$mySql = "SELECT shopsimages.url, shops.idShop, shops.name, shops.description, shops.idUser";
+	if($idShop != "") $mySql .= ", shops.lng, shops.lat, shops.logo, shops.telephone, shops.email, shops.address, shops.schedule, shops.descriptionLong, shops.url AS web, shops.cp, shops.ciutat";
+
+	$mySql .= "	FROM shops LEFT JOIN shopsimages ON shops.idShop = shopsimages.idShop WHERE
+			shopsimages.preferred = 'Y'";
+
+	if($idShop != "") $mySql .= " AND shops.idShop =".$idShop;
+
+	if($_SESSION['user']['privileges'] != 'E')	$mySql .= " AND shops.idUser =".$_SESSION['user']['idUser'];
+
+	$connexio = connect();
+
+	$resultShops = mysqli_query($connexio, $mySql);
+
+	disconnect($connexio);
+
+	$listShops = "[{";
+	$listShops .= '"list":';
+	$listShops .= "[";
+
+	while($row = mysqli_fetch_array($resultShops))
+	{
+		if($i != 0) $listShops .= ",";
+
+		$listShops .= '{"idShop":"'.$row['idShop'].'", "name":"'.$row['name'].'", "idUser":"'.$row['idUser'].'", "description":"'.str_replace("\r\n", "\\n",htmlspecialchars($row['description'])).'", "imgPref":"'.$row['url'].'"';
+
+		if($idShop != "")
+		{
+			$listShops .= ', "lng":"'.$row['lng'].'", "lat":"'.$row['lat'].'", "logo":"'.$row['logo'].'", "telephone":"'.$row['telephone'].'", "email":"'.$row['email'].'", "address":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['address']).'", "schedule":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['schedule']).'", "descriptionLong":"'.str_replace("\r\n", "\\n",htmlspecialchars($row['descriptionLong'])).'", "web":"'.$row['web'].'", "cp":"'.$row['cp'].'", "ciutat":"'.$row['ciutat'].'"';
+		}
+
+		$listShops .= '}';
+		$i++;
+	}
+	$listShops .= "]";
+
+	if($idShop != "")
+	{
+		$listShops .= ', "allSubCat":'.listAllSubCat();
+
+		$listShops .= ', "images":'.listImages($idShop);
+	
+		$listShops .= ', "subCategoriesShop":'.listShopCategoriesSub($idShop);
+
+		$listShops .= ', "subCategories":'.listCategoriesSub($idShop);
+	}
+	
+	$listShops .= '}]';
+	return $listShops;
 }
 function listCategoriesSub($idShop)
 {

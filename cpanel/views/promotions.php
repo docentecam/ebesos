@@ -133,10 +133,10 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 				<div class="col-lg-12">
 					<img class="img-responsive col-lg-8 imgPromo" ng-src="../img/promotions/{{promotion.image}}">
 					<span class="col-lg-4">
-						<span class="col-lg-12 spanMarginTopPromo" ng-if="promotion.image!=''">
+						<span class="col-lg-12 col-lg-offset-0 col-xs-offset-7 spanMarginTopPromo ng-scope" ng-if="promotion.image!=''">
 							&nbsp;	
 						</span>
-						<label for="updateImg" class="labelForPromo col-lg-12">Examinar</label>
+						<label for="updateImg" class="labelForPromo col-lg-12 col-xs-push-1 col-lg-push-0">Examinar</label>
 						<input type="file" id="updateImg" onchange="angular.element(this).scope().changeImg(this)" ng-hide="true">
 					</span>
 				</div>
@@ -151,7 +151,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 									Oferta:
 								</span>
 								<div class="col-lg-10">
-									<textarea name="" id="" cols="50" rows="3" ng-model="promotion.oferVals" class="txtAreaNoBorder">promotion.oferVals</textarea>
+									<textarea name="" id="" cols="50" rows="3" ng-model="promotion.oferVals" class="txtAreaNoBorder col-xs-12">promotion.oferVals</textarea>
 								</div>
 							</div>
 							<div class="col-lg-12">
@@ -167,7 +167,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 									Condicions del val:
 								</span>
 								<div class="col-lg-10">
-									<textarea name="" id="" cols="50" rows="3" ng-model="promotion.conditionsVals" class="txtAreaNoBorder txtAreaMarginTop">promotion.conditionsVals</textarea>
+									<textarea name="" id="" cols="50" rows="3" ng-model="promotion.conditionsVals" class="txtAreaNoBorder col-xs-12 txtAreaMarginTop">promotion.conditionsVals</textarea>
 								</div>
 							</div>
 						</fieldset>
@@ -184,7 +184,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 									Oferta:
 								</span>
 								<div class="col-lg-10">
-									<textarea name="" id="" cols="50" rows="3" ng-model="promotion.oferEix" class="txtAreaNoBorder">promotion.oferEix</textarea>
+									<textarea name="" id="" cols="50" rows="3" ng-model="promotion.oferEix" class="txtAreaNoBorder col-xs-12">promotion.oferEix</textarea>
 								</div>
 							</div>
 							<div class="col-lg-12">
@@ -200,9 +200,9 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 									Condicions del val:
 								</span>
 								<div class="col-lg-10">
-									<textarea name="" id="" cols="50" rows="3" ng-model="promotion.conditionsEix" class="txtAreaNoBorder txtAreaMarginTop">promotion.conditionsEix</textarea>
+									<textarea name="" id="" cols="50" rows="3" ng-model="promotion.conditionsEix" class="txtAreaNoBorder col-xs-12 txtAreaMarginTop">promotion.conditionsEix</textarea>
 									<div class="col-lg-12">
-										<div class="col-lg-2 col-lg-pull-1">
+										<div class="col-xs-pull-5 col-lg-2 col-lg-pull-1 marginBtnPromo">
 											<input type="button" class="btn bttnsPromos" value="{{act}}" ng-click="editPromotion(act)">
 										</div>
 									</div>

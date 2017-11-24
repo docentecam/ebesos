@@ -75,7 +75,7 @@ angular.module('spaApp')
 							if ($scope.email[0].envioStatus=='1')
 							{
 								$scope.escondeForm=true;
-								$scope.emailText='Misatge enviat amb exit';
+								$scope.emailText='Missatge enviat amb èxit';
 								$scope.emailStatus=true;
 							}
 					}, function myError (response) {

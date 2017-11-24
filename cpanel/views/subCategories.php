@@ -22,7 +22,8 @@
 	<label>* Recorda que les subcategories que tinguin comerços no podràn ser eliminades</label>
 	<div class="row tableSubCategories">
 		<div class="col-xs-11 col-lg-10 borderTableSubCategories noPadding">
-			<div class="col-xs-6 borderTitlesSubCategories centerPadding">
+			<div class="colorBlue col-xs-12">
+				<div class="col-xs-6 borderTitlesSubCategories centerPadding">
 				<div class="col-xs-12 tableCategoriaSubCategoria noPadding">
 					CATEGORIA
 				</div>
@@ -33,6 +34,8 @@
 					<div ng-show="firstC">ALIMENTACIÓ</div>{{nameC | uppercase}}
 				</div>
 			</div>
+			</div>
+			
 			<div ng-repeat="subCategory in subCategories">
 				<div class="col-xs-8 borderContentSubCategories">
 					<div class="col-xs-12 centerPadding">

@@ -85,7 +85,9 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 							<ul class="nav navbar-nav">
 								<?php if($_SESSION['user']['privileges'] =='E' || $_SESSION['user']['privileges'] =='A') echo '<li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/associations">Associacions</a></li>
 								<li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/shops">Comerços</a></li>' ?>
-							    <li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/promotions">Promocions</a><label id="positionNumberPromo" ng-model="alertPromo" ng-controller="MainCtrl as main">{{main.alertPromo}}</label></li>
+
+							    <li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/promotions">Promocions</a><label id="positionNumberPromo" ng-model="alertPromo" ng-if="alertPromo!=0">{{alertPromo}}</label></li>
+
 							    <?php if($_SESSION['user']['privileges'] =='E' || $_SESSION['user']['privileges'] =='A') echo '<li role="presentation" class="mainNav reduceNav  col-lg-12"><a class="colorLinksNavMobile" href="#/news">Notícies</a></li>' ?>
 							    <?php if($_SESSION['user']['privileges'] =='E') echo '<li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/slider/f/l">Slider</a></li>
 							    <li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/subcategories">Subcategories</a></li>

@@ -26,6 +26,10 @@ a{
 	height: 500px;
 	//width: 1000px;
 }
+.a-more{
+	font-weight: 600;
+	color: #464646!important;
+}
 .category {
 	height: 50px;
 	margin-bottom: 60px;
@@ -661,8 +665,7 @@ hr.style14 {
 }
 #imgPadd{
 	padding-left: 5%;
-	border-bottom: solid 1px #DEE4DD;
-	padding-bottom: 8%;
+	padding-bottom: 5%;
 }
 #lorem{
 	padding-bottom: 0%!important;
@@ -1350,6 +1353,11 @@ hr.style14 {
 		padding-bottom: 100px;
 		text-align: center;
 	}
+	#lorem
+	{
+		margin-left: 51%;
+	}
+	
 }
 @media (min-width: 1200px){
 	#captchaDiv{
@@ -1444,7 +1452,8 @@ hr.style14 {
 		margin-top: 3%;
     	margin-bottom: 3%;
 	}
-}
+
+
 }
 @media (min-width: 1919px){
 	#logoText {
