@@ -41,12 +41,15 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'updatePromotion'){
 				
 	}
 
-	else if (isset($_POST['idPromotion']) && $_POST['idPromotion']==0) {
-		$mySql = "INSERT INTO `promotions` (`idPromotion` , `idShop`,`oferVals`,`conditionsVals`,`dateExpireVals`,`oferEix`,`conditionsEix`,`dateExpireEix`,`image`,`active`)
-		VALUES (NULL,  ".$_POST['shopSelected'].",'".$_POST['oferVals']."', '".$_POST['conditionsVals']."', '".$_POST['dateExpireVals']."','".$_POST['oferEix']."', '".$_POST['conditionsEix']."', '".$_POST['dateExpireEix']."','nofoto.png','";
-		if ($_SESSION['user']['privileges']!="S")  $mySql.= "Y"; 
 
-		$mySql .= "')";
+	else if (isset($_POST['idPromotion']) && $_POST['idPromotion']==0) {
+		$mySql = "INSERT INTO `promotions` (`idPromotion` , `idShop`,`oferVals`,`conditionsVals`,`oferEix`,`conditionsEix`,`image`,`active`,`dateExpireVals`,`dateExpireEix`)";
+		$mySql .=" VALUES (NULL,  ".$_POST['shopSelected'].",'".$_POST['oferVals']."', '".$_POST['conditionsVals']."','".$_POST['oferEix']."', '".$_POST['conditionsEix']."','nofoto.png',";
+		if ($_SESSION['user']['privileges']!="S")  $mySql.= "'Y'"; else $mySql.= "'N'";
+		if ($_POST['dateExpireVals']!="")$mySql .=", '".$_POST['dateExpireVals']."'";else  $mySql.=", NULL";
+		if ($_POST['dateExpireEix']!="") $mySql .=", '".$_POST['dateExpireEix']."'";else  $mySql.=", NULL";
+
+		$mySql .= ")";
 		$fp=fopen("_pruebaPromotion.txt",'w');
 					fputs($fp,'consulta:'.$mySql);
 		$connexio = connect();
@@ -94,7 +97,7 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'updatePromotion'){
 	 		$emailPass, $body, $logoAssociation);
 
 		}
-}			
+	}			
 				
 }
 
