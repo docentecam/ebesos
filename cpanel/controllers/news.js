@@ -45,6 +45,8 @@ angular.module('spaApp')
 				$scope.message="Notícia esborrada";
 			}, function myError (response) {
 				$scope.newsList = response.data;
+			}).finally(function() {
+				$scope.loading=false;
 			});
 		};
 	}
