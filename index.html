@@ -106,7 +106,7 @@
    				</ol>
 				<div class="carousel-inner">					
 					<div class="item" ng-repeat="sliderImg in slider" ng-class="{active : $index == 0}">
-						<a href="{{sliderImg.link}}" target="_blank"><img ng-src="img/slider/{{sliderImg.image}}" alt="{{sliderImg.description}}"> </a>					
+						<a ng-href="{{sliderImg.link!='' ? sliderImg.link : ''}}" target="_blank"><img ng-src="img/slider/{{sliderImg.image}}" alt="{{sliderImg.description}}"> </a>					
 						<div class="row">
 							<div class="textOverImage" ng-if="sliderImg.title!='' && sliderImg.subtitle!=''">
 								<span id="typeLetter">{{sliderImg.title}}</span>
