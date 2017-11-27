@@ -7,7 +7,7 @@ angular.module('spaApp')
 			url : "models/users.php?acc=history&idUser=1"
 		}).then(function mySucces (response) {
 			$scope.names = response.data;
-			$("#namesAboutUs").append($scope.names);
+			$("#namesAboutUs").html($scope.names);
 		}, function myError (response) {
 			$scope.names = response.statusText;
 		})
