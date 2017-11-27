@@ -147,7 +147,7 @@ angular.module('spaApp')
 				url : "models/users.php?acc=history&idUser="+$scope.idUser
 				}).then(function mySucces (response) {
 					$scope.histories = response.data;
-					$("#textareaHistoryAsso").append($scope.histories);
+					$("#textareaHistoryAsso").html($scope.histories);
 					$scope.showDivC = false;
 					$scope.showDivN = false;
 					$scope.showDivCA = false;
