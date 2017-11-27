@@ -52,7 +52,7 @@ angular.module('spaApp')
 	}
 })
 angular.module('spaApp')
-.controller('NewsEditCtrl', function($scope, $http, $routeParams,upload,$q) {
+.controller('NewsEditCtrl', function($scope, $http, $routeParams) {
 	$scope.showListNews=false;	
 	$scope.divNew=true;
 	$scope.addImage=false;
