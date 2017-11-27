@@ -1,6 +1,10 @@
 <?php
 require('../../inc/functions.php');
 session_start();
+
+if(!isset($_SESSION['user']['idUser'])) header("Location: ../index.html");
+else if(!isset($_GET['acc'])) { header("Location: ../index.html");}
+
 if(isset($_GET['acc']) && $_GET['acc'] == 'l'){
 	echo listPromotions();
 }

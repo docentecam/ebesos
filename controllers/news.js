@@ -1,6 +1,6 @@
 angular.module('spaApp')
  .controller('NewsCtrl', function($scope, $http) {
-  	
+  	$scope.loading=true;
 			$http({
 				method : "GET",
 				url : "models/news.php?acc=news&idUser=1"
@@ -9,6 +9,8 @@ angular.module('spaApp')
 				
 			}, function myError (response) {
 				$scope.news = response.statusText;
+			}).finally(function() {
+				$scope.loading=false;
 			});
 		
 	});
