@@ -22,7 +22,6 @@ angular.module('spaApp')
 		}).then(function mySucces (response) {
 				$scope.news = response.data;
 				$scope.medias=$scope.news[0]['media'];
-				console.log($scope.medias);
 		},function myError (response) {
 				$scope.news = response.statusText;
 		}).finally(function() {

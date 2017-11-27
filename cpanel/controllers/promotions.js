@@ -13,7 +13,6 @@ angular.module('spaApp')
 	$scope.validation=msgEditP.data.validation;
 	$scope.fail = msgEditP.data.fail;
 
-	console.log(msgEditP.data.message);
 
 	if ($scope.message==null) {
   		$scope.messageConfirm=false;
@@ -146,7 +145,6 @@ angular.module('spaApp')
 				$scope.promotion.conditionsEix=$scope.promotionSel[0].conditionsEix;
 				$scope.promotion.oferEix=$scope.promotionSel[0].oferEix;
 				$scope.promotion.shopSelected=$scope.promotionSel[0].idShop;}
-				console.log("comercios"+$scope.shopsList);
 
 				
 			}, function myError (response) {
@@ -209,7 +207,6 @@ angular.module('spaApp')
 					
 					deferred.resolve(res);
 					if ($scope.imgForChange!="") {
-						console.log($scope.imgForChange.name);
 						$scope.promotion.image=$scope.promotion.idPromotion+"-"+$scope.imgForChange.name;}	
 				})
 			

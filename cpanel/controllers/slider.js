@@ -42,7 +42,6 @@ angular.module('spaApp')
 			}).then(function mySucces (response) {
 				$scope.updateSlider = response.data;
 				$scope.statusValidation = $scope.updateSlider[0]['status'];
-				console.log('STATUS: '+$scope.statusValidation);
 				$scope.fail = true;
 				$scope.validation = false;
 				if($scope.statusValidation == "S'ha eliminat la imatge del slider")
@@ -75,7 +74,6 @@ angular.module('spaApp')
 	$scope.loading=false;
 	$scope.slider={};
 	$scope.slider.idSlider=$routeParams.idSlider;	
-console.log($scope.slider.idSlider);
 	$scope.slider.title="";
 	$scope.slider.subtitle="";
 	$scope.slider.description="";
@@ -94,7 +92,6 @@ console.log($scope.slider.idSlider);
 				method : "GET",
 				url : "models/slider.php?acc=imgSlider&idSlider="+$scope.slider.idSlider
 			}).then(function mySucces (response) {
-				console.log('entra12');
 				$scope.onlyInfoSlider = response.data;
 				$scope.slider.title=$scope.onlyInfoSlider[0].title;
 				$scope.slider.subtitle=$scope.onlyInfoSlider[0].subtitle;
@@ -108,9 +105,7 @@ console.log($scope.slider.idSlider);
 		});
 	}
 	
-	console.log('entra3');
 	$scope.uploadedImgFileE  = function(e){
-		console.log("Escollim foto"+e.files[0].name);
 		if($scope.slider.image=="")
 		{
 			$scope.slider.image="0";
@@ -118,13 +113,11 @@ console.log($scope.slider.idSlider);
 		$scope.slider.imageChange=e.files[0];
 	}
 	$scope.updateImgSlider = function(){
-		console.log("Intentem enviar"+$scope.slider.image);
 		
 		if($scope.slider.image!="")
 		{
 	  		$scope.loading=true;
 	  		var welcomeBack = 1;
-	  		console.log("arriba");
 	  		var data = new FormData();
   			data.append("idSlider",$scope.slider.idSlider);
 			data.append("description",$scope.slider.description);
@@ -133,7 +126,6 @@ console.log($scope.slider.idSlider);
 			data.append("linkSlider",$scope.slider.linkSlider);
 			data.append("image",$scope.slider.image);
 			data.append("imageChange",$scope.slider.imageChange);
-			console.log($scope.slider.imageChange);
 			var deferred=$q.defer();
 			$http.post("models/slider.php?acc=updateSlider", data,{
 			headers:{
@@ -143,7 +135,6 @@ console.log($scope.slider.idSlider);
 			})
 			.then(function(res)
 			{
-				console.log("llega"+res.data);
 				deferred.resolve(res);
 				$scope.statusValidation = res.data;
 				$scope.validation= true;

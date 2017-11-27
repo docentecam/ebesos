@@ -194,7 +194,6 @@ angular.module('spaApp')
 			{
 				deferred.resolve(res);
 				$scope.new.urlPreferred=$scope.new.idNew+"-"+e.files[0]['name'];
-				console.log($scope.new.idNew+"-"+e.files[0]['name']);
 			});
 	}
 
