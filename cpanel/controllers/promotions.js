@@ -13,6 +13,7 @@ angular.module('spaApp')
 	$scope.validation=msgEditP.data.validation;
 	$scope.fail = msgEditP.data.fail;
 
+	console.log(msgEditP.data.message);
 
 	if ($scope.message==null) {
   		$scope.messageConfirm=false;
@@ -62,8 +63,8 @@ angular.module('spaApp')
 			{ 
 			    $scope.loading=false; 
 			})
-		if(active=="Y")$rootScope.alertPromo--;
-		if(active=="N")$rootScope.alertPromo++;
+if(active=="Y")$rootScope.alertPromo--;
+if(active=="N")$rootScope.alertPromo++;
 		}
 
 		$scope.deletePromotion=function(idPromotion){
@@ -145,6 +146,7 @@ angular.module('spaApp')
 				$scope.promotion.conditionsEix=$scope.promotionSel[0].conditionsEix;
 				$scope.promotion.oferEix=$scope.promotionSel[0].oferEix;
 				$scope.promotion.shopSelected=$scope.promotionSel[0].idShop;}
+				console.log("comercios"+$scope.shopsList);
 
 				
 			}, function myError (response) {
@@ -163,27 +165,19 @@ angular.module('spaApp')
 
 	$scope.editPromotion=function()
 	{
-
-		var error=false;
 		
 		if( $scope.promotion.shopSelected=="-1"){
 			alert("tens que seleccionar un comerç");
-			error=true;
 		}
 		else if(($scope.promotion.conditionsVals=="" ||$scope.promotion.oferVals=="")&&($scope.promotion.conditionsEix=="" ||$scope.promotion.oferEix==""))
 		{
 			alert("N'hi ha un camp buit");
-			error=true;
 		}
 
 		
 
-		if(!error){
+		else{
 		var data = new FormData();
-
-		if ($scope.promotion.conditionsVals=="" ) {$scope.promotion.dateExpireVals=""}
-		
-		if ($scope.promotion.conditionsEix=="") {$scope.promotion.dateExpireEix=""}
 		data.append("idPromotion", $scope.promotion.idPromotion);
 		data.append("imageChange", $scope.imgForChange);
 		data.append("imageActual", $scope.promotion.image);
@@ -207,19 +201,18 @@ angular.module('spaApp')
 					
 					deferred.resolve(res);
 					if ($scope.imgForChange!="") {
+						console.log($scope.imgForChange.name);
 						$scope.promotion.image=$scope.promotion.idPromotion+"-"+$scope.imgForChange.name;}	
 				})
-			
-		}
-			if ( $scope.promotion.idPromotion==0) 
-						{msgEditP.data.message="S'ha afegit correctament ";msgEditP.data.validation=true;}
-					
-			else {msgEditP.data.message="S'ha modificat correctament ";msgEditP.data.fail=true;}
-		
 		}
 
+		if ( $scope.promotion.idPromotion==0) 
+			{msgEditP.data.message="S'ha afegit correctament ";msgEditP.data.validation=true;}
 		
+		else {msgEditP.data.message="S'ha modificat correctament ";msgEditP.data.fail=true;}
 		
 		$location.url("/promotions");
 		
+	}
+
 });
