@@ -12,6 +12,13 @@
 		<option ng-value="userL.idUser" ng-repeat="userL in userList" ng-selected="userL.idUser==<?php echo $_SESSION['user']['idUser']?>">{{userL.name}}</option>
 	</select>
 </div>
+<div ng-show="fail">
+	<div ng-class="validation ? 'alert alert-success' : 'alert alert-danger'" id="validationAssociation">
+		<i class="fa fa-times" ng-hide="validation" aria-hidden="true"></i>
+		<i class="fa fa-check" ng-show="validation" aria-hidden="true"></i>
+		<b>{{statusValidation}}</b>
+	</div>
+</div>
 <div class="row shops-list" ng-repeat="shops in shopsList | filter : {idUser:filterShops}:true" ng-show="(showList)">
 	<div class="col-lg-10 shop-cage">
 		<div class="col-md-3"><img class="img-responsive" src="../img/shops/{{shops.imgPref}}"></div>
