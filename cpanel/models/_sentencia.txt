@@ -1,0 +1,1 @@
+INSERT INTO `promotions` (`idPromotion` , `idShop`,`oferVals`,`conditionsVals`,`oferEix`,`conditionsEix`,`image`,`active`,`dateExpireVals`,`dateExpireEix`') VALUES (NULL,  1,'a', 'a','', '','nofoto.png','Y', '2017-11-28',NULL)
