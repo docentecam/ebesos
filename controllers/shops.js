@@ -6,7 +6,6 @@ angular.module('spaApp')
 		url : "models/shops.php?acc=shop&idShop="+$routeParams.idShop
 	}).then(function mySucces(response) {
 		$scope.shops = response.data;
-    console.log($scope.shops[0].logoAssociacio);
 	}, function myError(response) {
 		$scope.shops = response.statusText;
 	}).finally(function(){
@@ -19,7 +18,6 @@ angular.module('spaApp')
     url : "models/xmlCreation.php?acc=shop&idShop="+$routeParams.idShop
   }).then(function mySucces (response) {
     $scope.categories=response.data;
-    console.log(response.data);
   }, function myError (response) {
     $scope.categories = response.statusText;
   }).finally(function(){
@@ -35,7 +33,6 @@ angular.module('spaApp')
     url : "models/xmlCreation.php"
   }).then(function mySucces (response) {
     $scope.categories=response.data;
-    console.log(response.data);
   }, function myError (response) {
     $scope.categories = response.statusText;
   }).finally(function(){
@@ -49,8 +46,6 @@ angular.module('spaApp')
   }).then(function mySucces (response) {
     $scope.categories=response.data;
     var selectCategory = document.getElementsByName('selectSubCategory');
-    console.log(selectCategory);
-    console.log(response.data);
   }, function myError (response) {
     $scope.categories = response.statusText;
   }).finally(function(){
@@ -70,8 +65,6 @@ angular.module('spaApp')
       var xml = data.responseXML;
       var markers = xml.documentElement.getElementsByTagName('marker');
       var markerPoints = new Array();
-      console.log(filter);
-      console.log(parameter);
       Array.prototype.forEach.call(markers, function(markerElem) {
         //Inicio filtrado categoria
         var draw = false;
@@ -82,16 +75,13 @@ angular.module('spaApp')
         {
           var repeated = false;
           var i = 0;
-          console.log(markerPoints.length)
           while(!repeated && i<markerPoints.length)
           {
             if(markerElem.getAttribute('idShop') == markerPoints[i])
             {
               repeated = true;
-              console.log("entra en repetido"+repeated);
             }
             i++;
-            console.log(markerElem.getAttribute('idShop')+repeated);
           }
           
           if(!repeated)
@@ -231,7 +221,6 @@ angular.module('spaApp')
         if(i != resetCombo) 
         {
           $("#selectSubCategory-"+i).val("-1");
-          console.log(filter+"selectSubCategory-"+i);
         }
       }
     }

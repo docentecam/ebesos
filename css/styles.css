@@ -80,7 +80,6 @@ a{
 	margin-left: -15px;
 	background-color: #80AE38;
 }
-/*FIN COMERCIAL MAP*/
 .shop-header{
 	margin-bottom: 30px;
 }
@@ -104,13 +103,6 @@ a{
 .shop-photos{
 	margin-top: 20px;
 }
-/* Optional: Makes the sample page fill the window. */
-
-/*html, body {
-height: 100%;
-margin: 0;
-padding: 0;
-}*/
 #cookie-agree{
     display:none;
     position:fixed;
@@ -143,18 +135,6 @@ padding: 0;
     text-decoration:none;
     color:#faff00;
 }
-
-/*
-#photo{
-	border-radius: 15px 50px;
-	margin-left: 35.5%;
-	margin-bottom: 55.5%;
-}
-#title{
-	margin-left: 60%;
-	margin-top: 25%; 
-}
-*/
 .headTitle{
 	font-weight: 600;
 	text-align: center;
@@ -227,7 +207,6 @@ padding: 0;
 	background-color:#659eab;
 	margin-top: 5%!important;
 }
-
 .linkNom{
 	font-weight: bold;
     padding: 0;
@@ -301,12 +280,14 @@ padding: 0;
 .customazingNav{
 	width: 20%;
 }
+#whoMadeIt{
+	color: white;
+}
 
 .footer-bs .footer-brand, .footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { padding:10px 25px; }
 .footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { border-color: transparent; }
 .footer-bs .footer-brand h2 { margin:0px 0px 10px; }
 .footer-bs .footer-brand p { font-size:12px; color:rgba(255,255,255,0.70); }
-
 .footer-bs .footer-nav ul.pages { list-style:none; padding:0px; }
 .footer-bs .footer-nav ul.pages li { padding:5px 0px;}
 .footer-bs .footer-nav ul.pages a { color:rgba(255,255,255,1.00); font-weight:bold; text-transform:uppercase; }
@@ -321,7 +302,6 @@ padding: 0;
 .footer-bs .footer-nav ul.list li { padding:5px 0px;}
 .footer-bs .footer-nav ul.list a { color:rgba(255,255,255,0.80); }
 .footer-bs .footer-nav ul.list a:hover { color:rgba(255,255,255,0.60); text-decoration:none; }
-
 .footer-bs .footer-social ul { list-style:none; padding:0px; }
 .footer-bs .footer-social h4 {
 	font-size: 11px;
@@ -331,7 +311,6 @@ padding: 0;
 .footer-bs .footer-social li { padding:5px 4px;}
 .footer-bs .footer-social a { color:rgba(255,255,255,1.00);}
 .footer-bs .footer-social a:hover { color:rgba(255,255,255,0.80); text-decoration:none; }
-
 .footer-bs .footer-ns h4 {
 	font-size: 11px;
 	text-transform: uppercase;
@@ -339,7 +318,6 @@ padding: 0;
 	margin-bottom:10px;
 }
 .footer-bs .footer-ns p { font-size:12px; color:rgba(255,255,255,0.70); }
-
 #captchaDiv{
 	background-image: url("../img/captcha.jpg");
 	color: gray;
@@ -507,10 +485,6 @@ padding: 0;
 #photo:hover{
 	opacity: 1;
 }
-
-
-
-
 .content{
     padding: 2%!important;
     padding-bottom: 5%!important;
@@ -706,23 +680,6 @@ hr.style14 {
 	text-decoration: underline;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @media (min-width: 320px) { 
    .subCat{
         padding-bottom: 1%;
@@ -787,7 +744,6 @@ hr.style14 {
         margin-left: 4%;
     }
 }
-
 @media (max-width: 575px){
 	select{
 		font-size: 0.8em;
@@ -1094,7 +1050,6 @@ hr.style14 {
     	top: 32%;
  	}
 }
-
 @media (min-width: 576px) and (max-width: 700px) { 
     .pictoImg{
         margin-top: -0.5%;
@@ -1107,8 +1062,7 @@ hr.style14 {
         width: 55%;
         padding: 5%;
     }
-}  
-
+}
 @media (min-width: 701px) and (max-width: 767px) {    
      .pictoImg{
         margin-top: -0.5%;
@@ -1122,7 +1076,6 @@ hr.style14 {
         padding: 5%;
     }
 }
-/*Small devices (landscape phones, less than 768px)*/
 @media (min-width: 768px) {    
    .subCat{
     padding-bottom: 1%;
@@ -1144,7 +1097,6 @@ hr.style14 {
         padding: 5%;
     }
 }
-
 @media (min-width: 951px) and (max-width: 1199px) {    
      .pictoImg{
         margin-top: -0.5%;
@@ -1155,7 +1107,6 @@ hr.style14 {
         padding: 5%;
     }
 }
-
 @media (min-width: 768px) and (max-width: 1023px){
 	.footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns{
 		border-left:solid 1px rgba(255,255,255,0.10);
@@ -1180,7 +1131,7 @@ hr.style14 {
     	margin-top: 8%;
     	margin-bottom: 3%;
 	}
-	#logoText {
+	#logoText{
 
     	margin-top: 6%;
     	margin-left: -21%;
@@ -1233,7 +1184,6 @@ hr.style14 {
 	.acColor, .xnoColor, .merColor{
 		margin-left: 0;
 	}
-
 }
 @media (min-width: 951px) and (max-width: 992px) {
     .pictoImg{
@@ -1392,8 +1342,7 @@ hr.style14 {
 		padding-bottom: 100px;
 		text-align: center;
 	}
-	#lorem
-	{
+	#lorem{
 		margin-left: 51%;
 	}
 	
@@ -1491,11 +1440,9 @@ hr.style14 {
 		margin-top: 3%;
     	margin-bottom: 3%;
 	}
-
-
 }
 @media (min-width: 1919px){
-	#logoText {
+	#logoText{
     	margin-top: 9%;
     	margin-left: -2%;
 	}

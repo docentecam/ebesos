@@ -7,7 +7,7 @@ angular.module('spaApp')
 			url : "models/users.php?acc=history&idUser=1"
 		}).then(function mySucces (response) {
 			$scope.names = response.data;
-			$("#namesAboutUs").append($scope.names);
+			$("#namesAboutUs").html($scope.names);
 		}, function myError (response) {
 			$scope.names = response.statusText;
 		})
@@ -73,7 +73,6 @@ angular.module('spaApp')
 							$scope.muestraStatusEmail=true;
 							$scope.emailText='Ha hagut un error';
 							$scope.emailStatus=false;
-							console.log($scope.email[0].envioStatus);
 							if ($scope.email[0].envioStatus=='1')
 							{
 								$scope.escondeForm=true;
@@ -147,7 +146,7 @@ angular.module('spaApp')
 				url : "models/users.php?acc=history&idUser="+$scope.idUser
 				}).then(function mySucces (response) {
 					$scope.histories = response.data;
-					$("#textareaHistoryAsso").append($scope.histories);
+					$("#textareaHistoryAsso").html($scope.histories);
 					$scope.showDivC = false;
 					$scope.showDivN = false;
 					$scope.showDivCA = false;
@@ -239,7 +238,6 @@ angular.module('spaApp')
 							$scope.muestraStatusEmail=true;
 							$scope.emailText='Ha hagut un error';
 							$scope.emailStatus=false;
-							console.log($scope.email[0].envioStatus);
 							if ($scope.email[0].envioStatus=='1')
 							{
 								$scope.escondeForm=true;

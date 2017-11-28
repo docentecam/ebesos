@@ -27,7 +27,6 @@ angular.module('spaApp')
 	});
 
 	$scope.shopOneDelete = function($idShop){
-		console.log($idShop);
 		var confirmed = confirm("Desitja esborrar aquest comerç?");
 		if(confirmed)
 		{
@@ -66,7 +65,6 @@ angular.module('spaApp')
 
 	$scope.shopOne = {};
 	$scope.shopOne.idShop = $routeParams.idShop;
-	console.log($scope.shopOne.idShop);
 	$scope.name = "";
 	$scope.shopOne.idUser = "";
 	$scope.descriptionLong = "";
@@ -94,13 +92,10 @@ angular.module('spaApp')
 			$scope.shopOne = $scope.data[0].list[0];
 			$scope.descriptionLong = $scope.shopOne.descriptionLong.replace(/&quot;/g,'"').replace(/&quot/g,'"').replace(/&amp;/g,'&').replace(/&amp/g,'&');
 			$scope.shopOne.currentLogo = $scope.shopOne.logo;
-			console.log($scope.shopOne.currentLogo)
 			$scope.allSubCat = $scope.data[0].allSubCat;
 			$scope.subCategoriesShop = $scope.data[0].subCategoriesShop;
 			$scope.subCategories = $scope.data[0].subCategories;
 			$scope.images = $scope.data[0].images;
-			console.log($scope.data);
-			console.log($scope.descriptionLong);
 		}, function myError(response) {
 			$scope.shops = response.statusText;
 		}).finally(function(){
@@ -217,7 +212,6 @@ angular.module('spaApp')
 		formData.append("idShop",$scope.shopOne.idShop);
 		formData.append("deleteImagePref",$scope.images[0].url);
 		formData.append("idShopImage",$scope.images[0].idShopImage);
-		console.log($scope.images[0].url);
 
 		var deferred=$q.defer();
 		$http.post("models/shops.php?acc=uploadImage&sentence="+type, formData,{
@@ -237,7 +231,6 @@ angular.module('spaApp')
 			}).then(function mySucces(response) {
 				$scope.imagesData = response.data;
 				$scope.images = $scope.imagesData[0].images;
-				console.log($scope.images[0].url);
 			}, function myError(response) {
 				$scope.shops = response.statusText;
 			}).finally(function(){
@@ -247,7 +240,6 @@ angular.module('spaApp')
 		return deferred.promise;
 	}
 	$scope.uploadLogo = function(e){
-		console.log("Escollim foto"+e.files[0].name);
 		$scope.shopOne.logoUp=e.files[0];
 	}
 	$scope.uploadFile = function(){
@@ -257,17 +249,13 @@ angular.module('spaApp')
 
 			var formData = new FormData();
 			formData.append("idShop", $scope.shopOne.idShop);
-			console.log($scope.shopOne.idShop);
 			formData.append("name", $scope.shopOne.name);
 			formData.append("idUser", $scope.shopOne.idUser);
-			console.log($scope.shopOne.idUser);
 			formData.append("descriptionLong", $scope.descriptionLong);
 			formData.append("description", $scope.shopOne.description);
 			formData.append("ciutat", $scope.shopOne.ciutat);
 			formData.append("logo", $scope.shopOne.logoUp);
-			console.log($scope.shopOne.logoUp);
 			formData.append("deleteLogo", $scope.shopOne.logo);
-			console.log($scope.shopOne.logo);
 			formData.append("web", $scope.shopOne.web);
 			formData.append("lat", $scope.shopOne.lat);
 			formData.append("lng", $scope.shopOne.lng);
@@ -293,8 +281,6 @@ angular.module('spaApp')
 				$scope.subCategoriesShop = $scope.data.subCategoriesShop;
 				$scope.subCategories = $scope.data.subCategories;
 				$scope.images = $scope.data.images;
-				console.log(res.data[0]);
-				console.log($scope.images);
 				
 			})
 		}

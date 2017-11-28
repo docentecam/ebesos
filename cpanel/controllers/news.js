@@ -45,12 +45,14 @@ angular.module('spaApp')
 				$scope.message="Notícia esborrada";
 			}, function myError (response) {
 				$scope.newsList = response.data;
+			}).finally(function() {
+				$scope.loading=false;
 			});
 		};
 	}
 })
 angular.module('spaApp')
-.controller('NewsEditCtrl', function($scope, $http, $routeParams,upload,$q) {
+.controller('NewsEditCtrl', function($scope, $http, $routeParams) {
 	$scope.showListNews=false;	
 	$scope.divNew=true;
 	$scope.addImage=false;
@@ -194,7 +196,6 @@ angular.module('spaApp')
 			{
 				deferred.resolve(res);
 				$scope.new.urlPreferred=$scope.new.idNew+"-"+e.files[0]['name'];
-				console.log($scope.new.idNew+"-"+e.files[0]['name']);
 			});
 	}
 

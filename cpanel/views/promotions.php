@@ -114,7 +114,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> 
 	<div class="row" ng-hide="loadPromotions">	
 		<form action="#" id="validationPromotion" name="validation" >	
 			<div class="col-lg-12">
@@ -134,7 +134,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 					<img class="img-responsive col-lg-8 imgPromo" ng-src="../img/promotions/{{promotion.image}}">
 					<span class="col-lg-4">
 						<span class="col-lg-12 col-lg-offset-0 col-xs-offset-7 spanMarginTopPromo ng-scope" ng-if="promotion.image!=''">
-							&nbsp;	
+						&nbsp;	
 						</span>
 						<label for="updateImg" class="labelForPromo col-lg-12 col-xs-push-1 col-lg-push-0">Examinar</label>
 						<input type="file" id="updateImg" onchange="angular.element(this).scope().changeImg(this)" ng-hide="true">
