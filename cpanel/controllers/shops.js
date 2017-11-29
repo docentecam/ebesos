@@ -20,6 +20,7 @@ angular.module('spaApp')
 		$scope.data = response.data;
 		$scope.shopsList = $scope.data[0].list;
 		$scope.allSubCat = $scope.data[0].allSubCat;
+		console.log($scope.data);
 	}, function myError(response) {
 		$scope.shops = response.statusText;
 	}).finally(function(){
@@ -90,7 +91,6 @@ angular.module('spaApp')
 		}).then(function mySucces(response) {
 			$scope.data = response.data;
 			$scope.shopOne = $scope.data[0].list[0];
-			$scope.descriptionLong = $scope.shopOne.descriptionLong.replace(/&quot;/g,'"').replace(/&quot/g,'"').replace(/&amp;/g,'&').replace(/&amp/g,'&');
 			$scope.shopOne.currentLogo = $scope.shopOne.logo;
 			$scope.allSubCat = $scope.data[0].allSubCat;
 			$scope.subCategoriesShop = $scope.data[0].subCategoriesShop;

@@ -103,6 +103,25 @@ a{
 .shop-photos{
 	margin-top: 20px;
 }
+.whatsapp-yes i{
+	color: #00E676;
+}
+.facebook-yes i{
+	color: #3B5998;
+}
+.twitter-yes i{
+	color: #4FABF1;
+}
+.instagram-yes i{
+	color: #E35B36;
+}
+.user-service-no{
+	pointer-events: none;
+	cursor: default;
+}
+.user-service-no i{
+	color: rgb(181, 183, 197);
+}
 #cookie-agree{
     display:none;
     position:fixed;

@@ -75,7 +75,7 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'upload')
 
 	if(isset($_POST["idShop"]) && $_POST["idShop"] == "0")
 	{
-		$mySql = 'INSERT INTO shops (`name`, `lat`, `lng`, `telephone`, `email`, `url`, `schedule`, `address`, `idUser`, `description`, `descriptionLong`, `cp`, `ciutat`) VALUES ("'.$name.'", "'.$lat.'", "'.$lng.'", "'.$telephone.'", "'.$email.'", "'.$web.'", "'.$schedule.'", "'.$address.'", "'.$idUser.'", "'.$description.'", "'.str_replace(array("\r\n", "\r", "\n"), "\\n",$descriptionLong).'", "'.$cp.'", "'.$ciutat.'");';
+		$mySql = 'INSERT INTO shops (`name`, `lat`, `lng`, `telephone`, `email`, `url`, `schedule`, `address`, `idUser`, `description`, `descriptionLong`, `cp`, `ciutat`) VALUES ("'.replaceFromHtml($name).'", "'.$lat.'", "'.$lng.'", "'.$telephone.'", "'.replaceFromHtml($email).'", "'.replaceFromHtml($web).'", "'.replaceFromHtml($schedule).'", "'.replaceFromHtml($address).'", "'.$idUser.'", "'.$description.'", "'.replaceFromHtml($descriptionLong).'", "'.$cp.'", "'.replaceFromHtml($ciutat).'");';
 
 		$connexio = connect();
 
@@ -111,7 +111,7 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'upload')
 	}
 	else
 	{
-		$mySql = 'UPDATE shops SET `name`="'.$name.'", `lat`="'.$lat.'", `lng`="'.$lng.'", `telephone`="'.$telephone.'", `email`="'.$email.'", `url`="'.$web.'", `schedule`="'.$schedule.'", `address`="'.$address.'", `idUser`="'.$idUser.'", `description`="'.str_replace(array("'",'"',"\\n"), array("\'",'\"',"\r\n"),$description).'", `descriptionLong`="'.str_replace(array("'",'"',"\\n"), array("\'",'\"',"\r\n"),$descriptionLong).'", `cp`="'.$cp.'", `ciutat`="'.$ciutat.'"';
+		$mySql = 'UPDATE shops SET `name`="'.replaceFromHtml($name).'", `lat`="'.$lat.'", `lng`="'.$lng.'", `telephone`="'.$telephone.'", `email`="'.replaceFromHtml($email).'", `url`="'.replaceFromHtml($web).'", `schedule`="'.replaceFromHtml($schedule).'", `address`="'.replaceFromHtml($address).'", `idUser`="'.$idUser.'", `description`="'.replaceFromHtml($description).'", `descriptionLong`="'.replaceFromHtml($descriptionLong).'", `cp`="'.$cp.'", `ciutat`="'.replaceFromHtml($ciutat).'"';
 
 		if(isset($_FILES["logo"]))
 		{
@@ -349,11 +349,11 @@ function listShop($idShop="")
 	{
 		if($i != 0) $listShops .= ",";
 
-		$listShops .= '{"idShop":"'.$row['idShop'].'", "name":"'.$row['name'].'", "idUser":"'.$row['idUser'].'", "description":"'.str_replace("\r\n", "\\n",htmlspecialchars($row['description'])).'", "imgPref":"'.$row['url'].'"';
+		$listShops .= '{"idShop":"'.$row['idShop'].'", "name":"'.replaceFromBBDD($row['name']).'", "idUser":"'.$row['idUser'].'", "description":"'.replaceFromBBDD($row['description']).'", "imgPref":"'.$row['url'].'"';
 
 		if($idShop != "")
 		{
-			$listShops .= ', "lng":"'.$row['lng'].'", "lat":"'.$row['lat'].'", "logo":"'.$row['logo'].'", "telephone":"'.$row['telephone'].'", "email":"'.$row['email'].'", "address":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['address']).'", "schedule":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['schedule']).'", "descriptionLong":"'.str_replace(array("\r\n", "\r", "\n"),"\\n", htmlspecialchars($row['descriptionLong'])).'", "web":"'.$row['web'].'", "cp":"'.$row['cp'].'", "ciutat":"'.$row['ciutat'].'"';
+			$listShops .= ', "lng":"'.$row['lng'].'", "lat":"'.$row['lat'].'", "logo":"'.$row['logo'].'", "telephone":"'.$row['telephone'].'", "email":"'.$row['email'].'", "address":"'.replaceFromBBDD($row['address']).'", "schedule":"'.$row['schedule'].'", "descriptionLong":"'.replaceFromBBDD($row['descriptionLong']).'", "web":"'.replaceFromBBDD($row['web']).'", "cp":"'.$row['cp'].'", "ciutat":"'.$row['ciutat'].'"';
 		}
 
 		$listShops .= '}';
@@ -373,6 +373,7 @@ function listShop($idShop="")
 	}
 	
 	$listShops .= '}]';
+	//return replaceFromBBDD($listShops);
 	return $listShops;
 }
 function listCategoriesSub($idShop)

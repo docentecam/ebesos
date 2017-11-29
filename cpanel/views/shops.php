@@ -47,7 +47,7 @@
 		<div class="col-md-12">
 			<span class="col-lg-6 no-padding">Descripció llarga</span>
 			<span class="col-lg-6 no-padding">Descripció curta</span>
-			<textarea class="col-lg-4" rows="10" id="descL-shop" name="descL-shop" ng-model="descriptionLong">{{descriptionLong}}</textarea>
+			<textarea class="col-lg-4" rows="10" id="descL-shop" name="descL-shop" ng-model="shopOne.descriptionLong">{{shopOne.descriptionLong}}</textarea>
 			<textarea class="col-lg-4 col-lg-offset-2" rows="4" id="descS-shop" name="descS-shop" ng-model="shopOne.description">{{shopOne.description}}</textarea>
 			<span id="i-shop-city" class="col-lg-4 no-padding col-lg-offset-2">Ciutat</span>
 			<input class="col-lg-4 col-lg-offset-2" type="text" id="c-shop" name="c-shop" placeholder="ciutat" name="" ng-model="shopOne.ciutat">
