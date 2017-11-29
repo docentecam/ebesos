@@ -3,8 +3,15 @@ angular.module('spaApp')
 	$scope.showShop = false;
 	$scope.showList = true;
 	$scope.loading = true;
+
 	$scope.filterId = 1;
+
 	$scope.userList = usersList.data.userList;
+
+	$scope.statusValidation = "";
+	$scope.status = false;
+	$scope.validation = "";
+	$scope.fail = false;
 
 	$http({
 		method : "GET",
@@ -29,7 +36,13 @@ angular.module('spaApp')
 				url : "models/shops.php?acc=delete&idShop="+$idShop
 			}).then(function mySucces (response) {
 				$scope.data = response.data;
-				$scope.shopsList = $scope.data[0].list;
+				var cadena = $scope.data.split("55339-");
+				$scope.statusValidation = cadena[1];
+				$scope.shopsData = cadena[2];
+				$scope.shopsList = $scope.shopsData[0].list;
+				$scope.fail = true
+				if(cadena[0]) $scope.validation = true;
+				console.log($scope.shopsData);
 			}, function myError (response) {
 				$scope.shopDeleted = response.statusText;
 			}).finally(function(){
@@ -77,6 +90,7 @@ angular.module('spaApp')
 		}).then(function mySucces(response) {
 			$scope.data = response.data;
 			$scope.shopOne = $scope.data[0].list[0];
+			$scope.descriptionLong = $scope.shopOne.descriptionLong.replace(/&quot;/g,'"').replace(/&quot/g,'"').replace(/&amp;/g,'&').replace(/&amp/g,'&');
 			$scope.shopOne.currentLogo = $scope.shopOne.logo;
 			$scope.allSubCat = $scope.data[0].allSubCat;
 			$scope.subCategoriesShop = $scope.data[0].subCategoriesShop;

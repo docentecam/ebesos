@@ -189,7 +189,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 							</div>
 							<div class="col-lg-12">
 								<span class="col-lg-2 noPadding">
-									Data d'expiració vals:
+									Data d'expiració Eix:
 								</span>
 								<div class="col-lg-10">
 									<input type="date" ng-model="promotion.dateExpireEix" class="">
@@ -197,7 +197,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 							</div>
 							<div class="col-lg-12">
 								<span class="col-lg-2 noPadding">
-									Condicions del val:
+									Condicions del Eix:
 								</span>
 								<div class="col-lg-10">
 									<textarea name="" id="" cols="50" rows="3" ng-model="promotion.conditionsEix" class="txtAreaNoBorder col-xs-12 txtAreaMarginTop">promotion.conditionsEix</textarea>

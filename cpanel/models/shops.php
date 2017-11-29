@@ -194,21 +194,35 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'delete')
 {
 	//TODO: Hay que borrar tambien los archivos fisicos
 	
-	$idShop=$_GET['idShop'];
+	$idShop = $_GET['idShop'];
+	$message = "";
+	$exit = "";
 
 	$mySql = "DELETE FROM shopsimages WHERE idShop = $idShop";
 
 	$connexio = connect();
 
-	$deleteShopImage = mysqli_query($connexio, $mySql);
+	//$deleteShopImage = mysqli_query($connexio, $mySql);
 
 	$mySql = "DELETE FROM shops WHERE idShop = $idShop";
 
-	$deleteShop = mysqli_query($connexio, $mySql);
+	//$deleteShop = mysqli_query($connexio, $mySql);
 
 	disconnect($connexio);
 
-	echo listShop();
+	if($connexio)
+	{
+		$message = "S'ha esborrat";
+		$exit = 1;
+	}
+	else
+	{	
+		$message = "Error al connectar";
+		$exit = 0;
+	}
+
+	//echo listShop();
+	echo $exit."55339-".$message."55339-".listShop();
 }
 else if(isset($_GET['acc']) && $_GET['acc'] == 'delsc')
 {	
@@ -339,7 +353,7 @@ function listShop($idShop="")
 
 		if($idShop != "")
 		{
-			$listShops .= ', "lng":"'.$row['lng'].'", "lat":"'.$row['lat'].'", "logo":"'.$row['logo'].'", "telephone":"'.$row['telephone'].'", "email":"'.$row['email'].'", "address":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['address']).'", "schedule":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['schedule']).'", "descriptionLong":"'.str_replace("\r\n", "\\n",htmlspecialchars($row['descriptionLong'])).'", "web":"'.$row['web'].'", "cp":"'.$row['cp'].'", "ciutat":"'.$row['ciutat'].'"';
+			$listShops .= ', "lng":"'.$row['lng'].'", "lat":"'.$row['lat'].'", "logo":"'.$row['logo'].'", "telephone":"'.$row['telephone'].'", "email":"'.$row['email'].'", "address":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['address']).'", "schedule":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['schedule']).'", "descriptionLong":"'.str_replace(array("\r\n", "\r", "\n"),"\\n", htmlspecialchars($row['descriptionLong'])).'", "web":"'.$row['web'].'", "cp":"'.$row['cp'].'", "ciutat":"'.$row['ciutat'].'"';
 		}
 
 		$listShops .= '}';

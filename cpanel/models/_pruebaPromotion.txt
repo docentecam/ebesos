@@ -1,1 +1,0 @@
-consulta:SELECT idPromotion , oferVals, oferEix, image , conditionsVals, conditionsEix , promotions.active ,dateExpireVals, DATE_FORMAT( dateExpireVals,'%d-%m-%Y') AS dateExpireValsE,dateExpireEix, DATE_FORMAT( dateExpireEix,'%d-%m-%Y') AS dateExpireEixE,shops.idShop FROM promotions, shops WHERE promotions.idShop=shops.idShop cons shopsSELECT * FROM shops

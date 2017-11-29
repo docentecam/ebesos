@@ -12,72 +12,71 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'updatePromotion'){
  	
 	if (isset($_POST['idPromotion']) && $_POST['idPromotion']!=0) {
 			$mySql = 'UPDATE promotions
-			SET conditionsVals="'.$_POST['conditionsVals'].'", dateExpireVals="'.$_POST['dateExpireVals'].'",dateExpireEix="'.$_POST['dateExpireEix'].'",oferVals="'.$_POST['oferVals'].'",conditionsEix="'.$_POST['conditionsEix'].'",oferEix="'.$_POST['oferEix'].'",idShop="'.$_POST['shopSelected'].'"';
-			
-					if(!isset($_POST['imageChange']) ){
-							$file = $_POST['idPromotion']."-".$_FILES['imageChange']["name"];
-							move_uploaded_file($_FILES['imageChange']["tmp_name"], "../../img/promotions/".$file);
-			 				if ($_POST['imageActual']!='nofoto.png') {
-								unlink("../../img/promotions/".$_POST['imageActual']);
-								
-			 				}
-						$mySql.= ',image="'.$file.'"';
-					}                                               
+			SET conditionsVals="'.$_POST['conditionsVals'].'", dateExpireVals="'.$_POST['dateExpireVals'].'",dateExpireEix="'.$_POST['dateExpireEix'].'",oferVals="'.$_POST['oferVals'].'",conditionsEix="'.$_POST['conditionsEix'].'",oferEix="'.$_POST['oferEix'].'",idShop="'.$_POST['shopSelected'].'"';		
+			if(!isset($_POST['imageChange']) ){
+				$file = $_POST['idPromotion']."-".$_FILES['imageChange']["name"];
+				move_uploaded_file($_FILES['imageChange']["tmp_name"], "../../img/promotions/".$file);
+				if ($_POST['imageActual']!='nofoto.png') {
+					unlink("../../img/promotions/".$_POST['imageActual']);
+				}
+				$mySql.= ',image="'.$file.'"';
+			}                                               
 			$mySql.= " WHERE idPromotion=".$_POST['idPromotion'];
-			$fp=fopen("_pruebaPromotion.txt",'w');
-					fputs($fp,'consulta:'.$mySql);
 			$connexio = connect();
 			$resultNewPromotionUpdate = mysqli_query($connexio, $mySql);
-			disconnect($connexio);
-			
-				
+			disconnect($connexio);			
 	}
 	else if (isset($_POST['idPromotion']) && $_POST['idPromotion']==0) {
-		$mySql = "INSERT INTO `promotions` (`idPromotion` , `idShop`,`oferVals`,`conditionsVals`,`dateExpireVals`,`oferEix`,`conditionsEix`,`dateExpireEix`,`image`,`active`)
-		VALUES (NULL,  ".$_POST['shopSelected'].",'".$_POST['oferVals']."', '".$_POST['conditionsVals']."', '".$_POST['dateExpireVals']."','".$_POST['oferEix']."', '".$_POST['conditionsEix']."', '".$_POST['dateExpireEix']."','nofoto.png','";
-		if ($_SESSION['user']['privileges']!="S")  $mySql.= "Y"; 
-		$mySql .= "')";
-		$fp=fopen("_pruebaPromotion.txt",'w');
-					fputs($fp,'consulta:'.$mySql);
+		$mySql = "INSERT INTO `promotions` (`idPromotion` , `idShop`,`oferVals`,`conditionsVals`,`oferEix`,`conditionsEix`,`image`,`active`,`dateExpireVals`,`dateExpireEix`)";
+		$mySql.= " VALUES (NULL,  ".$_POST['shopSelected'].",'".$_POST['oferVals']."', '".$_POST['conditionsVals']."','".$_POST['oferEix']."', '".$_POST['conditionsEix']."','nofoto.png',";
+		if ($_SESSION['user']['privileges']!="S")  $mySql.= "'Y'"; else $mySql.= "'N'";
+
+		if($_POST['dateExpireVals']!="") $mySql .=", '".$_POST['dateExpireVals']."'"; else $mySql.=",NULL";
+		if($_POST['dateExpireEix']!="") $mySql .=", '".$_POST['dateExpireEix']."'"; else $mySql.=",NULL";
+		$mySql .= ")";
+//TODO $fp=fopen("_sentencia.txt","w");
+//TODO fputs($fp,$mySql);
 		$connexio = connect();
-			$resultNewPromotion = mysqli_query($connexio, $mySql);
-			$resultidPromotion=mysqli_insert_id($connexio);
-			disconnect($connexio);
+		$resultNewPromotion = mysqli_query($connexio, $mySql);
+		$resultidPromotion=mysqli_insert_id($connexio);
+		disconnect($connexio);
 		if(!isset($_POST['imageChange']) ){
-							$file = $resultidPromotion."-".$_FILES['imageChange']["name"];
-							move_uploaded_file($_FILES['imageChange']["tmp_name"], "../../img/promotions/".$file);
-			 				if ($_POST['imageActual']!='nofoto.png') {
-								unlink("../../img/promotions/".$_POST['imageActual']);
-								
-			 				}
-						$mySql= 'UPDATE promotions SET image="'.$file.'"';
-						   
-						$mySql.=' WHERE idPromotion='.$resultidPromotion;	
-						$connexio = connect();
-						$resultNewPromotion = mysqli_query($connexio, $mySql);
-			
+			$file = $resultidPromotion."-".$_FILES['imageChange']["name"];
+			move_uploaded_file($_FILES['imageChange']["tmp_name"], "../../img/promotions/".$file);
+			if ($_POST['imageActual']!='nofoto.png') {
+				unlink("../../img/promotions/".$_POST['imageActual']);
+			}
+			$mySql= 'UPDATE promotions SET image="'.$file.'" WHERE idPromotion='.$resultidPromotion;	
+			$connexio = connect();
+			$resultNewPromotion = mysqli_query($connexio, $mySql);
 			disconnect($connexio);
-			$mySql ="SELECT u.email,u.emailPass,u.logo, u.name,s.idShop,u.idUser FROM promotions p , users u ,shops s WHERE s.idShop=".$_POST["shopSelected"]." AND u.idUser=".$_POST["idUser"]. " ORDER BY p.idPromotion DESC limit 1";
-	 		$resultEmail = mysqli_query($connexio, $mySql);
-	 		disconnect($connexio);
-	 		$row=mySqli_fetch_row($resultEmail);
-	 		$emailAssociation = $row[0];
-	 		$emailPass = $row[1];
-	 		$logoAssociation = $row[2];
-	 		$nameAssociation = $row[3];
-	 			$body = 
-					"<html>
-			 			<head>
-			 			</head>
-			 			<body>
-							Tens una Promoció pendent d'activar
-			 			</body>
-		 			</html>";
-	 	$envioStatus= sendMails( $emailAssociation, "Promoció Pendent d'Activar ".$nameAssociation,$emailAssociation,   
-	 		$emailPass, $body, $logoAssociation);
+			//TODO fputs($fp,$mySql);
 		}
-}			
-				
+		
+		// if($_SESSION['user']['privileges']=='S'){
+		// 	$mySql ="SELECT u.email,u.emailPass,u.logo, u.name,s.idShop,u.idUser FROM promotions p , users u ,shops s WHERE s.idShop=".$_POST["shopSelected"]." AND u.idUser=".$_POST["idUser"]. " ORDER BY p.idPromotion DESC limit 1";
+		
+	 // 		$resultEmail = mysqli_query($connexio, $mySql);
+	 // 		disconnect($connexio);
+	 // 		$row=mySqli_fetch_row($resultEmail);
+	 // 		$emailAssociation = $row[0];
+	 // 		$emailPass = $row[1];
+	 // 		$logoAssociation = $row[2];
+	 // 		$nameAssociation = $row[3];
+	 // 			$body = 
+		// 			"<html>
+		// 	 			<head>
+		// 	 			</head>
+		// 	 			<body>
+		// 					Tens una Promoció pendent d'activar
+		// 	 			</body>
+		//  			</html>";
+	 // 		$envioStatus= sendMails( $emailAssociation, "Promoció Pendent d'Activar ".$nameAssociation,$emailAssociation, $emailPass, $body, $logoAssociation);	
+		// }
+	}
+	
+	
+
 }
 if(isset($_GET['acc']) && $_GET['acc'] == 'a'){
 	$mySql = "UPDATE promotions
@@ -110,9 +109,6 @@ function listPromotions(){
 	{
 		$mySql .= " AND idPromotion=".$_GET['idPromotion'];
 	}
-$fp=fopen("_pruebaPromotion.txt",'w');
-					fputs($fp,'consulta:'.$mySql.'cons shops'.$mySqlShops);
-	
 	$connexio = connect();
 	$resultPromotions = mysqli_query($connexio, $mySql);
 	$resultShops = mysqli_query($connexio, $mySqlShops);
