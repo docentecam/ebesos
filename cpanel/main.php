@@ -46,7 +46,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 		<div class="row">
 			<div class="col-xs-6 col-md-4 col-lg-4 noPadding  divHeaderReduceSpace">				
 				<div class="col-xs-4 col-lg-5 noPadding divClientLoggedImage">
-					<a href="#"><img class="img-responsive noPadding aLogoClient" ng-src="../img/logos-assoc/<?php echo $_SESSION['user']['logo']; ?>"></a>	
+					<a ng-href="#"><img class="img-responsive noPadding aLogoClient" ng-src="../img/logos-assoc/<?php echo $_SESSION['user']['logo']; ?>"></a>	
 				</div>
 				<div class="col-xs-7 col-lg-7 divClientLoggedName">
 					<span id="nameAssoLogged"><?php echo $_SESSION['user']['name']; ?></span>
@@ -63,7 +63,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 				</div>
 				<div class="row" ng-hide="showLogOff"> -->
 				<div class="col-xs-12 col-lg-6 col-lg-push-4 logOffDiv">
-					<a href="models/users.php?acc=logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Tancar Sessió</a>				
+					<a ng-href="models/users.php?acc=logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Tancar Sessió</a>				
 				</div>							
 			</div>		
 		</div>		
@@ -81,16 +81,16 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
     					</div>
     					<div class="navbar-collapse collapse sidebar-navbar-collapse navReduced" id="divNavTabsGlobal">
 							<ul class="nav navbar-nav">
-								<?php if($_SESSION['user']['privileges'] =='E' || $_SESSION['user']['privileges'] =='A') echo '<li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/associations">Associacions</a></li>
-								<li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/shops">Comerços</a></li>' ?>
+								<?php if($_SESSION['user']['privileges'] =='E' || $_SESSION['user']['privileges'] =='A') echo '<li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" ng-href="#/associations">Associacions</a></li>
+								<li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" ng-href="#/shops">Comerços</a></li>' ?>
 
-							    <li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/promotions">Promocions</a><label id="positionNumberPromo" ng-model="alertPromo" ng-if="alertPromo!=0">{{alertPromo}}</label></li>
+							    <li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" ng-href="#/promotions">Promocions</a><label id="positionNumberPromo" ng-model="alertPromo" ng-if="alertPromo!=0">{{alertPromo}}</label></li>
 
-							    <?php if($_SESSION['user']['privileges'] =='E' || $_SESSION['user']['privileges'] =='A') echo '<li role="presentation" class="mainNav reduceNav  col-lg-12"><a class="colorLinksNavMobile" href="#/news">Notícies</a></li>' ?>
+							    <?php if($_SESSION['user']['privileges'] =='E' || $_SESSION['user']['privileges'] =='A') echo '<li role="presentation" class="mainNav reduceNav  col-lg-12"><a class="colorLinksNavMobile" ng-href="#/news">Notícies</a></li>' ?>
 							    <?php if($_SESSION['user']['privileges'] =='E') echo '<li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/slider/f/l">Slider</a></li>
-							    <li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/subcategories">Subcategories</a></li>
-							    <li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/settings">Paràmetres</a></li>
-							    <li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/links">Enllaços del footer</a></li>' ?>
+							    <li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" ng-href="#/subcategories">Subcategories</a></li>
+							    <li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" ng-href="#/settings">Paràmetres</a></li>
+							    <li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" ng-href="#/links">Enllaços del footer</a></li>' ?>
 							</ul>
     					</div><!--/.nav-collapse -->
   					</div>

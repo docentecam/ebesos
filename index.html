@@ -53,7 +53,7 @@
 		<div class="row textSize">
 			<div class="col-xs-8 col-lg-3 marginTopAir">
 				<div class="col-xs-4 col-lg-4" id="imgLogoTop" ng-repeat="association in associations | filter:{ idUser:'1'}:true">
-					<a href="#"><img class="img-responsive" id="imgLogoTopId" ng-src="img/logos-assoc/{{association.logo}}"></a>
+					<a ng-href="#"><img class="img-responsive" id="imgLogoTopId" ng-src="img/logos-assoc/{{association.logo}}"></a>
 				</div>
 				<div class="col-xs-8 col-lg-8" id="logoText" ng-repeat="association in associations | filter:{ idUser:'1'}:true">
 					<span class="headTitle">{{association.name}}</span>	
@@ -61,9 +61,9 @@
 			</div> 
 			<div id="contactWho" class="col-xs-4 col-lg-4 pull-right">
 				<div class="col-xs-12 col-lg-7 col-lg-offset-5 pull-right marginTopAir">				
-					<a href="#/users/1" class="colorLinksHidden" id="whoTop">Qui Som?</a><span class="dividerNav"> | </span>
-					<a href="#/contact/1" class="colorLinksHidden" id="contactTop">Contacte</a>
-					<a href="cpanel/index.html" class="colorLinksHidden pull-right"><i class="fa fa-user-circle-o" aria-hidden="true" id="loginPicture" title="Inicia Sessió"></i></a>
+					<a ng-href="#/users/1" class="colorLinksHidden" id="whoTop">Qui Som?</a><span class="dividerNav"> | </span>
+					<a ng-href="#/contact/1" class="colorLinksHidden" id="contactTop">Contacte</a>
+					<a ng-href="cpanel/index.html" class="colorLinksHidden pull-right"><i class="fa fa-user-circle-o" aria-hidden="true" id="loginPicture" title="Inicia Sessió"></i></a>
 				</div>	
 			</div>				
 		</div>		
@@ -79,22 +79,22 @@
 		    	</div>
 		    	<div class="collapse navbar-collapse navReduced" id="bs-example-navbar-collapse-1">
 		    		<ul class="nav navbar-nav col-xs-12 col-lg-12" id="navGlobal">
-		        		<li role="presentation" class="customNav reduceNav" ><a href="#"><i class="fa fa-home fa-lg" id="homeIconNav" aria-hidden="true"></i><span class="underline">Mapa Comercial </span> <span class="sr-only">(current)</span></a></li>
+		        		<li role="presentation" class="customNav reduceNav" ><a ng-href="#"><i class="fa fa-home fa-lg" id="homeIconNav" aria-hidden="true"></i><span class="underline">Mapa Comercial </span> <span class="sr-only">(current)</span></a></li>
 		        		<li class="dividerNav">|</li>
 		        		<li role="presentation" class="dropdown customNav"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="underline">Associacions</span><i class="fa fa-caret-down arrowDown" aria-hidden="true"></i></a>
 		          			<ul class="dropdown-menu no-collapse reduceNav">
 		          				<li ng-repeat="association in associations| filter:{ idUser:'!1'}:true" role="presentation" class="widthLiAsso">
-		          					<a href="#/associations/{{association.idUser}}/{{association.name}}" class="submenuFormat"><img class="img-responsive" ng-src="img/logos-assoc/{{association.logo}}" align="left">{{association.name}}</a>
+		          					<a ng-href="#/associations/{{association.idUser}}/{{association.name}}" class="submenuFormat"><img class="img-responsive" ng-src="img/logos-assoc/{{association.logo}}" align="left">{{association.name}}</a>
 		          					<ul role="separator" ng-class="{divider : !$last}"></ul>		
 		          				</li>
 		          			</ul>
 		        		</li>
 		        		<li class="dividerNav">|</li>
-		        		<li role="presentation" class="customNav reduceNav"><a href="#/promotions"><span class="underline">Promocions</span></a></li>
+		        		<li role="presentation" class="customNav reduceNav"><a ng-href="#/promotions"><span class="underline">Promocions</span></a></li>
 		        		<li class="dividerNav">|</li>
-		        		<li role="presentation" class="customNav reduceNav"><a href="#/news/1"><span class="underline">Notícies</span></a></li>	
+		        		<li role="presentation" class="customNav reduceNav"><a ng-href="#/news/1"><span class="underline">Notícies</span></a></li>	
 		        		<li class="dividerNav">|</li>
-		        		<li role="presentation" class="customNav reduceNav"><a href="#/formation" class="alignOneLine"><i class="fa fa-bookmark" aria-hidden="true"></i><span class="underline">Formació al Comerç</span></a></li>
+		        		<li role="presentation" class="customNav reduceNav"><a ng-href="#/formation" class="alignOneLine"><i class="fa fa-bookmark" aria-hidden="true"></i><span class="underline">Formació al Comerç</span></a></li>
 		      		</ul>    
 				</div>
 	   		</div>
@@ -106,7 +106,7 @@
    				</ol>
 				<div class="carousel-inner">					
 					<div class="item" ng-repeat="sliderImg in slider" ng-class="{active : $index == 0}">
-						<a href="{{sliderImg.link}}" target="_blank"><img ng-src="img/slider/{{sliderImg.image}}" alt="{{sliderImg.description}}"> </a>					
+						<a ng-href="{{sliderImg.link}}" target="_blank"><img ng-src="img/slider/{{sliderImg.image}}" alt="{{sliderImg.description}}"> </a>					
 						<div class="row">
 							<div class="textOverImage" ng-if="sliderImg.title!='' && sliderImg.subtitle!=''">
 								<span id="typeLetter">{{sliderImg.title}}</span>
@@ -164,7 +164,7 @@
 						<span class="linkNom">Links</span>						
 		            	<div id="linksFooter" class="col-xs-12 col-lg-12 pull-right">
 							<div ng-repeat="link in links" class="col-xs-6" id="marginLinks">
-								<a href="{{link.url}}" class="footerLinksColor" target="_blank">{{link.description}}</a>
+								<a ng-href="{{link.url}}" class="footerLinksColor" target="_blank">{{link.description}}</a>
 							</div>	
 						</div> 
 						<div class="col-xs-12 col-lg-12 footerLogos">
@@ -184,8 +184,8 @@
 			<div class="inner">
 				Sol·licitem el seu permís per a obtenir dades específiques de la seva navegació en aquest web, en 
 				compliment del Real Decret-Llei 13/2012. Si continua navegant, considerarem que accepta l'ús de cookies.
-	        	<a href="javascript:void(0);" class="ok" onclick="PonerCookie();"><b>OK</b></a> | 
-	        	<a href="http://politicadecookies.com" target="_blank" class="info">Més informació</a>
+	        	<a ng-href="javascript:void(0);" class="ok" onclick="PonerCookie();"><b>OK</b></a> | 
+	        	<a ng-href="http://politicadecookies.com" target="_blank" class="info">Més informació</a>
    		 	</div>
 		</div>
 		<script>
