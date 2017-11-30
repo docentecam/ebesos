@@ -15,14 +15,14 @@ require("../inc/functions.php");
 		echo nl2br($historyAboutUs);
 	}
 	else if(isset($_GET['acc'])&&$_GET['acc']=='logo'){
-		$mySql = "SELECT logo FROM users  WHERE idUser=".$_GET["idUser"];
+		$mySql = "SELECT logoSub FROM users  WHERE idUser=".$_GET["idUser"];
 		$connexio = connect();
 		$resultLogo = mysqli_query($connexio, $mySql);
 		disconnect($connexio);
 			while ($row=mySqli_fetch_array($resultLogo))
 			{
 				
-				$associationLogo=$row['logo'];
+				$associationLogo=$row['logoSub'];
 			}
 		echo $associationLogo;
 	}
