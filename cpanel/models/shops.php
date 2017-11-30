@@ -37,6 +37,7 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'upload')
 	$idShop = $_POST["idShop"];
 	$name = $_POST["name"];
 	$idUser = $_POST["idUser"];
+	$password = $_POST["password"];
 	$descriptionLong = $_POST["descriptionLong"];
 	$description = $_POST["description"];
 	$ciutat = $_POST["ciutat"];
@@ -50,6 +51,10 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'upload')
 	$address = $_POST["address"];
 	$schedule = $_POST["schedule"];
 	$email = $_POST["email"];
+	$userWa = $_POST["userWa"];
+	$userFb = $_POST["userFb"];
+	$userTt = $_POST["userTt"];
+	$userIg = $_POST["userIg"];
 
 	$fp=fopen("../files/infoShop.txt",'w');
 		fputs($fp,'idShop="'.$idShop.'"');
@@ -75,7 +80,11 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'upload')
 
 	if(isset($_POST["idShop"]) && $_POST["idShop"] == "0")
 	{
-		$mySql = 'INSERT INTO shops (`name`, `lat`, `lng`, `telephone`, `email`, `url`, `schedule`, `address`, `idUser`, `description`, `descriptionLong`, `cp`, `ciutat`) VALUES ("'.replaceFromHtml($name).'", "'.$lat.'", "'.$lng.'", "'.$telephone.'", "'.replaceFromHtml($email).'", "'.replaceFromHtml($web).'", "'.replaceFromHtml($schedule).'", "'.replaceFromHtml($address).'", "'.$idUser.'", "'.$description.'", "'.replaceFromHtml($descriptionLong).'", "'.$cp.'", "'.replaceFromHtml($ciutat).'");';
+		$mySql = 'INSERT INTO shops (`name`, `lat`, `lng`, `telephone`, `email`, `url`, `schedule`, `address`, `idUser`, `description`, `descriptionLong`, `cp`, `ciutat`, `userWhatsapp`, `userFacebook`, `userTwitter`, `userInstagram`, `passAplication`';
+		$mySql .= ') VALUES ("'.replaceFromHtml($name).'", "'.$lat.'", "'.$lng.'", "'.$telephone.'", "'.replaceFromHtml($email).'", "'.replaceFromHtml($web).'", "'.replaceFromHtml($schedule).'", "'.replaceFromHtml($address).'", "'.$idUser.'", "'.$description.'", "'.replaceFromHtml($descriptionLong).'", "'.$cp.'", "'.replaceFromHtml($ciutat).'", "'.replaceFromHtml($userWa).'", "'.replaceFromHtml($userFb).'", "'.replaceFromHtml($userTt).'", "'.replaceFromHtml($userIg).'"';
+		if($_POST['password'] != "") $mySql .= ', "'.sha1(md5($_POST['password'])).'"';
+		else $mySql .= ', "'.sha1(md5('eixbesos0001')).'"';
+		$mySql .= ');';
 
 		$connexio = connect();
 
@@ -111,7 +120,9 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'upload')
 	}
 	else
 	{
-		$mySql = 'UPDATE shops SET `name`="'.replaceFromHtml($name).'", `lat`="'.$lat.'", `lng`="'.$lng.'", `telephone`="'.$telephone.'", `email`="'.replaceFromHtml($email).'", `url`="'.replaceFromHtml($web).'", `schedule`="'.replaceFromHtml($schedule).'", `address`="'.replaceFromHtml($address).'", `idUser`="'.$idUser.'", `description`="'.replaceFromHtml($description).'", `descriptionLong`="'.replaceFromHtml($descriptionLong).'", `cp`="'.$cp.'", `ciutat`="'.replaceFromHtml($ciutat).'"';
+		$mySql = 'UPDATE shops SET `name`="'.replaceFromHtml($name).'", `lat`="'.$lat.'", `lng`="'.$lng.'", `telephone`="'.$telephone.'", `email`="'.replaceFromHtml($email).'", `url`="'.replaceFromHtml($web).'", `schedule`="'.replaceFromHtml($schedule).'", `address`="'.replaceFromHtml($address).'", `idUser`="'.$idUser.'", `description`="'.replaceFromHtml($description).'", `descriptionLong`="'.replaceFromHtml($descriptionLong).'", `cp`="'.$cp.'", `ciutat`="'.replaceFromHtml($ciutat).'", `userWhatsapp`="'.replaceFromHtml($userWa).'", `userFacebook`="'.replaceFromHtml($userFb).'", `userTwitter`="'.replaceFromHtml($userTt).'", `userInstagram`="'.replaceFromHtml($userIg).'"';
+
+		if($_POST['password'] != "") $mySql .= ', `passAplication`="'.sha1(md5($_POST['password'])).'"';
 
 		if(isset($_FILES["logo"]))
 		{
@@ -326,7 +337,7 @@ function listShop($idShop="")
 {
 	$i = 0;
 	$mySql = "SELECT shopsimages.url, shops.idShop, shops.name, shops.description, shops.idUser";
-	if($idShop != "") $mySql .= ", shops.lng, shops.lat, shops.logo, shops.telephone, shops.email, shops.address, shops.schedule, shops.descriptionLong, shops.url AS web, shops.cp, shops.ciutat";
+	if($idShop != "") $mySql .= ", shops.lng, shops.lat, shops.logo, shops.telephone, shops.email, shops.address, shops.schedule, shops.descriptionLong, shops.url AS web, shops.cp, shops.ciutat, shops.userWhatsapp, userFacebook, userTwitter, userInstagram";
 
 	$mySql .= "	FROM shops LEFT JOIN shopsimages ON shops.idShop = shopsimages.idShop WHERE
 			shopsimages.preferred = 'Y'";
@@ -353,7 +364,7 @@ function listShop($idShop="")
 
 		if($idShop != "")
 		{
-			$listShops .= ', "lng":"'.$row['lng'].'", "lat":"'.$row['lat'].'", "logo":"'.$row['logo'].'", "telephone":"'.$row['telephone'].'", "email":"'.$row['email'].'", "address":"'.replaceFromBBDD($row['address']).'", "schedule":"'.$row['schedule'].'", "descriptionLong":"'.replaceFromBBDD($row['descriptionLong']).'", "web":"'.replaceFromBBDD($row['web']).'", "cp":"'.$row['cp'].'", "ciutat":"'.$row['ciutat'].'"';
+			$listShops .= ', "lng":"'.$row['lng'].'", "lat":"'.$row['lat'].'", "logo":"'.$row['logo'].'", "telephone":"'.$row['telephone'].'", "email":"'.$row['email'].'", "address":"'.replaceFromBBDD($row['address']).'", "schedule":"'.$row['schedule'].'", "descriptionLong":"'.replaceFromBBDD($row['descriptionLong']).'", "web":"'.replaceFromBBDD($row['web']).'", "cp":"'.$row['cp'].'", "ciutat":"'.$row['ciutat'].'", "userWa":"'.replaceFromBBDD($row['userWhatsapp']).'", "userFb":"'.replaceFromBBDD($row['userFacebook']).'", "userTt":"'.replaceFromBBDD($row['userTwitter']).'", "userIg":"'.replaceFromBBDD($row['userInstagram']).'"';
 		}
 
 		$listShops .= '}';
@@ -373,7 +384,6 @@ function listShop($idShop="")
 	}
 	
 	$listShops .= '}]';
-	//return replaceFromBBDD($listShops);
 	return $listShops;
 }
 function listCategoriesSub($idShop)

@@ -66,10 +66,11 @@ angular.module('spaApp')
 
 	$scope.shopOne = {};
 	$scope.shopOne.idShop = $routeParams.idShop;
-	$scope.name = "";
+	$scope.shopOne.name = "";
 	$scope.shopOne.idUser = "";
-	$scope.descriptionLong = "";
-	$scope.description = "";
+	$scope.shopOne.password = "";
+	$scope.shopOne.descriptionLong = "";
+	$scope.shopOne.description = "";
 	$scope.shopOne.ciutat = "";
 	$scope.shopOne.logo = "";
 	$scope.shopOne.logoUp = "";
@@ -79,9 +80,13 @@ angular.module('spaApp')
 	$scope.shopOne.lng = "";
 	$scope.shopOne.telephone = "";
 	$scope.shopOne.cp = "";
-	$scope.address = "";
+	$scope.shopOne.address = "";
 	$scope.shopOne.schedule = "";
 	$scope.shopOne.email = "";
+	$scope.shopOne.userWa = "";
+	$scope.shopOne.userFb = "";
+	$scope.shopOne.userTt = "";
+	$scope.shopOne.userIg = "";
 
 	if($scope.shopOne.idShop != 0)
 	{
@@ -251,7 +256,8 @@ angular.module('spaApp')
 			formData.append("idShop", $scope.shopOne.idShop);
 			formData.append("name", $scope.shopOne.name);
 			formData.append("idUser", $scope.shopOne.idUser);
-			formData.append("descriptionLong", $scope.descriptionLong);
+			formData.append("password", $scope.shopOne.password);
+			formData.append("descriptionLong", $scope.shopOne.descriptionLong);
 			formData.append("description", $scope.shopOne.description);
 			formData.append("ciutat", $scope.shopOne.ciutat);
 			formData.append("logo", $scope.shopOne.logoUp);
@@ -264,6 +270,10 @@ angular.module('spaApp')
 			formData.append("address", $scope.shopOne.address);
 			formData.append("schedule", $scope.shopOne.schedule);
 			formData.append("email", $scope.shopOne.email);
+			formData.append("userWa", $scope.shopOne.userWa);
+			formData.append("userFb", $scope.shopOne.userFb);
+			formData.append("userTt", $scope.shopOne.userTt);
+			formData.append("userIg", $scope.shopOne.userIg);
 
 			var deferred=$q.defer();
 			$http.post("models/shops.php?acc=upload", formData,{
