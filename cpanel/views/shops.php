@@ -23,7 +23,7 @@
 	<div class="col-lg-10 shop-cage">
 		<div class="col-md-3"><img class="img-responsive" src="../img/shops/{{shops.imgPref}}"></div>
 		<div class="col-md-9">
-			<label class="col-lg-12">{{shops.name}}</label><!-- TODO: quitar shops.idUser y idUserLg -->
+			<label class="col-lg-12">{{shops.name}}</label>
 			<p class="col-lg-12">{{shops.description}}</p>
 		</div>
 	</div>
