@@ -37,12 +37,11 @@ angular.module('spaApp')
 				url : "models/shops.php?acc=delete&idShop="+$idShop
 			}).then(function mySucces (response) {
 				$scope.data = response.data;
-				var cadena = $scope.data.split("55339-");
-				$scope.statusValidation = cadena[1];
-				$scope.shopsData = cadena[2];
-				$scope.shopsList = $scope.shopsData[0].list;
+				$scope.statusValidation = $scope.data.message;
+				$scope.shopsList = $scope.data.list;
+				//$scope.shopsList = $scope.shopsData[0].list;
 				$scope.fail = true
-				if(cadena[0]) $scope.validation = true;
+				if($scope.data.exit) $scope.validation = true;
 				console.log($scope.shopsData);
 			}, function myError (response) {
 				$scope.shopDeleted = response.statusText;

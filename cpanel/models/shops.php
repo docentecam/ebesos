@@ -11,7 +11,7 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'l')
 
 	if(isset($_GET['idShop'])) $idShop = $_GET['idShop'];
 	
-	$dataShops = listShop($idShop);
+	$dataShops = '[{"list":'.listShop($idShop).'}]';
 	//echo $dataShops;
 
 	echo $dataShops;
@@ -116,7 +116,7 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'upload')
 
 		disconnect($connexio);
 
-		echo listShop($idShopIns);
+		echo '[{"list":'.listShop($idShopIns).'}]';
 	}
 	else
 	{
@@ -144,7 +144,7 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'upload')
 
 		disconnect($connexio);
 
-		echo listShop($idShop);
+		echo '[{"list":'.listShop($idShop).'}]';
 	}
 }
 else if (isset($_GET['acc']) && $_GET['acc'] == 'uploadImage') 
@@ -213,11 +213,11 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'delete')
 
 	$connexio = connect();
 
-	//$deleteShopImage = mysqli_query($connexio, $mySql);
+	$deleteShopImage = mysqli_query($connexio, $mySql);
 
 	$mySql = "DELETE FROM shops WHERE idShop = $idShop";
 
-	//$deleteShop = mysqli_query($connexio, $mySql);
+	$deleteShop = mysqli_query($connexio, $mySql);
 
 	disconnect($connexio);
 
@@ -231,9 +231,8 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'delete')
 		$message = "Error al connectar";
 		$exit = 0;
 	}
-
-	//echo listShop();
-	echo $exit."55339-".$message."55339-".listShop();
+	
+	echo '{"exit":"'.$exit.'", "message":"'.$message.'", "list":'.listShop().'}';
 }
 else if(isset($_GET['acc']) && $_GET['acc'] == 'delsc')
 {	
@@ -352,9 +351,7 @@ function listShop($idShop="")
 
 	disconnect($connexio);
 
-	$listShops = "[{";
-	$listShops .= '"list":';
-	$listShops .= "[";
+	$listShops = "[";
 
 	while($row = mysqli_fetch_array($resultShops))
 	{
@@ -382,8 +379,6 @@ function listShop($idShop="")
 
 		$listShops .= ', "subCategories":'.listCategoriesSub($idShop);
 	}
-	
-	$listShops .= '}]';
 	return $listShops;
 }
 function listCategoriesSub($idShop)

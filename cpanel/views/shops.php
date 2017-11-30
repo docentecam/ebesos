@@ -46,7 +46,7 @@
 		</div>
 		<div class="col-md-12">
 			<span class="col-md-12 no-padding">Contrasenya</span>
-			<input class="col-lg-4" type="password" ng-name="ps-shop" ng-model="shopOne.password" placeholder="Contrasenya">
+			<input class="col-lg-4" type="password" ng-name="ps-shop" ng-model="shopOne.password" placeholder="contrasenya">
 		</div>
 		<div class="col-md-12">
 			<span class="col-lg-6 no-padding">Descripció llarga</span>
