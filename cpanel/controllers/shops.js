@@ -46,6 +46,10 @@ angular.module('spaApp')
 			});
 		}
 	};
+	$scope.listChange = function($idUserL){
+		if($idUserL==1) $scope.filterShops="!1";
+		else $scope.filterShops = $idUserL;
+	};
 });
 
 angular.module('spaApp')
@@ -105,10 +109,6 @@ angular.module('spaApp')
 	$scope.shopOneAdd = function($idShop){
 		$scope.showShop = true;
 		$scope.showList = false;
-	};
-	$scope.listChange = function($idUserL){
-		if($idUserL==1) $scope.filterShops="!1";
-		else $scope.filterShops = $idUserL;
 	};
 	$scope.preferredSubCat = function($idSubCategory, $idShop){
 		$scope.loading = true;

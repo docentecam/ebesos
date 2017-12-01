@@ -1,5 +1,5 @@
 angular.module('spaApp')
-.controller('ShopCtrl', function($scope, $http, $routeParams) {
+.controller('ShopCtrl', function($scope, $http, $routeParams, $location) {
   $scope.loading = true;
   $scope.service = false;
   $scope.facebook = false;
@@ -10,7 +10,8 @@ angular.module('spaApp')
 		url : "models/shops.php?acc=shop&idShop="+$routeParams.idShop
 	}).then(function mySucces(response) {
 		$scope.shops = response.data[0];
-    if($scope.shops["userWa"] != "") $scope.service = true;
+    if($scope.data == undefined) $location.url("/");
+    if($scope.shops.userWa != "") $scope.service = true;
     if($scope.shops.userFb != "") $scope.facebook = true;
     if($scope.shops.userTt != "") $scope.twitter = true;
     if($scope.shops.userIg != "") $scope.instagram = true;
