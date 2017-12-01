@@ -806,6 +806,11 @@ a:hover{
   padding-right: 0;
   padding-left: 0;
 }
+.footerLogos
+{
+  margin-top: 5%;
+}
+
 
 @media (max-width: 575px){
   .tableCategoriaSubCategoria {

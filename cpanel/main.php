@@ -108,21 +108,22 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 		<div class="row">
 			<div id="footerDiv" class="">
 				<!-- <div class="col-lg-6 col-xs-6 col-xs-offset-6 col-lg-offset-6 col-sm-6 col-sm-offset-6 col-md-6 col-md-offset-6 logosFooter"> -->
-					<div class="col-lg-8 col-lg-offset-4">
-						<div class="col-lg-3">
-							<img ng-src="../img/logo_ayuntamiento.svg" alt="ajuntamentBcn" class="img-responsive logoAjuntament">
-						</div>
-						<div class="col-lg-2">
-							<img ng-src="../img/logos-assoc/1f.png" alt="asso" class="img-responsive col-lg-10">
-						</div>
-						<div class="col-lg-2">
-							<img ng-src="../img/logos-assoc/2f.png" alt="asso1" class="img-responsive">
-						</div>	
-
-						<div class="col-lg-2">
-							<img ng-src="../img/logos-assoc/3f.png" alt="" class="img-responsive col-lg-12">
-						</div>
-					</div>		
+					<div class="col-lg-6 col-lg-push-6 footerLogos">
+							<div class="col-lg-2 pull-right">
+								<img ng-src="../img/logos-assoc/3f.png" alt="" class="img-responsive">
+							</div>
+							<div class="assos">
+								<div class="col-lg-2 pull-right">
+									<img ng-src="../img/logos-assoc/1f.png" alt="asso" class="img-responsive col-lg-12">
+								</div>
+								<div class="col-lg-2 pull-right">
+									<img ng-src="../img/logos-assoc/2f.png" alt="asso1" class="img-responsive">
+								</div>									
+								<div class="col-lg-3 pull-right">
+									<img ng-src="../img/logo_ayuntamiento.svg" alt="ajuntamentBcn" class="img-responsive logoAjuntament">
+								</div>
+							</div>					
+						</div>		
 				<!-- </div> -->
 			</div>
 		</div>
