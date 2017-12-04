@@ -16,6 +16,36 @@ angular.module('spaApp')
 		.finally(function() {
 			$scope.loading=false;
 		});	
+
+
+	$scope.newNewsletter={};
+	$scope.newNewsletter.email="";
+ 	$scope.newNewsletter.nomContact="";
+
+	$scope.newsletter= function(idNew=""){
+		$scope.loading=true;
+
+		data.append("email", $scope.newNewsletter.email);
+		data.append("nomContact", $scope.newNewsletter.nomContact);
+
+			$http.post("models/home.php?acc=n",data,{
+				headers:{
+					"Content-type":undefined
+				},
+				transformRequest:angular.identity
+			}).then(function mySucces (response) {
+				
+				$scope.homeData=response.data;
+				
+			}, function myError (response) {
+				$scope.homeData = response.statusText;
+			})
+			.finally(function(){ 
+		    $scope.loading=false; 
+		})
+	}
+
+
 });
 
 
