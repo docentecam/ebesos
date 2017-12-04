@@ -119,12 +119,12 @@ a:hover{
   margin-top: 3%;
 }
 .select-users, .categories-edit select{
-  width: 220px;
+  width: 240px;
   border: 1px solid #808080;
   background-image: url("../img/circledown.svg");
   background-repeat: no-repeat;
   background-position-y: 5px;
-  background-position-x: 195px;
+  background-position-x: 205px;
   background-color: #B0C2C8;
 }
 #active{

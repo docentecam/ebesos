@@ -12,17 +12,24 @@
 		<option ng-value="userL.idUser" ng-repeat="userL in userList" ng-selected="userL.idUser==<?php echo $_SESSION['user']['idUser']?>">{{userL.name}}</option>
 	</select>
 </div>
+<div ng-show="fail">
+	<div ng-class="validation ? 'alert alert-success' : 'alert alert-danger'" id="validationAssociation">
+		<i class="fa fa-times" ng-hide="validation" aria-hidden="true"></i>
+		<i class="fa fa-check" ng-show="validation" aria-hidden="true"></i>
+		<b>{{statusValidation}}</b>
+	</div>
+</div>
 <div class="row shops-list" ng-repeat="shops in shopsList | filter : {idUser:filterShops}:true" ng-show="(showList)">
-	<div class="col-lg-10 shop-cage">
-		<div class="col-md-3"><img class="img-responsive" src="../img/shops/{{shops.imgPref}}"></div>
-		<div class="col-md-9">
-			<label class="col-lg-12">{{shops.name}}</label><!-- TODO: quitar shops.idUser y idUserLg -->
+	<div class="col-xs-12 col-lg-10 shop-cage">
+		<div class="col-xs-12 col-md-3"><img class="img-responsive" src="../img/shops/{{shops.imgPref}}"></div>
+		<div class="col-xs-12 no-padding col-md-9">
+			<label class="col-lg-12">{{shops.name}}</label>
 			<p class="col-lg-12">{{shops.description}}</p>
 		</div>
 	</div>
-	<div class="col-lg-2 botones">
-		<a ng-href="#/shops/{{shops.idShop}}/{{$index}}"><button class="btn-edit col-lg-5 col-lg-push-2">Editar</button></a>
-		<button ng-click="shopOneDelete(shops.idShop)" class="btn-delete col-lg-5 col-lg-push-2">Eliminar</button>
+	<div class="col-xs-12 col-lg-2 botones">
+		<a ng-href="#/shops/{{shops.idShop}}/{{$index}}"><button class="btn-edit col-xs-5 col-xs-push-1 col-lg-5 col-lg-push-2">Editar</button></a>
+		<button ng-click="shopOneDelete(shops.idShop)" class="btn-delete col-xs-5 col-xs-push-1 col-lg-5 col-lg-push-2">Eliminar</button>
 	</div>
 </div>
 	
@@ -31,16 +38,20 @@
 	<form id="i-shop" class="row" name="i-shop">
 		<input type="text" name="" ng-model="shopOne.idShop" hidden>
 		<div class="col-md-12">
-			<span class="col-lg-12 no-padding">Nom comerç</span>
+			<span class="col-xs-12 col-lg-12 no-padding">Nom comerç</span>
 			<input class="col-lg-4" type="text" id="n-shop" ng-name="n-shop" ng-model="shopOne.name" placeholder="nom de la tenda" name="" required>
 			<select class="col-lg-4 col-lg-offset-2 select-users" id="u-shop" name="u-shop" ng-change="userOwner(idUser)" ng-model="shopOne.idUser">
 				<option ng-value="userL.idUser" ng-repeat="userL in userList | filter: {idUser:'!1'}" ng-selected="userL.idUser==shopOne.idUser">{{userL.name}}</option>
 			</select>
 		</div>
 		<div class="col-md-12">
-			<span class="col-lg-6 no-padding">Descripció llarga</span>
-			<span class="col-lg-6 no-padding">Descripció curta</span>
-			<textarea class="col-lg-4" rows="10" id="descL-shop" name="descL-shop" ng-model="descriptionLong">{{descriptionLong}}</textarea>
+			<span class="col-xs-12 col-md-12 no-padding">Contrasenya</span>
+			<input class="col-lg-4" type="password" ng-name="ps-shop" ng-model="shopOne.password" placeholder="contrasenya">
+		</div>
+		<div class="col-md-12">
+			<span class="col-xs-12 col-lg-6 no-padding">Descripció llarga</span>
+			<span class="col-xs-6 col-xs-push-7 col-lg-6 no-padding">Descripció curta</span>
+			<textarea class="col-xs-7 col-xs-pull-6 col-lg-4" rows="10" id="descL-shop" name="descL-shop" ng-model="shopOne.descriptionLong">{{shopOne.descriptionLong}}</textarea>
 			<textarea class="col-lg-4 col-lg-offset-2" rows="4" id="descS-shop" name="descS-shop" ng-model="shopOne.description">{{shopOne.description}}</textarea>
 			<span id="i-shop-city" class="col-lg-4 no-padding col-lg-offset-2">Ciutat</span>
 			<input class="col-lg-4 col-lg-offset-2" type="text" id="c-shop" name="c-shop" placeholder="ciutat" name="" ng-model="shopOne.ciutat">
@@ -70,9 +81,22 @@
 			<input type="text" class="col-lg-4 col-lg-offset-2" id="s-shop" name="s-shop" placeholder="Dl-Dv XX:XX-XX:XX  i de XX:XX-XX:XX" name="" ng-model="shopOne.schedule">
 		</div>
 		<div class="col-md-12">
-			<span class="col-lg-12 no-padding">Email</span>
+			<span class="col-lg-6 no-padding">Email</span>
+			<span class="col-lg-6 no-padding">Whatsapp</span>
 			<input type="text" class="col-lg-4" id="e-shop" name="e-shop" placeholder="comerç@gmail.com" name="" ng-model="shopOne.email">
+			<input type="text" class="col-lg-4 col-lg-offset-2" id="wa-shop" name="wa-shop" placeholder="telefon o móbil" name="" ng-model="shopOne.userWa">
+		</div>
+		<div class="col-md-12">
+			<span class="col-lg-6 no-padding">Facebook</span>
+			<span class="col-lg-6 no-padding">Twitter</span>
+			<input type="text" class="col-lg-4" id="fb-shop" name="fb-shop" placeholder="pàgina facebook" name="" ng-model="shopOne.userFb">
+			<input type="text" class="col-lg-4 col-lg-offset-2" id="tt-shop" name="tt-shop" placeholder="pàgina de twitter" name="" ng-model="shopOne.userTt">
+		</div>
+		<div class="col-md-12">
+			<span class="col-lg-12 no-padding">Instagram</span>
+			<input type="text" class="col-lg-4" id="ig-shop" name="ig-shop" placeholder="pàgina d'instagram" name="" ng-model="shopOne.userIg">
 			<input type="button" class="col-lg-2 col-lg-offset-3 btn-up" value="Actualitzar" ng-click="uploadFile()">
+		</div>
 	</form>
 	<div class="row categories-edit" ng-hide="new">
 		<div class="col-lg-12">
