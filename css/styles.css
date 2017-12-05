@@ -798,7 +798,7 @@ hr.style14 {
 		border-top: transparent;
 	}
 	#imgLogoTop {
-    	margin-top: 1%;
+    	margin-top: 3%;
     	margin-bottom: 1%;
     	margin-left: 3%;
 	}
@@ -863,13 +863,9 @@ hr.style14 {
 	margin-bottom:-3%!important;
 	}
 	#logoText{
-		margin-top: 5%;
-	 	margin-top: 5%;
+		margin-top: 1%;
 		font-size: 0.8em!important;
-		margin-left: -3%;
-	}
-	.headTitle{
-		margin-left: -16%;
+		margin-left: -11%;
 	}
 	#whoTop{
 		position: absolute;
@@ -1003,7 +999,7 @@ hr.style14 {
 		max-width: 63%!important;
 	}
 	#logoText{
-		margin-top: 4.1%!important;;
+		margin-top: 1.1%!important;;
     	margin-left: -15%!important;
     	font-size: 1.2em;
 	}
@@ -1151,14 +1147,7 @@ hr.style14 {
     	margin-bottom: 3%;
 	}
 	#logoText{
-
-    	margin-top: 6%;
-    	margin-left: -21%;
-    	margin-top: 5%;
-    	margin-left: -21%;
-    	font-size: 1.5em;
-
-    	margin-top: 4.3%;
+    	margin-top: 1.3%;
     	margin-left: -21%;
     	font-size: 1.3em;
 	}
@@ -1331,7 +1320,7 @@ hr.style14 {
 	}
 	#logoText {
 	    position: absolute;
-	    top: -27%;
+	    top: -32%;
 	    right: 20%;
 	    font-size: 1.3em;
 	}
