@@ -150,9 +150,7 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'delis')
 	echo '[{"images":'.listImages($idShop).'}]';
 }
 else if(isset($_GET['acc']) && $_GET['acc'] == 'delete')
-{
-	//TODO: Hay que borrar tambien los archivos fisicos
-	
+{	
 	$idShop = $_GET['idShop'];
 	$message = "";
 	$exit = "";
@@ -165,7 +163,7 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'delete')
 
 	while($row = mysqli_fetch_array($resultImages))
 	{
-		unlink('../../img/shops/'.$row['url']);
+		if($row['url'] != "nofoto.png") unlink('../../img/shops/'.$row['url']);
 	}
 
 	$mySql = "DELETE FROM shopsimages WHERE idShop = $idShop";

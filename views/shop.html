@@ -9,14 +9,14 @@
     <span ng-if="shops.logo==''" class="">
         <img ng-src="img/logos-assoc/{{shops.logoAssociacio}}" class="img-responsive">
       </span>
-    <img ng-if="shops.logo!=''" class="img-responsive" src="img/logos-shops/{{shops.logo}}"/>
+    <img ng-if="shops.logo!=''" class="img-responsive" ng-src="img/logos-shops/{{shops.logo}}"/>
   </div>
 	<div class="col-xs-9 col-lg-8 shop-name no-padding"><h1>{{shops.nameShop}}</h1></div>
   <span class="col-lg-6"></span>
 </div>
 <div class="row">
 	<div class="col-xs-6 col-lg-3 col-lg-offset-1 shop-info-container">
-		<div class="row"><img class="img-responsive col-xs-12" src="img/shops/{{shops.imagePref}}"></div>
+		<div class="row"><img class="img-responsive col-xs-12" ng-src="img/shops/{{shops.imagePref}}"></div>
     <div class="row shop-contact">
       <label class="col-xs-12">{{shops.address}}</label>
       <label class="col-xs-4 col-lg-3">{{shops.cp}}</label><label class="shop-padding col-xs-6">{{shops.ciutat}}</label>
@@ -54,7 +54,7 @@
   <h2>FOTOGRAFIES</h2>
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1 col-lg-10">
-      <div class="col-xs-10 col-xs-offset-1 col-lg-4 col-lg-offset-0 shop-image" ng-repeat="img in shops.imgUrl"><img class="img-responsive" src="img/shops/{{img.url}}"></div>
+      <div class="col-xs-10 col-xs-offset-1 col-lg-4 col-lg-offset-0 shop-image" ng-repeat="img in shops.imgUrl"><img class="img-responsive" ng-src="img/shops/{{img.url}}"></div>
     </div>
   </div>
 </div>
@@ -70,142 +70,142 @@
       zoom: 16
     });
 
-    var infoWindow = new google.maps.InfoWindow;
+    //var infoWindow = new google.maps.InfoWindow;
     // Change this depending on the name of your PHP or XML file
 
-    downloadUrl('files/shops.xml', function(data) {
-      var xml = data.responseXML;
-      var markers = xml.documentElement.getElementsByTagName('marker');
+    // downloadUrl('files/shops.xml', function(data) {
+    //   var xml = data.responseXML;
+    //   var markers = xml.documentElement.getElementsByTagName('marker');
       
-      Array.prototype.forEach.call(markers, function(markerElem) {
-        //Inicio filtrado categoria
+    //   Array.prototype.forEach.call(markers, function(markerElem) {
+    //     //Inicio filtrado categoria
         
-          //TODO: schedule, email, address(?)
+    //       //TODO: schedule, email, address(?)
           
-        if(markerElem.getAttribute('preferred') == 'Y')
-        {
-          var name = markerElem.getAttribute('name');
+    //     if(markerElem.getAttribute('preferred') == 'Y')
+    //     {
+    //       var name = markerElem.getAttribute('name');
 
-          var address = markerElem.getAttribute('address');
+    //       var address = markerElem.getAttribute('address');
 
-          var telephone = markerElem.getAttribute('telephone');
+    //       var telephone = markerElem.getAttribute('telephone');
 
-          var email = markerElem.getAttribute('email');
+    //       var email = markerElem.getAttribute('email');
 
-          var schedule = markerElem.getAttribute('schedule');
+    //       var schedule = markerElem.getAttribute('schedule');
 
-          var logo = markerElem.getAttribute('logo');
+    //       var logo = markerElem.getAttribute('logo');
 
-          var type = markerElem.getAttribute('nameCategoria');
+    //       var type = markerElem.getAttribute('nameCategoria');
 
-          var idShop = markerElem.getAttribute('idShop');
+    //       var idShop = markerElem.getAttribute('idShop');
 
-          var lat = parseFloat(markerElem.getAttribute('lat'));
+    //       var lat = parseFloat(markerElem.getAttribute('lat'));
 
-          var lng = parseFloat(markerElem.getAttribute('lng'))
+    //       var lng = parseFloat(markerElem.getAttribute('lng'))
 
-          var point = new google.maps.LatLng(lat,lng);
+    //       var point = new google.maps.LatLng(lat,lng);
 
-          var infowincontent = document.createElement('div');
+    //       var infowincontent = document.createElement('div');
 
-          var icon = document.createElement('img');
-          icon.setAttribute('src', "img/logos-shops/"+logo+"");
-          icon.setAttribute('width', "32");
-          icon.setAttribute('height', "32");
+    //       var icon = document.createElement('img');
+    //       icon.setAttribute('src', "img/logos-shops/"+logo+"");
+    //       icon.setAttribute('width', "32");
+    //       icon.setAttribute('height', "32");
 
-          //icon.textContent = logo
+    //       //icon.textContent = logo
 
-          infowincontent.appendChild(icon);
-          //infowincontent.appendChild(document.createElement('br'));
+    //       infowincontent.appendChild(icon);
+    //       //infowincontent.appendChild(document.createElement('br'));
 
-          var strong = document.createElement('strong');
+    //       var strong = document.createElement('strong');
 
-          strong.textContent = name
+    //       strong.textContent = name
 
-          infowincontent.appendChild(strong);
-          infowincontent.appendChild(document.createElement('br'));
+    //       infowincontent.appendChild(strong);
+    //       infowincontent.appendChild(document.createElement('br'));
 
-          var phone = document.createElement('text');
+    //       var phone = document.createElement('text');
 
-          phone.textContent = "Tel. "+telephone
+    //       phone.textContent = "Tel. "+telephone
 
-          infowincontent.appendChild(phone);
-          infowincontent.appendChild(document.createElement('br'));
+    //       infowincontent.appendChild(phone);
+    //       infowincontent.appendChild(document.createElement('br'));
 
-          var mail = document.createElement('text');
+    //       var mail = document.createElement('text');
 
-          mail.textContent = email
+    //       mail.textContent = email
 
-          infowincontent.appendChild(mail);
-          infowincontent.appendChild(document.createElement('br'));
+    //       infowincontent.appendChild(mail);
+    //       infowincontent.appendChild(document.createElement('br'));
 
-          var time = document.createElement('text');
+    //       var time = document.createElement('text');
 
-          time.textContent = schedule
+    //       time.textContent = schedule
 
-          infowincontent.appendChild(time);
-          infowincontent.appendChild(document.createElement('br'));
+    //       infowincontent.appendChild(time);
+    //       infowincontent.appendChild(document.createElement('br'));
 
-          var link = document.createElement('a');
-          link.setAttribute('target', "_blank");
-          link.setAttribute('href', "https://www.google.es/maps/search/"+lat+","+lng+"");
-          link.setAttribute('class', "a-more");
+    //       var link = document.createElement('a');
+    //       link.setAttribute('target', "_blank");
+    //       link.setAttribute('href', "https://www.google.es/maps/search/"+lat+","+lng+"");
+    //       link.setAttribute('class', "a-more");
 
-          link.textContent = "Com arribar-hi"
+    //       link.textContent = "Com arribar-hi"
 
-          infowincontent.appendChild(link);
+    //       infowincontent.appendChild(link);
 
-          var icon = customLabel[type] || {};
+    //       var icon = customLabel[type] || {};
 
-          var marker = new google.maps.Marker({
-            map: map,
-            position: point,
-            label: icon.label
-          });
+    //       var marker = new google.maps.Marker({
+    //         map: map,
+    //         position: point,
+    //         label: icon.label
+    //       });
 
-          marker.addListener('click', function() {
-            //alert("Obrirem finestra amb dades del comerç");
-            infoWindow.setContent(infowincontent);
-            infoWindow.open(map, marker);
-          });
+    //       marker.addListener('click', function() {
+    //         //alert("Obrirem finestra amb dades del comerç");
+    //         infoWindow.setContent(infowincontent);
+    //         infoWindow.open(map, marker);
+    //       });
 
-          /*Mostrem els icones segons la categoria i associacio*/
+    //       /*Mostrem els icones segons la categoria i associacio*/
           
-          if(markerElem.getAttribute('nameCategoria')=='Alimentació')
-          {
-            if(markerElem.getAttribute('nameAssociacio')=='Comerciants Xavier Nogués') marker.setIcon(new google.maps.MarkerImage('img/pictograms/aliXno.svg', null, null, null, new google.maps.Size(30, 30)));
+    //       if(markerElem.getAttribute('nameCategoria')=='Alimentació')
+    //       {
+    //         if(markerElem.getAttribute('nameAssociacio')=='Comerciants Xavier Nogués') marker.setIcon(new google.maps.MarkerImage('img/pictograms/aliXno.svg', null, null, null, new google.maps.Size(30, 30)));
 
-            else if(markerElem.getAttribute('nameAssociacio')=='AC019') marker.setIcon(new google.maps.MarkerImage('img/pictograms/ali019.svg', null, null, null, new google.maps.Size(30, 30)));
+    //         else if(markerElem.getAttribute('nameAssociacio')=='AC019') marker.setIcon(new google.maps.MarkerImage('img/pictograms/ali019.svg', null, null, null, new google.maps.Size(30, 30)));
 
-            else if(markerElem.getAttribute('nameAssociacio')=='Mercat del Besòs') marker.setIcon(new google.maps.MarkerImage('img/pictograms/aliMer.svg', null, null, null, new google.maps.Size(30, 30)));
-          }
-          else if(markerElem.getAttribute('nameCategoria')=='Serveis')
-          {
-           if(markerElem.getAttribute('nameAssociacio')=='Comerciants Xavier Nogués') marker.setIcon(new google.maps.MarkerImage('img/pictograms/servXno.svg', null, null, null, new google.maps.Size(30, 30)));
+    //         else if(markerElem.getAttribute('nameAssociacio')=='Mercat del Besòs') marker.setIcon(new google.maps.MarkerImage('img/pictograms/aliMer.svg', null, null, null, new google.maps.Size(30, 30)));
+    //       }
+    //       else if(markerElem.getAttribute('nameCategoria')=='Serveis')
+    //       {
+    //        if(markerElem.getAttribute('nameAssociacio')=='Comerciants Xavier Nogués') marker.setIcon(new google.maps.MarkerImage('img/pictograms/servXno.svg', null, null, null, new google.maps.Size(30, 30)));
 
-            else if(markerElem.getAttribute('nameAssociacio')=='AC019') marker.setIcon(new google.maps.MarkerImage('img/pictograms/serv019.svg', null, null, null, new google.maps.Size(30, 30)));
+    //         else if(markerElem.getAttribute('nameAssociacio')=='AC019') marker.setIcon(new google.maps.MarkerImage('img/pictograms/serv019.svg', null, null, null, new google.maps.Size(30, 30)));
 
-            else if(markerElem.getAttribute('nameAssociacio')=='Mercat del Besòs') marker.setIcon(new google.maps.MarkerImage('img/pictograms/servMer.svg', null, null, null, new google.maps.Size(30, 30)));
-          }
-          else if(markerElem.getAttribute('nameCategoria')=='Comerç al detall')
-          {
-            if(markerElem.getAttribute('nameAssociacio')=='Comerciants Xavier Nogués') marker.setIcon(new google.maps.MarkerImage('img/pictograms/cdXno.svg', null, null, null, new google.maps.Size(30, 30)));
+    //         else if(markerElem.getAttribute('nameAssociacio')=='Mercat del Besòs') marker.setIcon(new google.maps.MarkerImage('img/pictograms/servMer.svg', null, null, null, new google.maps.Size(30, 30)));
+    //       }
+    //       else if(markerElem.getAttribute('nameCategoria')=='Comerç al detall')
+    //       {
+    //         if(markerElem.getAttribute('nameAssociacio')=='Comerciants Xavier Nogués') marker.setIcon(new google.maps.MarkerImage('img/pictograms/cdXno.svg', null, null, null, new google.maps.Size(30, 30)));
 
-            else if(markerElem.getAttribute('nameAssociacio')=='AC019')  marker.setIcon(new google.maps.MarkerImage('img/pictograms/cd019.svg', null, null, null, new google.maps.Size(30, 30)));
+    //         else if(markerElem.getAttribute('nameAssociacio')=='AC019')  marker.setIcon(new google.maps.MarkerImage('img/pictograms/cd019.svg', null, null, null, new google.maps.Size(30, 30)));
 
-            else if(markerElem.getAttribute('nameAssociacio')=='Mercat del Besòs') marker.setIcon(new google.maps.MarkerImage('img/pictograms/cdMer.svg', null, null, null, new google.maps.Size(30, 30)));
-          }
-          else if(markerElem.getAttribute('nameCategoria')=='Restauració')
-          {
-            if(markerElem.getAttribute('nameAssociacio')=='Comerciants Xavier Nogués') marker.setIcon(new google.maps.MarkerImage('img/pictograms/restXno.svg', null, null, null, new google.maps.Size(30, 30)));
+    //         else if(markerElem.getAttribute('nameAssociacio')=='Mercat del Besòs') marker.setIcon(new google.maps.MarkerImage('img/pictograms/cdMer.svg', null, null, null, new google.maps.Size(30, 30)));
+    //       }
+    //       else if(markerElem.getAttribute('nameCategoria')=='Restauració')
+    //       {
+    //         if(markerElem.getAttribute('nameAssociacio')=='Comerciants Xavier Nogués') marker.setIcon(new google.maps.MarkerImage('img/pictograms/restXno.svg', null, null, null, new google.maps.Size(30, 30)));
 
-            else if(markerElem.getAttribute('nameAssociacio')=='AC019') marker.setIcon(new google.maps.MarkerImage('img/pictograms/rest019.svg', null, null, null, new google.maps.Size(30, 30)));
+    //         else if(markerElem.getAttribute('nameAssociacio')=='AC019') marker.setIcon(new google.maps.MarkerImage('img/pictograms/rest019.svg', null, null, null, new google.maps.Size(30, 30)));
 
-            else if(markerElem.getAttribute('nameAssociacio')=='Mercat del Besòs') marker.setIcon(new google.maps.MarkerImage('img/pictograms/restMer.svg', null, null, null, new google.maps.Size(30, 30)));
-          }
-        }//fin comprobacio preferred
-      });
-    });
+    //         else if(markerElem.getAttribute('nameAssociacio')=='Mercat del Besòs') marker.setIcon(new google.maps.MarkerImage('img/pictograms/restMer.svg', null, null, null, new google.maps.Size(30, 30)));
+    //       }
+    //     }//fin comprobacio preferred
+    //   });
+    // });
   }
   function downloadUrl(url, callback) {
     var request = window.ActiveXObject ?
