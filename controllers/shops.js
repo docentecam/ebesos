@@ -10,7 +10,7 @@ angular.module('spaApp')
 		url : "models/shops.php?acc=shop&idShop="+$routeParams.idShop
 	}).then(function mySucces(response) {
 		$scope.shops = response.data[0];
-    if($scope.data == undefined) $location.url("/");
+    if($scope.shops == undefined) $location.url("/");
     if($scope.shops.userWa != "") $scope.service = true;
     if($scope.shops.userFb != "") $scope.facebook = true;
     if($scope.shops.userTt != "") $scope.twitter = true;

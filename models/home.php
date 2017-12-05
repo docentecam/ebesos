@@ -76,15 +76,15 @@ require("../inc/functions.php");
 		echo $data;
 	 }
 
-	if(isset($_GET['acc']) && $_GET['acc'] == 'n'){
+	// if(isset($_GET['acc']) && $_GET['acc'] == 'n'){
 
-		$mySql = "INSERT INTO `mailing` (`idMail` , `email`,`nomContacte`)";
-		$mySql .=" VALUES (NULL,  ".$_POST['email'].",'".$_POST['nomContacte']."'")
+	// 	$mySql = "INSERT INTO `mailing` (`idMail` , `email`,`nomContacte`)";
+	// 	$mySql .=" VALUES (NULL,  ".$_POST['email'].",'".$_POST['nomContacte']."'")
 
-		$connexio = connect();
-			$resultNewLetter = mysqli_query($connexio, $mySql);
-			disconnect($connexio);
-	}
+	// 	$connexio = connect();
+	// 		$resultNewLetter = mysqli_query($connexio, $mySql);
+	// 		disconnect($connexio);
+	// }
 
 	 
 
