@@ -190,7 +190,7 @@ if(isset($_SESSION['user']['idUser']))
 	 		unset($_SESSION['user']['name']);
 	 		unset($_SESSION['user']['logo']);
 	 		session_destroy();
-	 		header('Location: ..');
+	 		header('Location: ../..');
 	}
 	
 	else if (isset($_GET['acc']) && $_GET['acc'] == 'loadUser') {

@@ -1448,6 +1448,14 @@ hr.style14 {
 		margin-top: 3%;
     	margin-bottom: 3%;
 	}
+	#imgLogoTopId {
+    	max-width: 75%!important;
+    	margin-top: -1%;
+    	margin-left: -6%;
+	}
+	#contactWho{
+		margin-top: 3.1%;
+	}
 }
 @media (min-width: 1919px){
 	#logoText{
