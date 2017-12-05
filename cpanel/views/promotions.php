@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
-	?>
+?>
 
 	<div ng-show="messageConfirm">
 		<div ng-class="validation ? 'alert alert-success' : 'alert alert-danger'" id="validationAssociation">

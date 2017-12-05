@@ -157,11 +157,37 @@ else if(isset($_GET['acc']) && $_GET['acc'] == 'delete')
 	$message = "";
 	$exit = "";
 
-	$mySql = "DELETE FROM shopsimages WHERE idShop = $idShop";
+	$mySql = "SELECT url FROM shopsImages WHERE idShop = $idShop";
 
 	$connexio = connect();
 
+	$resultImages = mysqli_query($connexio, $mySql);
+
+	while($row = mysqli_fetch_array($resultImages))
+	{
+		unlink('../../img/shops/'.$row['url']);
+	}
+
+	$mySql = "DELETE FROM shopsimages WHERE idShop = $idShop";
+
 	$deleteShopImage = mysqli_query($connexio, $mySql);
+
+	$mySql = "DELETE FROM shopcategoriessub WHERE idShop = $idShop";
+
+	$deleteSubCategory = mysqli_query($connexio, $mySql);
+
+	$mySql = "DELETE FROM promotions WHERE idShop = $idShop";
+
+	$deletePromotions = mysqli_query($connexio, $mySql);
+
+	$mySql = "SELECT logo FROM shops WHERE idShop = $idShop";
+
+	$resultLogo = mysqli_query($connexio, $mySql);
+
+	while($row = mysqli_fetch_array($resultLogo))
+	{
+		unlink('../../img/logos-shops/'.$row['logo']);
+	}
 
 	$mySql = "DELETE FROM shops WHERE idShop = $idShop";
 

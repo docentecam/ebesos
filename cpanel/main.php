@@ -41,6 +41,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 		<script src="controllers/main.js"></script>
 		<script src="controllers/links.js"></script>
 		<script src="controllers/subCategories.js"></script>
+		<script src="controllers/mailing.js"></script>
 	</head>
 	<body id="container" data-ng-app="spaApp"  ng-controller="MainCtrl">
 		<div class="row">
@@ -88,9 +89,12 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 
 							    <?php if($_SESSION['user']['privileges'] =='E' || $_SESSION['user']['privileges'] =='A') echo '<li role="presentation" class="mainNav reduceNav  col-lg-12"><a class="colorLinksNavMobile" ng-href="#/news">Notícies</a></li>' ?>
 							    <?php if($_SESSION['user']['privileges'] =='E') echo '<li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/slider/f/l">Slider</a></li>
-							    <li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" ng-href="#/subcategories">Subcategories</a></li>
-							    <li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" ng-href="#/settings">Paràmetres</a></li>
-							    <li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" ng-href="#/links">Enllaços del footer</a></li>' ?>
+							    <li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/subcategories">Subcategories</a></li>
+							    <li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/settings">Paràmetres</a></li>
+							    <li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/links">Enllaços del footer</a></li>
+							    <li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/mailing">Mailing</a></li>' ?>
+
+
 							</ul>
     					</div><!--/.nav-collapse -->
   					</div>
