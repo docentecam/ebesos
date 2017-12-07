@@ -105,7 +105,7 @@ function listPromotions(){
 	}
 	else
 	{
-		if($_SESSION['user']['privileges']!="1"){
+		if($_SESSION['user']['idUser']!="1"){
 		$mySqlShops.=" WHERE idUser='".$_SESSION['user']['idUser']."'";
 		$mySql .= " AND shops.idUser=".$_SESSION['user']['idUser'];
 		}
