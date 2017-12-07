@@ -53,7 +53,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 					<span id="nameAssoLogged"><?php echo $_SESSION['user']['name']; ?></span>
 				</div>
 			</div>		
-			<div class="col-xs-3 col-lg-3 col-lg-offset-3 divLogOut">
+			<div class="col-xs-3 col-md-3 col-lg-3 col-md-offset-3 col-lg-offset-3 divLogOut">
 				<a ng-href="models/users.php?acc=logout"><i class="fa fa-sign-out fa-2x logoLogOut" aria-hidden="true"></i></a>				
 			</div>		
 		</div>		

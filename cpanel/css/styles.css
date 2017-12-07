@@ -1161,7 +1161,8 @@ a:hover{
     width: 63%;
   }
   #nameAssoLogged {
-    font-size: 1.2em;
+    font-size: 1.5em;
+    margin-left: -21%;
   }
   .mainNav {
     padding: 12%;
@@ -1206,8 +1207,19 @@ a:hover{
     margin-left: 12%;
   }
   .divClientLoggedImage{
-    margin-top: 4%;
-    margin-left: 3%;
+    margin-top: 1%;
+    margin-left: 1%;
+    margin-bottom: 1%;
+  }
+  .divClientLoggedName{
+    margin-top: 5%; 
+  }
+  .divLogOut{
+    margin-top: 3%;
+    margin-right: -14%;
+  }
+  .logoLogOut{
+    margin-left: 64%;
   }
 }
 @media (max-width: 1200px) {  
