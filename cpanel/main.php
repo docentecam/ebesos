@@ -45,7 +45,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 	</head>
 	<body id="container" data-ng-app="spaApp"  ng-controller="MainCtrl">
 		<div class="row">
-			<div class="col-xs-6 col-md-6 col-lg-6 noPadding">				
+			<div class="col-xs-9 col-md-6 col-lg-6 noPadding">				
 				<div class="col-xs-4 col-lg-5 noPadding divClientLoggedImage">
 					<a ng-href="#"><img class="img-responsive noPadding aLogoClient" ng-src="../img/logos-assoc/<?php echo $_SESSION['user']['logo']; ?>"></a>	
 				</div>
@@ -53,19 +53,8 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 					<span id="nameAssoLogged"><?php echo $_SESSION['user']['name']; ?></span>
 				</div>
 			</div>		
-			<div class=" col-xs-3 col-lg-3 pull-right">
-				
-				<!-- 	<div class="col-xs-12 col-lg-4 col-lg-push-7 deleteUnderlineSignUp">
-						<div class="colorLoginHidden">
-							<i class="fa fa-user-circle-o fa-2x" aria-hidden="true" title="Inicia Sessió"></i>
-							<i class="fa fa-caret-down fa-lg arrowDown" aria-hidden="true"></i>
-						</div>						
-					</div>	
-				</div>
-				<div class="row" ng-hide="showLogOff"> -->
-				<div class="col-xs-12 col-lg-6 col-lg-push-4 logOffDiv">
-					<a ng-href="models/users.php?acc=logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Tancar Sessió</a>				
-				</div>							
+			<div class="col-xs-3 col-lg-3 col-lg-offset-3 divLogOut">
+				<a ng-href="models/users.php?acc=logout"><i class="fa fa-sign-out fa-2x logoLogOut" aria-hidden="true"></i></a>				
 			</div>		
 		</div>		
 		<div class="row navGeneral">

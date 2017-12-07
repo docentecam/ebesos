@@ -294,6 +294,9 @@ a:hover{
   color: #788386;
   padding-left: 5px;
 }
+.logoLogOut{
+  color: #656565;
+}
 #whiteDivNews{
   background-color: white;
   border: 1px solid black; 
@@ -460,14 +463,6 @@ a:hover{
 }
 .navbar{
   border: 0px solid transparent;
-}
-.logOffDiv{
-    background-color: #D5D5D5;
-    height: 40px;
-    text-align: center;
-    padding-top: 8.4px;
-    border-top: 3px solid #7CA3E3;
-    margin-top: 9%;
 }
 .iconSubCategory{
   position: absolute;
@@ -836,10 +831,6 @@ a:hover{
     position: absolute;
     bottom: 15px;
   }
-  .logOffDiv{
-    right: 29%;
-    width: 134px;
-  }
   .tdCenterLinks{
     padding-left: 3%;
   }
@@ -881,6 +872,9 @@ a:hover{
   .noPaddNews{
     padding-left: 0%;
   }
+  .divLogOut{
+    margin-top: 5%;
+  }
   .buttonsPromos {
     padding: 0;
     margin-left: 12.5%;
@@ -897,7 +891,7 @@ a:hover{
     padding-bottom: 4%!important;
   }
   .aLogoClient{
-    width: 100%!important;
+    width: 78%;
   }
   .imgPromos {
     margin-left: 0%;
@@ -916,8 +910,15 @@ a:hover{
     margin-left: 5%;
   }
   .divClientLoggedImage{
-    margin-top: 6%;
+    margin-top: 3%;
     margin-left: 4%;
+  }
+  .divClientLoggedName{
+    margin-top: 4%;
+    margin-left: -9%;
+  }
+  .logoLogOut{
+    margin-left: 56%;
   }
 }
 @media (min-width: 576px) and (max-width: 767px){
@@ -927,12 +928,6 @@ a:hover{
   .dateNews{
     padding-top: 0%;
     margin-left: 0%;
-  }
-  .divClientLoggedName{
-    margin-left: -13%;  
-  }
-  .logOffDiv {
-    right: 14%;
   }
   .buttonsNews{
     margin-left: 0%;
@@ -954,7 +949,7 @@ a:hover{
     margin:0px!important;
   }
   .aLogoClient{
-    width: 70%;
+    width: 56%;
   }
   #positionNumberPromo{
     position: absolute;
@@ -991,8 +986,21 @@ a:hover{
     padding: 0;
   }
   .divClientLoggedImage{
-    margin-top: 3%;
-    margin-left: 3%;
+    margin-top: 1%;
+    margin-left: 1%;
+  }
+  #nameAssoLogged{
+    font-size: 1.2em;
+  }
+  .divClientLoggedName{
+    margin-top: 5%; 
+    margin-left: -15%;
+  }
+  .divLogOut{
+    margin-top: 3.7%;
+  }
+  .logoLogOut{
+    margin-left: 62%;
   }
 }
 @media(max-width: 767px) {
@@ -1033,10 +1041,14 @@ a:hover{
     font-size: 1.4em;
   }
   .divClientLoggedName{
-    margin-left: -13%;  
+    margin-left: -11%;
+    margin-top: 5.4%;
   }
-  .logOffDiv{
-    right: 10%;
+  .logoLogOut{
+    margin-left: 62%;
+  }
+  .divLogOut{
+    margin-top: 4.4%;
   }
   .buttonsNews{
     margin-left: 0%;
@@ -1098,8 +1110,9 @@ a:hover{
     padding: 0;
   }
   .divClientLoggedImage{
-    margin-top: 3%;
-    margin-left: 3%;
+    margin-top: 1%;
+    margin-left: 1%;
+    margin-bottom: 1%;
   }
 }
 @media (max-width: 1023px){
@@ -1149,10 +1162,6 @@ a:hover{
   }
   #nameAssoLogged {
     font-size: 1.2em;
-  }
-  .logOffDiv {
-    right: 29%;
-    width: 56%;
   }
   .mainNav {
     padding: 12%;
@@ -1252,6 +1261,13 @@ a:hover{
   }  
   .divClientLoggedName{
     margin-top: 5.7%; 
+  }
+  .divLogOut{
+    margin-top: 3.2%;
+    margin-right: -14%;
+  }
+  .logoLogOut{
+    margin-left: 64%;
   }
       
 }
