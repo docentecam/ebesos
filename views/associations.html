@@ -49,12 +49,13 @@
 			<div>
 				<div id="listShops" class="col-sm-12 pull-right">
 					<div class="row">
-						<div ng-repeat="shop in shops | orderBy: 'name'" class="col-sm-6 shopsList">
+						<div ng-repeat="shop in shops | orderBy: 'name'" class="col-xs-12 col-sm-6 shopsList">
 							<a href="#/shop/{{shop.idShop}}">
 								<div class="col-xs-1">
 									<img ng-src="img/pictograms/{{shop.pictograms[0].urlPicto}}" class="pictoShops">
 								</div>
-								<div class="col-xs-10 shopNameAsso"> {{shop.name}}</div>
+								<div class="col-xs-9 shopNameAsso"> {{shop.name}}</div>
+								<div class="col-xs-2"></div>
 							</a>
 						</div>
 					</div>	
