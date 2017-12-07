@@ -124,7 +124,7 @@ function listPromotions(){
 	while($row = mysqli_fetch_array($resultPromotions))
 	{
 		if($i != 0) $dataPromotions .= ",";
-		$dataPromotions .= '{"conditionsEix":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['conditionsEix']).'","oferEix":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['oferEix']).'","oferVals":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['oferVals']).'","dateExpireVals":"'.$row['dateExpireVals'].'","dateExpireEix":"'.$row['dateExpireEix'].'","dateExpireValsE":"'.$row['dateExpireValsE'].'","dateExpireEixE":"'.$row['dateExpireEixE'].'","idPromotion":"'.$row['idPromotion'].'","idShop":"'.$row['idShop'].'","active":"'.$row['active'].'","image":"'.$row['image'].'","conditionsVals":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['conditionsVals']).'"}';
+		$dataPromotions .= '{"conditionsEix":"'.replaceFromBBDD($row['conditionsEix']).'","oferEix":"'.replaceFromBBDD($row['oferEix']).'","oferVals":"'.replaceFromBBDD($row['oferVals']).'","dateExpireVals":"'.$row['dateExpireVals'].'","dateExpireEix":"'.$row['dateExpireEix'].'","dateExpireValsE":"'.$row['dateExpireValsE'].'","dateExpireEixE":"'.$row['dateExpireEixE'].'","idPromotion":"'.$row['idPromotion'].'","idShop":"'.$row['idShop'].'","active":"'.$row['active'].'","image":"'.$row['image'].'","conditionsVals":"'.replaceFromBBDD($row['conditionsVals']).'"}';
 		$i++;
 	}
 	$dataPromotions .= '],"dataShops":[';

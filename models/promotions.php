@@ -33,7 +33,7 @@ if(isset($_GET['acc']) && ($_GET['acc']=='l')){
 		{
 			$dades .= ",";
 		}	
-		$dades .= '{"image":"'.$row['image'].'", "idPromo":"'.$row['idPromotion'].'", "offer":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['oferEix']).'", "dateExpire":"'.$row['dateExpireEix'].'", "nameShop":"'.$row['name'].'", "idCategory":"'.$row['idCategory'].'"}';
+		$dades .= '{"image":"'.$row['image'].'", "idPromo":"'.$row['idPromotion'].'", "offer":"'.replaceFromBBDD($row['oferEix']).'", "dateExpire":"'.$row['dateExpireEix'].'", "nameShop":"'.$row['name'].'", "idCategory":"'.$row['idCategory'].'"}';
 		$i++;
 	}
 	$dades .= "],";
@@ -71,7 +71,7 @@ WHERE p.idPromotion=".$_GET['idPromo']." ORDER BY p.dateExpireEix";
 
 	while ($row=mySqli_fetch_array($resultPromotion))
 	{
-	$dades.='{"idPromo":"'.$row['idPromotion'].'", "image":"'.$row['image'].'", "dateExpire":"'.$row['dateExpireEix'].'", "offer":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['oferEix']).'", "conditions":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['conditionsEix']).'", "nameShop":"'.$row['name'].'", "idShop":"'.$row['idShop'].'", "phone":"'.$row['telephone'].'", "mail":"'.$row['email'].'", "url":"'.$row['url'].'", "logoAssoc":"'.$row['logoAssoc'].'", "address":"'.$row['address'].'", "latitudeShop":"'.$row['lat'].'", "longitudShop":"'.$row['lng'].'", "descriptionLong":"'.str_replace(array("\r\n", "\r", "\n"), "\\n",$row['descriptionLong']).'", "logo":"'.$row['logo'].'"}';
+	$dades.='{"idPromo":"'.$row['idPromotion'].'", "image":"'.$row['image'].'", "dateExpire":"'.$row['dateExpireEix'].'", "offer":"'.replaceFromBBDD($row['oferEix']).'", "conditions":"'.replaceFromBBDD($row['conditionsEix']).'", "nameShop":"'.$row['name'].'", "idShop":"'.$row['idShop'].'", "phone":"'.$row['telephone'].'", "mail":"'.$row['email'].'", "url":"'.$row['url'].'", "logoAssoc":"'.$row['logoAssoc'].'", "address":"'.$row['address'].'", "latitudeShop":"'.$row['lat'].'", "longitudShop":"'.$row['lng'].'", "descriptionLong":"'.replaceFromBBDD($row['descriptionLong']).'", "logo":"'.$row['logo'].'"}';
 	}
 	$dades.=']';
 	$dades.="}]";

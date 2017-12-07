@@ -11,22 +11,11 @@
     return $xmlStr;
   }
 
-  //Opens a connection to a MySQL server
-
-  //$connection=@mysqli_connect("localhost","root","","ddb99266");
-  //$connection=@mysqli_connect("mysql.hostinger.es","u535170345_besos","ebesos","u535170345_besos");
-
-  // if (!$connection) die("Error...".mysqli_connect_error());
-  // mysqli_set_charset($connection, "utf8");
-
   // Select all the rows in the markers table
 
   $mySql = "SELECT s.idShop, s.name, s.lat, s.lng, s.telephone, s.email, s.schedule, s.address, s.logo, cs.idSubCategory, cs.name AS NameSubCategoria, c.idCategory, c.name AS NameCategoria, u.name AS NameAssociacio, scs.preferred FROM shops s, shopcategoriessub scs, categoriessub cs, categories c, users u WHERE s.idUser = u.idUser AND s.idShop = scs.idShop AND scs.idSubCategory = cs.idSubCategory AND cs.idCategory = c.idCategory AND scs.preferred = 'Y'";
 
-  if(isset($_GET['idShop']))
-  {
-    $mySql .= "AND s.idShop=".$_GET['idShop'];
-  }
+  if(isset($_GET['idShop'])) $mySql .= "AND s.idShop=".$_GET['idShop'];
 
   $connexio = connect();
 
@@ -37,42 +26,15 @@
   header("Content-type: text/xml");
 
   // Start XML file, echo parent node
+
   $fp=fopen("../files/shops.xml",'w');
     fputs($fp,'<markers>');
 
-   // echo '<markers>';
+  // Iterate through the rows, printing XML nodes for each
 
-  // // Iterate through the rows, printing XML nodes for each
-
-  while($row = mysqli_fetch_array($result)){
-
+  while($row = mysqli_fetch_array($result))
+  {
     //Add to XML document node
-
-    // echo '<marker ';
-
-    // echo 'name="' . parseToXML(utf8_encode($row['name'])) . '" ';
-
-    // echo 'address="' . parseToXML(utf8_encode($row['address'])) . '" ';
-
-    // echo 'lat="' . $row['lat'] . '" ';
-
-    // echo 'lng="' . $row['lng'] . '" ';
-
-    // echo 'telephone="' . utf8_encode($row['telephone']) . '" ';
-
-    // echo 'email="' . utf8_encode($row['email']) . '" ';
-
-    // echo 'schedule="' . utf8_encode($row['schedule']) . '" ';
-
-    // echo 'nameSubCategoria="' . utf8_encode($row['NameSubCategoria']) . '" ';
-
-    // echo 'nameCategoria="' . utf8_encode($row['NameCategoria']) . '" ';
-
-    // echo 'nameAssociacio="' . utf8_encode($row['NameAssociacio']) . '" ';
-
-    // echo '/>';
-
-    //TODO: schedule, email, address(?)
     fputs($fp,'<marker ');
     fputs($fp,'idShop="' . parseToXML($row['idShop']) . '" ');
     fputs($fp,'idCategory="' . parseToXML($row['idCategory']) . '" ');
@@ -92,14 +54,8 @@
     fputs($fp,'/>');
 
   }
+  //End XML file
 
-
-
-  // // End XML file
-
-   // echo '</markers>';
-
-  fputs($fp,'</markers>');
-    fclose($fp);
-
+    fputs($fp,'</markers>');
+  fclose($fp);
 ?>

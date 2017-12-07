@@ -163,8 +163,8 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'deleteNew'){
 				$dataNews .= ",";
 			} 
 
-			$row['title']=str_replace("'", "\'", $row['title']);
-			$row['titleSub']=str_replace("'", "\'", $row['titleSub']);
+			$row['title']=replaceFromBBDD($row['title']);
+			$row['titleSub']=replaceFromBBDD($row['titleSub']);
 			$dataNews .= '{"urlPreferred":"'.$row['url'].'", "title":"'.$row['title'].'", "dateList":"'.$row['dateList'].'","date":"'.$row['date'].'","idNew":"'.$row['idNew'].'","titleSub":"'.$row['titleSub'].'","idUser":"'.$row['idUser'].'"';
 
 			if($idNew!=""){
