@@ -48,7 +48,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 			<div class="col-xs-9 col-md-6 col-lg-6 noPadding">				
 				<div class="col-xs-4 col-lg-5 noPadding divClientLoggedImage">
 					<a ng-if="'<?php echo $_SESSION['user']['privileges']; ?>'!='S'" ng-href="#"><img class="img-responsive noPadding aLogoClient" ng-src="../img/logos-assoc/<?php echo $_SESSION['user']['logo']; ?>"></a>	
-					<a ng-if="'<?php echo $_SESSION['user']['privileges']; ?>'=='S'" ng-href="#"><img class="img-responsive noPadding aLogoClient" ng-src="../img/logos-shops/<?php echo $_SESSION['user']['logo']; ?>"></a>
+					<a ng-if="'<?php echo $_SESSION['user']['privileges']; ?>'=='S'" ng-href="#"><img class="img-responsive noPadding aLogoClient" alt="" ng-src="../img/logos-shops/<?php echo $_SESSION['user']['logo']; ?>"></a>
 				</div>
 				<div class="col-xs-7 col-lg-7 divClientLoggedName">
 					<span id="nameAssoLogged"><?php echo $_SESSION['user']['name']; ?></span>
