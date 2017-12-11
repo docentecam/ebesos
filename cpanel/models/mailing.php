@@ -14,7 +14,7 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'l'){
 
 function listMails(){
 
-$mySql = "SELECT idMailingUserSends	, idMail , email ,nomContacte,asunto , DATE_FORMAT( data,'%d-%m-%Y') AS fecha FROM mailingusersends ";
+$mySql = "SELECT idMailingUserSends	, idMail , email ,nomContacte,asunto,contenido , DATE_FORMAT( data,'%d-%m-%Y') AS fecha FROM mailingusersends ";
 $connexio = connect();
 $resultMails = mysqli_query($connexio, $mySql);
 disconnect($connexio);
@@ -28,7 +28,7 @@ disconnect($connexio);
 				$dataMails .= ",";
 			} 
 
-			$dataMails .= '{"idMailingUserSends	":"'.$row['idMailingUserSends'].'","idMail	":"'.$row['idMail'].'","asunto":"'.$row['asunto'].'","email":"'.$row['email'].'","nomContacte":"'.$row['nomContacte'].'","fecha":"'.$row['fecha'].'"}';
+			$dataMails .= '{"idMailingUserSends	":"'.$row['idMailingUserSends'].'","idMail	":"'.$row['idMail'].'","asunto":"'.$row['asunto'].'","email":"'.$row['email'].'","contenido	":"'.$row['contenido'].'","nomContacte":"'.$row['nomContacte'].'","fecha":"'.$row['fecha'].'"}';
 			$i++;
 		}
 		$dataMails .=']';

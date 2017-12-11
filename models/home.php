@@ -74,7 +74,7 @@ require("../inc/functions.php");
 		$data .="}]";
 
 		echo $data;
-	 }
+	}
 
 	// if(isset($_GET['acc']) && $_GET['acc'] == 'n'){
 
@@ -85,7 +85,5 @@ require("../inc/functions.php");
 	// 		$resultNewLetter = mysqli_query($connexio, $mySql);
 	// 		disconnect($connexio);
 	// }
-
-	 
 
 ?>
