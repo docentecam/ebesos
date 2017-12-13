@@ -31,7 +31,7 @@
 	<hr>
 	<div class="row">
 		<div ng-repeat="media in medias | filter: {type:'V'}">
-			<iframe class="col-lg-4 col-md-6 col-xs-12" id="videoNew" src="https://www.youtube.com/embed/{{media.url}}" frameborder="0" allowfullscreen></iframe>
+			<iframe class="col-lg-4 col-md-6 col-xs-12" id="videoNew" ng-src="{{media.url | trusted}}"" frameborder="0" allowfullscreen></iframe>
 		</div>
 	</div>
 </div>
