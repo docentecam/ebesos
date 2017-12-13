@@ -207,7 +207,7 @@ angular.module('spaApp')
 			method : "GET",
 			url : "models/news.php?acc=imgDeleteNew&idNewMedia="+idNewMedia+"&urlDelete="+url+"&idNew="+$scope.new.idNew
 			}).then(function mySucces (response) {
-				$scope.newSelectImg = response.data.news;
+				$scope.newSelectImg = response.data;
 				$scope.new.images = $scope.newSelectImg;
 				}, function myError (response) {
 					$scope.newSelectImg = response.statusText;

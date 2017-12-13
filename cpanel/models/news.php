@@ -75,7 +75,8 @@ if(isset($_GET['acc']) && $_GET['acc'] == 'deleteNew'){
 
 
 	if(isset($_GET['acc']) && $_GET['acc'] == 'addMedia'){  
-		$newfile=$_POST['idNew'].'--'.$_FILES["uploadedFile"]["name"];
+		if(isset($_FILES["uploadedFile"])) $newfile=$_POST['idNew'].'--'.$_FILES["uploadedFile"]["name"];
+		else $newfile = $_POST['url'];
 		$mySql = "INSERT INTO `newsmedia` (`idNew`, `type`, `url`, `preferred`) VALUES ('".$_POST['idNew']."', '".$_POST['type']."', '".$newfile."', 'N')";
 		$connexio = connect();
 		$resultNews = mysqli_query($connexio, $mySql);
