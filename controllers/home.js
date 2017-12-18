@@ -1,5 +1,5 @@
 angular.module('spaApp')															 
-.controller('HomeCtrl', function($scope, $http) {
+.controller('HomeCtrl', function($scope, $http,$q) {
 	$scope.loading=true;
 	$http({
 		method : "GET",
@@ -20,29 +20,32 @@ angular.module('spaApp')
 
 	$scope.newNewsletter={};
 	$scope.newNewsletter.email="";
- 	$scope.newNewsletter.nomContact="";
+ 	$scope.newNewsletter.nomContacte="";
 
-	$scope.newsletter= function(idNew=""){
+	$scope.newsletter= function(){
 		$scope.loading=true;
 
+		var data = new FormData();
 		data.append("email", $scope.newNewsletter.email);
-		data.append("nomContact", $scope.newNewsletter.nomContact);
+		data.append("nomContacte", $scope.newNewsletter.nomContacte);
 
-			$http.post("models/home.php?acc=n",data,{
-				headers:{
-					"Content-type":undefined
-				},
-				transformRequest:angular.identity
-			}).then(function mySucces (response) {
-				
-				$scope.homeData=response.data;
-				
-			}, function myError (response) {
-				$scope.homeData = response.statusText;
-			})
-			.finally(function(){ 
-		    $scope.loading=false; 
-		})
+			
+
+var deferred=$q.defer();
+		$http.post("models/home.php?acc=n",data,{
+					headers:{
+						"Content-type":undefined
+					},
+						transformRequest:angular.identity
+					})
+					.then(function(res)
+					{
+						deferred.resolve(res); 
+						$scope.loading=false; 
+
+					});
+
+
 	}
 
 

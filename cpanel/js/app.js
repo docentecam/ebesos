@@ -72,12 +72,9 @@ app.config(['$routeProvider', function ($routeProvider) {
 
 	.when('/mailing',{
 		templateUrl:'views/mailing.php',
-		controller:'MailCtrl',
+		controller:'MailsCtrl',
 	})
-	.when('/mailing/:acc/:idMail',{
-		templateUrl:'views/mailing.php',
-		controller:'MailCtrl',
-	})
+	
 	
 
     .otherwise({
