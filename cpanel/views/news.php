@@ -106,7 +106,7 @@
 			</div>
 		<div class="col-lg-12">
 			<div class="col-lg-4 vidChangeNews" ng-repeat="image in new.images | filter : {type:'V'}">
-				<iframe  frameborder="0" allowfullscreen ng-src="https://www.youtube.com/embed/image.url" class="col-lg-12 col-xs-12"></iframe>
+				<iframe  frameborder="0" allowfullscreen ng-src="{{image.url | trusted}}" class="col-lg-12 col-xs-12"></iframe>
 				<a href="" ng-click="imgDelete(image.idNewMedia, '0')" class="btn btnsPromos btnDeleteVid">Eliminar</a>
 			</div>
 		</div>

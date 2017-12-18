@@ -235,6 +235,8 @@ a{
 }
 .linkNameForm{
     color: white!important;
+    font-size: 11px;
+    margin-top: 2%;
 }
 #logoText{
 	margin-top: 7%;
@@ -288,8 +290,22 @@ a{
 }
 #mce-EMAIL, #mce-FNAME{
 	color: black;
+	width: 75%!important;
 }
-
+#mce-nomContact
+{
+	width: 75%!important;
+}
+#mc-embedded-subscribe
+{
+	padding: 0px!important;
+}
+.clear
+{
+	position: absolute;
+    top: 27.7%;
+    right: 0%;
+}
 #separationLine{
 	text-align: center;
 }
@@ -301,6 +317,7 @@ a{
 }
 #whoMadeIt{
 	color: white;
+	font-size: 10px;
 }
 
 .footer-bs .footer-brand, .footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { padding:10px 25px; }
