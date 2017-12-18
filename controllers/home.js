@@ -24,15 +24,24 @@ angular.module('spaApp')
  	$scope.newNewsletter.nomContacte="";
 
 	$scope.newsletter= function(){
-		$scope.loading=true;
+		
 
 		var data = new FormData();
 		data.append("email", $scope.newNewsletter.email);
 		data.append("nomContacte", $scope.newNewsletter.nomContacte);
 
-			
+		var correct=true;
 
-var deferred=$q.defer();
+		if($scope.newNewsletter.email=="" || $scope.newNewsletter.nomContacte=="")
+		{
+			alert("N'hi ha un camp buit");
+			correct=false;
+			
+		}
+
+		if(correct){
+		$scope.loading=true;
+		var deferred=$q.defer();
 		$http.post("models/home.php?acc=n",data,{
 					headers:{
 						"Content-type":undefined
@@ -42,12 +51,13 @@ var deferred=$q.defer();
 					.then(function(res)
 					{
 						deferred.resolve(res); 
-						$scope.loading=false;
+						
 						$scope.answer=true;
 						$scope.newNewsletter.email="";
  						$scope.newNewsletter.nomContacte="";
 
-					});
+					}); $scope.loading=false;
+		}
 
 
 	}
