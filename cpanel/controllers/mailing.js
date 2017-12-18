@@ -63,7 +63,7 @@ angular.module('spaApp')
 	 	var correct=true;
 
 
-	 	else if(($scope.newEmail.asunto=="" ||$scope.newEmail.fecha==""||$scope.promotion.newEmail.contenido=="" )
+	 	 if($scope.newEmail.asunto=="" ||$scope.newEmail.fecha==""||$scope.promotion.newEmail.contenido=="" )
 		{
 			alert("N'hi ha un camp buit");
 			correct=false;
@@ -78,7 +78,7 @@ angular.module('spaApp')
 		var data = new FormData();
 		data.append("asunto",$scope.newEmail.asunto);
 		data.append("fecha",$scope.newEmail.fecha);
-		data.append("contenido",$scope.newEmail.contenido="";);
+		data.append("contenido",$scope.newEmail.contenido="");
 
 			
 
@@ -101,5 +101,5 @@ angular.module('spaApp')
 	 
 
 
-	 }
+	 
 });
