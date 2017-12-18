@@ -1,6 +1,7 @@
 angular.module('spaApp')															 
 .controller('HomeCtrl', function($scope, $http,$q) {
 	$scope.loading=true;
+	$scope.answer=false;
 	$http({
 		method : "GET",
 		url : "models/home.php?acc=home"
@@ -41,7 +42,10 @@ var deferred=$q.defer();
 					.then(function(res)
 					{
 						deferred.resolve(res); 
-						$scope.loading=false; 
+						$scope.loading=false;
+						$scope.answer=true;
+						$scope.newNewsletter.email="";
+ 						$scope.newNewsletter.nomContacte="";
 
 					});
 
