@@ -95,11 +95,6 @@ angular.module('spaApp')
 						$scope.loading=false; 
 
 					});
-
-
 	}
-	 
-
-
 	 
 });

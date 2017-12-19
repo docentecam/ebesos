@@ -82,7 +82,7 @@ if(!isset($_SESSION['user']['idUser'])) header("Location: index.html");
 							    <li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/subcategories">Subcategories</a></li>
 							    <li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/settings">Paràmetres</a></li>
 							    <li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/links">Enllaços del footer</a></li>
-							    <li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/mailing">Mailing</a></li>' ?>
+							    ';//<li role="presentation" class="mainNav reduceNav col-lg-12"><a class="colorLinksNavMobile" href="#/mailing">Mailing</a></li>' ?>
 
 
 							</ul>
